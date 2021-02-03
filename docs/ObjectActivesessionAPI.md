@@ -1,20 +1,20 @@
-# ActivesessionAPI
+# ObjectActivesessionAPI
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCurrent**](ActivesessionAPI.md#getcurrent) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
+[**activesessionGetCurrentV1**](ObjectActivesessionAPI.md#activesessiongetcurrentv1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
 
 
-# **getCurrent**
+# **activesessionGetCurrentV1**
 ```swift
-    open class func getCurrent(completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func activesessionGetCurrentV1(completion: @escaping (_ data: ActivesessionGetCurrentV1Response?, _ error: Error?) -> Void)
 ```
 
 Get Current Activesession
 
-Todo Description
+Retrieve the details about the current activesession
 
 ### Example 
 ```swift
@@ -23,7 +23,7 @@ import OpenAPIClient
 
 
 // Get Current Activesession
-ActivesessionAPI.getCurrent() { (response, error) in
+ObjectActivesessionAPI.activesessionGetCurrentV1() { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -40,7 +40,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-Void (empty response body)
+[**ActivesessionGetCurrentV1Response**](ActivesessionGetCurrentV1Response.md)
 
 ### Authorization
 
