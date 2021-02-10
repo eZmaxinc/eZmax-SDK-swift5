@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**ezsignsignatureCreateObjectV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturecreateobjectv1) | **POST** /1/object/ezsignsignature | Create a new Ezsignsignature
 [**ezsignsignatureDeleteObjectV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturedeleteobjectv1) | **DELETE** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Delete an existing Ezsignsignature
 [**ezsignsignatureEditObjectV1**](ObjectEzsignsignatureAPI.md#ezsignsignatureeditobjectv1) | **PUT** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Modify an existing Ezsignsignature
-[**ezsignsignatureGetObjectGetChildrenV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturegetobjectgetchildrenv1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
+[**ezsignsignatureGetChildrenV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturegetchildrenv1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
 [**ezsignsignatureGetObjectV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturegetobjectv1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
 
 
@@ -159,9 +159,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsignsignatureGetObjectGetChildrenV1**
+# **ezsignsignatureGetChildrenV1**
 ```swift
-    open class func ezsignsignatureGetObjectGetChildrenV1(pkiEzsignsignatureID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func ezsignsignatureGetChildrenV1(pkiEzsignsignatureID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 Retrieve an existing Ezsignsignature's children IDs
@@ -174,7 +174,7 @@ import OpenAPIClient
 let pkiEzsignsignatureID = 987 // Int | The unique ID of the Ezsignsignature
 
 // Retrieve an existing Ezsignsignature's children IDs
-ObjectEzsignsignatureAPI.ezsignsignatureGetObjectGetChildrenV1(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
+ObjectEzsignsignatureAPI.ezsignsignatureGetChildrenV1(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
     guard error == nil else {
         print(error)
         return

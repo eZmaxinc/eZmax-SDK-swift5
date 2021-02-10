@@ -159,8 +159,8 @@ open class ObjectEzsignsignatureAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsignsignatureGetObjectGetChildrenV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
-        ezsignsignatureGetObjectGetChildrenV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result -> Void in
+    open class func ezsignsignatureGetChildrenV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ezsignsignatureGetChildrenV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
                 completion((), nil)
@@ -179,7 +179,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
      - returns: RequestBuilder<Void> 
      */
-    open class func ezsignsignatureGetObjectGetChildrenV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<Void> {
+    open class func ezsignsignatureGetChildrenV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<Void> {
         var path = "/1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren"
         let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
         let pkiEzsignsignatureIDPostEscape = pkiEzsignsignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

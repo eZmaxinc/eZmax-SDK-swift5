@@ -159,8 +159,8 @@ open class ObjectEzsignfolderAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsignfolderGetObjectGetChildrenV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
-        ezsignfolderGetObjectGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result -> Void in
+    open class func ezsignfolderGetChildrenV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ezsignfolderGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
                 completion((), nil)
@@ -179,7 +179,7 @@ open class ObjectEzsignfolderAPI {
      - parameter pkiEzsignfolderID: (path) The unique ID of the Ezsignfolder 
      - returns: RequestBuilder<Void> 
      */
-    open class func ezsignfolderGetObjectGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<Void> {
+    open class func ezsignfolderGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<Void> {
         var path = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren"
         let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
         let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

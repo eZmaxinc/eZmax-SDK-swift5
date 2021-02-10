@@ -153,6 +153,54 @@ open class ObjectEzsignfoldersignerassociationAPI {
     }
 
     /**
+     Retrieve an existing Ezsignfoldersignerassociation's children IDs
+     
+     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ezsignfoldersignerassociationGetChildrenV1(pkiEzsignfoldersignerassociationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ezsignfoldersignerassociationGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignfoldersignerassociation's children IDs
+     - GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func ezsignfoldersignerassociationGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int) -> RequestBuilder<Void> {
+        var path = "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren"
+        let pkiEzsignfoldersignerassociationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldersignerassociationID))"
+        let pkiEzsignfoldersignerassociationIDPostEscape = pkiEzsignfoldersignerassociationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{pkiEzsignfoldersignerassociationID}", with: pkiEzsignfoldersignerassociationIDPostEscape, options: .literal, range: nil)
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String: Any]? = nil
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
      Retrieve a Login Url to allow In-Person signing
      
      - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
@@ -197,54 +245,6 @@ open class ObjectEzsignfoldersignerassociationAPI {
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<EzsignfoldersignerassociationGetInPersonLoginUrlV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
-    }
-
-    /**
-     Retrieve an existing Ezsignfoldersignerassociation's children IDs
-     
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func ezsignfoldersignerassociationGetObjectGetChildrenV1(pkiEzsignfoldersignerassociationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
-        ezsignfoldersignerassociationGetObjectGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case .success:
-                completion((), nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsignfoldersignerassociation's children IDs
-     - GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
-     - returns: RequestBuilder<Void> 
-     */
-    open class func ezsignfoldersignerassociationGetObjectGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int) -> RequestBuilder<Void> {
-        var path = "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren"
-        let pkiEzsignfoldersignerassociationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldersignerassociationID))"
-        let pkiEzsignfoldersignerassociationIDPostEscape = pkiEzsignfoldersignerassociationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{pkiEzsignfoldersignerassociationID}", with: pkiEzsignfoldersignerassociationIDPostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
-
-        let url = URLComponents(string: URLString)
-
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
-
-        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

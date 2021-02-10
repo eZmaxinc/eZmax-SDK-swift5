@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**ezsignfolderCreateObjectV1**](ObjectEzsignfolderAPI.md#ezsignfoldercreateobjectv1) | **POST** /1/object/ezsignfolder | Create a new Ezsignfolder
 [**ezsignfolderDeleteObjectV1**](ObjectEzsignfolderAPI.md#ezsignfolderdeleteobjectv1) | **DELETE** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 [**ezsignfolderEditObjectV1**](ObjectEzsignfolderAPI.md#ezsignfoldereditobjectv1) | **PUT** /1/object/ezsignfolder/{pkiEzsignfolderID} | Modify an existing Ezsignfolder
-[**ezsignfolderGetObjectGetChildrenV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetobjectgetchildrenv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
+[**ezsignfolderGetChildrenV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetchildrenv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
 [**ezsignfolderGetObjectV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetobjectv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
 [**ezsignfolderSendV1**](ObjectEzsignfolderAPI.md#ezsignfoldersendv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 
@@ -160,9 +160,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsignfolderGetObjectGetChildrenV1**
+# **ezsignfolderGetChildrenV1**
 ```swift
-    open class func ezsignfolderGetObjectGetChildrenV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
+    open class func ezsignfolderGetChildrenV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
 Retrieve an existing Ezsignfolder's children IDs
@@ -175,7 +175,7 @@ import OpenAPIClient
 let pkiEzsignfolderID = 987 // Int | The unique ID of the Ezsignfolder
 
 // Retrieve an existing Ezsignfolder's children IDs
-ObjectEzsignfolderAPI.ezsignfolderGetObjectGetChildrenV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+ObjectEzsignfolderAPI.ezsignfolderGetChildrenV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
     guard error == nil else {
         print(error)
         return

@@ -204,6 +204,54 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Retrieve an existing Ezsigndocument's children IDs
+     
+     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ezsigndocumentGetChildrenV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ezsigndocumentGetChildrenV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's children IDs
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func ezsigndocumentGetChildrenV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<Void> {
+        var path = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters: [String: Any]? = nil
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
      * enum for parameter eDocumentType
      */
     public enum EDocumentType_ezsigndocumentGetDownloadUrlV1: String, CaseIterable {
@@ -263,54 +311,6 @@ open class ObjectEzsigndocumentAPI {
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<EzsigndocumentGetDownloadUrlV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
-    }
-
-    /**
-     Retrieve an existing Ezsigndocument's children IDs
-     
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func ezsigndocumentGetObjectGetChildrenV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
-        ezsigndocumentGetObjectGetChildrenV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case .success:
-                completion((), nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsigndocument's children IDs
-     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
-     - returns: RequestBuilder<Void> 
-     */
-    open class func ezsigndocumentGetObjectGetChildrenV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<Void> {
-        var path = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren"
-        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
-        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
-
-        let url = URLComponents(string: URLString)
-
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
-
-        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

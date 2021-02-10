@@ -4,6 +4,7 @@ Cartfile
 OpenAPIClient.podspec
 OpenAPIClient/Classes/OpenAPIs/APIHelper.swift
 OpenAPIClient/Classes/OpenAPIs/APIs.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/GlobalCustomerAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ModuleUserAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectActivesessionAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectApikeyAPI.swift
@@ -111,6 +112,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1Respon
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeRequestCompound.swift
+OpenAPIClient/Classes/OpenAPIs/Models/GlobalCustomerGetEndpointV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/MultilingualApikeyDescription.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PhoneRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UserCreateEzsignuserV1Request.swift
@@ -221,6 +223,8 @@ docs/FranchisereferalincomeCreateObjectV1Response.md
 docs/FranchisereferalincomeCreateObjectV1ResponseMPayload.md
 docs/FranchisereferalincomeRequest.md
 docs/FranchisereferalincomeRequestCompound.md
+docs/GlobalCustomerAPI.md
+docs/GlobalCustomerGetEndpointV1Response.md
 docs/ModuleUserAPI.md
 docs/MultilingualApikeyDescription.md
 docs/ObjectActivesessionAPI.md
