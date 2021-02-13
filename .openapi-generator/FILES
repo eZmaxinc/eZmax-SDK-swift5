@@ -5,6 +5,7 @@ OpenAPIClient.podspec
 OpenAPIClient/Classes/OpenAPIs/APIHelper.swift
 OpenAPIClient/Classes/OpenAPIs/APIs.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/GlobalCustomerAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ModuleSsprAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ModuleUserAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectActivesessionAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectApikeyAPI.swift
@@ -225,6 +226,7 @@ docs/FranchisereferalincomeRequest.md
 docs/FranchisereferalincomeRequestCompound.md
 docs/GlobalCustomerAPI.md
 docs/GlobalCustomerGetEndpointV1Response.md
+docs/ModuleSsprAPI.md
 docs/ModuleUserAPI.md
 docs/MultilingualApikeyDescription.md
 docs/ObjectActivesessionAPI.md
