@@ -103,56 +103,6 @@ open class ObjectEzsignsignatureAPI {
     }
 
     /**
-     Modify an existing Ezsignsignature
-     
-     - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
-     - parameter ezsignsignatureEditObjectV1Request: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func ezsignsignatureEditObjectV1(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV1Request: EzsignsignatureEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureEditObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignsignatureEditObjectV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureEditObjectV1Request: ezsignsignatureEditObjectV1Request).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Modify an existing Ezsignsignature
-     - PUT /1/object/ezsignsignature/{pkiEzsignsignatureID}
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
-     - parameter ezsignsignatureEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsignsignatureEditObjectV1Response> 
-     */
-    open class func ezsignsignatureEditObjectV1WithRequestBuilder(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV1Request: EzsignsignatureEditObjectV1Request) -> RequestBuilder<EzsignsignatureEditObjectV1Response> {
-        var path = "/1/object/ezsignsignature/{pkiEzsignsignatureID}"
-        let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
-        let pkiEzsignsignatureIDPostEscape = pkiEzsignsignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{pkiEzsignsignatureID}", with: pkiEzsignsignatureIDPostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignsignatureEditObjectV1Request)
-
-        let url = URLComponents(string: URLString)
-
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
-
-        let requestBuilder: RequestBuilder<EzsignsignatureEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
-    }
-
-    /**
      Retrieve an existing Ezsignsignature's children IDs
      
      - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 

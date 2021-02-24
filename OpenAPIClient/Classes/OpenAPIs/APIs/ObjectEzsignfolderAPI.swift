@@ -103,56 +103,6 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
-     Modify an existing Ezsignfolder
-     
-     - parameter pkiEzsignfolderID: (path) The unique ID of the Ezsignfolder 
-     - parameter ezsignfolderEditObjectV1Request: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func ezsignfolderEditObjectV1(pkiEzsignfolderID: Int, ezsignfolderEditObjectV1Request: EzsignfolderEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderEditObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignfolderEditObjectV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderEditObjectV1Request: ezsignfolderEditObjectV1Request).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Modify an existing Ezsignfolder
-     - PUT /1/object/ezsignfolder/{pkiEzsignfolderID}
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsignfolderID: (path) The unique ID of the Ezsignfolder 
-     - parameter ezsignfolderEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsignfolderEditObjectV1Response> 
-     */
-    open class func ezsignfolderEditObjectV1WithRequestBuilder(pkiEzsignfolderID: Int, ezsignfolderEditObjectV1Request: EzsignfolderEditObjectV1Request) -> RequestBuilder<EzsignfolderEditObjectV1Response> {
-        var path = "/1/object/ezsignfolder/{pkiEzsignfolderID}"
-        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
-        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfolderEditObjectV1Request)
-
-        let url = URLComponents(string: URLString)
-
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
-
-        let requestBuilder: RequestBuilder<EzsignfolderEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
-    }
-
-    /**
      Retrieve an existing Ezsignfolder's children IDs
      
      - parameter pkiEzsignfolderID: (path) The unique ID of the Ezsignfolder 

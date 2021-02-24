@@ -103,56 +103,6 @@ open class ObjectEzsignfoldersignerassociationAPI {
     }
 
     /**
-     Modify an existing Ezsignfoldersignerassociation
-     
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
-     - parameter ezsignfoldersignerassociationEditObjectV1Request: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV1Request: EzsignfoldersignerassociationEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationEditObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignfoldersignerassociationEditObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationEditObjectV1Request: ezsignfoldersignerassociationEditObjectV1Request).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Modify an existing Ezsignfoldersignerassociation
-     - PUT /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
-     - parameter ezsignfoldersignerassociationEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsignfoldersignerassociationEditObjectV1Response> 
-     */
-    open class func ezsignfoldersignerassociationEditObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV1Request: EzsignfoldersignerassociationEditObjectV1Request) -> RequestBuilder<EzsignfoldersignerassociationEditObjectV1Response> {
-        var path = "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}"
-        let pkiEzsignfoldersignerassociationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldersignerassociationID))"
-        let pkiEzsignfoldersignerassociationIDPostEscape = pkiEzsignfoldersignerassociationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{pkiEzsignfoldersignerassociationID}", with: pkiEzsignfoldersignerassociationIDPostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldersignerassociationEditObjectV1Request)
-
-        let url = URLComponents(string: URLString)
-
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
-
-        let requestBuilder: RequestBuilder<EzsignfoldersignerassociationEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
-    }
-
-    /**
      Retrieve an existing Ezsignfoldersignerassociation's children IDs
      
      - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
