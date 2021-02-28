@@ -9,13 +9,14 @@ import Foundation
 
 open class ModuleSsprAPI {
     /**
-     Remind of forgotten username(s)
+     Reset Password Request
      
+     - parameter ssprResetPasswordRequestV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ssprRemindUsernamesV1(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
-        ssprRemindUsernamesV1WithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+    open class func ssprResetPasswordRequestV1(ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ssprResetPasswordRequestV1WithRequestBuilder(ssprResetPasswordRequestV1Request: ssprResetPasswordRequestV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
                 completion((), nil)
@@ -26,18 +27,203 @@ open class ModuleSsprAPI {
     }
 
     /**
-     Remind of forgotten username(s)
-     - POST /1/module/sspr/remindUsernames
+     Reset Password Request
+     - POST /1/module/sspr/resetPasswordRequest/
+     - This endpoint sends an email with a link to reset the user's password.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter ssprResetPasswordRequestV1Request: (body)  
+     - returns: RequestBuilder<Void> 
+     */
+    open class func ssprResetPasswordRequestV1WithRequestBuilder(ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request) -> RequestBuilder<Void> {
+        let path = "/1/module/sspr/resetPasswordRequest/"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprResetPasswordRequestV1Request)
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
+     Reset Password
+     
+     - parameter ssprResetPasswordV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ssprResetPasswordV1(ssprResetPasswordV1Request: SsprResetPasswordV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ssprResetPasswordV1WithRequestBuilder(ssprResetPasswordV1Request: ssprResetPasswordV1Request).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Reset Password
+     - POST /1/module/sspr/resetPassword
+     - This endpoint resets the user's password.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter ssprResetPasswordV1Request: (body)  
+     - returns: RequestBuilder<Void> 
+     */
+    open class func ssprResetPasswordV1WithRequestBuilder(ssprResetPasswordV1Request: SsprResetPasswordV1Request) -> RequestBuilder<Void> {
+        let path = "/1/module/sspr/resetPassword"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprResetPasswordV1Request)
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
+     Send username(s)
+     
+     - parameter ssprSendUsernamesV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ssprSendUsernamesV1(ssprSendUsernamesV1Request: SsprSendUsernamesV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ssprSendUsernamesV1WithRequestBuilder(ssprSendUsernamesV1Request: ssprSendUsernamesV1Request).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Send username(s)
+     - POST /1/module/sspr/sendUsernames
      - This endpoint returns an email with the username(s) matching the email address provided in case of forgotten username
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
+     - parameter ssprSendUsernamesV1Request: (body)  
      - returns: RequestBuilder<Void> 
      */
-    open class func ssprRemindUsernamesV1WithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/1/module/sspr/remindUsernames"
+    open class func ssprSendUsernamesV1WithRequestBuilder(ssprSendUsernamesV1Request: SsprSendUsernamesV1Request) -> RequestBuilder<Void> {
+        let path = "/1/module/sspr/sendUsernames"
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprSendUsernamesV1Request)
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
+     Unlock Account Request
+     
+     - parameter ssprUnlockAccountRequestV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ssprUnlockAccountRequestV1(ssprUnlockAccountRequestV1Request: SsprUnlockAccountRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ssprUnlockAccountRequestV1WithRequestBuilder(ssprUnlockAccountRequestV1Request: ssprUnlockAccountRequestV1Request).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Unlock Account Request
+     - POST /1/module/sspr/unlockAccountRequest
+     - This endpoint sends an email with a link to unlock the user account.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter ssprUnlockAccountRequestV1Request: (body)  
+     - returns: RequestBuilder<Void> 
+     */
+    open class func ssprUnlockAccountRequestV1WithRequestBuilder(ssprUnlockAccountRequestV1Request: SsprUnlockAccountRequestV1Request) -> RequestBuilder<Void> {
+        let path = "/1/module/sspr/unlockAccountRequest"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprUnlockAccountRequestV1Request)
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
+     Unlock Account
+     
+     - parameter ssprUnlockAccountV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ssprUnlockAccountV1(ssprUnlockAccountV1Request: SsprUnlockAccountV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ssprUnlockAccountV1WithRequestBuilder(ssprUnlockAccountV1Request: ssprUnlockAccountV1Request).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Unlock Account
+     - POST /1/module/sspr/unlockAccount
+     - This endpoint unlocks the user account.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter ssprUnlockAccountV1Request: (body)  
+     - returns: RequestBuilder<Void> 
+     */
+    open class func ssprUnlockAccountV1WithRequestBuilder(ssprUnlockAccountV1Request: SsprUnlockAccountV1Request) -> RequestBuilder<Void> {
+        let path = "/1/module/sspr/unlockAccount"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprUnlockAccountV1Request)
 
         let url = URLComponents(string: URLString)
 

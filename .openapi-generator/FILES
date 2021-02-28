@@ -100,6 +100,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsignfolderSendreminderfrequency.sw
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsignfolderStep.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEPhoneType.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEUserType.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FieldEUserTypeSSPR.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1ResponseMPayload.swift
@@ -108,6 +109,11 @@ OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeRequestCompound.swif
 OpenAPIClient/Classes/OpenAPIs/Models/GlobalCustomerGetEndpointV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/MultilingualApikeyDescription.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PhoneRequest.swift
+OpenAPIClient/Classes/OpenAPIs/Models/SsprResetPasswordRequestV1Request.swift
+OpenAPIClient/Classes/OpenAPIs/Models/SsprResetPasswordV1Request.swift
+OpenAPIClient/Classes/OpenAPIs/Models/SsprSendUsernamesV1Request.swift
+OpenAPIClient/Classes/OpenAPIs/Models/SsprUnlockAccountRequestV1Request.swift
+OpenAPIClient/Classes/OpenAPIs/Models/SsprUnlockAccountV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UNUSEDEzsigndocumentEditObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UNUSEDEzsigndocumentEditObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UNUSEDEzsignfolderEditObjectV1Request.swift
@@ -211,6 +217,7 @@ docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
 docs/FieldEPhoneType.md
 docs/FieldEUserType.md
+docs/FieldEUserTypeSSPR.md
 docs/FranchisereferalincomeCreateObjectV1Request.md
 docs/FranchisereferalincomeCreateObjectV1Response.md
 docs/FranchisereferalincomeCreateObjectV1ResponseMPayload.md
@@ -232,6 +239,11 @@ docs/ObjectFranchiseofficeAPI.md
 docs/ObjectFranchisereferalincomeAPI.md
 docs/ObjectPeriodAPI.md
 docs/PhoneRequest.md
+docs/SsprResetPasswordRequestV1Request.md
+docs/SsprResetPasswordV1Request.md
+docs/SsprSendUsernamesV1Request.md
+docs/SsprUnlockAccountRequestV1Request.md
+docs/SsprUnlockAccountV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Response.md
 docs/UNUSEDEzsignfolderEditObjectV1Request.md
