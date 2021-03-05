@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fkiUserIDCreated** | **Int** | The id of the User that created the object. | 
-**fkiUserIDModified** | **Int** | The id of the User that made the last modification on the object. | 
-**fkiApikeyIDCreated** | **Int** | The id of the API Key that created the object. | [optional] 
-**fkiApikeyIDModified** | **Int** | The id of the API Key that made the last modification on the object. | [optional] 
+**fkiUserIDCreated** | **Int** | The unique ID of the User | 
+**fkiUserIDModified** | **Int** | The unique ID of the User | 
+**fkiApikeyIDCreated** | **Int** | The unique ID of the Apikey | [optional] 
+**fkiApikeyIDModified** | **Int** | The unique ID of the Apikey | [optional] 
 **dtCreatedDate** | **String** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
 **dtModifiedDate** | **String** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
 

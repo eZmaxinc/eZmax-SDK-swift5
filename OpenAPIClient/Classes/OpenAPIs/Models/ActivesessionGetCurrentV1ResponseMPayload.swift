@@ -27,8 +27,12 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable {
     public var aRegisteredModules: [String]
     /** An array of permissions granted to the user or api key */
     public var aPermissions: [Int]
+    /** The unique ID of the User */
+    public var fkiUserID: Int
+    /** The unique ID of the Apikey */
+    public var fkiApikeyID: Int
 
-    public init(sCustomerCode: String, eActivesessionSessiontype: EActivesessionSessiontype, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, aRegisteredModules: [String], aPermissions: [Int]) {
+    public init(sCustomerCode: String, eActivesessionSessiontype: EActivesessionSessiontype, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, aRegisteredModules: [String], aPermissions: [Int], fkiUserID: Int, fkiApikeyID: Int) {
         self.sCustomerCode = sCustomerCode
         self.eActivesessionSessiontype = eActivesessionSessiontype
         self.fkiLanguageID = fkiLanguageID
@@ -36,6 +40,8 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable {
         self.sDepartmentNameX = sDepartmentNameX
         self.aRegisteredModules = aRegisteredModules
         self.aPermissions = aPermissions
+        self.fkiUserID = fkiUserID
+        self.fkiApikeyID = fkiApikeyID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -46,6 +52,8 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable {
         case sDepartmentNameX
         case aRegisteredModules = "a_RegisteredModules"
         case aPermissions = "a_Permissions"
+        case fkiUserID
+        case fkiApikeyID
     }
 
 }

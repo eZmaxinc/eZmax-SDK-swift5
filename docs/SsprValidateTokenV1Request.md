@@ -1,4 +1,4 @@
-# SsprResetPasswordV1Request
+# SsprValidateTokenV1Request
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **sEmailAddress** | **String** | The email address. | [optional] 
 **sUserLoginname** | **String** | The Login name of the User. | [optional] 
 **binUserSSPRtoken** | **String** | Hex Encoded Secret SSPR token | 
-**sPassword** | **String** | A Password.  Must meet complexity requirements | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **sDepartmentNameX** | **String** | The name of the active Department in the current language | 
 **aRegisteredModules** | **[String]** | An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. | 
 **aPermissions** | **[Int]** | An array of permissions granted to the user or api key | 
+**fkiUserID** | **Int** | The unique ID of the User | 
+**fkiApikeyID** | **Int** | The unique ID of the Apikey | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

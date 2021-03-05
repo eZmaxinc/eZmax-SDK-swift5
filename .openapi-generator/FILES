@@ -114,6 +114,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/SsprResetPasswordV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/SsprSendUsernamesV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/SsprUnlockAccountRequestV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/SsprUnlockAccountV1Request.swift
+OpenAPIClient/Classes/OpenAPIs/Models/SsprValidateTokenV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UNUSEDEzsigndocumentEditObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UNUSEDEzsigndocumentEditObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UNUSEDEzsignfolderEditObjectV1Request.swift
@@ -244,6 +245,7 @@ docs/SsprResetPasswordV1Request.md
 docs/SsprSendUsernamesV1Request.md
 docs/SsprUnlockAccountRequestV1Request.md
 docs/SsprUnlockAccountV1Request.md
+docs/SsprValidateTokenV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Response.md
 docs/UNUSEDEzsignfolderEditObjectV1Request.md

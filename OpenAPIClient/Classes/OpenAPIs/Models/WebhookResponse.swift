@@ -27,7 +27,7 @@ public struct WebhookResponse: Codable {
     public var eWebhookModule: EWebhookModule
     /** This Ezsign Event. This property will be set only if the Module is \&quot;Ezsign\&quot;. */
     public var eWebhookEzsignevent: EWebhookEzsignevent?
-    /** The Customer Code in which the event was generated */
+    /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** The url being called */
     public var sWebhookUrl: String

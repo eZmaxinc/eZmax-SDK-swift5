@@ -28,19 +28,16 @@ public struct EzsigndocumentRequestCompound: Codable {
     public var dtEzsigndocumentDuedate: String
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
-    /** The actual file name that will be used when downloading or attaching to an email. */
-    public var sEzsigndocumentFilename: String
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */
     public var sEzsigndocumentName: String
 
-    public init(eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat, sEzsigndocumentBase64: Data? = nil, fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentFilename: String, sEzsigndocumentName: String) {
+    public init(eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat, sEzsigndocumentBase64: Data? = nil, fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String) {
         self.eEzsigndocumentSource = eEzsigndocumentSource
         self.eEzsigndocumentFormat = eEzsigndocumentFormat
         self.sEzsigndocumentBase64 = sEzsigndocumentBase64
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
         self.fkiLanguageID = fkiLanguageID
-        self.sEzsigndocumentFilename = sEzsigndocumentFilename
         self.sEzsigndocumentName = sEzsigndocumentName
     }
 

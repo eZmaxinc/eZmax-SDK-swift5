@@ -10,13 +10,13 @@ import Foundation
 /** Gives informations about the user that created the object and the last user to have modified it.  If the object was never modified after creation, both Created and Modified informations will be the same.  Apikey details will only be provided if the changes were made by an API key.   */
 public struct CommonAudit: Codable {
 
-    /** The id of the User that created the object. */
+    /** The unique ID of the User */
     public var fkiUserIDCreated: Int
-    /** The id of the User that made the last modification on the object. */
+    /** The unique ID of the User */
     public var fkiUserIDModified: Int
-    /** The id of the API Key that created the object. */
+    /** The unique ID of the Apikey */
     public var fkiApikeyIDCreated: Int?
-    /** The id of the API Key that made the last modification on the object. */
+    /** The unique ID of the Apikey */
     public var fkiApikeyIDModified: Int?
     /** Represent a Date Time. The timezone is the one configured in the User&#39;s profile. */
     public var dtCreatedDate: String

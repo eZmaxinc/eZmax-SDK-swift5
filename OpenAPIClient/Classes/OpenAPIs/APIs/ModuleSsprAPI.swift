@@ -238,4 +238,50 @@ open class ModuleSsprAPI {
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
+    /**
+     Validate Token
+     
+     - parameter ssprValidateTokenV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ssprValidateTokenV1(ssprValidateTokenV1Request: SsprValidateTokenV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+        ssprValidateTokenV1WithRequestBuilder(ssprValidateTokenV1Request: ssprValidateTokenV1Request).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Validate Token
+     - POST /1/module/sspr/validateToken
+     - This endpoint validates if a Token is valid and not expired. If the token has less than an hour to its life, the TTL is reset to 1 hour.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter ssprValidateTokenV1Request: (body)  
+     - returns: RequestBuilder<Void> 
+     */
+    open class func ssprValidateTokenV1WithRequestBuilder(ssprValidateTokenV1Request: SsprValidateTokenV1Request) -> RequestBuilder<Void> {
+        let path = "/1/module/sspr/validateToken"
+        let URLString = OpenAPIClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprValidateTokenV1Request)
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
 }

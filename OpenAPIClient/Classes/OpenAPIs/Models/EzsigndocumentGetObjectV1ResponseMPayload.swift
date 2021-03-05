@@ -16,8 +16,6 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable {
     public var dtEzsigndocumentDuedate: String
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
-    /** The actual file name that will be used when downloading or attaching to an email. */
-    public var sEzsigndocumentFilename: String
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */
     public var sEzsigndocumentName: String
     /** The unique ID of the Ezsigntemplate */
@@ -41,11 +39,10 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable {
     public var sEzsigndocumentMD5signed: String
     public var objAudit: CommonAudit
 
-    public init(fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentFilename: String, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String, dtEzsigndocumentLastsend: String, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, objAudit: CommonAudit) {
+    public init(fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String, dtEzsigndocumentLastsend: String, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, objAudit: CommonAudit) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
         self.fkiLanguageID = fkiLanguageID
-        self.sEzsigndocumentFilename = sEzsigndocumentFilename
         self.sEzsigndocumentName = sEzsigndocumentName
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.eEzsigndocumentStep = eEzsigndocumentStep
