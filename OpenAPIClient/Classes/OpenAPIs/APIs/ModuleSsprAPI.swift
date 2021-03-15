@@ -28,7 +28,7 @@ open class ModuleSsprAPI {
 
     /**
      Reset Password Request
-     - POST /1/module/sspr/resetPasswordRequest/
+     - POST /1/module/sspr/resetPasswordRequest
      - This endpoint sends an email with a link to reset the user's password.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
      - API Key:
        - type: apiKey Authorization 
@@ -37,7 +37,7 @@ open class ModuleSsprAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func ssprResetPasswordRequestV1WithRequestBuilder(ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request) -> RequestBuilder<Void> {
-        let path = "/1/module/sspr/resetPasswordRequest/"
+        let path = "/1/module/sspr/resetPasswordRequest"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprResetPasswordRequestV1Request)
 
@@ -259,7 +259,7 @@ open class ModuleSsprAPI {
     /**
      Validate Token
      - POST /1/module/sspr/validateToken
-     - This endpoint validates if a Token is valid and not expired. If the token has less than an hour to its life, the TTL is reset to 1 hour.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     - This endpoint validates if a Token is valid and not expired.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

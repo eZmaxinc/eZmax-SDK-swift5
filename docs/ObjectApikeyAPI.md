@@ -21,7 +21,7 @@ The endpoint allows to create one or many elements at once.  The array can conta
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let apikeyCreateObjectV1Request = [apikey-createObject-v1-Request(objApikey: apikey-Request(fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example")), objApikeyCompound: apikey-RequestCompound(fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example")))] // [ApikeyCreateObjectV1Request] | 
+let apikeyCreateObjectV1Request = [apikey-createObject-v1-Request(objApikey: apikey-Request(fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example")), objApikeyCompound: apikey-RequestCompound(fkiUserID: 123, objApikeyDescription: nil))] // [ApikeyCreateObjectV1Request] | 
 
 // Create a new Apikey
 ObjectApikeyAPI.apikeyCreateObjectV1(apikeyCreateObjectV1Request: apikeyCreateObjectV1Request) { (response, error) in
