@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/ezsignfoldersignerassociation/getObject API Request */
-public struct EzsignfoldersignerassociationGetObjectV1Response: Codable {
+public struct EzsignfoldersignerassociationGetObjectV1Response: Codable, Hashable {
 
     /** Payload for the /1/object/ezsignfoldersignerassociation/getObject API Request */
     public var mPayload: Any

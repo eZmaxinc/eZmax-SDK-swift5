@@ -8,7 +8,7 @@
 import Foundation
 
 /** Payload for the /1/object/ezsigndocument/getObject API Request */
-public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable {
+public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int

@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request */
-public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1Response: Codable {
+public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1Response: Codable, Hashable {
 
     public var mPayload: EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

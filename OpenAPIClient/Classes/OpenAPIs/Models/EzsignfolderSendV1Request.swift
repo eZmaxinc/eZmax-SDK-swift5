@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/object/ezsignfolder/{pkiEzsignfolderID}/send API Request */
-public struct EzsignfolderSendV1Request: Codable {
+public struct EzsignfolderSendV1Request: Codable, Hashable {
 
     /** A custom text message that will be added to the email sent to signatories inviting them to sign.  You can send an empty string and only the generic message will be sent. */
     public var tExtraMessage: String

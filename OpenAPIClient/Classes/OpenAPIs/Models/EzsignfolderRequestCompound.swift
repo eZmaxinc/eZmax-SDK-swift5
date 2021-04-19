@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Ezsignfolder Object and children to create a complete structure */
-public struct EzsignfolderRequestCompound: Codable {
+public struct EzsignfolderRequestCompound: Codable, Hashable {
 
     /** An array of signers that will be invited to sign the Ezsigndocuments */
     public var aEzsignfoldersignerassociation: [EzsignfoldersignerassociationRequest]

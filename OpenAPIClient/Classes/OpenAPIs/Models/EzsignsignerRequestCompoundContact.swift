@@ -8,7 +8,7 @@
 import Foundation
 
 /** A Ezsignsigner-&gt;Contact Object and children to create a complete structure */
-public struct EzsignsignerRequestCompoundContact: Codable {
+public struct EzsignsignerRequestCompoundContact: Codable, Hashable {
 
     /** The first name of the Contact */
     public var sContactFirstname: String

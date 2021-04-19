@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Apikey Object and children to create a complete structure */
-public struct ApikeyRequestCompound: Codable {
+public struct ApikeyRequestCompound: Codable, Hashable {
 
     /** The unique ID of the User */
     public var fkiUserID: Int

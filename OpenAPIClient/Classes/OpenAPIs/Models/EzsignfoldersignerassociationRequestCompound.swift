@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Ezsignfoldersignerassociation Object and children to create a complete structure */
-public struct EzsignfoldersignerassociationRequestCompound: Codable {
+public struct EzsignfoldersignerassociationRequestCompound: Codable, Hashable {
 
     public var objEzsignsigner: EzsignsignerRequestCompound?
     /** A reference to a valid User.  This is only used if the signatory will be a user from the system. */

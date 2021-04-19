@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct WebhookEzsignDocumentCompletedAllOf: Codable {
+public struct WebhookEzsignDocumentCompletedAllOf: Codable, Hashable {
 
     public var objEzsigndocument: EzsigndocumentResponse
 

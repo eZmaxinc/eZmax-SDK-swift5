@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/object/apikey/createObject API Request */
-public struct ApikeyCreateObjectV1Request: Codable {
+public struct ApikeyCreateObjectV1Request: Codable, Hashable {
 
     public var objApikey: ApikeyRequest?
     public var objApikeyCompound: ApikeyRequestCompound?

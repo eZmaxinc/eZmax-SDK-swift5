@@ -8,7 +8,7 @@
 import Foundation
 
 /** This is the base Webhook object */
-public struct WebhookUserUserCreated: Codable {
+public struct WebhookUserUserCreated: Codable, Hashable {
 
     public var objUser: UserResponse
     public var objWebhook: WebhookResponse

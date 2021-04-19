@@ -8,7 +8,7 @@
 import Foundation
 
 /** A Contactinformations Object */
-public struct ContactinformationsRequest: Codable {
+public struct ContactinformationsRequest: Codable, Hashable {
 
     /** The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty. */
     public var iAddressDefault: Int

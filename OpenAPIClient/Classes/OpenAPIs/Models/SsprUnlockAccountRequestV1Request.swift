@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/module/sspr/unlockAccountRequest API Request */
-public struct SsprUnlockAccountRequestV1Request: Codable {
+public struct SsprUnlockAccountRequestV1Request: Codable, Hashable {
 
     /** The customer code assigned to your account */
     public var pksCustomerCode: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ContactRequestCompoundAllOf: Codable {
+public struct ContactRequestCompoundAllOf: Codable, Hashable {
 
     public var objContactinformations: ContactinformationsRequestCompound
 

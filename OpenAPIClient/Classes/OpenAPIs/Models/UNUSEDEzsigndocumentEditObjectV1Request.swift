@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/object/ezsigndocument/editObject API Request */
-public struct UNUSEDEzsigndocumentEditObjectV1Request: Codable {
+public struct UNUSEDEzsigndocumentEditObjectV1Request: Codable, Hashable {
 
     public var objEzsigndocument: EzsigndocumentRequest?
 

@@ -8,7 +8,7 @@
 import Foundation
 
 /** Payload for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request */
-public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload: Codable {
+public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload: Codable, Hashable {
 
     /** The Url to login to the signing application.    Url will expire after 30 minutes.   */
     public var sLoginUrl: String

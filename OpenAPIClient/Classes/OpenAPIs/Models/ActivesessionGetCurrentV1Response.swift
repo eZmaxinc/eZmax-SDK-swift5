@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/activesession/getCurrent API Request */
-public struct ActivesessionGetCurrentV1Response: Codable {
+public struct ActivesessionGetCurrentV1Response: Codable, Hashable {
 
     public var mPayload: ActivesessionGetCurrentV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

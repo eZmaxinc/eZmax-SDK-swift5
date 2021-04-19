@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/object/ezsignsignature/createObject API Request */
-public struct EzsignsignatureCreateObjectV1Request: Codable {
+public struct EzsignsignatureCreateObjectV1Request: Codable, Hashable {
 
     public var objEzsignsignature: EzsignsignatureRequest?
     public var objEzsignsignatureCompound: EzsignsignatureRequestCompound?

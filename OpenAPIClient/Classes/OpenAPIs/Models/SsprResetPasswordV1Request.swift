@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/module/sspr/resetPassword API Request */
-public struct SsprResetPasswordV1Request: Codable {
+public struct SsprResetPasswordV1Request: Codable, Hashable {
 
     /** The customer code assigned to your account */
     public var pksCustomerCode: String

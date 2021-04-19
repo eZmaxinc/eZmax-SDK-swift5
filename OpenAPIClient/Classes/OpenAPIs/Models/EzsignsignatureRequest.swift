@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Ezsignsignature Object */
-public struct EzsignsignatureRequest: Codable {
+public struct EzsignsignatureRequest: Codable, Hashable {
 
     public enum EEzsignsignatureType: String, Codable, CaseIterable {
         case acknowledgement = "Acknowledgement"

@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Attempt object */
-public struct AttemptResponse: Codable {
+public struct AttemptResponse: Codable, Hashable {
 
     /** Represent a Date Time. The timezone is the one configured in the User&#39;s profile. */
     public var dtAttemptStart: String

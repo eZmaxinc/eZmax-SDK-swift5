@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/object/franchisereferalincome/createObject API Request */
-public struct FranchisereferalincomeCreateObjectV1Request: Codable {
+public struct FranchisereferalincomeCreateObjectV1Request: Codable, Hashable {
 
     public var objFranchisereferalincome: FranchisereferalincomeRequest?
     public var objFranchisereferalincomeCompound: FranchisereferalincomeRequestCompound?

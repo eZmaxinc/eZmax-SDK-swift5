@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/franchisereferalincome/createObject API Request */
-public struct FranchisereferalincomeCreateObjectV1Response: Codable {
+public struct FranchisereferalincomeCreateObjectV1Response: Codable, Hashable {
 
     public var mPayload: FranchisereferalincomeCreateObjectV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

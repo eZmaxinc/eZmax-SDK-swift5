@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/module/sspr/validateToken API Request */
-public struct SsprValidateTokenV1Request: Codable {
+public struct SsprValidateTokenV1Request: Codable, Hashable {
 
     /** The customer code assigned to your account */
     public var pksCustomerCode: String

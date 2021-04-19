@@ -8,7 +8,7 @@
 import Foundation
 
 /** Definition of objSQLQuery Object */
-public struct CommonResponseObjSQLQuery: Codable {
+public struct CommonResponseObjSQLQuery: Codable, Hashable {
 
     /** The SQL Query */
     public var sQuery: String

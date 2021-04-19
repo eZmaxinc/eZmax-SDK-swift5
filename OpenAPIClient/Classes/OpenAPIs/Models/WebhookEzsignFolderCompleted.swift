@@ -8,7 +8,7 @@
 import Foundation
 
 /** This is the base Webhook object */
-public struct WebhookEzsignFolderCompleted: Codable {
+public struct WebhookEzsignFolderCompleted: Codable, Hashable {
 
     public var objEzsignfolder: EzsignfolderResponse
     public var objWebhook: WebhookResponse

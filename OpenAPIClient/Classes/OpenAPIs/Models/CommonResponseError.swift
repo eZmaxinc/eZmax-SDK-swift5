@@ -8,7 +8,7 @@
 import Foundation
 
 /** Generic Error Message */
-public struct CommonResponseError: Codable {
+public struct CommonResponseError: Codable, Hashable {
 
     /** More detail about the error */
     public var sErrorMessage: String

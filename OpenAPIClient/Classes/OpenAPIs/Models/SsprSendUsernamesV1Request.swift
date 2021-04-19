@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/module/sspr/sendUsernames API Request */
-public struct SsprSendUsernamesV1Request: Codable {
+public struct SsprSendUsernamesV1Request: Codable, Hashable {
 
     /** The customer code assigned to your account */
     public var pksCustomerCode: String

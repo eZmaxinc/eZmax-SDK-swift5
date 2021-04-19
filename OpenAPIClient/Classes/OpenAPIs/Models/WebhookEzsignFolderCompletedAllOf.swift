@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct WebhookEzsignFolderCompletedAllOf: Codable {
+public struct WebhookEzsignFolderCompletedAllOf: Codable, Hashable {
 
     public var objEzsignfolder: EzsignfolderResponse
 

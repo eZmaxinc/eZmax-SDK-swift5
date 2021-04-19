@@ -8,7 +8,7 @@
 import Foundation
 
 /** All API response will inherit this based Response */
-public struct CommonResponse: Codable {
+public struct CommonResponse: Codable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?

@@ -8,7 +8,7 @@
 import Foundation
 
 /** A User Object */
-public struct UserResponse: Codable {
+public struct UserResponse: Codable, Hashable {
 
     /** The unique ID of the User */
     public var pkiUserID: Int

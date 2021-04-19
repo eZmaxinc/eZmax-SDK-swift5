@@ -8,7 +8,7 @@
 import Foundation
 
 /** Payload for the /1/module/user/createEzsignuser API Request */
-public struct UserCreateEzsignuserV1ResponseMPayload: Codable {
+public struct UserCreateEzsignuserV1ResponseMPayload: Codable, Hashable {
 
     /** An array of email addresses that succeeded. */
     public var aSEmailAddressSuccess: [String]

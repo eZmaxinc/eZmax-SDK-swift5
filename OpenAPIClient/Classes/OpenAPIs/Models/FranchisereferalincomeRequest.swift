@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Franchisereferalincome Object */
-public struct FranchisereferalincomeRequest: Codable {
+public struct FranchisereferalincomeRequest: Codable, Hashable {
 
     /** The unique ID of the Franchisebroker */
     public var fkiFranchisebrokerID: Int

@@ -8,7 +8,7 @@
 import Foundation
 
 /** This is a debug object containing debugging information on the actual function */
-public struct CommonResponseObjDebugPayload: Codable {
+public struct CommonResponseObjDebugPayload: Codable, Hashable {
 
     /** The minimum version of the function that can be called */
     public var iVersionMin: Int

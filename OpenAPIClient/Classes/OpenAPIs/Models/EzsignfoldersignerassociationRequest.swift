@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Ezsignfoldersignerassociation Object */
-public struct EzsignfoldersignerassociationRequest: Codable {
+public struct EzsignfoldersignerassociationRequest: Codable, Hashable {
 
     /** A reference to a valid User.  This is only used if the signatory will be a user from the system. */
     public var fkiUserID: Int?

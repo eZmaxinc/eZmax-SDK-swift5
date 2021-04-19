@@ -8,7 +8,7 @@
 import Foundation
 
 /** A Website Object */
-public struct WebsiteRequest: Codable {
+public struct WebsiteRequest: Codable, Hashable {
 
     /** The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey| */
     public var fkiWebsitetypeID: Int

@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/ezsignsignature/getObject API Request */
-public struct EzsignsignatureGetObjectV1Response: Codable {
+public struct EzsignsignatureGetObjectV1Response: Codable, Hashable {
 
     /** Payload for the /1/object/ezsignsignature/getObject API Request */
     public var mPayload: Any

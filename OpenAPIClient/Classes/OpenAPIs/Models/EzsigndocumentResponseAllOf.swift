@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct EzsigndocumentResponseAllOf: Codable {
+public struct EzsigndocumentResponseAllOf: Codable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int

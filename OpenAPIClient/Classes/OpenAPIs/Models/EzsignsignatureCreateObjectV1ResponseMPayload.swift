@@ -8,7 +8,7 @@
 import Foundation
 
 /** Payload for the /1/object/ezsignsignature/createObject API Request */
-public struct EzsignsignatureCreateObjectV1ResponseMPayload: Codable {
+public struct EzsignsignatureCreateObjectV1ResponseMPayload: Codable, Hashable {
 
     /** An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request. */
     public var aPkiEzsignsignatureID: [Int]

@@ -8,7 +8,7 @@
 import Foundation
 
 /** A Franchisereferalincome Object and children to create a complete structure */
-public struct FranchisereferalincomeRequestCompound: Codable {
+public struct FranchisereferalincomeRequestCompound: Codable, Hashable {
 
     public var objAddress: AddressRequest?
     public var aObjContact: [ContactRequestCompound]

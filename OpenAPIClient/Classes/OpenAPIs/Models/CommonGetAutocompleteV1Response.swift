@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/xxx/getAutocomplete API Request */
-public struct CommonGetAutocompleteV1Response: Codable {
+public struct CommonGetAutocompleteV1Response: Codable, Hashable {
 
     public var mPayload: [CommonGetAutocompleteV1ResponseMPayload]
     public var objDebugPayload: CommonResponseObjDebugPayload?

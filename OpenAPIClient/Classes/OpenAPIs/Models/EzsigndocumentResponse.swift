@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Ezsigndocument Object */
-public struct EzsigndocumentResponse: Codable {
+public struct EzsigndocumentResponse: Codable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int

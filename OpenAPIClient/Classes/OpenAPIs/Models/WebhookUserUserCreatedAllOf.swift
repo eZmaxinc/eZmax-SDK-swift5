@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct WebhookUserUserCreatedAllOf: Codable {
+public struct WebhookUserUserCreatedAllOf: Codable, Hashable {
 
     public var objUser: UserResponse
 

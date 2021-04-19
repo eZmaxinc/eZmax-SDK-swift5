@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/customer/{pksCustomerCode}/endpoint API Request */
-public struct GlobalCustomerGetEndpointV1Response: Codable {
+public struct GlobalCustomerGetEndpointV1Response: Codable, Hashable {
 
     /** The endpoint&#39;s URL */
     public var sEndpointURL: String

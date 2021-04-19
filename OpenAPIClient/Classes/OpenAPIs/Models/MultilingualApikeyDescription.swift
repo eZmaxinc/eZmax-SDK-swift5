@@ -8,7 +8,7 @@
 import Foundation
 
 /** Description of the API Key   */
-public struct MultilingualApikeyDescription: Codable {
+public struct MultilingualApikeyDescription: Codable, Hashable {
 
     /** Value in French */
     public var sApikeyDescription1: String?

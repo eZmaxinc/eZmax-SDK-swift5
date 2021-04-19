@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/ezsigndocument/editObject API Request */
-public struct UNUSEDEzsigndocumentEditObjectV1Response: Codable {
+public struct UNUSEDEzsigndocumentEditObjectV1Response: Codable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?

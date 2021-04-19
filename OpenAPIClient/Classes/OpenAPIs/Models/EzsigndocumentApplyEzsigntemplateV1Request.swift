@@ -8,7 +8,7 @@
 import Foundation
 
 /** Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate API Request */
-public struct EzsigndocumentApplyEzsigntemplateV1Request: Codable {
+public struct EzsigndocumentApplyEzsigntemplateV1Request: Codable, Hashable {
 
     /** The unique ID of the Ezsigndocument */
     public var fkiEzsigntemplateID: Int

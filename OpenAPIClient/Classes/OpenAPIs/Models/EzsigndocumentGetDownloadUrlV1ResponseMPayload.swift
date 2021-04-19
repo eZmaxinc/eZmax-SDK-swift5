@@ -8,7 +8,7 @@
 import Foundation
 
 /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl API Request */
-public struct EzsigndocumentGetDownloadUrlV1ResponseMPayload: Codable {
+public struct EzsigndocumentGetDownloadUrlV1ResponseMPayload: Codable, Hashable {
 
     /** The Url to the requested document.  Url will expire after 5 minutes. */
     public var sDownloadUrl: String

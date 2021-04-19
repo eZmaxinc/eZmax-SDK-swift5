@@ -8,7 +8,7 @@
 import Foundation
 
 /** This is a generic debug object that is returned by all API requests */
-public struct CommonResponseObjDebug: Codable {
+public struct CommonResponseObjDebug: Codable, Hashable {
 
     /** The peak memory allocated during the API request execution. Formatted as a human readable string */
     public var sMemoryUsage: String

@@ -8,7 +8,7 @@
 import Foundation
 
 /** Generic Autocomplete Response */
-public struct CommonGetAutocompleteV1ResponseMPayload: Codable {
+public struct CommonGetAutocompleteV1ResponseMPayload: Codable, Hashable {
 
     /** The Category (ie group) for the dropdown or an empty string if not categorized */
     public var group: String

@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/ezsigndocument/getDownloadUrl API Request */
-public struct EzsigndocumentGetObjectV1Response: Codable {
+public struct EzsigndocumentGetObjectV1Response: Codable, Hashable {
 
     public var mPayload: EzsigndocumentGetObjectV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

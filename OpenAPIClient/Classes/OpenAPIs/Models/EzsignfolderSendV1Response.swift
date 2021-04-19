@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/ezsignfolder/{pkiEzsignfolderID}/send API Request */
-public struct EzsignfolderSendV1Response: Codable {
+public struct EzsignfolderSendV1Response: Codable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?

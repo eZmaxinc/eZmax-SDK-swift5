@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/module/user/createEzsignuser API Request */
-public struct UserCreateEzsignuserV1Response: Codable {
+public struct UserCreateEzsignuserV1Response: Codable, Hashable {
 
     public var mPayload: UserCreateEzsignuserV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

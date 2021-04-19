@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Address Object */
-public struct AddressRequest: Codable {
+public struct AddressRequest: Codable, Hashable {
 
     /** The unique ID of the Addresstype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Real Estate Invoice| |4|Invoicing| |5|Shipping| */
     public var fkiAddresstypeID: Int

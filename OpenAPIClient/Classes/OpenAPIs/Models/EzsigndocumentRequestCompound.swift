@@ -8,7 +8,7 @@
 import Foundation
 
 /** An Ezsigndocument Object and children to create a complete structure */
-public struct EzsigndocumentRequestCompound: Codable {
+public struct EzsigndocumentRequestCompound: Codable, Hashable {
 
     public enum EEzsigndocumentSource: String, Codable, CaseIterable {
         case base64 = "Base64"

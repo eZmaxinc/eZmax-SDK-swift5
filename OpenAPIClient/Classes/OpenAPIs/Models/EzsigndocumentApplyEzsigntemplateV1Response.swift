@@ -8,7 +8,7 @@
 import Foundation
 
 /** Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplate API Request */
-public struct EzsigndocumentApplyEzsigntemplateV1Response: Codable {
+public struct EzsigndocumentApplyEzsigntemplateV1Response: Codable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?

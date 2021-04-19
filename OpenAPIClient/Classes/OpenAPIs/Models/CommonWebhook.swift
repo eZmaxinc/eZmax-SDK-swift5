@@ -8,7 +8,7 @@
 import Foundation
 
 /** This is the base Webhook object */
-public struct CommonWebhook: Codable {
+public struct CommonWebhook: Codable, Hashable {
 
     public var objWebhook: WebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. */

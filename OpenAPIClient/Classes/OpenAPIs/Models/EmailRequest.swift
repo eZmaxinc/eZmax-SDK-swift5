@@ -8,7 +8,7 @@
 import Foundation
 
 /** A Contact Object */
-public struct EmailRequest: Codable {
+public struct EmailRequest: Codable, Hashable {
 
     /** The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| */
     public var fkiEmailtypeID: Int

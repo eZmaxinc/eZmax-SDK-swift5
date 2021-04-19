@@ -8,7 +8,7 @@
 import Foundation
 
 /** A webhook object */
-public struct WebhookResponse: Codable {
+public struct WebhookResponse: Codable, Hashable {
 
     public enum EWebhookModule: String, Codable, CaseIterable {
         case ezsign = "Ezsign"

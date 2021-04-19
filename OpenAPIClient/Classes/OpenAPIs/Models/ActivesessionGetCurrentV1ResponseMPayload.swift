@@ -8,7 +8,7 @@
 import Foundation
 
 /** Payload for the /1/object/activesession/getCurrent API Request */
-public struct ActivesessionGetCurrentV1ResponseMPayload: Codable {
+public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, Hashable {
 
     public enum EActivesessionSessiontype: String, Codable, CaseIterable {
         case normal = "Normal"
