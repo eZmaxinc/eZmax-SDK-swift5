@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Request for the /1/object/ezsignfolder/{pkiEzsignfolderID}/send API Request */
 public struct EzsignfolderSendV1Request: Codable, Hashable {
@@ -17,4 +20,14 @@ public struct EzsignfolderSendV1Request: Codable, Hashable {
         self.tExtraMessage = tExtraMessage
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case tExtraMessage
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(tExtraMessage, forKey: .tExtraMessage)
+    }
 }

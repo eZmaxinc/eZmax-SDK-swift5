@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** The signature step of the Ezsigndocument. */
 public enum FieldEEzsigndocumentStep: String, Codable, CaseIterable {

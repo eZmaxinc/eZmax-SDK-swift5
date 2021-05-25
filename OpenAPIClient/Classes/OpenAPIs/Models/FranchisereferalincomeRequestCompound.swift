@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** A Franchisereferalincome Object and children to create a complete structure */
 public struct FranchisereferalincomeRequestCompound: Codable, Hashable {
@@ -66,4 +69,22 @@ public struct FranchisereferalincomeRequestCompound: Codable, Hashable {
         case sFranchisereferalincomeRemoteid
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(objAddress, forKey: .objAddress)
+        try container.encode(aObjContact, forKey: .aObjContact)
+        try container.encode(fkiFranchisebrokerID, forKey: .fkiFranchisebrokerID)
+        try container.encode(fkiFranchisereferalincomeprogramID, forKey: .fkiFranchisereferalincomeprogramID)
+        try container.encode(fkiPeriodID, forKey: .fkiPeriodID)
+        try container.encode(dFranchisereferalincomeLoan, forKey: .dFranchisereferalincomeLoan)
+        try container.encode(dFranchisereferalincomeFranchiseamount, forKey: .dFranchisereferalincomeFranchiseamount)
+        try container.encode(dFranchisereferalincomeFranchisoramount, forKey: .dFranchisereferalincomeFranchisoramount)
+        try container.encode(dFranchisereferalincomeAgentamount, forKey: .dFranchisereferalincomeAgentamount)
+        try container.encode(dtFranchisereferalincomeDisbursed, forKey: .dtFranchisereferalincomeDisbursed)
+        try container.encode(tFranchisereferalincomeComment, forKey: .tFranchisereferalincomeComment)
+        try container.encode(fkiFranchiseofficeID, forKey: .fkiFranchiseofficeID)
+        try container.encode(sFranchisereferalincomeRemoteid, forKey: .sFranchisereferalincomeRemoteid)
+    }
 }

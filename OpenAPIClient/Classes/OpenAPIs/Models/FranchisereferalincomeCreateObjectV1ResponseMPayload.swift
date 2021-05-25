@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Payload for the /1/object/franchisereferalincome/createObject API Request */
 public struct FranchisereferalincomeCreateObjectV1ResponseMPayload: Codable, Hashable {
@@ -21,4 +24,10 @@ public struct FranchisereferalincomeCreateObjectV1ResponseMPayload: Codable, Has
         case aPkiFranchisereferalincomeID = "a_pkiFranchisereferalincomeID"
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(aPkiFranchisereferalincomeID, forKey: .aPkiFranchisereferalincomeID)
+    }
 }

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 public struct EzsigndocumentResponseAllOf: Codable, Hashable {
 
@@ -56,4 +59,42 @@ public struct EzsigndocumentResponseAllOf: Codable, Hashable {
         self.objAudit = objAudit
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiEzsignfolderID
+        case dtEzsigndocumentDuedate
+        case fkiLanguageID
+        case sEzsigndocumentName
+        case pkiEzsigndocumentID
+        case eEzsigndocumentStep
+        case dtEzsigndocumentFirstsend
+        case dtEzsigndocumentLastsend
+        case iEzsigndocumentOrder
+        case iEzsigndocumentPagetotal
+        case iEzsigndocumentSignaturesigned
+        case iEzsigndocumentSignaturetotal
+        case sEzsigndocumentMD5initial
+        case sEzsigndocumentMD5signed
+        case objAudit
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
+        try container.encode(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(sEzsigndocumentName, forKey: .sEzsigndocumentName)
+        try container.encode(pkiEzsigndocumentID, forKey: .pkiEzsigndocumentID)
+        try container.encode(eEzsigndocumentStep, forKey: .eEzsigndocumentStep)
+        try container.encode(dtEzsigndocumentFirstsend, forKey: .dtEzsigndocumentFirstsend)
+        try container.encode(dtEzsigndocumentLastsend, forKey: .dtEzsigndocumentLastsend)
+        try container.encode(iEzsigndocumentOrder, forKey: .iEzsigndocumentOrder)
+        try container.encode(iEzsigndocumentPagetotal, forKey: .iEzsigndocumentPagetotal)
+        try container.encode(iEzsigndocumentSignaturesigned, forKey: .iEzsigndocumentSignaturesigned)
+        try container.encode(iEzsigndocumentSignaturetotal, forKey: .iEzsigndocumentSignaturetotal)
+        try container.encode(sEzsigndocumentMD5initial, forKey: .sEzsigndocumentMD5initial)
+        try container.encode(sEzsigndocumentMD5signed, forKey: .sEzsigndocumentMD5signed)
+        try container.encode(objAudit, forKey: .objAudit)
+    }
 }

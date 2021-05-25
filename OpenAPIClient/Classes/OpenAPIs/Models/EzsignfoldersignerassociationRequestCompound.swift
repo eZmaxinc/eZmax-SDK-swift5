@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** An Ezsignfoldersignerassociation Object and children to create a complete structure */
 public struct EzsignfoldersignerassociationRequestCompound: Codable, Hashable {
@@ -22,4 +25,18 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, Hashable {
         self.fkiEzsignfolderID = fkiEzsignfolderID
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case objEzsignsigner
+        case fkiUserID
+        case fkiEzsignfolderID
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
+        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
+    }
 }

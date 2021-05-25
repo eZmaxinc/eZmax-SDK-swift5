@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 public struct WebhookEzsignFolderCompletedAllOf: Codable, Hashable {
 
@@ -15,4 +18,14 @@ public struct WebhookEzsignFolderCompletedAllOf: Codable, Hashable {
         self.objEzsignfolder = objEzsignfolder
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case objEzsignfolder
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(objEzsignfolder, forKey: .objEzsignfolder)
+    }
 }

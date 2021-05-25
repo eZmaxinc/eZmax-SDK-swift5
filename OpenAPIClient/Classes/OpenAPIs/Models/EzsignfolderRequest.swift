@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** An Ezsignfolder Object */
 public struct EzsignfolderRequest: Codable, Hashable {
@@ -28,4 +31,22 @@ public struct EzsignfolderRequest: Codable, Hashable {
         self.eEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiEzsignfoldertypeID
+        case fkiEzsigntsarequirementID
+        case sEzsignfolderDescription
+        case tEzsignfolderNote
+        case eEzsignfolderSendreminderfrequency
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encode(fkiEzsigntsarequirementID, forKey: .fkiEzsigntsarequirementID)
+        try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
+        try container.encode(tEzsignfolderNote, forKey: .tEzsignfolderNote)
+        try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)
+    }
 }

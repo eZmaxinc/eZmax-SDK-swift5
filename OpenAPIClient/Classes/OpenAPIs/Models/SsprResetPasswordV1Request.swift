@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Request for the /1/module/sspr/resetPassword API Request */
 public struct SsprResetPasswordV1Request: Codable, Hashable {
@@ -34,4 +37,26 @@ public struct SsprResetPasswordV1Request: Codable, Hashable {
         self.sPassword = sPassword
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pksCustomerCode
+        case fkiLanguageID
+        case eUserTypeSSPR
+        case sEmailAddress
+        case sUserLoginname
+        case binUserSSPRtoken
+        case sPassword
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(eUserTypeSSPR, forKey: .eUserTypeSSPR)
+        try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
+        try container.encodeIfPresent(sUserLoginname, forKey: .sUserLoginname)
+        try container.encode(binUserSSPRtoken, forKey: .binUserSSPRtoken)
+        try container.encode(sPassword, forKey: .sPassword)
+    }
 }

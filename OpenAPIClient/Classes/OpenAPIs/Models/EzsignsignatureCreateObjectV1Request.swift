@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Request for the /1/object/ezsignsignature/createObject API Request */
 public struct EzsignsignatureCreateObjectV1Request: Codable, Hashable {
@@ -18,4 +21,16 @@ public struct EzsignsignatureCreateObjectV1Request: Codable, Hashable {
         self.objEzsignsignatureCompound = objEzsignsignatureCompound
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case objEzsignsignature
+        case objEzsignsignatureCompound
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(objEzsignsignature, forKey: .objEzsignsignature)
+        try container.encodeIfPresent(objEzsignsignatureCompound, forKey: .objEzsignsignatureCompound)
+    }
 }

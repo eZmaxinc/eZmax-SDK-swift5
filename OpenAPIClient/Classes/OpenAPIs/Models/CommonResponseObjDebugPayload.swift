@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** This is a debug object containing debugging information on the actual function */
 public struct CommonResponseObjDebugPayload: Codable, Hashable {
@@ -29,4 +32,12 @@ public struct CommonResponseObjDebugPayload: Codable, Hashable {
         case aRequiredPermissions = "a_RequiredPermissions"
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(iVersionMin, forKey: .iVersionMin)
+        try container.encode(iVersionMax, forKey: .iVersionMax)
+        try container.encode(aRequiredPermissions, forKey: .aRequiredPermissions)
+    }
 }

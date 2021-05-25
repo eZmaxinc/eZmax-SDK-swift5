@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** This is the base Webhook object */
 public struct WebhookUserUserCreated: Codable, Hashable {
@@ -27,4 +30,12 @@ public struct WebhookUserUserCreated: Codable, Hashable {
         case aObjAttempt = "a_objAttempt"
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(objUser, forKey: .objUser)
+        try container.encode(objWebhook, forKey: .objWebhook)
+        try container.encode(aObjAttempt, forKey: .aObjAttempt)
+    }
 }

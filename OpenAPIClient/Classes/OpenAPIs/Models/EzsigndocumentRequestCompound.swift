@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** An Ezsigndocument Object and children to create a complete structure */
 public struct EzsigndocumentRequestCompound: Codable, Hashable {
@@ -41,4 +44,26 @@ public struct EzsigndocumentRequestCompound: Codable, Hashable {
         self.sEzsigndocumentName = sEzsigndocumentName
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case eEzsigndocumentSource
+        case eEzsigndocumentFormat
+        case sEzsigndocumentBase64
+        case fkiEzsignfolderID
+        case dtEzsigndocumentDuedate
+        case fkiLanguageID
+        case sEzsigndocumentName
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(eEzsigndocumentSource, forKey: .eEzsigndocumentSource)
+        try container.encode(eEzsigndocumentFormat, forKey: .eEzsigndocumentFormat)
+        try container.encodeIfPresent(sEzsigndocumentBase64, forKey: .sEzsigndocumentBase64)
+        try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
+        try container.encode(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(sEzsigndocumentName, forKey: .sEzsigndocumentName)
+    }
 }

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** The user type of the User. */
 public enum FieldEUserType: String, Codable, CaseIterable {

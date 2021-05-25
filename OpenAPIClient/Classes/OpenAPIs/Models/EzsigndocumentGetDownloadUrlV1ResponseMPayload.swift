@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl API Request */
 public struct EzsigndocumentGetDownloadUrlV1ResponseMPayload: Codable, Hashable {
@@ -17,4 +20,14 @@ public struct EzsigndocumentGetDownloadUrlV1ResponseMPayload: Codable, Hashable 
         self.sDownloadUrl = sDownloadUrl
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case sDownloadUrl
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(sDownloadUrl, forKey: .sDownloadUrl)
+    }
 }

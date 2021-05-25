@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** A Contact Object */
 public struct EmailRequest: Codable, Hashable {
@@ -20,4 +23,16 @@ public struct EmailRequest: Codable, Hashable {
         self.sEmailAddress = sEmailAddress
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiEmailtypeID
+        case sEmailAddress
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiEmailtypeID, forKey: .fkiEmailtypeID)
+        try container.encode(sEmailAddress, forKey: .sEmailAddress)
+    }
 }

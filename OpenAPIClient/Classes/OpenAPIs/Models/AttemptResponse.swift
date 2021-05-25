@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** An Attempt object */
 public struct AttemptResponse: Codable, Hashable {
@@ -23,4 +26,18 @@ public struct AttemptResponse: Codable, Hashable {
         self.iAttemptDuration = iAttemptDuration
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case dtAttemptStart
+        case sAttemptResult
+        case iAttemptDuration
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(dtAttemptStart, forKey: .dtAttemptStart)
+        try container.encode(sAttemptResult, forKey: .sAttemptResult)
+        try container.encode(iAttemptDuration, forKey: .iAttemptDuration)
+    }
 }

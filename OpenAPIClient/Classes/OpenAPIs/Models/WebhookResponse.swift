@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** A webhook object */
 public struct WebhookResponse: Codable, Hashable {
@@ -46,4 +49,26 @@ public struct WebhookResponse: Codable, Hashable {
         self.eWebhookManagementevent = eWebhookManagementevent
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiWebhookID
+        case eWebhookModule
+        case eWebhookEzsignevent
+        case pksCustomerCode
+        case sWebhookUrl
+        case sWebhookEmailfailed
+        case eWebhookManagementevent
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pkiWebhookID, forKey: .pkiWebhookID)
+        try container.encode(eWebhookModule, forKey: .eWebhookModule)
+        try container.encodeIfPresent(eWebhookEzsignevent, forKey: .eWebhookEzsignevent)
+        try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
+        try container.encode(sWebhookUrl, forKey: .sWebhookUrl)
+        try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
+        try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
+    }
 }

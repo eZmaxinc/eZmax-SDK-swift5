@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Payload for the /1/object/apikey/createObject API Request */
 public struct ApikeyCreateObjectV1ResponseMPayload: Codable, Hashable {
@@ -20,4 +23,10 @@ public struct ApikeyCreateObjectV1ResponseMPayload: Codable, Hashable {
         case aObjApikey = "a_objApikey"
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(aObjApikey, forKey: .aObjApikey)
+    }
 }

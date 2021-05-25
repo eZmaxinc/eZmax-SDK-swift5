@@ -4,8 +4,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.11'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '3.0'
-  s.version = '1.0.42'
-  s.source = { :git => 'git@github.com:OpenAPITools/openapi-generator.git', :tag => 'v1.0.42' }
+  s.version = '1.0.43'
+  s.source = { :git => 'git@github.com:OpenAPITools/openapi-generator.git', :tag => 'v1.0.43' }
   s.authors = 'eZmax Solutions inc.'
   s.license = 'Proprietary'
   s.homepage = 'https://github.com/eZmaxinc/eZmax-SDK-swift5'
@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.description = 'Ezmax Api'
   s.documentation_url = 'https://github.com/eZmaxinc/eZmax-SDK-swift5'
   s.source_files = 'OpenAPIClient/Classes/**/*.swift'
+  s.dependency 'AnyCodable-FlightSchool', '~> 0.4.0'
 end

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Request for the /1/object/ezsignfoldersignerassociation/editObject API Request */
 public struct UNUSEDEzsignfoldersignerassociationEditObjectV1Request: Codable, Hashable {
@@ -16,4 +19,14 @@ public struct UNUSEDEzsignfoldersignerassociationEditObjectV1Request: Codable, H
         self.objEzsignfoldersignerassociation = objEzsignfoldersignerassociation
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case objEzsignfoldersignerassociation
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(objEzsignfoldersignerassociation, forKey: .objEzsignfoldersignerassociation)
+    }
 }

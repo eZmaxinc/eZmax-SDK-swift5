@@ -5,6 +5,7 @@ OpenAPIClient.podspec
 OpenAPIClient/Classes/OpenAPIs/APIHelper.swift
 OpenAPIClient/Classes/OpenAPIs/APIs.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/GlobalCustomerAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ModuleAuthenticateAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ModuleSsprAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ModuleUserAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectActivesessionAPI.swift
@@ -33,6 +34,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/ApikeyRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ApikeyRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ApikeyResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AttemptResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/AuthenticateAuthenticateV2Request.swift
+OpenAPIClient/Classes/OpenAPIs/Models/AuthenticateAuthenticateV2Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/AuthenticateAuthenticateV2ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonAudit.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1ResponseMPayload.swift
@@ -151,6 +155,9 @@ docs/ApikeyRequest.md
 docs/ApikeyRequestCompound.md
 docs/ApikeyResponse.md
 docs/AttemptResponse.md
+docs/AuthenticateAuthenticateV2Request.md
+docs/AuthenticateAuthenticateV2Response.md
+docs/AuthenticateAuthenticateV2ResponseMPayload.md
 docs/CommonAudit.md
 docs/CommonGetAutocompleteV1Response.md
 docs/CommonGetAutocompleteV1ResponseMPayload.md
@@ -226,6 +233,7 @@ docs/FranchisereferalincomeRequest.md
 docs/FranchisereferalincomeRequestCompound.md
 docs/GlobalCustomerAPI.md
 docs/GlobalCustomerGetEndpointV1Response.md
+docs/ModuleAuthenticateAPI.md
 docs/ModuleSsprAPI.md
 docs/ModuleUserAPI.md
 docs/MultilingualApikeyDescription.md

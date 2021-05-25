@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** A Phone Object */
 public struct PhoneRequest: Codable, Hashable {
@@ -34,4 +37,26 @@ public struct PhoneRequest: Codable, Hashable {
         self.sPhoneExtension = sPhoneExtension
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiPhonetypeID
+        case ePhoneType
+        case sPhoneRegion
+        case sPhoneExchange
+        case sPhoneNumber
+        case sPhoneInternational
+        case sPhoneExtension
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiPhonetypeID, forKey: .fkiPhonetypeID)
+        try container.encode(ePhoneType, forKey: .ePhoneType)
+        try container.encodeIfPresent(sPhoneRegion, forKey: .sPhoneRegion)
+        try container.encodeIfPresent(sPhoneExchange, forKey: .sPhoneExchange)
+        try container.encodeIfPresent(sPhoneNumber, forKey: .sPhoneNumber)
+        try container.encodeIfPresent(sPhoneInternational, forKey: .sPhoneInternational)
+        try container.encodeIfPresent(sPhoneExtension, forKey: .sPhoneExtension)
+    }
 }

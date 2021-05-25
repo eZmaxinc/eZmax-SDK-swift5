@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** A Contact Object */
 public struct ContactRequest: Codable, Hashable {
@@ -32,4 +35,24 @@ public struct ContactRequest: Codable, Hashable {
         self.dtContactBirthdate = dtContactBirthdate
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiContacttitleID
+        case fkiLanguageID
+        case sContactFirstname
+        case sContactLastname
+        case sContactCompany
+        case dtContactBirthdate
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiContacttitleID, forKey: .fkiContacttitleID)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(sContactFirstname, forKey: .sContactFirstname)
+        try container.encode(sContactLastname, forKey: .sContactLastname)
+        try container.encode(sContactCompany, forKey: .sContactCompany)
+        try container.encodeIfPresent(dtContactBirthdate, forKey: .dtContactBirthdate)
+    }
 }

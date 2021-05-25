@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** An Address Object */
 public struct AddressRequest: Codable, Hashable {
@@ -38,4 +41,28 @@ public struct AddressRequest: Codable, Hashable {
         self.sAddressZip = sAddressZip
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiAddresstypeID
+        case sAddressCivic
+        case sAddressStreet
+        case sAddressSuite
+        case sAddressCity
+        case fkiProvinceID
+        case fkiCountryID
+        case sAddressZip
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiAddresstypeID, forKey: .fkiAddresstypeID)
+        try container.encode(sAddressCivic, forKey: .sAddressCivic)
+        try container.encode(sAddressStreet, forKey: .sAddressStreet)
+        try container.encode(sAddressSuite, forKey: .sAddressSuite)
+        try container.encode(sAddressCity, forKey: .sAddressCity)
+        try container.encode(fkiProvinceID, forKey: .fkiProvinceID)
+        try container.encode(fkiCountryID, forKey: .fkiCountryID)
+        try container.encode(sAddressZip, forKey: .sAddressZip)
+    }
 }

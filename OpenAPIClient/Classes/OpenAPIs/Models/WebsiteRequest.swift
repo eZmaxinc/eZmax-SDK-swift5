@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** A Website Object */
 public struct WebsiteRequest: Codable, Hashable {
@@ -20,4 +23,16 @@ public struct WebsiteRequest: Codable, Hashable {
         self.sWebsiteAddress = sWebsiteAddress
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiWebsitetypeID
+        case sWebsiteAddress
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiWebsitetypeID, forKey: .fkiWebsitetypeID)
+        try container.encode(sWebsiteAddress, forKey: .sWebsiteAddress)
+    }
 }

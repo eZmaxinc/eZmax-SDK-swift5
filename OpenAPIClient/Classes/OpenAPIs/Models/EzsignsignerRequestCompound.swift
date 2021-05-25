@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** An Ezsignsigner Object and children to create a complete structure */
 public struct EzsignsignerRequestCompound: Codable, Hashable {
@@ -35,4 +38,22 @@ public struct EzsignsignerRequestCompound: Codable, Hashable {
         self.sEzsignsignerSecretanswer = sEzsignsignerSecretanswer
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case objContact
+        case fkiTaxassignmentID
+        case fkiSecretquestionID
+        case eEzsignsignerLogintype
+        case sEzsignsignerSecretanswer
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(objContact, forKey: .objContact)
+        try container.encode(fkiTaxassignmentID, forKey: .fkiTaxassignmentID)
+        try container.encodeIfPresent(fkiSecretquestionID, forKey: .fkiSecretquestionID)
+        try container.encode(eEzsignsignerLogintype, forKey: .eEzsignsignerLogintype)
+        try container.encodeIfPresent(sEzsignsignerSecretanswer, forKey: .sEzsignsignerSecretanswer)
+    }
 }

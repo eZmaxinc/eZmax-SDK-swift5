@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Payload for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request */
 public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload: Codable, Hashable {
@@ -17,4 +20,14 @@ public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload
         self.sLoginUrl = sLoginUrl
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case sLoginUrl
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(sLoginUrl, forKey: .sLoginUrl)
+    }
 }

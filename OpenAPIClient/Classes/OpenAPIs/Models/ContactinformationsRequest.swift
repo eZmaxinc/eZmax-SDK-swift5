@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** A Contactinformations Object */
 public struct ContactinformationsRequest: Codable, Hashable {
@@ -26,4 +29,20 @@ public struct ContactinformationsRequest: Codable, Hashable {
         self.iWebsiteDefault = iWebsiteDefault
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case iAddressDefault
+        case iPhoneDefault
+        case iEmailDefault
+        case iWebsiteDefault
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(iAddressDefault, forKey: .iAddressDefault)
+        try container.encode(iPhoneDefault, forKey: .iPhoneDefault)
+        try container.encode(iEmailDefault, forKey: .iEmailDefault)
+        try container.encode(iWebsiteDefault, forKey: .iWebsiteDefault)
+    }
 }

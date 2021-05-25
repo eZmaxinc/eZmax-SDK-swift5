@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Payload for the /1/object/activesession/getCurrent API Request */
 public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, Hashable {
@@ -56,4 +59,18 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, Hashable {
         case fkiApikeyID
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(sCustomerCode, forKey: .sCustomerCode)
+        try container.encode(eActivesessionSessiontype, forKey: .eActivesessionSessiontype)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(sCompanyNameX, forKey: .sCompanyNameX)
+        try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
+        try container.encode(aRegisteredModules, forKey: .aRegisteredModules)
+        try container.encode(aPermissions, forKey: .aPermissions)
+        try container.encode(fkiUserID, forKey: .fkiUserID)
+        try container.encode(fkiApikeyID, forKey: .fkiApikeyID)
+    }
 }

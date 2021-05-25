@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Request for the /1/module/user/createEzsignuser API Request */
 public struct UserCreateEzsignuserV1Request: Codable, Hashable {
@@ -38,4 +41,28 @@ public struct UserCreateEzsignuserV1Request: Codable, Hashable {
         self.sPhoneExtension = sPhoneExtension
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiLanguageID
+        case sUserFirstname
+        case sUserLastname
+        case sEmailAddress
+        case sPhoneRegion
+        case sPhoneExchange
+        case sPhoneNumber
+        case sPhoneExtension
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(sUserFirstname, forKey: .sUserFirstname)
+        try container.encode(sUserLastname, forKey: .sUserLastname)
+        try container.encode(sEmailAddress, forKey: .sEmailAddress)
+        try container.encode(sPhoneRegion, forKey: .sPhoneRegion)
+        try container.encode(sPhoneExchange, forKey: .sPhoneExchange)
+        try container.encode(sPhoneNumber, forKey: .sPhoneNumber)
+        try container.encodeIfPresent(sPhoneExtension, forKey: .sPhoneExtension)
+    }
 }

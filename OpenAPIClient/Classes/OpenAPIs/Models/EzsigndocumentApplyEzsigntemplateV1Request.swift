@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate API Request */
 public struct EzsigndocumentApplyEzsigntemplateV1Request: Codable, Hashable {
@@ -27,4 +30,12 @@ public struct EzsigndocumentApplyEzsigntemplateV1Request: Codable, Hashable {
         case aPkiEzsignfoldersignerassociationID = "a_pkiEzsignfoldersignerassociationID"
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiEzsigntemplateID, forKey: .fkiEzsigntemplateID)
+        try container.encode(aSEzsigntemplatesigner, forKey: .aSEzsigntemplatesigner)
+        try container.encode(aPkiEzsignfoldersignerassociationID, forKey: .aPkiEzsignfoldersignerassociationID)
+    }
 }

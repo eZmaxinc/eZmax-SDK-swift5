@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 public struct EzsignfolderResponseAllOf: Codable, Hashable {
 
@@ -40,4 +43,32 @@ public struct EzsignfolderResponseAllOf: Codable, Hashable {
         self.objAudit = objAudit
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiEzsignfoldertypeID
+        case fkiEzsigntsarequirementID
+        case sEzsignfolderDescription
+        case tEzsignfolderNote
+        case eEzsignfolderSendreminderfrequency
+        case pkiEzsignfolderID
+        case dtEzsignfolderSentdate
+        case eEzsignfolderStep
+        case dtEzsignfolderClose
+        case objAudit
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encode(fkiEzsigntsarequirementID, forKey: .fkiEzsigntsarequirementID)
+        try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
+        try container.encode(tEzsignfolderNote, forKey: .tEzsignfolderNote)
+        try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)
+        try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
+        try container.encode(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
+        try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
+        try container.encode(dtEzsignfolderClose, forKey: .dtEzsignfolderClose)
+        try container.encode(objAudit, forKey: .objAudit)
+    }
 }

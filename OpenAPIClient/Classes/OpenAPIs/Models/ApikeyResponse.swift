@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** An Apikey Object */
 public struct ApikeyResponse: Codable, Hashable {
@@ -24,4 +27,20 @@ public struct ApikeyResponse: Codable, Hashable {
         self.objAudit = objAudit
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case objApikeyDescription
+        case sComputedToken
+        case pkiApikeyID
+        case objAudit
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(objApikeyDescription, forKey: .objApikeyDescription)
+        try container.encodeIfPresent(sComputedToken, forKey: .sComputedToken)
+        try container.encode(pkiApikeyID, forKey: .pkiApikeyID)
+        try container.encode(objAudit, forKey: .objAudit)
+    }
 }

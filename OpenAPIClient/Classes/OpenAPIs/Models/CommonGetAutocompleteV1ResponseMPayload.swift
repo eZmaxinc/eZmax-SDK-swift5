@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Generic Autocomplete Response */
 public struct CommonGetAutocompleteV1ResponseMPayload: Codable, Hashable {
@@ -23,4 +26,18 @@ public struct CommonGetAutocompleteV1ResponseMPayload: Codable, Hashable {
         self.option = option
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case group
+        case id
+        case option
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(group, forKey: .group)
+        try container.encode(id, forKey: .id)
+        try container.encode(option, forKey: .option)
+    }
 }

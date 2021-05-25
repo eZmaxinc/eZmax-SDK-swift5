@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** All API response will inherit this based Response */
 public struct CommonResponse: Codable, Hashable {
@@ -18,4 +21,16 @@ public struct CommonResponse: Codable, Hashable {
         self.objDebug = objDebug
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case objDebugPayload
+        case objDebug
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(objDebugPayload, forKey: .objDebugPayload)
+        try container.encodeIfPresent(objDebug, forKey: .objDebug)
+    }
 }

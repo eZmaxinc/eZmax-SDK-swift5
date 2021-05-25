@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Definition of objSQLQuery Object */
 public struct CommonResponseObjSQLQuery: Codable, Hashable {
@@ -20,4 +23,16 @@ public struct CommonResponseObjSQLQuery: Codable, Hashable {
         self.fDuration = fDuration
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case sQuery
+        case fDuration
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(sQuery, forKey: .sQuery)
+        try container.encode(fDuration, forKey: .fDuration)
+    }
 }

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Payload for the /1/object/ezsignfolder/createObject API Request */
 public struct EzsignfolderCreateObjectV1ResponseMPayload: Codable, Hashable {
@@ -21,4 +24,10 @@ public struct EzsignfolderCreateObjectV1ResponseMPayload: Codable, Hashable {
         case aPkiEzsignfolderID = "a_pkiEzsignfolderID"
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(aPkiEzsignfolderID, forKey: .aPkiEzsignfolderID)
+    }
 }

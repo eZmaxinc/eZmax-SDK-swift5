@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Request for the /1/object/ezsignfolder/createObject API Request */
 public struct EzsignfolderCreateObjectV1Request: Codable, Hashable {
@@ -18,4 +21,16 @@ public struct EzsignfolderCreateObjectV1Request: Codable, Hashable {
         self.objEzsignfolderCompound = objEzsignfolderCompound
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case objEzsignfolder
+        case objEzsignfolderCompound
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(objEzsignfolder, forKey: .objEzsignfolder)
+        try container.encodeIfPresent(objEzsignfolderCompound, forKey: .objEzsignfolderCompound)
+    }
 }

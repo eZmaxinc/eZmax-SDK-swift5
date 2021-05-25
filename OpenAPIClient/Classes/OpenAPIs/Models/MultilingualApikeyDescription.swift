@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Description of the API Key   */
 public struct MultilingualApikeyDescription: Codable, Hashable {
@@ -20,4 +23,16 @@ public struct MultilingualApikeyDescription: Codable, Hashable {
         self.sApikeyDescription2 = sApikeyDescription2
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case sApikeyDescription1
+        case sApikeyDescription2
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(sApikeyDescription1, forKey: .sApikeyDescription1)
+        try container.encodeIfPresent(sApikeyDescription2, forKey: .sApikeyDescription2)
+    }
 }

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Frequency at which reminders will be sent to signers that haven&#39;t signed the documents */
 public enum FieldEEzsignfolderSendreminderfrequency: String, Codable, CaseIterable {

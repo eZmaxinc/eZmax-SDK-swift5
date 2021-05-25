@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Response for the /1/object/ezsigndocument/getDownloadUrl API Request */
 public struct EzsigndocumentGetObjectV1Response: Codable, Hashable {
@@ -20,4 +23,18 @@ public struct EzsigndocumentGetObjectV1Response: Codable, Hashable {
         self.objDebug = objDebug
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case mPayload
+        case objDebugPayload
+        case objDebug
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(mPayload, forKey: .mPayload)
+        try container.encodeIfPresent(objDebugPayload, forKey: .objDebugPayload)
+        try container.encodeIfPresent(objDebug, forKey: .objDebug)
+    }
 }

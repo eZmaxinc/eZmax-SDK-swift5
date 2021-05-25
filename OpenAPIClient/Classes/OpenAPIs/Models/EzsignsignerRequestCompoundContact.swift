@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** A Ezsignsigner-&gt;Contact Object and children to create a complete structure */
 public struct EzsignsignerRequestCompoundContact: Codable, Hashable {
@@ -32,4 +35,24 @@ public struct EzsignsignerRequestCompoundContact: Codable, Hashable {
         self.sPhoneNumberCell = sPhoneNumberCell
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case sContactFirstname
+        case sContactLastname
+        case fkiLanguageID
+        case sEmailAddress
+        case sPhoneNumber
+        case sPhoneNumberCell
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(sContactFirstname, forKey: .sContactFirstname)
+        try container.encode(sContactLastname, forKey: .sContactLastname)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
+        try container.encodeIfPresent(sPhoneNumber, forKey: .sPhoneNumber)
+        try container.encodeIfPresent(sPhoneNumberCell, forKey: .sPhoneNumberCell)
+    }
 }

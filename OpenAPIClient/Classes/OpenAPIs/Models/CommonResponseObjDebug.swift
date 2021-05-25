@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** This is a generic debug object that is returned by all API requests */
 public struct CommonResponseObjDebug: Codable, Hashable {
@@ -37,4 +40,14 @@ public struct CommonResponseObjDebug: Codable, Hashable {
         case aObjSQLQuery = "a_objSQLQuery"
     }
 
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(sMemoryUsage, forKey: .sMemoryUsage)
+        try container.encode(sRunTime, forKey: .sRunTime)
+        try container.encode(iSQLSelects, forKey: .iSQLSelects)
+        try container.encode(iSQLQueries, forKey: .iSQLQueries)
+        try container.encode(aObjSQLQuery, forKey: .aObjSQLQuery)
+    }
 }

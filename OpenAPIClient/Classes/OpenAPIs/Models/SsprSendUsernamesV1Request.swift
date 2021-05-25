@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Request for the /1/module/sspr/sendUsernames API Request */
 public struct SsprSendUsernamesV1Request: Codable, Hashable {
@@ -25,4 +28,20 @@ public struct SsprSendUsernamesV1Request: Codable, Hashable {
         self.sEmailAddress = sEmailAddress
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pksCustomerCode
+        case fkiLanguageID
+        case eUserTypeSSPR
+        case sEmailAddress
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(eUserTypeSSPR, forKey: .eUserTypeSSPR)
+        try container.encode(sEmailAddress, forKey: .sEmailAddress)
+    }
 }

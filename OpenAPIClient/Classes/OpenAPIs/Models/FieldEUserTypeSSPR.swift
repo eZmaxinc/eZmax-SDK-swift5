@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** The user type of the User for SSPR */
 public enum FieldEUserTypeSSPR: String, Codable, CaseIterable {

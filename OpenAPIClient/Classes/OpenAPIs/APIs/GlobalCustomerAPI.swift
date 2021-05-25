@@ -54,8 +54,8 @@ open class GlobalCustomerAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String: Any]? = nil
 
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
+        var urlComponents = URLComponents(string: URLString)
+        urlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "sInfrastructureproductCode": sInfrastructureproductCode?.encodeToJSON(),
         ])
 
@@ -67,7 +67,7 @@ open class GlobalCustomerAPI {
 
         let requestBuilder: RequestBuilder<GlobalCustomerGetEndpointV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }

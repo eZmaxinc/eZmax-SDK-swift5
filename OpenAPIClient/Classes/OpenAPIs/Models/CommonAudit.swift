@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 /** Gives informations about the user that created the object and the last user to have modified it.  If the object was never modified after creation, both Created and Modified informations will be the same.  Apikey details will only be provided if the changes were made by an API key.   */
 public struct CommonAudit: Codable, Hashable {
@@ -32,4 +35,24 @@ public struct CommonAudit: Codable, Hashable {
         self.dtModifiedDate = dtModifiedDate
     }
 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case fkiUserIDCreated
+        case fkiUserIDModified
+        case fkiApikeyIDCreated
+        case fkiApikeyIDModified
+        case dtCreatedDate
+        case dtModifiedDate
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fkiUserIDCreated, forKey: .fkiUserIDCreated)
+        try container.encode(fkiUserIDModified, forKey: .fkiUserIDModified)
+        try container.encodeIfPresent(fkiApikeyIDCreated, forKey: .fkiApikeyIDCreated)
+        try container.encodeIfPresent(fkiApikeyIDModified, forKey: .fkiApikeyIDModified)
+        try container.encode(dtCreatedDate, forKey: .dtCreatedDate)
+        try container.encode(dtModifiedDate, forKey: .dtModifiedDate)
+    }
 }
