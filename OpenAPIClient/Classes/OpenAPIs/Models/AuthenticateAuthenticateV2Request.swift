@@ -20,13 +20,16 @@ public struct AuthenticateAuthenticateV2Request: Codable, Hashable {
     /** The Login name of the User. */
     public var sUserLoginname: String?
     /** A Password.  Must meet complexity requirements */
-    public var sPassword: String
+    public var sPassword: String?
+    /** A Password encrypted and encoded in Base64  Must meet complexity requirements */
+    public var sPasswordEncrypted: String?
 
-    public init(pksCustomerCode: String, sEmailAddress: String? = nil, sUserLoginname: String? = nil, sPassword: String) {
+    public init(pksCustomerCode: String, sEmailAddress: String? = nil, sUserLoginname: String? = nil, sPassword: String? = nil, sPasswordEncrypted: String? = nil) {
         self.pksCustomerCode = pksCustomerCode
         self.sEmailAddress = sEmailAddress
         self.sUserLoginname = sUserLoginname
         self.sPassword = sPassword
+        self.sPasswordEncrypted = sPasswordEncrypted
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -34,6 +37,7 @@ public struct AuthenticateAuthenticateV2Request: Codable, Hashable {
         case sEmailAddress
         case sUserLoginname
         case sPassword
+        case sPasswordEncrypted
     }
 
     // Encodable protocol methods
@@ -43,6 +47,7 @@ public struct AuthenticateAuthenticateV2Request: Codable, Hashable {
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
         try container.encodeIfPresent(sUserLoginname, forKey: .sUserLoginname)
-        try container.encode(sPassword, forKey: .sPassword)
+        try container.encodeIfPresent(sPassword, forKey: .sPassword)
+        try container.encodeIfPresent(sPasswordEncrypted, forKey: .sPasswordEncrypted)
     }
 }

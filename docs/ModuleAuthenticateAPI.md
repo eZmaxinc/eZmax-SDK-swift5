@@ -22,7 +22,7 @@ This endpoint authenticates a user.
 import OpenAPIClient
 
 let eSessionType = "eSessionType_example" // String | 
-let authenticateAuthenticateV2Request = authenticate-authenticate-v2-Request(pksCustomerCode: "pksCustomerCode_example", sEmailAddress: "sEmailAddress_example", sUserLoginname: "sUserLoginname_example", sPassword: "sPassword_example") // AuthenticateAuthenticateV2Request | 
+let authenticateAuthenticateV2Request = authenticate-authenticate-v2-Request(pksCustomerCode: "pksCustomerCode_example", sEmailAddress: "sEmailAddress_example", sUserLoginname: "sUserLoginname_example", sPassword: "sPassword_example", sPasswordEncrypted: "sPasswordEncrypted_example") // AuthenticateAuthenticateV2Request | 
 
 // Authenticate a user
 ModuleAuthenticateAPI.authenticateAuthenticateV2(eSessionType: eSessionType, authenticateAuthenticateV2Request: authenticateAuthenticateV2Request) { (response, error) in

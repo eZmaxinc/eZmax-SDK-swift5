@@ -102,6 +102,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequestCompoundContact.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsigndocumentStep.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsignfolderSendreminderfrequency.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsignfolderStep.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsignsignatureType.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEPhoneType.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEUserType.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEUserTypeSSPR.swift
@@ -223,6 +224,7 @@ docs/EzsignsignerRequestCompoundContact.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
+docs/FieldEEzsignsignatureType.md
 docs/FieldEPhoneType.md
 docs/FieldEUserType.md
 docs/FieldEUserTypeSSPR.md
