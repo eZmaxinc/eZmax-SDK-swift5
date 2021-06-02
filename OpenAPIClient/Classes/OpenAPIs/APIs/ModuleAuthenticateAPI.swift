@@ -23,7 +23,7 @@ open class ModuleAuthenticateAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func authenticateAuthenticateV2(eSessionType: ESessionType_authenticateAuthenticateV2, authenticateAuthenticateV2Request: AuthenticateAuthenticateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateAuthenticateV2Response?, _ error: Error?) -> Void)) {
+    open class func authenticateAuthenticateV2(eSessionType: ESessionType_authenticateAuthenticateV2, authenticateAuthenticateV2Request: AuthenticateAuthenticateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: AuthenticateAuthenticateV2Response?, _ error: Error?) -> Void)) {
         authenticateAuthenticateV2WithRequestBuilder(eSessionType: eSessionType, authenticateAuthenticateV2Request: authenticateAuthenticateV2Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -50,7 +50,7 @@ open class ModuleAuthenticateAPI {
         let eSessionTypePreEscape = "\(eSessionType.rawValue)"
         let eSessionTypePostEscape = eSessionTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{eSessionType}", with: eSessionTypePostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClientAPI.basePath + path
+        let URLString = OpenAPIClient.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticateAuthenticateV2Request)
 
         let urlComponents = URLComponents(string: URLString)
@@ -61,7 +61,7 @@ open class ModuleAuthenticateAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<AuthenticateAuthenticateV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<AuthenticateAuthenticateV2Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

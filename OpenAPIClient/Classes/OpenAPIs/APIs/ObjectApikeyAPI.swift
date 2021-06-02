@@ -15,7 +15,7 @@ open class ObjectApikeyAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func apikeyCreateObjectV1(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyCreateObjectV1Response?, _ error: Error?) -> Void)) {
+    open class func apikeyCreateObjectV1(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: ApikeyCreateObjectV1Response?, _ error: Error?) -> Void)) {
         apikeyCreateObjectV1WithRequestBuilder(apikeyCreateObjectV1Request: apikeyCreateObjectV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -38,7 +38,7 @@ open class ObjectApikeyAPI {
      */
     open class func apikeyCreateObjectV1WithRequestBuilder(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request]) -> RequestBuilder<ApikeyCreateObjectV1Response> {
         let path = "/1/object/apikey"
-        let URLString = OpenAPIClientAPI.basePath + path
+        let URLString = OpenAPIClient.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: apikeyCreateObjectV1Request)
 
         let urlComponents = URLComponents(string: URLString)
@@ -49,7 +49,7 @@ open class ObjectApikeyAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<ApikeyCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ApikeyCreateObjectV1Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

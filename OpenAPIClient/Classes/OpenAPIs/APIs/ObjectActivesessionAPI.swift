@@ -14,7 +14,7 @@ open class ObjectActivesessionAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func activesessionGetCurrentV1(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ActivesessionGetCurrentV1Response?, _ error: Error?) -> Void)) {
+    open class func activesessionGetCurrentV1(apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: ActivesessionGetCurrentV1Response?, _ error: Error?) -> Void)) {
         activesessionGetCurrentV1WithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -36,7 +36,7 @@ open class ObjectActivesessionAPI {
      */
     open class func activesessionGetCurrentV1WithRequestBuilder() -> RequestBuilder<ActivesessionGetCurrentV1Response> {
         let path = "/1/object/activesession/getCurrent"
-        let URLString = OpenAPIClientAPI.basePath + path
+        let URLString = OpenAPIClient.basePath + path
         let parameters: [String: Any]? = nil
 
         let urlComponents = URLComponents(string: URLString)
@@ -47,7 +47,7 @@ open class ObjectActivesessionAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<ActivesessionGetCurrentV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ActivesessionGetCurrentV1Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

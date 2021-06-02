@@ -15,7 +15,7 @@ open class ObjectFranchisereferalincomeAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func franchisereferalincomeCreateObjectV1(franchisereferalincomeCreateObjectV1Request: [FranchisereferalincomeCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: FranchisereferalincomeCreateObjectV1Response?, _ error: Error?) -> Void)) {
+    open class func franchisereferalincomeCreateObjectV1(franchisereferalincomeCreateObjectV1Request: [FranchisereferalincomeCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: FranchisereferalincomeCreateObjectV1Response?, _ error: Error?) -> Void)) {
         franchisereferalincomeCreateObjectV1WithRequestBuilder(franchisereferalincomeCreateObjectV1Request: franchisereferalincomeCreateObjectV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -38,7 +38,7 @@ open class ObjectFranchisereferalincomeAPI {
      */
     open class func franchisereferalincomeCreateObjectV1WithRequestBuilder(franchisereferalincomeCreateObjectV1Request: [FranchisereferalincomeCreateObjectV1Request]) -> RequestBuilder<FranchisereferalincomeCreateObjectV1Response> {
         let path = "/1/object/franchisereferalincome"
-        let URLString = OpenAPIClientAPI.basePath + path
+        let URLString = OpenAPIClient.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: franchisereferalincomeCreateObjectV1Request)
 
         let urlComponents = URLComponents(string: URLString)
@@ -49,7 +49,7 @@ open class ObjectFranchisereferalincomeAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<FranchisereferalincomeCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<FranchisereferalincomeCreateObjectV1Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

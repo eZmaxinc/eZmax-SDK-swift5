@@ -24,7 +24,7 @@ open class GlobalCustomerAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func globalCustomerGetEndpointV1(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: GlobalCustomerGetEndpointV1Response?, _ error: Error?) -> Void)) {
+    open class func globalCustomerGetEndpointV1(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: GlobalCustomerGetEndpointV1Response?, _ error: Error?) -> Void)) {
         globalCustomerGetEndpointV1WithRequestBuilder(pksCustomerCode: pksCustomerCode, sInfrastructureproductCode: sInfrastructureproductCode).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -51,7 +51,7 @@ open class GlobalCustomerAPI {
         let pksCustomerCodePreEscape = "\(APIHelper.mapValueToPathItem(pksCustomerCode))"
         let pksCustomerCodePostEscape = pksCustomerCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{pksCustomerCode}", with: pksCustomerCodePostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClientAPI.basePath + path
+        let URLString = OpenAPIClient.basePath + path
         let parameters: [String: Any]? = nil
 
         var urlComponents = URLComponents(string: URLString)
@@ -65,7 +65,7 @@ open class GlobalCustomerAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<GlobalCustomerGetEndpointV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GlobalCustomerGetEndpointV1Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
