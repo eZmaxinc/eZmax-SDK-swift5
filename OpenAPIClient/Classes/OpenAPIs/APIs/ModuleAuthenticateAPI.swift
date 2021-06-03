@@ -36,7 +36,7 @@ open class ModuleAuthenticateAPI {
 
     /**
      Authenticate a user
-     - POST /2/module/authenticate/authenticate/ezsignuser/{eSessionType}
+     - POST /2/module/authenticate/authenticate/{eSessionType}
      - This endpoint authenticates a user.
      - API Key:
        - type: apiKey Authorization 
@@ -46,7 +46,7 @@ open class ModuleAuthenticateAPI {
      - returns: RequestBuilder<AuthenticateAuthenticateV2Response> 
      */
     open class func authenticateAuthenticateV2WithRequestBuilder(eSessionType: ESessionType_authenticateAuthenticateV2, authenticateAuthenticateV2Request: AuthenticateAuthenticateV2Request) -> RequestBuilder<AuthenticateAuthenticateV2Response> {
-        var path = "/2/module/authenticate/authenticate/ezsignuser/{eSessionType}"
+        var path = "/2/module/authenticate/authenticate/{eSessionType}"
         let eSessionTypePreEscape = "\(eSessionType.rawValue)"
         let eSessionTypePostEscape = eSessionTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{eSessionType}", with: eSessionTypePostEscape, options: .literal, range: nil)
