@@ -98,3 +98,4 @@ public struct EzsigndocumentResponseAllOf: Codable, Hashable {
         try container.encode(objAudit, forKey: .objAudit)
     }
 }
+

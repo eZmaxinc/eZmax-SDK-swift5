@@ -46,3 +46,4 @@ public struct ContactinformationsRequest: Codable, Hashable {
         try container.encode(iWebsiteDefault, forKey: .iWebsiteDefault)
     }
 }
+

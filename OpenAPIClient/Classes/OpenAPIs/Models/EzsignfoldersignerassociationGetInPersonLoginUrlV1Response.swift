@@ -38,3 +38,4 @@ public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1Response: Codabl
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }
+

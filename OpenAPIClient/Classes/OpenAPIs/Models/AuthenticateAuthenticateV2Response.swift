@@ -38,3 +38,4 @@ public struct AuthenticateAuthenticateV2Response: Codable, Hashable {
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }
+

@@ -34,3 +34,4 @@ public struct EzsignfoldersignerassociationCreateObjectV1Request: Codable, Hasha
         try container.encodeIfPresent(objEzsignfoldersignerassociationCompound, forKey: .objEzsignfoldersignerassociationCompound)
     }
 }
+

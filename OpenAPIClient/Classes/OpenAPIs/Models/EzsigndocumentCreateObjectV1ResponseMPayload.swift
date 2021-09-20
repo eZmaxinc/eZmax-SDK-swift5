@@ -31,3 +31,4 @@ public struct EzsigndocumentCreateObjectV1ResponseMPayload: Codable, Hashable {
         try container.encode(aPkiEzsigndocumentID, forKey: .aPkiEzsigndocumentID)
     }
 }
+

@@ -6,8 +6,12 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 open class ObjectFranchiseofficeAPI {
+
     /**
      * enum for parameter sSelector
      */
@@ -24,7 +28,7 @@ open class ObjectFranchiseofficeAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func franchiseofficeGetAutocompleteV1(sSelector: SSelector_franchiseofficeGetAutocompleteV1, sQuery: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) {
+    open class func franchiseofficeGetAutocompleteV1(sSelector: SSelector_franchiseofficeGetAutocompleteV1, sQuery: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) {
         franchiseofficeGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, sQuery: sQuery).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -47,27 +51,26 @@ open class ObjectFranchiseofficeAPI {
      - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
      */
     open class func franchiseofficeGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_franchiseofficeGetAutocompleteV1, sQuery: String? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
-        var path = "/1/object/franchiseoffice/getAutocomplete/{sSelector}"
+        var localVariablePath = "/1/object/franchiseoffice/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClient.basePath + path
-        let parameters: [String: Any]? = nil
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
 
-        var urlComponents = URLComponents(string: URLString)
-        urlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "sQuery": sQuery?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
-
 }

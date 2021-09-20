@@ -31,3 +31,4 @@ public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload
         try container.encode(sLoginUrl, forKey: .sLoginUrl)
     }
 }
+

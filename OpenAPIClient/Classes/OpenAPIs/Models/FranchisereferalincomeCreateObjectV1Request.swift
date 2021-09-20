@@ -34,3 +34,4 @@ public struct FranchisereferalincomeCreateObjectV1Request: Codable, Hashable {
         try container.encodeIfPresent(objFranchisereferalincomeCompound, forKey: .objFranchisereferalincomeCompound)
     }
 }
+

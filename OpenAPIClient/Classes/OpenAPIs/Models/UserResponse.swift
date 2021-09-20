@@ -59,3 +59,4 @@ public struct UserResponse: Codable, Hashable {
         try container.encode(objAudit, forKey: .objAudit)
     }
 }
+

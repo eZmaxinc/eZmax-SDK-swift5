@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objAddress** | [**AddressRequest**](AddressRequest.md) |  | [optional] 
+**objAddress** | [**AddressRequest**](AddressRequest.md) |  | 
 **aObjContact** | [ContactRequestCompound] |  | 
 **fkiFranchisebrokerID** | **Int** | The unique ID of the Franchisebroker | 
 **fkiFranchisereferalincomeprogramID** | **Int** | The unique ID of the Franchisereferalincomeprogram | 

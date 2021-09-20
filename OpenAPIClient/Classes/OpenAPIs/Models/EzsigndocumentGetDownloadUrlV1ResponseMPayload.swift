@@ -31,3 +31,4 @@ public struct EzsigndocumentGetDownloadUrlV1ResponseMPayload: Codable, Hashable 
         try container.encode(sDownloadUrl, forKey: .sDownloadUrl)
     }
 }
+

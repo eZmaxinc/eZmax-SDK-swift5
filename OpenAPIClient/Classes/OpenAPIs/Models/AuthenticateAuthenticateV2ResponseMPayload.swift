@@ -36,3 +36,4 @@ public struct AuthenticateAuthenticateV2ResponseMPayload: Codable, Hashable {
         try container.encode(sSecret, forKey: .sSecret)
     }
 }
+

@@ -36,3 +36,4 @@ public struct UserCreateEzsignuserV1ResponseMPayload: Codable, Hashable {
         try container.encode(aSEmailAddressFailure, forKey: .aSEmailAddressFailure)
     }
 }
+

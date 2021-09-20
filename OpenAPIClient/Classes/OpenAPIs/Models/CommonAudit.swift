@@ -21,9 +21,9 @@ public struct CommonAudit: Codable, Hashable {
     public var fkiApikeyIDCreated: Int?
     /** The unique ID of the Apikey */
     public var fkiApikeyIDModified: Int?
-    /** Represent a Date Time. The timezone is the one configured in the User&#39;s profile. */
+    /** Represent a Date Time. The timezone is the one configured in the User's profile. */
     public var dtCreatedDate: String
-    /** Represent a Date Time. The timezone is the one configured in the User&#39;s profile. */
+    /** Represent a Date Time. The timezone is the one configured in the User's profile. */
     public var dtModifiedDate: String
 
     public init(fkiUserIDCreated: Int, fkiUserIDModified: Int, fkiApikeyIDCreated: Int? = nil, fkiApikeyIDModified: Int? = nil, dtCreatedDate: String, dtModifiedDate: String) {
@@ -56,3 +56,4 @@ public struct CommonAudit: Codable, Hashable {
         try container.encode(dtModifiedDate, forKey: .dtModifiedDate)
     }
 }
+

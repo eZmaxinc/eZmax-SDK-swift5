@@ -30,3 +30,4 @@ public struct UNUSEDEzsignfolderEditObjectV1Request: Codable, Hashable {
         try container.encodeIfPresent(objEzsignfolder, forKey: .objEzsignfolder)
     }
 }
+

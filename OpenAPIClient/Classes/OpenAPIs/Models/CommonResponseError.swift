@@ -36,3 +36,4 @@ public struct CommonResponseError: Codable, Hashable {
         try container.encodeIfPresent(eErrorCode, forKey: .eErrorCode)
     }
 }
+

@@ -16,7 +16,7 @@ Authenticate a user
 
 This endpoint authenticates a user.
 
-### Example 
+### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient

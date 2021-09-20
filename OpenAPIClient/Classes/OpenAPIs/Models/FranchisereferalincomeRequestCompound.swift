@@ -13,7 +13,7 @@ import AnyCodable
 /** A Franchisereferalincome Object and children to create a complete structure */
 public struct FranchisereferalincomeRequestCompound: Codable, Hashable {
 
-    public var objAddress: AddressRequest?
+    public var objAddress: AddressRequest
     public var aObjContact: [ContactRequestCompound]
     /** The unique ID of the Franchisebroker */
     public var fkiFranchisebrokerID: Int
@@ -37,7 +37,7 @@ public struct FranchisereferalincomeRequestCompound: Codable, Hashable {
     public var fkiFranchiseofficeID: Int
     public var sFranchisereferalincomeRemoteid: String
 
-    public init(objAddress: AddressRequest? = nil, aObjContact: [ContactRequestCompound], fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String) {
+    public init(objAddress: AddressRequest, aObjContact: [ContactRequestCompound], fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String) {
         self.objAddress = objAddress
         self.aObjContact = aObjContact
         self.fkiFranchisebrokerID = fkiFranchisebrokerID
@@ -73,7 +73,7 @@ public struct FranchisereferalincomeRequestCompound: Codable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(objAddress, forKey: .objAddress)
+        try container.encode(objAddress, forKey: .objAddress)
         try container.encode(aObjContact, forKey: .aObjContact)
         try container.encode(fkiFranchisebrokerID, forKey: .fkiFranchisebrokerID)
         try container.encode(fkiFranchisereferalincomeprogramID, forKey: .fkiFranchisereferalincomeprogramID)
@@ -88,3 +88,4 @@ public struct FranchisereferalincomeRequestCompound: Codable, Hashable {
         try container.encode(sFranchisereferalincomeRemoteid, forKey: .sFranchisereferalincomeRemoteid)
     }
 }
+

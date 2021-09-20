@@ -34,3 +34,4 @@ public struct EzsignfoldersignerassociationDeleteObjectV1Response: Codable, Hash
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }
+

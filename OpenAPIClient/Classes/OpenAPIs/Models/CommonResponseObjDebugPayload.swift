@@ -17,7 +17,7 @@ public struct CommonResponseObjDebugPayload: Codable, Hashable {
     public var iVersionMin: Int
     /** The maximum version of the function that can be called */
     public var iVersionMax: Int
-    /** An array of permissions required to access this function.  If the value \&quot;0\&quot; is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don&#39;t need to have all of them. */
+    /** An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them. */
     public var aRequiredPermissions: [Int]
 
     public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermissions: [Int]) {
@@ -41,3 +41,4 @@ public struct CommonResponseObjDebugPayload: Codable, Hashable {
         try container.encode(aRequiredPermissions, forKey: .aRequiredPermissions)
     }
 }
+

@@ -36,3 +36,4 @@ public struct WebsiteRequest: Codable, Hashable {
         try container.encode(sWebsiteAddress, forKey: .sWebsiteAddress)
     }
 }
+

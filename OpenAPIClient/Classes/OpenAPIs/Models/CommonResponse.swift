@@ -34,3 +34,4 @@ public struct CommonResponse: Codable, Hashable {
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }
+

@@ -31,3 +31,4 @@ public struct FranchisereferalincomeCreateObjectV1ResponseMPayload: Codable, Has
         try container.encode(aPkiFranchisereferalincomeID, forKey: .aPkiFranchisereferalincomeID)
     }
 }
+

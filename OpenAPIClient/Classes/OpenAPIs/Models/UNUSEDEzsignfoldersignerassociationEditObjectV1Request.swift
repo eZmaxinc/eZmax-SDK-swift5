@@ -30,3 +30,4 @@ public struct UNUSEDEzsignfoldersignerassociationEditObjectV1Request: Codable, H
         try container.encodeIfPresent(objEzsignfoldersignerassociation, forKey: .objEzsignfoldersignerassociation)
     }
 }
+

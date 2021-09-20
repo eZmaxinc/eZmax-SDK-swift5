@@ -60,3 +60,4 @@ public struct ContactRequestCompound: Codable, Hashable {
         try container.encodeIfPresent(dtContactBirthdate, forKey: .dtContactBirthdate)
     }
 }
+

@@ -60,3 +60,4 @@ public struct SsprResetPasswordV1Request: Codable, Hashable {
         try container.encode(sPassword, forKey: .sPassword)
     }
 }
+

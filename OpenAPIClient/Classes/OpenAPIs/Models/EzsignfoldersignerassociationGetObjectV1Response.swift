@@ -39,3 +39,4 @@ public struct EzsignfoldersignerassociationGetObjectV1Response: Codable, Hashabl
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }
+

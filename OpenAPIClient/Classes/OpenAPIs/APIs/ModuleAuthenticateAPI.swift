@@ -6,8 +6,12 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 open class ModuleAuthenticateAPI {
+
     /**
      * enum for parameter eSessionType
      */
@@ -23,7 +27,7 @@ open class ModuleAuthenticateAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func authenticateAuthenticateV2(eSessionType: ESessionType_authenticateAuthenticateV2, authenticateAuthenticateV2Request: AuthenticateAuthenticateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: AuthenticateAuthenticateV2Response?, _ error: Error?) -> Void)) {
+    open class func authenticateAuthenticateV2(eSessionType: ESessionType_authenticateAuthenticateV2, authenticateAuthenticateV2Request: AuthenticateAuthenticateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateAuthenticateV2Response?, _ error: Error?) -> Void)) {
         authenticateAuthenticateV2WithRequestBuilder(eSessionType: eSessionType, authenticateAuthenticateV2Request: authenticateAuthenticateV2Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -46,24 +50,23 @@ open class ModuleAuthenticateAPI {
      - returns: RequestBuilder<AuthenticateAuthenticateV2Response> 
      */
     open class func authenticateAuthenticateV2WithRequestBuilder(eSessionType: ESessionType_authenticateAuthenticateV2, authenticateAuthenticateV2Request: AuthenticateAuthenticateV2Request) -> RequestBuilder<AuthenticateAuthenticateV2Response> {
-        var path = "/2/module/authenticate/authenticate/{eSessionType}"
+        var localVariablePath = "/2/module/authenticate/authenticate/{eSessionType}"
         let eSessionTypePreEscape = "\(eSessionType.rawValue)"
         let eSessionTypePostEscape = eSessionTypePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{eSessionType}", with: eSessionTypePostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticateAuthenticateV2Request)
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{eSessionType}", with: eSessionTypePostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticateAuthenticateV2Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<AuthenticateAuthenticateV2Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<AuthenticateAuthenticateV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
-
 }

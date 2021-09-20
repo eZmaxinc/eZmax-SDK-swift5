@@ -41,3 +41,4 @@ public struct CommonGetAutocompleteV1ResponseMPayload: Codable, Hashable {
         try container.encode(option, forKey: .option)
     }
 }
+

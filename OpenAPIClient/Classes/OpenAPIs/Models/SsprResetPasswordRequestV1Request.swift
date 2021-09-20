@@ -50,3 +50,4 @@ public struct SsprResetPasswordRequestV1Request: Codable, Hashable {
         try container.encodeIfPresent(sUserLoginname, forKey: .sUserLoginname)
     }
 }
+

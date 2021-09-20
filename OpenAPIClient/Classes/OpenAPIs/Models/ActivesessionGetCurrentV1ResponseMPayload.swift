@@ -74,3 +74,4 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, Hashable {
         try container.encode(fkiApikeyID, forKey: .fkiApikeyID)
     }
 }
+

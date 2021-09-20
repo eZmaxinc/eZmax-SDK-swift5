@@ -29,3 +29,4 @@ public struct WebhookEzsignDocumentCompletedAllOf: Codable, Hashable {
         try container.encode(objEzsigndocument, forKey: .objEzsigndocument)
     }
 }
+

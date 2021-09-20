@@ -30,3 +30,4 @@ public struct UNUSEDEzsignsignatureEditObjectV1Request: Codable, Hashable {
         try container.encodeIfPresent(objEzsignsignature, forKey: .objEzsignsignature)
     }
 }
+

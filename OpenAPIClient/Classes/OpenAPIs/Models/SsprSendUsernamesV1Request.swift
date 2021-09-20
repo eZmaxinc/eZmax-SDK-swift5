@@ -45,3 +45,4 @@ public struct SsprSendUsernamesV1Request: Codable, Hashable {
         try container.encode(sEmailAddress, forKey: .sEmailAddress)
     }
 }
+

@@ -39,3 +39,4 @@ public struct EzsigndocumentApplyEzsigntemplateV1Request: Codable, Hashable {
         try container.encode(aPkiEzsignfoldersignerassociationID, forKey: .aPkiEzsignfoldersignerassociationID)
     }
 }
+

@@ -55,3 +55,4 @@ public struct SsprUnlockAccountV1Request: Codable, Hashable {
         try container.encode(binUserSSPRtoken, forKey: .binUserSSPRtoken)
     }
 }
+

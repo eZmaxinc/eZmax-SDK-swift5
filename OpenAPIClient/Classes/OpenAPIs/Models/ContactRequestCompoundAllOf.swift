@@ -29,3 +29,4 @@ public struct ContactRequestCompoundAllOf: Codable, Hashable {
         try container.encode(objContactinformations, forKey: .objContactinformations)
     }
 }
+

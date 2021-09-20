@@ -16,7 +16,7 @@ Retrieve Franchisebrokers and IDs
 
 Get the list of Franchisebrokers to be used in a dropdown or autocomplete control.
 
-### Example 
+### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient

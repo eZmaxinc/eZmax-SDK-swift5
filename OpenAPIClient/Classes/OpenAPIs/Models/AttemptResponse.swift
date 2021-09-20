@@ -13,7 +13,7 @@ import AnyCodable
 /** An Attempt object */
 public struct AttemptResponse: Codable, Hashable {
 
-    /** Represent a Date Time. The timezone is the one configured in the User&#39;s profile. */
+    /** Represent a Date Time. The timezone is the one configured in the User's profile. */
     public var dtAttemptStart: String
     /** The Success or Failure message of the attempt when we tried to call the URL to deliver the webhook event. */
     public var sAttemptResult: String
@@ -41,3 +41,4 @@ public struct AttemptResponse: Codable, Hashable {
         try container.encode(iAttemptDuration, forKey: .iAttemptDuration)
     }
 }
+

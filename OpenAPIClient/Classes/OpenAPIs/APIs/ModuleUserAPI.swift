@@ -6,8 +6,12 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 open class ModuleUserAPI {
+
     /**
      Create a new User of type Ezsignuser
      
@@ -15,7 +19,7 @@ open class ModuleUserAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userCreateEzsignuserV1(userCreateEzsignuserV1Request: [UserCreateEzsignuserV1Request], apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: UserCreateEzsignuserV1Response?, _ error: Error?) -> Void)) {
+    open class func userCreateEzsignuserV1(userCreateEzsignuserV1Request: [UserCreateEzsignuserV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserCreateEzsignuserV1Response?, _ error: Error?) -> Void)) {
         userCreateEzsignuserV1WithRequestBuilder(userCreateEzsignuserV1Request: userCreateEzsignuserV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -37,21 +41,20 @@ open class ModuleUserAPI {
      - returns: RequestBuilder<UserCreateEzsignuserV1Response> 
      */
     open class func userCreateEzsignuserV1WithRequestBuilder(userCreateEzsignuserV1Request: [UserCreateEzsignuserV1Request]) -> RequestBuilder<UserCreateEzsignuserV1Response> {
-        let path = "/1/module/user/createezsignuser"
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userCreateEzsignuserV1Request)
+        let localVariablePath = "/1/module/user/createezsignuser"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userCreateEzsignuserV1Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<UserCreateEzsignuserV1Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserCreateEzsignuserV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
-
 }

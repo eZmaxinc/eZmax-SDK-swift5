@@ -34,3 +34,4 @@ public struct ApikeyCreateObjectV1Request: Codable, Hashable {
         try container.encodeIfPresent(objApikeyCompound, forKey: .objApikeyCompound)
     }
 }
+

@@ -34,3 +34,4 @@ public struct EzsigndocumentCreateObjectV1Request: Codable, Hashable {
         try container.encodeIfPresent(objEzsigndocumentCompound, forKey: .objEzsigndocumentCompound)
     }
 }
+

@@ -15,7 +15,7 @@ public struct WebhookEzsignFolderCompleted: Codable, Hashable {
 
     public var objEzsignfolder: EzsignfolderResponse
     public var objWebhook: WebhookResponse
-    /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. */
+    /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponse]
 
     public init(objEzsignfolder: EzsignfolderResponse, objWebhook: WebhookResponse, aObjAttempt: [AttemptResponse]) {
@@ -39,3 +39,4 @@ public struct WebhookEzsignFolderCompleted: Codable, Hashable {
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
     }
 }
+

@@ -34,3 +34,4 @@ public struct EzsignfolderDeleteObjectV1Response: Codable, Hashable {
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }
+

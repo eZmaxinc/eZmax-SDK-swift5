@@ -36,3 +36,4 @@ public struct EmailRequest: Codable, Hashable {
         try container.encode(sEmailAddress, forKey: .sEmailAddress)
     }
 }
+

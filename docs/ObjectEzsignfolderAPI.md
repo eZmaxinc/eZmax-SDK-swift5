@@ -20,7 +20,7 @@ Create a new Ezsignfolder
 
 The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
 
-### Example 
+### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 Delete an existing Ezsignfolder
 
-### Example 
+### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
@@ -116,7 +116,9 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder's children IDs
 
-### Example 
+## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+
+### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
@@ -164,7 +166,9 @@ Void (empty response body)
 
 Retrieve an existing Ezsignfolder
 
-### Example 
+## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+
+### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
@@ -212,7 +216,7 @@ Name | Type | Description  | Notes
 
 Send the Ezsignfolder to the signatories for signature
 
-### Example 
+### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient

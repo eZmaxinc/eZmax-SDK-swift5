@@ -51,3 +51,4 @@ public struct CommonResponseObjDebug: Codable, Hashable {
         try container.encode(aObjSQLQuery, forKey: .aObjSQLQuery)
     }
 }
+

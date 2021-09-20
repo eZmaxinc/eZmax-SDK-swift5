@@ -99,3 +99,4 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable, Hashable {
         try container.encode(objAudit, forKey: .objAudit)
     }
 }
+

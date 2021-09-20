@@ -36,3 +36,4 @@ public struct CommonResponseObjSQLQuery: Codable, Hashable {
         try container.encode(fDuration, forKey: .fDuration)
     }
 }
+

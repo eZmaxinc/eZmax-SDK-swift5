@@ -21,9 +21,9 @@ public struct EzsignsignerRequestCompoundContact: Codable, Hashable {
     public var fkiLanguageID: Int
     /** The email address of the contact. Must be filled if email authentification was requested */
     public var sEmailAddress: String?
-    /** The Phone number of the contact. Use format \&quot;5149901516\&quot; for North American Numbers (Without \&quot;1\&quot; for long distance code) you would dial like this: 1-514-990-1516. Use format \&quot;498945233886\&quot; for international numbers (Without \&quot;011\&quot;) you would dial like this: +49 89 452 33 88-6. In this example \&quot;49\&quot; is the country code of Germany. */
+    /** The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany. */
     public var sPhoneNumber: String?
-    /** The Cell Phone number of the contact. Use format \&quot;5149901516\&quot; for North American Numbers (Without \&quot;1\&quot; for long distance code) you would dial like this: 1-514-990-1516. Use format \&quot;498945233886\&quot; for international numbers (Without \&quot;011\&quot;) you would dial like this: +49 89 452 33 88-6. In this example \&quot;49\&quot; is the country code of Germany. */
+    /** The Cell Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany. */
     public var sPhoneNumberCell: String?
 
     public init(sContactFirstname: String, sContactLastname: String, fkiLanguageID: Int, sEmailAddress: String? = nil, sPhoneNumber: String? = nil, sPhoneNumberCell: String? = nil) {
@@ -56,3 +56,4 @@ public struct EzsignsignerRequestCompoundContact: Codable, Hashable {
         try container.encodeIfPresent(sPhoneNumberCell, forKey: .sPhoneNumberCell)
     }
 }
+

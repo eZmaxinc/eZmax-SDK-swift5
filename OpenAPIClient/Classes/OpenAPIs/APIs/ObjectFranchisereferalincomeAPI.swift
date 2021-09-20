@@ -6,8 +6,12 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 open class ObjectFranchisereferalincomeAPI {
+
     /**
      Create a new Franchisereferalincome
      
@@ -15,7 +19,7 @@ open class ObjectFranchisereferalincomeAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func franchisereferalincomeCreateObjectV1(franchisereferalincomeCreateObjectV1Request: [FranchisereferalincomeCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: FranchisereferalincomeCreateObjectV1Response?, _ error: Error?) -> Void)) {
+    open class func franchisereferalincomeCreateObjectV1(franchisereferalincomeCreateObjectV1Request: [FranchisereferalincomeCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: FranchisereferalincomeCreateObjectV1Response?, _ error: Error?) -> Void)) {
         franchisereferalincomeCreateObjectV1WithRequestBuilder(franchisereferalincomeCreateObjectV1Request: franchisereferalincomeCreateObjectV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -37,21 +41,20 @@ open class ObjectFranchisereferalincomeAPI {
      - returns: RequestBuilder<FranchisereferalincomeCreateObjectV1Response> 
      */
     open class func franchisereferalincomeCreateObjectV1WithRequestBuilder(franchisereferalincomeCreateObjectV1Request: [FranchisereferalincomeCreateObjectV1Request]) -> RequestBuilder<FranchisereferalincomeCreateObjectV1Response> {
-        let path = "/1/object/franchisereferalincome"
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: franchisereferalincomeCreateObjectV1Request)
+        let localVariablePath = "/1/object/franchisereferalincome"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: franchisereferalincomeCreateObjectV1Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<FranchisereferalincomeCreateObjectV1Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<FranchisereferalincomeCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
-
 }

@@ -31,3 +31,4 @@ public struct EzsignfolderSendV1Request: Codable, Hashable {
         try container.encode(tExtraMessage, forKey: .tExtraMessage)
     }
 }
+

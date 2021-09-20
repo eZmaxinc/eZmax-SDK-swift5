@@ -30,3 +30,4 @@ public struct ApikeyCreateObjectV1ResponseMPayload: Codable, Hashable {
         try container.encode(aObjApikey, forKey: .aObjApikey)
     }
 }
+

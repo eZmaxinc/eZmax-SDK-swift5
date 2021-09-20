@@ -14,7 +14,7 @@ import AnyCodable
 public struct CommonWebhook: Codable, Hashable {
 
     public var objWebhook: WebhookResponse
-    /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. */
+    /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponse]
 
     public init(objWebhook: WebhookResponse, aObjAttempt: [AttemptResponse]) {
@@ -35,3 +35,4 @@ public struct CommonWebhook: Codable, Hashable {
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
     }
 }
+

@@ -34,3 +34,4 @@ public struct EzsignfolderCreateObjectV1Request: Codable, Hashable {
         try container.encodeIfPresent(objEzsignfolderCompound, forKey: .objEzsignfolderCompound)
     }
 }
+

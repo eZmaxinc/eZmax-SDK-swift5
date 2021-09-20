@@ -31,3 +31,4 @@ public struct EzsignfoldersignerassociationCreateObjectV1ResponseMPayload: Codab
         try container.encode(aPkiEzsignfoldersignerassociationID, forKey: .aPkiEzsignfoldersignerassociationID)
     }
 }
+

@@ -23,11 +23,11 @@ public struct EzsigndocumentRequestCompound: Codable, Hashable {
     public var eEzsigndocumentSource: EEzsigndocumentSource
     /** Indicates the format of the document. */
     public var eEzsigndocumentFormat: EEzsigndocumentFormat
-    /** The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. */
+    /** The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64. */
     public var sEzsigndocumentBase64: Data?
     /** A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation. */
     public var fkiEzsignfolderID: Int
-    /** Represent a Date Time. The timezone is the one configured in the User&#39;s profile. */
+    /** Represent a Date Time. The timezone is the one configured in the User's profile. */
     public var dtEzsigndocumentDuedate: String
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
@@ -67,3 +67,4 @@ public struct EzsigndocumentRequestCompound: Codable, Hashable {
         try container.encode(sEzsigndocumentName, forKey: .sEzsigndocumentName)
     }
 }
+

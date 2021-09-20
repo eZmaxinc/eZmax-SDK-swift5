@@ -66,3 +66,4 @@ public struct AddressRequest: Codable, Hashable {
         try container.encode(sAddressZip, forKey: .sAddressZip)
     }
 }
+

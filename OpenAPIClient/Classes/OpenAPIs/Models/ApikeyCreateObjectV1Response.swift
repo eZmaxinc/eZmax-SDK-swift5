@@ -38,3 +38,4 @@ public struct ApikeyCreateObjectV1Response: Codable, Hashable {
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }
+

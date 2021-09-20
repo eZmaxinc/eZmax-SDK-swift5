@@ -40,3 +40,4 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, Hashable {
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
     }
 }
+

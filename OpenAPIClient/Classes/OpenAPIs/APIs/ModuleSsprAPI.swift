@@ -6,8 +6,12 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 open class ModuleSsprAPI {
+
     /**
      Reset Password Request
      
@@ -15,7 +19,7 @@ open class ModuleSsprAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ssprResetPasswordRequestV1(ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+    open class func ssprResetPasswordRequestV1(ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
         ssprResetPasswordRequestV1WithRequestBuilder(ssprResetPasswordRequestV1Request: ssprResetPasswordRequestV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
@@ -37,21 +41,21 @@ open class ModuleSsprAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func ssprResetPasswordRequestV1WithRequestBuilder(ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request) -> RequestBuilder<Void> {
-        let path = "/1/module/sspr/resetPasswordRequest"
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprResetPasswordRequestV1Request)
+        let localVariablePath = "/1/module/sspr/resetPasswordRequest"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprResetPasswordRequestV1Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClient.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
 
     /**
@@ -61,7 +65,7 @@ open class ModuleSsprAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ssprResetPasswordV1(ssprResetPasswordV1Request: SsprResetPasswordV1Request, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+    open class func ssprResetPasswordV1(ssprResetPasswordV1Request: SsprResetPasswordV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
         ssprResetPasswordV1WithRequestBuilder(ssprResetPasswordV1Request: ssprResetPasswordV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
@@ -83,21 +87,21 @@ open class ModuleSsprAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func ssprResetPasswordV1WithRequestBuilder(ssprResetPasswordV1Request: SsprResetPasswordV1Request) -> RequestBuilder<Void> {
-        let path = "/1/module/sspr/resetPassword"
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprResetPasswordV1Request)
+        let localVariablePath = "/1/module/sspr/resetPassword"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprResetPasswordV1Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClient.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
 
     /**
@@ -107,7 +111,7 @@ open class ModuleSsprAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ssprSendUsernamesV1(ssprSendUsernamesV1Request: SsprSendUsernamesV1Request, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+    open class func ssprSendUsernamesV1(ssprSendUsernamesV1Request: SsprSendUsernamesV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
         ssprSendUsernamesV1WithRequestBuilder(ssprSendUsernamesV1Request: ssprSendUsernamesV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
@@ -129,21 +133,21 @@ open class ModuleSsprAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func ssprSendUsernamesV1WithRequestBuilder(ssprSendUsernamesV1Request: SsprSendUsernamesV1Request) -> RequestBuilder<Void> {
-        let path = "/1/module/sspr/sendUsernames"
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprSendUsernamesV1Request)
+        let localVariablePath = "/1/module/sspr/sendUsernames"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprSendUsernamesV1Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClient.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
 
     /**
@@ -153,7 +157,7 @@ open class ModuleSsprAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ssprUnlockAccountRequestV1(ssprUnlockAccountRequestV1Request: SsprUnlockAccountRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+    open class func ssprUnlockAccountRequestV1(ssprUnlockAccountRequestV1Request: SsprUnlockAccountRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
         ssprUnlockAccountRequestV1WithRequestBuilder(ssprUnlockAccountRequestV1Request: ssprUnlockAccountRequestV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
@@ -175,21 +179,21 @@ open class ModuleSsprAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func ssprUnlockAccountRequestV1WithRequestBuilder(ssprUnlockAccountRequestV1Request: SsprUnlockAccountRequestV1Request) -> RequestBuilder<Void> {
-        let path = "/1/module/sspr/unlockAccountRequest"
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprUnlockAccountRequestV1Request)
+        let localVariablePath = "/1/module/sspr/unlockAccountRequest"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprUnlockAccountRequestV1Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClient.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
 
     /**
@@ -199,7 +203,7 @@ open class ModuleSsprAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ssprUnlockAccountV1(ssprUnlockAccountV1Request: SsprUnlockAccountV1Request, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+    open class func ssprUnlockAccountV1(ssprUnlockAccountV1Request: SsprUnlockAccountV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
         ssprUnlockAccountV1WithRequestBuilder(ssprUnlockAccountV1Request: ssprUnlockAccountV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
@@ -221,21 +225,21 @@ open class ModuleSsprAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func ssprUnlockAccountV1WithRequestBuilder(ssprUnlockAccountV1Request: SsprUnlockAccountV1Request) -> RequestBuilder<Void> {
-        let path = "/1/module/sspr/unlockAccount"
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprUnlockAccountV1Request)
+        let localVariablePath = "/1/module/sspr/unlockAccount"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprUnlockAccountV1Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClient.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
 
     /**
@@ -245,7 +249,7 @@ open class ModuleSsprAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ssprValidateTokenV1(ssprValidateTokenV1Request: SsprValidateTokenV1Request, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
+    open class func ssprValidateTokenV1(ssprValidateTokenV1Request: SsprValidateTokenV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
         ssprValidateTokenV1WithRequestBuilder(ssprValidateTokenV1Request: ssprValidateTokenV1Request).execute(apiResponseQueue) { result -> Void in
             switch result {
             case .success:
@@ -267,21 +271,20 @@ open class ModuleSsprAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func ssprValidateTokenV1WithRequestBuilder(ssprValidateTokenV1Request: SsprValidateTokenV1Request) -> RequestBuilder<Void> {
-        let path = "/1/module/sspr/validateToken"
-        let URLString = OpenAPIClient.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprValidateTokenV1Request)
+        let localVariablePath = "/1/module/sspr/validateToken"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ssprValidateTokenV1Request)
 
-        let urlComponents = URLComponents(string: URLString)
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<Void>.Type = OpenAPIClient.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
-
 }

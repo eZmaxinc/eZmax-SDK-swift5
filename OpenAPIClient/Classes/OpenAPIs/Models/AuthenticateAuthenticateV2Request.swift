@@ -51,3 +51,4 @@ public struct AuthenticateAuthenticateV2Request: Codable, Hashable {
         try container.encodeIfPresent(sPasswordEncrypted, forKey: .sPasswordEncrypted)
     }
 }
+

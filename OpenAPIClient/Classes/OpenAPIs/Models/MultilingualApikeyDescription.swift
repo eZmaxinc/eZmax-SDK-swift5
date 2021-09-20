@@ -36,3 +36,4 @@ public struct MultilingualApikeyDescription: Codable, Hashable {
         try container.encodeIfPresent(sApikeyDescription2, forKey: .sApikeyDescription2)
     }
 }
+

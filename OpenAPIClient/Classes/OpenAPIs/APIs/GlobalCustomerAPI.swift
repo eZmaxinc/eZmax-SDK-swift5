@@ -6,8 +6,12 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
+import AnyCodable
+#endif
 
 open class GlobalCustomerAPI {
+
     /**
      * enum for parameter sInfrastructureproductCode
      */
@@ -24,7 +28,7 @@ open class GlobalCustomerAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func globalCustomerGetEndpointV1(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: GlobalCustomerGetEndpointV1Response?, _ error: Error?) -> Void)) {
+    open class func globalCustomerGetEndpointV1(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: GlobalCustomerGetEndpointV1Response?, _ error: Error?) -> Void)) {
         globalCustomerGetEndpointV1WithRequestBuilder(pksCustomerCode: pksCustomerCode, sInfrastructureproductCode: sInfrastructureproductCode).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -47,27 +51,26 @@ open class GlobalCustomerAPI {
      - returns: RequestBuilder<GlobalCustomerGetEndpointV1Response> 
      */
     open class func globalCustomerGetEndpointV1WithRequestBuilder(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil) -> RequestBuilder<GlobalCustomerGetEndpointV1Response> {
-        var path = "/1/customer/{pksCustomerCode}/endpoint"
+        var localVariablePath = "/1/customer/{pksCustomerCode}/endpoint"
         let pksCustomerCodePreEscape = "\(APIHelper.mapValueToPathItem(pksCustomerCode))"
         let pksCustomerCodePostEscape = pksCustomerCodePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{pksCustomerCode}", with: pksCustomerCodePostEscape, options: .literal, range: nil)
-        let URLString = OpenAPIClient.basePath + path
-        let parameters: [String: Any]? = nil
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pksCustomerCode}", with: pksCustomerCodePostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
 
-        var urlComponents = URLComponents(string: URLString)
-        urlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "sInfrastructureproductCode": sInfrastructureproductCode?.encodeToJSON(),
         ])
 
-        let nillableHeaders: [String: Any?] = [
+        let localVariableNillableHeaders: [String: Any?] = [
             :
         ]
 
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let requestBuilder: RequestBuilder<GlobalCustomerGetEndpointV1Response>.Type = OpenAPIClient.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GlobalCustomerGetEndpointV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
-
 }

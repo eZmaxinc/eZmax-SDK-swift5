@@ -80,3 +80,4 @@ public struct FranchisereferalincomeRequest: Codable, Hashable {
         try container.encode(sFranchisereferalincomeRemoteid, forKey: .sFranchisereferalincomeRemoteid)
     }
 }
+

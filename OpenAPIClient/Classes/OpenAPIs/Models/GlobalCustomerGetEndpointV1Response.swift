@@ -13,7 +13,7 @@ import AnyCodable
 /** Response for the /1/customer/{pksCustomerCode}/endpoint API Request */
 public struct GlobalCustomerGetEndpointV1Response: Codable, Hashable {
 
-    /** The endpoint&#39;s URL */
+    /** The endpoint's URL */
     public var sEndpointURL: String
 
     public init(sEndpointURL: String) {
@@ -31,3 +31,4 @@ public struct GlobalCustomerGetEndpointV1Response: Codable, Hashable {
         try container.encode(sEndpointURL, forKey: .sEndpointURL)
     }
 }
+

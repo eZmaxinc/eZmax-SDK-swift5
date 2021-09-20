@@ -38,3 +38,4 @@ public struct EzsignfoldersignerassociationCreateObjectV1Response: Codable, Hash
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }
+

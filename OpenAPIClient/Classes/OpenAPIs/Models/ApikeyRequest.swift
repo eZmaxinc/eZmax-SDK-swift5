@@ -35,3 +35,4 @@ public struct ApikeyRequest: Codable, Hashable {
         try container.encode(objApikeyDescription, forKey: .objApikeyDescription)
     }
 }
+

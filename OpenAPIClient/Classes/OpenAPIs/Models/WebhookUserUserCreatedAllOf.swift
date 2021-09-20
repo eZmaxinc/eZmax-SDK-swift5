@@ -29,3 +29,4 @@ public struct WebhookUserUserCreatedAllOf: Codable, Hashable {
         try container.encode(objUser, forKey: .objUser)
     }
 }
+
