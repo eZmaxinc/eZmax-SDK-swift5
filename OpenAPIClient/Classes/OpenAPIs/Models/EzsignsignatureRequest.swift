@@ -15,7 +15,7 @@ public struct EzsignsignatureRequest: Codable, Hashable {
 
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
-    /** The page number in the document where to apply the signature */
+    /** The page number in the Ezsigndocument */
     public var iEzsignpagePagenumber: Int
     /** The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
     public var iEzsignsignatureX: Int
@@ -24,7 +24,7 @@ public struct EzsignsignatureRequest: Codable, Hashable {
     /** The step when the Ezsignsigner will be invited to sign. */
     public var iEzsignsignatureStep: Int
     public var eEzsignsignatureType: FieldEEzsignsignatureType
-    /** The unique ID of the Ezsigntemplate */
+    /** The unique ID of the Ezsigndocument */
     public var fkiEzsigndocumentID: Int
 
     public init(fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int) {

@@ -72,7 +72,7 @@ Delete an existing Ezsignsignature
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsignsignatureID = 987 // Int | The unique ID of the Ezsignsignature
+let pkiEzsignsignatureID = 987 // Int | 
 
 // Delete an existing Ezsignsignature
 ObjectEzsignsignatureAPI.ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
@@ -91,7 +91,7 @@ ObjectEzsignsignatureAPI.ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: pki
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsignsignatureID** | **Int** | The unique ID of the Ezsignsignature | 
+ **pkiEzsignsignatureID** | **Int** |  | 
 
 ### Return type
 
@@ -122,7 +122,7 @@ Retrieve an existing Ezsignsignature's children IDs
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsignsignatureID = 987 // Int | The unique ID of the Ezsignsignature
+let pkiEzsignsignatureID = 987 // Int | 
 
 // Retrieve an existing Ezsignsignature's children IDs
 ObjectEzsignsignatureAPI.ezsignsignatureGetChildrenV1(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
@@ -141,7 +141,7 @@ ObjectEzsignsignatureAPI.ezsignsignatureGetChildrenV1(pkiEzsignsignatureID: pkiE
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsignsignatureID** | **Int** | The unique ID of the Ezsignsignature | 
+ **pkiEzsignsignatureID** | **Int** |  | 
 
 ### Return type
 
@@ -172,7 +172,7 @@ Retrieve an existing Ezsignsignature
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsignsignatureID = 987 // Int | The unique ID of the Ezsignsignature
+let pkiEzsignsignatureID = 987 // Int | 
 
 // Retrieve an existing Ezsignsignature
 ObjectEzsignsignatureAPI.ezsignsignatureGetObjectV1(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
@@ -191,7 +191,7 @@ ObjectEzsignsignatureAPI.ezsignsignatureGetObjectV1(pkiEzsignsignatureID: pkiEzs
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsignsignatureID** | **Int** | The unique ID of the Ezsignsignature | 
+ **pkiEzsignsignatureID** | **Int** |  | 
 
 ### Return type
 

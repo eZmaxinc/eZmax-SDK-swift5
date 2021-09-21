@@ -61,7 +61,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
     /**
      Delete an existing Ezsignfoldersignerassociation
      
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -82,7 +82,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
      - returns: RequestBuilder<EzsignfoldersignerassociationDeleteObjectV1Response> 
      */
     open class func ezsignfoldersignerassociationDeleteObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int) -> RequestBuilder<EzsignfoldersignerassociationDeleteObjectV1Response> {
@@ -109,7 +109,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
     /**
      Retrieve an existing Ezsignfoldersignerassociation's children IDs
      
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -131,7 +131,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
      - returns: RequestBuilder<Void> 
      */
     open class func ezsignfoldersignerassociationGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int) -> RequestBuilder<Void> {
@@ -158,7 +158,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
     /**
      Retrieve a Login Url to allow In-Person signing
      
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -180,7 +180,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
      - returns: RequestBuilder<EzsignfoldersignerassociationGetInPersonLoginUrlV1Response> 
      */
     open class func ezsignfoldersignerassociationGetInPersonLoginUrlV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int) -> RequestBuilder<EzsignfoldersignerassociationGetInPersonLoginUrlV1Response> {
@@ -207,7 +207,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
     /**
      Retrieve an existing Ezsignfoldersignerassociation
      
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -229,7 +229,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsignfoldersignerassociationID: (path) The unique ID of the Ezsignfoldersignerassociation 
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
      - returns: RequestBuilder<EzsignfoldersignerassociationGetObjectV1Response> 
      */
     open class func ezsignfoldersignerassociationGetObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int) -> RequestBuilder<EzsignfoldersignerassociationGetObjectV1Response> {

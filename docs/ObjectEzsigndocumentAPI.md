@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ezsigndocumentDeleteObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentdeleteobjectv1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**ezsigndocumentGetChildrenV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetchildrenv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 [**ezsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetdownloadurlv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
+[**ezsigndocumentGetEzsignpagesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignpagesv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 [**ezsigndocumentGetFormDataV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetformdatav1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 [**ezsigndocumentGetObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetobjectv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
 [**ezsigndocumentGetWordsPositionsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetwordspositionsv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
@@ -28,7 +29,7 @@ This endpoint applies a predefined template to the ezsign document. This allows 
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsigndocumentID = 987 // Int | The unique ID of the Ezsigndocument
+let pkiEzsigndocumentID = 987 // Int | 
 let ezsigndocumentApplyEzsigntemplateV1Request = ezsigndocument-applyEzsigntemplate-v1-Request(fkiEzsigntemplateID: 123, aSEzsigntemplatesigner: ["aSEzsigntemplatesigner_example"], aPkiEzsignfoldersignerassociationID: [123]) // EzsigndocumentApplyEzsigntemplateV1Request | 
 
 // Apply an Ezsign Template to the Ezsigndocument.
@@ -48,7 +49,7 @@ ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
+ **pkiEzsigndocumentID** | **Int** |  | 
  **ezsigndocumentApplyEzsigntemplateV1Request** | [**EzsigndocumentApplyEzsigntemplateV1Request**](EzsigndocumentApplyEzsigntemplateV1Request.md) |  | 
 
 ### Return type
@@ -128,7 +129,7 @@ Delete an existing Ezsigndocument
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsigndocumentID = 987 // Int | The unique ID of the Ezsigndocument
+let pkiEzsigndocumentID = 987 // Int | 
 
 // Delete an existing Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
@@ -147,7 +148,7 @@ ObjectEzsigndocumentAPI.ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: pkiEzs
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
+ **pkiEzsigndocumentID** | **Int** |  | 
 
 ### Return type
 
@@ -178,7 +179,7 @@ Retrieve an existing Ezsigndocument's children IDs
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsigndocumentID = 987 // Int | The unique ID of the Ezsigndocument
+let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's children IDs
 ObjectEzsigndocumentAPI.ezsigndocumentGetChildrenV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
@@ -197,7 +198,7 @@ ObjectEzsigndocumentAPI.ezsigndocumentGetChildrenV1(pkiEzsigndocumentID: pkiEzsi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
+ **pkiEzsigndocumentID** | **Int** |  | 
 
 ### Return type
 
@@ -228,7 +229,7 @@ This endpoint returns URLs to different files that can be downloaded during the 
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsigndocumentID = 987 // Int | The unique ID of the Ezsigndocument
+let pkiEzsigndocumentID = 987 // Int | 
 let eDocumentType = "eDocumentType_example" // String | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more. 
 
 // Retrieve a URL to download documents.
@@ -248,12 +249,62 @@ ObjectEzsigndocumentAPI.ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: pkiE
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
+ **pkiEzsigndocumentID** | **Int** |  | 
  **eDocumentType** | **String** | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more.  | 
 
 ### Return type
 
 [**EzsigndocumentGetDownloadUrlV1Response**](EzsigndocumentGetDownloadUrlV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocumentGetEzsignpagesV1**
+```swift
+    open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignpagesV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigndocument's Ezsignpages
+
+## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// Retrieve an existing Ezsigndocument's Ezsignpages
+ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentGetEzsignpagesV1Response**](EzsigndocumentGetEzsignpagesV1Response.md)
 
 ### Authorization
 
@@ -280,7 +331,7 @@ Retrieve an existing Ezsigndocument's Form Data
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsigndocumentID = 987 // Int | The unique ID of the Ezsigndocument
+let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument's Form Data
 ObjectEzsigndocumentAPI.ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
@@ -299,7 +350,7 @@ ObjectEzsigndocumentAPI.ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: pkiEzsi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
+ **pkiEzsigndocumentID** | **Int** |  | 
 
 ### Return type
 
@@ -330,7 +381,7 @@ Retrieve an existing Ezsigndocument
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsigndocumentID = 987 // Int | The unique ID of the Ezsigndocument
+let pkiEzsigndocumentID = 987 // Int | 
 
 // Retrieve an existing Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentGetObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
@@ -349,7 +400,7 @@ ObjectEzsigndocumentAPI.ezsigndocumentGetObjectV1(pkiEzsigndocumentID: pkiEzsign
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
+ **pkiEzsigndocumentID** | **Int** |  | 
 
 ### Return type
 
@@ -380,7 +431,7 @@ Retrieve positions X,Y of given words from a Ezsigndocument
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsigndocumentID = 987 // Int | The unique ID of the Ezsigndocument
+let pkiEzsigndocumentID = 987 // Int | 
 let ezsigndocumentGetWordsPositionsV1Request = ezsigndocument-getWordsPositions-v1-Request(aSWords: ["aSWords_example"]) // EzsigndocumentGetWordsPositionsV1Request | 
 
 // Retrieve positions X,Y of given words from a Ezsigndocument
@@ -400,7 +451,7 @@ ObjectEzsigndocumentAPI.ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: p
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
+ **pkiEzsigndocumentID** | **Int** |  | 
  **ezsigndocumentGetWordsPositionsV1Request** | [**EzsigndocumentGetWordsPositionsV1Request**](EzsigndocumentGetWordsPositionsV1Request.md) |  | 
 
 ### Return type

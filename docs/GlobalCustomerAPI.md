@@ -21,7 +21,7 @@ Retrieve the customer's specific server endpoint where to send requests. This wi
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pksCustomerCode = "pksCustomerCode_example" // String | The customer code assigned to your account
+let pksCustomerCode = "pksCustomerCode_example" // String | 
 let sInfrastructureproductCode = "sInfrastructureproductCode_example" // String | The infrastructure product Code  If undefined, \"appcluster01\" is assumed (optional)
 
 // Get customer endpoint
@@ -41,7 +41,7 @@ GlobalCustomerAPI.globalCustomerGetEndpointV1(pksCustomerCode: pksCustomerCode, 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pksCustomerCode** | **String** | The customer code assigned to your account | 
+ **pksCustomerCode** | **String** |  | 
  **sInfrastructureproductCode** | **String** | The infrastructure product Code  If undefined, \&quot;appcluster01\&quot; is assumed | [optional] 
 
 ### Return type

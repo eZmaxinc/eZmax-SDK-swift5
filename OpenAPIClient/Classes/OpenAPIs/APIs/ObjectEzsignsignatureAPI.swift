@@ -61,7 +61,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Delete an existing Ezsignsignature
      
-     - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
+     - parameter pkiEzsignsignatureID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -82,7 +82,7 @@ open class ObjectEzsignsignatureAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
+     - parameter pkiEzsignsignatureID: (path)  
      - returns: RequestBuilder<EzsignsignatureDeleteObjectV1Response> 
      */
     open class func ezsignsignatureDeleteObjectV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<EzsignsignatureDeleteObjectV1Response> {
@@ -109,7 +109,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Retrieve an existing Ezsignsignature's children IDs
      
-     - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
+     - parameter pkiEzsignsignatureID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -131,7 +131,7 @@ open class ObjectEzsignsignatureAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
+     - parameter pkiEzsignsignatureID: (path)  
      - returns: RequestBuilder<Void> 
      */
     open class func ezsignsignatureGetChildrenV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<Void> {
@@ -158,7 +158,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Retrieve an existing Ezsignsignature
      
-     - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
+     - parameter pkiEzsignsignatureID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -180,7 +180,7 @@ open class ObjectEzsignsignatureAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsignsignatureID: (path) The unique ID of the Ezsignsignature 
+     - parameter pkiEzsignsignatureID: (path)  
      - returns: RequestBuilder<EzsignsignatureGetObjectV1Response> 
      */
     open class func ezsignsignatureGetObjectV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<EzsignsignatureGetObjectV1Response> {

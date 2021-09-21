@@ -15,7 +15,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Apply an Ezsign Template to the Ezsigndocument.
      
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentApplyEzsigntemplateV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -38,7 +38,7 @@ open class ObjectEzsigndocumentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentApplyEzsigntemplateV1Request: (body)  
      - returns: RequestBuilder<EzsigndocumentApplyEzsigntemplateV1Response> 
      */
@@ -112,7 +112,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Delete an existing Ezsigndocument
      
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -133,7 +133,7 @@ open class ObjectEzsigndocumentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentDeleteObjectV1Response> 
      */
     open class func ezsigndocumentDeleteObjectV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentDeleteObjectV1Response> {
@@ -160,7 +160,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve an existing Ezsigndocument's children IDs
      
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -182,7 +182,7 @@ open class ObjectEzsigndocumentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<Void> 
      */
     open class func ezsigndocumentGetChildrenV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<Void> {
@@ -219,7 +219,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve a URL to download documents.
      
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter eDocumentType: (path) The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more.  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -242,7 +242,7 @@ open class ObjectEzsigndocumentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter eDocumentType: (path) The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more.  
      - returns: RequestBuilder<EzsigndocumentGetDownloadUrlV1Response> 
      */
@@ -271,9 +271,58 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Retrieve an existing Ezsigndocument's Ezsignpages
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignpagesV1Response?, _ error: Error?) -> Void)) {
+        ezsigndocumentGetEzsignpagesV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's Ezsignpages
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages
+     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetEzsignpagesV1Response> 
+     */
+    open class func ezsigndocumentGetEzsignpagesV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetEzsignpagesV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsignpagesV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Retrieve an existing Ezsigndocument's Form Data
      
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -295,7 +344,7 @@ open class ObjectEzsigndocumentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<URL> 
      */
     open class func ezsigndocumentGetFormDataV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<URL> {
@@ -322,7 +371,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve an existing Ezsigndocument
      
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -344,7 +393,7 @@ open class ObjectEzsigndocumentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetObjectV1Response> 
      */
     open class func ezsigndocumentGetObjectV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetObjectV1Response> {
@@ -371,7 +420,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve positions X,Y of given words from a Ezsigndocument
      
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentGetWordsPositionsV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -394,7 +443,7 @@ open class ObjectEzsigndocumentAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pkiEzsigndocumentID: (path) The unique ID of the Ezsigndocument 
+     - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentGetWordsPositionsV1Request: (body)  
      - returns: RequestBuilder<EzsigndocumentGetWordsPositionsV1Response> 
      */

@@ -67,6 +67,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentDeleteObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetDownloadUrlV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetDownloadUrlV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetDownloadUrlV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetEzsignpagesV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetEzsignpagesV1ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetEzsignpagesV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetObjectV1ResponseMPayload.swift
@@ -77,7 +80,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetWordsPositionsV1ResponseM
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponse.swift
-OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponseCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1Response.swift
@@ -106,6 +108,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationGetObjectV1Re
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationRequestCompoundAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignpageResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureCreateObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureCreateObjectV1ResponseAllOf.swift
@@ -212,6 +215,9 @@ docs/EzsigndocumentDeleteObjectV1Response.md
 docs/EzsigndocumentGetDownloadUrlV1Response.md
 docs/EzsigndocumentGetDownloadUrlV1ResponseAllOf.md
 docs/EzsigndocumentGetDownloadUrlV1ResponseMPayload.md
+docs/EzsigndocumentGetEzsignpagesV1Response.md
+docs/EzsigndocumentGetEzsignpagesV1ResponseAllOf.md
+docs/EzsigndocumentGetEzsignpagesV1ResponseMPayload.md
 docs/EzsigndocumentGetObjectV1Response.md
 docs/EzsigndocumentGetObjectV1ResponseAllOf.md
 docs/EzsigndocumentGetObjectV1ResponseMPayload.md
@@ -222,7 +228,6 @@ docs/EzsigndocumentGetWordsPositionsV1ResponseMPayload.md
 docs/EzsigndocumentRequest.md
 docs/EzsigndocumentRequestCompound.md
 docs/EzsigndocumentResponse.md
-docs/EzsigndocumentResponseAllOf.md
 docs/EzsigndocumentResponseCompound.md
 docs/EzsignfolderCreateObjectV1Request.md
 docs/EzsignfolderCreateObjectV1Response.md
@@ -251,6 +256,7 @@ docs/EzsignfoldersignerassociationGetObjectV1ResponseAllOf.md
 docs/EzsignfoldersignerassociationRequest.md
 docs/EzsignfoldersignerassociationRequestCompound.md
 docs/EzsignfoldersignerassociationRequestCompoundAllOf.md
+docs/EzsignpageResponse.md
 docs/EzsignsignatureCreateObjectV1Request.md
 docs/EzsignsignatureCreateObjectV1Response.md
 docs/EzsignsignatureCreateObjectV1ResponseAllOf.md

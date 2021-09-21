@@ -23,7 +23,7 @@ open class GlobalCustomerAPI {
     /**
      Get customer endpoint
      
-     - parameter pksCustomerCode: (path) The customer code assigned to your account 
+     - parameter pksCustomerCode: (path)  
      - parameter sInfrastructureproductCode: (query) The infrastructure product Code  If undefined, \&quot;appcluster01\&quot; is assumed (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -46,7 +46,7 @@ open class GlobalCustomerAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
-     - parameter pksCustomerCode: (path) The customer code assigned to your account 
+     - parameter pksCustomerCode: (path)  
      - parameter sInfrastructureproductCode: (query) The infrastructure product Code  If undefined, \&quot;appcluster01\&quot; is assumed (optional)
      - returns: RequestBuilder<GlobalCustomerGetEndpointV1Response> 
      */

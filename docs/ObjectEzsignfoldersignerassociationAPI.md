@@ -73,7 +73,7 @@ Delete an existing Ezsignfoldersignerassociation
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsignfoldersignerassociationID = 987 // Int | The unique ID of the Ezsignfoldersignerassociation
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Delete an existing Ezsignfoldersignerassociation
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
@@ -92,7 +92,7 @@ ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationDeleteObject
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsignfoldersignerassociationID** | **Int** | The unique ID of the Ezsignfoldersignerassociation | 
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
 
 ### Return type
 
@@ -123,7 +123,7 @@ Retrieve an existing Ezsignfoldersignerassociation's children IDs
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsignfoldersignerassociationID = 987 // Int | The unique ID of the Ezsignfoldersignerassociation
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Retrieve an existing Ezsignfoldersignerassociation's children IDs
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetChildrenV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
@@ -142,7 +142,7 @@ ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetChildrenV
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsignfoldersignerassociationID** | **Int** | The unique ID of the Ezsignfoldersignerassociation | 
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
 
 ### Return type
 
@@ -173,7 +173,7 @@ This endpoint returns a Login Url that can be used in a browser or embedded in a
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsignfoldersignerassociationID = 987 // Int | The unique ID of the Ezsignfoldersignerassociation
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Retrieve a Login Url to allow In-Person signing
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetInPersonLoginUrlV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
@@ -192,7 +192,7 @@ ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetInPersonL
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsignfoldersignerassociationID** | **Int** | The unique ID of the Ezsignfoldersignerassociation | 
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
 
 ### Return type
 
@@ -223,7 +223,7 @@ Retrieve an existing Ezsignfoldersignerassociation
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsignfoldersignerassociationID = 987 // Int | The unique ID of the Ezsignfoldersignerassociation
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
 
 // Retrieve an existing Ezsignfoldersignerassociation
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID) { (response, error) in
@@ -242,7 +242,7 @@ ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationGetObjectV1(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiEzsignfoldersignerassociationID** | **Int** | The unique ID of the Ezsignfoldersignerassociation | 
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
 
 ### Return type
 

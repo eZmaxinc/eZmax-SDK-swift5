@@ -21,7 +21,7 @@ public struct EzsigndocumentResponseCompound: Codable, Hashable {
     public var fkiLanguageID: Int
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */
     public var sEzsigndocumentName: String
-    /** The unique ID of the Ezsigntemplate */
+    /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int
     public var eEzsigndocumentStep: FieldEEzsigndocumentStep
     /** The date and time when the Ezsigndocument was first sent. */
