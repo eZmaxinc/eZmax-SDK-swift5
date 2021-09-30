@@ -20,7 +20,7 @@ open class ObjectFranchisereferalincomeAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func franchisereferalincomeCreateObjectV1(franchisereferalincomeCreateObjectV1Request: [FranchisereferalincomeCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: FranchisereferalincomeCreateObjectV1Response?, _ error: Error?) -> Void)) {
-        franchisereferalincomeCreateObjectV1WithRequestBuilder(franchisereferalincomeCreateObjectV1Request: franchisereferalincomeCreateObjectV1Request).execute(apiResponseQueue) { result -> Void in
+        franchisereferalincomeCreateObjectV1WithRequestBuilder(franchisereferalincomeCreateObjectV1Request: franchisereferalincomeCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)

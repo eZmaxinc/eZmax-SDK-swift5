@@ -1,9 +1,10 @@
-# EzsigndocumentGetWordsPositionsV1ResponseMPayload
+# EzsigndocumentApplyEzsigntemplateV2Response
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aSWords** | [CustomWordPositionResponse] | An array of words with an array of pages and positions X,Y  They are returned with the sames words that was sent in the request. | 
+**objDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**objDebug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

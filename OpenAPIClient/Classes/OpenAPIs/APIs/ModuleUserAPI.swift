@@ -20,7 +20,7 @@ open class ModuleUserAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func userCreateEzsignuserV1(userCreateEzsignuserV1Request: [UserCreateEzsignuserV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserCreateEzsignuserV1Response?, _ error: Error?) -> Void)) {
-        userCreateEzsignuserV1WithRequestBuilder(userCreateEzsignuserV1Request: userCreateEzsignuserV1Request).execute(apiResponseQueue) { result -> Void in
+        userCreateEzsignuserV1WithRequestBuilder(userCreateEzsignuserV1Request: userCreateEzsignuserV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)

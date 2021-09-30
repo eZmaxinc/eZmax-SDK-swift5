@@ -20,7 +20,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfolderCreateObjectV1(ezsignfolderCreateObjectV1Request: [EzsignfolderCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderCreateObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignfolderCreateObjectV1WithRequestBuilder(ezsignfolderCreateObjectV1Request: ezsignfolderCreateObjectV1Request).execute(apiResponseQueue) { result -> Void in
+        ezsignfolderCreateObjectV1WithRequestBuilder(ezsignfolderCreateObjectV1Request: ezsignfolderCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -66,7 +66,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfolderDeleteObjectV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderDeleteObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignfolderDeleteObjectV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result -> Void in
+        ezsignfolderDeleteObjectV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -114,7 +114,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfolderGetChildrenV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
-        ezsignfolderGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result -> Void in
+        ezsignfolderGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
             case .success:
                 completion((), nil)
@@ -162,8 +162,8 @@ open class ObjectEzsignfolderAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsignfolderGetFormsDataV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) {
-        ezsignfolderGetFormsDataV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result -> Void in
+    open class func ezsignfolderGetFormsDataV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetFormsDataV1Response?, _ error: Error?) -> Void)) {
+        ezsignfolderGetFormsDataV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -181,9 +181,9 @@ open class ObjectEzsignfolderAPI {
        - type: apiKey Authorization 
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
-     - returns: RequestBuilder<URL> 
+     - returns: RequestBuilder<EzsignfolderGetFormsDataV1Response> 
      */
-    open class func ezsignfolderGetFormsDataV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<URL> {
+    open class func ezsignfolderGetFormsDataV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<EzsignfolderGetFormsDataV1Response> {
         var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData"
         let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
         let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -199,7 +199,7 @@ open class ObjectEzsignfolderAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetFormsDataV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
@@ -212,7 +212,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfolderGetObjectV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignfolderGetObjectV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result -> Void in
+        ezsignfolderGetObjectV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -262,7 +262,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfolderSendV1(pkiEzsignfolderID: Int, ezsignfolderSendV1Request: EzsignfolderSendV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderSendV1Response?, _ error: Error?) -> Void)) {
-        ezsignfolderSendV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderSendV1Request: ezsignfolderSendV1Request).execute(apiResponseQueue) { result -> Void in
+        ezsignfolderSendV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderSendV1Request: ezsignfolderSendV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)

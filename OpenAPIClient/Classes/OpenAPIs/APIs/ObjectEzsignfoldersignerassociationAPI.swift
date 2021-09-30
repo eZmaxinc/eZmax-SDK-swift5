@@ -20,7 +20,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfoldersignerassociationCreateObjectV1(ezsignfoldersignerassociationCreateObjectV1Request: [EzsignfoldersignerassociationCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationCreateObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignfoldersignerassociationCreateObjectV1WithRequestBuilder(ezsignfoldersignerassociationCreateObjectV1Request: ezsignfoldersignerassociationCreateObjectV1Request).execute(apiResponseQueue) { result -> Void in
+        ezsignfoldersignerassociationCreateObjectV1WithRequestBuilder(ezsignfoldersignerassociationCreateObjectV1Request: ezsignfoldersignerassociationCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -66,7 +66,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationDeleteObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignfoldersignerassociationDeleteObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result -> Void in
+        ezsignfoldersignerassociationDeleteObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -114,7 +114,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfoldersignerassociationGetChildrenV1(pkiEzsignfoldersignerassociationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
-        ezsignfoldersignerassociationGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result -> Void in
+        ezsignfoldersignerassociationGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result in
             switch result {
             case .success:
                 completion((), nil)
@@ -163,7 +163,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfoldersignerassociationGetInPersonLoginUrlV1(pkiEzsignfoldersignerassociationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationGetInPersonLoginUrlV1Response?, _ error: Error?) -> Void)) {
-        ezsignfoldersignerassociationGetInPersonLoginUrlV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result -> Void in
+        ezsignfoldersignerassociationGetInPersonLoginUrlV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -212,7 +212,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func ezsignfoldersignerassociationGetObjectV1(pkiEzsignfoldersignerassociationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationGetObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsignfoldersignerassociationGetObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result -> Void in
+        ezsignfoldersignerassociationGetObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)

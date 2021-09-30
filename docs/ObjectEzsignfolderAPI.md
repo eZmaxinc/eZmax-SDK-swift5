@@ -162,7 +162,7 @@ Void (empty response body)
 
 # **ezsignfolderGetFormsDataV1**
 ```swift
-    open class func ezsignfolderGetFormsDataV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func ezsignfolderGetFormsDataV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetFormsDataV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve an existing Ezsignfolder's forms data
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**URL**
+[**EzsignfolderGetFormsDataV1Response**](EzsignfolderGetFormsDataV1Response.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/zip, application/json
+ - **Accept**: application/json, application/zip
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

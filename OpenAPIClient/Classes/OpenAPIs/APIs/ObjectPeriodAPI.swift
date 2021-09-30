@@ -31,7 +31,7 @@ open class ObjectPeriodAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func periodGetAutocompleteV1(sSelector: SSelector_periodGetAutocompleteV1, sQuery: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) {
-        periodGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, sQuery: sQuery).execute(apiResponseQueue) { result -> Void in
+        periodGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, sQuery: sQuery).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)

@@ -14,9 +14,9 @@ import AnyCodable
 public struct EzsigndocumentGetWordsPositionsV1ResponseMPayload: Codable, Hashable {
 
     /** An array of words with an array of pages and positions X,Y  They are returned with the sames words that was sent in the request. */
-    public var aSWords: [WordPositionResponse]
+    public var aSWords: [CustomWordPositionResponse]
 
-    public init(aSWords: [WordPositionResponse]) {
+    public init(aSWords: [CustomWordPositionResponse]) {
         self.aSWords = aSWords
     }
 
