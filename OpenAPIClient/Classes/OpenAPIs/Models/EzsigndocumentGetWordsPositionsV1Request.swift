@@ -13,21 +13,31 @@ import AnyCodable
 /** Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
 public struct EzsigndocumentGetWordsPositionsV1Request: Codable, Hashable {
 
-    public var aSWords: [String]
+    public enum EGet: String, Codable, CaseIterable {
+        case all = "All"
+        case words = "Words"
+    }
+    /** Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search in *a_sWord*. */
+    public var eGet: EGet?
+    /** Array of words to find in the document */
+    public var aSWord: [String]?
 
-    public init(aSWords: [String]) {
-        self.aSWords = aSWords
+    public init(eGet: EGet? = nil, aSWord: [String]? = nil) {
+        self.eGet = eGet
+        self.aSWord = aSWord
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aSWords = "a_sWords"
+        case eGet
+        case aSWord = "a_sWord"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aSWords, forKey: .aSWords)
+        try container.encodeIfPresent(eGet, forKey: .eGet)
+        try container.encodeIfPresent(aSWord, forKey: .aSWord)
     }
 }
 

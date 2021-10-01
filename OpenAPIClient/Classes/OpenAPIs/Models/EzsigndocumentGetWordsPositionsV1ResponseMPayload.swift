@@ -13,22 +13,14 @@ import AnyCodable
 /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
 public struct EzsigndocumentGetWordsPositionsV1ResponseMPayload: Codable, Hashable {
 
-    /** An array of words with an array of pages and positions X,Y  They are returned with the sames words that was sent in the request. */
-    public var aSWords: [CustomWordPositionResponse]
 
-    public init(aSWords: [CustomWordPositionResponse]) {
-        self.aSWords = aSWords
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aSWords = "a_sWords"
+    public enum CodingKeys: CodingKey, CaseIterable {
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aSWords, forKey: .aSWords)
     }
 }
 

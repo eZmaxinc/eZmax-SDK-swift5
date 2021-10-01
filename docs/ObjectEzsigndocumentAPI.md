@@ -483,7 +483,7 @@ Retrieve positions X,Y of given words from a Ezsigndocument
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
-let ezsigndocumentGetWordsPositionsV1Request = ezsigndocument-getWordsPositions-v1-Request(aSWords: ["aSWords_example"]) // EzsigndocumentGetWordsPositionsV1Request | 
+let ezsigndocumentGetWordsPositionsV1Request = ezsigndocument-getWordsPositions-v1-Request(eGet: "eGet_example", aSWord: ["aSWord_example"]) // EzsigndocumentGetWordsPositionsV1Request | 
 
 // Retrieve positions X,Y of given words from a Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentGetWordsPositionsV1Request: ezsigndocumentGetWordsPositionsV1Request) { (response, error) in
