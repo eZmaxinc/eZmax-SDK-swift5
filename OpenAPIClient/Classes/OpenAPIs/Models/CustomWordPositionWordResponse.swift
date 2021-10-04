@@ -16,16 +16,16 @@ public struct CustomWordPositionWordResponse: Codable, Hashable {
     /** The searched word */
     public var sWord: String
     /** The found occurences for the seached word */
-    public var objWordPositionOccurence: [CustomWordPositionOccurenceResponse]
+    public var aObjWordPositionOccurence: [CustomWordPositionOccurenceResponse]
 
-    public init(sWord: String, objWordPositionOccurence: [CustomWordPositionOccurenceResponse]) {
+    public init(sWord: String, aObjWordPositionOccurence: [CustomWordPositionOccurenceResponse]) {
         self.sWord = sWord
-        self.objWordPositionOccurence = objWordPositionOccurence
+        self.aObjWordPositionOccurence = aObjWordPositionOccurence
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case sWord
-        case objWordPositionOccurence
+        case aObjWordPositionOccurence = "a_objWordPositionOccurence"
     }
 
     // Encodable protocol methods
@@ -33,7 +33,7 @@ public struct CustomWordPositionWordResponse: Codable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sWord, forKey: .sWord)
-        try container.encode(objWordPositionOccurence, forKey: .objWordPositionOccurence)
+        try container.encode(aObjWordPositionOccurence, forKey: .aObjWordPositionOccurence)
     }
 }
 
