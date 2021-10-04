@@ -13,11 +13,12 @@ import AnyCodable
 /** Response for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
 public struct EzsigndocumentGetWordsPositionsV1Response: Codable, Hashable {
 
-    public var mPayload: EzsigndocumentGetWordsPositionsV1ResponseMPayload
+    /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
+    public var mPayload: [CustomWordPositionWordResponse]
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?
 
-    public init(mPayload: EzsigndocumentGetWordsPositionsV1ResponseMPayload, objDebugPayload: CommonResponseObjDebugPayload? = nil, objDebug: CommonResponseObjDebug? = nil) {
+    public init(mPayload: [CustomWordPositionWordResponse], objDebugPayload: CommonResponseObjDebugPayload? = nil, objDebug: CommonResponseObjDebug? = nil) {
         self.mPayload = mPayload
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug

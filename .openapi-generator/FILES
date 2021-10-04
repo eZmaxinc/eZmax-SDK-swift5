@@ -59,7 +59,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/ContactinformationsRequestCompoundAllOf.sw
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormDataDocumentResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormDataFolderResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormDataSignerResponse.swift
-OpenAPIClient/Classes/OpenAPIs/Models/CustomWordPositionResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CustomWordPositionOccurenceResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CustomWordPositionWordResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EmailRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentApplyEzsigntemplateV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentApplyEzsigntemplateV1Response.swift
@@ -85,7 +86,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetObjectV1ResponseMPayload.
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetWordsPositionsV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetWordsPositionsV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetWordsPositionsV1ResponseAllOf.swift
-OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetWordsPositionsV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponse.swift
@@ -223,7 +223,8 @@ docs/ContactinformationsRequestCompoundAllOf.md
 docs/CustomFormDataDocumentResponse.md
 docs/CustomFormDataFolderResponse.md
 docs/CustomFormDataSignerResponse.md
-docs/CustomWordPositionResponse.md
+docs/CustomWordPositionOccurenceResponse.md
+docs/CustomWordPositionWordResponse.md
 docs/EmailRequest.md
 docs/EzsigndocumentApplyEzsigntemplateV1Request.md
 docs/EzsigndocumentApplyEzsigntemplateV1Response.md
@@ -249,7 +250,6 @@ docs/EzsigndocumentGetObjectV1ResponseMPayload.md
 docs/EzsigndocumentGetWordsPositionsV1Request.md
 docs/EzsigndocumentGetWordsPositionsV1Response.md
 docs/EzsigndocumentGetWordsPositionsV1ResponseAllOf.md
-docs/EzsigndocumentGetWordsPositionsV1ResponseMPayload.md
 docs/EzsigndocumentRequest.md
 docs/EzsigndocumentRequestCompound.md
 docs/EzsigndocumentResponse.md
