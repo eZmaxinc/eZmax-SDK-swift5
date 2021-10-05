@@ -17,18 +17,22 @@ public struct EzsigndocumentGetWordsPositionsV1Request: Codable, Hashable {
         case all = "All"
         case words = "Words"
     }
-    /** Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search in *a_sWord*. */
-    public var eGet: EGet?
+    /** Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search for in *a_sWord*. */
+    public var eGet: EGet
+    /** IF *true*, words will be searched case-sensitive and results will be returned case-sensitive. IF *false*, words will be searched case-insensitive and results will be returned case-insensitive. */
+    public var bWordCaseSensitive: Bool
     /** Array of words to find in the document */
     public var aSWord: [String]?
 
-    public init(eGet: EGet? = nil, aSWord: [String]? = nil) {
+    public init(eGet: EGet, bWordCaseSensitive: Bool, aSWord: [String]? = nil) {
         self.eGet = eGet
+        self.bWordCaseSensitive = bWordCaseSensitive
         self.aSWord = aSWord
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case eGet
+        case bWordCaseSensitive
         case aSWord = "a_sWord"
     }
 
@@ -36,7 +40,8 @@ public struct EzsigndocumentGetWordsPositionsV1Request: Codable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(eGet, forKey: .eGet)
+        try container.encode(eGet, forKey: .eGet)
+        try container.encode(bWordCaseSensitive, forKey: .bWordCaseSensitive)
         try container.encodeIfPresent(aSWord, forKey: .aSWord)
     }
 }

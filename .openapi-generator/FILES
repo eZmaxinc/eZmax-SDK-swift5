@@ -13,6 +13,7 @@ OpenAPIClient/Classes/OpenAPIs/APIs/ObjectApikeyAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsigndocumentAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignfolderAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignfoldersignerassociationAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignfoldertypeAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignsignatureAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectFranchisebrokerAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectFranchiseofficeAPI.swift
@@ -44,6 +45,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/CommonAudit.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CommonGetListV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseError.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseObjDebug.swift
@@ -120,6 +122,11 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationGetObjectV1Re
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationRequestCompoundAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldertypeGetListV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldertypeGetListV1ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldertypeGetListV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldertypeGetListV1ResponseMPayloadAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldertypeListElement.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignformfieldResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignformfieldResponseCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignformfieldgroupResponse.swift
@@ -208,6 +215,7 @@ docs/CommonAudit.md
 docs/CommonGetAutocompleteV1Response.md
 docs/CommonGetAutocompleteV1ResponseAllOf.md
 docs/CommonGetAutocompleteV1ResponseMPayload.md
+docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
 docs/CommonResponseObjDebug.md
@@ -284,6 +292,11 @@ docs/EzsignfoldersignerassociationGetObjectV1ResponseAllOf.md
 docs/EzsignfoldersignerassociationRequest.md
 docs/EzsignfoldersignerassociationRequestCompound.md
 docs/EzsignfoldersignerassociationRequestCompoundAllOf.md
+docs/EzsignfoldertypeGetListV1Response.md
+docs/EzsignfoldertypeGetListV1ResponseAllOf.md
+docs/EzsignfoldertypeGetListV1ResponseMPayload.md
+docs/EzsignfoldertypeGetListV1ResponseMPayloadAllOf.md
+docs/EzsignfoldertypeListElement.md
 docs/EzsignformfieldResponse.md
 docs/EzsignformfieldResponseCompound.md
 docs/EzsignformfieldgroupResponse.md
@@ -328,6 +341,7 @@ docs/ObjectApikeyAPI.md
 docs/ObjectEzsigndocumentAPI.md
 docs/ObjectEzsignfolderAPI.md
 docs/ObjectEzsignfoldersignerassociationAPI.md
+docs/ObjectEzsignfoldertypeAPI.md
 docs/ObjectEzsignsignatureAPI.md
 docs/ObjectFranchisebrokerAPI.md
 docs/ObjectFranchiseofficeAPI.md
