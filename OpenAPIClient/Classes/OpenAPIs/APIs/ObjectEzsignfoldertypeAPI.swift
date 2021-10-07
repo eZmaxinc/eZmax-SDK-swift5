@@ -13,13 +13,26 @@ import AnyCodable
 open class ObjectEzsignfoldertypeAPI {
 
     /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_ezsignfoldertypeGetListV1: String, CaseIterable {
+        case sezsignfoldertypenamex = "sEzsignfoldertypeNameX"
+        case sezsignfoldertypenamexDesc = "sEzsignfoldertypeNameX desc"
+    }
+
+    /**
      Retrieve Ezsignfoldertype list
      
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsignfoldertypeGetListV1(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeGetListV1Response?, _ error: Error?) -> Void)) {
-        ezsignfoldertypeGetListV1WithRequestBuilder().execute(apiResponseQueue) { result in
+    open class func ezsignfoldertypeGetListV1(eOrderBy: EOrderBy_ezsignfoldertypeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeGetListV1Response?, _ error: Error?) -> Void)) {
+        ezsignfoldertypeGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -32,21 +45,32 @@ open class ObjectEzsignfoldertypeAPI {
     /**
      Retrieve Ezsignfoldertype list
      - GET /1/object/ezsignfoldertype/getList
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.  Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
      - returns: RequestBuilder<EzsignfoldertypeGetListV1Response> 
      */
-    open class func ezsignfoldertypeGetListV1WithRequestBuilder() -> RequestBuilder<EzsignfoldertypeGetListV1Response> {
+    open class func ezsignfoldertypeGetListV1WithRequestBuilder(eOrderBy: EOrderBy_ezsignfoldertypeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<EzsignfoldertypeGetListV1Response> {
         let localVariablePath = "/1/object/ezsignfoldertype/getList"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": eOrderBy?.encodeToJSON(),
+            "iRowMax": iRowMax?.encodeToJSON(),
+            "iRowOffset": iRowOffset?.encodeToJSON(),
+            "sFilter": sFilter?.encodeToJSON(),
+        ])
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
