@@ -94,6 +94,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponseCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderDeleteObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetFormsDataV1Response.swift
@@ -265,6 +266,7 @@ docs/EzsigndocumentResponse.md
 docs/EzsigndocumentResponseCompound.md
 docs/EzsignfolderCreateObjectV1Request.md
 docs/EzsignfolderCreateObjectV1Response.md
+docs/EzsignfolderCreateObjectV1ResponseAllOf.md
 docs/EzsignfolderCreateObjectV1ResponseMPayload.md
 docs/EzsignfolderDeleteObjectV1Response.md
 docs/EzsignfolderGetFormsDataV1Response.md
