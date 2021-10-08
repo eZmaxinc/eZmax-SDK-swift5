@@ -16,8 +16,14 @@ open class ObjectEzsignfoldertypeAPI {
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_ezsignfoldertypeGetListV1: String, CaseIterable {
-        case sezsignfoldertypenamex = "sEzsignfoldertypeNameX"
-        case sezsignfoldertypenamexDesc = "sEzsignfoldertypeNameX desc"
+        case pkiezsignfoldertypeidAsc = "pkiEzsignfoldertypeID_ASC"
+        case pkiezsignfoldertypeidDesc = "pkiEzsignfoldertypeID_DESC"
+        case eezsignfoldertypeprivacylevelAsc = "eEzsignfoldertypePrivacylevel_ASC"
+        case eezsignfoldertypeprivacylevelDesc = "eEzsignfoldertypePrivacylevel_DESC"
+        case sezsignfoldertypenamexAsc = "sEzsignfoldertypeNameX_ASC"
+        case sezsignfoldertypenamexDesc = "sEzsignfoldertypeNameX_DESC"
+        case bezsignfoldertypeisactiveAsc = "bEzsignfoldertypeIsactive_ASC"
+        case bezsignfoldertypeisactiveDesc = "bEzsignfoldertypeIsactive_DESC"
     }
 
     /**
