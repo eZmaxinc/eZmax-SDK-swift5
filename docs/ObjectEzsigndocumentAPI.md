@@ -375,8 +375,6 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument's Form Data
 
-## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
-
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -474,8 +472,6 @@ Name | Type | Description  | Notes
 ```
 
 Retrieve positions X,Y of given words from a Ezsigndocument
-
-## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
 ### Example
 ```swift

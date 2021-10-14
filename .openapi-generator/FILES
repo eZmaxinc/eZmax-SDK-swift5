@@ -44,7 +44,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/AuthenticateAuthenticateV2ResponseMPayload
 OpenAPIClient/Classes/OpenAPIs/Models/CommonAudit.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1ResponseAllOf.swift
-OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetListV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseError.swift
@@ -62,6 +61,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/ContactRequestCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ContactinformationsRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ContactinformationsRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ContactinformationsRequestCompoundAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CustomAutocompleteElementResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CustomAutocompleteElementResponseMValueOneOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormDataDocumentResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormDataSignerResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormsDataFolderResponse.swift
@@ -104,9 +105,14 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderDeleteObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetFormsDataV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetFormsDataV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetFormsDataV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetListV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetListV1ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetListV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetListV1ResponseMPayloadAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetObjectV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderListElement.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequestCompoundAllOf.swift
@@ -221,7 +227,6 @@ docs/AuthenticateAuthenticateV2ResponseMPayload.md
 docs/CommonAudit.md
 docs/CommonGetAutocompleteV1Response.md
 docs/CommonGetAutocompleteV1ResponseAllOf.md
-docs/CommonGetAutocompleteV1ResponseMPayload.md
 docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
@@ -239,6 +244,8 @@ docs/ContactRequestCompoundAllOf.md
 docs/ContactinformationsRequest.md
 docs/ContactinformationsRequestCompound.md
 docs/ContactinformationsRequestCompoundAllOf.md
+docs/CustomAutocompleteElementResponse.md
+docs/CustomAutocompleteElementResponseMValueOneOf.md
 docs/CustomFormDataDocumentResponse.md
 docs/CustomFormDataSignerResponse.md
 docs/CustomFormsDataFolderResponse.md
@@ -281,9 +288,14 @@ docs/EzsignfolderDeleteObjectV1Response.md
 docs/EzsignfolderGetFormsDataV1Response.md
 docs/EzsignfolderGetFormsDataV1ResponseAllOf.md
 docs/EzsignfolderGetFormsDataV1ResponseMPayload.md
+docs/EzsignfolderGetListV1Response.md
+docs/EzsignfolderGetListV1ResponseAllOf.md
+docs/EzsignfolderGetListV1ResponseMPayload.md
+docs/EzsignfolderGetListV1ResponseMPayloadAllOf.md
 docs/EzsignfolderGetObjectV1Response.md
 docs/EzsignfolderGetObjectV1ResponseAllOf.md
 docs/EzsignfolderGetObjectV1ResponseMPayload.md
+docs/EzsignfolderListElement.md
 docs/EzsignfolderRequest.md
 docs/EzsignfolderRequestCompound.md
 docs/EzsignfolderRequestCompoundAllOf.md

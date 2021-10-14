@@ -22,7 +22,7 @@ Get the list of Periods to be used in a dropdown or autocomplete control.
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The types of Periods to return
-let sQuery = "sQuery_example" // String | Allow to filter on the option value (optional)
+let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 
 // Retrieve Periods and IDs
 ObjectPeriodAPI.periodGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery) { (response, error) in
@@ -42,7 +42,7 @@ ObjectPeriodAPI.periodGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery) { 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The types of Periods to return | 
- **sQuery** | **String** | Allow to filter on the option value | [optional] 
+ **sQuery** | **String** | Allow to filter the returned results | [optional] 
 
 ### Return type
 

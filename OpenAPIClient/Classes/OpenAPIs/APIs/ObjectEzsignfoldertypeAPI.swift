@@ -13,6 +13,70 @@ import AnyCodable
 open class ObjectEzsignfoldertypeAPI {
 
     /**
+     * enum for parameter sSelector
+     */
+    public enum SSelector_ezsignfoldertypeGetAutocompleteV1: String, CaseIterable {
+        case active = "Active"
+        case all = "All"
+    }
+
+    /**
+     Retrieve Ezsignfoldertypes and IDs
+     
+     - parameter sSelector: (path) The type of Ezsignfoldertypes to return 
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func ezsignfoldertypeGetAutocompleteV1(sSelector: SSelector_ezsignfoldertypeGetAutocompleteV1, acceptLanguage: HeaderAcceptLanguage? = nil, sQuery: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) {
+        ezsignfoldertypeGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, acceptLanguage: acceptLanguage, sQuery: sQuery).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Ezsignfoldertypes and IDs
+     - GET /1/object/ezsignfoldertype/getAutocomplete/{sSelector}/
+     - Get the list of Ezsignfoldertypes to be used in a dropdown or autocomplete control.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter sSelector: (path) The type of Ezsignfoldertypes to return 
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
+     */
+    open class func ezsignfoldertypeGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_ezsignfoldertypeGetAutocompleteV1, acceptLanguage: HeaderAcceptLanguage? = nil, sQuery: String? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
+        var localVariablePath = "/1/object/ezsignfoldertype/getAutocomplete/{sSelector}/"
+        let sSelectorPreEscape = "\(sSelector.rawValue)"
+        let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "sQuery": sQuery?.encodeToJSON(),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_ezsignfoldertypeGetListV1: String, CaseIterable {
@@ -51,7 +115,7 @@ open class ObjectEzsignfoldertypeAPI {
     /**
      Retrieve Ezsignfoldertype list
      - GET /1/object/ezsignfoldertype/getList
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.  Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

@@ -392,7 +392,6 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve an existing Ezsigndocument's Form Data
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -491,7 +490,6 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve positions X,Y of given words from a Ezsigndocument
      - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

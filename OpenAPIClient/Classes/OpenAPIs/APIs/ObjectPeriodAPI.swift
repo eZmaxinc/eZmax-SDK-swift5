@@ -26,7 +26,7 @@ open class ObjectPeriodAPI {
      Retrieve Periods and IDs
      
      - parameter sSelector: (path) The types of Periods to return 
-     - parameter sQuery: (query) Allow to filter on the option value (optional)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -49,7 +49,7 @@ open class ObjectPeriodAPI {
        - type: apiKey Authorization 
        - name: Authorization
      - parameter sSelector: (path) The types of Periods to return 
-     - parameter sQuery: (query) Allow to filter on the option value (optional)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
      - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
      */
     open class func periodGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_periodGetAutocompleteV1, sQuery: String? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {

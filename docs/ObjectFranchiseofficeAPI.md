@@ -22,7 +22,7 @@ Get the list of Franchiseoffices to be used in a dropdown or autocomplete contro
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Franchiseoffices to return
-let sQuery = "sQuery_example" // String | Allow to filter on the option value (optional)
+let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 
 // Retrieve Franchiseoffices and IDs
 ObjectFranchiseofficeAPI.franchiseofficeGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery) { (response, error) in
@@ -42,7 +42,7 @@ ObjectFranchiseofficeAPI.franchiseofficeGetAutocompleteV1(sSelector: sSelector, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Franchiseoffices to return | 
- **sQuery** | **String** | Allow to filter on the option value | [optional] 
+ **sQuery** | **String** | Allow to filter the returned results | [optional] 
 
 ### Return type
 
