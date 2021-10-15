@@ -209,8 +209,28 @@ open class ObjectEzsignfolderAPI {
     public enum EOrderBy_ezsignfolderGetListV1: String, CaseIterable {
         case pkiezsignfolderidAsc = "pkiEzsignfolderID_ASC"
         case pkiezsignfolderidDesc = "pkiEzsignfolderID_DESC"
-        case sezsignfolderdescription = "sEzsignfolderDescription"
+        case sezsignfolderdescriptionAsc = "sEzsignfolderDescription_ASC"
         case sezsignfolderdescriptionDesc = "sEzsignfolderDescription_DESC"
+        case dtcreateddateAsc = "dtCreatedDate_ASC"
+        case dtcreateddateDesc = "dtCreatedDate_DESC"
+        case fkiezsignfoldertypeidAsc = "fkiEzsignfoldertypeID_ASC"
+        case fkiezsignfoldertypeidDesc = "fkiEzsignfoldertypeID_DESC"
+        case sezsignfoldertypenamexAsc = "sEzsignfoldertypeNameX_ASC"
+        case sezsignfoldertypenamexDesc = "sEzsignfoldertypeNameX_DESC"
+        case eezsignfolderstepAsc = "eEzsignfolderStep_ASC"
+        case eezsignfolderstepDesc = "eEzsignfolderStep_DESC"
+        case dtezsignfoldersentdateAsc = "dtEzsignfolderSentdate_ASC"
+        case dtezsignfoldersentdateDesc = "dtEzsignfolderSentdate_DESC"
+        case dtduedateAsc = "dtDueDate_ASC"
+        case dtduedateDesc = "dtDueDate_DESC"
+        case itotaldocumentAsc = "iTotalDocument_ASC"
+        case itotaldocumentDesc = "iTotalDocument_DESC"
+        case itotaldocumentedmAsc = "iTotalDocumentEdm_ASC"
+        case itotaldocumentedmDesc = "iTotalDocumentEdm_DESC"
+        case itotalsignatureAsc = "iTotalSignature_ASC"
+        case itotalsignatureDesc = "iTotalSignature_DESC"
+        case itotalsignaturesignedAsc = "iTotalSignatureSigned_ASC"
+        case itotalsignaturesignedDesc = "iTotalSignatureSigned_DESC"
     }
 
     /**
@@ -238,6 +258,7 @@ open class ObjectEzsignfolderAPI {
     /**
      Retrieve Ezsignfolder list
      - GET /1/object/ezsignfolder/getList
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived |
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

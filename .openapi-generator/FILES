@@ -113,6 +113,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetObjectV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderListElement.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderListElementDtDueDateOneOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderListElementDtEzsignfolderSentdateOneOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequestCompoundAllOf.swift
@@ -296,6 +298,8 @@ docs/EzsignfolderGetObjectV1Response.md
 docs/EzsignfolderGetObjectV1ResponseAllOf.md
 docs/EzsignfolderGetObjectV1ResponseMPayload.md
 docs/EzsignfolderListElement.md
+docs/EzsignfolderListElementDtDueDateOneOf.md
+docs/EzsignfolderListElementDtEzsignfolderSentdateOneOf.md
 docs/EzsignfolderRequest.md
 docs/EzsignfolderRequestCompound.md
 docs/EzsignfolderRequestCompoundAllOf.md

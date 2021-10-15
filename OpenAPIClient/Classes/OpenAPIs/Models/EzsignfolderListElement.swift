@@ -15,17 +15,55 @@ public struct EzsignfolderListElement: Codable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
+    /** The unique ID of the Ezsignfoldertype. */
+    public var fkiEzsignfoldertypeID: Int
+    /** The name of the Ezsignfoldertype in the language of the requester */
+    public var sEzsignfoldertypeNameX: String
     /** The description of the Ezsign Folder */
     public var sEzsignfolderDescription: String
+    public var eEzsignfolderStep: FieldEEzsignfolderStep
+    /** The date and time at which the object was created */
+    public var dtCreatedDate: String
+    public var dtEzsignfolderSentdate: EzsignfolderListElementDtEzsignfolderSentdateOneOf?
+    /** The date at which no more signature will be accepted on the folder */
+    public var dtDueDate: EzsignfolderListElementDtDueDateOneOf?
+    /** The total number of Ezsigndocument in the folder */
+    public var iTotalDocument: Int
+    /** The total number of Ezsigndocument in the folder that were saved in the edm system */
+    public var iTotalDocumentEdm: Int
+    /** The total number of signature blocks in all Ezsigndocuments in the folder */
+    public var iTotalSignature: Int
+    /** The total number of already signed signature blocks in all Ezsigndocuments in the folder */
+    public var iTotalSignatureSigned: Int
 
-    public init(pkiEzsignfolderID: Int, sEzsignfolderDescription: String) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderSentdate: EzsignfolderListElementDtEzsignfolderSentdateOneOf?, dtDueDate: EzsignfolderListElementDtDueDateOneOf?, iTotalDocument: Int, iTotalDocumentEdm: Int, iTotalSignature: Int, iTotalSignatureSigned: Int) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
+        self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+        self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.sEzsignfolderDescription = sEzsignfolderDescription
+        self.eEzsignfolderStep = eEzsignfolderStep
+        self.dtCreatedDate = dtCreatedDate
+        self.dtEzsignfolderSentdate = dtEzsignfolderSentdate
+        self.dtDueDate = dtDueDate
+        self.iTotalDocument = iTotalDocument
+        self.iTotalDocumentEdm = iTotalDocumentEdm
+        self.iTotalSignature = iTotalSignature
+        self.iTotalSignatureSigned = iTotalSignatureSigned
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignfolderID
+        case fkiEzsignfoldertypeID
+        case sEzsignfoldertypeNameX
         case sEzsignfolderDescription
+        case eEzsignfolderStep
+        case dtCreatedDate
+        case dtEzsignfolderSentdate
+        case dtDueDate
+        case iTotalDocument
+        case iTotalDocumentEdm
+        case iTotalSignature
+        case iTotalSignatureSigned
     }
 
     // Encodable protocol methods
@@ -33,7 +71,17 @@ public struct EzsignfolderListElement: Codable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
+        try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
+        try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
+        try container.encode(dtCreatedDate, forKey: .dtCreatedDate)
+        try container.encode(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
+        try container.encode(dtDueDate, forKey: .dtDueDate)
+        try container.encode(iTotalDocument, forKey: .iTotalDocument)
+        try container.encode(iTotalDocumentEdm, forKey: .iTotalDocumentEdm)
+        try container.encode(iTotalSignature, forKey: .iTotalSignature)
+        try container.encode(iTotalSignatureSigned, forKey: .iTotalSignatureSigned)
     }
 }
 

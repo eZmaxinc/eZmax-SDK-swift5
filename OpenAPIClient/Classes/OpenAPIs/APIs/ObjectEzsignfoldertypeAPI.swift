@@ -42,7 +42,7 @@ open class ObjectEzsignfoldertypeAPI {
 
     /**
      Retrieve Ezsignfoldertypes and IDs
-     - GET /1/object/ezsignfoldertype/getAutocomplete/{sSelector}/
+     - GET /1/object/ezsignfoldertype/getAutocomplete/{sSelector}
      - Get the list of Ezsignfoldertypes to be used in a dropdown or autocomplete control.
      - API Key:
        - type: apiKey Authorization 
@@ -53,7 +53,7 @@ open class ObjectEzsignfoldertypeAPI {
      - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
      */
     open class func ezsignfoldertypeGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_ezsignfoldertypeGetAutocompleteV1, acceptLanguage: HeaderAcceptLanguage? = nil, sQuery: String? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
-        var localVariablePath = "/1/object/ezsignfoldertype/getAutocomplete/{sSelector}/"
+        var localVariablePath = "/1/object/ezsignfoldertype/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
