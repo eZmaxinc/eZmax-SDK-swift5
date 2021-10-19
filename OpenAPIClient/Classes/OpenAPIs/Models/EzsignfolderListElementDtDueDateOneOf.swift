@@ -12,11 +12,14 @@ import AnyCodable
 
 public enum EzsignfolderListElementDtDueDateOneOf: Codable {
     case typeCommonFormatDateTime(CommonFormatDateTime)
+    case typeCustomNull(CustomNull)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
         case .typeCommonFormatDateTime(let value):
+            try container.encode(value)
+        case .typeCustomNull(let value):
             try container.encode(value)
         }
     }
@@ -25,6 +28,8 @@ public enum EzsignfolderListElementDtDueDateOneOf: Codable {
         let container = try decoder.singleValueContainer()
         if let value = try? container.decode(CommonFormatDateTime.self) {
             self = .typeCommonFormatDateTime(value)
+        } else if let value = try? container.decode(CustomNull.self) {
+            self = .typeCustomNull(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of EzsignfolderListElementDtDueDateOneOf"))
         }

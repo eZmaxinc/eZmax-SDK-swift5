@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **ezsignfoldertypeGetAutocompleteV1**
 ```swift
-    open class func ezsignfoldertypeGetAutocompleteV1(sSelector: SSelector_ezsignfoldertypeGetAutocompleteV1, acceptLanguage: HeaderAcceptLanguage? = nil, sQuery: String? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldertypeGetAutocompleteV1(sSelector: SSelector_ezsignfoldertypeGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Ezsignfoldertypes and IDs
@@ -23,11 +23,11 @@ Get the list of Ezsignfoldertypes to be used in a dropdown or autocomplete contr
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Ezsignfoldertypes to return
-let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
+let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezsignfoldertypes and IDs
-ObjectEzsignfoldertypeAPI.ezsignfoldertypeGetAutocompleteV1(sSelector: sSelector, acceptLanguage: acceptLanguage, sQuery: sQuery) { (response, error) in
+ObjectEzsignfoldertypeAPI.ezsignfoldertypeGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -44,8 +44,8 @@ ObjectEzsignfoldertypeAPI.ezsignfoldertypeGetAutocompleteV1(sSelector: sSelector
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Ezsignfoldertypes to return | 
- **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
+ **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 
 ### Return type
 
