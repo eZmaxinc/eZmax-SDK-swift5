@@ -25,14 +25,17 @@ public struct ListpresentationRequest: Codable, Hashable {
     public var iListpresentationRowMax: Int
     /** The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100, */
     public var iListpresentationRowOffset: Int
+    /** Set to true if the user chose this Listpresentation as the default one. A single element should be set to true */
+    public var bListpresentationDefault: Bool
 
-    public init(sListpresentationDescription: String, sListpresentationFilter: String, sListpresentationOrderby: String, aSColumnName: [String], iListpresentationRowMax: Int, iListpresentationRowOffset: Int) {
+    public init(sListpresentationDescription: String, sListpresentationFilter: String, sListpresentationOrderby: String, aSColumnName: [String], iListpresentationRowMax: Int, iListpresentationRowOffset: Int, bListpresentationDefault: Bool) {
         self.sListpresentationDescription = sListpresentationDescription
         self.sListpresentationFilter = sListpresentationFilter
         self.sListpresentationOrderby = sListpresentationOrderby
         self.aSColumnName = aSColumnName
         self.iListpresentationRowMax = iListpresentationRowMax
         self.iListpresentationRowOffset = iListpresentationRowOffset
+        self.bListpresentationDefault = bListpresentationDefault
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -42,6 +45,7 @@ public struct ListpresentationRequest: Codable, Hashable {
         case aSColumnName = "a_sColumnName"
         case iListpresentationRowMax
         case iListpresentationRowOffset
+        case bListpresentationDefault
     }
 
     // Encodable protocol methods
@@ -54,6 +58,7 @@ public struct ListpresentationRequest: Codable, Hashable {
         try container.encode(aSColumnName, forKey: .aSColumnName)
         try container.encode(iListpresentationRowMax, forKey: .iListpresentationRowMax)
         try container.encode(iListpresentationRowOffset, forKey: .iListpresentationRowOffset)
+        try container.encode(bListpresentationDefault, forKey: .bListpresentationDefault)
     }
 }
 

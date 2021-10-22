@@ -73,7 +73,7 @@ Users can create many Listpresentations for lists in the system. They can custom
 import OpenAPIClient
 
 let sListName = "sListName_example" // String | The list Name
-let listSaveListpresentationV1Request = list-saveListpresentation-v1-Request(aObjListpresentation: [listpresentation-Request(sListpresentationDescription: "sListpresentationDescription_example", sListpresentationFilter: "sListpresentationFilter_example", sListpresentationOrderby: "sListpresentationOrderby_example", aSColumnName: ["aSColumnName_example"], iListpresentationRowMax: 123, iListpresentationRowOffset: 123)]) // ListSaveListpresentationV1Request | 
+let listSaveListpresentationV1Request = list-saveListpresentation-v1-Request(aObjListpresentation: [listpresentation-Request(sListpresentationDescription: "sListpresentationDescription_example", sListpresentationFilter: "sListpresentationFilter_example", sListpresentationOrderby: "sListpresentationOrderby_example", aSColumnName: ["aSColumnName_example"], iListpresentationRowMax: 123, iListpresentationRowOffset: 123, bListpresentationDefault: false)]) // ListSaveListpresentationV1Request | 
 
 // Save all Listpresentation for a specific list
 ModuleListAPI.listSaveListpresentationV1(sListName: sListName, listSaveListpresentationV1Request: listSaveListpresentationV1Request) { (response, error) in
