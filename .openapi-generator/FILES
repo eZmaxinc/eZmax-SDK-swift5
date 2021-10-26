@@ -48,6 +48,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/CommonGetAutocompleteV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonGetListV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseError.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseErrorSTemporaryFileUrl.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseErrorSTemporaryFileUrlAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseFilter.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseGetList.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseObjDebug.swift
@@ -240,6 +242,8 @@ docs/CommonGetAutocompleteV1ResponseAllOf.md
 docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
+docs/CommonResponseErrorSTemporaryFileUrl.md
+docs/CommonResponseErrorSTemporaryFileUrlAllOf.md
 docs/CommonResponseFilter.md
 docs/CommonResponseGetList.md
 docs/CommonResponseObjDebug.md
