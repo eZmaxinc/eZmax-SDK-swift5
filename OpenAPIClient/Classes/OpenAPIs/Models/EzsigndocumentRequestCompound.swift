@@ -15,6 +15,7 @@ public struct EzsigndocumentRequestCompound: Codable, Hashable {
 
     public enum EEzsigndocumentSource: String, Codable, CaseIterable {
         case base64 = "Base64"
+        case url = "Url"
     }
     public enum EEzsigndocumentFormat: String, Codable, CaseIterable {
         case pdf = "Pdf"
@@ -25,6 +26,10 @@ public struct EzsigndocumentRequestCompound: Codable, Hashable {
     public var eEzsigndocumentFormat: EEzsigndocumentFormat
     /** The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64. */
     public var sEzsigndocumentBase64: Data?
+    /** The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url. */
+    public var sEzsigndocumentUrl: String?
+    /** Try to repair the document or flatten it if it cannot be used for electronic signature.  */
+    public var bEzsigndocumentForcerepair: Bool? = true
     /** If the source document is password protected, the password to open/modify it. */
     public var sEzsigndocumentPassword: String? = ""
     /** The unique ID of the Ezsignfolder */
@@ -36,10 +41,12 @@ public struct EzsigndocumentRequestCompound: Codable, Hashable {
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */
     public var sEzsigndocumentName: String
 
-    public init(eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentPassword: String? = "", fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String) {
+    public init(eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = "", fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String) {
         self.eEzsigndocumentSource = eEzsigndocumentSource
         self.eEzsigndocumentFormat = eEzsigndocumentFormat
         self.sEzsigndocumentBase64 = sEzsigndocumentBase64
+        self.sEzsigndocumentUrl = sEzsigndocumentUrl
+        self.bEzsigndocumentForcerepair = bEzsigndocumentForcerepair
         self.sEzsigndocumentPassword = sEzsigndocumentPassword
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
@@ -51,6 +58,8 @@ public struct EzsigndocumentRequestCompound: Codable, Hashable {
         case eEzsigndocumentSource
         case eEzsigndocumentFormat
         case sEzsigndocumentBase64
+        case sEzsigndocumentUrl
+        case bEzsigndocumentForcerepair
         case sEzsigndocumentPassword
         case fkiEzsignfolderID
         case dtEzsigndocumentDuedate
@@ -65,6 +74,8 @@ public struct EzsigndocumentRequestCompound: Codable, Hashable {
         try container.encode(eEzsigndocumentSource, forKey: .eEzsigndocumentSource)
         try container.encode(eEzsigndocumentFormat, forKey: .eEzsigndocumentFormat)
         try container.encodeIfPresent(sEzsigndocumentBase64, forKey: .sEzsigndocumentBase64)
+        try container.encodeIfPresent(sEzsigndocumentUrl, forKey: .sEzsigndocumentUrl)
+        try container.encodeIfPresent(bEzsigndocumentForcerepair, forKey: .bEzsigndocumentForcerepair)
         try container.encodeIfPresent(sEzsigndocumentPassword, forKey: .sEzsigndocumentPassword)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encode(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)

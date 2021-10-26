@@ -17,6 +17,7 @@ public struct EzsignfolderListElement: Codable, Hashable {
     public var pkiEzsignfolderID: Int
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int
+    public var eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String
     /** The description of the Ezsign Folder */
@@ -36,9 +37,10 @@ public struct EzsignfolderListElement: Codable, Hashable {
     /** The total number of already signed signature blocks in all Ezsigndocuments in the folder */
     public var iTotalSignatureSigned: Int
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderSentdate: EzsignfolderListElementDtEzsignfolderSentdateOneOf?, dtDueDate: EzsignfolderListElementDtDueDateOneOf?, iTotalDocument: Int, iTotalDocumentEdm: Int, iTotalSignature: Int, iTotalSignatureSigned: Int) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderSentdate: EzsignfolderListElementDtEzsignfolderSentdateOneOf?, dtDueDate: EzsignfolderListElementDtDueDateOneOf?, iTotalDocument: Int, iTotalDocumentEdm: Int, iTotalSignature: Int, iTotalSignatureSigned: Int) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+        self.eEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.sEzsignfolderDescription = sEzsignfolderDescription
         self.eEzsignfolderStep = eEzsignfolderStep
@@ -54,6 +56,7 @@ public struct EzsignfolderListElement: Codable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignfolderID
         case fkiEzsignfoldertypeID
+        case eEzsignfoldertypePrivacylevel
         case sEzsignfoldertypeNameX
         case sEzsignfolderDescription
         case eEzsignfolderStep
@@ -72,6 +75,7 @@ public struct EzsignfolderListElement: Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encode(eEzsignfoldertypePrivacylevel, forKey: .eEzsignfoldertypePrivacylevel)
         try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
