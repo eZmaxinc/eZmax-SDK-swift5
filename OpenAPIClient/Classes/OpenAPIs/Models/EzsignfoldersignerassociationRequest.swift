@@ -13,19 +13,23 @@ import AnyCodable
 /** An Ezsignfoldersignerassociation Object */
 public struct EzsignfoldersignerassociationRequest: Codable, Hashable {
 
-    /** A reference to a valid User.  This is only used if the signatory will be a user from the system. */
+    /** The unique ID of the User */
     public var fkiUserID: Int?
-    /** A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation. */
+    /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
+    /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
+    public var bEzsignfoldersignerassociationReceivecopy: Bool?
 
-    public init(fkiUserID: Int? = nil, fkiEzsignfolderID: Int) {
+    public init(fkiUserID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil) {
         self.fkiUserID = fkiUserID
         self.fkiEzsignfolderID = fkiEzsignfolderID
+        self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case fkiUserID
         case fkiEzsignfolderID
+        case bEzsignfoldersignerassociationReceivecopy
     }
 
     // Encodable protocol methods
@@ -34,6 +38,7 @@ public struct EzsignfoldersignerassociationRequest: Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
+        try container.encodeIfPresent(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
     }
 }
 

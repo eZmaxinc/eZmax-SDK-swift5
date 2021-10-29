@@ -14,21 +14,25 @@ import AnyCodable
 public struct EzsignfoldersignerassociationRequestCompound: Codable, Hashable {
 
     public var objEzsignsigner: EzsignsignerRequestCompound?
-    /** A reference to a valid User.  This is only used if the signatory will be a user from the system. */
+    /** The unique ID of the User */
     public var fkiUserID: Int?
-    /** A reference to a valid Ezsignfolder.  That value is returned after a successful Ezsignfolder Creation. */
+    /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
+    /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
+    public var bEzsignfoldersignerassociationReceivecopy: Bool?
 
-    public init(objEzsignsigner: EzsignsignerRequestCompound? = nil, fkiUserID: Int? = nil, fkiEzsignfolderID: Int) {
+    public init(objEzsignsigner: EzsignsignerRequestCompound? = nil, fkiUserID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil) {
         self.objEzsignsigner = objEzsignsigner
         self.fkiUserID = fkiUserID
         self.fkiEzsignfolderID = fkiEzsignfolderID
+        self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case objEzsignsigner
         case fkiUserID
         case fkiEzsignfolderID
+        case bEzsignfoldersignerassociationReceivecopy
     }
 
     // Encodable protocol methods
@@ -38,6 +42,7 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, Hashable {
         try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
+        try container.encodeIfPresent(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
     }
 }
 
