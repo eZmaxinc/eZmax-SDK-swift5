@@ -11,6 +11,7 @@ OpenAPIClient/Classes/OpenAPIs/APIs/ModuleSsprAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ModuleUserAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectActivesessionAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectApikeyAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignbulksendAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsigndocumentAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignfolderAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignfoldersignerassociationAPI.swift
@@ -72,6 +73,11 @@ OpenAPIClient/Classes/OpenAPIs/Models/CustomFormsDataFolderResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomWordPositionOccurenceResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomWordPositionWordResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EmailRequest.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignbulksendGetListV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignbulksendGetListV1ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignbulksendGetListV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignbulksendGetListV1ResponseMPayloadAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignbulksendListElement.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentApplyEzsigntemplateV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentApplyEzsigntemplateV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentApplyEzsigntemplateV2Request.swift
@@ -266,6 +272,11 @@ docs/CustomFormsDataFolderResponse.md
 docs/CustomWordPositionOccurenceResponse.md
 docs/CustomWordPositionWordResponse.md
 docs/EmailRequest.md
+docs/EzsignbulksendGetListV1Response.md
+docs/EzsignbulksendGetListV1ResponseAllOf.md
+docs/EzsignbulksendGetListV1ResponseMPayload.md
+docs/EzsignbulksendGetListV1ResponseMPayloadAllOf.md
+docs/EzsignbulksendListElement.md
 docs/EzsigndocumentApplyEzsigntemplateV1Request.md
 docs/EzsigndocumentApplyEzsigntemplateV1Response.md
 docs/EzsigndocumentApplyEzsigntemplateV2Request.md
@@ -388,6 +399,7 @@ docs/ModuleUserAPI.md
 docs/MultilingualApikeyDescription.md
 docs/ObjectActivesessionAPI.md
 docs/ObjectApikeyAPI.md
+docs/ObjectEzsignbulksendAPI.md
 docs/ObjectEzsigndocumentAPI.md
 docs/ObjectEzsignfolderAPI.md
 docs/ObjectEzsignfoldersignerassociationAPI.md

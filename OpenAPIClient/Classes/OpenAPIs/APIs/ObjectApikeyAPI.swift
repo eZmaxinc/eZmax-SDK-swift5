@@ -19,8 +19,9 @@ open class ObjectApikeyAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func apikeyCreateObjectV1(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyCreateObjectV1Response?, _ error: Error?) -> Void)) {
-        apikeyCreateObjectV1WithRequestBuilder(apikeyCreateObjectV1Request: apikeyCreateObjectV1Request).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func apikeyCreateObjectV1(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyCreateObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return apikeyCreateObjectV1WithRequestBuilder(apikeyCreateObjectV1Request: apikeyCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)

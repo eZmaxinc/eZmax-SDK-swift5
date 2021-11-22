@@ -15,7 +15,7 @@ public struct CustomFormsDataFolderResponse: Codable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
-    /** The description of the Ezsign Folder */
+    /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
     public var aObjFormDataDocument: [CustomFormDataDocumentResponse]
 

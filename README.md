@@ -39,6 +39,7 @@ Class | Method | HTTP request | Description
 *ModuleUserAPI* | [**userCreateEzsignuserV1**](docs/ModuleUserAPI.md#usercreateezsignuserv1) | **POST** /1/module/user/createezsignuser | Create a new User of type Ezsignuser
 *ObjectActivesessionAPI* | [**activesessionGetCurrentV1**](docs/ObjectActivesessionAPI.md#activesessiongetcurrentv1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
 *ObjectApikeyAPI* | [**apikeyCreateObjectV1**](docs/ObjectApikeyAPI.md#apikeycreateobjectv1) | **POST** /1/object/apikey | Create a new Apikey
+*ObjectEzsignbulksendAPI* | [**ezsignbulksendGetListV1**](docs/ObjectEzsignbulksendAPI.md#ezsignbulksendgetlistv1) | **GET** /1/object/ezsignbulksend/getList | Retrieve Ezsignbulksend list
 *ObjectEzsigndocumentAPI* | [**ezsigndocumentApplyEzsigntemplateV1**](docs/ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplatev1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
 *ObjectEzsigndocumentAPI* | [**ezsigndocumentApplyEzsigntemplateV2**](docs/ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplatev2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
 *ObjectEzsigndocumentAPI* | [**ezsigndocumentCreateObjectV1**](docs/ObjectEzsigndocumentAPI.md#ezsigndocumentcreateobjectv1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
@@ -122,6 +123,11 @@ Class | Method | HTTP request | Description
  - [CustomWordPositionOccurenceResponse](docs/CustomWordPositionOccurenceResponse.md)
  - [CustomWordPositionWordResponse](docs/CustomWordPositionWordResponse.md)
  - [EmailRequest](docs/EmailRequest.md)
+ - [EzsignbulksendGetListV1Response](docs/EzsignbulksendGetListV1Response.md)
+ - [EzsignbulksendGetListV1ResponseAllOf](docs/EzsignbulksendGetListV1ResponseAllOf.md)
+ - [EzsignbulksendGetListV1ResponseMPayload](docs/EzsignbulksendGetListV1ResponseMPayload.md)
+ - [EzsignbulksendGetListV1ResponseMPayloadAllOf](docs/EzsignbulksendGetListV1ResponseMPayloadAllOf.md)
+ - [EzsignbulksendListElement](docs/EzsignbulksendListElement.md)
  - [EzsigndocumentApplyEzsigntemplateV1Request](docs/EzsigndocumentApplyEzsigntemplateV1Request.md)
  - [EzsigndocumentApplyEzsigntemplateV1Response](docs/EzsigndocumentApplyEzsigntemplateV1Response.md)
  - [EzsigndocumentApplyEzsigntemplateV2Request](docs/EzsigndocumentApplyEzsigntemplateV2Request.md)

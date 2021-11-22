@@ -21,8 +21,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV1Request: EzsigndocumentApplyEzsigntemplateV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV1Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentApplyEzsigntemplateV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV1Request: ezsigndocumentApplyEzsigntemplateV1Request).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV1Request: EzsigndocumentApplyEzsigntemplateV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentApplyEzsigntemplateV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV1Request: ezsigndocumentApplyEzsigntemplateV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -73,8 +74,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV2Request: EzsigndocumentApplyEzsigntemplateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV2Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentApplyEzsigntemplateV2WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV2Request: ezsigndocumentApplyEzsigntemplateV2Request).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV2Request: EzsigndocumentApplyEzsigntemplateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV2Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentApplyEzsigntemplateV2WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV2Request: ezsigndocumentApplyEzsigntemplateV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -123,8 +125,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: [EzsigndocumentCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentCreateObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentCreateObjectV1WithRequestBuilder(ezsigndocumentCreateObjectV1Request: ezsigndocumentCreateObjectV1Request).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: [EzsigndocumentCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentCreateObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentCreateObjectV1WithRequestBuilder(ezsigndocumentCreateObjectV1Request: ezsigndocumentCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -169,8 +172,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentDeleteObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentDeleteObjectV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentDeleteObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentDeleteObjectV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -217,8 +221,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentGetChildrenV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) {
-        ezsigndocumentGetChildrenV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentGetChildrenV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentGetChildrenV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case .success:
                 completion((), nil)
@@ -277,8 +282,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: Int, eDocumentType: EDocumentType_ezsigndocumentGetDownloadUrlV1, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetDownloadUrlV1Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentGetDownloadUrlV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, eDocumentType: eDocumentType).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: Int, eDocumentType: EDocumentType_ezsigndocumentGetDownloadUrlV1, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetDownloadUrlV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentGetDownloadUrlV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, eDocumentType: eDocumentType).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -330,8 +336,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignpagesV1Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentGetEzsignpagesV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignpagesV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentGetEzsignpagesV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -378,8 +385,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetFormDataV1Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentGetFormDataV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetFormDataV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentGetFormDataV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -426,8 +434,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentGetObjectV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetObjectV1Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentGetObjectV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentGetObjectV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentGetObjectV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -476,8 +485,9 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: Int, ezsigndocumentGetWordsPositionsV1Request: EzsigndocumentGetWordsPositionsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetWordsPositionsV1Response?, _ error: Error?) -> Void)) {
-        ezsigndocumentGetWordsPositionsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentGetWordsPositionsV1Request: ezsigndocumentGetWordsPositionsV1Request).execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: Int, ezsigndocumentGetWordsPositionsV1Request: EzsigndocumentGetWordsPositionsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetWordsPositionsV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return ezsigndocumentGetWordsPositionsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentGetWordsPositionsV1Request: ezsigndocumentGetWordsPositionsV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)

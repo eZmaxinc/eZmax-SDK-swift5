@@ -18,8 +18,9 @@ open class ObjectActivesessionAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func activesessionGetCurrentV1(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ActivesessionGetCurrentV1Response?, _ error: Error?) -> Void)) {
-        activesessionGetCurrentV1WithRequestBuilder().execute(apiResponseQueue) { result in
+    @discardableResult
+    open class func activesessionGetCurrentV1(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ActivesessionGetCurrentV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+        return activesessionGetCurrentV1WithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
