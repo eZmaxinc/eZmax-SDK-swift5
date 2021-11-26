@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aObjEzsignfolder** | [EzsignbulksendListElement] |  | [optional] 
+**aObjEzsignbulksend** | [EzsignbulksendListElement] |  | 
 **iRowReturned** | **Int** | The number of rows returned | 
 **iRowFiltered** | **Int** | The number of rows matching your filters (if any) or the total number of rows | 
 

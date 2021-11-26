@@ -62,7 +62,7 @@ open class ObjectEzsigntemplatepackageAPI {
     /**
      Retrieve Ezsigntemplatepackage list
      - GET /1/object/ezsigntemplatepackage/getList
-     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | ezsigntemplatepackage | Company<br>Department<br>Team<br>User<br>Usergroup |
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsigntemplatepackageType | Company<br>Department<br>Team<br>User<br>Usergroup |
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

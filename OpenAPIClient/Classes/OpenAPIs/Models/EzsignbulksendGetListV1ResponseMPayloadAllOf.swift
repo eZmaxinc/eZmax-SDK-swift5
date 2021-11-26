@@ -12,21 +12,21 @@ import AnyCodable
 
 public struct EzsignbulksendGetListV1ResponseMPayloadAllOf: Codable, Hashable {
 
-    public var aObjEzsignfolder: [EzsignbulksendListElement]?
+    public var aObjEzsignbulksend: [EzsignbulksendListElement]
 
-    public init(aObjEzsignfolder: [EzsignbulksendListElement]? = nil) {
-        self.aObjEzsignfolder = aObjEzsignfolder
+    public init(aObjEzsignbulksend: [EzsignbulksendListElement]) {
+        self.aObjEzsignbulksend = aObjEzsignbulksend
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjEzsignfolder = "a_objEzsignfolder"
+        case aObjEzsignbulksend = "a_objEzsignbulksend"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjEzsignfolder, forKey: .aObjEzsignfolder)
+        try container.encode(aObjEzsignbulksend, forKey: .aObjEzsignbulksend)
     }
 }
 
