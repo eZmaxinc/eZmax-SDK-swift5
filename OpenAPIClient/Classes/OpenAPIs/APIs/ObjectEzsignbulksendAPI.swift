@@ -52,7 +52,7 @@ open class ObjectEzsignbulksendAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignbulksendGetListV1(eOrderBy: EOrderBy_ezsignbulksendGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendGetListV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignbulksendGetListV1(eOrderBy: EOrderBy_ezsignbulksendGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):

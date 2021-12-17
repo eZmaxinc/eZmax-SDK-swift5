@@ -22,7 +22,7 @@ open class ObjectEzsigndocumentAPI {
      */
     @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
-    open class func ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV1Request: EzsigndocumentApplyEzsigntemplateV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV1Request: EzsigndocumentApplyEzsigntemplateV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentApplyEzsigntemplateV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV1Request: ezsigndocumentApplyEzsigntemplateV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -75,7 +75,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV2Request: EzsigndocumentApplyEzsigntemplateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV2Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV2Request: EzsigndocumentApplyEzsigntemplateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentApplyEzsigntemplateV2WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV2Request: ezsigndocumentApplyEzsigntemplateV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -126,7 +126,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: [EzsigndocumentCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentCreateObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: [EzsigndocumentCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentCreateObjectV1WithRequestBuilder(ezsigndocumentCreateObjectV1Request: ezsigndocumentCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -173,7 +173,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentDeleteObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentDeleteObjectV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -222,7 +222,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentGetChildrenV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentGetChildrenV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentGetChildrenV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -283,7 +283,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: Int, eDocumentType: EDocumentType_ezsigndocumentGetDownloadUrlV1, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetDownloadUrlV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: Int, eDocumentType: EDocumentType_ezsigndocumentGetDownloadUrlV1, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetDownloadUrlV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentGetDownloadUrlV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, eDocumentType: eDocumentType).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -337,7 +337,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignpagesV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignpagesV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentGetEzsignpagesV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -386,7 +386,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetFormDataV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentGetFormDataV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetFormDataV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentGetFormDataV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -435,7 +435,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentGetObjectV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentGetObjectV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentGetObjectV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -486,7 +486,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: Int, ezsigndocumentGetWordsPositionsV1Request: EzsigndocumentGetWordsPositionsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetWordsPositionsV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: Int, ezsigndocumentGetWordsPositionsV1Request: EzsigndocumentGetWordsPositionsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetWordsPositionsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentGetWordsPositionsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentGetWordsPositionsV1Request: ezsigndocumentGetWordsPositionsV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):

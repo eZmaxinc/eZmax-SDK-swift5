@@ -28,7 +28,7 @@ open class ModuleAuthenticateAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func authenticateAuthenticateV2(eSessionType: ESessionType_authenticateAuthenticateV2, authenticateAuthenticateV2Request: AuthenticateAuthenticateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateAuthenticateV2Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func authenticateAuthenticateV2(eSessionType: ESessionType_authenticateAuthenticateV2, authenticateAuthenticateV2Request: AuthenticateAuthenticateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticateAuthenticateV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return authenticateAuthenticateV2WithRequestBuilder(eSessionType: eSessionType, authenticateAuthenticateV2Request: authenticateAuthenticateV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):

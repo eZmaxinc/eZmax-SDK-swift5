@@ -20,7 +20,7 @@ open class ModuleSsprAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ssprResetPasswordRequestV1(ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ssprResetPasswordRequestV1(ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ssprResetPasswordRequestV1WithRequestBuilder(ssprResetPasswordRequestV1Request: ssprResetPasswordRequestV1Request).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -67,7 +67,7 @@ open class ModuleSsprAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ssprResetPasswordV1(ssprResetPasswordV1Request: SsprResetPasswordV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ssprResetPasswordV1(ssprResetPasswordV1Request: SsprResetPasswordV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ssprResetPasswordV1WithRequestBuilder(ssprResetPasswordV1Request: ssprResetPasswordV1Request).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -114,7 +114,7 @@ open class ModuleSsprAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ssprSendUsernamesV1(ssprSendUsernamesV1Request: SsprSendUsernamesV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ssprSendUsernamesV1(ssprSendUsernamesV1Request: SsprSendUsernamesV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ssprSendUsernamesV1WithRequestBuilder(ssprSendUsernamesV1Request: ssprSendUsernamesV1Request).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -161,7 +161,7 @@ open class ModuleSsprAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ssprUnlockAccountRequestV1(ssprUnlockAccountRequestV1Request: SsprUnlockAccountRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ssprUnlockAccountRequestV1(ssprUnlockAccountRequestV1Request: SsprUnlockAccountRequestV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ssprUnlockAccountRequestV1WithRequestBuilder(ssprUnlockAccountRequestV1Request: ssprUnlockAccountRequestV1Request).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -208,7 +208,7 @@ open class ModuleSsprAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ssprUnlockAccountV1(ssprUnlockAccountV1Request: SsprUnlockAccountV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ssprUnlockAccountV1(ssprUnlockAccountV1Request: SsprUnlockAccountV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ssprUnlockAccountV1WithRequestBuilder(ssprUnlockAccountV1Request: ssprUnlockAccountV1Request).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -255,7 +255,7 @@ open class ModuleSsprAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ssprValidateTokenV1(ssprValidateTokenV1Request: SsprValidateTokenV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ssprValidateTokenV1(ssprValidateTokenV1Request: SsprValidateTokenV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ssprValidateTokenV1WithRequestBuilder(ssprValidateTokenV1Request: ssprValidateTokenV1Request).execute(apiResponseQueue) { result in
             switch result {
             case .success:

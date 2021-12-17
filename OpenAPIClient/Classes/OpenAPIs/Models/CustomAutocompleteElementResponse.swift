@@ -18,9 +18,9 @@ public struct CustomAutocompleteElementResponse: Codable, Hashable {
     /** The Description of the element */
     public var sLabel: String
     /** The Unique ID of the element */
-    public var mValue: CustomAutocompleteElementResponseMValueOneOf?
+    public var mValue: String
 
-    public init(sCategory: String, sLabel: String, mValue: CustomAutocompleteElementResponseMValueOneOf?) {
+    public init(sCategory: String, sLabel: String, mValue: String) {
         self.sCategory = sCategory
         self.sLabel = sLabel
         self.mValue = mValue

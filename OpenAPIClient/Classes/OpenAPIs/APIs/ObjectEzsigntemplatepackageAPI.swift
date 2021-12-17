@@ -48,7 +48,7 @@ open class ObjectEzsigntemplatepackageAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatepackageGetListV1(eOrderBy: EOrderBy_ezsigntemplatepackageGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepackageGetListV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsigntemplatepackageGetListV1(eOrderBy: EOrderBy_ezsigntemplatepackageGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepackageGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatepackageGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):

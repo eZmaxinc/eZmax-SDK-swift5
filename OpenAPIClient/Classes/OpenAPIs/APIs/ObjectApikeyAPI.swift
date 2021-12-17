@@ -20,7 +20,7 @@ open class ObjectApikeyAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func apikeyCreateObjectV1(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyCreateObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func apikeyCreateObjectV1(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return apikeyCreateObjectV1WithRequestBuilder(apikeyCreateObjectV1Request: apikeyCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):

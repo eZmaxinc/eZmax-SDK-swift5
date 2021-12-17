@@ -15,9 +15,12 @@ public struct EzsigntemplatepackageListElement: Codable, Hashable {
 
     /** The unique ID of the Ezsigntemplatepackage */
     public var pkiEzsigntemplatepackageID: Int
-    public var fkiDepartmentID: EzsigntemplatepackageListElementFkiDepartmentIDOneOf?
-    public var fkiTeamID: EzsigntemplatepackageListElementFkiTeamIDOneOf?
-    public var fkiEzsignfoldertypeID: EzsigntemplatepackageListElementFkiEzsignfoldertypeIDOneOf?
+    /** The unique ID of the Department. */
+    public var fkiDepartmentID: Int?
+    /** The unique ID of the Team */
+    public var fkiTeamID: Int?
+    /** The unique ID of the Ezsignfoldertype. */
+    public var fkiEzsignfoldertypeID: Int?
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
     public var eEzsigntemplatepackageType: FieldEEzsigntemplatepackageType
@@ -28,7 +31,7 @@ public struct EzsigntemplatepackageListElement: Codable, Hashable {
     /** The total number of Ezsigntemplatepackagemembership in the Ezsigntemplatepackage */
     public var iEzsigntemplatepackagemembership: Int
 
-    public init(pkiEzsigntemplatepackageID: Int, fkiDepartmentID: EzsigntemplatepackageListElementFkiDepartmentIDOneOf?, fkiTeamID: EzsigntemplatepackageListElementFkiTeamIDOneOf?, fkiEzsignfoldertypeID: EzsigntemplatepackageListElementFkiEzsignfoldertypeIDOneOf?, fkiLanguageID: Int, eEzsigntemplatepackageType: FieldEEzsigntemplatepackageType, sEzsigntemplatepackageDescription: String, bEzsigntemplatepackageIsactive: Bool, iEzsigntemplatepackagemembership: Int) {
+    public init(pkiEzsigntemplatepackageID: Int, fkiDepartmentID: Int?, fkiTeamID: Int?, fkiEzsignfoldertypeID: Int?, fkiLanguageID: Int, eEzsigntemplatepackageType: FieldEEzsigntemplatepackageType, sEzsigntemplatepackageDescription: String, bEzsigntemplatepackageIsactive: Bool, iEzsigntemplatepackagemembership: Int) {
         self.pkiEzsigntemplatepackageID = pkiEzsigntemplatepackageID
         self.fkiDepartmentID = fkiDepartmentID
         self.fkiTeamID = fkiTeamID

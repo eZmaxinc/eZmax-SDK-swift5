@@ -20,7 +20,7 @@ open class ModuleListAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func listGetListpresentationV1(sListName: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ListGetListpresentationV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func listGetListpresentationV1(sListName: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ListGetListpresentationV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return listGetListpresentationV1WithRequestBuilder(sListName: sListName).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -71,7 +71,7 @@ open class ModuleListAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func listSaveListpresentationV1(sListName: String, listSaveListpresentationV1Request: ListSaveListpresentationV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ListSaveListpresentationV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func listSaveListpresentationV1(sListName: String, listSaveListpresentationV1Request: ListSaveListpresentationV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ListSaveListpresentationV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return listSaveListpresentationV1WithRequestBuilder(sListName: sListName, listSaveListpresentationV1Request: listSaveListpresentationV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):

@@ -25,13 +25,13 @@ public struct EzsignfolderGetObjectV1ResponseMPayload: Codable, Hashable {
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
     /** The date and time at which the Ezsign folder was sent the last time. */
-    public var dtEzsignfolderSentdate: String
+    public var dtEzsignfolderSentdate: String?
     public var eEzsignfolderStep: FieldEEzsignfolderStep
     /** The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. */
     public var dtEzsignfolderClose: String
     public var objAudit: CommonAudit
 
-    public init(fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID: Int, dtEzsignfolderSentdate: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
+    public init(fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID: Int, dtEzsignfolderSentdate: String?, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiEzsigntsarequirementID = fkiEzsigntsarequirementID
         self.sEzsignfolderDescription = sEzsignfolderDescription

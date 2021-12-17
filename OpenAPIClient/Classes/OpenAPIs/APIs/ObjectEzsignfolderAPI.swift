@@ -20,7 +20,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderCreateObjectV1(ezsignfolderCreateObjectV1Request: [EzsignfolderCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderCreateObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignfolderCreateObjectV1(ezsignfolderCreateObjectV1Request: [EzsignfolderCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderCreateObjectV1WithRequestBuilder(ezsignfolderCreateObjectV1Request: ezsignfolderCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -67,7 +67,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderDeleteObjectV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderDeleteObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignfolderDeleteObjectV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderDeleteObjectV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -116,7 +116,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderGetChildrenV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignfolderGetChildrenV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -166,7 +166,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderGetFormsDataV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetFormsDataV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignfolderGetFormsDataV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetFormsDataV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderGetFormsDataV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -249,7 +249,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderGetListV1(eOrderBy: EOrderBy_ezsignfolderGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetListV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignfolderGetListV1(eOrderBy: EOrderBy_ezsignfolderGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -306,7 +306,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderGetObjectV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignfolderGetObjectV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderGetObjectV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -357,7 +357,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderSendV1(pkiEzsignfolderID: Int, ezsignfolderSendV1Request: EzsignfolderSendV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderSendV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignfolderSendV1(pkiEzsignfolderID: Int, ezsignfolderSendV1Request: EzsignfolderSendV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderSendV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderSendV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderSendV1Request: ezsignfolderSendV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -408,7 +408,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderUnsendV1(pkiEzsignfolderID: Int, body: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderUnsendV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignfolderUnsendV1(pkiEzsignfolderID: Int, body: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderUnsendV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderUnsendV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):

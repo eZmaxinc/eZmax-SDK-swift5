@@ -20,7 +20,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignsignatureCreateObjectV1(ezsignsignatureCreateObjectV1Request: [EzsignsignatureCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureCreateObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignsignatureCreateObjectV1(ezsignsignatureCreateObjectV1Request: [EzsignsignatureCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureCreateObjectV1WithRequestBuilder(ezsignsignatureCreateObjectV1Request: ezsignsignatureCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -67,7 +67,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureDeleteObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureDeleteObjectV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -116,7 +116,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignsignatureGetChildrenV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignsignatureGetChildrenV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureGetChildrenV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result in
             switch result {
             case .success:
@@ -166,7 +166,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignsignatureGetObjectV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureGetObjectV1Response?, _ error: Error?) -> Void)) -> URLSessionTask? {
+    open class func ezsignsignatureGetObjectV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureGetObjectV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):

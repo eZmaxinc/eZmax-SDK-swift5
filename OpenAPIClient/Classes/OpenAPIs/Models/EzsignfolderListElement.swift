@@ -25,9 +25,10 @@ public struct EzsignfolderListElement: Codable, Hashable {
     public var eEzsignfolderStep: FieldEEzsignfolderStep
     /** The date and time at which the object was created */
     public var dtCreatedDate: String
-    public var dtEzsignfolderSentdate: EzsignfolderListElementDtEzsignfolderSentdateOneOf?
-    /** The date at which no more signature will be accepted on the folder */
-    public var dtDueDate: EzsignfolderListElementDtDueDateOneOf?
+    /** The date and time at which the Ezsign folder was sent the last time. */
+    public var dtEzsignfolderSentdate: String?
+    /** Represent a Date Time. The timezone is the one configured in the User's profile. */
+    public var dtDueDate: String?
     /** The total number of Ezsigndocument in the folder */
     public var iEzsigndocument: Int
     /** The total number of Ezsigndocument in the folder that were saved in the edm system */
@@ -37,7 +38,7 @@ public struct EzsignfolderListElement: Codable, Hashable {
     /** The total number of already signed signature blocks in all Ezsigndocuments in the folder */
     public var iEzsignsignatureSigned: Int
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderSentdate: EzsignfolderListElementDtEzsignfolderSentdateOneOf?, dtDueDate: EzsignfolderListElementDtDueDateOneOf?, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderSentdate: String?, dtDueDate: String?, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.eEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
