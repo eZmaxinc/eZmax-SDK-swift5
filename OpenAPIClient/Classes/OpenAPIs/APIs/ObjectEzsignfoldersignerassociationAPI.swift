@@ -109,56 +109,6 @@ open class ObjectEzsignfoldersignerassociationAPI {
     }
 
     /**
-     Retrieve an existing Ezsignfoldersignerassociation's children IDs
-     
-     - parameter pkiEzsignfoldersignerassociationID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func ezsignfoldersignerassociationGetChildrenV1(pkiEzsignfoldersignerassociationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfoldersignerassociationGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID).execute(apiResponseQueue) { result in
-            switch result {
-            case .success:
-                completion((), nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsignfoldersignerassociation's children IDs
-     - GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsignfoldersignerassociationID: (path)  
-     - returns: RequestBuilder<Void> 
-     */
-    open class func ezsignfoldersignerassociationGetChildrenV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int) -> RequestBuilder<Void> {
-        var localVariablePath = "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getChildren"
-        let pkiEzsignfoldersignerassociationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldersignerassociationID))"
-        let pkiEzsignfoldersignerassociationIDPostEscape = pkiEzsignfoldersignerassociationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldersignerassociationID}", with: pkiEzsignfoldersignerassociationIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
-    }
-
-    /**
      Retrieve a Login Url to allow In-Person signing
      
      - parameter pkiEzsignfoldersignerassociationID: (path)  
@@ -230,7 +180,6 @@ open class ObjectEzsignfoldersignerassociationAPI {
     /**
      Retrieve an existing Ezsignfoldersignerassociation
      - GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

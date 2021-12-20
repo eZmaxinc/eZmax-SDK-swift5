@@ -109,18 +109,18 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
-     Retrieve an existing Ezsignfolder's children IDs
+     Retrieve an existing Ezsignfolder's Ezsigndocuments
      
      - parameter pkiEzsignfolderID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderGetChildrenV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfolderGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
+    open class func ezsignfolderGetEzsigndocumentsV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetEzsigndocumentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderGetEzsigndocumentsV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
             switch result {
-            case .success:
-                completion((), nil)
+            case let .success(response):
+                completion(response.body, nil)
             case let .failure(error):
                 completion(nil, error)
             }
@@ -128,17 +128,16 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
-     Retrieve an existing Ezsignfolder's children IDs
-     - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+     Retrieve an existing Ezsignfolder's Ezsigndocuments
+     - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<EzsignfolderGetEzsigndocumentsV1Response> 
      */
-    open class func ezsignfolderGetChildrenV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<Void> {
-        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren"
+    open class func ezsignfolderGetEzsigndocumentsV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<EzsignfolderGetEzsigndocumentsV1Response> {
+        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments"
         let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
         let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
@@ -153,7 +152,7 @@ open class ObjectEzsignfolderAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetEzsigndocumentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
@@ -320,7 +319,6 @@ open class ObjectEzsignfolderAPI {
     /**
      Retrieve an existing Ezsignfolder
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

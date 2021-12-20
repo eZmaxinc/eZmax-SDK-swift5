@@ -15,7 +15,7 @@ public struct EzsigndocumentResponse: Codable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
-    /** The maximum date and time at which the document can be signed. */
+    /** The maximum date and time at which the Ezsigndocument can be signed. */
     public var dtEzsigndocumentDuedate: String
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int

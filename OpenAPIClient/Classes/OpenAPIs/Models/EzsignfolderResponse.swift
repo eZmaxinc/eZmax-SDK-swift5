@@ -13,17 +13,27 @@ import AnyCodable
 /** An Ezsignfolder Object */
 public struct EzsignfolderResponse: Codable, Hashable {
 
+    /** The unique ID of the Ezsignfolder */
+    public var pkiEzsignfolderID: Int
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int
+    /** The name of the Ezsignfoldertype in the language of the requester */
+    public var sEzsignfoldertypeNameX: String
+    /** The unique ID of the Billingentityinternal. */
+    public var fkiBillingentityinternalID: Int
+    /** The description of the Billingentityinternal in the language of the requester */
+    public var sBillingentityinternalDescriptionX: String
     /** The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**| */
     public var fkiEzsigntsarequirementID: Int
+    /** The description of the Ezsigntsarequirement in the language of the requester */
+    public var sEzsigntsarequirementDescriptionX: String
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
     /** Somes extra notes about the eZsign Folder */
     public var tEzsignfolderNote: String
     public var eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency
-    /** The unique ID of the Ezsignfolder */
-    public var pkiEzsignfolderID: Int
+    /** The maximum date and time at which the Ezsignfolder can be signed. */
+    public var dtEzsignfolderDuedate: String
     /** The date and time at which the Ezsign folder was sent the last time. */
     public var dtEzsignfolderSentdate: String?
     public var eEzsignfolderStep: FieldEEzsignfolderStep
@@ -31,13 +41,18 @@ public struct EzsignfolderResponse: Codable, Hashable {
     public var dtEzsignfolderClose: String
     public var objAudit: CommonAudit
 
-    public init(fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, pkiEzsignfolderID: Int, dtEzsignfolderSentdate: String?, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate: String, dtEzsignfolderSentdate: String?, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
+        self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+        self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+        self.fkiBillingentityinternalID = fkiBillingentityinternalID
+        self.sBillingentityinternalDescriptionX = sBillingentityinternalDescriptionX
         self.fkiEzsigntsarequirementID = fkiEzsigntsarequirementID
+        self.sEzsigntsarequirementDescriptionX = sEzsigntsarequirementDescriptionX
         self.sEzsignfolderDescription = sEzsignfolderDescription
         self.tEzsignfolderNote = tEzsignfolderNote
         self.eEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
-        self.pkiEzsignfolderID = pkiEzsignfolderID
+        self.dtEzsignfolderDuedate = dtEzsignfolderDuedate
         self.dtEzsignfolderSentdate = dtEzsignfolderSentdate
         self.eEzsignfolderStep = eEzsignfolderStep
         self.dtEzsignfolderClose = dtEzsignfolderClose
@@ -45,12 +60,17 @@ public struct EzsignfolderResponse: Codable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiEzsignfolderID
         case fkiEzsignfoldertypeID
+        case sEzsignfoldertypeNameX
+        case fkiBillingentityinternalID
+        case sBillingentityinternalDescriptionX
         case fkiEzsigntsarequirementID
+        case sEzsigntsarequirementDescriptionX
         case sEzsignfolderDescription
         case tEzsignfolderNote
         case eEzsignfolderSendreminderfrequency
-        case pkiEzsignfolderID
+        case dtEzsignfolderDuedate
         case dtEzsignfolderSentdate
         case eEzsignfolderStep
         case dtEzsignfolderClose
@@ -61,12 +81,17 @@ public struct EzsignfolderResponse: Codable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
+        try container.encode(fkiBillingentityinternalID, forKey: .fkiBillingentityinternalID)
+        try container.encode(sBillingentityinternalDescriptionX, forKey: .sBillingentityinternalDescriptionX)
         try container.encode(fkiEzsigntsarequirementID, forKey: .fkiEzsigntsarequirementID)
+        try container.encode(sEzsigntsarequirementDescriptionX, forKey: .sEzsigntsarequirementDescriptionX)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(tEzsignfolderNote, forKey: .tEzsignfolderNote)
         try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)
-        try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
+        try container.encode(dtEzsignfolderDuedate, forKey: .dtEzsignfolderDuedate)
         try container.encode(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
         try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
         try container.encode(dtEzsignfolderClose, forKey: .dtEzsignfolderClose)
