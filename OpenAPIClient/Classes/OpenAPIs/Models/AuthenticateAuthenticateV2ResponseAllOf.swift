@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct AuthenticateAuthenticateV2ResponseAllOf: Codable, Hashable {
+public struct AuthenticateAuthenticateV2ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     public var mPayload: AuthenticateAuthenticateV2ResponseMPayload
 

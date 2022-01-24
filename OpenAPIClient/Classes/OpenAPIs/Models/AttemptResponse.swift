@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Attempt object */
-public struct AttemptResponse: Codable, Hashable {
+public struct AttemptResponse: Codable, JSONEncodable, Hashable {
 
     /** Represent a Date Time. The timezone is the one configured in the User's profile. */
     public var dtAttemptStart: String

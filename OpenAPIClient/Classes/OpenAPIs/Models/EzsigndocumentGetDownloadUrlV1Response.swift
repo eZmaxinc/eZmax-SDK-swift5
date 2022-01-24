@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl API Request */
-public struct EzsigndocumentGetDownloadUrlV1Response: Codable, Hashable {
+public struct EzsigndocumentGetDownloadUrlV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsigndocumentGetDownloadUrlV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

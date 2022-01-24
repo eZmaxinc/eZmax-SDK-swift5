@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** This is the base Webhook object */
-public struct WebhookEzsignFolderCompleted: Codable, Hashable {
+public struct WebhookEzsignFolderCompleted: Codable, JSONEncodable, Hashable {
 
     public var objEzsignfolder: EzsignfolderResponse
     public var objWebhook: WebhookResponse

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Definition of Filters for getList */
-public struct CommonResponseFilter: Codable, Hashable {
+public struct CommonResponseFilter: Codable, JSONEncodable, Hashable {
 
     /** List of filters that can be used in *sFilter* (Automatic types) */
     public var aAutoType: [String: String]?

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /2/module/authenticate/authenticate API Request */
-public struct AuthenticateAuthenticateV2Response: Codable, Hashable {
+public struct AuthenticateAuthenticateV2Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: AuthenticateAuthenticateV2ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

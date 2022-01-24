@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsignsignature Object and children to create a complete structure */
-public struct EzsignsignatureRequestCompound: Codable, Hashable {
+public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
@@ -21,7 +21,7 @@ public struct EzsignsignatureRequestCompound: Codable, Hashable {
     public var iEzsignsignatureX: Int
     /** The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
     public var iEzsignsignatureY: Int
-    /** The step when the Ezsignsigner will be invited to sign. */
+    /** The step when the Ezsignsigner will be invited to sign or fill form fields */
     public var iEzsignsignatureStep: Int
     public var eEzsignsignatureType: FieldEEzsignsignatureType
     /** The unique ID of the Ezsigndocument */

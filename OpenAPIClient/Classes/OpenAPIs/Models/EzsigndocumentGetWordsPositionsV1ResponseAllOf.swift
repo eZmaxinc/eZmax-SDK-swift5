@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct EzsigndocumentGetWordsPositionsV1ResponseAllOf: Codable, Hashable {
+public struct EzsigndocumentGetWordsPositionsV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
     public var mPayload: [CustomWordPositionWordResponse]

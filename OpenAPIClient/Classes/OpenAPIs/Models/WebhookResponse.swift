@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A webhook object */
-public struct WebhookResponse: Codable, Hashable {
+public struct WebhookResponse: Codable, JSONEncodable, Hashable {
 
     public enum EWebhookModule: String, Codable, CaseIterable {
         case ezsign = "Ezsign"

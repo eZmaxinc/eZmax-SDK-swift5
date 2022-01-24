@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/object/ezsignsignature/getObject API Request */
-public struct EzsignsignatureGetObjectV1Response: Codable, Hashable {
+public struct EzsignsignatureGetObjectV1Response: Codable, JSONEncodable, Hashable {
 
     /** Payload for the /1/object/ezsignsignature/getObject API Request */
     public var mPayload: AnyCodable

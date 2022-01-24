@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData API Request */
-public struct EzsigndocumentGetFormDataV1ResponseMPayload: Codable, Hashable {
+public struct EzsigndocumentGetFormDataV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int

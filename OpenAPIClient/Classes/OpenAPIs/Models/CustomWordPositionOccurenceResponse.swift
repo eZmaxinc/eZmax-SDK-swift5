@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A Word Position Object */
-public struct CustomWordPositionOccurenceResponse: Codable, Hashable {
+public struct CustomWordPositionOccurenceResponse: Codable, JSONEncodable, Hashable {
 
     /** The page where the word occurence was found */
     public var iPage: Int?

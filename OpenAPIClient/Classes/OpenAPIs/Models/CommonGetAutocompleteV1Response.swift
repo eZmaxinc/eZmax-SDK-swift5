@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/object/xxx/getAutocomplete API Request */
-public struct CommonGetAutocompleteV1Response: Codable, Hashable {
+public struct CommonGetAutocompleteV1Response: Codable, JSONEncodable, Hashable {
 
     /** Generic Autocomplete Response */
     public var mPayload: [CustomAutocompleteElementResponse]

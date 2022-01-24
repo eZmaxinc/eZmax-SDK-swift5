@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A Contactinformations Object and children to create a complete structure */
-public struct ContactinformationsRequestCompound: Codable, Hashable {
+public struct ContactinformationsRequestCompound: Codable, JSONEncodable, Hashable {
 
     public var aObjAddress: [AddressRequest]
     public var aObjPhone: [PhoneRequest]

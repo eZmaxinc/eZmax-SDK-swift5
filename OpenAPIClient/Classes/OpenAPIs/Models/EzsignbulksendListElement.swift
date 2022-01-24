@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsignbulksend List Element */
-public struct EzsignbulksendListElement: Codable, Hashable {
+public struct EzsignbulksendListElement: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignbulksend */
     public var pkiEzsignbulksendID: Int

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Payload for the /2/module/authenticate/authenticate API Request */
-public struct AuthenticateAuthenticateV2ResponseMPayload: Codable, Hashable {
+public struct AuthenticateAuthenticateV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** The Authorization key */
     public var sAuthorization: String

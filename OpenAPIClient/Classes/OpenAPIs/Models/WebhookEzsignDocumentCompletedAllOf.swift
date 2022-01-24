@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct WebhookEzsignDocumentCompletedAllOf: Codable, Hashable {
+public struct WebhookEzsignDocumentCompletedAllOf: Codable, JSONEncodable, Hashable {
 
     public var objEzsigndocument: EzsigndocumentResponse
 

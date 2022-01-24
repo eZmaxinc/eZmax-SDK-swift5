@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct CommonResponseErrorSTemporaryFileUrlAllOf: Codable, Hashable {
+public struct CommonResponseErrorSTemporaryFileUrlAllOf: Codable, JSONEncodable, Hashable {
 
     /** The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again. */
     public var sTemporaryFileUrl: String?

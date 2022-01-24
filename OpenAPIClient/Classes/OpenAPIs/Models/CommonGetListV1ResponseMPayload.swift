@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Generic List Response */
-public struct CommonGetListV1ResponseMPayload: Codable, Hashable {
+public struct CommonGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** The number of rows returned */
     public var iRowReturned: Int

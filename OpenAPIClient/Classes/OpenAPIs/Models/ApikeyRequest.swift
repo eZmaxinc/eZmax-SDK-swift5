@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Apikey Object */
-public struct ApikeyRequest: Codable, Hashable {
+public struct ApikeyRequest: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the User */
     public var fkiUserID: Int

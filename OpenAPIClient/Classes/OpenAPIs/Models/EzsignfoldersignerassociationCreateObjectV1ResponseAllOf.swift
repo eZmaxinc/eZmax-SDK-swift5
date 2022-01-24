@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct EzsignfoldersignerassociationCreateObjectV1ResponseAllOf: Codable, Hashable {
+public struct EzsignfoldersignerassociationCreateObjectV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsignfoldersignerassociationCreateObjectV1ResponseMPayload
 

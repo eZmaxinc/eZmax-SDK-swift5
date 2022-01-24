@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Payload for the /1/module/user/createEzsignuser API Request */
-public struct UserCreateEzsignuserV1ResponseMPayload: Codable, Hashable {
+public struct UserCreateEzsignuserV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of email addresses that succeeded. */
     public var aSEmailAddressSuccess: [String]

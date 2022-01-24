@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A Contact Object */
-public struct EmailRequest: Codable, Hashable {
+public struct EmailRequest: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| */
     public var fkiEmailtypeID: Int

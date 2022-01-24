@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /2/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplate API Request */
-public struct EzsigndocumentApplyEzsigntemplateV2Response: Codable, Hashable {
+public struct EzsigndocumentApplyEzsigntemplateV2Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?

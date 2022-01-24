@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** All API response will inherit this based Response */
-public struct CommonResponseGetList: Codable, Hashable {
+public struct CommonResponseGetList: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayloadGetList?
     public var objDebug: CommonResponseObjDebug?

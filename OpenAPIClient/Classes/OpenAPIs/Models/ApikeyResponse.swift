@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Apikey Object */
-public struct ApikeyResponse: Codable, Hashable {
+public struct ApikeyResponse: Codable, JSONEncodable, Hashable {
 
     public var objApikeyDescription: MultilingualApikeyDescription
     /** The secret token for the API key.  This will be returned only on creation. */

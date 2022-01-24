@@ -67,6 +67,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/ContactinformationsRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ContactinformationsRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ContactinformationsRequestCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomAutocompleteElementResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CustomEzsignfoldersignerassociationstatusResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CustomEzsignsignaturestatusResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormDataDocumentResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormDataSignerResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CustomFormsDataFolderResponse.swift
@@ -114,6 +116,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderDeleteObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetEzsigndocumentsV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetEzsigndocumentsV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetEzsigndocumentsV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetEzsignfoldersignerassociationsV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetEzsignfoldersignerassociationsV1ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetFormsDataV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetFormsDataV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetFormsDataV1ResponseMPayload.swift
@@ -127,7 +132,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetObjectV1ResponseMPayload.sw
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderListElement.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequestCompound.swift
-OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderRequestCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderResponseCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderSendV1Request.swift
@@ -173,6 +177,10 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequestCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequestCompoundContact.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerResponseCompound.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerResponseCompoundAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerResponseCompoundContact.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1ResponseMPayload.swift
@@ -275,6 +283,8 @@ docs/ContactinformationsRequest.md
 docs/ContactinformationsRequestCompound.md
 docs/ContactinformationsRequestCompoundAllOf.md
 docs/CustomAutocompleteElementResponse.md
+docs/CustomEzsignfoldersignerassociationstatusResponse.md
+docs/CustomEzsignsignaturestatusResponse.md
 docs/CustomFormDataDocumentResponse.md
 docs/CustomFormDataSignerResponse.md
 docs/CustomFormsDataFolderResponse.md
@@ -322,6 +332,9 @@ docs/EzsignfolderDeleteObjectV1Response.md
 docs/EzsignfolderGetEzsigndocumentsV1Response.md
 docs/EzsignfolderGetEzsigndocumentsV1ResponseAllOf.md
 docs/EzsignfolderGetEzsigndocumentsV1ResponseMPayload.md
+docs/EzsignfolderGetEzsignfoldersignerassociationsV1Response.md
+docs/EzsignfolderGetEzsignfoldersignerassociationsV1ResponseAllOf.md
+docs/EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload.md
 docs/EzsignfolderGetFormsDataV1Response.md
 docs/EzsignfolderGetFormsDataV1ResponseAllOf.md
 docs/EzsignfolderGetFormsDataV1ResponseMPayload.md
@@ -335,7 +348,6 @@ docs/EzsignfolderGetObjectV1ResponseMPayload.md
 docs/EzsignfolderListElement.md
 docs/EzsignfolderRequest.md
 docs/EzsignfolderRequestCompound.md
-docs/EzsignfolderRequestCompoundAllOf.md
 docs/EzsignfolderResponse.md
 docs/EzsignfolderResponseCompound.md
 docs/EzsignfolderSendV1Request.md
@@ -381,6 +393,10 @@ docs/EzsignsignerRequest.md
 docs/EzsignsignerRequestCompound.md
 docs/EzsignsignerRequestCompoundAllOf.md
 docs/EzsignsignerRequestCompoundContact.md
+docs/EzsignsignerResponse.md
+docs/EzsignsignerResponseCompound.md
+docs/EzsignsignerResponseCompoundAllOf.md
+docs/EzsignsignerResponseCompoundContact.md
 docs/EzsigntemplatepackageGetListV1Response.md
 docs/EzsigntemplatepackageGetListV1ResponseAllOf.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayload.md

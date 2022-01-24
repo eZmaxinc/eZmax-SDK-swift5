@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/customer/{pksCustomerCode}/endpoint API Request */
-public struct GlobalCustomerGetEndpointV1Response: Codable, Hashable {
+public struct GlobalCustomerGetEndpointV1Response: Codable, JSONEncodable, Hashable {
 
     /** The endpoint's URL */
     public var sEndpointURL: String

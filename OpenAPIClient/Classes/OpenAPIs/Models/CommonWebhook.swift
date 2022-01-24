@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** This is the base Webhook object */
-public struct CommonWebhook: Codable, Hashable {
+public struct CommonWebhook: Codable, JSONEncodable, Hashable {
 
     public var objWebhook: WebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */

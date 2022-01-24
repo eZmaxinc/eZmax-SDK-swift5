@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsigndocument Object and children to create a complete structure */
-public struct EzsigndocumentRequestCompound: Codable, Hashable {
+public struct EzsigndocumentRequestCompound: Codable, JSONEncodable, Hashable {
 
     public enum EEzsigndocumentSource: String, Codable, CaseIterable {
         case base64 = "Base64"

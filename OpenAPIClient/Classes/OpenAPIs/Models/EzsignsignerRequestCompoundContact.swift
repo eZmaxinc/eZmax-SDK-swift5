@@ -11,15 +11,15 @@ import AnyCodable
 #endif
 
 /** A Ezsignsigner-&gt;Contact Object and children to create a complete structure */
-public struct EzsignsignerRequestCompoundContact: Codable, Hashable {
+public struct EzsignsignerRequestCompoundContact: Codable, JSONEncodable, Hashable {
 
-    /** The first name of the Contact */
+    /** The First name of the contact */
     public var sContactFirstname: String
-    /** The last name of the Contact */
+    /** The Last name of the contact */
     public var sContactLastname: String
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
-    /** The email address of the contact. Must be filled if email authentification was requested */
+    /** The email address. */
     public var sEmailAddress: String?
     /** The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany. */
     public var sPhoneNumber: String?

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the GET /1/module/list/listpresentation/{sListName} API Request */
-public struct ListGetListpresentationV1Response: Codable, Hashable {
+public struct ListGetListpresentationV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: ListGetListpresentationV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

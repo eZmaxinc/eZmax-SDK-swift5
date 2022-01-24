@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A Word Position Object */
-public struct CustomWordPositionWordResponse: Codable, Hashable {
+public struct CustomWordPositionWordResponse: Codable, JSONEncodable, Hashable {
 
     /** The searched word */
     public var sWord: String

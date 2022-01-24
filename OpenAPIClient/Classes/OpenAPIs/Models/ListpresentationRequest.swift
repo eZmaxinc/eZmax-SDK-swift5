@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A Listpresentation element */
-public struct ListpresentationRequest: Codable, Hashable {
+public struct ListpresentationRequest: Codable, JSONEncodable, Hashable {
 
     /** A descriptive for the list presentation */
     public var sListpresentationDescription: String

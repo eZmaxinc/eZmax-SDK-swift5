@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Request for the /1/module/user/createEzsignuser API Request */
-public struct UserCreateEzsignuserV1Request: Codable, Hashable {
+public struct UserCreateEzsignuserV1Request: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int

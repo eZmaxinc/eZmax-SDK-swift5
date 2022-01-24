@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Request for the /1/object/ezsignfoldersignerassociation/editObject API Request */
-public struct UNUSEDEzsignfoldersignerassociationEditObjectV1Request: Codable, Hashable {
+public struct UNUSEDEzsignfoldersignerassociationEditObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var objEzsignfoldersignerassociation: EzsignfoldersignerassociationRequest?
 

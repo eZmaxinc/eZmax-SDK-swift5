@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Franchisereferalincome Object */
-public struct FranchisereferalincomeRequest: Codable, Hashable {
+public struct FranchisereferalincomeRequest: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Franchisebroker */
     public var fkiFranchisebrokerID: Int

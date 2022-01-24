@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct ActivesessionGetCurrentV1ResponseAllOf: Codable, Hashable {
+public struct ActivesessionGetCurrentV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     public var mPayload: ActivesessionGetCurrentV1ResponseMPayload
 

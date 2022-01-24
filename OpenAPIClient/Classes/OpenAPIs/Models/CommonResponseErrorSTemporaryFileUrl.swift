@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Generic Error Message */
-public struct CommonResponseErrorSTemporaryFileUrl: Codable, Hashable {
+public struct CommonResponseErrorSTemporaryFileUrl: Codable, JSONEncodable, Hashable {
 
     /** The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again. */
     public var sTemporaryFileUrl: String?

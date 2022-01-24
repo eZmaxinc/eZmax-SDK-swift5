@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct CommonGetAutocompleteV1ResponseAllOf: Codable, Hashable {
+public struct CommonGetAutocompleteV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     /** Generic Autocomplete Response */
     public var mPayload: [CustomAutocompleteElementResponse]

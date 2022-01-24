@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsigndocument Object */
-public struct EzsigndocumentResponse: Codable, Hashable {
+public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int

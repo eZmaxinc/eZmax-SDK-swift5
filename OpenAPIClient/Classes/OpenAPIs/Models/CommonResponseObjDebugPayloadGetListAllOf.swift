@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct CommonResponseObjDebugPayloadGetListAllOf: Codable, Hashable {
+public struct CommonResponseObjDebugPayloadGetListAllOf: Codable, JSONEncodable, Hashable {
 
     public var aFilter: CommonResponseFilter
     /** List of available values for *eOrderBy* */

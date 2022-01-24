@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Generic Autocomplete Response */
-public struct CustomAutocompleteElementResponse: Codable, Hashable {
+public struct CustomAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
     /** The Category for the dropdown or an empty string if not categorized */
     public var sCategory: String

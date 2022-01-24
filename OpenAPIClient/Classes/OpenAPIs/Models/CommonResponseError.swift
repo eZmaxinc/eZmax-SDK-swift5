@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Generic Error Message */
-public struct CommonResponseError: Codable, Hashable {
+public struct CommonResponseError: Codable, JSONEncodable, Hashable {
 
     /** More detail about the error */
     public var sErrorMessage: String

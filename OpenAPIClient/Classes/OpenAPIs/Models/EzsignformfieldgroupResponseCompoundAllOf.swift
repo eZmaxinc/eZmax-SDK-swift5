@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct EzsignformfieldgroupResponseCompoundAllOf: Codable, Hashable {
+public struct EzsignformfieldgroupResponseCompoundAllOf: Codable, JSONEncodable, Hashable {
 
     public var aObjEzsignformfield: [EzsignformfieldResponse]
 

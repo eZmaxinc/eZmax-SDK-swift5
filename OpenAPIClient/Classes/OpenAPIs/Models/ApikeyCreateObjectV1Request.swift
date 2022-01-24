@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Request for the /1/object/apikey/createObject API Request */
-public struct ApikeyCreateObjectV1Request: Codable, Hashable {
+public struct ApikeyCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var objApikey: ApikeyRequest?
     public var objApikeyCompound: ApikeyRequestCompound?

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Request for the /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate API Request */
-public struct EzsigndocumentApplyEzsigntemplateV2Request: Codable, Hashable {
+public struct EzsigndocumentApplyEzsigntemplateV2Request: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsigndocument */
     public var fkiEzsigntemplateID: Int

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsigntemplatepackage List Element */
-public struct EzsigntemplatepackageListElement: Codable, Hashable {
+public struct EzsigntemplatepackageListElement: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsigntemplatepackage */
     public var pkiEzsigntemplatepackageID: Int

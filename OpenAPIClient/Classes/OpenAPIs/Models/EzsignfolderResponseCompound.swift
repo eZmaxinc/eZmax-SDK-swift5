@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsignfolder Object and children to create a complete structure */
-public struct EzsignfolderResponseCompound: Codable, Hashable {
+public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
@@ -36,12 +36,16 @@ public struct EzsignfolderResponseCompound: Codable, Hashable {
     public var dtEzsignfolderDuedate: String
     /** The date and time at which the Ezsign folder was sent the last time. */
     public var dtEzsignfolderSentdate: String?
+    /** The scheduled date and time at which the Ezsignfolder should be archived. */
+    public var dtEzsignfolderScheduledarchive: String
+    /** The scheduled date and time at which the Ezsignfolder should be Destroyed. */
+    public var dtEzsignfolderScheduleddestruction: String
     public var eEzsignfolderStep: FieldEEzsignfolderStep
     /** The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. */
     public var dtEzsignfolderClose: String
     public var objAudit: CommonAudit
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate: String, dtEzsignfolderSentdate: String?, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate: String, dtEzsignfolderSentdate: String?, dtEzsignfolderScheduledarchive: String, dtEzsignfolderScheduleddestruction: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
@@ -54,6 +58,8 @@ public struct EzsignfolderResponseCompound: Codable, Hashable {
         self.eEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
         self.dtEzsignfolderDuedate = dtEzsignfolderDuedate
         self.dtEzsignfolderSentdate = dtEzsignfolderSentdate
+        self.dtEzsignfolderScheduledarchive = dtEzsignfolderScheduledarchive
+        self.dtEzsignfolderScheduleddestruction = dtEzsignfolderScheduleddestruction
         self.eEzsignfolderStep = eEzsignfolderStep
         self.dtEzsignfolderClose = dtEzsignfolderClose
         self.objAudit = objAudit
@@ -72,6 +78,8 @@ public struct EzsignfolderResponseCompound: Codable, Hashable {
         case eEzsignfolderSendreminderfrequency
         case dtEzsignfolderDuedate
         case dtEzsignfolderSentdate
+        case dtEzsignfolderScheduledarchive
+        case dtEzsignfolderScheduleddestruction
         case eEzsignfolderStep
         case dtEzsignfolderClose
         case objAudit
@@ -93,6 +101,8 @@ public struct EzsignfolderResponseCompound: Codable, Hashable {
         try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)
         try container.encode(dtEzsignfolderDuedate, forKey: .dtEzsignfolderDuedate)
         try container.encode(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
+        try container.encode(dtEzsignfolderScheduledarchive, forKey: .dtEzsignfolderScheduledarchive)
+        try container.encode(dtEzsignfolderScheduleddestruction, forKey: .dtEzsignfolderScheduleddestruction)
         try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
         try container.encode(dtEzsignfolderClose, forKey: .dtEzsignfolderClose)
         try container.encode(objAudit, forKey: .objAudit)

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A forms Data Folder Object */
-public struct CustomFormsDataFolderResponse: Codable, Hashable {
+public struct CustomFormsDataFolderResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int

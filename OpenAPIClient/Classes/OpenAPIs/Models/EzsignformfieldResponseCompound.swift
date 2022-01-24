@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsignformfield Object and children to create a complete structure */
-public struct EzsignformfieldResponseCompound: Codable, Hashable {
+public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable {
 
     /** The Label for the Ezsignformfield */
     public var sEzsignformfieldLabel: String

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** This is the base Webhook object */
-public struct WebhookUserUserCreated: Codable, Hashable {
+public struct WebhookUserUserCreated: Codable, JSONEncodable, Hashable {
 
     public var objUser: UserResponse
     public var objWebhook: WebhookResponse

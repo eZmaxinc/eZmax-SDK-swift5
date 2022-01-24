@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Request for the /2/module/authenticate/authenticate API Request */
-public struct AuthenticateAuthenticateV2Request: Codable, Hashable {
+public struct AuthenticateAuthenticateV2Request: Codable, JSONEncodable, Hashable {
 
     /** The customer code assigned to your account */
     public var pksCustomerCode: String

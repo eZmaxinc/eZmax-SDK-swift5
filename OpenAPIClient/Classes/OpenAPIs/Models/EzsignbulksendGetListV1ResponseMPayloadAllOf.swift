@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct EzsignbulksendGetListV1ResponseMPayloadAllOf: Codable, Hashable {
+public struct EzsignbulksendGetListV1ResponseMPayloadAllOf: Codable, JSONEncodable, Hashable {
 
     public var aObjEzsignbulksend: [EzsignbulksendListElement]
 

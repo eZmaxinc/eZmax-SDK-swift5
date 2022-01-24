@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsignfoldertype List Element */
-public struct EzsignfoldertypeListElement: Codable, Hashable {
+public struct EzsignfoldertypeListElement: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignfoldertype. */
     public var pkiEzsignfoldertypeID: Int

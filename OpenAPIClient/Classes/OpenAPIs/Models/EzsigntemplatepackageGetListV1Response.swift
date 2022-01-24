@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/object/ezsigntemplatepackage/getList API Request */
-public struct EzsigntemplatepackageGetListV1Response: Codable, Hashable {
+public struct EzsigntemplatepackageGetListV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsigntemplatepackageGetListV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayloadGetList?

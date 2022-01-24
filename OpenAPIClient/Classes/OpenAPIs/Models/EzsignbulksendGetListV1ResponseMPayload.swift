@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Payload for the /1/object/ezsignbulksend/getList API Request */
-public struct EzsignbulksendGetListV1ResponseMPayload: Codable, Hashable {
+public struct EzsignbulksendGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     public var aObjEzsignbulksend: [EzsignbulksendListElement]
     /** The number of rows returned */

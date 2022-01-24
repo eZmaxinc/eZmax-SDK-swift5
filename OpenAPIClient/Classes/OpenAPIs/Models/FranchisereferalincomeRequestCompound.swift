@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A Franchisereferalincome Object and children to create a complete structure */
-public struct FranchisereferalincomeRequestCompound: Codable, Hashable {
+public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Hashable {
 
     public var objAddress: AddressRequest
     public var aObjContact: [ContactRequestCompound]

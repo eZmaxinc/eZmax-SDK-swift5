@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Definition of objSQLQuery Object */
-public struct CommonResponseObjSQLQuery: Codable, Hashable {
+public struct CommonResponseObjSQLQuery: Codable, JSONEncodable, Hashable {
 
     /** The SQL Query */
     public var sQuery: String

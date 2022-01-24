@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/object/ezsignfolder/deleteObject API Request */
-public struct EzsignfolderDeleteObjectV1Response: Codable, Hashable {
+public struct EzsignfolderDeleteObjectV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?

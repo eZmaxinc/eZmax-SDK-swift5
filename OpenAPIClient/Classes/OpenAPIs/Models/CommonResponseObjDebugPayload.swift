@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** This is a debug object containing debugging information on the actual function */
-public struct CommonResponseObjDebugPayload: Codable, Hashable {
+public struct CommonResponseObjDebugPayload: Codable, JSONEncodable, Hashable {
 
     /** The minimum version of the function that can be called */
     public var iVersionMin: Int

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A User Object */
-public struct UserResponse: Codable, Hashable {
+public struct UserResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the User */
     public var pkiUserID: Int

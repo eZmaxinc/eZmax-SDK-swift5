@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct ApikeyCreateObjectV1ResponseAllOf: Codable, Hashable {
+public struct ApikeyCreateObjectV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     public var mPayload: ApikeyCreateObjectV1ResponseMPayload
 

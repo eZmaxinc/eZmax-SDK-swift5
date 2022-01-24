@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct ListGetListpresentationV1ResponseAllOf: Codable, Hashable {
+public struct ListGetListpresentationV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     public var mPayload: ListGetListpresentationV1ResponseMPayload
 

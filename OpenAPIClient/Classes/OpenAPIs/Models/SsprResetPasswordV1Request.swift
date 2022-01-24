@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Request for the /1/module/sspr/resetPassword API Request */
-public struct SsprResetPasswordV1Request: Codable, Hashable {
+public struct SsprResetPasswordV1Request: Codable, JSONEncodable, Hashable {
 
     /** The customer code assigned to your account */
     public var pksCustomerCode: String

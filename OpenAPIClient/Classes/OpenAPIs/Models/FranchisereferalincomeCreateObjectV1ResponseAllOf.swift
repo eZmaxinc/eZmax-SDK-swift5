@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct FranchisereferalincomeCreateObjectV1ResponseAllOf: Codable, Hashable {
+public struct FranchisereferalincomeCreateObjectV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     public var mPayload: FranchisereferalincomeCreateObjectV1ResponseMPayload
 

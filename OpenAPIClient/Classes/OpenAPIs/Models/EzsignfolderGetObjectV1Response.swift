@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/object/ezsignfolder/getObject API Request */
-public struct EzsignfolderGetObjectV1Response: Codable, Hashable {
+public struct EzsignfolderGetObjectV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsignfolderGetObjectV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

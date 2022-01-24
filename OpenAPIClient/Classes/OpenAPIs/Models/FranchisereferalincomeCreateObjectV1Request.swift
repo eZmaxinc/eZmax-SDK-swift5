@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Request for the /1/object/franchisereferalincome/createObject API Request */
-public struct FranchisereferalincomeCreateObjectV1Request: Codable, Hashable {
+public struct FranchisereferalincomeCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var objFranchisereferalincome: FranchisereferalincomeRequest?
     public var objFranchisereferalincomeCompound: FranchisereferalincomeRequestCompound?

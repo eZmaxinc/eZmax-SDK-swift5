@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
-public struct EzsigndocumentGetWordsPositionsV1Response: Codable, Hashable {
+public struct EzsigndocumentGetWordsPositionsV1Response: Codable, JSONEncodable, Hashable {
 
     /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
     public var mPayload: [CustomWordPositionWordResponse]

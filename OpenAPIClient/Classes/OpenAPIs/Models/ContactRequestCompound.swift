@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A Contact Object and children to create a complete structure */
-public struct ContactRequestCompound: Codable, Hashable {
+public struct ContactRequestCompound: Codable, JSONEncodable, Hashable {
 
     public var objContactinformations: ContactinformationsRequestCompound
     /** The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)| */

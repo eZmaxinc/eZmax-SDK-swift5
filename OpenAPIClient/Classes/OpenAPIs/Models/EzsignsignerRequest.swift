@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** An Ezsignsigner Object */
-public struct EzsignsignerRequest: Codable, Hashable {
+public struct EzsignsignerRequest: Codable, JSONEncodable, Hashable {
 
     public enum EEzsignsignerLogintype: String, Codable, CaseIterable {
         case password = "Password"

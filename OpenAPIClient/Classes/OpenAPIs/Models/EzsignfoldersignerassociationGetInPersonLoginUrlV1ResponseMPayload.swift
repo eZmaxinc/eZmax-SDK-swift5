@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Payload for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request */
-public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload: Codable, Hashable {
+public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** The Url to login to the signing application.    Url will expire after 30 minutes.   */
     public var sLoginUrl: String

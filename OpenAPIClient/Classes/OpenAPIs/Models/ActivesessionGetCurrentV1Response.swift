@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Response for the /1/object/activesession/getCurrent API Request */
-public struct ActivesessionGetCurrentV1Response: Codable, Hashable {
+public struct ActivesessionGetCurrentV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: ActivesessionGetCurrentV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?

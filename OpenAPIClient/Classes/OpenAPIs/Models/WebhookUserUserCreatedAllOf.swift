@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct WebhookUserUserCreatedAllOf: Codable, Hashable {
+public struct WebhookUserUserCreatedAllOf: Codable, JSONEncodable, Hashable {
 
     public var objUser: UserResponse
 

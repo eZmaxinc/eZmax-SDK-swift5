@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct ContactRequestCompoundAllOf: Codable, Hashable {
+public struct ContactRequestCompoundAllOf: Codable, JSONEncodable, Hashable {
 
     public var objContactinformations: ContactinformationsRequestCompound
 

@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A form Data Document Object  */
-public struct CustomFormDataDocumentResponse: Codable, Hashable {
+public struct CustomFormDataDocumentResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int

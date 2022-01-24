@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Payload for the /1/object/ezsignfoldersignerassociation/getObject API Request */
-public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable, Hashable {
+public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var pkiEzsignfoldersignerassociationID: Int

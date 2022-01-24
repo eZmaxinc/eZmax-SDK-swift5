@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** A form Data Signer Object */
-public struct CustomFormDataSignerResponse: Codable, Hashable {
+public struct CustomFormDataSignerResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int

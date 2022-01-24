@@ -11,7 +11,7 @@ import AnyCodable
 #endif
 
 /** Description of the API Key   */
-public struct MultilingualApikeyDescription: Codable, Hashable {
+public struct MultilingualApikeyDescription: Codable, JSONEncodable, Hashable {
 
     /** Value in French */
     public var sApikeyDescription1: String?

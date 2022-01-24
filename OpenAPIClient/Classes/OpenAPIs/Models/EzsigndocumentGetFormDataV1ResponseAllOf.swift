@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct EzsigndocumentGetFormDataV1ResponseAllOf: Codable, Hashable {
+public struct EzsigndocumentGetFormDataV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsigndocumentGetFormDataV1ResponseMPayload
 
