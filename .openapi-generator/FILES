@@ -173,6 +173,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureGetObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureGetObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureRequestCompound.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignaturecustomdateRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequestCompoundAllOf.swift
@@ -389,6 +390,7 @@ docs/EzsignsignatureGetObjectV1Response.md
 docs/EzsignsignatureGetObjectV1ResponseAllOf.md
 docs/EzsignsignatureRequest.md
 docs/EzsignsignatureRequestCompound.md
+docs/EzsignsignaturecustomdateRequest.md
 docs/EzsignsignerRequest.md
 docs/EzsignsignerRequestCompound.md
 docs/EzsignsignerRequestCompoundAllOf.md
