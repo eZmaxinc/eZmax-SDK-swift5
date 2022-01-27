@@ -17,26 +17,18 @@ public struct EzsignfoldersignerassociationResponse: Codable, JSONEncodable, Has
     public var pkiEzsignfoldersignerassociationID: Int
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
-    /** The unique ID of the Ezsignsigner */
-    public var fkiEzsignsignerID: Int?
-    /** The unique ID of the User */
-    public var fkiUserID: Int?
     /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
     public var bEzsignfoldersignerassociationReceivecopy: Bool
 
-    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, fkiEzsignsignerID: Int?, fkiUserID: Int?, bEzsignfoldersignerassociationReceivecopy: Bool) {
+    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiEzsignfolderID = fkiEzsignfolderID
-        self.fkiEzsignsignerID = fkiEzsignsignerID
-        self.fkiUserID = fkiUserID
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignfoldersignerassociationID
         case fkiEzsignfolderID
-        case fkiEzsignsignerID
-        case fkiUserID
         case bEzsignfoldersignerassociationReceivecopy
     }
 
@@ -46,8 +38,6 @@ public struct EzsignfoldersignerassociationResponse: Codable, JSONEncodable, Has
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignfoldersignerassociationID, forKey: .pkiEzsignfoldersignerassociationID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
-        try container.encode(fkiEzsignsignerID, forKey: .fkiEzsignsignerID)
-        try container.encode(fkiUserID, forKey: .fkiUserID)
         try container.encode(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
     }
 }

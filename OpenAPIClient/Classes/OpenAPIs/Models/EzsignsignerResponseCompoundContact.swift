@@ -21,18 +21,18 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
     public var fkiLanguageID: Int
     /** The email address. */
     public var sEmailAddress: String?
-    /** The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany. */
-    public var sPhoneNumber: String?
-    /** The Cell Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany. */
-    public var sPhoneNumberCell: String?
+    /** A phone number in E.164 Format */
+    public var sPhoneE164: String?
+    /** A phone number in E.164 Format */
+    public var sPhoneE164Cell: String?
 
-    public init(sContactFirstname: String, sContactLastname: String, fkiLanguageID: Int, sEmailAddress: String? = nil, sPhoneNumber: String? = nil, sPhoneNumberCell: String? = nil) {
+    public init(sContactFirstname: String, sContactLastname: String, fkiLanguageID: Int, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sPhoneE164Cell: String? = nil) {
         self.sContactFirstname = sContactFirstname
         self.sContactLastname = sContactLastname
         self.fkiLanguageID = fkiLanguageID
         self.sEmailAddress = sEmailAddress
-        self.sPhoneNumber = sPhoneNumber
-        self.sPhoneNumberCell = sPhoneNumberCell
+        self.sPhoneE164 = sPhoneE164
+        self.sPhoneE164Cell = sPhoneE164Cell
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -40,8 +40,8 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
         case sContactLastname
         case fkiLanguageID
         case sEmailAddress
-        case sPhoneNumber
-        case sPhoneNumberCell
+        case sPhoneE164
+        case sPhoneE164Cell
     }
 
     // Encodable protocol methods
@@ -52,8 +52,8 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
         try container.encode(sContactLastname, forKey: .sContactLastname)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
-        try container.encodeIfPresent(sPhoneNumber, forKey: .sPhoneNumber)
-        try container.encodeIfPresent(sPhoneNumberCell, forKey: .sPhoneNumberCell)
+        try container.encodeIfPresent(sPhoneE164, forKey: .sPhoneE164)
+        try container.encodeIfPresent(sPhoneE164Cell, forKey: .sPhoneE164Cell)
     }
 }
 

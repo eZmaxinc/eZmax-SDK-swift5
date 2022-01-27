@@ -22,7 +22,7 @@ public struct PhoneRequest: Codable, JSONEncodable, Hashable {
     public var sPhoneExchange: String?
     /** The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123 */
     public var sPhoneNumber: String?
-    /** The international phone number. (For phone numbers outside of North)  Do not specify the \"011\" part of the phone number used to dial an international phone number from North America.  For example for this sample phone number \"+442071838750\", you would send \"442071838750\" without the \"+\" sign. */
+    /** A phone number in E.164 Format */
     public var sPhoneInternational: String?
     /** The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers */
     public var sPhoneExtension: String?
