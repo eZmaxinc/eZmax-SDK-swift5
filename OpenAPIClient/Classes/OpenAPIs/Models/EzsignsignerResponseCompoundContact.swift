@@ -13,6 +13,8 @@ import AnyCodable
 /** A Ezsignsigner-&gt;Contact Object and children to create a complete structure */
 public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hashable {
 
+    /** The unique ID of the Contact */
+    public var pkiContactID: Int
     /** The First name of the contact */
     public var sContactFirstname: String
     /** The Last name of the contact */
@@ -26,7 +28,8 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
     /** A phone number in E.164 Format */
     public var sPhoneE164Cell: String?
 
-    public init(sContactFirstname: String, sContactLastname: String, fkiLanguageID: Int, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sPhoneE164Cell: String? = nil) {
+    public init(pkiContactID: Int, sContactFirstname: String, sContactLastname: String, fkiLanguageID: Int, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sPhoneE164Cell: String? = nil) {
+        self.pkiContactID = pkiContactID
         self.sContactFirstname = sContactFirstname
         self.sContactLastname = sContactLastname
         self.fkiLanguageID = fkiLanguageID
@@ -36,6 +39,7 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiContactID
         case sContactFirstname
         case sContactLastname
         case fkiLanguageID
@@ -48,6 +52,7 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pkiContactID, forKey: .pkiContactID)
         try container.encode(sContactFirstname, forKey: .sContactFirstname)
         try container.encode(sContactLastname, forKey: .sContactLastname)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)

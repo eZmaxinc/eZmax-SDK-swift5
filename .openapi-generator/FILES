@@ -241,6 +241,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/WebhookResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/WebhookUserUserCreated.swift
 OpenAPIClient/Classes/OpenAPIs/Models/WebhookUserUserCreatedAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/WebsiteRequest.swift
+OpenAPIClient/Classes/OpenAPIs/Models/Xxxx.swift
 OpenAPIClient/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
 OpenAPIClient/Classes/OpenAPIs/SynchronizedDictionary.swift
 OpenAPIClient/Classes/OpenAPIs/URLSessionImplementations.swift
@@ -477,5 +478,6 @@ docs/WebhookResponse.md
 docs/WebhookUserUserCreated.md
 docs/WebhookUserUserCreatedAllOf.md
 docs/WebsiteRequest.md
+docs/Xxxx.md
 git_push.sh
 project.yml

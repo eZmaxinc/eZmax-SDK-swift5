@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pkiContactID** | **Int** | The unique ID of the Contact | 
 **sContactFirstname** | **String** | The First name of the contact | 
 **sContactLastname** | **String** | The Last name of the contact | 
 **fkiLanguageID** | **Int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
