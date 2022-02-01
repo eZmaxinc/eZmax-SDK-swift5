@@ -20,6 +20,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     public var sCustomerCode: String
     /** The type of session used for the API request call */
     public var eActivesessionSessiontype: EActivesessionSessiontype
+    public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
     /** The name of the active Company in the current language */
@@ -35,9 +36,10 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     /** The unique ID of the Apikey */
     public var fkiApikeyID: Int
 
-    public init(sCustomerCode: String, eActivesessionSessiontype: EActivesessionSessiontype, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, aRegisteredModules: [String], aPermissions: [Int], fkiUserID: Int, fkiApikeyID: Int) {
+    public init(sCustomerCode: String, eActivesessionSessiontype: EActivesessionSessiontype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, aRegisteredModules: [String], aPermissions: [Int], fkiUserID: Int, fkiApikeyID: Int) {
         self.sCustomerCode = sCustomerCode
         self.eActivesessionSessiontype = eActivesessionSessiontype
+        self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
         self.sCompanyNameX = sCompanyNameX
         self.sDepartmentNameX = sDepartmentNameX
@@ -50,6 +52,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case sCustomerCode
         case eActivesessionSessiontype
+        case eActivesessionWeekdaystart
         case fkiLanguageID
         case sCompanyNameX
         case sDepartmentNameX
@@ -65,6 +68,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sCustomerCode, forKey: .sCustomerCode)
         try container.encode(eActivesessionSessiontype, forKey: .eActivesessionSessiontype)
+        try container.encode(eActivesessionWeekdaystart, forKey: .eActivesessionWeekdaystart)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)

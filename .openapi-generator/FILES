@@ -108,6 +108,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponseCompound.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponseCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV1ResponseAllOf.swift
@@ -153,6 +154,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationRequestCompou
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationRequestCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationResponseCompound.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationResponseCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldersignerassociationResponseCompoundUser.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldertypeGetListV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfoldertypeGetListV1ResponseAllOf.swift
@@ -174,6 +176,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureGetObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureGetObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureRequestCompound.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureRequestCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignaturecustomdateRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignerRequestCompound.swift
@@ -188,6 +191,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1ResponseAllO
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1ResponseMPayloadAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageListElement.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FieldEActivesessionWeekdaystart.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsigndocumentStep.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsignfolderSendreminderfrequency.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsignfolderStep.swift
@@ -327,6 +331,7 @@ docs/EzsigndocumentRequest.md
 docs/EzsigndocumentRequestCompound.md
 docs/EzsigndocumentResponse.md
 docs/EzsigndocumentResponseCompound.md
+docs/EzsigndocumentResponseCompoundAllOf.md
 docs/EzsignfolderCreateObjectV1Request.md
 docs/EzsignfolderCreateObjectV1Response.md
 docs/EzsignfolderCreateObjectV1ResponseAllOf.md
@@ -372,6 +377,7 @@ docs/EzsignfoldersignerassociationRequestCompound.md
 docs/EzsignfoldersignerassociationRequestCompoundAllOf.md
 docs/EzsignfoldersignerassociationResponse.md
 docs/EzsignfoldersignerassociationResponseCompound.md
+docs/EzsignfoldersignerassociationResponseCompoundAllOf.md
 docs/EzsignfoldersignerassociationResponseCompoundUser.md
 docs/EzsignfoldertypeGetListV1Response.md
 docs/EzsignfoldertypeGetListV1ResponseAllOf.md
@@ -393,6 +399,7 @@ docs/EzsignsignatureGetObjectV1Response.md
 docs/EzsignsignatureGetObjectV1ResponseAllOf.md
 docs/EzsignsignatureRequest.md
 docs/EzsignsignatureRequestCompound.md
+docs/EzsignsignatureRequestCompoundAllOf.md
 docs/EzsignsignaturecustomdateRequest.md
 docs/EzsignsignerRequest.md
 docs/EzsignsignerRequestCompound.md
@@ -407,6 +414,7 @@ docs/EzsigntemplatepackageGetListV1ResponseAllOf.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayload.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayloadAllOf.md
 docs/EzsigntemplatepackageListElement.md
+docs/FieldEActivesessionWeekdaystart.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
