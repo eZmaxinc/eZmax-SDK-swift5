@@ -1,4 +1,4 @@
-# ActivesessionGetCurrentV1ResponseMPayload
+# ActivesessionResponseCompound
 
 ## Properties
 Name | Type | Description | Notes

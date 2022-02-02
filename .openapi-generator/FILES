@@ -31,6 +31,11 @@ OpenAPIClient/Classes/OpenAPIs/Models.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ActivesessionGetCurrentV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ActivesessionGetCurrentV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ActivesessionGetCurrentV1ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/ActivesessionResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/ActivesessionResponseCompound.swift
+OpenAPIClient/Classes/OpenAPIs/Models/ActivesessionResponseCompoundAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/ActivesessionResponseCompoundApikey.swift
+OpenAPIClient/Classes/OpenAPIs/Models/ActivesessionResponseCompoundUser.swift
 OpenAPIClient/Classes/OpenAPIs/Models/AddressRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ApikeyCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ApikeyCreateObjectV1Response.swift
@@ -191,6 +196,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1ResponseAllO
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageGetListV1ResponseMPayloadAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatepackageListElement.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FieldEActivesessionSessiontype.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEActivesessionWeekdaystart.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsigndocumentStep.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsignfolderSendreminderfrequency.swift
@@ -245,7 +251,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/WebhookResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/WebhookUserUserCreated.swift
 OpenAPIClient/Classes/OpenAPIs/Models/WebhookUserUserCreatedAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/WebsiteRequest.swift
-OpenAPIClient/Classes/OpenAPIs/Models/Xxxx.swift
 OpenAPIClient/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
 OpenAPIClient/Classes/OpenAPIs/SynchronizedDictionary.swift
 OpenAPIClient/Classes/OpenAPIs/URLSessionImplementations.swift
@@ -254,6 +259,11 @@ README.md
 docs/ActivesessionGetCurrentV1Response.md
 docs/ActivesessionGetCurrentV1ResponseAllOf.md
 docs/ActivesessionGetCurrentV1ResponseMPayload.md
+docs/ActivesessionResponse.md
+docs/ActivesessionResponseCompound.md
+docs/ActivesessionResponseCompoundAllOf.md
+docs/ActivesessionResponseCompoundApikey.md
+docs/ActivesessionResponseCompoundUser.md
 docs/AddressRequest.md
 docs/ApikeyCreateObjectV1Request.md
 docs/ApikeyCreateObjectV1Response.md
@@ -414,6 +424,7 @@ docs/EzsigntemplatepackageGetListV1ResponseAllOf.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayload.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayloadAllOf.md
 docs/EzsigntemplatepackageListElement.md
+docs/FieldEActivesessionSessiontype.md
 docs/FieldEActivesessionWeekdaystart.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
@@ -486,6 +497,5 @@ docs/WebhookResponse.md
 docs/WebhookUserUserCreated.md
 docs/WebhookUserUserCreatedAllOf.md
 docs/WebsiteRequest.md
-docs/Xxxx.md
 git_push.sh
 project.yml
