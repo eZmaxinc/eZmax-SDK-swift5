@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | [optional] 
 **eEzsigndocumentSource** | **String** | Indicates where to look for the document binary content. | 
 **eEzsigndocumentFormat** | **String** | Indicates the format of the document. | 
 **sEzsigndocumentBase64** | **Data** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 

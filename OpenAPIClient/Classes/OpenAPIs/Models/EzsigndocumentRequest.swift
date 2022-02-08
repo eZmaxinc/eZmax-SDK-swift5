@@ -20,6 +20,8 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     public enum EEzsigndocumentFormat: String, Codable, CaseIterable {
         case pdf = "Pdf"
     }
+    /** The unique ID of the Ezsigndocument */
+    public var pkiEzsigndocumentID: Int?
     /** Indicates where to look for the document binary content. */
     public var eEzsigndocumentSource: EEzsigndocumentSource
     /** Indicates the format of the document. */
@@ -41,7 +43,8 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */
     public var sEzsigndocumentName: String
 
-    public init(eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = "", fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String) {
+    public init(pkiEzsigndocumentID: Int? = nil, eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = "", fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String) {
+        self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.eEzsigndocumentSource = eEzsigndocumentSource
         self.eEzsigndocumentFormat = eEzsigndocumentFormat
         self.sEzsigndocumentBase64 = sEzsigndocumentBase64
@@ -55,6 +58,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiEzsigndocumentID
         case eEzsigndocumentSource
         case eEzsigndocumentFormat
         case sEzsigndocumentBase64
@@ -71,6 +75,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(pkiEzsigndocumentID, forKey: .pkiEzsigndocumentID)
         try container.encode(eEzsigndocumentSource, forKey: .eEzsigndocumentSource)
         try container.encode(eEzsigndocumentFormat, forKey: .eEzsigndocumentFormat)
         try container.encodeIfPresent(sEzsigndocumentBase64, forKey: .sEzsigndocumentBase64)

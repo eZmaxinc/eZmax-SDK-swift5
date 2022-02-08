@@ -13,6 +13,8 @@ import AnyCodable
 /** An Franchisereferalincome Object */
 public struct FranchisereferalincomeRequest: Codable, JSONEncodable, Hashable {
 
+    /** The unique ID of the Franchisereferalincome */
+    public var pkiFranchisereferalincomeID: Int?
     /** The unique ID of the Franchisebroker */
     public var fkiFranchisebrokerID: Int
     /** The unique ID of the Franchisereferalincomeprogram */
@@ -35,7 +37,8 @@ public struct FranchisereferalincomeRequest: Codable, JSONEncodable, Hashable {
     public var fkiFranchiseofficeID: Int
     public var sFranchisereferalincomeRemoteid: String
 
-    public init(fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String) {
+    public init(pkiFranchisereferalincomeID: Int? = nil, fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String) {
+        self.pkiFranchisereferalincomeID = pkiFranchisereferalincomeID
         self.fkiFranchisebrokerID = fkiFranchisebrokerID
         self.fkiFranchisereferalincomeprogramID = fkiFranchisereferalincomeprogramID
         self.fkiPeriodID = fkiPeriodID
@@ -50,6 +53,7 @@ public struct FranchisereferalincomeRequest: Codable, JSONEncodable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiFranchisereferalincomeID
         case fkiFranchisebrokerID
         case fkiFranchisereferalincomeprogramID
         case fkiPeriodID
@@ -67,6 +71,7 @@ public struct FranchisereferalincomeRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(pkiFranchisereferalincomeID, forKey: .pkiFranchisereferalincomeID)
         try container.encode(fkiFranchisebrokerID, forKey: .fkiFranchisebrokerID)
         try container.encode(fkiFranchisereferalincomeprogramID, forKey: .fkiFranchisereferalincomeprogramID)
         try container.encode(fkiPeriodID, forKey: .fkiPeriodID)

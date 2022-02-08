@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pkiApikeyID** | **Int** | The unique ID of the Apikey | [optional] 
 **fkiUserID** | **Int** | The unique ID of the User | 
 **objApikeyDescription** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
 

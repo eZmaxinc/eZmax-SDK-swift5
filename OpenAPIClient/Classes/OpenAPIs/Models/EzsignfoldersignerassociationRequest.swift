@@ -13,6 +13,8 @@ import AnyCodable
 /** An Ezsignfoldersignerassociation Object */
 public struct EzsignfoldersignerassociationRequest: Codable, JSONEncodable, Hashable {
 
+    /** The unique ID of the Ezsignfoldersignerassociation */
+    public var pkiEzsignfoldersignerassociationID: Int?
     /** The unique ID of the User */
     public var fkiUserID: Int?
     /** The unique ID of the Ezsignfolder */
@@ -20,13 +22,15 @@ public struct EzsignfoldersignerassociationRequest: Codable, JSONEncodable, Hash
     /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
     public var bEzsignfoldersignerassociationReceivecopy: Bool?
 
-    public init(fkiUserID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil) {
+    public init(pkiEzsignfoldersignerassociationID: Int? = nil, fkiUserID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil) {
+        self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiUserID = fkiUserID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiEzsignfoldersignerassociationID
         case fkiUserID
         case fkiEzsignfolderID
         case bEzsignfoldersignerassociationReceivecopy
@@ -36,6 +40,7 @@ public struct EzsignfoldersignerassociationRequest: Codable, JSONEncodable, Hash
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(pkiEzsignfoldersignerassociationID, forKey: .pkiEzsignfoldersignerassociationID)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encodeIfPresent(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)

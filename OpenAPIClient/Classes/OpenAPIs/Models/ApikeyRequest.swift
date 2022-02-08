@@ -13,16 +13,20 @@ import AnyCodable
 /** An Apikey Object */
 public struct ApikeyRequest: Codable, JSONEncodable, Hashable {
 
+    /** The unique ID of the Apikey */
+    public var pkiApikeyID: Int?
     /** The unique ID of the User */
     public var fkiUserID: Int
     public var objApikeyDescription: MultilingualApikeyDescription
 
-    public init(fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription) {
+    public init(pkiApikeyID: Int? = nil, fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription) {
+        self.pkiApikeyID = pkiApikeyID
         self.fkiUserID = fkiUserID
         self.objApikeyDescription = objApikeyDescription
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiApikeyID
         case fkiUserID
         case objApikeyDescription
     }
@@ -31,6 +35,7 @@ public struct ApikeyRequest: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(pkiApikeyID, forKey: .pkiApikeyID)
         try container.encode(fkiUserID, forKey: .fkiUserID)
         try container.encode(objApikeyDescription, forKey: .objApikeyDescription)
     }

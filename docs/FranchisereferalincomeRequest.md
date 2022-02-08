@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pkiFranchisereferalincomeID** | **Int** | The unique ID of the Franchisereferalincome | [optional] 
 **fkiFranchisebrokerID** | **Int** | The unique ID of the Franchisebroker | 
 **fkiFranchisereferalincomeprogramID** | **Int** | The unique ID of the Franchisereferalincomeprogram | 
 **fkiPeriodID** | **Int** | The unique ID of the Period | 

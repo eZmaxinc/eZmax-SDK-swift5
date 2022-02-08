@@ -15,6 +15,8 @@ public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Has
 
     public var objAddress: AddressRequest
     public var aObjContact: [ContactRequestCompound]
+    /** The unique ID of the Franchisereferalincome */
+    public var pkiFranchisereferalincomeID: Int?
     /** The unique ID of the Franchisebroker */
     public var fkiFranchisebrokerID: Int
     /** The unique ID of the Franchisereferalincomeprogram */
@@ -37,9 +39,10 @@ public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Has
     public var fkiFranchiseofficeID: Int
     public var sFranchisereferalincomeRemoteid: String
 
-    public init(objAddress: AddressRequest, aObjContact: [ContactRequestCompound], fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String) {
+    public init(objAddress: AddressRequest, aObjContact: [ContactRequestCompound], pkiFranchisereferalincomeID: Int? = nil, fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String) {
         self.objAddress = objAddress
         self.aObjContact = aObjContact
+        self.pkiFranchisereferalincomeID = pkiFranchisereferalincomeID
         self.fkiFranchisebrokerID = fkiFranchisebrokerID
         self.fkiFranchisereferalincomeprogramID = fkiFranchisereferalincomeprogramID
         self.fkiPeriodID = fkiPeriodID
@@ -56,6 +59,7 @@ public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Has
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case objAddress
         case aObjContact = "a_objContact"
+        case pkiFranchisereferalincomeID
         case fkiFranchisebrokerID
         case fkiFranchisereferalincomeprogramID
         case fkiPeriodID
@@ -75,6 +79,7 @@ public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Has
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(objAddress, forKey: .objAddress)
         try container.encode(aObjContact, forKey: .aObjContact)
+        try container.encodeIfPresent(pkiFranchisereferalincomeID, forKey: .pkiFranchisereferalincomeID)
         try container.encode(fkiFranchisebrokerID, forKey: .fkiFranchisebrokerID)
         try container.encode(fkiFranchisereferalincomeprogramID, forKey: .fkiFranchisereferalincomeprogramID)
         try container.encode(fkiPeriodID, forKey: .fkiPeriodID)
