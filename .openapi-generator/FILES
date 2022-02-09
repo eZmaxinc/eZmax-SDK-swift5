@@ -109,8 +109,11 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetObjectV1ResponseMPayload.
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetWordsPositionsV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetWordsPositionsV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentGetWordsPositionsV1ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentPatchObjectV1Request.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentPatchObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequestCompound.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentRequestPatch.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponseCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigndocumentResponseCompoundAllOf.swift
@@ -339,8 +342,11 @@ docs/EzsigndocumentGetObjectV1ResponseMPayload.md
 docs/EzsigndocumentGetWordsPositionsV1Request.md
 docs/EzsigndocumentGetWordsPositionsV1Response.md
 docs/EzsigndocumentGetWordsPositionsV1ResponseAllOf.md
+docs/EzsigndocumentPatchObjectV1Request.md
+docs/EzsigndocumentPatchObjectV1Response.md
 docs/EzsigndocumentRequest.md
 docs/EzsigndocumentRequestCompound.md
+docs/EzsigndocumentRequestPatch.md
 docs/EzsigndocumentResponse.md
 docs/EzsigndocumentResponseCompound.md
 docs/EzsigndocumentResponseCompoundAllOf.md
