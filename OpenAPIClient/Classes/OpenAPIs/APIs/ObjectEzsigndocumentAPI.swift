@@ -218,13 +218,13 @@ open class ObjectEzsigndocumentAPI {
      Edit multiple ezsignsignatures
      
      - parameter pkiEzsigndocumentID: (path)  
-     - parameter ezsignsignatureRequestCompound: (body)  
+     - parameter ezsigndocumentEditEzsignsignaturesV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: Int, ezsignsignatureRequestCompound: [EzsignsignatureRequestCompound], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEditEzsignsignaturesV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigndocumentEditEzsignsignaturesV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsignsignatureRequestCompound: ezsignsignatureRequestCompound).execute(apiResponseQueue) { result in
+    open class func ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignsignaturesV1Request: EzsigndocumentEditEzsignsignaturesV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEditEzsignsignaturesV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentEditEzsignsignaturesV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignsignaturesV1Request: ezsigndocumentEditEzsignsignaturesV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -242,16 +242,16 @@ open class ObjectEzsigndocumentAPI {
        - type: apiKey Authorization 
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
-     - parameter ezsignsignatureRequestCompound: (body)  
+     - parameter ezsigndocumentEditEzsignsignaturesV1Request: (body)  
      - returns: RequestBuilder<EzsigndocumentEditEzsignsignaturesV1Response> 
      */
-    open class func ezsigndocumentEditEzsignsignaturesV1WithRequestBuilder(pkiEzsigndocumentID: Int, ezsignsignatureRequestCompound: [EzsignsignatureRequestCompound]) -> RequestBuilder<EzsigndocumentEditEzsignsignaturesV1Response> {
+    open class func ezsigndocumentEditEzsignsignaturesV1WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignsignaturesV1Request: EzsigndocumentEditEzsignsignaturesV1Request) -> RequestBuilder<EzsigndocumentEditEzsignsignaturesV1Response> {
         var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures"
         let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
         let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignsignatureRequestCompound)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigndocumentEditEzsignsignaturesV1Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
