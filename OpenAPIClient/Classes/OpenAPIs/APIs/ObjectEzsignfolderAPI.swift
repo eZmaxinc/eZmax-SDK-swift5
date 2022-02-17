@@ -109,7 +109,7 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
-     Modify an existing Ezsignfolder
+     Edit an existing Ezsignfolder
      
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderEditObjectV1Request: (body)  
@@ -129,7 +129,7 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
-     Modify an existing Ezsignfolder
+     Edit an existing Ezsignfolder
      - PUT /1/object/ezsignfolder/{pkiEzsignfolderID}
      - API Key:
        - type: apiKey Authorization 
