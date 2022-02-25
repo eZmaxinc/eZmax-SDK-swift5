@@ -19,6 +19,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignsignatureCreateObjectV1(ezsignsignatureCreateObjectV1Request: [EzsignsignatureCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureCreateObjectV1WithRequestBuilder(ezsignsignatureCreateObjectV1Request: ezsignsignatureCreateObjectV1Request).execute(apiResponseQueue) { result in
@@ -41,6 +42,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter ezsignsignatureCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsignsignatureCreateObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignsignatureCreateObjectV1WithRequestBuilder(ezsignsignatureCreateObjectV1Request: [EzsignsignatureCreateObjectV1Request]) -> RequestBuilder<EzsignsignatureCreateObjectV1Response> {
         let localVariablePath = "/1/object/ezsignsignature"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
@@ -55,6 +57,53 @@ open class ObjectEzsignsignatureAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignsignatureCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Create a new Ezsignsignature
+     
+     - parameter ezsignsignatureCreateObjectV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignsignatureCreateObjectV2(ezsignsignatureCreateObjectV2Request: EzsignsignatureCreateObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureCreateObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignsignatureCreateObjectV2WithRequestBuilder(ezsignsignatureCreateObjectV2Request: ezsignsignatureCreateObjectV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Create a new Ezsignsignature
+     - POST /2/object/ezsignsignature
+     - The endpoint allows to create one or many elements at once.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter ezsignsignatureCreateObjectV2Request: (body)  
+     - returns: RequestBuilder<EzsignsignatureCreateObjectV2Response> 
+     */
+    open class func ezsignsignatureCreateObjectV2WithRequestBuilder(ezsignsignatureCreateObjectV2Request: EzsignsignatureCreateObjectV2Request) -> RequestBuilder<EzsignsignatureCreateObjectV2Response> {
+        let localVariablePath = "/2/object/ezsignsignature"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignsignatureCreateObjectV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureCreateObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

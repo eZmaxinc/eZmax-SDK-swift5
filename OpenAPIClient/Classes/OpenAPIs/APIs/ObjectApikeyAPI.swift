@@ -19,6 +19,7 @@ open class ObjectApikeyAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func apikeyCreateObjectV1(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return apikeyCreateObjectV1WithRequestBuilder(apikeyCreateObjectV1Request: apikeyCreateObjectV1Request).execute(apiResponseQueue) { result in
@@ -41,6 +42,7 @@ open class ObjectApikeyAPI {
      - parameter apikeyCreateObjectV1Request: (body)  
      - returns: RequestBuilder<ApikeyCreateObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func apikeyCreateObjectV1WithRequestBuilder(apikeyCreateObjectV1Request: [ApikeyCreateObjectV1Request]) -> RequestBuilder<ApikeyCreateObjectV1Response> {
         let localVariablePath = "/1/object/apikey"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
@@ -55,6 +57,53 @@ open class ObjectApikeyAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<ApikeyCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Create a new Apikey
+     
+     - parameter apikeyCreateObjectV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func apikeyCreateObjectV2(apikeyCreateObjectV2Request: ApikeyCreateObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyCreateObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return apikeyCreateObjectV2WithRequestBuilder(apikeyCreateObjectV2Request: apikeyCreateObjectV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Create a new Apikey
+     - POST /2/object/apikey
+     - The endpoint allows to create one or many elements at once.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter apikeyCreateObjectV2Request: (body)  
+     - returns: RequestBuilder<ApikeyCreateObjectV2Response> 
+     */
+    open class func apikeyCreateObjectV2WithRequestBuilder(apikeyCreateObjectV2Request: ApikeyCreateObjectV2Request) -> RequestBuilder<ApikeyCreateObjectV2Response> {
+        let localVariablePath = "/2/object/apikey"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: apikeyCreateObjectV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ApikeyCreateObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

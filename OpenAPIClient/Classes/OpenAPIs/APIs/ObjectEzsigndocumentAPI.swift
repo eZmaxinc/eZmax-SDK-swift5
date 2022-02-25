@@ -125,6 +125,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: [EzsigndocumentCreateObjectV1Request], apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentCreateObjectV1WithRequestBuilder(ezsigndocumentCreateObjectV1Request: ezsigndocumentCreateObjectV1Request).execute(apiResponseQueue) { result in
@@ -147,6 +148,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter ezsigndocumentCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsigndocumentCreateObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsigndocumentCreateObjectV1WithRequestBuilder(ezsigndocumentCreateObjectV1Request: [EzsigndocumentCreateObjectV1Request]) -> RequestBuilder<EzsigndocumentCreateObjectV1Response> {
         let localVariablePath = "/1/object/ezsigndocument"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
@@ -161,6 +163,53 @@ open class ObjectEzsigndocumentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigndocumentCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Create a new Ezsigndocument
+     
+     - parameter ezsigndocumentCreateObjectV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentCreateObjectV2(ezsigndocumentCreateObjectV2Request: EzsigndocumentCreateObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentCreateObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentCreateObjectV2WithRequestBuilder(ezsigndocumentCreateObjectV2Request: ezsigndocumentCreateObjectV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Create a new Ezsigndocument
+     - POST /2/object/ezsigndocument
+     - The endpoint allows to create one or many elements at once.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter ezsigndocumentCreateObjectV2Request: (body)  
+     - returns: RequestBuilder<EzsigndocumentCreateObjectV2Response> 
+     */
+    open class func ezsigndocumentCreateObjectV2WithRequestBuilder(ezsigndocumentCreateObjectV2Request: EzsigndocumentCreateObjectV2Request) -> RequestBuilder<EzsigndocumentCreateObjectV2Response> {
+        let localVariablePath = "/2/object/ezsigndocument"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigndocumentCreateObjectV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentCreateObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
