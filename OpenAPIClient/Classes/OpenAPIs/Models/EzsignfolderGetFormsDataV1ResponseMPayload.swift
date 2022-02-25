@@ -17,6 +17,7 @@ public struct EzsignfolderGetFormsDataV1ResponseMPayload: Codable, JSONEncodable
     public var pkiEzsignfolderID: Int
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
+    /**  */
     public var aObjFormDataDocument: [CustomFormDataDocumentResponse]
 
     public init(pkiEzsignfolderID: Int, sEzsignfolderDescription: String, aObjFormDataDocument: [CustomFormDataDocumentResponse]) {

@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct EzsignformfieldgroupResponseCompoundAllOf: Codable, JSONEncodable, Hashable {
 
+    /**  */
     public var aObjEzsignformfield: [EzsignformfieldResponse]
 
     public init(aObjEzsignformfield: [EzsignformfieldResponse]) {

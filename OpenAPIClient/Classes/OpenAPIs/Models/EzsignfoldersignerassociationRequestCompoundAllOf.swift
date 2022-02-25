@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct EzsignfoldersignerassociationRequestCompoundAllOf: Codable, JSONEncodable, Hashable {
 
-    public var objEzsignsigner: EzsignsignerRequestCompound?
+    public var objEzsignsigner: EzsignsignerRequestCompound
 
-    public init(objEzsignsigner: EzsignsignerRequestCompound? = nil) {
+    public init(objEzsignsigner: EzsignsignerRequestCompound) {
         self.objEzsignsigner = objEzsignsigner
     }
 
@@ -26,7 +26,7 @@ public struct EzsignfoldersignerassociationRequestCompoundAllOf: Codable, JSONEn
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
+        try container.encode(objEzsignsigner, forKey: .objEzsignsigner)
     }
 }
 

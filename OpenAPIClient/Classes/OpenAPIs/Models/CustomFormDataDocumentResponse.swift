@@ -21,6 +21,7 @@ public struct CustomFormDataDocumentResponse: Codable, JSONEncodable, Hashable {
     public var sEzsigndocumentName: String
     /** The date and time at which the object was last modified */
     public var dtModifiedDate: String
+    /**  */
     public var aObjFormDataSigner: [CustomFormDataSignerResponse]
 
     public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, sEzsigndocumentName: String, dtModifiedDate: String, aObjFormDataSigner: [CustomFormDataSignerResponse]) {

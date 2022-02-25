@@ -31,10 +31,11 @@ public struct FranchisereferalincomeRequest: Codable, JSONEncodable, Hashable {
     public var dFranchisereferalincomeAgentamount: String
     /** The date the amounts were disbursed */
     public var dtFranchisereferalincomeDisbursed: String
-    /** A comment about the transaction */
+    /** Comment about the transaction */
     public var tFranchisereferalincomeComment: String
     /** The unique ID of the Franchisereoffice */
     public var fkiFranchiseofficeID: Int
+    /**  */
     public var sFranchisereferalincomeRemoteid: String
 
     public init(pkiFranchisereferalincomeID: Int? = nil, fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String) {

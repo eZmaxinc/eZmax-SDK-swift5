@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct EzsignbulksendGetListV1ResponseMPayloadAllOf: Codable, JSONEncodable, Hashable {
 
+    /**  */
     public var aObjEzsignbulksend: [EzsignbulksendListElement]
 
     public init(aObjEzsignbulksend: [EzsignbulksendListElement]) {

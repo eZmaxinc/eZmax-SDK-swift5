@@ -14,6 +14,7 @@ import AnyCodable
 public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Hashable {
 
     public var objAddress: AddressRequest
+    /**  */
     public var aObjContact: [ContactRequestCompound]
     /** The unique ID of the Franchisereferalincome */
     public var pkiFranchisereferalincomeID: Int?
@@ -33,10 +34,11 @@ public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Has
     public var dFranchisereferalincomeAgentamount: String
     /** The date the amounts were disbursed */
     public var dtFranchisereferalincomeDisbursed: String
-    /** A comment about the transaction */
+    /** Comment about the transaction */
     public var tFranchisereferalincomeComment: String
     /** The unique ID of the Franchisereoffice */
     public var fkiFranchiseofficeID: Int
+    /**  */
     public var sFranchisereferalincomeRemoteid: String
 
     public init(objAddress: AddressRequest, aObjContact: [ContactRequestCompound], pkiFranchisereferalincomeID: Int? = nil, fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String) {

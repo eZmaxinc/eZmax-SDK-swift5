@@ -81,6 +81,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Delete an existing Ezsignsignature
      - DELETE /1/object/ezsignsignature/{pkiEzsignsignatureID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -131,6 +132,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Edit an existing Ezsignsignature
      - PUT /1/object/ezsignsignature/{pkiEzsignsignatureID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

@@ -13,9 +13,13 @@ import AnyCodable
 /** A Contactinformations Object and children to create a complete structure */
 public struct ContactinformationsRequestCompound: Codable, JSONEncodable, Hashable {
 
+    /**  */
     public var aObjAddress: [AddressRequest]
+    /**  */
     public var aObjPhone: [PhoneRequest]
+    /**  */
     public var aObjEmail: [EmailRequest]
+    /**  */
     public var aObjWebsite: [WebsiteRequest]
     /** The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty. */
     public var iAddressDefault: Int

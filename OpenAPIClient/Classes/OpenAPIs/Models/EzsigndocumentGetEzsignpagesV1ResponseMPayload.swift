@@ -13,6 +13,7 @@ import AnyCodable
 /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages API Request */
 public struct EzsigndocumentGetEzsignpagesV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
+    /**  */
     public var aObjEzsignpage: [EzsignpageResponse]
 
     public init(aObjEzsignpage: [EzsignpageResponse]) {

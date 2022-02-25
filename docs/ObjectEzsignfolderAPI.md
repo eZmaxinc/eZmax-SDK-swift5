@@ -73,6 +73,8 @@ Name | Type | Description  | Notes
 
 Delete an existing Ezsignfolder
 
+
+
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -120,6 +122,8 @@ Name | Type | Description  | Notes
 ```
 
 Edit an existing Ezsignfolder
+
+
 
 ### Example
 ```swift
@@ -171,6 +175,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder's Ezsigndocuments
 
+
+
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -219,6 +225,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations
 
+
+
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -266,6 +274,8 @@ Name | Type | Description  | Notes
 ```
 
 Retrieve an existing Ezsignfolder's forms data
+
+
 
 ### Example
 ```swift
@@ -373,6 +383,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder
 
+
+
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -421,6 +433,8 @@ Name | Type | Description  | Notes
 
 Send the Ezsignfolder to the signatories for signature
 
+
+
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -466,7 +480,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderUnsendV1**
 ```swift
-    open class func ezsignfolderUnsendV1(pkiEzsignfolderID: Int, body: String, completion: @escaping (_ data: EzsignfolderUnsendV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfolderUnsendV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignfolderUnsendV1Response?, _ error: Error?) -> Void)
 ```
 
 Unsend the Ezsignfolder
@@ -479,7 +493,7 @@ Once an Ezsignfolder has been sent to signatories, it cannot be modified.  Using
 import OpenAPIClient
 
 let pkiEzsignfolderID = 987 // Int | 
-let body = "body_example" // String | 
+let body = "TODO" // AnyCodable | 
 
 // Unsend the Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderUnsendV1(pkiEzsignfolderID: pkiEzsignfolderID, body: body) { (response, error) in
@@ -499,7 +513,7 @@ ObjectEzsignfolderAPI.ezsignfolderUnsendV1(pkiEzsignfolderID: pkiEzsignfolderID,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiEzsignfolderID** | **Int** |  | 
- **body** | **String** |  | 
+ **body** | **AnyCodable** |  | 
 
 ### Return type
 

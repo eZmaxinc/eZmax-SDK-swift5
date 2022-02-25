@@ -15,6 +15,7 @@ public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hash
 
     /** The Label for the Ezsignformfieldgroup */
     public var sEzsignformfieldgroupLabel: String
+    /**  */
     public var aObjEzsignformfield: [EzsignformfieldResponse]
 
     public init(sEzsignformfieldgroupLabel: String, aObjEzsignformfield: [EzsignformfieldResponse]) {

@@ -67,6 +67,8 @@ Name | Type | Description  | Notes
 
 Delete an existing Ezsignsignature
 
+
+
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -114,6 +116,8 @@ Name | Type | Description  | Notes
 ```
 
 Edit an existing Ezsignsignature
+
+
 
 ### Example
 ```swift

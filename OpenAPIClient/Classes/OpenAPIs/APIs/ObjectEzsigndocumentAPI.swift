@@ -187,6 +187,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Delete an existing Ezsigndocument
      - DELETE /1/object/ezsigndocument/{pkiEzsigndocumentID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -264,6 +265,56 @@ open class ObjectEzsigndocumentAPI {
         let localVariableRequestBuilder: RequestBuilder<EzsigndocumentEditEzsignsignaturesV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     End prematurely
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEndPrematurelyV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentEndPrematurelyV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     End prematurely
+     - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely
+     - End prematurely an Ezsigndocument when some signatures are still required
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentEndPrematurelyV1Response> 
+     */
+    open class func ezsigndocumentEndPrematurelyV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentEndPrematurelyV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentEndPrematurelyV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
 
     /**
@@ -353,6 +404,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve an existing Ezsigndocument's Ezsignpages
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -402,6 +454,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve an existing Ezsigndocument's Form Data
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -451,7 +504,6 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve an existing Ezsigndocument
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -480,6 +532,56 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Retrieve the temporary proof
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentGetTemporaryProofV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetTemporaryProofV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentGetTemporaryProofV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve the temporary proof
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof
+     - Retrieve the temporary proof while the Ezsigndocument is being processed since the proof isn't available until the Ezsigndocument is completed
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetTemporaryProofV1Response> 
+     */
+    open class func ezsigndocumentGetTemporaryProofV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetTemporaryProofV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetTemporaryProofV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Retrieve positions X,Y of given words from a Ezsigndocument
      
      - parameter pkiEzsigndocumentID: (path)  
@@ -502,6 +604,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Retrieve positions X,Y of given words from a Ezsigndocument
      - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -553,6 +656,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Patch an existing Ezsigndocument
      - PATCH /1/object/ezsigndocument/{pkiEzsigndocumentID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

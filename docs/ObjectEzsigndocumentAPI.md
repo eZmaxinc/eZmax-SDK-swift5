@@ -9,10 +9,12 @@ Method | HTTP request | Description
 [**ezsigndocumentCreateObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateobjectv1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocumentDeleteObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentdeleteobjectv1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**ezsigndocumentEditEzsignsignaturesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumenteditezsignsignaturesv1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple ezsignsignatures
+[**ezsigndocumentEndPrematurelyV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentendprematurelyv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
 [**ezsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetdownloadurlv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
 [**ezsigndocumentGetEzsignpagesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignpagesv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 [**ezsigndocumentGetFormDataV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetformdatav1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 [**ezsigndocumentGetObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetobjectv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
+[**ezsigndocumentGetTemporaryProofV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgettemporaryproofv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof | Retrieve the temporary proof
 [**ezsigndocumentGetWordsPositionsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetwordspositionsv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 [**ezsigndocumentPatchObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentpatchobjectv1) | **PATCH** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Patch an existing Ezsigndocument
 
@@ -178,6 +180,8 @@ Name | Type | Description  | Notes
 
 Delete an existing Ezsigndocument
 
+
+
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -271,6 +275,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocumentEndPrematurelyV1**
+```swift
+    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentEndPrematurelyV1Response?, _ error: Error?) -> Void)
+```
+
+End prematurely
+
+End prematurely an Ezsigndocument when some signatures are still required
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// End prematurely
+ObjectEzsigndocumentAPI.ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentEndPrematurelyV1Response**](EzsigndocumentEndPrematurelyV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocumentGetDownloadUrlV1**
 ```swift
     open class func ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: Int, eDocumentType: EDocumentType_ezsigndocumentGetDownloadUrlV1, completion: @escaping (_ data: EzsigndocumentGetDownloadUrlV1Response?, _ error: Error?) -> Void)
@@ -330,6 +384,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument's Ezsignpages
 
+
+
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -377,6 +433,8 @@ Name | Type | Description  | Notes
 ```
 
 Retrieve an existing Ezsigndocument's Form Data
+
+
 
 ### Example
 ```swift
@@ -426,8 +484,6 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument
 
-## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
-
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
@@ -469,12 +525,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocumentGetTemporaryProofV1**
+```swift
+    open class func ezsigndocumentGetTemporaryProofV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetTemporaryProofV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve the temporary proof
+
+Retrieve the temporary proof while the Ezsigndocument is being processed since the proof isn't available until the Ezsigndocument is completed
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// Retrieve the temporary proof
+ObjectEzsigndocumentAPI.ezsigndocumentGetTemporaryProofV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentGetTemporaryProofV1Response**](EzsigndocumentGetTemporaryProofV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocumentGetWordsPositionsV1**
 ```swift
     open class func ezsigndocumentGetWordsPositionsV1(pkiEzsigndocumentID: Int, ezsigndocumentGetWordsPositionsV1Request: EzsigndocumentGetWordsPositionsV1Request, completion: @escaping (_ data: EzsigndocumentGetWordsPositionsV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve positions X,Y of given words from a Ezsigndocument
+
+
 
 ### Example
 ```swift
@@ -525,6 +633,8 @@ Name | Type | Description  | Notes
 ```
 
 Patch an existing Ezsigndocument
+
+
 
 ### Example
 ```swift

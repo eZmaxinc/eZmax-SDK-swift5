@@ -81,6 +81,7 @@ open class ObjectEzsignfolderAPI {
     /**
      Delete an existing Ezsignfolder
      - DELETE /1/object/ezsignfolder/{pkiEzsignfolderID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -131,6 +132,7 @@ open class ObjectEzsignfolderAPI {
     /**
      Edit an existing Ezsignfolder
      - PUT /1/object/ezsignfolder/{pkiEzsignfolderID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -181,6 +183,7 @@ open class ObjectEzsignfolderAPI {
     /**
      Retrieve an existing Ezsignfolder's Ezsigndocuments
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -230,6 +233,7 @@ open class ObjectEzsignfolderAPI {
     /**
      Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociations
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -279,6 +283,7 @@ open class ObjectEzsignfolderAPI {
     /**
      Retrieve an existing Ezsignfolder's forms data
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -419,6 +424,7 @@ open class ObjectEzsignfolderAPI {
     /**
      Retrieve an existing Ezsignfolder
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -469,6 +475,7 @@ open class ObjectEzsignfolderAPI {
     /**
      Send the Ezsignfolder to the signatories for signature
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -506,7 +513,7 @@ open class ObjectEzsignfolderAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderUnsendV1(pkiEzsignfolderID: Int, body: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderUnsendV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignfolderUnsendV1(pkiEzsignfolderID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderUnsendV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderUnsendV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -528,7 +535,7 @@ open class ObjectEzsignfolderAPI {
      - parameter body: (body)  
      - returns: RequestBuilder<EzsignfolderUnsendV1Response> 
      */
-    open class func ezsignfolderUnsendV1WithRequestBuilder(pkiEzsignfolderID: Int, body: String) -> RequestBuilder<EzsignfolderUnsendV1Response> {
+    open class func ezsignfolderUnsendV1WithRequestBuilder(pkiEzsignfolderID: Int, body: AnyCodable) -> RequestBuilder<EzsignfolderUnsendV1Response> {
         var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/unsend"
         let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
         let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

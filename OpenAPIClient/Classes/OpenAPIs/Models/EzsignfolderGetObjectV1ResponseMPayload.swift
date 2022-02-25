@@ -29,7 +29,7 @@ public struct EzsignfolderGetObjectV1ResponseMPayload: Codable, JSONEncodable, H
     public var sEzsigntsarequirementDescriptionX: String
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
-    /** Somes extra notes about the eZsign Folder */
+    /** Note about the Ezsignfolder */
     public var tEzsignfolderNote: String
     public var eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency
     /** The maximum date and time at which the Ezsignfolder can be signed. */

@@ -1,0 +1,16 @@
+# EzsignbulksendResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pkiEzsignbulksendID** | **Int** | The unique ID of the Ezsignbulksend | 
+**fkiEzsignfoldertypeID** | **Int** | The unique ID of the Ezsignfoldertype. | 
+**fkiLanguageID** | **Int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**sEzsignbulksendDescription** | **String** | The description of the Ezsignbulksend | 
+**tEzsignbulksendNote** | **String** | Note about the Ezsignbulksend | 
+**bEzsignbulksendIsactive** | **Bool** | Whether the Ezsignbulksend is active or not | 
+**objAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

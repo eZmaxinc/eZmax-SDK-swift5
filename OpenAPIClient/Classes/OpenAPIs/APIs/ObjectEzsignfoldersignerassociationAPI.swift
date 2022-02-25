@@ -81,6 +81,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
     /**
      Delete an existing Ezsignfoldersignerassociation
      - DELETE /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -180,6 +181,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
     /**
      Retrieve an existing Ezsignfoldersignerassociation
      - GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

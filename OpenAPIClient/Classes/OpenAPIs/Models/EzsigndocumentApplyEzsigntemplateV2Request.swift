@@ -15,6 +15,7 @@ public struct EzsigndocumentApplyEzsigntemplateV2Request: Codable, JSONEncodable
 
     /** The unique ID of the Ezsigndocument */
     public var fkiEzsigntemplateID: Int
+    /**  */
     public var aSEzsigntemplatesigner: [String]
     public var aPkiEzsignfoldersignerassociationID: [Int]
 

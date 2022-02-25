@@ -21,6 +21,7 @@ public struct CustomFormDataSignerResponse: Codable, JSONEncodable, Hashable {
     public var sContactFirstname: String
     /** The Last name of the contact */
     public var sContactLastname: String
+    /**  */
     public var aObjEzsignformfieldgroupCompound: [EzsignformfieldgroupResponseCompound]
 
     public init(fkiEzsignfoldersignerassociationID: Int, fkiUserID: Int? = nil, sContactFirstname: String, sContactLastname: String, aObjEzsignformfieldgroupCompound: [EzsignformfieldgroupResponseCompound]) {

@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct EzsigntemplatepackageGetListV1ResponseMPayloadAllOf: Codable, JSONEncodable, Hashable {
 
+    /**  */
     public var aObjEzsigntemplatepackage: [EzsigntemplatepackageListElement]
 
     public init(aObjEzsigntemplatepackage: [EzsigntemplatepackageListElement]) {

@@ -13,6 +13,7 @@ import AnyCodable
 /** Payload for the /1/object/ezsigntemplatepackage/getList API Request */
 public struct EzsigntemplatepackageGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
+    /**  */
     public var aObjEzsigntemplatepackage: [EzsigntemplatepackageListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
