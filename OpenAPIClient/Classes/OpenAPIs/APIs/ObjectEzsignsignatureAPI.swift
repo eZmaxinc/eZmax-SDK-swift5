@@ -232,7 +232,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Retrieve an existing Ezsignsignature
      - GET /1/object/ezsignsignature/{pkiEzsignsignatureID}
-     - ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+     - 
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization

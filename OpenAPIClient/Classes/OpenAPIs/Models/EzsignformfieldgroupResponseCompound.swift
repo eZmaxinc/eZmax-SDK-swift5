@@ -13,27 +13,101 @@ import AnyCodable
 /** An Ezsignformfieldgroup Object and children to create a complete structure */
 public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hashable {
 
+    /** The unique ID of the Ezsignformfieldgroup */
+    public var pkiEzsignformfieldgroupID: Int
+    /** The unique ID of the Ezsigndocument */
+    public var fkiEzsigndocumentID: Int
+    public var eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType
+    public var eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement
     /** The Label for the Ezsignformfieldgroup */
     public var sEzsignformfieldgroupLabel: String
-    /**  */
-    public var aObjEzsignformfield: [EzsignformfieldResponse]
+    /** The step when the Ezsignsigner will be invited to fill the form fields */
+    public var iEzsignformfieldgroupStep: Int
+    /** The default value for the Ezsignformfieldgroup */
+    public var sEzsignformfieldgroupDefaultvalue: String
+    /** The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup */
+    public var iEzsignformfieldgroupFilledmin: Int
+    /** The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup */
+    public var iEzsignformfieldgroupFilledmax: Int
+    /** Whether the Ezsignformfieldgroup is read only or not. */
+    public var bEzsignformfieldgroupReadonly: Bool
+    /** The maximum length for the value in the Ezsignformfieldgroup  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** */
+    public var iEzsignformfieldgroupMaxlength: Int?
+    /** Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** */
+    public var bEzsignformfieldgroupEncrypted: Bool?
+    /** A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** */
+    public var sEzsignformfieldgroupRegexp: String?
+    /** A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup */
+    public var tEzsignformfieldgroupTooltip: String?
+    public var eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition?
+    public var aObjEzsignformfield: [EzsignformfieldResponseCompound]
+    public var aObjDropdownElement: [CustomDropdownElementResponseCompound]?
+    public var aObjEzsignformfieldgroupsigner: EzsignformfieldgroupsignerResponseCompound
 
-    public init(sEzsignformfieldgroupLabel: String, aObjEzsignformfield: [EzsignformfieldResponse]) {
+    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, aObjEzsignformfield: [EzsignformfieldResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsignformfieldgroupsigner: EzsignformfieldgroupsignerResponseCompound) {
+        self.pkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
+        self.fkiEzsigndocumentID = fkiEzsigndocumentID
+        self.eEzsignformfieldgroupType = eEzsignformfieldgroupType
+        self.eEzsignformfieldgroupSignerrequirement = eEzsignformfieldgroupSignerrequirement
         self.sEzsignformfieldgroupLabel = sEzsignformfieldgroupLabel
+        self.iEzsignformfieldgroupStep = iEzsignformfieldgroupStep
+        self.sEzsignformfieldgroupDefaultvalue = sEzsignformfieldgroupDefaultvalue
+        self.iEzsignformfieldgroupFilledmin = iEzsignformfieldgroupFilledmin
+        self.iEzsignformfieldgroupFilledmax = iEzsignformfieldgroupFilledmax
+        self.bEzsignformfieldgroupReadonly = bEzsignformfieldgroupReadonly
+        self.iEzsignformfieldgroupMaxlength = iEzsignformfieldgroupMaxlength
+        self.bEzsignformfieldgroupEncrypted = bEzsignformfieldgroupEncrypted
+        self.sEzsignformfieldgroupRegexp = sEzsignformfieldgroupRegexp
+        self.tEzsignformfieldgroupTooltip = tEzsignformfieldgroupTooltip
+        self.eEzsignformfieldgroupTooltipposition = eEzsignformfieldgroupTooltipposition
         self.aObjEzsignformfield = aObjEzsignformfield
+        self.aObjDropdownElement = aObjDropdownElement
+        self.aObjEzsignformfieldgroupsigner = aObjEzsignformfieldgroupsigner
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiEzsignformfieldgroupID
+        case fkiEzsigndocumentID
+        case eEzsignformfieldgroupType
+        case eEzsignformfieldgroupSignerrequirement
         case sEzsignformfieldgroupLabel
+        case iEzsignformfieldgroupStep
+        case sEzsignformfieldgroupDefaultvalue
+        case iEzsignformfieldgroupFilledmin
+        case iEzsignformfieldgroupFilledmax
+        case bEzsignformfieldgroupReadonly
+        case iEzsignformfieldgroupMaxlength
+        case bEzsignformfieldgroupEncrypted
+        case sEzsignformfieldgroupRegexp
+        case tEzsignformfieldgroupTooltip
+        case eEzsignformfieldgroupTooltipposition
         case aObjEzsignformfield = "a_objEzsignformfield"
+        case aObjDropdownElement = "a_objDropdownElement"
+        case aObjEzsignformfieldgroupsigner = "a_objEzsignformfieldgroupsigner"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(pkiEzsignformfieldgroupID, forKey: .pkiEzsignformfieldgroupID)
+        try container.encode(fkiEzsigndocumentID, forKey: .fkiEzsigndocumentID)
+        try container.encode(eEzsignformfieldgroupType, forKey: .eEzsignformfieldgroupType)
+        try container.encode(eEzsignformfieldgroupSignerrequirement, forKey: .eEzsignformfieldgroupSignerrequirement)
         try container.encode(sEzsignformfieldgroupLabel, forKey: .sEzsignformfieldgroupLabel)
+        try container.encode(iEzsignformfieldgroupStep, forKey: .iEzsignformfieldgroupStep)
+        try container.encode(sEzsignformfieldgroupDefaultvalue, forKey: .sEzsignformfieldgroupDefaultvalue)
+        try container.encode(iEzsignformfieldgroupFilledmin, forKey: .iEzsignformfieldgroupFilledmin)
+        try container.encode(iEzsignformfieldgroupFilledmax, forKey: .iEzsignformfieldgroupFilledmax)
+        try container.encode(bEzsignformfieldgroupReadonly, forKey: .bEzsignformfieldgroupReadonly)
+        try container.encodeIfPresent(iEzsignformfieldgroupMaxlength, forKey: .iEzsignformfieldgroupMaxlength)
+        try container.encodeIfPresent(bEzsignformfieldgroupEncrypted, forKey: .bEzsignformfieldgroupEncrypted)
+        try container.encodeIfPresent(sEzsignformfieldgroupRegexp, forKey: .sEzsignformfieldgroupRegexp)
+        try container.encodeIfPresent(tEzsignformfieldgroupTooltip, forKey: .tEzsignformfieldgroupTooltip)
+        try container.encodeIfPresent(eEzsignformfieldgroupTooltipposition, forKey: .eEzsignformfieldgroupTooltipposition)
         try container.encode(aObjEzsignformfield, forKey: .aObjEzsignformfield)
+        try container.encodeIfPresent(aObjDropdownElement, forKey: .aObjDropdownElement)
+        try container.encode(aObjEzsignformfieldgroupsigner, forKey: .aObjEzsignformfieldgroupsigner)
     }
 }
 

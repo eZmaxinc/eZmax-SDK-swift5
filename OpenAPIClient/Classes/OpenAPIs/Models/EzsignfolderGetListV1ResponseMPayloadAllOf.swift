@@ -12,7 +12,6 @@ import AnyCodable
 
 public struct EzsignfolderGetListV1ResponseMPayloadAllOf: Codable, JSONEncodable, Hashable {
 
-    /**  */
     public var aObjEzsignfolder: [EzsignfolderListElement]
 
     public init(aObjEzsignfolder: [EzsignfolderListElement]) {

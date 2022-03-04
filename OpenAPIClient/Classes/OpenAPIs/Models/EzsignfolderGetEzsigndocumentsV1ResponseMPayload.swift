@@ -13,7 +13,6 @@ import AnyCodable
 /** Payload for the /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsigndocuments API Request */
 public struct EzsignfolderGetEzsigndocumentsV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /**  */
     public var aObjEzsigndocument: [EzsigndocumentResponseCompound]
 
     public init(aObjEzsigndocument: [EzsigndocumentResponseCompound]) {

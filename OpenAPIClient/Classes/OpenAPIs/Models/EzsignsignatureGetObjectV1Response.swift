@@ -13,12 +13,11 @@ import AnyCodable
 /** Response for the /1/object/ezsignsignature/getObject API Request */
 public struct EzsignsignatureGetObjectV1Response: Codable, JSONEncodable, Hashable {
 
-    /** Payload for the /1/object/ezsignsignature/getObject API Request */
-    public var mPayload: AnyCodable
+    public var mPayload: EzsignsignatureGetObjectV1ResponseMPayload
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?
 
-    public init(mPayload: AnyCodable, objDebugPayload: CommonResponseObjDebugPayload? = nil, objDebug: CommonResponseObjDebug? = nil) {
+    public init(mPayload: EzsignsignatureGetObjectV1ResponseMPayload, objDebugPayload: CommonResponseObjDebugPayload? = nil, objDebug: CommonResponseObjDebug? = nil) {
         self.mPayload = mPayload
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug

@@ -12,15 +12,20 @@ import AnyCodable
 
 public struct EzsignformfieldgroupResponseCompoundAllOf: Codable, JSONEncodable, Hashable {
 
-    /**  */
-    public var aObjEzsignformfield: [EzsignformfieldResponse]
+    public var aObjEzsignformfield: [EzsignformfieldResponseCompound]
+    public var aObjDropdownElement: [CustomDropdownElementResponseCompound]?
+    public var aObjEzsignformfieldgroupsigner: EzsignformfieldgroupsignerResponseCompound
 
-    public init(aObjEzsignformfield: [EzsignformfieldResponse]) {
+    public init(aObjEzsignformfield: [EzsignformfieldResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsignformfieldgroupsigner: EzsignformfieldgroupsignerResponseCompound) {
         self.aObjEzsignformfield = aObjEzsignformfield
+        self.aObjDropdownElement = aObjDropdownElement
+        self.aObjEzsignformfieldgroupsigner = aObjEzsignformfieldgroupsigner
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjEzsignformfield = "a_objEzsignformfield"
+        case aObjDropdownElement = "a_objDropdownElement"
+        case aObjEzsignformfieldgroupsigner = "a_objEzsignformfieldgroupsigner"
     }
 
     // Encodable protocol methods
@@ -28,6 +33,8 @@ public struct EzsignformfieldgroupResponseCompoundAllOf: Codable, JSONEncodable,
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(aObjEzsignformfield, forKey: .aObjEzsignformfield)
+        try container.encodeIfPresent(aObjDropdownElement, forKey: .aObjDropdownElement)
+        try container.encode(aObjEzsignformfieldgroupsigner, forKey: .aObjEzsignformfieldgroupsigner)
     }
 }
 

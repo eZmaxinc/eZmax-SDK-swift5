@@ -21,15 +21,14 @@ public struct CustomFormDataSignerResponse: Codable, JSONEncodable, Hashable {
     public var sContactFirstname: String
     /** The Last name of the contact */
     public var sContactLastname: String
-    /**  */
-    public var aObjEzsignformfieldgroupCompound: [EzsignformfieldgroupResponseCompound]
+    public var aObjEzsignformfieldgroup: [CustomFormDataEzsignformfieldgroupResponse]
 
-    public init(fkiEzsignfoldersignerassociationID: Int, fkiUserID: Int? = nil, sContactFirstname: String, sContactLastname: String, aObjEzsignformfieldgroupCompound: [EzsignformfieldgroupResponseCompound]) {
+    public init(fkiEzsignfoldersignerassociationID: Int, fkiUserID: Int? = nil, sContactFirstname: String, sContactLastname: String, aObjEzsignformfieldgroup: [CustomFormDataEzsignformfieldgroupResponse]) {
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.fkiUserID = fkiUserID
         self.sContactFirstname = sContactFirstname
         self.sContactLastname = sContactLastname
-        self.aObjEzsignformfieldgroupCompound = aObjEzsignformfieldgroupCompound
+        self.aObjEzsignformfieldgroup = aObjEzsignformfieldgroup
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -37,7 +36,7 @@ public struct CustomFormDataSignerResponse: Codable, JSONEncodable, Hashable {
         case fkiUserID
         case sContactFirstname
         case sContactLastname
-        case aObjEzsignformfieldgroupCompound = "a_objEzsignformfieldgroupCompound"
+        case aObjEzsignformfieldgroup = "a_objEzsignformfieldgroup"
     }
 
     // Encodable protocol methods
@@ -48,7 +47,7 @@ public struct CustomFormDataSignerResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
         try container.encode(sContactFirstname, forKey: .sContactFirstname)
         try container.encode(sContactLastname, forKey: .sContactLastname)
-        try container.encode(aObjEzsignformfieldgroupCompound, forKey: .aObjEzsignformfieldgroupCompound)
+        try container.encode(aObjEzsignformfieldgroup, forKey: .aObjEzsignformfieldgroup)
     }
 }
 

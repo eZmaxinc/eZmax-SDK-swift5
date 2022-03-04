@@ -265,7 +265,59 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
-     Edit multiple ezsignsignatures
+     Edit multiple Ezsignformfieldgroups
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentEditEzsignformfieldgroupsV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV1Request: EzsigndocumentEditEzsignformfieldgroupsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEditEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentEditEzsignformfieldgroupsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV1Request: ezsigndocumentEditEzsignformfieldgroupsV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit multiple Ezsignformfieldgroups
+     - PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups
+     - Using this endpoint, you can edit multiple Ezsignformfieldgroups at the same time.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentEditEzsignformfieldgroupsV1Request: (body)  
+     - returns: RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV1Response> 
+     */
+    open class func ezsigndocumentEditEzsignformfieldgroupsV1WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV1Request: EzsigndocumentEditEzsignformfieldgroupsV1Request) -> RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigndocumentEditEzsignformfieldgroupsV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Edit multiple Ezsignsignatures
      
      - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentEditEzsignsignaturesV1Request: (body)  
@@ -285,9 +337,9 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
-     Edit multiple ezsignsignatures
+     Edit multiple Ezsignsignatures
      - PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures
-     - Using this endpoint, you can edit multiple ezsignsignatures at the same time.
+     - Using this endpoint, you can edit multiple Ezsignsignatures at the same time.
      - API Key:
        - type: apiKey Authorization 
        - name: Authorization
@@ -320,12 +372,13 @@ open class ObjectEzsigndocumentAPI {
      End prematurely
      
      - parameter pkiEzsigndocumentID: (path)  
+     - parameter body: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEndPrematurelyV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigndocumentEndPrematurelyV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEndPrematurelyV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentEndPrematurelyV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -343,15 +396,16 @@ open class ObjectEzsigndocumentAPI {
        - type: apiKey Authorization 
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
+     - parameter body: (body)  
      - returns: RequestBuilder<EzsigndocumentEndPrematurelyV1Response> 
      */
-    open class func ezsigndocumentEndPrematurelyV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentEndPrematurelyV1Response> {
+    open class func ezsigndocumentEndPrematurelyV1WithRequestBuilder(pkiEzsigndocumentID: Int, body: AnyCodable) -> RequestBuilder<EzsigndocumentEndPrematurelyV1Response> {
         var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely"
         let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
         let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -432,6 +486,56 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Retrieve an existing Ezsigndocument's Ezsignformfieldgroups
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentGetEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentGetEzsignformfieldgroupsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's Ezsignformfieldgroups
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignformfieldgroups
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetEzsignformfieldgroupsV1Response> 
+     */
+    open class func ezsigndocumentGetEzsignformfieldgroupsV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetEzsignformfieldgroupsV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignformfieldgroups"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsignformfieldgroupsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Retrieve an existing Ezsigndocument's Ezsignpages
      
      - parameter pkiEzsigndocumentID: (path)  
@@ -477,6 +581,56 @@ open class ObjectEzsigndocumentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsignpagesV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's Ezsignsignatures
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentGetEzsignsignaturesV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignsignaturesV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentGetEzsignsignaturesV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's Ezsignsignatures
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignatures
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetEzsignsignaturesV1Response> 
+     */
+    open class func ezsigndocumentGetEzsignsignaturesV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetEzsignsignaturesV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignatures"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsignsignaturesV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

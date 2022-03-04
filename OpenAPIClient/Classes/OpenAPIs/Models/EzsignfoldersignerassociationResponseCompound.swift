@@ -13,40 +13,40 @@ import AnyCodable
 /** An Ezsignfoldersignerassociation Object */
 public struct EzsignfoldersignerassociationResponseCompound: Codable, JSONEncodable, Hashable {
 
-    public var objUser: EzsignfoldersignerassociationResponseCompoundUser?
-    public var objEzsignsigner: EzsignsignerResponseCompound?
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var pkiEzsignfoldersignerassociationID: Int
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
     /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
     public var bEzsignfoldersignerassociationReceivecopy: Bool
+    public var objUser: EzsignfoldersignerassociationResponseCompoundUser?
+    public var objEzsignsigner: EzsignsignerResponseCompound?
 
-    public init(objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil, pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool) {
-        self.objUser = objUser
-        self.objEzsignsigner = objEzsignsigner
+    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
+        self.objUser = objUser
+        self.objEzsignsigner = objEzsignsigner
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case objUser
-        case objEzsignsigner
         case pkiEzsignfoldersignerassociationID
         case fkiEzsignfolderID
         case bEzsignfoldersignerassociationReceivecopy
+        case objUser
+        case objEzsignsigner
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(objUser, forKey: .objUser)
-        try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
         try container.encode(pkiEzsignfoldersignerassociationID, forKey: .pkiEzsignfoldersignerassociationID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encode(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
+        try container.encodeIfPresent(objUser, forKey: .objUser)
+        try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
     }
 }
 

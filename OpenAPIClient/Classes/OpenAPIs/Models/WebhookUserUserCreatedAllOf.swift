@@ -12,9 +12,9 @@ import AnyCodable
 
 public struct WebhookUserUserCreatedAllOf: Codable, JSONEncodable, Hashable {
 
-    public var objUser: UserResponse
+    public var objUser: UserResponseCompound
 
-    public init(objUser: UserResponse) {
+    public init(objUser: UserResponseCompound) {
         self.objUser = objUser
     }
 

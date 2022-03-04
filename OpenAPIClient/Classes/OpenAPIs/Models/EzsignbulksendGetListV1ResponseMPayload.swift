@@ -13,7 +13,6 @@ import AnyCodable
 /** Payload for the /1/object/ezsignbulksend/getList API Request */
 public struct EzsignbulksendGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /**  */
     public var aObjEzsignbulksend: [EzsignbulksendListElement]
     /** The number of rows returned */
     public var iRowReturned: Int

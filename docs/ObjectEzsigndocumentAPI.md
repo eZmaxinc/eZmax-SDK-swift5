@@ -9,10 +9,13 @@ Method | HTTP request | Description
 [**ezsigndocumentCreateObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateobjectv1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocumentCreateObjectV2**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateobjectv2) | **POST** /2/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocumentDeleteObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentdeleteobjectv1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
-[**ezsigndocumentEditEzsignsignaturesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumenteditezsignsignaturesv1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple ezsignsignatures
+[**ezsigndocumentEditEzsignformfieldgroupsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumenteditezsignformfieldgroupsv1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups | Edit multiple Ezsignformfieldgroups
+[**ezsigndocumentEditEzsignsignaturesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumenteditezsignsignaturesv1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple Ezsignsignatures
 [**ezsigndocumentEndPrematurelyV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentendprematurelyv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
 [**ezsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetdownloadurlv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
+[**ezsigndocumentGetEzsignformfieldgroupsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignformfieldgroupsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignformfieldgroups | Retrieve an existing Ezsigndocument&#39;s Ezsignformfieldgroups
 [**ezsigndocumentGetEzsignpagesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignpagesv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
+[**ezsigndocumentGetEzsignsignaturesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignsignaturesv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignatures | Retrieve an existing Ezsigndocument&#39;s Ezsignsignatures
 [**ezsigndocumentGetFormDataV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetformdatav1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 [**ezsigndocumentGetObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetobjectv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
 [**ezsigndocumentGetTemporaryProofV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgettemporaryproofv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof | Retrieve the temporary proof
@@ -274,14 +277,14 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsigndocumentEditEzsignsignaturesV1**
+# **ezsigndocumentEditEzsignformfieldgroupsV1**
 ```swift
-    open class func ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignsignaturesV1Request: EzsigndocumentEditEzsignsignaturesV1Request, completion: @escaping (_ data: EzsigndocumentEditEzsignsignaturesV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV1Request: EzsigndocumentEditEzsignformfieldgroupsV1Request, completion: @escaping (_ data: EzsigndocumentEditEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)
 ```
 
-Edit multiple ezsignsignatures
+Edit multiple Ezsignformfieldgroups
 
-Using this endpoint, you can edit multiple ezsignsignatures at the same time.
+Using this endpoint, you can edit multiple Ezsignformfieldgroups at the same time.
 
 ### Example
 ```swift
@@ -289,9 +292,61 @@ Using this endpoint, you can edit multiple ezsignsignatures at the same time.
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
-let ezsigndocumentEditEzsignsignaturesV1Request = ezsigndocument-editEzsignsignatures-v1-Request(aObjEzsignsignature: [ezsignsignature-RequestCompound(bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-Request(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), fkiEzsigndocumentID: 123)]) // EzsigndocumentEditEzsignsignaturesV1Request | 
+let ezsigndocumentEditEzsignformfieldgroupsV1Request = ezsigndocument-editEzsignformfieldgroups-v1-Request(aObjEzsignformfieldgroup: [ezsignformfieldgroup-RequestCompound(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example")])]) // EzsigndocumentEditEzsignformfieldgroupsV1Request | 
 
-// Edit multiple ezsignsignatures
+// Edit multiple Ezsignformfieldgroups
+ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV1Request: ezsigndocumentEditEzsignformfieldgroupsV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+ **ezsigndocumentEditEzsignformfieldgroupsV1Request** | [**EzsigndocumentEditEzsignformfieldgroupsV1Request**](EzsigndocumentEditEzsignformfieldgroupsV1Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentEditEzsignformfieldgroupsV1Response**](EzsigndocumentEditEzsignformfieldgroupsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocumentEditEzsignsignaturesV1**
+```swift
+    open class func ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignsignaturesV1Request: EzsigndocumentEditEzsignsignaturesV1Request, completion: @escaping (_ data: EzsigndocumentEditEzsignsignaturesV1Response?, _ error: Error?) -> Void)
+```
+
+Edit multiple Ezsignsignatures
+
+Using this endpoint, you can edit multiple Ezsignsignatures at the same time.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+let ezsigndocumentEditEzsignsignaturesV1Request = ezsigndocument-editEzsignsignatures-v1-Request(aObjEzsignsignature: [ezsignsignature-RequestCompound(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), fkiEzsigndocumentID: 123, bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")])]) // EzsigndocumentEditEzsignsignaturesV1Request | 
+
+// Edit multiple Ezsignsignatures
 ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignsignaturesV1Request: ezsigndocumentEditEzsignsignaturesV1Request) { (response, error) in
     guard error == nil else {
         print(error)
@@ -328,7 +383,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEndPrematurelyV1**
 ```swift
-    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentEndPrematurelyV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, body: AnyCodable, completion: @escaping (_ data: EzsigndocumentEndPrematurelyV1Response?, _ error: Error?) -> Void)
 ```
 
 End prematurely
@@ -341,9 +396,10 @@ End prematurely an Ezsigndocument when some signatures are still required
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
+let body = "TODO" // AnyCodable | 
 
 // End prematurely
-ObjectEzsigndocumentAPI.ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+ObjectEzsigndocumentAPI.ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -360,6 +416,7 @@ ObjectEzsigndocumentAPI.ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: pkiE
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiEzsigndocumentID** | **Int** |  | 
+ **body** | **AnyCodable** |  | 
 
 ### Return type
 
@@ -371,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -428,6 +485,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocumentGetEzsignformfieldgroupsV1**
+```swift
+    open class func ezsigndocumentGetEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigndocument's Ezsignformfieldgroups
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// Retrieve an existing Ezsigndocument's Ezsignformfieldgroups
+ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignformfieldgroupsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentGetEzsignformfieldgroupsV1Response**](EzsigndocumentGetEzsignformfieldgroupsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocumentGetEzsignpagesV1**
 ```swift
     open class func ezsigndocumentGetEzsignpagesV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignpagesV1Response?, _ error: Error?) -> Void)
@@ -466,6 +573,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentGetEzsignpagesV1Response**](EzsigndocumentGetEzsignpagesV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocumentGetEzsignsignaturesV1**
+```swift
+    open class func ezsigndocumentGetEzsignsignaturesV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignsignaturesV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigndocument's Ezsignsignatures
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// Retrieve an existing Ezsigndocument's Ezsignsignatures
+ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignsignaturesV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentGetEzsignsignaturesV1Response**](EzsigndocumentGetEzsignsignaturesV1Response.md)
 
 ### Authorization
 

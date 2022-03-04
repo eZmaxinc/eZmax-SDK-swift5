@@ -13,10 +13,9 @@ import AnyCodable
 /** Request for the POST /1/module/list/listpresentation/{sListName} API Request */
 public struct ListSaveListpresentationV1Request: Codable, JSONEncodable, Hashable {
 
-    /**  */
-    public var aObjListpresentation: [ListpresentationRequest]
+    public var aObjListpresentation: [ListpresentationRequestCompound]
 
-    public init(aObjListpresentation: [ListpresentationRequest]) {
+    public init(aObjListpresentation: [ListpresentationRequestCompound]) {
         self.aObjListpresentation = aObjListpresentation
     }
 

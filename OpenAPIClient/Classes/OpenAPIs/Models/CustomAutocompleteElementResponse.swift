@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Generic Autocomplete Response */
+/** Generic AutocompleteElement Response */
 public struct CustomAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
     /** The Category for the dropdown or an empty string if not categorized */

@@ -13,10 +13,9 @@ import AnyCodable
 /** Payload for the GET /1/module/list/listpresentation/{sListName} API Request */
 public struct ListGetListpresentationV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /**  */
-    public var aObjListpresentation: [ListpresentationRequest]
+    public var aObjListpresentation: [ListpresentationResponseCompound]
 
-    public init(aObjListpresentation: [ListpresentationRequest]) {
+    public init(aObjListpresentation: [ListpresentationResponseCompound]) {
         self.aObjListpresentation = aObjListpresentation
     }
 

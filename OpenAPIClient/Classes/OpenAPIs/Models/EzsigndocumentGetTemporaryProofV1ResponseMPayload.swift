@@ -13,9 +13,9 @@ import AnyCodable
 /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof API Request */
 public struct EzsigndocumentGetTemporaryProofV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjEzsigndocumentlog: EzsigndocumentlogResponse
+    public var aObjEzsigndocumentlog: EzsigndocumentlogResponseCompound
 
-    public init(aObjEzsigndocumentlog: EzsigndocumentlogResponse) {
+    public init(aObjEzsigndocumentlog: EzsigndocumentlogResponseCompound) {
         self.aObjEzsigndocumentlog = aObjEzsigndocumentlog
     }
 

@@ -16,9 +16,9 @@ public struct WebhookEzsignDocumentCompleted: Codable, JSONEncodable, Hashable {
     public var objEzsigndocument: EzsigndocumentResponse
     public var objWebhook: WebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
-    public var aObjAttempt: [AttemptResponse]
+    public var aObjAttempt: [AttemptResponseCompound]
 
-    public init(objEzsigndocument: EzsigndocumentResponse, objWebhook: WebhookResponse, aObjAttempt: [AttemptResponse]) {
+    public init(objEzsigndocument: EzsigndocumentResponse, objWebhook: WebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
         self.objEzsigndocument = objEzsigndocument
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt

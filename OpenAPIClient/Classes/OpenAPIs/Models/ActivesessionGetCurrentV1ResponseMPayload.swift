@@ -13,13 +13,6 @@ import AnyCodable
 /** Payload for the /1/object/activesession/getCurrent API Request */
 public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /** An array of permissions granted to the user or api key */
-    public var aPkiPermissionID: [Int]
-    public var objUserReal: ActivesessionResponseCompoundUser
-    public var objUserCloned: ActivesessionResponseCompoundUser?
-    public var objApikey: ActivesessionResponseCompoundApikey?
-    /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
-    public var aEModuleInternalname: [String]
     public var eActivesessionSessiontype: FieldEActivesessionSessiontype
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
@@ -32,13 +25,15 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     public var bActivesessionDebug: Bool
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
+    /** An array of permissions granted to the user or api key */
+    public var aPkiPermissionID: [Int]
+    public var objUserReal: ActivesessionResponseCompoundUser
+    public var objUserCloned: ActivesessionResponseCompoundUser?
+    public var objApikey: ActivesessionResponseCompoundApikey?
+    /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
+    public var aEModuleInternalname: [String]
 
-    public init(aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String], eActivesessionSessiontype: FieldEActivesessionSessiontype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String) {
-        self.aPkiPermissionID = aPkiPermissionID
-        self.objUserReal = objUserReal
-        self.objUserCloned = objUserCloned
-        self.objApikey = objApikey
-        self.aEModuleInternalname = aEModuleInternalname
+    public init(eActivesessionSessiontype: FieldEActivesessionSessiontype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
         self.eActivesessionSessiontype = eActivesessionSessiontype
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
@@ -46,14 +41,14 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
         self.pksCustomerCode = pksCustomerCode
+        self.aPkiPermissionID = aPkiPermissionID
+        self.objUserReal = objUserReal
+        self.objUserCloned = objUserCloned
+        self.objApikey = objApikey
+        self.aEModuleInternalname = aEModuleInternalname
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aPkiPermissionID = "a_pkiPermissionID"
-        case objUserReal
-        case objUserCloned
-        case objApikey
-        case aEModuleInternalname = "a_eModuleInternalname"
         case eActivesessionSessiontype
         case eActivesessionWeekdaystart
         case fkiLanguageID
@@ -61,17 +56,17 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         case sDepartmentNameX
         case bActivesessionDebug
         case pksCustomerCode
+        case aPkiPermissionID = "a_pkiPermissionID"
+        case objUserReal
+        case objUserCloned
+        case objApikey
+        case aEModuleInternalname = "a_eModuleInternalname"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)
-        try container.encode(objUserReal, forKey: .objUserReal)
-        try container.encodeIfPresent(objUserCloned, forKey: .objUserCloned)
-        try container.encodeIfPresent(objApikey, forKey: .objApikey)
-        try container.encode(aEModuleInternalname, forKey: .aEModuleInternalname)
         try container.encode(eActivesessionSessiontype, forKey: .eActivesessionSessiontype)
         try container.encode(eActivesessionWeekdaystart, forKey: .eActivesessionWeekdaystart)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
@@ -79,6 +74,11 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
+        try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)
+        try container.encode(objUserReal, forKey: .objUserReal)
+        try container.encodeIfPresent(objUserCloned, forKey: .objUserCloned)
+        try container.encodeIfPresent(objApikey, forKey: .objApikey)
+        try container.encode(aEModuleInternalname, forKey: .aEModuleInternalname)
     }
 }
 

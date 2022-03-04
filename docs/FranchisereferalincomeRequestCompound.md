@@ -3,8 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objAddress** | [**AddressRequest**](AddressRequest.md) |  | 
-**aObjContact** | [ContactRequestCompound] |  | 
 **pkiFranchisereferalincomeID** | **Int** | The unique ID of the Franchisereferalincome | [optional] 
 **fkiFranchisebrokerID** | **Int** | The unique ID of the Franchisebroker | 
 **fkiFranchisereferalincomeprogramID** | **Int** | The unique ID of the Franchisereferalincomeprogram | 
@@ -17,6 +15,8 @@ Name | Type | Description | Notes
 **tFranchisereferalincomeComment** | **String** | Comment about the transaction | 
 **fkiFranchiseofficeID** | **Int** | The unique ID of the Franchisereoffice | 
 **sFranchisereferalincomeRemoteid** | **String** |  | 
+**objAddress** | [**AddressRequest**](AddressRequest.md) |  | 
+**aObjContact** | [ContactRequestCompound] |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

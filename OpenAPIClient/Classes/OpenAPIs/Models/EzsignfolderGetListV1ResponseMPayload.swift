@@ -13,7 +13,6 @@ import AnyCodable
 /** Payload for the /1/object/ezsignfolder/getList API Request */
 public struct EzsignfolderGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /**  */
     public var aObjEzsignfolder: [EzsignfolderListElement]
     /** The number of rows returned */
     public var iRowReturned: Int

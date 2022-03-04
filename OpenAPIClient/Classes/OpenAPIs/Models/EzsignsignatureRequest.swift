@@ -19,11 +19,11 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
     public var fkiEzsignfoldersignerassociationID: Int
     /** The page number in the Ezsigndocument */
     public var iEzsignpagePagenumber: Int
-    /** The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
+    /** The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
     public var iEzsignsignatureX: Int
     /** The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
     public var iEzsignsignatureY: Int
-    /** The step when the Ezsignsigner will be invited to sign or fill form fields */
+    /** The step when the Ezsignsigner will be invited to sign */
     public var iEzsignsignatureStep: Int
     public var eEzsignsignatureType: FieldEEzsignsignatureType
     /** The unique ID of the Ezsigndocument */

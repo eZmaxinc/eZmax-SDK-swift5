@@ -13,15 +13,6 @@ import AnyCodable
 /** An Ezsigndocument Object and children to create a complete structure */
 public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
 
-    /** The total number of steps in the form filling phase */
-    public var iEzsigndocumentStepformtotal: Int
-    /** The current step in the form filling phase */
-    public var iEzsigndocumentStepformcurrent: Int
-    /** The total number of steps in the signature filling phase */
-    public var iEzsigndocumentStepsignaturetotal: Int
-    /** The current step in the signature phase */
-    public var iEzsigndocumentStepsignatureCurrent: Int
-    public var aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
     /** The maximum date and time at which the Ezsigndocument can be signed. */
@@ -50,13 +41,17 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     /** MD5 Hash of the final PDF Document after all signatures were applied to it. */
     public var sEzsigndocumentMD5signed: String
     public var objAudit: CommonAudit
+    /** The total number of steps in the form filling phase */
+    public var iEzsigndocumentStepformtotal: Int
+    /** The current step in the form filling phase */
+    public var iEzsigndocumentStepformcurrent: Int
+    /** The total number of steps in the signature filling phase */
+    public var iEzsigndocumentStepsignaturetotal: Int
+    /** The current step in the signature phase */
+    public var iEzsigndocumentStepsignatureCurrent: Int
+    public var aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]
 
-    public init(iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse], fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String, dtEzsigndocumentLastsend: String, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, objAudit: CommonAudit) {
-        self.iEzsigndocumentStepformtotal = iEzsigndocumentStepformtotal
-        self.iEzsigndocumentStepformcurrent = iEzsigndocumentStepformcurrent
-        self.iEzsigndocumentStepsignaturetotal = iEzsigndocumentStepsignaturetotal
-        self.iEzsigndocumentStepsignatureCurrent = iEzsigndocumentStepsignatureCurrent
-        self.aObjEzsignfoldersignerassociationstatus = aObjEzsignfoldersignerassociationstatus
+    public init(fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String, dtEzsigndocumentLastsend: String, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, objAudit: CommonAudit, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
         self.fkiLanguageID = fkiLanguageID
@@ -72,14 +67,14 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         self.sEzsigndocumentMD5initial = sEzsigndocumentMD5initial
         self.sEzsigndocumentMD5signed = sEzsigndocumentMD5signed
         self.objAudit = objAudit
+        self.iEzsigndocumentStepformtotal = iEzsigndocumentStepformtotal
+        self.iEzsigndocumentStepformcurrent = iEzsigndocumentStepformcurrent
+        self.iEzsigndocumentStepsignaturetotal = iEzsigndocumentStepsignaturetotal
+        self.iEzsigndocumentStepsignatureCurrent = iEzsigndocumentStepsignatureCurrent
+        self.aObjEzsignfoldersignerassociationstatus = aObjEzsignfoldersignerassociationstatus
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case iEzsigndocumentStepformtotal
-        case iEzsigndocumentStepformcurrent
-        case iEzsigndocumentStepsignaturetotal
-        case iEzsigndocumentStepsignatureCurrent
-        case aObjEzsignfoldersignerassociationstatus = "a_objEzsignfoldersignerassociationstatus"
         case fkiEzsignfolderID
         case dtEzsigndocumentDuedate
         case fkiLanguageID
@@ -95,17 +90,17 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         case sEzsigndocumentMD5initial
         case sEzsigndocumentMD5signed
         case objAudit
+        case iEzsigndocumentStepformtotal
+        case iEzsigndocumentStepformcurrent
+        case iEzsigndocumentStepsignaturetotal
+        case iEzsigndocumentStepsignatureCurrent
+        case aObjEzsignfoldersignerassociationstatus = "a_objEzsignfoldersignerassociationstatus"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(iEzsigndocumentStepformtotal, forKey: .iEzsigndocumentStepformtotal)
-        try container.encode(iEzsigndocumentStepformcurrent, forKey: .iEzsigndocumentStepformcurrent)
-        try container.encode(iEzsigndocumentStepsignaturetotal, forKey: .iEzsigndocumentStepsignaturetotal)
-        try container.encode(iEzsigndocumentStepsignatureCurrent, forKey: .iEzsigndocumentStepsignatureCurrent)
-        try container.encode(aObjEzsignfoldersignerassociationstatus, forKey: .aObjEzsignfoldersignerassociationstatus)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encode(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
@@ -121,6 +116,11 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sEzsigndocumentMD5initial, forKey: .sEzsigndocumentMD5initial)
         try container.encode(sEzsigndocumentMD5signed, forKey: .sEzsigndocumentMD5signed)
         try container.encode(objAudit, forKey: .objAudit)
+        try container.encode(iEzsigndocumentStepformtotal, forKey: .iEzsigndocumentStepformtotal)
+        try container.encode(iEzsigndocumentStepformcurrent, forKey: .iEzsigndocumentStepformcurrent)
+        try container.encode(iEzsigndocumentStepsignaturetotal, forKey: .iEzsigndocumentStepsignaturetotal)
+        try container.encode(iEzsigndocumentStepsignatureCurrent, forKey: .iEzsigndocumentStepsignatureCurrent)
+        try container.encode(aObjEzsignfoldersignerassociationstatus, forKey: .aObjEzsignfoldersignerassociationstatus)
     }
 }
 

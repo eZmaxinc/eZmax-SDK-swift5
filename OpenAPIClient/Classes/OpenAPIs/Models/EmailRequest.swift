@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** A Contact Object */
+/** An Email Object */
 public struct EmailRequest: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| */

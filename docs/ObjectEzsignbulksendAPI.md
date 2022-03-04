@@ -4,9 +4,60 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ezsignbulksendGetEzsignbulksendtransmissionsV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetezsignbulksendtransmissionsv1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignbulksendtransmissions | Retrieve an existing Ezsignbulksend&#39;s Ezsignbulksendtransmissions
 [**ezsignbulksendGetListV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetlistv1) | **GET** /1/object/ezsignbulksend/getList | Retrieve Ezsignbulksend list
 [**ezsignbulksendGetObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetobjectv1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 
+
+# **ezsignbulksendGetEzsignbulksendtransmissionsV1**
+```swift
+    open class func ezsignbulksendGetEzsignbulksendtransmissionsV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetEzsignbulksendtransmissionsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignbulksendID = 987 // Int | 
+
+// Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
+ObjectEzsignbulksendAPI.ezsignbulksendGetEzsignbulksendtransmissionsV1(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignbulksendID** | **Int** |  | 
+
+### Return type
+
+[**EzsignbulksendGetEzsignbulksendtransmissionsV1Response**](EzsignbulksendGetEzsignbulksendtransmissionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignbulksendGetListV1**
 ```swift

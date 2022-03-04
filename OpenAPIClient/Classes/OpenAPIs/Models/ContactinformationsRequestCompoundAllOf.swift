@@ -12,16 +12,12 @@ import AnyCodable
 
 public struct ContactinformationsRequestCompoundAllOf: Codable, JSONEncodable, Hashable {
 
-    /**  */
-    public var aObjAddress: [AddressRequest]
-    /**  */
-    public var aObjPhone: [PhoneRequest]
-    /**  */
-    public var aObjEmail: [EmailRequest]
-    /**  */
-    public var aObjWebsite: [WebsiteRequest]
+    public var aObjAddress: [AddressRequestCompound]
+    public var aObjPhone: [PhoneRequestCompound]
+    public var aObjEmail: [EmailRequestCompound]
+    public var aObjWebsite: [WebsiteRequestCompound]
 
-    public init(aObjAddress: [AddressRequest], aObjPhone: [PhoneRequest], aObjEmail: [EmailRequest], aObjWebsite: [WebsiteRequest]) {
+    public init(aObjAddress: [AddressRequestCompound], aObjPhone: [PhoneRequestCompound], aObjEmail: [EmailRequestCompound], aObjWebsite: [WebsiteRequestCompound]) {
         self.aObjAddress = aObjAddress
         self.aObjPhone = aObjPhone
         self.aObjEmail = aObjEmail

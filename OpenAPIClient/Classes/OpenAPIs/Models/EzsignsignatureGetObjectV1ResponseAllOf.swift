@@ -12,10 +12,9 @@ import AnyCodable
 
 public struct EzsignsignatureGetObjectV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
-    /** Payload for the /1/object/ezsignsignature/getObject API Request */
-    public var mPayload: AnyCodable
+    public var mPayload: EzsignsignatureGetObjectV1ResponseMPayload
 
-    public init(mPayload: AnyCodable) {
+    public init(mPayload: EzsignsignatureGetObjectV1ResponseMPayload) {
         self.mPayload = mPayload
     }
 

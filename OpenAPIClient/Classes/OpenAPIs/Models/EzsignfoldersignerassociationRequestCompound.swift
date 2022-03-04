@@ -13,7 +13,6 @@ import AnyCodable
 /** An Ezsignfoldersignerassociation Object and children to create a complete structure */
 public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodable, Hashable {
 
-    public var objEzsignsigner: EzsignsignerRequestCompound
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var pkiEzsignfoldersignerassociationID: Int?
     /** The unique ID of the User */
@@ -22,32 +21,33 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodab
     public var fkiEzsignfolderID: Int
     /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
     public var bEzsignfoldersignerassociationReceivecopy: Bool?
+    public var objEzsignsigner: EzsignsignerRequestCompound?
 
-    public init(objEzsignsigner: EzsignsignerRequestCompound, pkiEzsignfoldersignerassociationID: Int? = nil, fkiUserID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil) {
-        self.objEzsignsigner = objEzsignsigner
+    public init(pkiEzsignfoldersignerassociationID: Int? = nil, fkiUserID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil, objEzsignsigner: EzsignsignerRequestCompound? = nil) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiUserID = fkiUserID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
+        self.objEzsignsigner = objEzsignsigner
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case objEzsignsigner
         case pkiEzsignfoldersignerassociationID
         case fkiUserID
         case fkiEzsignfolderID
         case bEzsignfoldersignerassociationReceivecopy
+        case objEzsignsigner
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(objEzsignsigner, forKey: .objEzsignsigner)
         try container.encodeIfPresent(pkiEzsignfoldersignerassociationID, forKey: .pkiEzsignfoldersignerassociationID)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encodeIfPresent(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
+        try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
     }
 }
 

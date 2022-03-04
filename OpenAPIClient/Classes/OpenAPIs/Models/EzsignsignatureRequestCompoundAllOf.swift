@@ -15,9 +15,9 @@ public struct EzsignsignatureRequestCompoundAllOf: Codable, JSONEncodable, Hasha
     /** Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\") */
     public var bEzsignsignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
-    public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequest]?
+    public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]?
 
-    public init(bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequest]? = nil) {
+    public init(bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]? = nil) {
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
         self.aObjEzsignsignaturecustomdate = aObjEzsignsignaturecustomdate
     }

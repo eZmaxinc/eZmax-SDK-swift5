@@ -13,7 +13,6 @@ import AnyCodable
 public struct FranchisereferalincomeRequestCompoundAllOf: Codable, JSONEncodable, Hashable {
 
     public var objAddress: AddressRequest?
-    /**  */
     public var aObjContact: [ContactRequestCompound]
 
     public init(objAddress: AddressRequest? = nil, aObjContact: [ContactRequestCompound]) {

@@ -13,7 +13,6 @@ import AnyCodable
 /** A Contact Object and children to create a complete structure */
 public struct ContactRequestCompound: Codable, JSONEncodable, Hashable {
 
-    public var objContactinformations: ContactinformationsRequestCompound
     /** The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)| */
     public var fkiContacttitleID: Int
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
@@ -26,38 +25,39 @@ public struct ContactRequestCompound: Codable, JSONEncodable, Hashable {
     public var sContactCompany: String
     /** The Birth Date of the contact */
     public var dtContactBirthdate: String?
+    public var objContactinformations: ContactinformationsRequestCompound
 
-    public init(objContactinformations: ContactinformationsRequestCompound, fkiContacttitleID: Int, fkiLanguageID: Int, sContactFirstname: String, sContactLastname: String, sContactCompany: String, dtContactBirthdate: String? = nil) {
-        self.objContactinformations = objContactinformations
+    public init(fkiContacttitleID: Int, fkiLanguageID: Int, sContactFirstname: String, sContactLastname: String, sContactCompany: String, dtContactBirthdate: String? = nil, objContactinformations: ContactinformationsRequestCompound) {
         self.fkiContacttitleID = fkiContacttitleID
         self.fkiLanguageID = fkiLanguageID
         self.sContactFirstname = sContactFirstname
         self.sContactLastname = sContactLastname
         self.sContactCompany = sContactCompany
         self.dtContactBirthdate = dtContactBirthdate
+        self.objContactinformations = objContactinformations
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case objContactinformations
         case fkiContacttitleID
         case fkiLanguageID
         case sContactFirstname
         case sContactLastname
         case sContactCompany
         case dtContactBirthdate
+        case objContactinformations
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(objContactinformations, forKey: .objContactinformations)
         try container.encode(fkiContacttitleID, forKey: .fkiContacttitleID)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sContactFirstname, forKey: .sContactFirstname)
         try container.encode(sContactLastname, forKey: .sContactLastname)
         try container.encode(sContactCompany, forKey: .sContactCompany)
         try container.encodeIfPresent(dtContactBirthdate, forKey: .dtContactBirthdate)
+        try container.encode(objContactinformations, forKey: .objContactinformations)
     }
 }
 
