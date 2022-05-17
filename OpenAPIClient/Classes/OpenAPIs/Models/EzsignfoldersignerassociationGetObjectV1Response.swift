@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsignfoldersignerassociation/getObject API Request */
+/** Response for GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} */
 public struct EzsignfoldersignerassociationGetObjectV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsignfoldersignerassociationGetObjectV1ResponseMPayload

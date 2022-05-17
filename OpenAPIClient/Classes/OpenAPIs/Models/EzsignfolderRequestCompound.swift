@@ -18,14 +18,14 @@ public struct EzsignfolderRequestCompound: Codable, JSONEncodable, Hashable {
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int
     /** The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**| */
-    public var fkiEzsigntsarequirementID: Int
+    public var fkiEzsigntsarequirementID: Int?
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
     /** Note about the Ezsignfolder */
     public var tEzsignfolderNote: String
     public var eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency
 
-    public init(pkiEzsignfolderID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency) {
+    public init(pkiEzsignfolderID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiEzsigntsarequirementID = fkiEzsigntsarequirementID
@@ -49,7 +49,7 @@ public struct EzsignfolderRequestCompound: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
-        try container.encode(fkiEzsigntsarequirementID, forKey: .fkiEzsigntsarequirementID)
+        try container.encodeIfPresent(fkiEzsigntsarequirementID, forKey: .fkiEzsigntsarequirementID)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(tEzsignfolderNote, forKey: .tEzsignfolderNote)
         try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)

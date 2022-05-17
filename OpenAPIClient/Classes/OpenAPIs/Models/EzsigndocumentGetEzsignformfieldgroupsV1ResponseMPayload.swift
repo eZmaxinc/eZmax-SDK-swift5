@@ -10,12 +10,12 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignformfieldgroups API Request */
+/** Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignformfieldgroups */
 public struct EzsigndocumentGetEzsignformfieldgroupsV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjEzsignformfieldgroup: [EzsignformfieldgroupResponseCompound]?
+    public var aObjEzsignformfieldgroup: [EzsignformfieldgroupResponseCompound]
 
-    public init(aObjEzsignformfieldgroup: [EzsignformfieldgroupResponseCompound]? = nil) {
+    public init(aObjEzsignformfieldgroup: [EzsignformfieldgroupResponseCompound]) {
         self.aObjEzsignformfieldgroup = aObjEzsignformfieldgroup
     }
 
@@ -27,7 +27,7 @@ public struct EzsigndocumentGetEzsignformfieldgroupsV1ResponseMPayload: Codable,
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjEzsignformfieldgroup, forKey: .aObjEzsignformfieldgroup)
+        try container.encode(aObjEzsignformfieldgroup, forKey: .aObjEzsignformfieldgroup)
     }
 }
 

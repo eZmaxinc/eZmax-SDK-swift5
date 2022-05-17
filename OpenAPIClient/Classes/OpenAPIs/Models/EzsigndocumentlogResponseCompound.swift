@@ -29,7 +29,7 @@ public struct EzsigndocumentlogResponseCompound: Codable, JSONEncodable, Hashabl
     /** Represent an IP address. */
     public var sEzsigndocumentlogIP: String
 
-    public init(fkiUserID: Int?, fkiEzsignsignerID: Int?, dtEzsigndocumentlogDatetime: String, eEzsigndocumentlogType: FieldEEzsigndocumentlogType, sEzsigndocumentlogDetail: String, sEzsigndocumentlogLastname: String, sEzsigndocumentlogFirstname: String, sEzsigndocumentlogIP: String) {
+    public init(fkiUserID: Int? = nil, fkiEzsignsignerID: Int? = nil, dtEzsigndocumentlogDatetime: String, eEzsigndocumentlogType: FieldEEzsigndocumentlogType, sEzsigndocumentlogDetail: String, sEzsigndocumentlogLastname: String, sEzsigndocumentlogFirstname: String, sEzsigndocumentlogIP: String) {
         self.fkiUserID = fkiUserID
         self.fkiEzsignsignerID = fkiEzsignsignerID
         self.dtEzsigndocumentlogDatetime = dtEzsigndocumentlogDatetime
@@ -55,8 +55,8 @@ public struct EzsigndocumentlogResponseCompound: Codable, JSONEncodable, Hashabl
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(fkiUserID, forKey: .fkiUserID)
-        try container.encode(fkiEzsignsignerID, forKey: .fkiEzsignsignerID)
+        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(fkiEzsignsignerID, forKey: .fkiEzsignsignerID)
         try container.encode(dtEzsigndocumentlogDatetime, forKey: .dtEzsigndocumentlogDatetime)
         try container.encode(eEzsigndocumentlogType, forKey: .eEzsigndocumentlogType)
         try container.encode(sEzsigndocumentlogDetail, forKey: .sEzsigndocumentlogDetail)

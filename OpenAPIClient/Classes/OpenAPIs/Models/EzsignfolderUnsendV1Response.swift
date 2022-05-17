@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend API Request */
+/** Response for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend */
 public struct EzsignfolderUnsendV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?

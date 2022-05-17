@@ -25,16 +25,19 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
     public var sEmailAddress: String?
     /** A phone number in E.164 Format */
     public var sPhoneE164: String?
+    /** The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers */
+    public var sPhoneExtension: String?
     /** A phone number in E.164 Format */
     public var sPhoneE164Cell: String?
 
-    public init(pkiContactID: Int, sContactFirstname: String, sContactLastname: String, fkiLanguageID: Int, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sPhoneE164Cell: String? = nil) {
+    public init(pkiContactID: Int, sContactFirstname: String, sContactLastname: String, fkiLanguageID: Int, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sPhoneExtension: String? = nil, sPhoneE164Cell: String? = nil) {
         self.pkiContactID = pkiContactID
         self.sContactFirstname = sContactFirstname
         self.sContactLastname = sContactLastname
         self.fkiLanguageID = fkiLanguageID
         self.sEmailAddress = sEmailAddress
         self.sPhoneE164 = sPhoneE164
+        self.sPhoneExtension = sPhoneExtension
         self.sPhoneE164Cell = sPhoneE164Cell
     }
 
@@ -45,6 +48,7 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
         case fkiLanguageID
         case sEmailAddress
         case sPhoneE164
+        case sPhoneExtension
         case sPhoneE164Cell
     }
 
@@ -58,6 +62,7 @@ public struct EzsignsignerResponseCompoundContact: Codable, JSONEncodable, Hasha
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
         try container.encodeIfPresent(sPhoneE164, forKey: .sPhoneE164)
+        try container.encodeIfPresent(sPhoneExtension, forKey: .sPhoneExtension)
         try container.encodeIfPresent(sPhoneE164Cell, forKey: .sPhoneE164Cell)
     }
 }

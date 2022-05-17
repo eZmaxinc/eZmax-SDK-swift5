@@ -13,7 +13,7 @@ import AnyCodable
 /** An Activesession Object */
 public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
 
-    public var eActivesessionSessiontype: FieldEActivesessionSessiontype
+    public var eActivesessionUsertype: FieldEActivesessionUsertype
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
@@ -26,8 +26,8 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
 
-    public init(eActivesessionSessiontype: FieldEActivesessionSessiontype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String) {
-        self.eActivesessionSessiontype = eActivesessionSessiontype
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String) {
+        self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
         self.sCompanyNameX = sCompanyNameX
@@ -37,7 +37,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case eActivesessionSessiontype
+        case eActivesessionUsertype
         case eActivesessionWeekdaystart
         case fkiLanguageID
         case sCompanyNameX
@@ -50,7 +50,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(eActivesessionSessiontype, forKey: .eActivesessionSessiontype)
+        try container.encode(eActivesessionUsertype, forKey: .eActivesessionUsertype)
         try container.encode(eActivesessionWeekdaystart, forKey: .eActivesessionWeekdaystart)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)

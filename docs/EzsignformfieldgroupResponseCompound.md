@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **eEzsignformfieldgroupTooltipposition** | [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
 **aObjEzsignformfield** | [EzsignformfieldResponseCompound] |  | 
 **aObjDropdownElement** | [CustomDropdownElementResponseCompound] |  | [optional] 
-**aObjEzsignformfieldgroupsigner** | [**EzsignformfieldgroupsignerResponseCompound**](EzsignformfieldgroupsignerResponseCompound.md) |  | 
+**aObjEzsignformfieldgroupsigner** | [EzsignformfieldgroupsignerResponseCompound] |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

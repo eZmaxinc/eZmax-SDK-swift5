@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/franchisereferalincome/createObject API Request */
+/** Response for POST /1/object/franchisereferalincome */
 public struct FranchisereferalincomeCreateObjectV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: FranchisereferalincomeCreateObjectV1ResponseMPayload

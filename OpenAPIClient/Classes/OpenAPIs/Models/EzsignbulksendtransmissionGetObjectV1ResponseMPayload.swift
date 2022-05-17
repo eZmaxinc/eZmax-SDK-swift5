@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getObject API Request */
+/** Payload for GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID} */
 public struct EzsignbulksendtransmissionGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignbulksendtransmission */
@@ -22,13 +22,15 @@ public struct EzsignbulksendtransmissionGetObjectV1ResponseMPayload: Codable, JS
     /** The number of errors during the Ezsignbulksendtransmission */
     public var iEzsignbulksendtransmissionErrors: Int
     public var objAudit: CommonAudit
+    public var aObjEzsignfoldertransmission: [CustomEzsignfoldertransmissionResponse]
 
-    public init(pkiEzsignbulksendtransmissionID: Int, fkiEzsignbulksendID: Int, sEzsignbulksendtransmissionDescription: String, iEzsignbulksendtransmissionErrors: Int, objAudit: CommonAudit) {
+    public init(pkiEzsignbulksendtransmissionID: Int, fkiEzsignbulksendID: Int, sEzsignbulksendtransmissionDescription: String, iEzsignbulksendtransmissionErrors: Int, objAudit: CommonAudit, aObjEzsignfoldertransmission: [CustomEzsignfoldertransmissionResponse]) {
         self.pkiEzsignbulksendtransmissionID = pkiEzsignbulksendtransmissionID
         self.fkiEzsignbulksendID = fkiEzsignbulksendID
         self.sEzsignbulksendtransmissionDescription = sEzsignbulksendtransmissionDescription
         self.iEzsignbulksendtransmissionErrors = iEzsignbulksendtransmissionErrors
         self.objAudit = objAudit
+        self.aObjEzsignfoldertransmission = aObjEzsignfoldertransmission
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -37,6 +39,7 @@ public struct EzsignbulksendtransmissionGetObjectV1ResponseMPayload: Codable, JS
         case sEzsignbulksendtransmissionDescription
         case iEzsignbulksendtransmissionErrors
         case objAudit
+        case aObjEzsignfoldertransmission = "a_objEzsignfoldertransmission"
     }
 
     // Encodable protocol methods
@@ -48,6 +51,7 @@ public struct EzsignbulksendtransmissionGetObjectV1ResponseMPayload: Codable, JS
         try container.encode(sEzsignbulksendtransmissionDescription, forKey: .sEzsignbulksendtransmissionDescription)
         try container.encode(iEzsignbulksendtransmissionErrors, forKey: .iEzsignbulksendtransmissionErrors)
         try container.encode(objAudit, forKey: .objAudit)
+        try container.encode(aObjEzsignfoldertransmission, forKey: .aObjEzsignfoldertransmission)
     }
 }
 

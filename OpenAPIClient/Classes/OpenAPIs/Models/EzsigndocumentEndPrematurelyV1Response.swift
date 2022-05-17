@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/endPrematurely API Request */
+/** Response for POST /1/object/ezsigndocument/{pkiEzsigndocument}/endPrematurely */
 public struct EzsigndocumentEndPrematurelyV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?

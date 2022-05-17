@@ -10,10 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/activesession/getCurrent API Request */
+/** Payload for GET /1/object/activesession/getCurrent */
 public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
 
-    public var eActivesessionSessiontype: FieldEActivesessionSessiontype
+    public var eActivesessionUsertype: FieldEActivesessionUsertype
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
@@ -33,8 +33,8 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
 
-    public init(eActivesessionSessiontype: FieldEActivesessionSessiontype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
-        self.eActivesessionSessiontype = eActivesessionSessiontype
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+        self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
         self.sCompanyNameX = sCompanyNameX
@@ -49,7 +49,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case eActivesessionSessiontype
+        case eActivesessionUsertype
         case eActivesessionWeekdaystart
         case fkiLanguageID
         case sCompanyNameX
@@ -67,7 +67,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(eActivesessionSessiontype, forKey: .eActivesessionSessiontype)
+        try container.encode(eActivesessionUsertype, forKey: .eActivesessionUsertype)
         try container.encode(eActivesessionWeekdaystart, forKey: .eActivesessionWeekdaystart)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)

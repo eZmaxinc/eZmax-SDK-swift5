@@ -10,10 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /1/object/ezsignfolder/{pkiEzsignfolderID}/send API Request */
+/** Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send */
 public struct EzsignfolderSendV1Request: Codable, JSONEncodable, Hashable {
 
-    /** A custom text message that will be added to the email sent to signatories inviting them to sign.  You can send an empty string and only the generic message will be sent. */
+    /** A custom text message that will be added to the email sent. */
     public var tExtraMessage: String
 
     public init(tExtraMessage: String) {

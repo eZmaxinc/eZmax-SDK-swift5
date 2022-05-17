@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fkiUserID** | **Int** | The unique ID of the User | 
-**fkiEzsignsignerID** | **Int** | The unique ID of the Ezsignsigner | 
+**fkiUserID** | **Int** | The unique ID of the User | [optional] 
+**fkiEzsignsignerID** | **Int** | The unique ID of the Ezsignsigner | [optional] 
 **dtEzsigndocumentlogDatetime** | **String** | The date and time at which the event was logged | 
 **eEzsigndocumentlogType** | [**FieldEEzsigndocumentlogType**](FieldEEzsigndocumentlogType.md) |  | 
 **sEzsigndocumentlogDetail** | **String** | The detail of the Ezsigndocumentlog | 

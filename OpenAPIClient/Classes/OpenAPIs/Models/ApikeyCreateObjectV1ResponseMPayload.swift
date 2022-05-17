@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/apikey/createObject API Request */
+/** Payload for POST /1/object/apikey */
 public struct ApikeyCreateObjectV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     public var aObjApikey: [ApikeyResponseCompound]

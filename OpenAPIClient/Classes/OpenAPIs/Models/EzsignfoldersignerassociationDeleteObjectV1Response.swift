@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsignfoldersignerassociation/deleteObject API Request */
+/** Response for DELETE /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} */
 public struct EzsignfoldersignerassociationDeleteObjectV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?

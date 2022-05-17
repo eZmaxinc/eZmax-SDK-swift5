@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/xxx/getAutocomplete API Request */
+/** Response for GET /1/object/xxx/getAutocomplete */
 public struct CommonGetAutocompleteV1Response: Codable, JSONEncodable, Hashable {
 
     /** Generic Autocomplete Response */

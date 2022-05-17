@@ -33,7 +33,7 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
     public var tEzsignfolderNote: String
     public var eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency
     /** The maximum date and time at which the Ezsignfolder can be signed. */
-    public var dtEzsignfolderDuedate: String
+    public var dtEzsignfolderDuedate: String?
     /** The date and time at which the Ezsign folder was sent the last time. */
     public var dtEzsignfolderSentdate: String?
     /** The scheduled date and time at which the Ezsignfolder should be archived. */
@@ -45,7 +45,7 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
     public var dtEzsignfolderClose: String
     public var objAudit: CommonAudit
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate: String, dtEzsignfolderSentdate: String?, dtEzsignfolderScheduledarchive: String, dtEzsignfolderScheduleddestruction: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String, dtEzsignfolderScheduleddestruction: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
@@ -99,8 +99,8 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(tEzsignfolderNote, forKey: .tEzsignfolderNote)
         try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)
-        try container.encode(dtEzsignfolderDuedate, forKey: .dtEzsignfolderDuedate)
-        try container.encode(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
+        try container.encodeIfPresent(dtEzsignfolderDuedate, forKey: .dtEzsignfolderDuedate)
+        try container.encodeIfPresent(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
         try container.encode(dtEzsignfolderScheduledarchive, forKey: .dtEzsignfolderScheduledarchive)
         try container.encode(dtEzsignfolderScheduleddestruction, forKey: .dtEzsignfolderScheduleddestruction)
         try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)

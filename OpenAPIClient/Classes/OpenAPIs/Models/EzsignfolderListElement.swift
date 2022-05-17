@@ -27,8 +27,8 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     public var dtCreatedDate: String
     /** The date and time at which the Ezsign folder was sent the last time. */
     public var dtEzsignfolderSentdate: String?
-    /** Represent a Date Time. The timezone is the one configured in the User's profile. */
-    public var dtDueDate: String?
+    /** The maximum date and time at which the Ezsignfolder can be signed. */
+    public var dtEzsignfolderDuedate: String?
     /** The total number of Ezsigndocument in the folder */
     public var iEzsigndocument: Int
     /** The total number of Ezsigndocument in the folder that were saved in the edm system */
@@ -38,7 +38,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     /** The total number of already signed signature blocks in all Ezsigndocuments in the folder */
     public var iEzsignsignatureSigned: Int
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderSentdate: String?, dtDueDate: String?, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.eEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
@@ -47,7 +47,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         self.eEzsignfolderStep = eEzsignfolderStep
         self.dtCreatedDate = dtCreatedDate
         self.dtEzsignfolderSentdate = dtEzsignfolderSentdate
-        self.dtDueDate = dtDueDate
+        self.dtEzsignfolderDuedate = dtEzsignfolderDuedate
         self.iEzsigndocument = iEzsigndocument
         self.iEzsigndocumentEdm = iEzsigndocumentEdm
         self.iEzsignsignature = iEzsignsignature
@@ -63,7 +63,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         case eEzsignfolderStep
         case dtCreatedDate
         case dtEzsignfolderSentdate
-        case dtDueDate
+        case dtEzsignfolderDuedate
         case iEzsigndocument
         case iEzsigndocumentEdm
         case iEzsignsignature
@@ -81,8 +81,8 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
         try container.encode(dtCreatedDate, forKey: .dtCreatedDate)
-        try container.encode(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
-        try container.encode(dtDueDate, forKey: .dtDueDate)
+        try container.encodeIfPresent(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
+        try container.encodeIfPresent(dtEzsignfolderDuedate, forKey: .dtEzsignfolderDuedate)
         try container.encode(iEzsigndocument, forKey: .iEzsigndocument)
         try container.encode(iEzsigndocumentEdm, forKey: .iEzsigndocumentEdm)
         try container.encode(iEzsignsignature, forKey: .iEzsignsignature)

@@ -10,10 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate API Request */
+/** Request for POST /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate */
 public struct EzsigndocumentApplyEzsigntemplateV2Request: Codable, JSONEncodable, Hashable {
 
-    /** The unique ID of the Ezsigndocument */
+    /** The unique ID of the Ezsigntemplate */
     public var fkiEzsigntemplateID: Int
     public var aSEzsigntemplatesigner: [String]
     public var aPkiEzsignfoldersignerassociationID: [Int]

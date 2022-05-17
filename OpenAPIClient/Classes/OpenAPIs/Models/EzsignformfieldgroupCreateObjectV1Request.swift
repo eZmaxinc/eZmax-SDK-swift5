@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /1/object/ezsignformfieldgroup/createObject API Request */
+/** Request for POST /1/object/ezsignformfieldgroup */
 public struct EzsignformfieldgroupCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var aObjEzsignformfieldgroup: [EzsignformfieldgroupRequestCompound]

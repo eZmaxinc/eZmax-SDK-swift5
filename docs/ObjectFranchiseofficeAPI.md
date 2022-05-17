@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **franchiseofficeGetAutocompleteV1**
 ```swift
-    open class func franchiseofficeGetAutocompleteV1(sSelector: SSelector_franchiseofficeGetAutocompleteV1, sQuery: String? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
+    open class func franchiseofficeGetAutocompleteV1(sSelector: SSelector_franchiseofficeGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Franchiseoffices and IDs
@@ -23,9 +23,10 @@ import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Franchiseoffices to return
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
+let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Franchiseoffices and IDs
-ObjectFranchiseofficeAPI.franchiseofficeGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery) { (response, error) in
+ObjectFranchiseofficeAPI.franchiseofficeGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -43,6 +44,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Franchiseoffices to return | 
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
+ **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 
 ### Return type
 

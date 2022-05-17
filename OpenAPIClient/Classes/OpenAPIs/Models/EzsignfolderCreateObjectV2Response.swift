@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /2/object/ezsignfolder/createObject API Request */
+/** Response for POST /2/object/ezsignfolder */
 public struct EzsignfolderCreateObjectV2Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsignfolderCreateObjectV2ResponseMPayload

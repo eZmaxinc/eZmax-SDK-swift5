@@ -13,9 +13,9 @@ import AnyCodable
 /** Description of the API Key   */
 public struct MultilingualApikeyDescription: Codable, JSONEncodable, Hashable {
 
-    /** Value in French */
+    /** The description of the Apikey in French */
     public var sApikeyDescription1: String?
-    /** Value in English */
+    /** The description of the Apikey in English */
     public var sApikeyDescription2: String?
 
     public init(sApikeyDescription1: String? = nil, sApikeyDescription2: String? = nil) {

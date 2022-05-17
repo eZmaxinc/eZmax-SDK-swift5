@@ -10,12 +10,12 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures API Request */
+/** Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures */
 public struct EzsigndocumentGetEzsignsignaturesV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjEzsignsignature: [EzsignsignatureResponseCompound]?
+    public var aObjEzsignsignature: [EzsignsignatureResponseCompound]
 
-    public init(aObjEzsignsignature: [EzsignsignatureResponseCompound]? = nil) {
+    public init(aObjEzsignsignature: [EzsignsignatureResponseCompound]) {
         self.aObjEzsignsignature = aObjEzsignsignature
     }
 
@@ -27,7 +27,7 @@ public struct EzsigndocumentGetEzsignsignaturesV1ResponseMPayload: Codable, JSON
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjEzsignsignature, forKey: .aObjEzsignsignature)
+        try container.encode(aObjEzsignsignature, forKey: .aObjEzsignsignature)
     }
 }
 

@@ -40,9 +40,11 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
     public var sEzsigndocumentMD5initial: String
     /** MD5 Hash of the final PDF Document after all signatures were applied to it. */
     public var sEzsigndocumentMD5signed: String
+    /** If the Ezsigndocument contains an Ezsignform or not */
+    public var bEzsigndocumentEzsignform: Bool
     public var objAudit: CommonAudit
 
-    public init(fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String, dtEzsigndocumentLastsend: String, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, objAudit: CommonAudit) {
+    public init(fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String, dtEzsigndocumentLastsend: String, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, bEzsigndocumentEzsignform: Bool, objAudit: CommonAudit) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
         self.fkiLanguageID = fkiLanguageID
@@ -57,6 +59,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         self.iEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
         self.sEzsigndocumentMD5initial = sEzsigndocumentMD5initial
         self.sEzsigndocumentMD5signed = sEzsigndocumentMD5signed
+        self.bEzsigndocumentEzsignform = bEzsigndocumentEzsignform
         self.objAudit = objAudit
     }
 
@@ -75,6 +78,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         case iEzsigndocumentSignaturetotal
         case sEzsigndocumentMD5initial
         case sEzsigndocumentMD5signed
+        case bEzsigndocumentEzsignform
         case objAudit
     }
 
@@ -96,6 +100,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsigndocumentSignaturetotal, forKey: .iEzsigndocumentSignaturetotal)
         try container.encode(sEzsigndocumentMD5initial, forKey: .sEzsigndocumentMD5initial)
         try container.encode(sEzsigndocumentMD5signed, forKey: .sEzsigndocumentMD5signed)
+        try container.encode(bEzsigndocumentEzsignform, forKey: .bEzsigndocumentEzsignform)
         try container.encode(objAudit, forKey: .objAudit)
     }
 }

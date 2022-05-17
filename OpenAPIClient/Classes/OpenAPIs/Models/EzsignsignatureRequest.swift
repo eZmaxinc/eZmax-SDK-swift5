@@ -21,15 +21,19 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
     public var iEzsignpagePagenumber: Int
     /** The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
     public var iEzsignsignatureX: Int
-    /** The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
+    /** The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
     public var iEzsignsignatureY: Int
     /** The step when the Ezsignsigner will be invited to sign */
     public var iEzsignsignatureStep: Int
     public var eEzsignsignatureType: FieldEEzsignsignatureType
     /** The unique ID of the Ezsigndocument */
     public var fkiEzsigndocumentID: Int
+    /** A tooltip that will be presented to Ezsignsigner about the Ezsignsignature */
+    public var tEzsignsignatureTooltip: String?
+    public var eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition?
+    public var eEzsignsignatureFont: FieldEEzsignsignatureFont?
 
-    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int) {
+    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
@@ -38,6 +42,9 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
         self.iEzsignsignatureStep = iEzsignsignatureStep
         self.eEzsignsignatureType = eEzsignsignatureType
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
+        self.tEzsignsignatureTooltip = tEzsignsignatureTooltip
+        self.eEzsignsignatureTooltipposition = eEzsignsignatureTooltipposition
+        self.eEzsignsignatureFont = eEzsignsignatureFont
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -49,6 +56,9 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
         case iEzsignsignatureStep
         case eEzsignsignatureType
         case fkiEzsigndocumentID
+        case tEzsignsignatureTooltip
+        case eEzsignsignatureTooltipposition
+        case eEzsignsignatureFont
     }
 
     // Encodable protocol methods
@@ -63,6 +73,9 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsignsignatureStep, forKey: .iEzsignsignatureStep)
         try container.encode(eEzsignsignatureType, forKey: .eEzsignsignatureType)
         try container.encode(fkiEzsigndocumentID, forKey: .fkiEzsigndocumentID)
+        try container.encodeIfPresent(tEzsignsignatureTooltip, forKey: .tEzsignsignatureTooltip)
+        try container.encodeIfPresent(eEzsignsignatureTooltipposition, forKey: .eEzsignsignatureTooltipposition)
+        try container.encodeIfPresent(eEzsignsignatureFont, forKey: .eEzsignsignatureFont)
     }
 }
 

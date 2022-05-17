@@ -16,7 +16,6 @@ public enum FieldEEzsignformfieldgroupTooltipposition: String, Codable, CaseIter
     case topCenter = "TopCenter"
     case topRight = "TopRight"
     case middleLeft = "MiddleLeft"
-    case middleCenter = "MiddleCenter"
     case middleRight = "MiddleRight"
     case bottomLeft = "BottomLeft"
     case bottomCenter = "BottomCenter"

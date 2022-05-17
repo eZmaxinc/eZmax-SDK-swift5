@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsignfoldertype/getList API Request */
+/** Response for GET /1/object/ezsignfoldertype/getList */
 public struct EzsignfoldertypeGetListV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsignfoldertypeGetListV1ResponseMPayload

@@ -27,12 +27,13 @@ open class ObjectPeriodAPI {
      
      - parameter sSelector: (path) The types of Periods to return 
      - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter acceptLanguage: (header)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func periodGetAutocompleteV1(sSelector: SSelector_periodGetAutocompleteV1, sQuery: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return periodGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, sQuery: sQuery).execute(apiResponseQueue) { result in
+    open class func periodGetAutocompleteV1(sSelector: SSelector_periodGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return periodGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -51,9 +52,10 @@ open class ObjectPeriodAPI {
        - name: Authorization
      - parameter sSelector: (path) The types of Periods to return 
      - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter acceptLanguage: (header)  (optional)
      - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
      */
-    open class func periodGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_periodGetAutocompleteV1, sQuery: String? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
+    open class func periodGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_periodGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
         var localVariablePath = "/1/object/period/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -67,7 +69,7 @@ open class ObjectPeriodAPI {
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
-            :
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)

@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/ezsignformfieldgroup/getObject API Request */
+/** Payload for GET /1/object/ezsignformfieldgroup/{pkiEzsignformfieldgroupID} */
 public struct EzsignformfieldgroupGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignformfieldgroup */
@@ -42,9 +42,9 @@ public struct EzsignformfieldgroupGetObjectV1ResponseMPayload: Codable, JSONEnco
     public var eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition?
     public var aObjEzsignformfield: [EzsignformfieldResponseCompound]
     public var aObjDropdownElement: [CustomDropdownElementResponseCompound]?
-    public var aObjEzsignformfieldgroupsigner: EzsignformfieldgroupsignerResponseCompound
+    public var aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerResponseCompound]
 
-    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, aObjEzsignformfield: [EzsignformfieldResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsignformfieldgroupsigner: EzsignformfieldgroupsignerResponseCompound) {
+    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, aObjEzsignformfield: [EzsignformfieldResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerResponseCompound]) {
         self.pkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.eEzsignformfieldgroupType = eEzsignformfieldgroupType

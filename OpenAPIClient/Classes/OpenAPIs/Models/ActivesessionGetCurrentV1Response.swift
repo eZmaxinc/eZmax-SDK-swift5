@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/activesession/getCurrent API Request */
+/** Response for GET /1/object/activesession/getCurrent */
 public struct ActivesessionGetCurrentV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: ActivesessionGetCurrentV1ResponseMPayload

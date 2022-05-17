@@ -10,34 +10,24 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/ezsignfolder/{pkiEzsigndocument}/getFormsData API Request */
+/** Payload for GET /1/object/ezsignfolder/{pkiEzsigndocument}/getFormsData */
 public struct EzsignfolderGetFormsDataV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /** The unique ID of the Ezsignfolder */
-    public var pkiEzsignfolderID: Int
-    /** The description of the Ezsignfolder */
-    public var sEzsignfolderDescription: String
-    public var aObjFormDataDocument: [CustomFormDataDocumentResponse]
+    public var objFormsDataFolder: CustomFormsDataFolderResponse
 
-    public init(pkiEzsignfolderID: Int, sEzsignfolderDescription: String, aObjFormDataDocument: [CustomFormDataDocumentResponse]) {
-        self.pkiEzsignfolderID = pkiEzsignfolderID
-        self.sEzsignfolderDescription = sEzsignfolderDescription
-        self.aObjFormDataDocument = aObjFormDataDocument
+    public init(objFormsDataFolder: CustomFormsDataFolderResponse) {
+        self.objFormsDataFolder = objFormsDataFolder
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case pkiEzsignfolderID
-        case sEzsignfolderDescription
-        case aObjFormDataDocument = "a_objFormDataDocument"
+        case objFormsDataFolder
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
-        try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
-        try container.encode(aObjFormDataDocument, forKey: .aObjFormDataDocument)
+        try container.encode(objFormsDataFolder, forKey: .objFormsDataFolder)
     }
 }
 

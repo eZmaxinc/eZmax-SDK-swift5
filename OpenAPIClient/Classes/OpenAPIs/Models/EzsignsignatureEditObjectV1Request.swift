@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /1/object/ezsignsignature/editObject API Request */
+/** Request for PUT /1/object/ezsignsignature/{pkiEzsignsignatureID} */
 public struct EzsignsignatureEditObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var objEzsignsignature: EzsignsignatureRequestCompound

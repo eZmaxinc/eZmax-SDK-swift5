@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/module/user/createEzsignuser API Request */
+/** Payload for POST /1/module/user/createEzsignuser */
 public struct UserCreateEzsignuserV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of email addresses that succeeded. */

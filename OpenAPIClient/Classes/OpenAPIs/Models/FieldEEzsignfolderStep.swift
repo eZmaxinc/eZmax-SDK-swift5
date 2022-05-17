@@ -18,4 +18,5 @@ public enum FieldEEzsignfolderStep: String, Codable, CaseIterable {
     case expired = "Expired"
     case completed = "Completed"
     case archived = "Archived"
+    case disposed = "Disposed"
 }

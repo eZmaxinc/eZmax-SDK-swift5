@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups API Request */
+/** Request for PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups */
 public struct EzsigndocumentEditEzsignformfieldgroupsV1Request: Codable, JSONEncodable, Hashable {
 
     public var aObjEzsignformfieldgroup: [EzsignformfieldgroupRequestCompound]

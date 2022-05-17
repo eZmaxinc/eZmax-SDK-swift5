@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/customer/{pksCustomerCode}/endpoint API Request */
+/** Response for GET /1/customer/{pksCustomerCode}/endpoint */
 public struct GlobalCustomerGetEndpointV1Response: Codable, JSONEncodable, Hashable {
 
     /** The endpoint's URL */

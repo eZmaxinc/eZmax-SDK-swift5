@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/ezsignbulksend/{pkiEzsignbulksend}/getEzsignbulksendtransmissions API Request */
+/** Payload for GET /1/object/ezsignbulksend/{pkiEzsignbulksend}/getEzsignbulksendtransmissions */
 public struct EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     public var aObjEzsignbulksendtransmission: [EzsignbulksendtransmissionResponseCompound]

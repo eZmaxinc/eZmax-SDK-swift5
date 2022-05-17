@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectEzsignbulksendtransmissionAPI {
 
     /**
+     Retrieve an existing Ezsignbulksendtransmission's Csv containing errors
+     
+     - parameter pkiEzsignbulksendtransmissionID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignbulksendtransmissionGetCsvErrorsV1(pkiEzsignbulksendtransmissionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: String?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignbulksendtransmissionGetCsvErrorsV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksendtransmission's Csv containing errors
+     - GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getCsvErrors
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignbulksendtransmissionID: (path)  
+     - returns: RequestBuilder<String> 
+     */
+    open class func ezsignbulksendtransmissionGetCsvErrorsV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: Int) -> RequestBuilder<String> {
+        var localVariablePath = "/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getCsvErrors"
+        let pkiEzsignbulksendtransmissionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendtransmissionID))"
+        let pkiEzsignbulksendtransmissionIDPostEscape = pkiEzsignbulksendtransmissionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendtransmissionID}", with: pkiEzsignbulksendtransmissionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<String>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksendtransmission's forms data
+     
+     - parameter pkiEzsignbulksendtransmissionID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignbulksendtransmissionGetFormsDataV1(pkiEzsignbulksendtransmissionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendtransmissionGetFormsDataV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignbulksendtransmissionGetFormsDataV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksendtransmission's forms data
+     - GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getFormsData
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignbulksendtransmissionID: (path)  
+     - returns: RequestBuilder<EzsignbulksendtransmissionGetFormsDataV1Response> 
+     */
+    open class func ezsignbulksendtransmissionGetFormsDataV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: Int) -> RequestBuilder<EzsignbulksendtransmissionGetFormsDataV1Response> {
+        var localVariablePath = "/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getFormsData"
+        let pkiEzsignbulksendtransmissionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendtransmissionID))"
+        let pkiEzsignbulksendtransmissionIDPostEscape = pkiEzsignbulksendtransmissionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendtransmissionID}", with: pkiEzsignbulksendtransmissionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendtransmissionGetFormsDataV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Retrieve an existing Ezsignbulksendtransmission
      
      - parameter pkiEzsignbulksendtransmissionID: (path)  

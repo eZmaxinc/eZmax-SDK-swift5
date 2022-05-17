@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request */
+/** Response for GET /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl */
 public struct EzsignfoldersignerassociationGetInPersonLoginUrlV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload

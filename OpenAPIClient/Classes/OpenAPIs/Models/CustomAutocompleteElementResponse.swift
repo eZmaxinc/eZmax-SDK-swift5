@@ -18,17 +18,22 @@ public struct CustomAutocompleteElementResponse: Codable, JSONEncodable, Hashabl
     /** The Description of the element */
     public var sLabel: String
     /** The Unique ID of the element */
-    public var mValue: String
+    public var sValue: String
+    /** The Unique ID of the element */
+    @available(*, deprecated, message: "This property is deprecated.")
+    public var mValue: String?
 
-    public init(sCategory: String, sLabel: String, mValue: String) {
+    public init(sCategory: String, sLabel: String, sValue: String, mValue: String? = nil) {
         self.sCategory = sCategory
         self.sLabel = sLabel
+        self.sValue = sValue
         self.mValue = mValue
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case sCategory
         case sLabel
+        case sValue
         case mValue
     }
 
@@ -38,7 +43,8 @@ public struct CustomAutocompleteElementResponse: Codable, JSONEncodable, Hashabl
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sCategory, forKey: .sCategory)
         try container.encode(sLabel, forKey: .sLabel)
-        try container.encode(mValue, forKey: .mValue)
+        try container.encode(sValue, forKey: .sValue)
+        try container.encodeIfPresent(mValue, forKey: .mValue)
     }
 }
 

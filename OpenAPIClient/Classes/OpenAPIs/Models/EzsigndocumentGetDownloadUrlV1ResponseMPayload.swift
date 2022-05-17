@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl API Request */
+/** Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl */
 public struct EzsigndocumentGetDownloadUrlV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** The Url to the requested document.  Url will expire after 5 minutes. */

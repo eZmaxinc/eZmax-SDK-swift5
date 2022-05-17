@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
+/** Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions */
 public struct EzsigndocumentGetWordsPositionsV1Request: Codable, JSONEncodable, Hashable {
 
     public enum EGet: String, Codable, CaseIterable {

@@ -14,9 +14,9 @@ public struct EzsignformfieldgroupResponseCompoundAllOf: Codable, JSONEncodable,
 
     public var aObjEzsignformfield: [EzsignformfieldResponseCompound]
     public var aObjDropdownElement: [CustomDropdownElementResponseCompound]?
-    public var aObjEzsignformfieldgroupsigner: EzsignformfieldgroupsignerResponseCompound
+    public var aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerResponseCompound]
 
-    public init(aObjEzsignformfield: [EzsignformfieldResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsignformfieldgroupsigner: EzsignformfieldgroupsignerResponseCompound) {
+    public init(aObjEzsignformfield: [EzsignformfieldResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerResponseCompound]) {
         self.aObjEzsignformfield = aObjEzsignformfield
         self.aObjDropdownElement = aObjDropdownElement
         self.aObjEzsignformfieldgroupsigner = aObjEzsignformfieldgroupsigner

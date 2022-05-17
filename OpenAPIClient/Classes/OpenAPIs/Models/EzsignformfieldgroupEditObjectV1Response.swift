@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsignformfieldgroup/editObject API Request */
+/** Response for PUT /1/object/ezsignformfieldgroup/{pkiEzsignfoldersignerassociationID} */
 public struct EzsignformfieldgroupEditObjectV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload?

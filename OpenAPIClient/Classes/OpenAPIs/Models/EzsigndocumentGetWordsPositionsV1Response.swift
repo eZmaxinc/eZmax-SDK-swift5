@@ -10,10 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
+/** Response for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions */
 public struct EzsigndocumentGetWordsPositionsV1Response: Codable, JSONEncodable, Hashable {
 
-    /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
+    /** Payload for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions */
     public var mPayload: [CustomWordPositionWordResponse]
     public var objDebugPayload: CommonResponseObjDebugPayload?
     public var objDebug: CommonResponseObjDebug?

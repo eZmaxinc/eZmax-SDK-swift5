@@ -21,7 +21,8 @@ public struct EzsignbulksendListElement: Codable, JSONEncodable, Hashable {
     public var sEzsignbulksendDescription: String
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String
-    public var eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel
+    /** Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation */
+    public var bEzsignbulksendNeedvalidation: Bool
     /** Whether the Ezsignbulksend is active or not */
     public var bEzsignbulksendIsactive: Bool
     /** The total number of Ezsignbulksendtransmissions in the Ezsignbulksend */
@@ -35,12 +36,12 @@ public struct EzsignbulksendListElement: Codable, JSONEncodable, Hashable {
     /** The total number of already signed Ezsignsignature blocks in the Ezsignbulksend */
     public var iEzsignsignatureSigned: Int
 
-    public init(pkiEzsignbulksendID: Int, fkiEzsignfoldertypeID: Int, sEzsignbulksendDescription: String, sEzsignfoldertypeNameX: String, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, bEzsignbulksendIsactive: Bool, iEzsignbulksendtransmission: Int, iEzsignfolder: Int, iEzsigndocument: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int) {
+    public init(pkiEzsignbulksendID: Int, fkiEzsignfoldertypeID: Int, sEzsignbulksendDescription: String, sEzsignfoldertypeNameX: String, bEzsignbulksendNeedvalidation: Bool, bEzsignbulksendIsactive: Bool, iEzsignbulksendtransmission: Int, iEzsignfolder: Int, iEzsigndocument: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int) {
         self.pkiEzsignbulksendID = pkiEzsignbulksendID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sEzsignbulksendDescription = sEzsignbulksendDescription
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
-        self.eEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
+        self.bEzsignbulksendNeedvalidation = bEzsignbulksendNeedvalidation
         self.bEzsignbulksendIsactive = bEzsignbulksendIsactive
         self.iEzsignbulksendtransmission = iEzsignbulksendtransmission
         self.iEzsignfolder = iEzsignfolder
@@ -54,7 +55,7 @@ public struct EzsignbulksendListElement: Codable, JSONEncodable, Hashable {
         case fkiEzsignfoldertypeID
         case sEzsignbulksendDescription
         case sEzsignfoldertypeNameX
-        case eEzsignfoldertypePrivacylevel
+        case bEzsignbulksendNeedvalidation
         case bEzsignbulksendIsactive
         case iEzsignbulksendtransmission
         case iEzsignfolder
@@ -71,7 +72,7 @@ public struct EzsignbulksendListElement: Codable, JSONEncodable, Hashable {
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encode(sEzsignbulksendDescription, forKey: .sEzsignbulksendDescription)
         try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
-        try container.encode(eEzsignfoldertypePrivacylevel, forKey: .eEzsignfoldertypePrivacylevel)
+        try container.encode(bEzsignbulksendNeedvalidation, forKey: .bEzsignbulksendNeedvalidation)
         try container.encode(bEzsignbulksendIsactive, forKey: .bEzsignbulksendIsactive)
         try container.encode(iEzsignbulksendtransmission, forKey: .iEzsignbulksendtransmission)
         try container.encode(iEzsignfolder, forKey: .iEzsignfolder)

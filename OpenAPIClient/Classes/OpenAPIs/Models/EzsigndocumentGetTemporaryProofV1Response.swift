@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof API Request */
+/** Response for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof */
 public struct EzsigndocumentGetTemporaryProofV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsigndocumentGetTemporaryProofV1ResponseMPayload

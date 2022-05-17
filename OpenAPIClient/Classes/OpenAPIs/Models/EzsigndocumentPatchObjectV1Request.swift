@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /1/object/ezsigndocument/pathObject API Request */
+/** Request for PATCH /1/object/ezsigndocument/{pkiEzsigndocumentID} */
 public struct EzsigndocumentPatchObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var objEzsigndocument: EzsigndocumentRequestPatch

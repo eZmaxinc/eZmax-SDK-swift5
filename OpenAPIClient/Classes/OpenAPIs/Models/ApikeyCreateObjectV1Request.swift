@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /1/object/apikey/createObject API Request */
+/** Request for POST /1/object/apikey */
 public struct ApikeyCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var objApikey: ApikeyRequest?

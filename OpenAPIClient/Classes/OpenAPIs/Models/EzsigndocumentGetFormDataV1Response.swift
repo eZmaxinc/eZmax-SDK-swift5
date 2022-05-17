@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData API Request */
+/** Response for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData */
 public struct EzsigndocumentGetFormDataV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: EzsigndocumentGetFormDataV1ResponseMPayload

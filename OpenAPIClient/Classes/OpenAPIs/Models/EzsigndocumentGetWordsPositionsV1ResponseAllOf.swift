@@ -12,7 +12,7 @@ import AnyCodable
 
 public struct EzsigndocumentGetWordsPositionsV1ResponseAllOf: Codable, JSONEncodable, Hashable {
 
-    /** Payload for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request */
+    /** Payload for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions */
     public var mPayload: [CustomWordPositionWordResponse]
 
     public init(mPayload: [CustomWordPositionWordResponse]) {

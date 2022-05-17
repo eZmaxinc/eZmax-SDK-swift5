@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Request for the /2/object/ezsignsignature/createObject API Request */
+/** Request for POST /2/object/ezsignsignature */
 public struct EzsignsignatureCreateObjectV2Request: Codable, JSONEncodable, Hashable {
 
     public var aObjEzsignsignature: [EzsignsignatureRequestCompound]

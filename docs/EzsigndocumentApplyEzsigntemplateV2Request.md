@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fkiEzsigntemplateID** | **Int** | The unique ID of the Ezsigndocument | 
+**fkiEzsigntemplateID** | **Int** | The unique ID of the Ezsigntemplate | 
 **aSEzsigntemplatesigner** | **[String]** |  | 
 **aPkiEzsignfoldersignerassociationID** | **[Int]** |  | 
 
