@@ -18,9 +18,9 @@ public struct CommonResponseErrorSTemporaryFileUrl: Codable, JSONEncodable, Hash
     /** More detail about the error */
     public var sErrorMessage: String
     /** The error code. See documentation for valid values */
-    public var eErrorCode: String?
+    public var eErrorCode: String
 
-    public init(sTemporaryFileUrl: String? = nil, sErrorMessage: String, eErrorCode: String? = nil) {
+    public init(sTemporaryFileUrl: String? = nil, sErrorMessage: String, eErrorCode: String) {
         self.sTemporaryFileUrl = sTemporaryFileUrl
         self.sErrorMessage = sErrorMessage
         self.eErrorCode = eErrorCode
@@ -38,7 +38,7 @@ public struct CommonResponseErrorSTemporaryFileUrl: Codable, JSONEncodable, Hash
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(sTemporaryFileUrl, forKey: .sTemporaryFileUrl)
         try container.encode(sErrorMessage, forKey: .sErrorMessage)
-        try container.encodeIfPresent(eErrorCode, forKey: .eErrorCode)
+        try container.encode(eErrorCode, forKey: .eErrorCode)
     }
 }
 

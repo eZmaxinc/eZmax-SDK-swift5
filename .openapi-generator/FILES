@@ -9,6 +9,8 @@ OpenAPIClient/Classes/OpenAPIs/APIs/ModuleEzsignAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ModuleUserAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectActivesessionAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectApikeyAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectBillingentityinternalAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectBrandingAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignbulksendAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignbulksenddocumentmappingAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectEzsignbulksendsignermappingAPI.swift
@@ -33,8 +35,13 @@ OpenAPIClient/Classes/OpenAPIs/APIs/ObjectFranchisebrokerAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectFranchiseofficeAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectFranchisereferalincomeAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectNotificationsectionAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectNotificationtestAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectPeriodAPI.swift
 OpenAPIClient/Classes/OpenAPIs/APIs/ObjectSecretquestionAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectTaxassignmentAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectTimezoneAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectUserAPI.swift
+OpenAPIClient/Classes/OpenAPIs/APIs/ObjectUsergroupAPI.swift
 OpenAPIClient/Classes/OpenAPIs/CodableHelper.swift
 OpenAPIClient/Classes/OpenAPIs/Configuration.swift
 OpenAPIClient/Classes/OpenAPIs/Extensions.swift
@@ -83,6 +90,8 @@ OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseObjDebugPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseObjDebugPayloadGetList.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseObjDebugPayloadGetListAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseObjSQLQuery.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseRedirectSSecretquestionTextX.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CommonResponseWarning.swift
 OpenAPIClient/Classes/OpenAPIs/Models/CommonWebhook.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ContactRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ContactRequestCompound.swift
@@ -259,6 +268,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV2Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV2ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderCreateObjectV2ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderDeleteObjectV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderDisposeEzsignfoldersV1Request.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderDisposeEzsignfoldersV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderDisposeV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderEditObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderEditObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignfolderGetActionableElementsV1Response.swift
@@ -418,6 +430,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatedocumentEditEzsigntemplatesi
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatedocumentEditEzsigntemplatesignaturesV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatedocumentEditObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatedocumentEditObjectV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatedocumentEditObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseMPayload.swift
@@ -588,6 +601,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsigntemplatesignatureTooltippositi
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEEzsigntemplatesignatureType.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldENotificationpreferenceStatus.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEPhoneType.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FieldEUserEzsignsendreminderfrequency.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEUserType.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1Response.swift
@@ -607,6 +621,9 @@ OpenAPIClient/Classes/OpenAPIs/Models/NotificationsectionGetNotificationtestsV1R
 OpenAPIClient/Classes/OpenAPIs/Models/NotificationsectionGetNotificationtestsV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/NotificationsectionGetNotificationtestsV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/NotificationsubsectionResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/NotificationtestGetElementsV1Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/NotificationtestGetElementsV1ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/NotificationtestGetElementsV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/NotificationtestResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PhoneRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PhoneRequestCompound.swift
@@ -672,6 +689,8 @@ docs/CommonResponseObjDebugPayload.md
 docs/CommonResponseObjDebugPayloadGetList.md
 docs/CommonResponseObjDebugPayloadGetListAllOf.md
 docs/CommonResponseObjSQLQuery.md
+docs/CommonResponseRedirectSSecretquestionTextX.md
+docs/CommonResponseWarning.md
 docs/CommonWebhook.md
 docs/ContactRequest.md
 docs/ContactRequestCompound.md
@@ -848,6 +867,9 @@ docs/EzsignfolderCreateObjectV2Response.md
 docs/EzsignfolderCreateObjectV2ResponseAllOf.md
 docs/EzsignfolderCreateObjectV2ResponseMPayload.md
 docs/EzsignfolderDeleteObjectV1Response.md
+docs/EzsignfolderDisposeEzsignfoldersV1Request.md
+docs/EzsignfolderDisposeEzsignfoldersV1Response.md
+docs/EzsignfolderDisposeV1Response.md
 docs/EzsignfolderEditObjectV1Request.md
 docs/EzsignfolderEditObjectV1Response.md
 docs/EzsignfolderGetActionableElementsV1Response.md
@@ -1007,6 +1029,7 @@ docs/EzsigntemplatedocumentEditEzsigntemplatesignaturesV1ResponseAllOf.md
 docs/EzsigntemplatedocumentEditEzsigntemplatesignaturesV1ResponseMPayload.md
 docs/EzsigntemplatedocumentEditObjectV1Request.md
 docs/EzsigntemplatedocumentEditObjectV1Response.md
+docs/EzsigntemplatedocumentEditObjectV1ResponseAllOf.md
 docs/EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response.md
 docs/EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseAllOf.md
 docs/EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseMPayload.md
@@ -1177,6 +1200,7 @@ docs/FieldEEzsigntemplatesignatureTooltipposition.md
 docs/FieldEEzsigntemplatesignatureType.md
 docs/FieldENotificationpreferenceStatus.md
 docs/FieldEPhoneType.md
+docs/FieldEUserEzsignsendreminderfrequency.md
 docs/FieldEUserType.md
 docs/FranchisereferalincomeCreateObjectV1Request.md
 docs/FranchisereferalincomeCreateObjectV1Response.md
@@ -1199,9 +1223,14 @@ docs/NotificationsectionGetNotificationtestsV1Response.md
 docs/NotificationsectionGetNotificationtestsV1ResponseAllOf.md
 docs/NotificationsectionGetNotificationtestsV1ResponseMPayload.md
 docs/NotificationsubsectionResponse.md
+docs/NotificationtestGetElementsV1Response.md
+docs/NotificationtestGetElementsV1ResponseAllOf.md
+docs/NotificationtestGetElementsV1ResponseMPayload.md
 docs/NotificationtestResponse.md
 docs/ObjectActivesessionAPI.md
 docs/ObjectApikeyAPI.md
+docs/ObjectBillingentityinternalAPI.md
+docs/ObjectBrandingAPI.md
 docs/ObjectEzsignbulksendAPI.md
 docs/ObjectEzsignbulksenddocumentmappingAPI.md
 docs/ObjectEzsignbulksendsignermappingAPI.md
@@ -1226,8 +1255,13 @@ docs/ObjectFranchisebrokerAPI.md
 docs/ObjectFranchiseofficeAPI.md
 docs/ObjectFranchisereferalincomeAPI.md
 docs/ObjectNotificationsectionAPI.md
+docs/ObjectNotificationtestAPI.md
 docs/ObjectPeriodAPI.md
 docs/ObjectSecretquestionAPI.md
+docs/ObjectTaxassignmentAPI.md
+docs/ObjectTimezoneAPI.md
+docs/ObjectUserAPI.md
+docs/ObjectUsergroupAPI.md
 docs/PhoneRequest.md
 docs/PhoneRequestCompound.md
 docs/UserCreateEzsignuserV1Request.md

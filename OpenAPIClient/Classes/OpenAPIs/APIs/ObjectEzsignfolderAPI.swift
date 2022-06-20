@@ -261,6 +261,105 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
+     Dispose Ezsignfolders
+     
+     - parameter ezsignfolderDisposeEzsignfoldersV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfolderDisposeEzsignfoldersV1(ezsignfolderDisposeEzsignfoldersV1Request: EzsignfolderDisposeEzsignfoldersV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderDisposeEzsignfoldersV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderDisposeEzsignfoldersV1WithRequestBuilder(ezsignfolderDisposeEzsignfoldersV1Request: ezsignfolderDisposeEzsignfoldersV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Dispose Ezsignfolders
+     - POST /1/object/ezsignfolder/disposeEzsignfolders
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter ezsignfolderDisposeEzsignfoldersV1Request: (body)  
+     - returns: RequestBuilder<EzsignfolderDisposeEzsignfoldersV1Response> 
+     */
+    open class func ezsignfolderDisposeEzsignfoldersV1WithRequestBuilder(ezsignfolderDisposeEzsignfoldersV1Request: EzsignfolderDisposeEzsignfoldersV1Request) -> RequestBuilder<EzsignfolderDisposeEzsignfoldersV1Response> {
+        let localVariablePath = "/1/object/ezsignfolder/disposeEzsignfolders"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfolderDisposeEzsignfoldersV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderDisposeEzsignfoldersV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Dispose the Ezsignfolder
+     
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter body: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfolderDisposeV1(pkiEzsignfolderID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderDisposeV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderDisposeV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, body: body).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Dispose the Ezsignfolder
+     - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter body: (body)  
+     - returns: RequestBuilder<EzsignfolderDisposeV1Response> 
+     */
+    open class func ezsignfolderDisposeV1WithRequestBuilder(pkiEzsignfolderID: Int, body: AnyCodable) -> RequestBuilder<EzsignfolderDisposeV1Response> {
+        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/dispose"
+        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
+        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderDisposeV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Edit an existing Ezsignfolder
      
      - parameter pkiEzsignfolderID: (path)  

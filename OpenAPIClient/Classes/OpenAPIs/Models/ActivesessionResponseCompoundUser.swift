@@ -15,6 +15,8 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
 
     /** The unique ID of the User */
     public var pkiUserID: Int
+    /** The unique ID of the Timezone */
+    public var fkiTimezoneID: Int
     /** The url of the picture used as avatar */
     public var sAvatarUrl: String
     /** The First name of the user */
@@ -23,21 +25,38 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
     public var sUserLastname: String
     /** The email address. */
     public var sEmailAddress: String
+    public var eUserEzsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency
+    /** The int32 representation of the interface color. For example, RGB color #39435B would be 3752795 */
+    public var iUserInterfacecolor: Int
+    /** Whether to use a dark mode interface */
+    public var bUserInterfacedark: Bool
+    /** The number of rows to return by default in lists */
+    public var iUserListresult: Int
 
-    public init(pkiUserID: Int, sAvatarUrl: String, sUserFirstname: String, sUserLastname: String, sEmailAddress: String) {
+    public init(pkiUserID: Int, fkiTimezoneID: Int, sAvatarUrl: String, sUserFirstname: String, sUserLastname: String, sEmailAddress: String, eUserEzsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor: Int, bUserInterfacedark: Bool, iUserListresult: Int) {
         self.pkiUserID = pkiUserID
+        self.fkiTimezoneID = fkiTimezoneID
         self.sAvatarUrl = sAvatarUrl
         self.sUserFirstname = sUserFirstname
         self.sUserLastname = sUserLastname
         self.sEmailAddress = sEmailAddress
+        self.eUserEzsignsendreminderfrequency = eUserEzsignsendreminderfrequency
+        self.iUserInterfacecolor = iUserInterfacecolor
+        self.bUserInterfacedark = bUserInterfacedark
+        self.iUserListresult = iUserListresult
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiUserID
+        case fkiTimezoneID
         case sAvatarUrl
         case sUserFirstname
         case sUserLastname
         case sEmailAddress
+        case eUserEzsignsendreminderfrequency
+        case iUserInterfacecolor
+        case bUserInterfacedark
+        case iUserListresult
     }
 
     // Encodable protocol methods
@@ -45,10 +64,15 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiUserID, forKey: .pkiUserID)
+        try container.encode(fkiTimezoneID, forKey: .fkiTimezoneID)
         try container.encode(sAvatarUrl, forKey: .sAvatarUrl)
         try container.encode(sUserFirstname, forKey: .sUserFirstname)
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encode(sEmailAddress, forKey: .sEmailAddress)
+        try container.encode(eUserEzsignsendreminderfrequency, forKey: .eUserEzsignsendreminderfrequency)
+        try container.encode(iUserInterfacecolor, forKey: .iUserInterfacecolor)
+        try container.encode(bUserInterfacedark, forKey: .bUserInterfacedark)
+        try container.encode(iUserListresult, forKey: .iUserListresult)
     }
 }
 

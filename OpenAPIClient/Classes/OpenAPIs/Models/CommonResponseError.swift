@@ -16,9 +16,9 @@ public struct CommonResponseError: Codable, JSONEncodable, Hashable {
     /** More detail about the error */
     public var sErrorMessage: String
     /** The error code. See documentation for valid values */
-    public var eErrorCode: String?
+    public var eErrorCode: String
 
-    public init(sErrorMessage: String, eErrorCode: String? = nil) {
+    public init(sErrorMessage: String, eErrorCode: String) {
         self.sErrorMessage = sErrorMessage
         self.eErrorCode = eErrorCode
     }
@@ -33,7 +33,7 @@ public struct CommonResponseError: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sErrorMessage, forKey: .sErrorMessage)
-        try container.encodeIfPresent(eErrorCode, forKey: .eErrorCode)
+        try container.encode(eErrorCode, forKey: .eErrorCode)
     }
 }
 
