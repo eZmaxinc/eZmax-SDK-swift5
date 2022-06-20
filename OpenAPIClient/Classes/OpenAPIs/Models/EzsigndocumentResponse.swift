@@ -25,9 +25,9 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
     public var pkiEzsigndocumentID: Int
     public var eEzsigndocumentStep: FieldEEzsigndocumentStep
     /** The date and time when the Ezsigndocument was first sent. */
-    public var dtEzsigndocumentFirstsend: String
+    public var dtEzsigndocumentFirstsend: String?
     /** The date and time when the Ezsigndocument was sent the last time. */
-    public var dtEzsigndocumentLastsend: String
+    public var dtEzsigndocumentLastsend: String?
     /** The order in which the Ezsigndocument will be presented to the signatory in the Ezsignfolder. */
     public var iEzsigndocumentOrder: Int
     /** The number of pages in the Ezsigndocument. */
@@ -44,7 +44,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
     public var bEzsigndocumentEzsignform: Bool
     public var objAudit: CommonAudit
 
-    public init(fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String, dtEzsigndocumentLastsend: String, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, bEzsigndocumentEzsignform: Bool, objAudit: CommonAudit) {
+    public init(fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, bEzsigndocumentEzsignform: Bool, objAudit: CommonAudit) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
         self.fkiLanguageID = fkiLanguageID
@@ -92,8 +92,8 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         try container.encode(sEzsigndocumentName, forKey: .sEzsigndocumentName)
         try container.encode(pkiEzsigndocumentID, forKey: .pkiEzsigndocumentID)
         try container.encode(eEzsigndocumentStep, forKey: .eEzsigndocumentStep)
-        try container.encode(dtEzsigndocumentFirstsend, forKey: .dtEzsigndocumentFirstsend)
-        try container.encode(dtEzsigndocumentLastsend, forKey: .dtEzsigndocumentLastsend)
+        try container.encodeIfPresent(dtEzsigndocumentFirstsend, forKey: .dtEzsigndocumentFirstsend)
+        try container.encodeIfPresent(dtEzsigndocumentLastsend, forKey: .dtEzsigndocumentLastsend)
         try container.encode(iEzsigndocumentOrder, forKey: .iEzsigndocumentOrder)
         try container.encode(iEzsigndocumentPagetotal, forKey: .iEzsigndocumentPagetotal)
         try container.encode(iEzsigndocumentSignaturesigned, forKey: .iEzsigndocumentSignaturesigned)

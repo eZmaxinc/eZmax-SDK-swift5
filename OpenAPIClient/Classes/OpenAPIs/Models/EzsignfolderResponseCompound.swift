@@ -44,10 +44,10 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
     public var dtEzsignfolderScheduleddispose: String?
     public var eEzsignfolderStep: FieldEEzsignfolderStep
     /** The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. */
-    public var dtEzsignfolderClose: String
+    public var dtEzsignfolderClose: String?
     public var objAudit: CommonAudit
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, bEzsignfolderIsdisposable: Bool, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String, objAudit: CommonAudit) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, bEzsignfolderIsdisposable: Bool, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String? = nil, objAudit: CommonAudit) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
@@ -109,7 +109,7 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(dtEzsignfolderScheduledarchive, forKey: .dtEzsignfolderScheduledarchive)
         try container.encodeIfPresent(dtEzsignfolderScheduleddispose, forKey: .dtEzsignfolderScheduleddispose)
         try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
-        try container.encode(dtEzsignfolderClose, forKey: .dtEzsignfolderClose)
+        try container.encodeIfPresent(dtEzsignfolderClose, forKey: .dtEzsignfolderClose)
         try container.encode(objAudit, forKey: .objAudit)
     }
 }
