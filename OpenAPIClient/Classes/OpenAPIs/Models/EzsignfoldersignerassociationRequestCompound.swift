@@ -21,13 +21,16 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodab
     public var fkiEzsignfolderID: Int
     /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
     public var bEzsignfoldersignerassociationReceivecopy: Bool?
+    /** A custom text message that will be added to the email sent. */
+    public var tEzsignfoldersignerassociationMessage: String?
     public var objEzsignsigner: EzsignsignerRequestCompound?
 
-    public init(pkiEzsignfoldersignerassociationID: Int? = nil, fkiUserID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil, objEzsignsigner: EzsignsignerRequestCompound? = nil) {
+    public init(pkiEzsignfoldersignerassociationID: Int? = nil, fkiUserID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil, tEzsignfoldersignerassociationMessage: String? = nil, objEzsignsigner: EzsignsignerRequestCompound? = nil) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiUserID = fkiUserID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
+        self.tEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
         self.objEzsignsigner = objEzsignsigner
     }
 
@@ -36,6 +39,7 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodab
         case fkiUserID
         case fkiEzsignfolderID
         case bEzsignfoldersignerassociationReceivecopy
+        case tEzsignfoldersignerassociationMessage
         case objEzsignsigner
     }
 
@@ -47,6 +51,7 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodab
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encodeIfPresent(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
+        try container.encodeIfPresent(tEzsignfoldersignerassociationMessage, forKey: .tEzsignfoldersignerassociationMessage)
         try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
     }
 }

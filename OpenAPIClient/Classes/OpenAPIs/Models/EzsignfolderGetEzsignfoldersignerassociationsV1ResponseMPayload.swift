@@ -13,9 +13,9 @@ import AnyCodable
 /** Payload for GET /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsignfoldersignerassociations */
 public struct EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjEzsignfoldersignerassociation: [EzsignfoldersignerassociationResponseCompound]
+    public var aObjEzsignfoldersignerassociation: [CustomEzsignfoldersignerassociationActionableElementResponse]
 
-    public init(aObjEzsignfoldersignerassociation: [EzsignfoldersignerassociationResponseCompound]) {
+    public init(aObjEzsignfoldersignerassociation: [CustomEzsignfoldersignerassociationActionableElementResponse]) {
         self.aObjEzsignfoldersignerassociation = aObjEzsignfoldersignerassociation
     }
 

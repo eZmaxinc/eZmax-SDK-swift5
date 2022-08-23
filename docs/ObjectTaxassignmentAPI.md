@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **taxassignmentGetAutocompleteV1**
 ```swift
-    open class func taxassignmentGetAutocompleteV1(sSelector: SSelector_taxassignmentGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
+    open class func taxassignmentGetAutocompleteV1(sSelector: SSelector_taxassignmentGetAutocompleteV1, eFilterActive: EFilterActive_taxassignmentGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Taxassignments and IDs
@@ -22,11 +22,12 @@ Get the list of Taxassignment to be used in a dropdown or autocomplete control.
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Taxassignments to return
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Taxassignments and IDs
-ObjectTaxassignmentAPI.taxassignmentGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+ObjectTaxassignmentAPI.taxassignmentGetAutocompleteV1(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -43,6 +44,7 @@ ObjectTaxassignmentAPI.taxassignmentGetAutocompleteV1(sSelector: sSelector, sQue
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Taxassignments to return | 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 

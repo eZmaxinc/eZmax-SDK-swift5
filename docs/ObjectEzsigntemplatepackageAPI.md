@@ -27,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatepackageCreateObjectV1Request = ezsigntemplatepackage-createObject-v1-Request(aObjEzsigntemplatepackage: [ezsigntemplatepackage-RequestCompound(pkiEzsigntemplatepackageID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplatepackageDescription: "sEzsigntemplatepackageDescription_example", bEzsigntemplatepackageAdminonly: false, bEzsigntemplatepackageIsactive: false)]) // EzsigntemplatepackageCreateObjectV1Request | 
+let ezsigntemplatepackageCreateObjectV1Request = ezsigntemplatepackage-createObject-v1-Request(aObjEzsigntemplatepackage: [ezsigntemplatepackage-RequestCompound(pkiEzsigntemplatepackageID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplatepackageDescription: "sEzsigntemplatepackageDescription_example", bEzsigntemplatepackageAdminonly: false, bEzsigntemplatepackageIsactive: true)]) // EzsigntemplatepackageCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepackage
 ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageCreateObjectV1(ezsigntemplatepackageCreateObjectV1Request: ezsigntemplatepackageCreateObjectV1Request) { (response, error) in
@@ -180,7 +180,7 @@ Edit an existing Ezsigntemplatepackage
 import OpenAPIClient
 
 let pkiEzsigntemplatepackageID = 987 // Int | 
-let ezsigntemplatepackageEditObjectV1Request = ezsigntemplatepackage-editObject-v1-Request(objEzsigntemplatepackage: ezsigntemplatepackage-RequestCompound(pkiEzsigntemplatepackageID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplatepackageDescription: "sEzsigntemplatepackageDescription_example", bEzsigntemplatepackageAdminonly: false, bEzsigntemplatepackageIsactive: false)) // EzsigntemplatepackageEditObjectV1Request | 
+let ezsigntemplatepackageEditObjectV1Request = ezsigntemplatepackage-editObject-v1-Request(objEzsigntemplatepackage: ezsigntemplatepackage-RequestCompound(pkiEzsigntemplatepackageID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplatepackageDescription: "sEzsigntemplatepackageDescription_example", bEzsigntemplatepackageAdminonly: false, bEzsigntemplatepackageIsactive: true)) // EzsigntemplatepackageEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatepackage
 ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageEditObjectV1(pkiEzsigntemplatepackageID: pkiEzsigntemplatepackageID, ezsigntemplatepackageEditObjectV1Request: ezsigntemplatepackageEditObjectV1Request) { (response, error) in
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackageGetAutocompleteV1**
 ```swift
-    open class func ezsigntemplatepackageGetAutocompleteV1(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteDisabledV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackageGetAutocompleteV1(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV1, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteDisabledV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Ezsigntemplatepackages and IDs
@@ -232,11 +232,12 @@ Get the list of Ezsigntemplatepackage to be used in a dropdown or autocomplete c
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Ezsigntemplatepackages to return
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezsigntemplatepackages and IDs
-ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageGetAutocompleteV1(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -253,6 +254,7 @@ ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageGetAutocompleteV1(sSelector:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Ezsigntemplatepackages to return | 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 

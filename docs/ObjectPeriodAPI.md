@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **periodGetAutocompleteV1**
 ```swift
-    open class func periodGetAutocompleteV1(sSelector: SSelector_periodGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
+    open class func periodGetAutocompleteV1(sSelector: SSelector_periodGetAutocompleteV1, eFilterActive: EFilterActive_periodGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Periods and IDs
@@ -22,11 +22,12 @@ Get the list of Periods to be used in a dropdown or autocomplete control.
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The types of Periods to return
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Periods and IDs
-ObjectPeriodAPI.periodGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+ObjectPeriodAPI.periodGetAutocompleteV1(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -43,6 +44,7 @@ ObjectPeriodAPI.periodGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery, ac
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The types of Periods to return | 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 

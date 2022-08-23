@@ -13,11 +13,11 @@ import AnyCodable
 /** This is the base Webhook object */
 public struct CommonWebhook: Codable, JSONEncodable, Hashable {
 
-    public var objWebhook: WebhookResponse
+    public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
 
-    public init(objWebhook: WebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
     }

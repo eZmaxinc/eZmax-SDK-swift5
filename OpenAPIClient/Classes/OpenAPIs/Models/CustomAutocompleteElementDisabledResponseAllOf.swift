@@ -12,7 +12,7 @@ import AnyCodable
 
 public struct CustomAutocompleteElementDisabledResponseAllOf: Codable, JSONEncodable, Hashable {
 
-    /**  */
+    /** Indicates if the element is disabled in the context */
     public var bDisabled: Bool
 
     public init(bDisabled: Bool) {

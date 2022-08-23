@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Description of the API Key   */
+/** Description of the API Key */
 public struct MultilingualApikeyDescription: Codable, JSONEncodable, Hashable {
 
     /** The description of the Apikey in French */

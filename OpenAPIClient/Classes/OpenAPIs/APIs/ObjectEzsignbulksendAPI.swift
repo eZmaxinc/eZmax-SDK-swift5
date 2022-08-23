@@ -391,8 +391,6 @@ open class ObjectEzsignbulksendAPI {
         case eezsignfoldertypeprivacylevelDesc = "eEzsignfoldertypePrivacylevel_DESC"
         case bezsignbulksendneedvalidationAsc = "bEzsignbulksendNeedvalidation_ASC"
         case bezsignbulksendneedvalidationDesc = "bEzsignbulksendNeedvalidation_DESC"
-        case bezsignbulksendisactiveAsc = "bEzsignbulksendIsactive_ASC"
-        case bezsignbulksendisactiveDesc = "bEzsignbulksendIsactive_DESC"
         case iezsignbulksendtransmissionAsc = "iEzsignbulksendtransmission_ASC"
         case iezsignbulksendtransmissionDesc = "iEzsignbulksendtransmission_DESC"
         case iezsignfolderAsc = "iEzsignfolder_ASC"
@@ -403,6 +401,8 @@ open class ObjectEzsignbulksendAPI {
         case iezsignsignatureDesc = "iEzsignsignature_DESC"
         case iezsignsignaturesignedAsc = "iEzsignsignatureSigned_ASC"
         case iezsignsignaturesignedDesc = "iEzsignsignatureSigned_DESC"
+        case bezsignbulksendisactiveAsc = "bEzsignbulksendIsactive_ASC"
+        case bezsignbulksendisactiveDesc = "bEzsignbulksendIsactive_DESC"
     }
 
     /**

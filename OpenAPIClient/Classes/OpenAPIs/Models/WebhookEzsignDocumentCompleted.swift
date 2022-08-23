@@ -14,11 +14,11 @@ import AnyCodable
 public struct WebhookEzsignDocumentCompleted: Codable, JSONEncodable, Hashable {
 
     public var objEzsigndocument: EzsigndocumentResponse
-    public var objWebhook: WebhookResponse
+    public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
 
-    public init(objEzsigndocument: EzsigndocumentResponse, objWebhook: WebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
+    public init(objEzsigndocument: EzsigndocumentResponse, objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
         self.objEzsigndocument = objEzsigndocument
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt

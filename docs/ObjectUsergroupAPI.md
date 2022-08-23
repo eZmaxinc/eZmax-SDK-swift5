@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **usergroupGetAutocompleteV1**
 ```swift
-    open class func usergroupGetAutocompleteV1(sSelector: SSelector_usergroupGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
+    open class func usergroupGetAutocompleteV1(sSelector: SSelector_usergroupGetAutocompleteV1, eFilterActive: EFilterActive_usergroupGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Usergroups and IDs
@@ -22,11 +22,12 @@ Get the list of Usergroup to be used in a dropdown or autocomplete control.
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Usergroups to return
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Usergroups and IDs
-ObjectUsergroupAPI.usergroupGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+ObjectUsergroupAPI.usergroupGetAutocompleteV1(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -43,6 +44,7 @@ ObjectUsergroupAPI.usergroupGetAutocompleteV1(sSelector: sSelector, sQuery: sQue
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Usergroups to return | 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 

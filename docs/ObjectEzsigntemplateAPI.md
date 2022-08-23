@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateGetAutocompleteV1**
 ```swift
-    open class func ezsigntemplateGetAutocompleteV1(sSelector: SSelector_ezsigntemplateGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplateGetAutocompleteV1(sSelector: SSelector_ezsigntemplateGetAutocompleteV1, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Ezsigntemplate and IDs
@@ -179,11 +179,12 @@ Get the list of Ezsigntemplate to be used in a dropdown or autocomplete control.
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Ezsigntemplate to return
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezsigntemplate and IDs
-ObjectEzsigntemplateAPI.ezsigntemplateGetAutocompleteV1(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+ObjectEzsigntemplateAPI.ezsigntemplateGetAutocompleteV1(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -200,6 +201,7 @@ ObjectEzsigntemplateAPI.ezsigntemplateGetAutocompleteV1(sSelector: sSelector, sQ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Ezsigntemplate to return | 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 

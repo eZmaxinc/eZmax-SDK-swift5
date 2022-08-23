@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezsigntsarequirementGetAutocompleteV1**
 ```swift
-    open class func ezsigntsarequirementGetAutocompleteV1(sSelector: SSelector_ezsigntsarequirementGetAutocompleteV1, fkiEzsignfoldertypeID: Int? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteDisabledV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntsarequirementGetAutocompleteV1(sSelector: SSelector_ezsigntsarequirementGetAutocompleteV1, fkiEzsignfoldertypeID: Int? = nil, eFilterActive: EFilterActive_ezsigntsarequirementGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteDisabledV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Ezsigntsarequirements and IDs
@@ -23,11 +23,12 @@ import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Ezsigntsarequirements to return
 let fkiEzsignfoldertypeID = 987 // Int |  (optional)
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Ezsigntsarequirements and IDs
-ObjectEzsigntsarequirementAPI.ezsigntsarequirementGetAutocompleteV1(sSelector: sSelector, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+ObjectEzsigntsarequirementAPI.ezsigntsarequirementGetAutocompleteV1(sSelector: sSelector, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -45,6 +46,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Ezsigntsarequirements to return | 
  **fkiEzsignfoldertypeID** | **Int** |  | [optional] 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
 

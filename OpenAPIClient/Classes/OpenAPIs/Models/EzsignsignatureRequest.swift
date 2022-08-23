@@ -32,8 +32,17 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
     public var tEzsignsignatureTooltip: String?
     public var eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition?
     public var eEzsignsignatureFont: FieldEEzsignsignatureFont?
+    /** The unique ID of the User */
+    public var fkiUserID: Int?
+    /** Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments. */
+    public var bEzsignsignatureRequired: Bool?
+    public var eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource?
+    /** The description attached to the attachment name added in Ezsignsignature of eEzsignsignatureType Attachments */
+    public var sEzsignsignatureAttachmentdescription: String?
+    /** The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments */
+    public var iEzsignsignatureValidationstep: Int?
 
-    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil) {
+    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiUserID: Int? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, iEzsignsignatureValidationstep: Int? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
@@ -45,6 +54,11 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
         self.tEzsignsignatureTooltip = tEzsignsignatureTooltip
         self.eEzsignsignatureTooltipposition = eEzsignsignatureTooltipposition
         self.eEzsignsignatureFont = eEzsignsignatureFont
+        self.fkiUserID = fkiUserID
+        self.bEzsignsignatureRequired = bEzsignsignatureRequired
+        self.eEzsignsignatureAttachmentnamesource = eEzsignsignatureAttachmentnamesource
+        self.sEzsignsignatureAttachmentdescription = sEzsignsignatureAttachmentdescription
+        self.iEzsignsignatureValidationstep = iEzsignsignatureValidationstep
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -59,6 +73,11 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
         case tEzsignsignatureTooltip
         case eEzsignsignatureTooltipposition
         case eEzsignsignatureFont
+        case fkiUserID
+        case bEzsignsignatureRequired
+        case eEzsignsignatureAttachmentnamesource
+        case sEzsignsignatureAttachmentdescription
+        case iEzsignsignatureValidationstep
     }
 
     // Encodable protocol methods
@@ -76,6 +95,11 @@ public struct EzsignsignatureRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(tEzsignsignatureTooltip, forKey: .tEzsignsignatureTooltip)
         try container.encodeIfPresent(eEzsignsignatureTooltipposition, forKey: .eEzsignsignatureTooltipposition)
         try container.encodeIfPresent(eEzsignsignatureFont, forKey: .eEzsignsignatureFont)
+        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(bEzsignsignatureRequired, forKey: .bEzsignsignatureRequired)
+        try container.encodeIfPresent(eEzsignsignatureAttachmentnamesource, forKey: .eEzsignsignatureAttachmentnamesource)
+        try container.encodeIfPresent(sEzsignsignatureAttachmentdescription, forKey: .sEzsignsignatureAttachmentdescription)
+        try container.encodeIfPresent(iEzsignsignatureValidationstep, forKey: .iEzsignsignatureValidationstep)
     }
 }
 

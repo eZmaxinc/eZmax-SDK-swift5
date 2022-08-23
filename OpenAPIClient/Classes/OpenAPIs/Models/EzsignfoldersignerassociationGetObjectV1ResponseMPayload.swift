@@ -19,13 +19,16 @@ public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable,
     public var fkiEzsignfolderID: Int
     /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
     public var bEzsignfoldersignerassociationReceivecopy: Bool
+    /** A custom text message that will be added to the email sent. */
+    public var tEzsignfoldersignerassociationMessage: String
     public var objUser: EzsignfoldersignerassociationResponseCompoundUser?
     public var objEzsignsigner: EzsignsignerResponseCompound?
 
-    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil) {
+    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
+        self.tEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
         self.objUser = objUser
         self.objEzsignsigner = objEzsignsigner
     }
@@ -34,6 +37,7 @@ public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable,
         case pkiEzsignfoldersignerassociationID
         case fkiEzsignfolderID
         case bEzsignfoldersignerassociationReceivecopy
+        case tEzsignfoldersignerassociationMessage
         case objUser
         case objEzsignsigner
     }
@@ -45,6 +49,7 @@ public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable,
         try container.encode(pkiEzsignfoldersignerassociationID, forKey: .pkiEzsignfoldersignerassociationID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encode(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
+        try container.encode(tEzsignfoldersignerassociationMessage, forKey: .tEzsignfoldersignerassociationMessage)
         try container.encodeIfPresent(objUser, forKey: .objUser)
         try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
     }

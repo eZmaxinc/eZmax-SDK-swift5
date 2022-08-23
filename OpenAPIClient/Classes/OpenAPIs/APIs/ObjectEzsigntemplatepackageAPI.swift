@@ -222,17 +222,27 @@ open class ObjectEzsigntemplatepackageAPI {
     }
 
     /**
+     * enum for parameter eFilterActive
+     */
+    public enum EFilterActive_ezsigntemplatepackageGetAutocompleteV1: String, CaseIterable {
+        case all = "All"
+        case active = "Active"
+        case inactive = "Inactive"
+    }
+
+    /**
      Retrieve Ezsigntemplatepackages and IDs
      
      - parameter sSelector: (path) The type of Ezsigntemplatepackages to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatepackageGetAutocompleteV1(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteDisabledV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplatepackageGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+    open class func ezsigntemplatepackageGetAutocompleteV1(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV1, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteDisabledV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplatepackageGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -250,11 +260,12 @@ open class ObjectEzsigntemplatepackageAPI {
        - type: apiKey Authorization 
        - name: Authorization
      - parameter sSelector: (path) The type of Ezsigntemplatepackages to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - returns: RequestBuilder<CommonGetAutocompleteDisabledV1Response> 
      */
-    open class func ezsigntemplatepackageGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteDisabledV1Response> {
+    open class func ezsigntemplatepackageGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV1, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteDisabledV1Response> {
         var localVariablePath = "/1/object/ezsigntemplatepackage/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -264,6 +275,7 @@ open class ObjectEzsigntemplatepackageAPI {
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eFilterActive": eFilterActive?.encodeToJSON(),
             "sQuery": sQuery?.encodeToJSON(),
         ])
 
@@ -296,12 +308,12 @@ open class ObjectEzsigntemplatepackageAPI {
         case sezsigntemplatepackagetypedescriptionxDesc = "sEzsigntemplatepackageTypedescriptionX_DESC"
         case sezsigntemplatepackagedescriptionAsc = "sEzsigntemplatepackageDescription_ASC"
         case sezsigntemplatepackagedescriptionDesc = "sEzsigntemplatepackageDescription_DESC"
-        case bezsigntemplatepackageisactiveAsc = "bEzsigntemplatepackageIsactive_ASC"
-        case bezsigntemplatepackageisactiveDesc = "bEzsigntemplatepackageIsactive_DESC"
         case bezsigntemplatepackageneedvalidationAsc = "bEzsigntemplatepackageNeedvalidation_ASC"
         case bezsigntemplatepackageneedvalidationDesc = "bEzsigntemplatepackageNeedvalidation_DESC"
         case iezsigntemplatepackagemembershipAsc = "iEzsigntemplatepackagemembership_ASC"
         case iezsigntemplatepackagemembershipDesc = "iEzsigntemplatepackagemembership_DESC"
+        case bezsigntemplatepackageisactiveAsc = "bEzsigntemplatepackageIsactive_ASC"
+        case bezsigntemplatepackageisactiveDesc = "bEzsigntemplatepackageIsactive_DESC"
     }
 
     /**

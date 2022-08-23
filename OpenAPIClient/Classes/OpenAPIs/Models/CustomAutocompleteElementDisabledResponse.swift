@@ -13,7 +13,7 @@ import AnyCodable
 /** Generic AutocompleteElement Response with a bDisabled Flag */
 public struct CustomAutocompleteElementDisabledResponse: Codable, JSONEncodable, Hashable {
 
-    /**  */
+    /** Indicates if the element is disabled in the context */
     public var bDisabled: Bool
     /** The Category for the dropdown or an empty string if not categorized */
     public var sCategory: String
@@ -24,13 +24,16 @@ public struct CustomAutocompleteElementDisabledResponse: Codable, JSONEncodable,
     /** The Unique ID of the element */
     @available(*, deprecated, message: "This property is deprecated.")
     public var mValue: String?
+    /** Indicates if the element is active */
+    public var bActive: Bool
 
-    public init(bDisabled: Bool, sCategory: String, sLabel: String, sValue: String, mValue: String? = nil) {
+    public init(bDisabled: Bool, sCategory: String, sLabel: String, sValue: String, mValue: String? = nil, bActive: Bool) {
         self.bDisabled = bDisabled
         self.sCategory = sCategory
         self.sLabel = sLabel
         self.sValue = sValue
         self.mValue = mValue
+        self.bActive = bActive
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -39,6 +42,7 @@ public struct CustomAutocompleteElementDisabledResponse: Codable, JSONEncodable,
         case sLabel
         case sValue
         case mValue
+        case bActive
     }
 
     // Encodable protocol methods
@@ -50,6 +54,7 @@ public struct CustomAutocompleteElementDisabledResponse: Codable, JSONEncodable,
         try container.encode(sLabel, forKey: .sLabel)
         try container.encode(sValue, forKey: .sValue)
         try container.encodeIfPresent(mValue, forKey: .mValue)
+        try container.encode(bActive, forKey: .bActive)
     }
 }
 

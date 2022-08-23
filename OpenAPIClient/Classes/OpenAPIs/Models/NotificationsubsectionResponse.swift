@@ -17,18 +17,25 @@ public struct NotificationsubsectionResponse: Codable, JSONEncodable, Hashable {
     public var pkiNotificationsubsectionID: Int
     /** The unique ID of the Notificationsection */
     public var fkiNotificationsectionID: Int
+    public var objNotificationsubsectionName: MultilingualNotificationsubsectionName?
+    /** The name of the Notificationsection in the language of the requester */
+    public var sNotificationsectionNameX: String?
     /** The name of the Notificationsubsection in the language of the requester */
     public var sNotificationsubsectionNameX: String
 
-    public init(pkiNotificationsubsectionID: Int, fkiNotificationsectionID: Int, sNotificationsubsectionNameX: String) {
+    public init(pkiNotificationsubsectionID: Int, fkiNotificationsectionID: Int, objNotificationsubsectionName: MultilingualNotificationsubsectionName? = nil, sNotificationsectionNameX: String? = nil, sNotificationsubsectionNameX: String) {
         self.pkiNotificationsubsectionID = pkiNotificationsubsectionID
         self.fkiNotificationsectionID = fkiNotificationsectionID
+        self.objNotificationsubsectionName = objNotificationsubsectionName
+        self.sNotificationsectionNameX = sNotificationsectionNameX
         self.sNotificationsubsectionNameX = sNotificationsubsectionNameX
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiNotificationsubsectionID
         case fkiNotificationsectionID
+        case objNotificationsubsectionName
+        case sNotificationsectionNameX
         case sNotificationsubsectionNameX
     }
 
@@ -38,6 +45,8 @@ public struct NotificationsubsectionResponse: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiNotificationsubsectionID, forKey: .pkiNotificationsubsectionID)
         try container.encode(fkiNotificationsectionID, forKey: .fkiNotificationsectionID)
+        try container.encodeIfPresent(objNotificationsubsectionName, forKey: .objNotificationsubsectionName)
+        try container.encodeIfPresent(sNotificationsectionNameX, forKey: .sNotificationsectionNameX)
         try container.encode(sNotificationsubsectionNameX, forKey: .sNotificationsubsectionNameX)
     }
 }

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aObjEzsignfoldersignerassociation** | [EzsignfoldersignerassociationResponseCompound] |  | 
+**aObjEzsignfoldersignerassociation** | [CustomEzsignfoldersignerassociationActionableElementResponse] |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

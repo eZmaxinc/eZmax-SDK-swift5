@@ -32,12 +32,21 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public var tEzsignsignatureTooltip: String?
     public var eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition?
     public var eEzsignsignatureFont: FieldEEzsignsignatureFont?
+    /** The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments */
+    public var iEzsignsignatureValidationstep: Int?
+    /** The description attached to the attachment name added in Ezsignsignature of eEzsignsignatureType Attachments */
+    public var sEzsignsignatureAttachmentdescription: String?
+    public var eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource?
+    /** Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments. */
+    public var bEzsignsignatureRequired: Bool?
+    /** The unique ID of the User */
+    public var fkiUserID: Int?
     /** Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) */
     public var bEzsignsignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
     public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiUserID: Int? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
@@ -49,6 +58,11 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         self.tEzsignsignatureTooltip = tEzsignsignatureTooltip
         self.eEzsignsignatureTooltipposition = eEzsignsignatureTooltipposition
         self.eEzsignsignatureFont = eEzsignsignatureFont
+        self.iEzsignsignatureValidationstep = iEzsignsignatureValidationstep
+        self.sEzsignsignatureAttachmentdescription = sEzsignsignatureAttachmentdescription
+        self.eEzsignsignatureAttachmentnamesource = eEzsignsignatureAttachmentnamesource
+        self.bEzsignsignatureRequired = bEzsignsignatureRequired
+        self.fkiUserID = fkiUserID
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
         self.aObjEzsignsignaturecustomdate = aObjEzsignsignaturecustomdate
     }
@@ -65,6 +79,11 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         case tEzsignsignatureTooltip
         case eEzsignsignatureTooltipposition
         case eEzsignsignatureFont
+        case iEzsignsignatureValidationstep
+        case sEzsignsignatureAttachmentdescription
+        case eEzsignsignatureAttachmentnamesource
+        case bEzsignsignatureRequired
+        case fkiUserID
         case bEzsignsignatureCustomdate
         case aObjEzsignsignaturecustomdate = "a_objEzsignsignaturecustomdate"
     }
@@ -84,6 +103,11 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(tEzsignsignatureTooltip, forKey: .tEzsignsignatureTooltip)
         try container.encodeIfPresent(eEzsignsignatureTooltipposition, forKey: .eEzsignsignatureTooltipposition)
         try container.encodeIfPresent(eEzsignsignatureFont, forKey: .eEzsignsignatureFont)
+        try container.encodeIfPresent(iEzsignsignatureValidationstep, forKey: .iEzsignsignatureValidationstep)
+        try container.encodeIfPresent(sEzsignsignatureAttachmentdescription, forKey: .sEzsignsignatureAttachmentdescription)
+        try container.encodeIfPresent(eEzsignsignatureAttachmentnamesource, forKey: .eEzsignsignatureAttachmentnamesource)
+        try container.encodeIfPresent(bEzsignsignatureRequired, forKey: .bEzsignsignatureRequired)
+        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
         try container.encodeIfPresent(bEzsignsignatureCustomdate, forKey: .bEzsignsignatureCustomdate)
         try container.encodeIfPresent(aObjEzsignsignaturecustomdate, forKey: .aObjEzsignsignaturecustomdate)
     }

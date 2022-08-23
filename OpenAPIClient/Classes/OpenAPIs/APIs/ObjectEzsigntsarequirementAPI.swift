@@ -21,18 +21,28 @@ open class ObjectEzsigntsarequirementAPI {
     }
 
     /**
+     * enum for parameter eFilterActive
+     */
+    public enum EFilterActive_ezsigntsarequirementGetAutocompleteV1: String, CaseIterable {
+        case all = "All"
+        case active = "Active"
+        case inactive = "Inactive"
+    }
+
+    /**
      Retrieve Ezsigntsarequirements and IDs
      
      - parameter sSelector: (path) The type of Ezsigntsarequirements to return 
      - parameter fkiEzsignfoldertypeID: (query)  (optional)
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntsarequirementGetAutocompleteV1(sSelector: SSelector_ezsigntsarequirementGetAutocompleteV1, fkiEzsignfoldertypeID: Int? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteDisabledV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntsarequirementGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+    open class func ezsigntsarequirementGetAutocompleteV1(sSelector: SSelector_ezsigntsarequirementGetAutocompleteV1, fkiEzsignfoldertypeID: Int? = nil, eFilterActive: EFilterActive_ezsigntsarequirementGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteDisabledV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntsarequirementGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -51,11 +61,12 @@ open class ObjectEzsigntsarequirementAPI {
        - name: Authorization
      - parameter sSelector: (path) The type of Ezsigntsarequirements to return 
      - parameter fkiEzsignfoldertypeID: (query)  (optional)
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - returns: RequestBuilder<CommonGetAutocompleteDisabledV1Response> 
      */
-    open class func ezsigntsarequirementGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_ezsigntsarequirementGetAutocompleteV1, fkiEzsignfoldertypeID: Int? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteDisabledV1Response> {
+    open class func ezsigntsarequirementGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_ezsigntsarequirementGetAutocompleteV1, fkiEzsignfoldertypeID: Int? = nil, eFilterActive: EFilterActive_ezsigntsarequirementGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteDisabledV1Response> {
         var localVariablePath = "/1/object/ezsigntsarequirement/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -66,6 +77,7 @@ open class ObjectEzsigntsarequirementAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "fkiEzsignfoldertypeID": fkiEzsignfoldertypeID?.encodeToJSON(),
+            "eFilterActive": eFilterActive?.encodeToJSON(),
             "sQuery": sQuery?.encodeToJSON(),
         ])
 

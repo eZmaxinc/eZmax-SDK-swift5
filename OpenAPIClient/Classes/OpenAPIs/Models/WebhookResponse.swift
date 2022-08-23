@@ -13,73 +13,69 @@ import AnyCodable
 /** A webhook object */
 public struct WebhookResponse: Codable, JSONEncodable, Hashable {
 
-    public enum EWebhookModule: String, Codable, CaseIterable {
-        case ezsign = "Ezsign"
-        case management = "Management"
-    }
-    public enum EWebhookEzsignevent: String, Codable, CaseIterable {
-        case documentCompleted = "DocumentCompleted"
-        case folderCompleted = "FolderCompleted"
-    }
-    public enum EWebhookManagementevent: String, Codable, CaseIterable {
-        case userCreated = "UserCreated"
-    }
-    /** The customer code assigned to your account */
-    public var pksCustomerCode: String
-    /** The Webhook ID. This value is visible in the admin interface. */
+    /** The unique ID of the Webhook */
     public var pkiWebhookID: Int
-    /** The Module generating the Event. */
-    public var eWebhookModule: EWebhookModule
-    /** This Ezsign Event. This property will be set only if the Module is \"Ezsign\". */
-    public var eWebhookEzsignevent: EWebhookEzsignevent?
-    /** This Management Event. This property will be set only if the Module is \"Management\". */
-    public var eWebhookManagementevent: EWebhookManagementevent?
-    /** The url being called */
+    /** The description of the Webhook */
+    public var sWebhookDescription: String
+    /** The unique ID of the Ezsignfoldertype. */
+    public var fkiEzsignfoldertypeID: Int?
+    /** The name of the Ezsignfoldertype in the language of the requester */
+    public var sEzsignfoldertypeNameX: String?
+    public var eWebhookModule: FieldEWebhookModule
+    public var eWebhookEzsignevent: FieldEWebhookEzsignevent?
+    public var eWebhookManagementevent: FieldEWebhookManagementevent?
+    /** The URL of the Webhook callback */
     public var sWebhookUrl: String
-    /** Wheter the webhook received is a manual test or a real event */
-    public var bWebhookTest: Bool
-    /** Wheter the server's SSL certificate should be validated or not. Not recommended for production use. */
-    public var bWebhookSkipsslvalidation: Bool
-    /** The email that will receive the webhook in case all attempts fail. */
+    /** The email that will receive the Webhook in case all attempts fail */
     public var sWebhookEmailfailed: String
+    /** Whether the Webhook is active or not */
+    public var bWebhookIsactive: Bool?
+    /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
+    public var bWebhookSkipsslvalidation: Bool
 
-    public init(pksCustomerCode: String, pkiWebhookID: Int, eWebhookModule: EWebhookModule, eWebhookEzsignevent: EWebhookEzsignevent? = nil, eWebhookManagementevent: EWebhookManagementevent? = nil, sWebhookUrl: String, bWebhookTest: Bool, bWebhookSkipsslvalidation: Bool, sWebhookEmailfailed: String) {
-        self.pksCustomerCode = pksCustomerCode
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
         self.pkiWebhookID = pkiWebhookID
+        self.sWebhookDescription = sWebhookDescription
+        self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+        self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.eWebhookModule = eWebhookModule
         self.eWebhookEzsignevent = eWebhookEzsignevent
         self.eWebhookManagementevent = eWebhookManagementevent
         self.sWebhookUrl = sWebhookUrl
-        self.bWebhookTest = bWebhookTest
-        self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
         self.sWebhookEmailfailed = sWebhookEmailfailed
+        self.bWebhookIsactive = bWebhookIsactive
+        self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case pksCustomerCode
         case pkiWebhookID
+        case sWebhookDescription
+        case fkiEzsignfoldertypeID
+        case sEzsignfoldertypeNameX
         case eWebhookModule
         case eWebhookEzsignevent
         case eWebhookManagementevent
         case sWebhookUrl
-        case bWebhookTest
-        case bWebhookSkipsslvalidation
         case sWebhookEmailfailed
+        case bWebhookIsactive
+        case bWebhookSkipsslvalidation
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(pkiWebhookID, forKey: .pkiWebhookID)
+        try container.encode(sWebhookDescription, forKey: .sWebhookDescription)
+        try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encode(eWebhookModule, forKey: .eWebhookModule)
         try container.encodeIfPresent(eWebhookEzsignevent, forKey: .eWebhookEzsignevent)
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
         try container.encode(sWebhookUrl, forKey: .sWebhookUrl)
-        try container.encode(bWebhookTest, forKey: .bWebhookTest)
-        try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
+        try container.encodeIfPresent(bWebhookIsactive, forKey: .bWebhookIsactive)
+        try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
     }
 }
 

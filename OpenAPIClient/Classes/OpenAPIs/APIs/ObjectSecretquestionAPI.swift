@@ -20,17 +20,27 @@ open class ObjectSecretquestionAPI {
     }
 
     /**
+     * enum for parameter eFilterActive
+     */
+    public enum EFilterActive_secretquestionGetAutocompleteV1: String, CaseIterable {
+        case all = "All"
+        case active = "Active"
+        case inactive = "Inactive"
+    }
+
+    /**
      Retrieve Secretquestions and IDs
      
      - parameter sSelector: (path) The type of Secretquestions to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func secretquestionGetAutocompleteV1(sSelector: SSelector_secretquestionGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return secretquestionGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+    open class func secretquestionGetAutocompleteV1(sSelector: SSelector_secretquestionGetAutocompleteV1, eFilterActive: EFilterActive_secretquestionGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return secretquestionGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -48,11 +58,12 @@ open class ObjectSecretquestionAPI {
        - type: apiKey Authorization 
        - name: Authorization
      - parameter sSelector: (path) The type of Secretquestions to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
      */
-    open class func secretquestionGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_secretquestionGetAutocompleteV1, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
+    open class func secretquestionGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_secretquestionGetAutocompleteV1, eFilterActive: EFilterActive_secretquestionGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
         var localVariablePath = "/1/object/secretquestion/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -62,6 +73,7 @@ open class ObjectSecretquestionAPI {
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eFilterActive": eFilterActive?.encodeToJSON(),
             "sQuery": sQuery?.encodeToJSON(),
         ])
 

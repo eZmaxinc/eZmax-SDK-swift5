@@ -15,6 +15,7 @@ public struct CustomNotificationtestgetnotificationtestsResponse: Codable, JSONE
 
     /** The unique ID of the Notificationtest */
     public var pkiNotificationtestID: Int
+    public var objNotificationtestName: MultilingualNotificationtestName
     /** The unique ID of the Notificationsubsection */
     public var fkiNotificationsubsectionID: Int
     /** The function name of the Notificationtest */
@@ -25,8 +26,9 @@ public struct CustomNotificationtestgetnotificationtestsResponse: Codable, JSONE
     /** The number of elements returned by the Notificationtest */
     public var iNotificationtest: Int
 
-    public init(pkiNotificationtestID: Int, fkiNotificationsubsectionID: Int, sNotificationtestFunction: String, sNotificationtestNameX: String, eNotificationpreferenceStatus: FieldENotificationpreferenceStatus, iNotificationtest: Int) {
+    public init(pkiNotificationtestID: Int, objNotificationtestName: MultilingualNotificationtestName, fkiNotificationsubsectionID: Int, sNotificationtestFunction: String, sNotificationtestNameX: String, eNotificationpreferenceStatus: FieldENotificationpreferenceStatus, iNotificationtest: Int) {
         self.pkiNotificationtestID = pkiNotificationtestID
+        self.objNotificationtestName = objNotificationtestName
         self.fkiNotificationsubsectionID = fkiNotificationsubsectionID
         self.sNotificationtestFunction = sNotificationtestFunction
         self.sNotificationtestNameX = sNotificationtestNameX
@@ -36,6 +38,7 @@ public struct CustomNotificationtestgetnotificationtestsResponse: Codable, JSONE
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiNotificationtestID
+        case objNotificationtestName
         case fkiNotificationsubsectionID
         case sNotificationtestFunction
         case sNotificationtestNameX
@@ -48,6 +51,7 @@ public struct CustomNotificationtestgetnotificationtestsResponse: Codable, JSONE
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiNotificationtestID, forKey: .pkiNotificationtestID)
+        try container.encode(objNotificationtestName, forKey: .objNotificationtestName)
         try container.encode(fkiNotificationsubsectionID, forKey: .fkiNotificationsubsectionID)
         try container.encode(sNotificationtestFunction, forKey: .sNotificationtestFunction)
         try container.encode(sNotificationtestNameX, forKey: .sNotificationtestNameX)

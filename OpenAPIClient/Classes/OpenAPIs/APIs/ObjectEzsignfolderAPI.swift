@@ -752,6 +752,58 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
+     Import an existing Ezsignfoldersignerassociation into this Ezsignfolder
+     
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter ezsignfolderImportEzsignfoldersignerassociationsV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfolderImportEzsignfoldersignerassociationsV1(pkiEzsignfolderID: Int, ezsignfolderImportEzsignfoldersignerassociationsV1Request: EzsignfolderImportEzsignfoldersignerassociationsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderImportEzsignfoldersignerassociationsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderImportEzsignfoldersignerassociationsV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderImportEzsignfoldersignerassociationsV1Request: ezsignfolderImportEzsignfoldersignerassociationsV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import an existing Ezsignfoldersignerassociation into this Ezsignfolder
+     - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsignfoldersignerassociations
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter ezsignfolderImportEzsignfoldersignerassociationsV1Request: (body)  
+     - returns: RequestBuilder<EzsignfolderImportEzsignfoldersignerassociationsV1Response> 
+     */
+    open class func ezsignfolderImportEzsignfoldersignerassociationsV1WithRequestBuilder(pkiEzsignfolderID: Int, ezsignfolderImportEzsignfoldersignerassociationsV1Request: EzsignfolderImportEzsignfoldersignerassociationsV1Request) -> RequestBuilder<EzsignfolderImportEzsignfoldersignerassociationsV1Response> {
+        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsignfoldersignerassociations"
+        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
+        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfolderImportEzsignfoldersignerassociationsV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderImportEzsignfoldersignerassociationsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Import an Ezsigntemplatepackage in the Ezsignfolder.
      
      - parameter pkiEzsignfolderID: (path)  
@@ -862,6 +914,7 @@ open class ObjectEzsignfolderAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignfolderSendV1(pkiEzsignfolderID: Int, ezsignfolderSendV1Request: EzsignfolderSendV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderSendV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfolderSendV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderSendV1Request: ezsignfolderSendV1Request).execute(apiResponseQueue) { result in
@@ -885,6 +938,7 @@ open class ObjectEzsignfolderAPI {
      - parameter ezsignfolderSendV1Request: (body)  
      - returns: RequestBuilder<EzsignfolderSendV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignfolderSendV1WithRequestBuilder(pkiEzsignfolderID: Int, ezsignfolderSendV1Request: EzsignfolderSendV1Request) -> RequestBuilder<EzsignfolderSendV1Response> {
         var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/send"
         let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
@@ -902,6 +956,58 @@ open class ObjectEzsignfolderAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignfolderSendV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Send the Ezsignfolder to the signatories for signature
+     
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter ezsignfolderSendV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfolderSendV2(pkiEzsignfolderID: Int, ezsignfolderSendV2Request: EzsignfolderSendV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderSendV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderSendV2WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderSendV2Request: ezsignfolderSendV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Send the Ezsignfolder to the signatories for signature
+     - POST /2/object/ezsignfolder/{pkiEzsignfolderID}/send
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter ezsignfolderSendV2Request: (body)  
+     - returns: RequestBuilder<EzsignfolderSendV2Response> 
+     */
+    open class func ezsignfolderSendV2WithRequestBuilder(pkiEzsignfolderID: Int, ezsignfolderSendV2Request: EzsignfolderSendV2Request) -> RequestBuilder<EzsignfolderSendV2Response> {
+        var localVariablePath = "/2/object/ezsignfolder/{pkiEzsignfolderID}/send"
+        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
+        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfolderSendV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderSendV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
