@@ -22,21 +22,24 @@ public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
     /** The description of the Ezsigntemplate */
     public var sEzsigntemplateDescription: String
     /** The number of pages in the Ezsigntemplatedocument. */
-    public var iEzsigntemplatedocumentPagetotal: Int
+    public var iEzsigntemplatedocumentPagetotal: Int?
     /** The number of total signatures in the Ezsigntemplate. */
-    public var iEzsigntemplateSignaturetotal: Int
+    public var iEzsigntemplateSignaturetotal: Int?
+    /** The number of total form fields in the Ezsigntemplate. */
+    public var iEzsigntemplateFormfieldtotal: Int?
     /** Indicate the Ezsigntemplate is incomplete and cannot be used */
     public var bEzsigntemplateIncomplete: Bool
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String
 
-    public init(pkiEzsigntemplateID: Int, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sEzsigntemplateDescription: String, iEzsigntemplatedocumentPagetotal: Int, iEzsigntemplateSignaturetotal: Int, bEzsigntemplateIncomplete: Bool, sEzsignfoldertypeNameX: String) {
+    public init(pkiEzsigntemplateID: Int, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sEzsigntemplateDescription: String, iEzsigntemplatedocumentPagetotal: Int? = nil, iEzsigntemplateSignaturetotal: Int? = nil, iEzsigntemplateFormfieldtotal: Int? = nil, bEzsigntemplateIncomplete: Bool, sEzsignfoldertypeNameX: String) {
         self.pkiEzsigntemplateID = pkiEzsigntemplateID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiLanguageID = fkiLanguageID
         self.sEzsigntemplateDescription = sEzsigntemplateDescription
         self.iEzsigntemplatedocumentPagetotal = iEzsigntemplatedocumentPagetotal
         self.iEzsigntemplateSignaturetotal = iEzsigntemplateSignaturetotal
+        self.iEzsigntemplateFormfieldtotal = iEzsigntemplateFormfieldtotal
         self.bEzsigntemplateIncomplete = bEzsigntemplateIncomplete
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
     }
@@ -48,6 +51,7 @@ public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
         case sEzsigntemplateDescription
         case iEzsigntemplatedocumentPagetotal
         case iEzsigntemplateSignaturetotal
+        case iEzsigntemplateFormfieldtotal
         case bEzsigntemplateIncomplete
         case sEzsignfoldertypeNameX
     }
@@ -60,8 +64,9 @@ public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sEzsigntemplateDescription, forKey: .sEzsigntemplateDescription)
-        try container.encode(iEzsigntemplatedocumentPagetotal, forKey: .iEzsigntemplatedocumentPagetotal)
-        try container.encode(iEzsigntemplateSignaturetotal, forKey: .iEzsigntemplateSignaturetotal)
+        try container.encodeIfPresent(iEzsigntemplatedocumentPagetotal, forKey: .iEzsigntemplatedocumentPagetotal)
+        try container.encodeIfPresent(iEzsigntemplateSignaturetotal, forKey: .iEzsigntemplateSignaturetotal)
+        try container.encodeIfPresent(iEzsigntemplateFormfieldtotal, forKey: .iEzsigntemplateFormfieldtotal)
         try container.encode(bEzsigntemplateIncomplete, forKey: .bEzsigntemplateIncomplete)
         try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
     }

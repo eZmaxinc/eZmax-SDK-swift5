@@ -24,7 +24,7 @@ public struct EzsignformfieldgroupResponse: Codable, JSONEncodable, Hashable {
     /** The step when the Ezsignsigner will be invited to fill the form fields */
     public var iEzsignformfieldgroupStep: Int
     /** The default value for the Ezsignformfieldgroup */
-    public var sEzsignformfieldgroupDefaultvalue: String
+    public var sEzsignformfieldgroupDefaultvalue: String?
     /** The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup */
     public var iEzsignformfieldgroupFilledmin: Int
     /** The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup */
@@ -41,7 +41,7 @@ public struct EzsignformfieldgroupResponse: Codable, JSONEncodable, Hashable {
     public var tEzsignformfieldgroupTooltip: String?
     public var eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition?
 
-    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil) {
+    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String? = nil, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil) {
         self.pkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.eEzsignformfieldgroupType = eEzsignformfieldgroupType
@@ -87,7 +87,7 @@ public struct EzsignformfieldgroupResponse: Codable, JSONEncodable, Hashable {
         try container.encode(eEzsignformfieldgroupSignerrequirement, forKey: .eEzsignformfieldgroupSignerrequirement)
         try container.encode(sEzsignformfieldgroupLabel, forKey: .sEzsignformfieldgroupLabel)
         try container.encode(iEzsignformfieldgroupStep, forKey: .iEzsignformfieldgroupStep)
-        try container.encode(sEzsignformfieldgroupDefaultvalue, forKey: .sEzsignformfieldgroupDefaultvalue)
+        try container.encodeIfPresent(sEzsignformfieldgroupDefaultvalue, forKey: .sEzsignformfieldgroupDefaultvalue)
         try container.encode(iEzsignformfieldgroupFilledmin, forKey: .iEzsignformfieldgroupFilledmin)
         try container.encode(iEzsignformfieldgroupFilledmax, forKey: .iEzsignformfieldgroupFilledmax)
         try container.encode(bEzsignformfieldgroupReadonly, forKey: .bEzsignformfieldgroupReadonly)

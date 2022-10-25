@@ -211,6 +211,58 @@ open class ObjectEzsignfoldersignerassociationAPI {
     }
 
     /**
+     Disconnects the Ezsignfoldersignerassociation
+     
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
+     - parameter body: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationForceDisconnectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfoldersignerassociationForceDisconnectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, body: body).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Disconnects the Ezsignfoldersignerassociation
+     - POST /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/forceDisconnect
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
+     - parameter body: (body)  
+     - returns: RequestBuilder<EzsignfoldersignerassociationForceDisconnectV1Response> 
+     */
+    open class func ezsignfoldersignerassociationForceDisconnectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int, body: AnyCodable) -> RequestBuilder<EzsignfoldersignerassociationForceDisconnectV1Response> {
+        var localVariablePath = "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/forceDisconnect"
+        let pkiEzsignfoldersignerassociationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldersignerassociationID))"
+        let pkiEzsignfoldersignerassociationIDPostEscape = pkiEzsignfoldersignerassociationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldersignerassociationID}", with: pkiEzsignfoldersignerassociationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfoldersignerassociationForceDisconnectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Retrieve a Login Url to allow In-Person signing
      
      - parameter pkiEzsignfoldersignerassociationID: (path)  

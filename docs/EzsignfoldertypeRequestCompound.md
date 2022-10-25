@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **bEzsignfoldertypeSendsummarytofullgroup** | **Bool** | Whether we send the summary to the Usergroup that has acces to all Ezsignfolders | [optional] 
 **bEzsignfoldertypeSendsummarytolimitedgroup** | **Bool** | Whether we send the summary to the Usergroup that has acces to only their own Ezsignfolders | [optional] 
 **bEzsignfoldertypeSendsummarytocolleague** | **Bool** | Whether we send the summary to the colleagues | 
+**bEzsignfoldertypeIncludeproofsigner** | **Bool** | Whether we include the proof with the signed Ezsigndocument for Ezsignsigners | 
+**bEzsignfoldertypeIncludeproofuser** | **Bool** | Whether we include the proof with the signed Ezsigndocument for users | 
 **bEzsignfoldertypeIsactive** | **Bool** | Whether the Ezsignfoldertype is active or not | 
 **aFkiUserIDSigned** | **[Int]** |  | [optional] 
 **aFkiUserIDSummary** | **[Int]** |  | [optional] 

@@ -26,16 +26,16 @@ public struct EzsigntemplatedocumentpageResponseCompound: Codable, JSONEncodable
     /** The page number in the Ezsigntemplatedocument */
     public var iEzsigntemplatedocumentpagePagenumber: Int
     /** The Url to the Ezsigntemplatedocumentpage's rasterized image.  Url will expire after 5 minutes. */
-    public var sImageUrl: String
+    public var sComputedImageurl: String
 
-    public init(pkiEzsigntemplatedocumentpageID: Int, iEzsigntemplatedocumentpageWidthimage: Int, iEzsigntemplatedocumentpageHeightimage: Int, iEzsigntemplatedocumentpageWidthpdf: Int, iEzsigntemplatedocumentpageHeightpdf: Int, iEzsigntemplatedocumentpagePagenumber: Int, sImageUrl: String) {
+    public init(pkiEzsigntemplatedocumentpageID: Int, iEzsigntemplatedocumentpageWidthimage: Int, iEzsigntemplatedocumentpageHeightimage: Int, iEzsigntemplatedocumentpageWidthpdf: Int, iEzsigntemplatedocumentpageHeightpdf: Int, iEzsigntemplatedocumentpagePagenumber: Int, sComputedImageurl: String) {
         self.pkiEzsigntemplatedocumentpageID = pkiEzsigntemplatedocumentpageID
         self.iEzsigntemplatedocumentpageWidthimage = iEzsigntemplatedocumentpageWidthimage
         self.iEzsigntemplatedocumentpageHeightimage = iEzsigntemplatedocumentpageHeightimage
         self.iEzsigntemplatedocumentpageWidthpdf = iEzsigntemplatedocumentpageWidthpdf
         self.iEzsigntemplatedocumentpageHeightpdf = iEzsigntemplatedocumentpageHeightpdf
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
-        self.sImageUrl = sImageUrl
+        self.sComputedImageurl = sComputedImageurl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -45,7 +45,7 @@ public struct EzsigntemplatedocumentpageResponseCompound: Codable, JSONEncodable
         case iEzsigntemplatedocumentpageWidthpdf
         case iEzsigntemplatedocumentpageHeightpdf
         case iEzsigntemplatedocumentpagePagenumber
-        case sImageUrl
+        case sComputedImageurl
     }
 
     // Encodable protocol methods
@@ -58,7 +58,7 @@ public struct EzsigntemplatedocumentpageResponseCompound: Codable, JSONEncodable
         try container.encode(iEzsigntemplatedocumentpageWidthpdf, forKey: .iEzsigntemplatedocumentpageWidthpdf)
         try container.encode(iEzsigntemplatedocumentpageHeightpdf, forKey: .iEzsigntemplatedocumentpageHeightpdf)
         try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
-        try container.encode(sImageUrl, forKey: .sImageUrl)
+        try container.encode(sComputedImageurl, forKey: .sComputedImageurl)
     }
 }
 

@@ -19,6 +19,8 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
     public var fkiEzsigntemplatedocumentID: Int
     /** The unique ID of the Ezsigntemplatesigner */
     public var fkiEzsigntemplatesignerID: Int
+    /** The unique ID of the Ezsigntemplatesigner */
+    public var fkiEzsigntemplatesignerIDValidation: Int?
     /** The page number in the Ezsigntemplatedocument */
     public var iEzsigntemplatedocumentpagePagenumber: Int
     /** The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
@@ -32,11 +34,19 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
     public var tEzsigntemplatesignatureTooltip: String?
     public var eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition?
     public var eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont?
+    /** The step when the Ezsigntemplatesigner will be invited to validate the Ezsigntemplatesignature of eEzsigntemplatesignatureType Attachments */
+    public var iEzsigntemplatesignatureValidationstep: Int?
+    /** The description attached to the attachment name added in Ezsigntemplatesignature of eEzsigntemplatesignatureType Attachments */
+    public var sEzsigntemplatesignatureAttachmentdescription: String?
+    public var eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource?
+    /** Whether the Ezsigntemplatesignature is required or not. This field is relevant only with Ezsigntemplatesignature with eEzsigntemplatesignatureType = Attachments. */
+    public var bEzsigntemplatesignatureRequired: Bool?
 
-    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil) {
+    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil) {
         self.pkiEzsigntemplatesignatureID = pkiEzsigntemplatesignatureID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsigntemplatesignerID = fkiEzsigntemplatesignerID
+        self.fkiEzsigntemplatesignerIDValidation = fkiEzsigntemplatesignerIDValidation
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.iEzsigntemplatesignatureX = iEzsigntemplatesignatureX
         self.iEzsigntemplatesignatureY = iEzsigntemplatesignatureY
@@ -45,12 +55,17 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         self.tEzsigntemplatesignatureTooltip = tEzsigntemplatesignatureTooltip
         self.eEzsigntemplatesignatureTooltipposition = eEzsigntemplatesignatureTooltipposition
         self.eEzsigntemplatesignatureFont = eEzsigntemplatesignatureFont
+        self.iEzsigntemplatesignatureValidationstep = iEzsigntemplatesignatureValidationstep
+        self.sEzsigntemplatesignatureAttachmentdescription = sEzsigntemplatesignatureAttachmentdescription
+        self.eEzsigntemplatesignatureAttachmentnamesource = eEzsigntemplatesignatureAttachmentnamesource
+        self.bEzsigntemplatesignatureRequired = bEzsigntemplatesignatureRequired
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsigntemplatesignatureID
         case fkiEzsigntemplatedocumentID
         case fkiEzsigntemplatesignerID
+        case fkiEzsigntemplatesignerIDValidation
         case iEzsigntemplatedocumentpagePagenumber
         case iEzsigntemplatesignatureX
         case iEzsigntemplatesignatureY
@@ -59,6 +74,10 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         case tEzsigntemplatesignatureTooltip
         case eEzsigntemplatesignatureTooltipposition
         case eEzsigntemplatesignatureFont
+        case iEzsigntemplatesignatureValidationstep
+        case sEzsigntemplatesignatureAttachmentdescription
+        case eEzsigntemplatesignatureAttachmentnamesource
+        case bEzsigntemplatesignatureRequired
     }
 
     // Encodable protocol methods
@@ -68,6 +87,7 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         try container.encode(pkiEzsigntemplatesignatureID, forKey: .pkiEzsigntemplatesignatureID)
         try container.encode(fkiEzsigntemplatedocumentID, forKey: .fkiEzsigntemplatedocumentID)
         try container.encode(fkiEzsigntemplatesignerID, forKey: .fkiEzsigntemplatesignerID)
+        try container.encodeIfPresent(fkiEzsigntemplatesignerIDValidation, forKey: .fkiEzsigntemplatesignerIDValidation)
         try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
         try container.encode(iEzsigntemplatesignatureX, forKey: .iEzsigntemplatesignatureX)
         try container.encode(iEzsigntemplatesignatureY, forKey: .iEzsigntemplatesignatureY)
@@ -76,6 +96,10 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(tEzsigntemplatesignatureTooltip, forKey: .tEzsigntemplatesignatureTooltip)
         try container.encodeIfPresent(eEzsigntemplatesignatureTooltipposition, forKey: .eEzsigntemplatesignatureTooltipposition)
         try container.encodeIfPresent(eEzsigntemplatesignatureFont, forKey: .eEzsigntemplatesignatureFont)
+        try container.encodeIfPresent(iEzsigntemplatesignatureValidationstep, forKey: .iEzsigntemplatesignatureValidationstep)
+        try container.encodeIfPresent(sEzsigntemplatesignatureAttachmentdescription, forKey: .sEzsigntemplatesignatureAttachmentdescription)
+        try container.encodeIfPresent(eEzsigntemplatesignatureAttachmentnamesource, forKey: .eEzsigntemplatesignatureAttachmentnamesource)
+        try container.encodeIfPresent(bEzsigntemplatesignatureRequired, forKey: .bEzsigntemplatesignatureRequired)
     }
 }
 

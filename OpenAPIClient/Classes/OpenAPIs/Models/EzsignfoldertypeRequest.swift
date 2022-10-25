@@ -61,10 +61,14 @@ public struct EzsignfoldertypeRequest: Codable, JSONEncodable, Hashable {
     public var bEzsignfoldertypeSendsummarytolimitedgroup: Bool?
     /** Whether we send the summary to the colleagues */
     public var bEzsignfoldertypeSendsummarytocolleague: Bool
+    /** Whether we include the proof with the signed Ezsigndocument for Ezsignsigners */
+    public var bEzsignfoldertypeIncludeproofsigner: Bool
+    /** Whether we include the proof with the signed Ezsigndocument for users */
+    public var bEzsignfoldertypeIncludeproofuser: Bool
     /** Whether the Ezsignfoldertype is active or not */
     public var bEzsignfoldertypeIsactive: Bool
 
-    public init(pkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertypeName: MultilingualEzsignfoldertypeName, fkiBrandingID: Int, fkiBillingentityinternalID: Int? = nil, fkiUsergroupID: Int? = nil, fkiUsergroupIDRestricted: Int? = nil, fkiEzsigntsarequirementID: Int? = nil, sEmailAddressSigned: String? = nil, sEmailAddressSummary: String? = nil, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, eEzsignfoldertypeSendreminderfrequency: FieldEEzsignfoldertypeSendreminderfrequency? = nil, iEzsignfoldertypeArchivaldays: Int, eEzsignfoldertypeDisposal: FieldEEzsignfoldertypeDisposal, iEzsignfoldertypeDisposaldays: Int? = nil, iEzsignfoldertypeDeadlinedays: Int, bEzsignfoldertypeSendattatchmentsigner: Bool, bEzsignfoldertypeSendsignedtodocumentowner: Bool, bEzsignfoldertypeSendsignedtofolderowner: Bool, bEzsignfoldertypeSendsignedtofullgroup: Bool? = nil, bEzsignfoldertypeSendsignedtolimitedgroup: Bool? = nil, bEzsignfoldertypeSendsignedtocolleague: Bool, bEzsignfoldertypeSendsummarytodocumentowner: Bool, bEzsignfoldertypeSendsummarytofolderowner: Bool, bEzsignfoldertypeSendsummarytofullgroup: Bool? = nil, bEzsignfoldertypeSendsummarytolimitedgroup: Bool? = nil, bEzsignfoldertypeSendsummarytocolleague: Bool, bEzsignfoldertypeIsactive: Bool) {
+    public init(pkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertypeName: MultilingualEzsignfoldertypeName, fkiBrandingID: Int, fkiBillingentityinternalID: Int? = nil, fkiUsergroupID: Int? = nil, fkiUsergroupIDRestricted: Int? = nil, fkiEzsigntsarequirementID: Int? = nil, sEmailAddressSigned: String? = nil, sEmailAddressSummary: String? = nil, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, eEzsignfoldertypeSendreminderfrequency: FieldEEzsignfoldertypeSendreminderfrequency? = nil, iEzsignfoldertypeArchivaldays: Int, eEzsignfoldertypeDisposal: FieldEEzsignfoldertypeDisposal, iEzsignfoldertypeDisposaldays: Int? = nil, iEzsignfoldertypeDeadlinedays: Int, bEzsignfoldertypeSendattatchmentsigner: Bool, bEzsignfoldertypeSendsignedtodocumentowner: Bool, bEzsignfoldertypeSendsignedtofolderowner: Bool, bEzsignfoldertypeSendsignedtofullgroup: Bool? = nil, bEzsignfoldertypeSendsignedtolimitedgroup: Bool? = nil, bEzsignfoldertypeSendsignedtocolleague: Bool, bEzsignfoldertypeSendsummarytodocumentowner: Bool, bEzsignfoldertypeSendsummarytofolderowner: Bool, bEzsignfoldertypeSendsummarytofullgroup: Bool? = nil, bEzsignfoldertypeSendsummarytolimitedgroup: Bool? = nil, bEzsignfoldertypeSendsummarytocolleague: Bool, bEzsignfoldertypeIncludeproofsigner: Bool, bEzsignfoldertypeIncludeproofuser: Bool, bEzsignfoldertypeIsactive: Bool) {
         self.pkiEzsignfoldertypeID = pkiEzsignfoldertypeID
         self.objEzsignfoldertypeName = objEzsignfoldertypeName
         self.fkiBrandingID = fkiBrandingID
@@ -91,6 +95,8 @@ public struct EzsignfoldertypeRequest: Codable, JSONEncodable, Hashable {
         self.bEzsignfoldertypeSendsummarytofullgroup = bEzsignfoldertypeSendsummarytofullgroup
         self.bEzsignfoldertypeSendsummarytolimitedgroup = bEzsignfoldertypeSendsummarytolimitedgroup
         self.bEzsignfoldertypeSendsummarytocolleague = bEzsignfoldertypeSendsummarytocolleague
+        self.bEzsignfoldertypeIncludeproofsigner = bEzsignfoldertypeIncludeproofsigner
+        self.bEzsignfoldertypeIncludeproofuser = bEzsignfoldertypeIncludeproofuser
         self.bEzsignfoldertypeIsactive = bEzsignfoldertypeIsactive
     }
 
@@ -121,6 +127,8 @@ public struct EzsignfoldertypeRequest: Codable, JSONEncodable, Hashable {
         case bEzsignfoldertypeSendsummarytofullgroup
         case bEzsignfoldertypeSendsummarytolimitedgroup
         case bEzsignfoldertypeSendsummarytocolleague
+        case bEzsignfoldertypeIncludeproofsigner
+        case bEzsignfoldertypeIncludeproofuser
         case bEzsignfoldertypeIsactive
     }
 
@@ -154,6 +162,8 @@ public struct EzsignfoldertypeRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(bEzsignfoldertypeSendsummarytofullgroup, forKey: .bEzsignfoldertypeSendsummarytofullgroup)
         try container.encodeIfPresent(bEzsignfoldertypeSendsummarytolimitedgroup, forKey: .bEzsignfoldertypeSendsummarytolimitedgroup)
         try container.encode(bEzsignfoldertypeSendsummarytocolleague, forKey: .bEzsignfoldertypeSendsummarytocolleague)
+        try container.encode(bEzsignfoldertypeIncludeproofsigner, forKey: .bEzsignfoldertypeIncludeproofsigner)
+        try container.encode(bEzsignfoldertypeIncludeproofuser, forKey: .bEzsignfoldertypeIncludeproofuser)
         try container.encode(bEzsignfoldertypeIsactive, forKey: .bEzsignfoldertypeIsactive)
     }
 }

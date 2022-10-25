@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ezsigntemplateDeleteObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplatedeleteobjectv1) | **DELETE** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Delete an existing Ezsigntemplate
 [**ezsigntemplateEditObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplateeditobjectv1) | **PUT** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Edit an existing Ezsigntemplate
 [**ezsigntemplateGetAutocompleteV1**](ObjectEzsigntemplateAPI.md#ezsigntemplategetautocompletev1) | **GET** /1/object/ezsigntemplate/getAutocomplete/{sSelector} | Retrieve Ezsigntemplate and IDs
+[**ezsigntemplateGetAutocompleteV2**](ObjectEzsigntemplateAPI.md#ezsigntemplategetautocompletev2) | **GET** /2/object/ezsigntemplate/getAutocomplete/{sSelector} | Retrieve Ezsigntemplates and IDs
 [**ezsigntemplateGetListV1**](ObjectEzsigntemplateAPI.md#ezsigntemplategetlistv1) | **GET** /1/object/ezsigntemplate/getList | Retrieve Ezsigntemplate list
 [**ezsigntemplateGetObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplategetobjectv1) | **GET** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Retrieve an existing Ezsigntemplate
 
@@ -208,6 +209,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CommonGetAutocompleteV1Response**](CommonGetAutocompleteV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplateGetAutocompleteV2**
+```swift
+    open class func ezsigntemplateGetAutocompleteV2(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzsigntemplateGetAutocompleteV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Ezsigntemplates and IDs
+
+Get the list of Ezsigntemplate to be used in a dropdown or autocomplete control.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let sSelector = "sSelector_example" // String | The type of Ezsigntemplates to return
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
+let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
+let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
+
+// Retrieve Ezsigntemplates and IDs
+ObjectEzsigntemplateAPI.ezsigntemplateGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sSelector** | **String** | The type of Ezsigntemplates to return | 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
+ **sQuery** | **String** | Allow to filter the returned results | [optional] 
+ **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
+
+### Return type
+
+[**EzsigntemplateGetAutocompleteV2Response**](EzsigntemplateGetAutocompleteV2Response.md)
 
 ### Authorization
 

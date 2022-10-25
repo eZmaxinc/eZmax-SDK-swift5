@@ -187,6 +187,7 @@ open class ObjectEzsigntemplateAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsigntemplateGetAutocompleteV1(sSelector: SSelector_ezsigntemplateGetAutocompleteV1, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplateGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
@@ -212,6 +213,7 @@ open class ObjectEzsigntemplateAPI {
      - parameter acceptLanguage: (header)  (optional)
      - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsigntemplateGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_ezsigntemplateGetAutocompleteV1, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
         var localVariablePath = "/1/object/ezsigntemplate/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
@@ -233,6 +235,82 @@ open class ObjectEzsigntemplateAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     * enum for parameter sSelector
+     */
+    public enum SSelector_ezsigntemplateGetAutocompleteV2: String, CaseIterable {
+        case all = "All"
+    }
+
+    /**
+     * enum for parameter eFilterActive
+     */
+    public enum EFilterActive_ezsigntemplateGetAutocompleteV2: String, CaseIterable {
+        case all = "All"
+        case active = "Active"
+        case inactive = "Inactive"
+    }
+
+    /**
+     Retrieve Ezsigntemplates and IDs
+     
+     - parameter sSelector: (path) The type of Ezsigntemplates to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigntemplateGetAutocompleteV2(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplateGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Ezsigntemplates and IDs
+     - GET /2/object/ezsigntemplate/getAutocomplete/{sSelector}
+     - Get the list of Ezsigntemplate to be used in a dropdown or autocomplete control.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter sSelector: (path) The type of Ezsigntemplates to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - returns: RequestBuilder<EzsigntemplateGetAutocompleteV2Response> 
+     */
+    open class func ezsigntemplateGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<EzsigntemplateGetAutocompleteV2Response> {
+        var localVariablePath = "/2/object/ezsigntemplate/getAutocomplete/{sSelector}"
+        let sSelectorPreEscape = "\(sSelector.rawValue)"
+        let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eFilterActive": eFilterActive?.encodeToJSON(),
+            "sQuery": sQuery?.encodeToJSON(),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateGetAutocompleteV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

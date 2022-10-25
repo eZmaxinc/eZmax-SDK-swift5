@@ -26,16 +26,16 @@ public struct EzsignpageResponse: Codable, JSONEncodable, Hashable {
     /** The page number in the Ezsigndocument */
     public var iEzsignpagePagenumber: Int
     /** The Url to the Ezsignpage's rasterized image.  Url will expire after 5 minutes. */
-    public var sImageUrl: String
+    public var sComputedImageurl: String
 
-    public init(pkiEzsignpageID: Int, iEzsignpageWidthimage: Int, iEzsignpageHeightimage: Int, iEzsignpageWidthpdf: Int, iEzsignpageHeightpdf: Int, iEzsignpagePagenumber: Int, sImageUrl: String) {
+    public init(pkiEzsignpageID: Int, iEzsignpageWidthimage: Int, iEzsignpageHeightimage: Int, iEzsignpageWidthpdf: Int, iEzsignpageHeightpdf: Int, iEzsignpagePagenumber: Int, sComputedImageurl: String) {
         self.pkiEzsignpageID = pkiEzsignpageID
         self.iEzsignpageWidthimage = iEzsignpageWidthimage
         self.iEzsignpageHeightimage = iEzsignpageHeightimage
         self.iEzsignpageWidthpdf = iEzsignpageWidthpdf
         self.iEzsignpageHeightpdf = iEzsignpageHeightpdf
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
-        self.sImageUrl = sImageUrl
+        self.sComputedImageurl = sComputedImageurl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -45,7 +45,7 @@ public struct EzsignpageResponse: Codable, JSONEncodable, Hashable {
         case iEzsignpageWidthpdf
         case iEzsignpageHeightpdf
         case iEzsignpagePagenumber
-        case sImageUrl
+        case sComputedImageurl
     }
 
     // Encodable protocol methods
@@ -58,7 +58,7 @@ public struct EzsignpageResponse: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsignpageWidthpdf, forKey: .iEzsignpageWidthpdf)
         try container.encode(iEzsignpageHeightpdf, forKey: .iEzsignpageHeightpdf)
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
-        try container.encode(sImageUrl, forKey: .sImageUrl)
+        try container.encode(sComputedImageurl, forKey: .sComputedImageurl)
     }
 }
 

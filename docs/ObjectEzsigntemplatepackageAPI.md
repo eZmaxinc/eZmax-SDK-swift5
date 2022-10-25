@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ezsigntemplatepackageEditEzsigntemplatepackagesignersV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackageeditezsigntemplatepackagesignersv1) | **PUT** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/editEzsigntemplatepackagesigners | Edit multiple Ezsigntemplatepackagesigners
 [**ezsigntemplatepackageEditObjectV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackageeditobjectv1) | **PUT** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Edit an existing Ezsigntemplatepackage
 [**ezsigntemplatepackageGetAutocompleteV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagegetautocompletev1) | **GET** /1/object/ezsigntemplatepackage/getAutocomplete/{sSelector} | Retrieve Ezsigntemplatepackages and IDs
+[**ezsigntemplatepackageGetAutocompleteV2**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagegetautocompletev2) | **GET** /2/object/ezsigntemplatepackage/getAutocomplete/{sSelector} | Retrieve Ezsigntemplatepackages and IDs
 [**ezsigntemplatepackageGetListV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagegetlistv1) | **GET** /1/object/ezsigntemplatepackage/getList | Retrieve Ezsigntemplatepackage list
 [**ezsigntemplatepackageGetObjectV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagegetobjectv1) | **GET** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Retrieve an existing Ezsigntemplatepackage
 
@@ -261,6 +262,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CommonGetAutocompleteDisabledV1Response**](CommonGetAutocompleteDisabledV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatepackageGetAutocompleteV2**
+```swift
+    open class func ezsigntemplatepackageGetAutocompleteV2(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzsigntemplatepackageGetAutocompleteV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Ezsigntemplatepackages and IDs
+
+Get the list of Ezsigntemplatepackage to be used in a dropdown or autocomplete control.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let sSelector = "sSelector_example" // String | The type of Ezsigntemplatepackages to return
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
+let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
+let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
+
+// Retrieve Ezsigntemplatepackages and IDs
+ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sSelector** | **String** | The type of Ezsigntemplatepackages to return | 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
+ **sQuery** | **String** | Allow to filter the returned results | [optional] 
+ **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
+
+### Return type
+
+[**EzsigntemplatepackageGetAutocompleteV2Response**](EzsigntemplatepackageGetAutocompleteV2Response.md)
 
 ### Authorization
 

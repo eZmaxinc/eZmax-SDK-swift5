@@ -20,7 +20,7 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     /** The Label for the Ezsigntemplateformfield */
     public var sEzsigntemplateformfieldLabel: String
     /** The value for the Ezsigntemplateformfield  This can only be set if eEzsigntemplateformfieldgroupType is Checkbox or Radio */
-    public var sEzsigntemplateformfieldValue: String
+    public var sEzsigntemplateformfieldValue: String?
     /** The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
     public var iEzsigntemplateformfieldX: Int
     /** The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
@@ -32,7 +32,7 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     /** Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio** */
     public var bEzsigntemplateformfieldSelected: Bool?
 
-    public init(pkiEzsigntemplateformfieldID: Int, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String, iEzsigntemplateformfieldX: Int, iEzsigntemplateformfieldY: Int, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldSelected: Bool? = nil) {
+    public init(pkiEzsigntemplateformfieldID: Int, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int, iEzsigntemplateformfieldY: Int, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldSelected: Bool? = nil) {
         self.pkiEzsigntemplateformfieldID = pkiEzsigntemplateformfieldID
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.sEzsigntemplateformfieldLabel = sEzsigntemplateformfieldLabel
@@ -63,7 +63,7 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         try container.encode(pkiEzsigntemplateformfieldID, forKey: .pkiEzsigntemplateformfieldID)
         try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
         try container.encode(sEzsigntemplateformfieldLabel, forKey: .sEzsigntemplateformfieldLabel)
-        try container.encode(sEzsigntemplateformfieldValue, forKey: .sEzsigntemplateformfieldValue)
+        try container.encodeIfPresent(sEzsigntemplateformfieldValue, forKey: .sEzsigntemplateformfieldValue)
         try container.encode(iEzsigntemplateformfieldX, forKey: .iEzsigntemplateformfieldX)
         try container.encode(iEzsigntemplateformfieldY, forKey: .iEzsigntemplateformfieldY)
         try container.encode(iEzsigntemplateformfieldWidth, forKey: .iEzsigntemplateformfieldWidth)

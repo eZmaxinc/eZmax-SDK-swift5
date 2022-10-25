@@ -38,6 +38,7 @@ open class ObjectSecretquestionAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func secretquestionGetAutocompleteV1(sSelector: SSelector_secretquestionGetAutocompleteV1, eFilterActive: EFilterActive_secretquestionGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return secretquestionGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
@@ -63,6 +64,7 @@ open class ObjectSecretquestionAPI {
      - parameter acceptLanguage: (header)  (optional)
      - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func secretquestionGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_secretquestionGetAutocompleteV1, eFilterActive: EFilterActive_secretquestionGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
         var localVariablePath = "/1/object/secretquestion/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
@@ -84,6 +86,82 @@ open class ObjectSecretquestionAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     * enum for parameter sSelector
+     */
+    public enum SSelector_secretquestionGetAutocompleteV2: String, CaseIterable {
+        case all = "All"
+    }
+
+    /**
+     * enum for parameter eFilterActive
+     */
+    public enum EFilterActive_secretquestionGetAutocompleteV2: String, CaseIterable {
+        case all = "All"
+        case active = "Active"
+        case inactive = "Inactive"
+    }
+
+    /**
+     Retrieve Secretquestions and IDs
+     
+     - parameter sSelector: (path) The type of Secretquestions to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func secretquestionGetAutocompleteV2(sSelector: SSelector_secretquestionGetAutocompleteV2, eFilterActive: EFilterActive_secretquestionGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SecretquestionGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return secretquestionGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Secretquestions and IDs
+     - GET /2/object/secretquestion/getAutocomplete/{sSelector}
+     - Get the list of Secretquestion to be used in a dropdown or autocomplete control.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter sSelector: (path) The type of Secretquestions to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - returns: RequestBuilder<SecretquestionGetAutocompleteV2Response> 
+     */
+    open class func secretquestionGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_secretquestionGetAutocompleteV2, eFilterActive: EFilterActive_secretquestionGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<SecretquestionGetAutocompleteV2Response> {
+        var localVariablePath = "/2/object/secretquestion/getAutocomplete/{sSelector}"
+        let sSelectorPreEscape = "\(sSelector.rawValue)"
+        let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eFilterActive": eFilterActive?.encodeToJSON(),
+            "sQuery": sQuery?.encodeToJSON(),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SecretquestionGetAutocompleteV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

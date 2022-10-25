@@ -363,12 +363,13 @@ open class ObjectWebhookAPI {
      Test the Webhook by calling the Url
      
      - parameter pkiWebhookID: (path)  
+     - parameter body: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func webhookTestUrlV1(pkiWebhookID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookTestV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return webhookTestUrlV1WithRequestBuilder(pkiWebhookID: pkiWebhookID).execute(apiResponseQueue) { result in
+    open class func webhookTestV1(pkiWebhookID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookTestV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return webhookTestV1WithRequestBuilder(pkiWebhookID: pkiWebhookID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -386,15 +387,16 @@ open class ObjectWebhookAPI {
        - type: apiKey Authorization 
        - name: Authorization
      - parameter pkiWebhookID: (path)  
+     - parameter body: (body)  
      - returns: RequestBuilder<WebhookTestV1Response> 
      */
-    open class func webhookTestUrlV1WithRequestBuilder(pkiWebhookID: Int) -> RequestBuilder<WebhookTestV1Response> {
+    open class func webhookTestV1WithRequestBuilder(pkiWebhookID: Int, body: AnyCodable) -> RequestBuilder<WebhookTestV1Response> {
         var localVariablePath = "/1/object/webhook/{pkiWebhookID}/test"
         let pkiWebhookIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiWebhookID))"
         let pkiWebhookIDPostEscape = pkiWebhookIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiWebhookID}", with: pkiWebhookIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

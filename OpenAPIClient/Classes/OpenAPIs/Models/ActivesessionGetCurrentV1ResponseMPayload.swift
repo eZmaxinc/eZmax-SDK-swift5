@@ -25,6 +25,8 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     public var bActivesessionDebug: Bool
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
+    /** The unique ID of the Systemconfigurationtype */
+    public var fkiSystemconfigurationtypeID: Int?
     /** An array of permissions granted to the user or api key */
     public var aPkiPermissionID: [Int]
     public var objUserReal: ActivesessionResponseCompoundUser
@@ -33,7 +35,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
@@ -41,6 +43,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
         self.pksCustomerCode = pksCustomerCode
+        self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.aPkiPermissionID = aPkiPermissionID
         self.objUserReal = objUserReal
         self.objUserCloned = objUserCloned
@@ -56,6 +59,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         case sDepartmentNameX
         case bActivesessionDebug
         case pksCustomerCode
+        case fkiSystemconfigurationtypeID
         case aPkiPermissionID = "a_pkiPermissionID"
         case objUserReal
         case objUserCloned
@@ -74,6 +78,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
+        try container.encodeIfPresent(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)
         try container.encode(objUserReal, forKey: .objUserReal)
         try container.encodeIfPresent(objUserCloned, forKey: .objUserCloned)

@@ -20,7 +20,7 @@ public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable 
     /** The Label for the Ezsignformfield */
     public var sEzsignformfieldLabel: String
     /** The value for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is Checkbox or Radio */
-    public var sEzsignformfieldValue: String
+    public var sEzsignformfieldValue: String?
     /** The X coordinate (Horizontal) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
     public var iEzsignformfieldX: Int
     /** The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
@@ -34,7 +34,7 @@ public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable 
     /** This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea** */
     public var sEzsignformfieldEnteredvalue: String?
 
-    public init(pkiEzsignformfieldID: Int, iEzsignpagePagenumber: Int, sEzsignformfieldLabel: String, sEzsignformfieldValue: String, iEzsignformfieldX: Int, iEzsignformfieldY: Int, iEzsignformfieldWidth: Int, iEzsignformfieldHeight: Int, bEzsignformfieldSelected: Bool? = nil, sEzsignformfieldEnteredvalue: String? = nil) {
+    public init(pkiEzsignformfieldID: Int, iEzsignpagePagenumber: Int, sEzsignformfieldLabel: String, sEzsignformfieldValue: String? = nil, iEzsignformfieldX: Int, iEzsignformfieldY: Int, iEzsignformfieldWidth: Int, iEzsignformfieldHeight: Int, bEzsignformfieldSelected: Bool? = nil, sEzsignformfieldEnteredvalue: String? = nil) {
         self.pkiEzsignformfieldID = pkiEzsignformfieldID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.sEzsignformfieldLabel = sEzsignformfieldLabel
@@ -67,7 +67,7 @@ public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable 
         try container.encode(pkiEzsignformfieldID, forKey: .pkiEzsignformfieldID)
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
         try container.encode(sEzsignformfieldLabel, forKey: .sEzsignformfieldLabel)
-        try container.encode(sEzsignformfieldValue, forKey: .sEzsignformfieldValue)
+        try container.encodeIfPresent(sEzsignformfieldValue, forKey: .sEzsignformfieldValue)
         try container.encode(iEzsignformfieldX, forKey: .iEzsignformfieldX)
         try container.encode(iEzsignformfieldY, forKey: .iEzsignformfieldY)
         try container.encode(iEzsignformfieldWidth, forKey: .iEzsignformfieldWidth)

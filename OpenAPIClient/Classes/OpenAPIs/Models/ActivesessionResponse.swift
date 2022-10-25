@@ -25,8 +25,10 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     public var bActivesessionDebug: Bool
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
+    /** The unique ID of the Systemconfigurationtype */
+    public var fkiSystemconfigurationtypeID: Int?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
@@ -34,6 +36,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
         self.pksCustomerCode = pksCustomerCode
+        self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -44,6 +47,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         case sDepartmentNameX
         case bActivesessionDebug
         case pksCustomerCode
+        case fkiSystemconfigurationtypeID
     }
 
     // Encodable protocol methods
@@ -57,6 +61,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
+        try container.encodeIfPresent(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
     }
 }
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ezsignfoldersignerassociationCreateObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateobjectv2) | **POST** /2/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**ezsignfoldersignerassociationDeleteObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationdeleteobjectv1) | **DELETE** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Delete an existing Ezsignfoldersignerassociation
 [**ezsignfoldersignerassociationEditObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationeditobjectv1) | **PUT** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Edit an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationForceDisconnectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationforcedisconnectv1) | **POST** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/forceDisconnect | Disconnects the Ezsignfoldersignerassociation
 [**ezsignfoldersignerassociationGetInPersonLoginUrlV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationgetinpersonloginurlv1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getInPersonLoginUrl | Retrieve a Login Url to allow In-Person signing
 [**ezsignfoldersignerassociationGetObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationgetobjectv1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 
@@ -202,6 +203,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldersignerassociationEditObjectV1Response**](EzsignfoldersignerassociationEditObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationForceDisconnectV1**
+```swift
+    open class func ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignfoldersignerassociationForceDisconnectV1Response?, _ error: Error?) -> Void)
+```
+
+Disconnects the Ezsignfoldersignerassociation
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let body = "TODO" // AnyCodable | 
+
+// Disconnects the Ezsignfoldersignerassociation
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, body: body) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **body** | **AnyCodable** |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationForceDisconnectV1Response**](EzsignfoldersignerassociationForceDisconnectV1Response.md)
 
 ### Authorization
 

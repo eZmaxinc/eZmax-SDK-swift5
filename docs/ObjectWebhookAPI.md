@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**webhookGetHistoryV1**](ObjectWebhookAPI.md#webhookgethistoryv1) | **GET** /1/object/webhook/{pkiWebhookID}/getHistory | Retrieve the logs for recent Webhook calls
 [**webhookGetListV1**](ObjectWebhookAPI.md#webhookgetlistv1) | **GET** /1/object/webhook/getList | Retrieve Webhook list
 [**webhookGetObjectV1**](ObjectWebhookAPI.md#webhookgetobjectv1) | **GET** /1/object/webhook/{pkiWebhookID} | Retrieve an existing Webhook
-[**webhookTestUrlV1**](ObjectWebhookAPI.md#webhooktesturlv1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
+[**webhookTestV1**](ObjectWebhookAPI.md#webhooktestv1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 
 
 # **webhookCreateObjectV1**
@@ -325,9 +325,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **webhookTestUrlV1**
+# **webhookTestV1**
 ```swift
-    open class func webhookTestUrlV1(pkiWebhookID: Int, completion: @escaping (_ data: WebhookTestV1Response?, _ error: Error?) -> Void)
+    open class func webhookTestV1(pkiWebhookID: Int, body: AnyCodable, completion: @escaping (_ data: WebhookTestV1Response?, _ error: Error?) -> Void)
 ```
 
 Test the Webhook by calling the Url
@@ -340,9 +340,10 @@ Test the Webhook by calling the Url
 import OpenAPIClient
 
 let pkiWebhookID = 987 // Int | 
+let body = "TODO" // AnyCodable | 
 
 // Test the Webhook by calling the Url
-ObjectWebhookAPI.webhookTestUrlV1(pkiWebhookID: pkiWebhookID) { (response, error) in
+ObjectWebhookAPI.webhookTestV1(pkiWebhookID: pkiWebhookID, body: body) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -359,6 +360,7 @@ ObjectWebhookAPI.webhookTestUrlV1(pkiWebhookID: pkiWebhookID) { (response, error
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiWebhookID** | **Int** |  | 
+ **body** | **AnyCodable** |  | 
 
 ### Return type
 
@@ -370,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

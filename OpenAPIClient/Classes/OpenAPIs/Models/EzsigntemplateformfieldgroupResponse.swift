@@ -24,7 +24,7 @@ public struct EzsigntemplateformfieldgroupResponse: Codable, JSONEncodable, Hash
     /** The step when the Ezsigntemplatesigner will be invited to fill the form fields */
     public var iEzsigntemplateformfieldgroupStep: Int
     /** The default value for the Ezsigntemplateformfieldgroup */
-    public var sEzsigntemplateformfieldgroupDefaultvalue: String
+    public var sEzsigntemplateformfieldgroupDefaultvalue: String?
     /** The minimum number of Ezsigntemplateformfield that must be filled in the Ezsigntemplateformfieldgroup */
     public var iEzsigntemplateformfieldgroupFilledmin: Int
     /** The maximum number of Ezsigntemplateformfield that must be filled in the Ezsigntemplateformfieldgroup */
@@ -41,7 +41,7 @@ public struct EzsigntemplateformfieldgroupResponse: Codable, JSONEncodable, Hash
     public var tEzsigntemplateformfieldgroupTooltip: String?
     public var eEzsigntemplateformfieldgroupTooltipposition: FieldEEzsigntemplateformfieldgroupTooltipposition?
 
-    public init(pkiEzsigntemplateformfieldgroupID: Int, fkiEzsigntemplatedocumentID: Int, eEzsigntemplateformfieldgroupType: FieldEEzsigntemplateformfieldgroupType, eEzsigntemplateformfieldgroupSignerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement, sEzsigntemplateformfieldgroupLabel: String, iEzsigntemplateformfieldgroupStep: Int, sEzsigntemplateformfieldgroupDefaultvalue: String, iEzsigntemplateformfieldgroupFilledmin: Int, iEzsigntemplateformfieldgroupFilledmax: Int, bEzsigntemplateformfieldgroupReadonly: Bool, iEzsigntemplateformfieldgroupMaxlength: Int? = nil, bEzsigntemplateformfieldgroupEncrypted: Bool? = nil, sEzsigntemplateformfieldgroupRegexp: String? = nil, tEzsigntemplateformfieldgroupTooltip: String? = nil, eEzsigntemplateformfieldgroupTooltipposition: FieldEEzsigntemplateformfieldgroupTooltipposition? = nil) {
+    public init(pkiEzsigntemplateformfieldgroupID: Int, fkiEzsigntemplatedocumentID: Int, eEzsigntemplateformfieldgroupType: FieldEEzsigntemplateformfieldgroupType, eEzsigntemplateformfieldgroupSignerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement, sEzsigntemplateformfieldgroupLabel: String, iEzsigntemplateformfieldgroupStep: Int, sEzsigntemplateformfieldgroupDefaultvalue: String? = nil, iEzsigntemplateformfieldgroupFilledmin: Int, iEzsigntemplateformfieldgroupFilledmax: Int, bEzsigntemplateformfieldgroupReadonly: Bool, iEzsigntemplateformfieldgroupMaxlength: Int? = nil, bEzsigntemplateformfieldgroupEncrypted: Bool? = nil, sEzsigntemplateformfieldgroupRegexp: String? = nil, tEzsigntemplateformfieldgroupTooltip: String? = nil, eEzsigntemplateformfieldgroupTooltipposition: FieldEEzsigntemplateformfieldgroupTooltipposition? = nil) {
         self.pkiEzsigntemplateformfieldgroupID = pkiEzsigntemplateformfieldgroupID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.eEzsigntemplateformfieldgroupType = eEzsigntemplateformfieldgroupType
@@ -87,7 +87,7 @@ public struct EzsigntemplateformfieldgroupResponse: Codable, JSONEncodable, Hash
         try container.encode(eEzsigntemplateformfieldgroupSignerrequirement, forKey: .eEzsigntemplateformfieldgroupSignerrequirement)
         try container.encode(sEzsigntemplateformfieldgroupLabel, forKey: .sEzsigntemplateformfieldgroupLabel)
         try container.encode(iEzsigntemplateformfieldgroupStep, forKey: .iEzsigntemplateformfieldgroupStep)
-        try container.encode(sEzsigntemplateformfieldgroupDefaultvalue, forKey: .sEzsigntemplateformfieldgroupDefaultvalue)
+        try container.encodeIfPresent(sEzsigntemplateformfieldgroupDefaultvalue, forKey: .sEzsigntemplateformfieldgroupDefaultvalue)
         try container.encode(iEzsigntemplateformfieldgroupFilledmin, forKey: .iEzsigntemplateformfieldgroupFilledmin)
         try container.encode(iEzsigntemplateformfieldgroupFilledmax, forKey: .iEzsigntemplateformfieldgroupFilledmax)
         try container.encode(bEzsigntemplateformfieldgroupReadonly, forKey: .bEzsigntemplateformfieldgroupReadonly)

@@ -137,6 +137,7 @@ open class ObjectBrandingAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func brandingGetAutocompleteV1(sSelector: SSelector_brandingGetAutocompleteV1, eFilterActive: EFilterActive_brandingGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return brandingGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
@@ -162,6 +163,7 @@ open class ObjectBrandingAPI {
      - parameter acceptLanguage: (header)  (optional)
      - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func brandingGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_brandingGetAutocompleteV1, eFilterActive: EFilterActive_brandingGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
         var localVariablePath = "/1/object/branding/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
@@ -183,6 +185,82 @@ open class ObjectBrandingAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     * enum for parameter sSelector
+     */
+    public enum SSelector_brandingGetAutocompleteV2: String, CaseIterable {
+        case all = "All"
+    }
+
+    /**
+     * enum for parameter eFilterActive
+     */
+    public enum EFilterActive_brandingGetAutocompleteV2: String, CaseIterable {
+        case all = "All"
+        case active = "Active"
+        case inactive = "Inactive"
+    }
+
+    /**
+     Retrieve Brandings and IDs
+     
+     - parameter sSelector: (path) The type of Brandings to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func brandingGetAutocompleteV2(sSelector: SSelector_brandingGetAutocompleteV2, eFilterActive: EFilterActive_brandingGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return brandingGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Brandings and IDs
+     - GET /2/object/branding/getAutocomplete/{sSelector}
+     - Get the list of Branding to be used in a dropdown or autocomplete control.
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter sSelector: (path) The type of Brandings to return 
+     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
+     - parameter sQuery: (query) Allow to filter the returned results (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - returns: RequestBuilder<BrandingGetAutocompleteV2Response> 
+     */
+    open class func brandingGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_brandingGetAutocompleteV2, eFilterActive: EFilterActive_brandingGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<BrandingGetAutocompleteV2Response> {
+        var localVariablePath = "/2/object/branding/getAutocomplete/{sSelector}"
+        let sSelectorPreEscape = "\(sSelector.rawValue)"
+        let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eFilterActive": eFilterActive?.encodeToJSON(),
+            "sQuery": sQuery?.encodeToJSON(),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BrandingGetAutocompleteV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
