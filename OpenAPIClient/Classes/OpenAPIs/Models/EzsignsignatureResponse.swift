@@ -39,10 +39,10 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     public var eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource?
     /** Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments. */
     public var bEzsignsignatureRequired: Bool?
-    /** The unique ID of the User */
-    public var fkiUserID: Int?
+    /** The unique ID of the Ezsignfoldersignerassociation */
+    public var fkiEzsignfoldersignerassociationIDValidation: Int?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiUserID: Int? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
@@ -58,7 +58,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         self.sEzsignsignatureAttachmentdescription = sEzsignsignatureAttachmentdescription
         self.eEzsignsignatureAttachmentnamesource = eEzsignsignatureAttachmentnamesource
         self.bEzsignsignatureRequired = bEzsignsignatureRequired
-        self.fkiUserID = fkiUserID
+        self.fkiEzsignfoldersignerassociationIDValidation = fkiEzsignfoldersignerassociationIDValidation
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -77,7 +77,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         case sEzsignsignatureAttachmentdescription
         case eEzsignsignatureAttachmentnamesource
         case bEzsignsignatureRequired
-        case fkiUserID
+        case fkiEzsignfoldersignerassociationIDValidation
     }
 
     // Encodable protocol methods
@@ -99,7 +99,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sEzsignsignatureAttachmentdescription, forKey: .sEzsignsignatureAttachmentdescription)
         try container.encodeIfPresent(eEzsignsignatureAttachmentnamesource, forKey: .eEzsignsignatureAttachmentnamesource)
         try container.encodeIfPresent(bEzsignsignatureRequired, forKey: .bEzsignsignatureRequired)
-        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(fkiEzsignfoldersignerassociationIDValidation, forKey: .fkiEzsignfoldersignerassociationIDValidation)
     }
 }
 

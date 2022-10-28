@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**ezsigntemplateGetAutocompleteV2**](ObjectEzsigntemplateAPI.md#ezsigntemplategetautocompletev2) | **GET** /2/object/ezsigntemplate/getAutocomplete/{sSelector} | Retrieve Ezsigntemplates and IDs
 [**ezsigntemplateGetListV1**](ObjectEzsigntemplateAPI.md#ezsigntemplategetlistv1) | **GET** /1/object/ezsigntemplate/getList | Retrieve Ezsigntemplate list
 [**ezsigntemplateGetObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplategetobjectv1) | **GET** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Retrieve an existing Ezsigntemplate
+[**ezsigntemplateGetObjectV2**](ObjectEzsigntemplateAPI.md#ezsigntemplategetobjectv2) | **GET** /2/object/ezsigntemplate/{pkiEzsigntemplateID} | Retrieve an existing Ezsigntemplate
 
 
 # **ezsigntemplateCreateObjectV1**
@@ -373,6 +374,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplateGetObjectV1Response**](EzsigntemplateGetObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplateGetObjectV2**
+```swift
+    open class func ezsigntemplateGetObjectV2(pkiEzsigntemplateID: Int, completion: @escaping (_ data: EzsigntemplateGetObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigntemplate
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplateID = 987 // Int | 
+
+// Retrieve an existing Ezsigntemplate
+ObjectEzsigntemplateAPI.ezsigntemplateGetObjectV2(pkiEzsigntemplateID: pkiEzsigntemplateID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplateID** | **Int** |  | 
+
+### Return type
+
+[**EzsigntemplateGetObjectV2Response**](EzsigntemplateGetObjectV2Response.md)
 
 ### Authorization
 

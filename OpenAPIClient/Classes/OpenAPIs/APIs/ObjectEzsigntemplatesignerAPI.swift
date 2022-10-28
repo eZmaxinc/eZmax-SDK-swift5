@@ -168,6 +168,7 @@ open class ObjectEzsigntemplatesignerAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsigntemplatesignerGetObjectV1(pkiEzsigntemplatesignerID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatesignerGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatesignerGetObjectV1WithRequestBuilder(pkiEzsigntemplatesignerID: pkiEzsigntemplatesignerID).execute(apiResponseQueue) { result in
@@ -190,6 +191,7 @@ open class ObjectEzsigntemplatesignerAPI {
      - parameter pkiEzsigntemplatesignerID: (path)  
      - returns: RequestBuilder<EzsigntemplatesignerGetObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsigntemplatesignerGetObjectV1WithRequestBuilder(pkiEzsigntemplatesignerID: Int) -> RequestBuilder<EzsigntemplatesignerGetObjectV1Response> {
         var localVariablePath = "/1/object/ezsigntemplatesigner/{pkiEzsigntemplatesignerID}"
         let pkiEzsigntemplatesignerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatesignerID))"
@@ -207,6 +209,56 @@ open class ObjectEzsigntemplatesignerAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigntemplatesignerGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Retrieve an existing Ezsigntemplatesigner
+     
+     - parameter pkiEzsigntemplatesignerID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigntemplatesignerGetObjectV2(pkiEzsigntemplatesignerID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatesignerGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplatesignerGetObjectV2WithRequestBuilder(pkiEzsigntemplatesignerID: pkiEzsigntemplatesignerID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigntemplatesigner
+     - GET /2/object/ezsigntemplatesigner/{pkiEzsigntemplatesignerID}
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigntemplatesignerID: (path)  
+     - returns: RequestBuilder<EzsigntemplatesignerGetObjectV2Response> 
+     */
+    open class func ezsigntemplatesignerGetObjectV2WithRequestBuilder(pkiEzsigntemplatesignerID: Int) -> RequestBuilder<EzsigntemplatesignerGetObjectV2Response> {
+        var localVariablePath = "/2/object/ezsigntemplatesigner/{pkiEzsigntemplatesignerID}"
+        let pkiEzsigntemplatesignerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatesignerID))"
+        let pkiEzsigntemplatesignerIDPostEscape = pkiEzsigntemplatesignerIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplatesignerID}", with: pkiEzsigntemplatesignerIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatesignerGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

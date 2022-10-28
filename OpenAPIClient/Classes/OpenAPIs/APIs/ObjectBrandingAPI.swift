@@ -357,6 +357,7 @@ open class ObjectBrandingAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func brandingGetObjectV1(pkiBrandingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return brandingGetObjectV1WithRequestBuilder(pkiBrandingID: pkiBrandingID).execute(apiResponseQueue) { result in
@@ -379,6 +380,7 @@ open class ObjectBrandingAPI {
      - parameter pkiBrandingID: (path)  
      - returns: RequestBuilder<BrandingGetObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func brandingGetObjectV1WithRequestBuilder(pkiBrandingID: Int) -> RequestBuilder<BrandingGetObjectV1Response> {
         var localVariablePath = "/1/object/branding/{pkiBrandingID}"
         let pkiBrandingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBrandingID))"
@@ -396,6 +398,56 @@ open class ObjectBrandingAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<BrandingGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Retrieve an existing Branding
+     
+     - parameter pkiBrandingID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func brandingGetObjectV2(pkiBrandingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return brandingGetObjectV2WithRequestBuilder(pkiBrandingID: pkiBrandingID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Branding
+     - GET /2/object/branding/{pkiBrandingID}
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiBrandingID: (path)  
+     - returns: RequestBuilder<BrandingGetObjectV2Response> 
+     */
+    open class func brandingGetObjectV2WithRequestBuilder(pkiBrandingID: Int) -> RequestBuilder<BrandingGetObjectV2Response> {
+        var localVariablePath = "/2/object/branding/{pkiBrandingID}"
+        let pkiBrandingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBrandingID))"
+        let pkiBrandingIDPostEscape = pkiBrandingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBrandingID}", with: pkiBrandingIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BrandingGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

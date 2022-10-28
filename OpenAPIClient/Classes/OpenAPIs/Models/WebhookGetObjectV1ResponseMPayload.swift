@@ -32,8 +32,10 @@ public struct WebhookGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashab
     public var bWebhookIsactive: Bool?
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
+    /** The concatenated string to describe the Webhook event */
+    public var sWebhookEvent: String
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool, sWebhookEvent: String) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -45,6 +47,7 @@ public struct WebhookGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashab
         self.sWebhookEmailfailed = sWebhookEmailfailed
         self.bWebhookIsactive = bWebhookIsactive
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
+        self.sWebhookEvent = sWebhookEvent
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -59,6 +62,7 @@ public struct WebhookGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashab
         case sWebhookEmailfailed
         case bWebhookIsactive
         case bWebhookSkipsslvalidation
+        case sWebhookEvent
     }
 
     // Encodable protocol methods
@@ -76,6 +80,7 @@ public struct WebhookGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashab
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
         try container.encodeIfPresent(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
+        try container.encode(sWebhookEvent, forKey: .sWebhookEvent)
     }
 }
 

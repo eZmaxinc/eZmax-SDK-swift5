@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**brandingGetAutocompleteV2**](ObjectBrandingAPI.md#brandinggetautocompletev2) | **GET** /2/object/branding/getAutocomplete/{sSelector} | Retrieve Brandings and IDs
 [**brandingGetListV1**](ObjectBrandingAPI.md#brandinggetlistv1) | **GET** /1/object/branding/getList | Retrieve Branding list
 [**brandingGetObjectV1**](ObjectBrandingAPI.md#brandinggetobjectv1) | **GET** /1/object/branding/{pkiBrandingID} | Retrieve an existing Branding
+[**brandingGetObjectV2**](ObjectBrandingAPI.md#brandinggetobjectv2) | **GET** /2/object/branding/{pkiBrandingID} | Retrieve an existing Branding
 
 
 # **brandingCreateObjectV1**
@@ -322,6 +323,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BrandingGetObjectV1Response**](BrandingGetObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **brandingGetObjectV2**
+```swift
+    open class func brandingGetObjectV2(pkiBrandingID: Int, completion: @escaping (_ data: BrandingGetObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Branding
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiBrandingID = 987 // Int | 
+
+// Retrieve an existing Branding
+ObjectBrandingAPI.brandingGetObjectV2(pkiBrandingID: pkiBrandingID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiBrandingID** | **Int** |  | 
+
+### Return type
+
+[**BrandingGetObjectV2Response**](BrandingGetObjectV2Response.md)
 
 ### Authorization
 

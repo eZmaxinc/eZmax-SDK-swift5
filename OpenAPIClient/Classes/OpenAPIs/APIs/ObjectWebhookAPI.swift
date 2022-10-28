@@ -316,6 +316,7 @@ open class ObjectWebhookAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func webhookGetObjectV1(pkiWebhookID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return webhookGetObjectV1WithRequestBuilder(pkiWebhookID: pkiWebhookID).execute(apiResponseQueue) { result in
@@ -338,6 +339,7 @@ open class ObjectWebhookAPI {
      - parameter pkiWebhookID: (path)  
      - returns: RequestBuilder<WebhookGetObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func webhookGetObjectV1WithRequestBuilder(pkiWebhookID: Int) -> RequestBuilder<WebhookGetObjectV1Response> {
         var localVariablePath = "/1/object/webhook/{pkiWebhookID}"
         let pkiWebhookIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiWebhookID))"
@@ -355,6 +357,56 @@ open class ObjectWebhookAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<WebhookGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Retrieve an existing Webhook
+     
+     - parameter pkiWebhookID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func webhookGetObjectV2(pkiWebhookID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return webhookGetObjectV2WithRequestBuilder(pkiWebhookID: pkiWebhookID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Webhook
+     - GET /2/object/webhook/{pkiWebhookID}
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiWebhookID: (path)  
+     - returns: RequestBuilder<WebhookGetObjectV2Response> 
+     */
+    open class func webhookGetObjectV2WithRequestBuilder(pkiWebhookID: Int) -> RequestBuilder<WebhookGetObjectV2Response> {
+        var localVariablePath = "/2/object/webhook/{pkiWebhookID}"
+        let pkiWebhookIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiWebhookID))"
+        let pkiWebhookIDPostEscape = pkiWebhookIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiWebhookID}", with: pkiWebhookIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<WebhookGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

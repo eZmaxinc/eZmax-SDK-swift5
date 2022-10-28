@@ -13,8 +13,6 @@ import AnyCodable
 /** A Webhook Object */
 public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
 
-    /** The concatenated string to describe the Webhook event */
-    public var sWebhookEvent: String
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int
     /** The description of the Webhook */
@@ -34,9 +32,10 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
     public var bWebhookIsactive: Bool?
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
+    /** The concatenated string to describe the Webhook event */
+    public var sWebhookEvent: String
 
-    public init(sWebhookEvent: String, pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
-        self.sWebhookEvent = sWebhookEvent
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool, sWebhookEvent: String) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -48,10 +47,10 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         self.sWebhookEmailfailed = sWebhookEmailfailed
         self.bWebhookIsactive = bWebhookIsactive
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
+        self.sWebhookEvent = sWebhookEvent
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case sWebhookEvent
         case pkiWebhookID
         case sWebhookDescription
         case fkiEzsignfoldertypeID
@@ -63,13 +62,13 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         case sWebhookEmailfailed
         case bWebhookIsactive
         case bWebhookSkipsslvalidation
+        case sWebhookEvent
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(sWebhookEvent, forKey: .sWebhookEvent)
         try container.encode(pkiWebhookID, forKey: .pkiWebhookID)
         try container.encode(sWebhookDescription, forKey: .sWebhookDescription)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
@@ -81,6 +80,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
         try container.encodeIfPresent(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
+        try container.encode(sWebhookEvent, forKey: .sWebhookEvent)
     }
 }
 

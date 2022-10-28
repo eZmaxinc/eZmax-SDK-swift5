@@ -168,6 +168,7 @@ open class ObjectEzsignformfieldgroupAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignformfieldgroupGetObjectV1(pkiEzsignformfieldgroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignformfieldgroupGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignformfieldgroupGetObjectV1WithRequestBuilder(pkiEzsignformfieldgroupID: pkiEzsignformfieldgroupID).execute(apiResponseQueue) { result in
@@ -189,6 +190,7 @@ open class ObjectEzsignformfieldgroupAPI {
      - parameter pkiEzsignformfieldgroupID: (path)  
      - returns: RequestBuilder<EzsignformfieldgroupGetObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignformfieldgroupGetObjectV1WithRequestBuilder(pkiEzsignformfieldgroupID: Int) -> RequestBuilder<EzsignformfieldgroupGetObjectV1Response> {
         var localVariablePath = "/1/object/ezsignformfieldgroup/{pkiEzsignformfieldgroupID}"
         let pkiEzsignformfieldgroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignformfieldgroupID))"
@@ -206,6 +208,56 @@ open class ObjectEzsignformfieldgroupAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignformfieldgroupGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Retrieve an existing Ezsignformfieldgroup
+     
+     - parameter pkiEzsignformfieldgroupID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignformfieldgroupGetObjectV2(pkiEzsignformfieldgroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignformfieldgroupGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignformfieldgroupGetObjectV2WithRequestBuilder(pkiEzsignformfieldgroupID: pkiEzsignformfieldgroupID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignformfieldgroup
+     - GET /2/object/ezsignformfieldgroup/{pkiEzsignformfieldgroupID}
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignformfieldgroupID: (path)  
+     - returns: RequestBuilder<EzsignformfieldgroupGetObjectV2Response> 
+     */
+    open class func ezsignformfieldgroupGetObjectV2WithRequestBuilder(pkiEzsignformfieldgroupID: Int) -> RequestBuilder<EzsignformfieldgroupGetObjectV2Response> {
+        var localVariablePath = "/2/object/ezsignformfieldgroup/{pkiEzsignformfieldgroupID}"
+        let pkiEzsignformfieldgroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignformfieldgroupID))"
+        let pkiEzsignformfieldgroupIDPostEscape = pkiEzsignformfieldgroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignformfieldgroupID}", with: pkiEzsignformfieldgroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignformfieldgroupGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

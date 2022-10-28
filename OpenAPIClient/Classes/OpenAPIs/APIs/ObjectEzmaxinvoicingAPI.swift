@@ -173,6 +173,7 @@ open class ObjectEzmaxinvoicingAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezmaxinvoicingGetObjectV1(pkiEzmaxinvoicingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzmaxinvoicingGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezmaxinvoicingGetObjectV1WithRequestBuilder(pkiEzmaxinvoicingID: pkiEzmaxinvoicingID).execute(apiResponseQueue) { result in
@@ -195,6 +196,7 @@ open class ObjectEzmaxinvoicingAPI {
      - parameter pkiEzmaxinvoicingID: (path)  
      - returns: RequestBuilder<EzmaxinvoicingGetObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezmaxinvoicingGetObjectV1WithRequestBuilder(pkiEzmaxinvoicingID: Int) -> RequestBuilder<EzmaxinvoicingGetObjectV1Response> {
         var localVariablePath = "/1/object/ezmaxinvoicing/{pkiEzmaxinvoicingID}"
         let pkiEzmaxinvoicingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzmaxinvoicingID))"
@@ -212,6 +214,56 @@ open class ObjectEzmaxinvoicingAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzmaxinvoicingGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
+     Retrieve an existing Ezmaxinvoicing
+     
+     - parameter pkiEzmaxinvoicingID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezmaxinvoicingGetObjectV2(pkiEzmaxinvoicingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzmaxinvoicingGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezmaxinvoicingGetObjectV2WithRequestBuilder(pkiEzmaxinvoicingID: pkiEzmaxinvoicingID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezmaxinvoicing
+     - GET /2/object/ezmaxinvoicing/{pkiEzmaxinvoicingID}
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzmaxinvoicingID: (path)  
+     - returns: RequestBuilder<EzmaxinvoicingGetObjectV2Response> 
+     */
+    open class func ezmaxinvoicingGetObjectV2WithRequestBuilder(pkiEzmaxinvoicingID: Int) -> RequestBuilder<EzmaxinvoicingGetObjectV2Response> {
+        var localVariablePath = "/2/object/ezmaxinvoicing/{pkiEzmaxinvoicingID}"
+        let pkiEzmaxinvoicingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzmaxinvoicingID))"
+        let pkiEzmaxinvoicingIDPostEscape = pkiEzmaxinvoicingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzmaxinvoicingID}", with: pkiEzmaxinvoicingIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzmaxinvoicingGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }

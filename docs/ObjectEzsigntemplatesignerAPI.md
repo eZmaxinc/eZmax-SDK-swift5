@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ezsigntemplatesignerDeleteObjectV1**](ObjectEzsigntemplatesignerAPI.md#ezsigntemplatesignerdeleteobjectv1) | **DELETE** /1/object/ezsigntemplatesigner/{pkiEzsigntemplatesignerID} | Delete an existing Ezsigntemplatesigner
 [**ezsigntemplatesignerEditObjectV1**](ObjectEzsigntemplatesignerAPI.md#ezsigntemplatesignereditobjectv1) | **PUT** /1/object/ezsigntemplatesigner/{pkiEzsigntemplatesignerID} | Edit an existing Ezsigntemplatesigner
 [**ezsigntemplatesignerGetObjectV1**](ObjectEzsigntemplatesignerAPI.md#ezsigntemplatesignergetobjectv1) | **GET** /1/object/ezsigntemplatesigner/{pkiEzsigntemplatesignerID} | Retrieve an existing Ezsigntemplatesigner
+[**ezsigntemplatesignerGetObjectV2**](ObjectEzsigntemplatesignerAPI.md#ezsigntemplatesignergetobjectv2) | **GET** /2/object/ezsigntemplatesigner/{pkiEzsigntemplatesignerID} | Retrieve an existing Ezsigntemplatesigner
 
 
 # **ezsigntemplatesignerCreateObjectV1**
@@ -200,6 +201,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatesignerGetObjectV1Response**](EzsigntemplatesignerGetObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatesignerGetObjectV2**
+```swift
+    open class func ezsigntemplatesignerGetObjectV2(pkiEzsigntemplatesignerID: Int, completion: @escaping (_ data: EzsigntemplatesignerGetObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigntemplatesigner
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplatesignerID = 987 // Int | 
+
+// Retrieve an existing Ezsigntemplatesigner
+ObjectEzsigntemplatesignerAPI.ezsigntemplatesignerGetObjectV2(pkiEzsigntemplatesignerID: pkiEzsigntemplatesignerID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplatesignerID** | **Int** |  | 
+
+### Return type
+
+[**EzsigntemplatesignerGetObjectV2Response**](EzsigntemplatesignerGetObjectV2Response.md)
 
 ### Authorization
 
