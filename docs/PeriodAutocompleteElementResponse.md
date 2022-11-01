@@ -1,10 +1,11 @@
-# EzsignsignatureSignV1Response
+# PeriodAutocompleteElementResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objDebugPayload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
-**objDebug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
+**sPeriodYYYYMM** | **String** | The period YYYYMM | 
+**pkiPeriodID** | **Int** | The unique ID of the Period | 
+**bPeriodIsactive** | **Bool** | Whether the Period is active or not | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

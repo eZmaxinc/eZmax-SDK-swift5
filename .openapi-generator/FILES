@@ -532,7 +532,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureResponseCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureResponseCompoundAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureSignV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureSignV1Response.swift
-OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignatureSignV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignaturecustomdateRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignaturecustomdateRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EzsignsignaturecustomdateResponse.swift
@@ -806,6 +805,14 @@ OpenAPIClient/Classes/OpenAPIs/Models/FieldEVersionhistoryUsertype.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEWebhookEzsignevent.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEWebhookManagementevent.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FieldEWebhookModule.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FranchisebrokerAutocompleteElementResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FranchisebrokerGetAutocompleteV2Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FranchisebrokerGetAutocompleteV2ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FranchisebrokerGetAutocompleteV2ResponseMPayload.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FranchiseofficeAutocompleteElementResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FranchiseofficeGetAutocompleteV2Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FranchiseofficeGetAutocompleteV2ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/FranchiseofficeGetAutocompleteV2ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/FranchisereferalincomeCreateObjectV1ResponseAllOf.swift
@@ -834,6 +841,10 @@ OpenAPIClient/Classes/OpenAPIs/Models/NotificationtestGetElementsV1Response.swif
 OpenAPIClient/Classes/OpenAPIs/Models/NotificationtestGetElementsV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/NotificationtestGetElementsV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/NotificationtestResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/PeriodAutocompleteElementResponse.swift
+OpenAPIClient/Classes/OpenAPIs/Models/PeriodGetAutocompleteV2Response.swift
+OpenAPIClient/Classes/OpenAPIs/Models/PeriodGetAutocompleteV2ResponseAllOf.swift
+OpenAPIClient/Classes/OpenAPIs/Models/PeriodGetAutocompleteV2ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PhoneRequest.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PhoneRequestCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/SecretquestionAutocompleteElementResponse.swift
@@ -1388,7 +1399,6 @@ docs/EzsignsignatureResponseCompound.md
 docs/EzsignsignatureResponseCompoundAllOf.md
 docs/EzsignsignatureSignV1Request.md
 docs/EzsignsignatureSignV1Response.md
-docs/EzsignsignatureSignV1ResponseAllOf.md
 docs/EzsignsignaturecustomdateRequest.md
 docs/EzsignsignaturecustomdateRequestCompound.md
 docs/EzsignsignaturecustomdateResponse.md
@@ -1662,6 +1672,14 @@ docs/FieldEVersionhistoryUsertype.md
 docs/FieldEWebhookEzsignevent.md
 docs/FieldEWebhookManagementevent.md
 docs/FieldEWebhookModule.md
+docs/FranchisebrokerAutocompleteElementResponse.md
+docs/FranchisebrokerGetAutocompleteV2Response.md
+docs/FranchisebrokerGetAutocompleteV2ResponseAllOf.md
+docs/FranchisebrokerGetAutocompleteV2ResponseMPayload.md
+docs/FranchiseofficeAutocompleteElementResponse.md
+docs/FranchiseofficeGetAutocompleteV2Response.md
+docs/FranchiseofficeGetAutocompleteV2ResponseAllOf.md
+docs/FranchiseofficeGetAutocompleteV2ResponseMPayload.md
 docs/FranchisereferalincomeCreateObjectV1Request.md
 docs/FranchisereferalincomeCreateObjectV1Response.md
 docs/FranchisereferalincomeCreateObjectV1ResponseAllOf.md
@@ -1732,6 +1750,10 @@ docs/ObjectUserAPI.md
 docs/ObjectUsergroupAPI.md
 docs/ObjectVersionhistoryAPI.md
 docs/ObjectWebhookAPI.md
+docs/PeriodAutocompleteElementResponse.md
+docs/PeriodGetAutocompleteV2Response.md
+docs/PeriodGetAutocompleteV2ResponseAllOf.md
+docs/PeriodGetAutocompleteV2ResponseMPayload.md
 docs/PhoneRequest.md
 docs/PhoneRequestCompound.md
 docs/SecretquestionAutocompleteElementResponse.md
