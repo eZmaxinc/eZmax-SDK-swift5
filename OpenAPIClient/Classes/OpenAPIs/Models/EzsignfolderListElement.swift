@@ -25,7 +25,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     public var eEzsignfolderStep: FieldEEzsignfolderStep
     /** The date and time at which the object was created */
     public var dtCreatedDate: String
-    /** The date and time at which the Ezsign folder was sent the last time. */
+    /** The date and time at which the Ezsignfolder was sent the last time. */
     public var dtEzsignfolderSentdate: String?
     /** The maximum date and time at which the Ezsignfolder can be signed. */
     public var dtEzsignfolderDuedate: String?

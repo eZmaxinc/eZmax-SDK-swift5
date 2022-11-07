@@ -13,6 +13,7 @@ import AnyCodable
 /** The signature step of the Ezsignfolder. */
 public enum FieldEEzsignfolderStep: String, Codable, CaseIterable {
     case unsent = "Unsent"
+    case pendingSend = "PendingSend"
     case sent = "Sent"
     case partiallySigned = "PartiallySigned"
     case expired = "Expired"

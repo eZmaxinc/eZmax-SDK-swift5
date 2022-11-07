@@ -413,4 +413,55 @@ open class ObjectEzsignfoldersignerassociationAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
     }
+
+    /**
+     Patch an existing Ezsignfoldersignerassociation
+     
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
+     - parameter ezsignfoldersignerassociationPatchObjectV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationPatchObjectV1Request: EzsignfoldersignerassociationPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationPatchObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfoldersignerassociationPatchObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationPatchObjectV1Request: ezsignfoldersignerassociationPatchObjectV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Patch an existing Ezsignfoldersignerassociation
+     - PATCH /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
+     - parameter ezsignfoldersignerassociationPatchObjectV1Request: (body)  
+     - returns: RequestBuilder<EzsignfoldersignerassociationPatchObjectV1Response> 
+     */
+    open class func ezsignfoldersignerassociationPatchObjectV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationPatchObjectV1Request: EzsignfoldersignerassociationPatchObjectV1Request) -> RequestBuilder<EzsignfoldersignerassociationPatchObjectV1Response> {
+        var localVariablePath = "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}"
+        let pkiEzsignfoldersignerassociationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldersignerassociationID))"
+        let pkiEzsignfoldersignerassociationIDPostEscape = pkiEzsignfoldersignerassociationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldersignerassociationID}", with: pkiEzsignfoldersignerassociationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldersignerassociationPatchObjectV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfoldersignerassociationPatchObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
 }

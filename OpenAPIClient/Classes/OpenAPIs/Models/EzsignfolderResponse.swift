@@ -34,22 +34,24 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
     /** If the Ezsigndocument can be disposed */
     public var bEzsignfolderIsdisposable: Bool
     public var eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency
+    /** The date and time at which the Ezsignfolder will be sent in the future. */
+    public var dtEzsignfolderDelayedsenddate: String?
     /** The maximum date and time at which the Ezsignfolder can be signed. */
     public var dtEzsignfolderDuedate: String?
-    /** The date and time at which the Ezsign folder was sent the last time. */
+    /** The date and time at which the Ezsignfolder was sent the last time. */
     public var dtEzsignfolderSentdate: String?
     /** The scheduled date and time at which the Ezsignfolder should be archived. */
     public var dtEzsignfolderScheduledarchive: String?
     /** The scheduled date at which the Ezsignfolder should be Disposed. */
     public var dtEzsignfolderScheduleddispose: String?
     public var eEzsignfolderStep: FieldEEzsignfolderStep
-    /** The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. */
+    /** The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. */
     public var dtEzsignfolderClose: String?
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfolderMessage: String
     public var objAudit: CommonAudit
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, bEzsignfolderIsdisposable: Bool, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String, objAudit: CommonAudit) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, bEzsignfolderIsdisposable: Bool, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String, objAudit: CommonAudit) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
@@ -61,6 +63,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
         self.tEzsignfolderNote = tEzsignfolderNote
         self.bEzsignfolderIsdisposable = bEzsignfolderIsdisposable
         self.eEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
+        self.dtEzsignfolderDelayedsenddate = dtEzsignfolderDelayedsenddate
         self.dtEzsignfolderDuedate = dtEzsignfolderDuedate
         self.dtEzsignfolderSentdate = dtEzsignfolderSentdate
         self.dtEzsignfolderScheduledarchive = dtEzsignfolderScheduledarchive
@@ -83,6 +86,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
         case tEzsignfolderNote
         case bEzsignfolderIsdisposable
         case eEzsignfolderSendreminderfrequency
+        case dtEzsignfolderDelayedsenddate
         case dtEzsignfolderDuedate
         case dtEzsignfolderSentdate
         case dtEzsignfolderScheduledarchive
@@ -108,6 +112,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
         try container.encode(tEzsignfolderNote, forKey: .tEzsignfolderNote)
         try container.encode(bEzsignfolderIsdisposable, forKey: .bEzsignfolderIsdisposable)
         try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)
+        try container.encodeIfPresent(dtEzsignfolderDelayedsenddate, forKey: .dtEzsignfolderDelayedsenddate)
         try container.encodeIfPresent(dtEzsignfolderDuedate, forKey: .dtEzsignfolderDuedate)
         try container.encodeIfPresent(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)
         try container.encodeIfPresent(dtEzsignfolderScheduledarchive, forKey: .dtEzsignfolderScheduledarchive)

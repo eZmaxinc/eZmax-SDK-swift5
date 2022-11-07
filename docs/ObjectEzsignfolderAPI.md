@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**ezsignfolderReorderV1**](ObjectEzsignfolderAPI.md#ezsignfolderreorderv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/reorder | Reorder Ezsigndocuments in the Ezsignfolder
 [**ezsignfolderSendV1**](ObjectEzsignfolderAPI.md#ezsignfoldersendv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**ezsignfolderSendV2**](ObjectEzsignfolderAPI.md#ezsignfoldersendv2) | **POST** /2/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
+[**ezsignfolderSendV3**](ObjectEzsignfolderAPI.md#ezsignfoldersendv3) | **POST** /3/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**ezsignfolderUnsendV1**](ObjectEzsignfolderAPI.md#ezsignfolderunsendv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend | Unsend the Ezsignfolder
 
 
@@ -1033,6 +1034,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderSendV2Response**](EzsignfolderSendV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderSendV3**
+```swift
+    open class func ezsignfolderSendV3(pkiEzsignfolderID: Int, ezsignfolderSendV3Request: EzsignfolderSendV3Request, completion: @escaping (_ data: EzsignfolderSendV3Response?, _ error: Error?) -> Void)
+```
+
+Send the Ezsignfolder to the signatories for signature
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+let ezsignfolderSendV3Request = ezsignfolder-send-v3-Request(tEzsignfolderMessage: "tEzsignfolderMessage_example", dtEzsignfolderDelayedsenddate: "dtEzsignfolderDelayedsenddate_example", aFkiEzsignfoldersignerassociationID: [123]) // EzsignfolderSendV3Request | 
+
+// Send the Ezsignfolder to the signatories for signature
+ObjectEzsignfolderAPI.ezsignfolderSendV3(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderSendV3Request: ezsignfolderSendV3Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+ **ezsignfolderSendV3Request** | [**EzsignfolderSendV3Request**](EzsignfolderSendV3Request.md) |  | 
+
+### Return type
+
+[**EzsignfolderSendV3Response**](EzsignfolderSendV3Response.md)
 
 ### Authorization
 
