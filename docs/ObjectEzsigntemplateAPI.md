@@ -4,6 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ezsigntemplateCopyV1**](ObjectEzsigntemplateAPI.md#ezsigntemplatecopyv1) | **POST** /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy | Copy the Ezsigntemplate
 [**ezsigntemplateCreateObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplatecreateobjectv1) | **POST** /1/object/ezsigntemplate | Create a new Ezsigntemplate
 [**ezsigntemplateDeleteObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplatedeleteobjectv1) | **DELETE** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Delete an existing Ezsigntemplate
 [**ezsigntemplateEditObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplateeditobjectv1) | **PUT** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Edit an existing Ezsigntemplate
@@ -13,6 +14,58 @@ Method | HTTP request | Description
 [**ezsigntemplateGetObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplategetobjectv1) | **GET** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Retrieve an existing Ezsigntemplate
 [**ezsigntemplateGetObjectV2**](ObjectEzsigntemplateAPI.md#ezsigntemplategetobjectv2) | **GET** /2/object/ezsigntemplate/{pkiEzsigntemplateID} | Retrieve an existing Ezsigntemplate
 
+
+# **ezsigntemplateCopyV1**
+```swift
+    open class func ezsigntemplateCopyV1(pkiEzsigntemplateID: Int, ezsigntemplateCopyV1Request: EzsigntemplateCopyV1Request, completion: @escaping (_ data: EzsigntemplateCopyV1Response?, _ error: Error?) -> Void)
+```
+
+Copy the Ezsigntemplate
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplateID = 987 // Int | 
+let ezsigntemplateCopyV1Request = ezsigntemplate-copy-v1-Request(aFkiEzsignfoldertypeID: [123]) // EzsigntemplateCopyV1Request | 
+
+// Copy the Ezsigntemplate
+ObjectEzsigntemplateAPI.ezsigntemplateCopyV1(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateCopyV1Request: ezsigntemplateCopyV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplateID** | **Int** |  | 
+ **ezsigntemplateCopyV1Request** | [**EzsigntemplateCopyV1Request**](EzsigntemplateCopyV1Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplateCopyV1Response**](EzsigntemplateCopyV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplateCreateObjectV1**
 ```swift

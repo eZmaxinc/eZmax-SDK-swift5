@@ -15,6 +15,8 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
+    /** The unique ID of the Ezsignfoldersignerassociation */
+    public var fkiEzsignfoldersignerassociationIDDeclinedtosign: Int?
     /** The maximum date and time at which the Ezsigndocument can be signed. */
     public var dtEzsigndocumentDuedate: String
     /** The date and time at which the Ezsignform has been completed. */
@@ -40,14 +42,17 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
     public var iEzsigndocumentSignaturetotal: Int
     /** MD5 Hash of the initial PDF Document before signatures were applied to it. */
     public var sEzsigndocumentMD5initial: String
+    /** A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign */
+    public var tEzsigndocumentDeclinedtosignreason: String?
     /** MD5 Hash of the final PDF Document after all signatures were applied to it. */
     public var sEzsigndocumentMD5signed: String
     /** If the Ezsigndocument contains an Ezsignform or not */
     public var bEzsigndocumentEzsignform: Bool
     public var objAudit: CommonAudit
 
-    public init(fkiEzsignfolderID: Int, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, sEzsigndocumentMD5signed: String, bEzsigndocumentEzsignform: Bool, objAudit: CommonAudit) {
+    public init(fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String, bEzsigndocumentEzsignform: Bool, objAudit: CommonAudit) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
+        self.fkiEzsignfoldersignerassociationIDDeclinedtosign = fkiEzsignfoldersignerassociationIDDeclinedtosign
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
         self.dtEzsignformCompleted = dtEzsignformCompleted
         self.fkiLanguageID = fkiLanguageID
@@ -61,6 +66,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         self.iEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
         self.iEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
         self.sEzsigndocumentMD5initial = sEzsigndocumentMD5initial
+        self.tEzsigndocumentDeclinedtosignreason = tEzsigndocumentDeclinedtosignreason
         self.sEzsigndocumentMD5signed = sEzsigndocumentMD5signed
         self.bEzsigndocumentEzsignform = bEzsigndocumentEzsignform
         self.objAudit = objAudit
@@ -68,6 +74,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case fkiEzsignfolderID
+        case fkiEzsignfoldersignerassociationIDDeclinedtosign
         case dtEzsigndocumentDuedate
         case dtEzsignformCompleted
         case fkiLanguageID
@@ -81,6 +88,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         case iEzsigndocumentSignaturesigned
         case iEzsigndocumentSignaturetotal
         case sEzsigndocumentMD5initial
+        case tEzsigndocumentDeclinedtosignreason
         case sEzsigndocumentMD5signed
         case bEzsigndocumentEzsignform
         case objAudit
@@ -91,6 +99,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
+        try container.encodeIfPresent(fkiEzsignfoldersignerassociationIDDeclinedtosign, forKey: .fkiEzsignfoldersignerassociationIDDeclinedtosign)
         try container.encode(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)
         try container.encodeIfPresent(dtEzsignformCompleted, forKey: .dtEzsignformCompleted)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
@@ -104,6 +113,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsigndocumentSignaturesigned, forKey: .iEzsigndocumentSignaturesigned)
         try container.encode(iEzsigndocumentSignaturetotal, forKey: .iEzsigndocumentSignaturetotal)
         try container.encode(sEzsigndocumentMD5initial, forKey: .sEzsigndocumentMD5initial)
+        try container.encodeIfPresent(tEzsigndocumentDeclinedtosignreason, forKey: .tEzsigndocumentDeclinedtosignreason)
         try container.encode(sEzsigndocumentMD5signed, forKey: .sEzsigndocumentMD5signed)
         try container.encode(bEzsigndocumentEzsignform, forKey: .bEzsigndocumentEzsignform)
         try container.encode(objAudit, forKey: .objAudit)

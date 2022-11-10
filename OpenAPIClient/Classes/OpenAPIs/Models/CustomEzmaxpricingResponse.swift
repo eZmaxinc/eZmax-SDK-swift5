@@ -15,19 +15,23 @@ public struct CustomEzmaxpricingResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Ezmaxpricing */
     public var pkiEzmaxpricingID: Int
+    /** The rebate offered when eZsign is taken for all agents */
+    public var dEzmaxpricingRebateezsignallagents: String
     /** The start date of the Ezmaxpricing */
     public var dtEzmaxpricingStart: String
     /** The end date of the Ezmaxpricing */
     public var dtEzmaxpricingEnd: String?
 
-    public init(pkiEzmaxpricingID: Int, dtEzmaxpricingStart: String, dtEzmaxpricingEnd: String? = nil) {
+    public init(pkiEzmaxpricingID: Int, dEzmaxpricingRebateezsignallagents: String, dtEzmaxpricingStart: String, dtEzmaxpricingEnd: String? = nil) {
         self.pkiEzmaxpricingID = pkiEzmaxpricingID
+        self.dEzmaxpricingRebateezsignallagents = dEzmaxpricingRebateezsignallagents
         self.dtEzmaxpricingStart = dtEzmaxpricingStart
         self.dtEzmaxpricingEnd = dtEzmaxpricingEnd
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzmaxpricingID
+        case dEzmaxpricingRebateezsignallagents
         case dtEzmaxpricingStart
         case dtEzmaxpricingEnd
     }
@@ -37,6 +41,7 @@ public struct CustomEzmaxpricingResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzmaxpricingID, forKey: .pkiEzmaxpricingID)
+        try container.encode(dEzmaxpricingRebateezsignallagents, forKey: .dEzmaxpricingRebateezsignallagents)
         try container.encode(dtEzmaxpricingStart, forKey: .dtEzmaxpricingStart)
         try container.encodeIfPresent(dtEzmaxpricingEnd, forKey: .dtEzmaxpricingEnd)
     }

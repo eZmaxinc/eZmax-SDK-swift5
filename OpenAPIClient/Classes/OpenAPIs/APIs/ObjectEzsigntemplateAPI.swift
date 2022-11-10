@@ -13,6 +13,58 @@ import AnyCodable
 open class ObjectEzsigntemplateAPI {
 
     /**
+     Copy the Ezsigntemplate
+     
+     - parameter pkiEzsigntemplateID: (path)  
+     - parameter ezsigntemplateCopyV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigntemplateCopyV1(pkiEzsigntemplateID: Int, ezsigntemplateCopyV1Request: EzsigntemplateCopyV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateCopyV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplateCopyV1WithRequestBuilder(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateCopyV1Request: ezsigntemplateCopyV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Copy the Ezsigntemplate
+     - POST /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy
+     - 
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Authorization
+     - parameter pkiEzsigntemplateID: (path)  
+     - parameter ezsigntemplateCopyV1Request: (body)  
+     - returns: RequestBuilder<EzsigntemplateCopyV1Response> 
+     */
+    open class func ezsigntemplateCopyV1WithRequestBuilder(pkiEzsigntemplateID: Int, ezsigntemplateCopyV1Request: EzsigntemplateCopyV1Request) -> RequestBuilder<EzsigntemplateCopyV1Response> {
+        var localVariablePath = "/1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy"
+        let pkiEzsigntemplateIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplateID))"
+        let pkiEzsigntemplateIDPostEscape = pkiEzsigntemplateIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplateID}", with: pkiEzsigntemplateIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigntemplateCopyV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateCopyV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+    }
+
+    /**
      Create a new Ezsigntemplate
      
      - parameter ezsigntemplateCreateObjectV1Request: (body)  
