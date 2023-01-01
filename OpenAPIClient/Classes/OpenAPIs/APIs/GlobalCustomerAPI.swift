@@ -61,7 +61,7 @@ open class GlobalCustomerAPI {
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "sInfrastructureproductCode": sInfrastructureproductCode?.encodeToJSON(),
+            "sInfrastructureproductCode": (wrappedValue: sInfrastructureproductCode?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -72,6 +72,6 @@ open class GlobalCustomerAPI {
 
         let localVariableRequestBuilder: RequestBuilder<GlobalCustomerGetEndpointV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

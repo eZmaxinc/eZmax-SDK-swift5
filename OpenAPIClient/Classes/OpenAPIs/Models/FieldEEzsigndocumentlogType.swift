@@ -35,4 +35,5 @@ public enum FieldEEzsigndocumentlogType: String, Codable, CaseIterable {
     case signatureAttachmentRefused = "SignatureAttachmentRefused"
     case signatureAttachmentDeleted = "SignatureAttachmentDeleted"
     case declinedToSign = "DeclinedToSign"
+    case delayedSendEmail = "DelayedSendEmail"
 }

@@ -78,9 +78,9 @@ open class ObjectEzsigntsarequirementAPI {
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "fkiEzsignfoldertypeID": fkiEzsignfoldertypeID?.encodeToJSON(),
-            "eFilterActive": eFilterActive?.encodeToJSON(),
-            "sQuery": sQuery?.encodeToJSON(),
+            "fkiEzsignfoldertypeID": (wrappedValue: fkiEzsignfoldertypeID?.encodeToJSON(), isExplode: true),
+            "eFilterActive": (wrappedValue: eFilterActive?.encodeToJSON(), isExplode: true),
+            "sQuery": (wrappedValue: sQuery?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -91,7 +91,7 @@ open class ObjectEzsigntsarequirementAPI {
 
         let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteDisabledV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
@@ -158,9 +158,9 @@ open class ObjectEzsigntsarequirementAPI {
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "fkiEzsignfoldertypeID": fkiEzsignfoldertypeID?.encodeToJSON(),
-            "eFilterActive": eFilterActive?.encodeToJSON(),
-            "sQuery": sQuery?.encodeToJSON(),
+            "fkiEzsignfoldertypeID": (wrappedValue: fkiEzsignfoldertypeID?.encodeToJSON(), isExplode: true),
+            "eFilterActive": (wrappedValue: eFilterActive?.encodeToJSON(), isExplode: true),
+            "sQuery": (wrappedValue: sQuery?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -171,6 +171,6 @@ open class ObjectEzsigntsarequirementAPI {
 
         let localVariableRequestBuilder: RequestBuilder<EzsigntsarequirementGetAutocompleteV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

@@ -23,6 +23,8 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     public var sDepartmentNameX: String
     /** Whether the active session is in debug or not */
     public var bActivesessionDebug: Bool
+    /** Whether the active session is superadmin or not */
+    public var bActivesessionIssuperadmin: Bool
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** The unique ID of the Systemconfigurationtype */
@@ -35,13 +37,14 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
         self.sCompanyNameX = sCompanyNameX
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
+        self.bActivesessionIssuperadmin = bActivesessionIssuperadmin
         self.pksCustomerCode = pksCustomerCode
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.aPkiPermissionID = aPkiPermissionID
@@ -58,6 +61,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         case sCompanyNameX
         case sDepartmentNameX
         case bActivesessionDebug
+        case bActivesessionIssuperadmin
         case pksCustomerCode
         case fkiSystemconfigurationtypeID
         case aPkiPermissionID = "a_pkiPermissionID"
@@ -77,6 +81,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
+        try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encodeIfPresent(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)

@@ -19,7 +19,7 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     public var iEzsigntemplatedocumentpagePagenumber: Int
     /** The Label for the Ezsigntemplateformfield */
     public var sEzsigntemplateformfieldLabel: String
-    /** The value for the Ezsigntemplateformfield  This can only be set if eEzsigntemplateformfieldgroupType is Checkbox or Radio */
+    /** The value for the Ezsigntemplateformfield */
     public var sEzsigntemplateformfieldValue: String?
     /** The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
     public var iEzsigntemplateformfieldX: Int

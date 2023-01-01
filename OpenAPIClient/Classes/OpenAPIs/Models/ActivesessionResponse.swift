@@ -23,18 +23,21 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     public var sDepartmentNameX: String
     /** Whether the active session is in debug or not */
     public var bActivesessionDebug: Bool
+    /** Whether the active session is superadmin or not */
+    public var bActivesessionIssuperadmin: Bool
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** The unique ID of the Systemconfigurationtype */
     public var fkiSystemconfigurationtypeID: Int?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
         self.sCompanyNameX = sCompanyNameX
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
+        self.bActivesessionIssuperadmin = bActivesessionIssuperadmin
         self.pksCustomerCode = pksCustomerCode
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
     }
@@ -46,6 +49,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         case sCompanyNameX
         case sDepartmentNameX
         case bActivesessionDebug
+        case bActivesessionIssuperadmin
         case pksCustomerCode
         case fkiSystemconfigurationtypeID
     }
@@ -60,6 +64,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
+        try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encodeIfPresent(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
     }
