@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for GET /1/module/communication/getCount */
+/** Response for GET /1/module/communication/getCommunicationCount */
 public struct CommunicationGetCountV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: CommunicationGetCountV1ResponseMPayload

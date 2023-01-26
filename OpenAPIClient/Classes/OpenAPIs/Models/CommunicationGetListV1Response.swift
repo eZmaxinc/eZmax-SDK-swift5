@@ -10,14 +10,14 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for GET /1/module/communication/getList */
+/** Response for GET /1/object/communication/getList */
 public struct CommunicationGetListV1Response: Codable, JSONEncodable, Hashable {
 
     public var mPayload: CommunicationGetListV1ResponseMPayload
-    public var objDebugPayload: CommonResponseObjDebugPayload?
+    public var objDebugPayload: CommonResponseObjDebugPayloadGetList?
     public var objDebug: CommonResponseObjDebug?
 
-    public init(mPayload: CommunicationGetListV1ResponseMPayload, objDebugPayload: CommonResponseObjDebugPayload? = nil, objDebug: CommonResponseObjDebug? = nil) {
+    public init(mPayload: CommunicationGetListV1ResponseMPayload, objDebugPayload: CommonResponseObjDebugPayloadGetList? = nil, objDebug: CommonResponseObjDebug? = nil) {
         self.mPayload = mPayload
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug

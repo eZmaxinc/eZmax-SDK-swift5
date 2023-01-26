@@ -23,6 +23,7 @@ public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, 
     public var bEzsignfolderMfaused: Bool
     /** Whether there was a signature is of type payment */
     public var bEzsignfolderPaymentused: Bool
+    /** Whether you have access to the Ezsignfolder or not */
     public var bEzsignfolderAllowed: Bool
 
     public init(fkiEzsignfolderID: Int, sEzsignfolderDescription: String, bEzsigntsarequirementBillable: Bool, bEzsignfolderMfaused: Bool, bEzsignfolderPaymentused: Bool, bEzsignfolderAllowed: Bool) {

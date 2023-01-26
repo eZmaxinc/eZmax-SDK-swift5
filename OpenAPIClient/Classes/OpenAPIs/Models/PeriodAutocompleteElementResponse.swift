@@ -13,7 +13,7 @@ import AnyCodable
 /** A Period AutocompleteElement Response */
 public struct PeriodAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    /** The period YYYYMM */
+    /** The YYYYMM of the Period */
     public var sPeriodYYYYMM: String
     /** The unique ID of the Period */
     public var pkiPeriodID: Int

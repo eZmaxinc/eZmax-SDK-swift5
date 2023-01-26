@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sPeriodYYYYMM** | **String** | The period YYYYMM | 
+**sPeriodYYYYMM** | **String** | The YYYYMM of the Period | 
 **pkiPeriodID** | **Int** | The unique ID of the Period | 
 **bPeriodIsactive** | **Bool** | Whether the Period is active or not | 
 

@@ -35,8 +35,10 @@ public struct EzmaxinvoicingsummaryinternaldetailResponseCompound: Codable, JSON
     public var dEzmaxinvoicingsummaryinternaldetailTotal: String
     /** Whether if it's an adjustment */
     public var bEzmaxinvoicingsummaryinternaldetailAdjustment: Bool
+    /** The help message of the Ezmaxproduct in the language of the requester */
+    public var tEzmaxproductHelpX: String
 
-    public init(pkiEzmaxinvoicingsummaryinternaldetailID: Int? = nil, fkiEzmaxinvoicingsummaryinternalID: Int? = nil, fkiEzmaxproductID: Int, sEzmaxproductDescriptionX: String, fkiBillingentityexternalID: Int, sBillingentityexternalDescription: String, dEzmaxinvoicingsummaryinternaldetailCountreal: String, dEzmaxinvoicingsummaryinternaldetailSubtotal: String, dEzmaxinvoicingsummaryinternaldetailRebate: String, dEzmaxinvoicingsummaryinternaldetailTotal: String, bEzmaxinvoicingsummaryinternaldetailAdjustment: Bool) {
+    public init(pkiEzmaxinvoicingsummaryinternaldetailID: Int? = nil, fkiEzmaxinvoicingsummaryinternalID: Int? = nil, fkiEzmaxproductID: Int, sEzmaxproductDescriptionX: String, fkiBillingentityexternalID: Int, sBillingentityexternalDescription: String, dEzmaxinvoicingsummaryinternaldetailCountreal: String, dEzmaxinvoicingsummaryinternaldetailSubtotal: String, dEzmaxinvoicingsummaryinternaldetailRebate: String, dEzmaxinvoicingsummaryinternaldetailTotal: String, bEzmaxinvoicingsummaryinternaldetailAdjustment: Bool, tEzmaxproductHelpX: String) {
         self.pkiEzmaxinvoicingsummaryinternaldetailID = pkiEzmaxinvoicingsummaryinternaldetailID
         self.fkiEzmaxinvoicingsummaryinternalID = fkiEzmaxinvoicingsummaryinternalID
         self.fkiEzmaxproductID = fkiEzmaxproductID
@@ -48,6 +50,7 @@ public struct EzmaxinvoicingsummaryinternaldetailResponseCompound: Codable, JSON
         self.dEzmaxinvoicingsummaryinternaldetailRebate = dEzmaxinvoicingsummaryinternaldetailRebate
         self.dEzmaxinvoicingsummaryinternaldetailTotal = dEzmaxinvoicingsummaryinternaldetailTotal
         self.bEzmaxinvoicingsummaryinternaldetailAdjustment = bEzmaxinvoicingsummaryinternaldetailAdjustment
+        self.tEzmaxproductHelpX = tEzmaxproductHelpX
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -62,6 +65,7 @@ public struct EzmaxinvoicingsummaryinternaldetailResponseCompound: Codable, JSON
         case dEzmaxinvoicingsummaryinternaldetailRebate
         case dEzmaxinvoicingsummaryinternaldetailTotal
         case bEzmaxinvoicingsummaryinternaldetailAdjustment
+        case tEzmaxproductHelpX
     }
 
     // Encodable protocol methods
@@ -79,6 +83,7 @@ public struct EzmaxinvoicingsummaryinternaldetailResponseCompound: Codable, JSON
         try container.encode(dEzmaxinvoicingsummaryinternaldetailRebate, forKey: .dEzmaxinvoicingsummaryinternaldetailRebate)
         try container.encode(dEzmaxinvoicingsummaryinternaldetailTotal, forKey: .dEzmaxinvoicingsummaryinternaldetailTotal)
         try container.encode(bEzmaxinvoicingsummaryinternaldetailAdjustment, forKey: .bEzmaxinvoicingsummaryinternaldetailAdjustment)
+        try container.encode(tEzmaxproductHelpX, forKey: .tEzmaxproductHelpX)
     }
 }
 

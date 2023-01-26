@@ -15,23 +15,17 @@ public struct CommunicationResponseCompoundAllOf: Codable, JSONEncodable, Hashab
     public var aObjCommunicationattachment: [CommunicationattachmentResponseCompound]
     public var aObjCommunicationrecipient: [CommunicationrecipientResponseCompound]
     public var aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound]
-    public var aObjCommunicationimage: [CommunicationimageResponseCompound]
-    public var aObjCommunicationexternalimage: [CommunicationexternalimageResponseCompound]
 
-    public init(aObjCommunicationattachment: [CommunicationattachmentResponseCompound], aObjCommunicationrecipient: [CommunicationrecipientResponseCompound], aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound], aObjCommunicationimage: [CommunicationimageResponseCompound], aObjCommunicationexternalimage: [CommunicationexternalimageResponseCompound]) {
+    public init(aObjCommunicationattachment: [CommunicationattachmentResponseCompound], aObjCommunicationrecipient: [CommunicationrecipientResponseCompound], aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound]) {
         self.aObjCommunicationattachment = aObjCommunicationattachment
         self.aObjCommunicationrecipient = aObjCommunicationrecipient
         self.aObjCommunicationexternalrecipient = aObjCommunicationexternalrecipient
-        self.aObjCommunicationimage = aObjCommunicationimage
-        self.aObjCommunicationexternalimage = aObjCommunicationexternalimage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjCommunicationattachment = "a_objCommunicationattachment"
         case aObjCommunicationrecipient = "a_objCommunicationrecipient"
         case aObjCommunicationexternalrecipient = "a_objCommunicationexternalrecipient"
-        case aObjCommunicationimage = "a_objCommunicationimage"
-        case aObjCommunicationexternalimage = "a_objCommunicationexternalimage"
     }
 
     // Encodable protocol methods
@@ -41,8 +35,6 @@ public struct CommunicationResponseCompoundAllOf: Codable, JSONEncodable, Hashab
         try container.encode(aObjCommunicationattachment, forKey: .aObjCommunicationattachment)
         try container.encode(aObjCommunicationrecipient, forKey: .aObjCommunicationrecipient)
         try container.encode(aObjCommunicationexternalrecipient, forKey: .aObjCommunicationexternalrecipient)
-        try container.encode(aObjCommunicationimage, forKey: .aObjCommunicationimage)
-        try container.encode(aObjCommunicationexternalimage, forKey: .aObjCommunicationexternalimage)
     }
 }
 

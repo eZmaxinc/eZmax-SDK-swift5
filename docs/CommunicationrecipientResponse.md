@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiCommunicationrecipientID** | **Int** | The unique ID of the Communicationrecipient. | 
+**eCommunicationrecipientObjecttype** | [**FieldECommunicationrecipientObjecttype**](FieldECommunicationrecipientObjecttype.md) |  | [optional] 
 **fkiAgentID** | **Int** | The unique ID of the Agent. | [optional] 
 **fkiBrokerID** | **Int** | The unique ID of the Broker. | [optional] 
 **fkiContactID** | **Int** | The unique ID of the Contact | [optional] 
@@ -12,8 +13,6 @@ Name | Type | Description | Notes
 **fkiEzsignsignerID** | **Int** | The unique ID of the Ezsignsigner | [optional] 
 **fkiFranchiseofficeID** | **Int** | The unique ID of the Franchisereoffice | [optional] 
 **fkiUserID** | **Int** | The unique ID of the User | [optional] 
-**sEmailAddress** | **String** | The email address. | [optional] 
-**eCommunicationrecipientType** | [**FieldECommunicationrecipientType**](FieldECommunicationrecipientType.md) |  | [optional] 
 **fkiAgentincorporationID** | **Int** | The unique ID of the Agentincorporation. | [optional] 
 **fkiAssistantID** | **Int** | The unique ID of the Assistant. | [optional] 
 **fkiExternalbrokerID** | **Int** | The unique ID of the Externalbroker. | [optional] 
@@ -21,7 +20,10 @@ Name | Type | Description | Notes
 **fkiNotaryID** | **Int** | The unique ID of the Notary. | [optional] 
 **fkiRewardmemberID** | **Int** | The unique ID of the Rewardmember. | [optional] 
 **fkiSupplierID** | **Int** | The unique ID of the Supplier. | [optional] 
-**objPhoneSms** | [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 
+**eCommunicationrecipientType** | [**FieldECommunicationrecipientType**](FieldECommunicationrecipientType.md) |  | 
+**objDescriptionstatic** | [**DescriptionstaticResponseCompound**](DescriptionstaticResponseCompound.md) |  | 
+**objEmailstatic** | [**EmailstaticResponseCompound**](EmailstaticResponseCompound.md) |  | [optional] 
+**objPhonestatic** | [**PhonestaticResponseCompound**](PhonestaticResponseCompound.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

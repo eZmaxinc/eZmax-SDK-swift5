@@ -20,6 +20,7 @@ public struct CustomEzmaxinvoicingEzsigndocumentResponse: Codable, JSONEncodable
     public var sEzsignfolderDescription: String
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */
     public var sEzsigndocumentName: String
+    /** Whether you have access to the Ezsignfolder or not */
     public var bEzsignfolderAllowed: Bool
 
     public init(fkiEzsignfolderID: Int, sName: String, sEzsignfolderDescription: String, sEzsigndocumentName: String, bEzsignfolderAllowed: Bool) {

@@ -15,30 +15,36 @@ public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Communication. */
     public var pkiCommunicationID: Int
-    public var eCommunicationEmailimportance: FieldECommunicationEmailimportance?
+    public var eCommunicationImportance: FieldECommunicationImportance
     public var eCommunicationType: FieldECommunicationType
-    /** The Subject of the Communication */
+    /** The subject of the Communication */
     public var sCommunicationSubject: String
-    /** The send date and time at which the Communication was sent. */
-    public var dtCommunicationSentdate: String
+    public var eCommunicationDirection: ComputedECommunicationDirection
+    /** The count of Communicationrecipient */
+    public var iCommunicationrecipientCount: Int
     public var objContactFrom: CustomContactNameResponse
+    public var objAudit: CommonAudit
 
-    public init(pkiCommunicationID: Int, eCommunicationEmailimportance: FieldECommunicationEmailimportance? = nil, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, dtCommunicationSentdate: String, objContactFrom: CustomContactNameResponse) {
+    public init(pkiCommunicationID: Int, eCommunicationImportance: FieldECommunicationImportance, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, eCommunicationDirection: ComputedECommunicationDirection, iCommunicationrecipientCount: Int, objContactFrom: CustomContactNameResponse, objAudit: CommonAudit) {
         self.pkiCommunicationID = pkiCommunicationID
-        self.eCommunicationEmailimportance = eCommunicationEmailimportance
+        self.eCommunicationImportance = eCommunicationImportance
         self.eCommunicationType = eCommunicationType
         self.sCommunicationSubject = sCommunicationSubject
-        self.dtCommunicationSentdate = dtCommunicationSentdate
+        self.eCommunicationDirection = eCommunicationDirection
+        self.iCommunicationrecipientCount = iCommunicationrecipientCount
         self.objContactFrom = objContactFrom
+        self.objAudit = objAudit
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCommunicationID
-        case eCommunicationEmailimportance
+        case eCommunicationImportance
         case eCommunicationType
         case sCommunicationSubject
-        case dtCommunicationSentdate
+        case eCommunicationDirection
+        case iCommunicationrecipientCount
         case objContactFrom
+        case objAudit
     }
 
     // Encodable protocol methods
@@ -46,11 +52,13 @@ public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCommunicationID, forKey: .pkiCommunicationID)
-        try container.encodeIfPresent(eCommunicationEmailimportance, forKey: .eCommunicationEmailimportance)
+        try container.encode(eCommunicationImportance, forKey: .eCommunicationImportance)
         try container.encode(eCommunicationType, forKey: .eCommunicationType)
         try container.encode(sCommunicationSubject, forKey: .sCommunicationSubject)
-        try container.encode(dtCommunicationSentdate, forKey: .dtCommunicationSentdate)
+        try container.encode(eCommunicationDirection, forKey: .eCommunicationDirection)
+        try container.encode(iCommunicationrecipientCount, forKey: .iCommunicationrecipientCount)
         try container.encode(objContactFrom, forKey: .objContactFrom)
+        try container.encode(objAudit, forKey: .objAudit)
     }
 }
 

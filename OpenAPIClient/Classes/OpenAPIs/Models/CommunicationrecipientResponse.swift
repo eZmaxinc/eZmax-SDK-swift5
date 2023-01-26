@@ -15,6 +15,7 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Communicationrecipient. */
     public var pkiCommunicationrecipientID: Int
+    public var eCommunicationrecipientObjecttype: FieldECommunicationrecipientObjecttype?
     /** The unique ID of the Agent. */
     public var fkiAgentID: Int?
     /** The unique ID of the Broker. */
@@ -31,9 +32,6 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
     public var fkiFranchiseofficeID: Int?
     /** The unique ID of the User */
     public var fkiUserID: Int?
-    /** The email address. */
-    public var sEmailAddress: String?
-    public var eCommunicationrecipientType: FieldECommunicationrecipientType?
     /** The unique ID of the Agentincorporation. */
     public var fkiAgentincorporationID: Int?
     /** The unique ID of the Assistant. */
@@ -48,10 +46,14 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
     public var fkiRewardmemberID: Int?
     /** The unique ID of the Supplier. */
     public var fkiSupplierID: Int?
-    public var objPhoneSms: PhoneResponseCompound?
+    public var eCommunicationrecipientType: FieldECommunicationrecipientType
+    public var objDescriptionstatic: DescriptionstaticResponseCompound
+    public var objEmailstatic: EmailstaticResponseCompound?
+    public var objPhonestatic: PhonestaticResponseCompound?
 
-    public init(pkiCommunicationrecipientID: Int, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiContactID: Int? = nil, fkiCustomerID: Int? = nil, fkiEmployeeID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiFranchiseofficeID: Int? = nil, fkiUserID: Int? = nil, sEmailAddress: String? = nil, eCommunicationrecipientType: FieldECommunicationrecipientType? = nil, fkiAgentincorporationID: Int? = nil, fkiAssistantID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzcomagentID: Int? = nil, fkiNotaryID: Int? = nil, fkiRewardmemberID: Int? = nil, fkiSupplierID: Int? = nil, objPhoneSms: PhoneResponseCompound? = nil) {
+    public init(pkiCommunicationrecipientID: Int, eCommunicationrecipientObjecttype: FieldECommunicationrecipientObjecttype? = nil, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiContactID: Int? = nil, fkiCustomerID: Int? = nil, fkiEmployeeID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiFranchiseofficeID: Int? = nil, fkiUserID: Int? = nil, fkiAgentincorporationID: Int? = nil, fkiAssistantID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzcomagentID: Int? = nil, fkiNotaryID: Int? = nil, fkiRewardmemberID: Int? = nil, fkiSupplierID: Int? = nil, eCommunicationrecipientType: FieldECommunicationrecipientType, objDescriptionstatic: DescriptionstaticResponseCompound, objEmailstatic: EmailstaticResponseCompound? = nil, objPhonestatic: PhonestaticResponseCompound? = nil) {
         self.pkiCommunicationrecipientID = pkiCommunicationrecipientID
+        self.eCommunicationrecipientObjecttype = eCommunicationrecipientObjecttype
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
         self.fkiContactID = fkiContactID
@@ -60,8 +62,6 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
         self.fkiEzsignsignerID = fkiEzsignsignerID
         self.fkiFranchiseofficeID = fkiFranchiseofficeID
         self.fkiUserID = fkiUserID
-        self.sEmailAddress = sEmailAddress
-        self.eCommunicationrecipientType = eCommunicationrecipientType
         self.fkiAgentincorporationID = fkiAgentincorporationID
         self.fkiAssistantID = fkiAssistantID
         self.fkiExternalbrokerID = fkiExternalbrokerID
@@ -69,11 +69,15 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
         self.fkiNotaryID = fkiNotaryID
         self.fkiRewardmemberID = fkiRewardmemberID
         self.fkiSupplierID = fkiSupplierID
-        self.objPhoneSms = objPhoneSms
+        self.eCommunicationrecipientType = eCommunicationrecipientType
+        self.objDescriptionstatic = objDescriptionstatic
+        self.objEmailstatic = objEmailstatic
+        self.objPhonestatic = objPhonestatic
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCommunicationrecipientID
+        case eCommunicationrecipientObjecttype
         case fkiAgentID
         case fkiBrokerID
         case fkiContactID
@@ -82,8 +86,6 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
         case fkiEzsignsignerID
         case fkiFranchiseofficeID
         case fkiUserID
-        case sEmailAddress
-        case eCommunicationrecipientType
         case fkiAgentincorporationID
         case fkiAssistantID
         case fkiExternalbrokerID
@@ -91,7 +93,10 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
         case fkiNotaryID
         case fkiRewardmemberID
         case fkiSupplierID
-        case objPhoneSms
+        case eCommunicationrecipientType
+        case objDescriptionstatic
+        case objEmailstatic
+        case objPhonestatic
     }
 
     // Encodable protocol methods
@@ -99,6 +104,7 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCommunicationrecipientID, forKey: .pkiCommunicationrecipientID)
+        try container.encodeIfPresent(eCommunicationrecipientObjecttype, forKey: .eCommunicationrecipientObjecttype)
         try container.encodeIfPresent(fkiAgentID, forKey: .fkiAgentID)
         try container.encodeIfPresent(fkiBrokerID, forKey: .fkiBrokerID)
         try container.encodeIfPresent(fkiContactID, forKey: .fkiContactID)
@@ -107,8 +113,6 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fkiEzsignsignerID, forKey: .fkiEzsignsignerID)
         try container.encodeIfPresent(fkiFranchiseofficeID, forKey: .fkiFranchiseofficeID)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
-        try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
-        try container.encodeIfPresent(eCommunicationrecipientType, forKey: .eCommunicationrecipientType)
         try container.encodeIfPresent(fkiAgentincorporationID, forKey: .fkiAgentincorporationID)
         try container.encodeIfPresent(fkiAssistantID, forKey: .fkiAssistantID)
         try container.encodeIfPresent(fkiExternalbrokerID, forKey: .fkiExternalbrokerID)
@@ -116,7 +120,10 @@ public struct CommunicationrecipientResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fkiNotaryID, forKey: .fkiNotaryID)
         try container.encodeIfPresent(fkiRewardmemberID, forKey: .fkiRewardmemberID)
         try container.encodeIfPresent(fkiSupplierID, forKey: .fkiSupplierID)
-        try container.encodeIfPresent(objPhoneSms, forKey: .objPhoneSms)
+        try container.encode(eCommunicationrecipientType, forKey: .eCommunicationrecipientType)
+        try container.encode(objDescriptionstatic, forKey: .objDescriptionstatic)
+        try container.encodeIfPresent(objEmailstatic, forKey: .objEmailstatic)
+        try container.encodeIfPresent(objPhonestatic, forKey: .objPhonestatic)
     }
 }
 

@@ -10,17 +10,25 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for GET /1/module/communication/getList */
+/** Payload for GET /1/object/communication/getList */
 public struct CommunicationGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     public var aObjCommunication: [CommunicationListElement]
+    /** The number of rows returned */
+    public var iRowReturned: Int
+    /** The number of rows matching your filters (if any) or the total number of rows */
+    public var iRowFiltered: Int
 
-    public init(aObjCommunication: [CommunicationListElement]) {
+    public init(aObjCommunication: [CommunicationListElement], iRowReturned: Int, iRowFiltered: Int) {
         self.aObjCommunication = aObjCommunication
+        self.iRowReturned = iRowReturned
+        self.iRowFiltered = iRowFiltered
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjCommunication = "a_objCommunication"
+        case iRowReturned
+        case iRowFiltered
     }
 
     // Encodable protocol methods
@@ -28,6 +36,8 @@ public struct CommunicationGetListV1ResponseMPayload: Codable, JSONEncodable, Ha
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(aObjCommunication, forKey: .aObjCommunication)
+        try container.encode(iRowReturned, forKey: .iRowReturned)
+        try container.encode(iRowFiltered, forKey: .iRowFiltered)
     }
 }
 

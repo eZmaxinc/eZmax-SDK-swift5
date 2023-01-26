@@ -27,9 +27,9 @@ public struct EzmaxinvoicingsummaryglobalResponseCompound: Codable, JSONEncodabl
     public var dtEzmaxinvoicingsummaryglobalEnd: String
     /** The number of days for the Ezmaxinvoicingsummaryglobal */
     public var iEzmaxinvoicingsummaryglobalDays: Int
-    /** The The count item calculated */
+    /** The count item calculated */
     public var dEzmaxinvoicingsummaryglobalCountreal: String
-    /** The The count item billed */
+    /** The count item billed */
     public var dEzmaxinvoicingsummaryglobalCountbilled: String
     /** The Ezmaxinvoicingsummaryglobal subtotal */
     public var dEzmaxinvoicingsummaryglobalSubtotal: String
@@ -49,9 +49,11 @@ public struct EzmaxinvoicingsummaryglobalResponseCompound: Codable, JSONEncodabl
     public var dEzmaxinvoicingsummaryglobalNet: String?
     /** Whether it is adjustment for the Ezmaxinvoicingsummaryglobal */
     public var bEzmaxinvoicingsummaryglobalAdjustment: Bool
+    /** The help message of the Ezmaxproduct in the language of the requester */
+    public var tEzmaxproductHelpX: String
     public var aObjEzmaxinvoicingcommission: [EzmaxinvoicingcommissionResponseCompound]?
 
-    public init(pkiEzmaxinvoicingsummaryglobalID: Int? = nil, fkiEzmaxinvoicingID: Int? = nil, fkiEzmaxproductID: Int, sEzmaxproductDescriptionX: String, dtEzmaxinvoicingsummaryglobalStart: String, dtEzmaxinvoicingsummaryglobalEnd: String, iEzmaxinvoicingsummaryglobalDays: Int, dEzmaxinvoicingsummaryglobalCountreal: String, dEzmaxinvoicingsummaryglobalCountbilled: String, dEzmaxinvoicingsummaryglobalSubtotal: String, dEzmaxinvoicingsummaryglobalRebateamount: String, dEzmaxinvoicingsummaryglobalRebatepercent: String, dEzmaxinvoicingsummaryglobalRebatetotal: String, dEzmaxinvoicingsummaryglobalTotal: String, dEzmaxinvoicingsummaryglobalRepresentative: String? = nil, dEzmaxinvoicingsummaryglobalPartner: String? = nil, dEzmaxinvoicingsummaryglobalNet: String? = nil, bEzmaxinvoicingsummaryglobalAdjustment: Bool, aObjEzmaxinvoicingcommission: [EzmaxinvoicingcommissionResponseCompound]? = nil) {
+    public init(pkiEzmaxinvoicingsummaryglobalID: Int? = nil, fkiEzmaxinvoicingID: Int? = nil, fkiEzmaxproductID: Int, sEzmaxproductDescriptionX: String, dtEzmaxinvoicingsummaryglobalStart: String, dtEzmaxinvoicingsummaryglobalEnd: String, iEzmaxinvoicingsummaryglobalDays: Int, dEzmaxinvoicingsummaryglobalCountreal: String, dEzmaxinvoicingsummaryglobalCountbilled: String, dEzmaxinvoicingsummaryglobalSubtotal: String, dEzmaxinvoicingsummaryglobalRebateamount: String, dEzmaxinvoicingsummaryglobalRebatepercent: String, dEzmaxinvoicingsummaryglobalRebatetotal: String, dEzmaxinvoicingsummaryglobalTotal: String, dEzmaxinvoicingsummaryglobalRepresentative: String? = nil, dEzmaxinvoicingsummaryglobalPartner: String? = nil, dEzmaxinvoicingsummaryglobalNet: String? = nil, bEzmaxinvoicingsummaryglobalAdjustment: Bool, tEzmaxproductHelpX: String, aObjEzmaxinvoicingcommission: [EzmaxinvoicingcommissionResponseCompound]? = nil) {
         self.pkiEzmaxinvoicingsummaryglobalID = pkiEzmaxinvoicingsummaryglobalID
         self.fkiEzmaxinvoicingID = fkiEzmaxinvoicingID
         self.fkiEzmaxproductID = fkiEzmaxproductID
@@ -70,6 +72,7 @@ public struct EzmaxinvoicingsummaryglobalResponseCompound: Codable, JSONEncodabl
         self.dEzmaxinvoicingsummaryglobalPartner = dEzmaxinvoicingsummaryglobalPartner
         self.dEzmaxinvoicingsummaryglobalNet = dEzmaxinvoicingsummaryglobalNet
         self.bEzmaxinvoicingsummaryglobalAdjustment = bEzmaxinvoicingsummaryglobalAdjustment
+        self.tEzmaxproductHelpX = tEzmaxproductHelpX
         self.aObjEzmaxinvoicingcommission = aObjEzmaxinvoicingcommission
     }
 
@@ -92,6 +95,7 @@ public struct EzmaxinvoicingsummaryglobalResponseCompound: Codable, JSONEncodabl
         case dEzmaxinvoicingsummaryglobalPartner
         case dEzmaxinvoicingsummaryglobalNet
         case bEzmaxinvoicingsummaryglobalAdjustment
+        case tEzmaxproductHelpX
         case aObjEzmaxinvoicingcommission = "a_objEzmaxinvoicingcommission"
     }
 
@@ -117,6 +121,7 @@ public struct EzmaxinvoicingsummaryglobalResponseCompound: Codable, JSONEncodabl
         try container.encodeIfPresent(dEzmaxinvoicingsummaryglobalPartner, forKey: .dEzmaxinvoicingsummaryglobalPartner)
         try container.encodeIfPresent(dEzmaxinvoicingsummaryglobalNet, forKey: .dEzmaxinvoicingsummaryglobalNet)
         try container.encode(bEzmaxinvoicingsummaryglobalAdjustment, forKey: .bEzmaxinvoicingsummaryglobalAdjustment)
+        try container.encode(tEzmaxproductHelpX, forKey: .tEzmaxproductHelpX)
         try container.encodeIfPresent(aObjEzmaxinvoicingcommission, forKey: .aObjEzmaxinvoicingcommission)
     }
 }

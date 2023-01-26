@@ -10,10 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for GET /1/module/communication/getCount */
+/** Payload for GET /1/module/communication/getCommunicationCount */
 public struct CommunicationGetCountV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /** The number of total signatures in the Ezsigntemplate. */
+    /** The count of Communication. */
     public var iCommunicationCount: Int
 
     public init(iCommunicationCount: Int) {

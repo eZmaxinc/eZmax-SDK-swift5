@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The Type for the Communicationrecipient */
+/** The type for the Communicationrecipient */
 public enum FieldECommunicationrecipientType: String, Codable, CaseIterable {
     case to = "To"
     case cc = "Cc"

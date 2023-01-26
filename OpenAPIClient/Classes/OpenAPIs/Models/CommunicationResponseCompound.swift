@@ -15,45 +15,45 @@ public struct CommunicationResponseCompound: Codable, JSONEncodable, Hashable {
 
     /** The unique ID of the Communication. */
     public var pkiCommunicationID: Int
-    public var eCommunicationEmailimportance: FieldECommunicationEmailimportance?
+    public var eCommunicationImportance: FieldECommunicationImportance
     public var eCommunicationType: FieldECommunicationType
-    /** The Subject of the Communication */
+    /** The subject of the Communication */
     public var sCommunicationSubject: String
-    /** The send date and time at which the Communication was sent. */
-    public var dtCommunicationSentdate: String
+    public var eCommunicationDirection: ComputedECommunicationDirection
+    /** The count of Communicationrecipient */
+    public var iCommunicationrecipientCount: Int
     public var objContactFrom: CustomContactNameResponse
+    public var objAudit: CommonAudit
     public var aObjCommunicationattachment: [CommunicationattachmentResponseCompound]
     public var aObjCommunicationrecipient: [CommunicationrecipientResponseCompound]
     public var aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound]
-    public var aObjCommunicationimage: [CommunicationimageResponseCompound]
-    public var aObjCommunicationexternalimage: [CommunicationexternalimageResponseCompound]
 
-    public init(pkiCommunicationID: Int, eCommunicationEmailimportance: FieldECommunicationEmailimportance? = nil, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, dtCommunicationSentdate: String, objContactFrom: CustomContactNameResponse, aObjCommunicationattachment: [CommunicationattachmentResponseCompound], aObjCommunicationrecipient: [CommunicationrecipientResponseCompound], aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound], aObjCommunicationimage: [CommunicationimageResponseCompound], aObjCommunicationexternalimage: [CommunicationexternalimageResponseCompound]) {
+    public init(pkiCommunicationID: Int, eCommunicationImportance: FieldECommunicationImportance, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, eCommunicationDirection: ComputedECommunicationDirection, iCommunicationrecipientCount: Int, objContactFrom: CustomContactNameResponse, objAudit: CommonAudit, aObjCommunicationattachment: [CommunicationattachmentResponseCompound], aObjCommunicationrecipient: [CommunicationrecipientResponseCompound], aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound]) {
         self.pkiCommunicationID = pkiCommunicationID
-        self.eCommunicationEmailimportance = eCommunicationEmailimportance
+        self.eCommunicationImportance = eCommunicationImportance
         self.eCommunicationType = eCommunicationType
         self.sCommunicationSubject = sCommunicationSubject
-        self.dtCommunicationSentdate = dtCommunicationSentdate
+        self.eCommunicationDirection = eCommunicationDirection
+        self.iCommunicationrecipientCount = iCommunicationrecipientCount
         self.objContactFrom = objContactFrom
+        self.objAudit = objAudit
         self.aObjCommunicationattachment = aObjCommunicationattachment
         self.aObjCommunicationrecipient = aObjCommunicationrecipient
         self.aObjCommunicationexternalrecipient = aObjCommunicationexternalrecipient
-        self.aObjCommunicationimage = aObjCommunicationimage
-        self.aObjCommunicationexternalimage = aObjCommunicationexternalimage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCommunicationID
-        case eCommunicationEmailimportance
+        case eCommunicationImportance
         case eCommunicationType
         case sCommunicationSubject
-        case dtCommunicationSentdate
+        case eCommunicationDirection
+        case iCommunicationrecipientCount
         case objContactFrom
+        case objAudit
         case aObjCommunicationattachment = "a_objCommunicationattachment"
         case aObjCommunicationrecipient = "a_objCommunicationrecipient"
         case aObjCommunicationexternalrecipient = "a_objCommunicationexternalrecipient"
-        case aObjCommunicationimage = "a_objCommunicationimage"
-        case aObjCommunicationexternalimage = "a_objCommunicationexternalimage"
     }
 
     // Encodable protocol methods
@@ -61,16 +61,16 @@ public struct CommunicationResponseCompound: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCommunicationID, forKey: .pkiCommunicationID)
-        try container.encodeIfPresent(eCommunicationEmailimportance, forKey: .eCommunicationEmailimportance)
+        try container.encode(eCommunicationImportance, forKey: .eCommunicationImportance)
         try container.encode(eCommunicationType, forKey: .eCommunicationType)
         try container.encode(sCommunicationSubject, forKey: .sCommunicationSubject)
-        try container.encode(dtCommunicationSentdate, forKey: .dtCommunicationSentdate)
+        try container.encode(eCommunicationDirection, forKey: .eCommunicationDirection)
+        try container.encode(iCommunicationrecipientCount, forKey: .iCommunicationrecipientCount)
         try container.encode(objContactFrom, forKey: .objContactFrom)
+        try container.encode(objAudit, forKey: .objAudit)
         try container.encode(aObjCommunicationattachment, forKey: .aObjCommunicationattachment)
         try container.encode(aObjCommunicationrecipient, forKey: .aObjCommunicationrecipient)
         try container.encode(aObjCommunicationexternalrecipient, forKey: .aObjCommunicationexternalrecipient)
-        try container.encode(aObjCommunicationimage, forKey: .aObjCommunicationimage)
-        try container.encode(aObjCommunicationexternalimage, forKey: .aObjCommunicationexternalimage)
     }
 }
 

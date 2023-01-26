@@ -15,27 +15,25 @@ public struct CommunicationexternalrecipientResponse: Codable, JSONEncodable, Ha
 
     /** The unique ID of the Communicationexternalrecipient */
     public var pkiCommunicationexternalrecipientID: Int
-    /** The email address. */
-    public var sEmailAddress: String?
-    public var objPhoneSms: PhoneResponseCompound?
     public var eCommunicationexternalrecipientType: FieldECommunicationexternalrecipientType
-    /** The Name of the Communicationexternalrecipient */
-    public var sCommunicationexternalrecipientName: String
+    public var objDescriptionstatic: DescriptionstaticResponseCompound
+    public var objEmailstatic: EmailstaticResponseCompound?
+    public var objPhonestatic: PhonestaticResponseCompound?
 
-    public init(pkiCommunicationexternalrecipientID: Int, sEmailAddress: String? = nil, objPhoneSms: PhoneResponseCompound? = nil, eCommunicationexternalrecipientType: FieldECommunicationexternalrecipientType, sCommunicationexternalrecipientName: String) {
+    public init(pkiCommunicationexternalrecipientID: Int, eCommunicationexternalrecipientType: FieldECommunicationexternalrecipientType, objDescriptionstatic: DescriptionstaticResponseCompound, objEmailstatic: EmailstaticResponseCompound? = nil, objPhonestatic: PhonestaticResponseCompound? = nil) {
         self.pkiCommunicationexternalrecipientID = pkiCommunicationexternalrecipientID
-        self.sEmailAddress = sEmailAddress
-        self.objPhoneSms = objPhoneSms
         self.eCommunicationexternalrecipientType = eCommunicationexternalrecipientType
-        self.sCommunicationexternalrecipientName = sCommunicationexternalrecipientName
+        self.objDescriptionstatic = objDescriptionstatic
+        self.objEmailstatic = objEmailstatic
+        self.objPhonestatic = objPhonestatic
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCommunicationexternalrecipientID
-        case sEmailAddress
-        case objPhoneSms
         case eCommunicationexternalrecipientType
-        case sCommunicationexternalrecipientName
+        case objDescriptionstatic
+        case objEmailstatic
+        case objPhonestatic
     }
 
     // Encodable protocol methods
@@ -43,10 +41,10 @@ public struct CommunicationexternalrecipientResponse: Codable, JSONEncodable, Ha
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCommunicationexternalrecipientID, forKey: .pkiCommunicationexternalrecipientID)
-        try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
-        try container.encodeIfPresent(objPhoneSms, forKey: .objPhoneSms)
         try container.encode(eCommunicationexternalrecipientType, forKey: .eCommunicationexternalrecipientType)
-        try container.encode(sCommunicationexternalrecipientName, forKey: .sCommunicationexternalrecipientName)
+        try container.encode(objDescriptionstatic, forKey: .objDescriptionstatic)
+        try container.encodeIfPresent(objEmailstatic, forKey: .objEmailstatic)
+        try container.encodeIfPresent(objPhonestatic, forKey: .objPhonestatic)
     }
 }
 
