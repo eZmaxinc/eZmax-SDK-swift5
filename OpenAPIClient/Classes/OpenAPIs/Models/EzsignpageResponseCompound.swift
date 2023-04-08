@@ -13,6 +13,12 @@ import AnyCodable
 /** An Ezsignpage Object and children to create a complete structure */
 public struct EzsignpageResponseCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignpageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignpageWidthimageRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignpageHeightimageRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignpageWidthpdfRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignpageHeightpdfRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignpage */
     public var pkiEzsignpageID: Int
     /** The Width of the page's image in pixels calculated at 100 DPI */

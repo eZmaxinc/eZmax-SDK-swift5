@@ -13,6 +13,7 @@ import AnyCodable
 /** An EzmaxinvoicingEzsignfolder object containing information about the Ezmaxinvoicing for an Ezsignfolder */
 public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, Hashable {
 
+    static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
     /** The description of the Ezsignfolder */

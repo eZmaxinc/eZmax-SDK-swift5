@@ -36,7 +36,7 @@ open class ObjectEzsignfoldertypeAPI {
      - POST /1/object/ezsignfoldertype
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignfoldertypeCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsignfoldertypeCreateObjectV1Response> 
@@ -84,7 +84,7 @@ open class ObjectEzsignfoldertypeAPI {
      - PUT /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldertypeID: (path)  
      - parameter ezsignfoldertypeEditObjectV1Request: (body)  
@@ -156,7 +156,7 @@ open class ObjectEzsignfoldertypeAPI {
      - GET /1/object/ezsignfoldertype/getAutocomplete/{sSelector}
      - Get the list of Ezsignfoldertypes to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Ezsignfoldertypes to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
@@ -234,7 +234,7 @@ open class ObjectEzsignfoldertypeAPI {
      - GET /2/object/ezsignfoldertype/getAutocomplete/{sSelector}
      - Get the list of Ezsignfoldertype to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Ezsignfoldertypes to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
@@ -309,7 +309,7 @@ open class ObjectEzsignfoldertypeAPI {
      - GET /1/object/ezsignfoldertype/getList
      - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
      - parameter iRowMax: (query)  (optional)
@@ -349,58 +349,6 @@ open class ObjectEzsignfoldertypeAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func ezsignfoldertypeGetObjectV1(pkiEzsignfoldertypeID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfoldertypeGetObjectV1WithRequestBuilder(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsignfoldertype
-     - GET /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
-     - 
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsignfoldertypeID: (path)  
-     - returns: RequestBuilder<EzsignfoldertypeGetObjectV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsignfoldertypeGetObjectV1WithRequestBuilder(pkiEzsignfoldertypeID: Int) -> RequestBuilder<EzsignfoldertypeGetObjectV1Response> {
-        var localVariablePath = "/1/object/ezsignfoldertype/{pkiEzsignfoldertypeID}"
-        let pkiEzsignfoldertypeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldertypeID))"
-        let pkiEzsignfoldertypeIDPostEscape = pkiEzsignfoldertypeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldertypeID}", with: pkiEzsignfoldertypeIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsignfoldertypeGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Ezsignfoldertype
-     
-     - parameter pkiEzsignfoldertypeID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     @discardableResult
     open class func ezsignfoldertypeGetObjectV2(pkiEzsignfoldertypeID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignfoldertypeGetObjectV2WithRequestBuilder(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID).execute(apiResponseQueue) { result in
@@ -418,7 +366,7 @@ open class ObjectEzsignfoldertypeAPI {
      - GET /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldertypeID: (path)  
      - returns: RequestBuilder<EzsignfoldertypeGetObjectV2Response> 

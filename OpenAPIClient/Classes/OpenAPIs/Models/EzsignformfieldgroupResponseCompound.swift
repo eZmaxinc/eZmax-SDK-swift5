@@ -13,6 +13,13 @@ import AnyCodable
 /** An Ezsignformfieldgroup Object and children to create a complete structure */
 public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignformfieldgroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsignformfieldgroupLabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
+    static let iEzsignformfieldgroupStepRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignformfieldgroupFilledminRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignformfieldgroupFilledmaxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignformfieldgroupMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignformfieldgroup */
     public var pkiEzsignformfieldgroupID: Int
     /** The unique ID of the Ezsigndocument */

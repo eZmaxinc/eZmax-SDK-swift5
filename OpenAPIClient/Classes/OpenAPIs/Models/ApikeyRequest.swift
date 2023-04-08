@@ -13,6 +13,8 @@ import AnyCodable
 /** An Apikey Object */
 public struct ApikeyRequest: Codable, JSONEncodable, Hashable {
 
+    static let pkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Apikey */
     public var pkiApikeyID: Int?
     /** The unique ID of the User */

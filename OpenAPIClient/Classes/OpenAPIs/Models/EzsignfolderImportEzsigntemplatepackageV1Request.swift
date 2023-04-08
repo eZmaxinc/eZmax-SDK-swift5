@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage */
 public struct EzsignfolderImportEzsigntemplatepackageV1Request: Codable, JSONEncodable, Hashable {
 
+    static let fkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatepackage */
     public var fkiEzsigntemplatepackageID: Int
     /** The maximum date and time at which the Ezsigndocument can be signed. */

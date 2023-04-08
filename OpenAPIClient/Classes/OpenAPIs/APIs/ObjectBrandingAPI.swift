@@ -36,7 +36,7 @@ open class ObjectBrandingAPI {
      - POST /1/object/branding
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter brandingCreateObjectV1Request: (body)  
      - returns: RequestBuilder<BrandingCreateObjectV1Response> 
@@ -84,7 +84,7 @@ open class ObjectBrandingAPI {
      - PUT /1/object/branding/{pkiBrandingID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiBrandingID: (path)  
      - parameter brandingEditObjectV1Request: (body)  
@@ -109,84 +109,6 @@ open class ObjectBrandingAPI {
         let localVariableRequestBuilder: RequestBuilder<BrandingEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     * enum for parameter sSelector
-     */
-    public enum SSelector_brandingGetAutocompleteV1: String, CaseIterable {
-        case all = "All"
-    }
-
-    /**
-     * enum for parameter eFilterActive
-     */
-    public enum EFilterActive_brandingGetAutocompleteV1: String, CaseIterable {
-        case all = "All"
-        case active = "Active"
-        case inactive = "Inactive"
-    }
-
-    /**
-     Retrieve Brandings and IDs
-     
-     - parameter sSelector: (path) The type of Brandings to return 
-     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
-     - parameter sQuery: (query) Allow to filter the returned results (optional)
-     - parameter acceptLanguage: (header)  (optional)
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func brandingGetAutocompleteV1(sSelector: SSelector_brandingGetAutocompleteV1, eFilterActive: EFilterActive_brandingGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return brandingGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve Brandings and IDs
-     - GET /1/object/branding/getAutocomplete/{sSelector}
-     - Get the list of Branding to be used in a dropdown or autocomplete control.
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter sSelector: (path) The type of Brandings to return 
-     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
-     - parameter sQuery: (query) Allow to filter the returned results (optional)
-     - parameter acceptLanguage: (header)  (optional)
-     - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func brandingGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_brandingGetAutocompleteV1, eFilterActive: EFilterActive_brandingGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
-        var localVariablePath = "/1/object/branding/getAutocomplete/{sSelector}"
-        let sSelectorPreEscape = "\(sSelector.rawValue)"
-        let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "eFilterActive": (wrappedValue: eFilterActive?.encodeToJSON(), isExplode: true),
-            "sQuery": (wrappedValue: sQuery?.encodeToJSON(), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Accept-Language": acceptLanguage?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
@@ -232,7 +154,7 @@ open class ObjectBrandingAPI {
      - GET /2/object/branding/getAutocomplete/{sSelector}
      - Get the list of Branding to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Brandings to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
@@ -317,7 +239,7 @@ open class ObjectBrandingAPI {
      - GET /1/object/branding/getList
      - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eBrandingLogo | Default<br>JPEG<br>PNG |
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
      - parameter iRowMax: (query)  (optional)
@@ -357,58 +279,6 @@ open class ObjectBrandingAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func brandingGetObjectV1(pkiBrandingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return brandingGetObjectV1WithRequestBuilder(pkiBrandingID: pkiBrandingID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Branding
-     - GET /1/object/branding/{pkiBrandingID}
-     - 
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiBrandingID: (path)  
-     - returns: RequestBuilder<BrandingGetObjectV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func brandingGetObjectV1WithRequestBuilder(pkiBrandingID: Int) -> RequestBuilder<BrandingGetObjectV1Response> {
-        var localVariablePath = "/1/object/branding/{pkiBrandingID}"
-        let pkiBrandingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBrandingID))"
-        let pkiBrandingIDPostEscape = pkiBrandingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBrandingID}", with: pkiBrandingIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<BrandingGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Branding
-     
-     - parameter pkiBrandingID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     @discardableResult
     open class func brandingGetObjectV2(pkiBrandingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return brandingGetObjectV2WithRequestBuilder(pkiBrandingID: pkiBrandingID).execute(apiResponseQueue) { result in
@@ -426,7 +296,7 @@ open class ObjectBrandingAPI {
      - GET /2/object/branding/{pkiBrandingID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiBrandingID: (path)  
      - returns: RequestBuilder<BrandingGetObjectV2Response> 

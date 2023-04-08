@@ -59,7 +59,7 @@ open class ObjectPeriodAPI {
      - GET /1/object/period/getAutocomplete/{sSelector}
      - Get the list of Periods to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The types of Periods to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
@@ -139,7 +139,7 @@ open class ObjectPeriodAPI {
      - GET /2/object/period/getAutocomplete/{sSelector}
      - Get the list of Period to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Periods to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)

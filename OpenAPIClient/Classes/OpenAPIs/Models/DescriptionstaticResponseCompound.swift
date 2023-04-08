@@ -13,6 +13,7 @@ import AnyCodable
 /** A Descriptionstatic Object and children to create a complete structure */
 public struct DescriptionstaticResponseCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiDescriptionstaticIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Descriptionstatic */
     public var pkiDescriptionstaticID: Int
     /** The description of the Descriptionstatic */

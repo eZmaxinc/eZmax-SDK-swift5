@@ -36,7 +36,7 @@ open class ObjectEzsigntemplatepackagemembershipAPI {
      - POST /1/object/ezsigntemplatepackagemembership
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsigntemplatepackagemembershipCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsigntemplatepackagemembershipCreateObjectV1Response> 
@@ -83,7 +83,7 @@ open class ObjectEzsigntemplatepackagemembershipAPI {
      - DELETE /1/object/ezsigntemplatepackagemembership/{pkiEzsigntemplatepackagemembershipID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplatepackagemembershipID: (path)  
      - returns: RequestBuilder<EzsigntemplatepackagemembershipDeleteObjectV1Response> 
@@ -116,58 +116,6 @@ open class ObjectEzsigntemplatepackagemembershipAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func ezsigntemplatepackagemembershipGetObjectV1(pkiEzsigntemplatepackagemembershipID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepackagemembershipGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplatepackagemembershipGetObjectV1WithRequestBuilder(pkiEzsigntemplatepackagemembershipID: pkiEzsigntemplatepackagemembershipID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsigntemplatepackagemembership
-     - GET /1/object/ezsigntemplatepackagemembership/{pkiEzsigntemplatepackagemembershipID}
-     - 
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsigntemplatepackagemembershipID: (path)  
-     - returns: RequestBuilder<EzsigntemplatepackagemembershipGetObjectV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsigntemplatepackagemembershipGetObjectV1WithRequestBuilder(pkiEzsigntemplatepackagemembershipID: Int) -> RequestBuilder<EzsigntemplatepackagemembershipGetObjectV1Response> {
-        var localVariablePath = "/1/object/ezsigntemplatepackagemembership/{pkiEzsigntemplatepackagemembershipID}"
-        let pkiEzsigntemplatepackagemembershipIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatepackagemembershipID))"
-        let pkiEzsigntemplatepackagemembershipIDPostEscape = pkiEzsigntemplatepackagemembershipIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplatepackagemembershipID}", with: pkiEzsigntemplatepackagemembershipIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatepackagemembershipGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Ezsigntemplatepackagemembership
-     
-     - parameter pkiEzsigntemplatepackagemembershipID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     @discardableResult
     open class func ezsigntemplatepackagemembershipGetObjectV2(pkiEzsigntemplatepackagemembershipID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepackagemembershipGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatepackagemembershipGetObjectV2WithRequestBuilder(pkiEzsigntemplatepackagemembershipID: pkiEzsigntemplatepackagemembershipID).execute(apiResponseQueue) { result in
@@ -185,7 +133,7 @@ open class ObjectEzsigntemplatepackagemembershipAPI {
      - GET /2/object/ezsigntemplatepackagemembership/{pkiEzsigntemplatepackagemembershipID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplatepackagemembershipID: (path)  
      - returns: RequestBuilder<EzsigntemplatepackagemembershipGetObjectV2Response> 

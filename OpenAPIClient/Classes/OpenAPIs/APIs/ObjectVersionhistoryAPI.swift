@@ -36,7 +36,7 @@ open class ObjectVersionhistoryAPI {
      - GET /2/object/versionhistory/{pkiVersionhistoryID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiVersionhistoryID: (path)  
      - returns: RequestBuilder<VersionhistoryGetObjectV2Response> 

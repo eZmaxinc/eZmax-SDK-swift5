@@ -13,8 +13,11 @@ import AnyCodable
 /** An Ezsignfolder Object in the context of an Ezsignbulksendtransmission */
 public struct CustomEzsignfoldertransmissionResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
+    /** The description of the Ezsignfolder */
+    public var sEzsignfolderDescription: String
     public var eEzsignfolderStep: FieldEEzsignfolderStep
     /** The number of total signatures that were requested in the Ezsignfolder */
     public var iEzsignfolderSignaturetotal: Int
@@ -22,8 +25,9 @@ public struct CustomEzsignfoldertransmissionResponse: Codable, JSONEncodable, Ha
     public var iEzsignfolderSignaturesigned: Int
     public var aObjEzsignfoldertransmissionSigner: [CustomEzsignfoldertransmissionSignerResponse]
 
-    public init(pkiEzsignfolderID: Int, eEzsignfolderStep: FieldEEzsignfolderStep, iEzsignfolderSignaturetotal: Int, iEzsignfolderSignaturesigned: Int, aObjEzsignfoldertransmissionSigner: [CustomEzsignfoldertransmissionSignerResponse]) {
+    public init(pkiEzsignfolderID: Int, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, iEzsignfolderSignaturetotal: Int, iEzsignfolderSignaturesigned: Int, aObjEzsignfoldertransmissionSigner: [CustomEzsignfoldertransmissionSignerResponse]) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
+        self.sEzsignfolderDescription = sEzsignfolderDescription
         self.eEzsignfolderStep = eEzsignfolderStep
         self.iEzsignfolderSignaturetotal = iEzsignfolderSignaturetotal
         self.iEzsignfolderSignaturesigned = iEzsignfolderSignaturesigned
@@ -32,6 +36,7 @@ public struct CustomEzsignfoldertransmissionResponse: Codable, JSONEncodable, Ha
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignfolderID
+        case sEzsignfolderDescription
         case eEzsignfolderStep
         case iEzsignfolderSignaturetotal
         case iEzsignfolderSignaturesigned
@@ -43,6 +48,7 @@ public struct CustomEzsignfoldertransmissionResponse: Codable, JSONEncodable, Ha
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
+        try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
         try container.encode(iEzsignfolderSignaturetotal, forKey: .iEzsignfolderSignaturetotal)
         try container.encode(iEzsignfolderSignaturesigned, forKey: .iEzsignfolderSignaturesigned)

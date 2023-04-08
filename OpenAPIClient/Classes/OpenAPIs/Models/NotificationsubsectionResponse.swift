@@ -13,6 +13,8 @@ import AnyCodable
 /** A Notificationsubsection Object */
 public struct NotificationsubsectionResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiNotificationsubsectionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiNotificationsectionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Notificationsubsection */
     public var pkiNotificationsubsectionID: Int
     /** The unique ID of the Notificationsection */

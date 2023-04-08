@@ -36,7 +36,7 @@ open class ModuleUserAPI {
      - POST /1/module/user/createezsignuser
      - The endpoint allows to initiate the creation or a user of type Ezsignuser.  The user will be created only once the email verification process will be completed
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter userCreateEzsignuserV1Request: (body)  
      - returns: RequestBuilder<UserCreateEzsignuserV1Response> 

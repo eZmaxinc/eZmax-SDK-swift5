@@ -13,6 +13,10 @@ import AnyCodable
 /** An Ezsignfolder Object and children to create a complete structure */
 public struct EzsignfolderRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntsarequirementIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 3, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsignfolderExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int?
     /** The unique ID of the Ezsignfoldertype. */
@@ -24,14 +28,17 @@ public struct EzsignfolderRequestCompound: Codable, JSONEncodable, Hashable {
     /** Note about the Ezsignfolder */
     public var tEzsignfolderNote: String
     public var eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency
+    /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
+    public var sEzsignfolderExternalid: String?
 
-    public init(pkiEzsignfolderID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency) {
+    public init(pkiEzsignfolderID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, sEzsignfolderExternalid: String? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiEzsigntsarequirementID = fkiEzsigntsarequirementID
         self.sEzsignfolderDescription = sEzsignfolderDescription
         self.tEzsignfolderNote = tEzsignfolderNote
         self.eEzsignfolderSendreminderfrequency = eEzsignfolderSendreminderfrequency
+        self.sEzsignfolderExternalid = sEzsignfolderExternalid
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -41,6 +48,7 @@ public struct EzsignfolderRequestCompound: Codable, JSONEncodable, Hashable {
         case sEzsignfolderDescription
         case tEzsignfolderNote
         case eEzsignfolderSendreminderfrequency
+        case sEzsignfolderExternalid
     }
 
     // Encodable protocol methods
@@ -53,6 +61,7 @@ public struct EzsignfolderRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(tEzsignfolderNote, forKey: .tEzsignfolderNote)
         try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)
+        try container.encodeIfPresent(sEzsignfolderExternalid, forKey: .sEzsignfolderExternalid)
     }
 }
 

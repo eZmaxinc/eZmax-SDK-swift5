@@ -13,18 +13,25 @@ import AnyCodable
 /** A Paymentterm Object */
 public struct PaymenttermResponseCompound: Codable, JSONEncodable, Hashable {
 
+    static let sPaymenttermCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[A-Z0-9]{1,4}$/")
+    static let iPaymenttermDayRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Paymentterm */
     public var pkiPaymenttermID: Int
     /** The code of the Paymentterm */
     public var sPaymenttermCode: String
+    public var ePaymenttermType: FieldEPaymenttermType
+    /** The day of the Paymentterm */
+    public var iPaymenttermDay: Int
     public var objPaymenttermDescription: MultilingualPaymenttermDescription
     /** Whether the Paymentterm is active or not */
     public var bPaymenttermIsactive: Bool
     public var objAudit: CommonAudit
 
-    public init(pkiPaymenttermID: Int, sPaymenttermCode: String, objPaymenttermDescription: MultilingualPaymenttermDescription, bPaymenttermIsactive: Bool, objAudit: CommonAudit) {
+    public init(pkiPaymenttermID: Int, sPaymenttermCode: String, ePaymenttermType: FieldEPaymenttermType, iPaymenttermDay: Int, objPaymenttermDescription: MultilingualPaymenttermDescription, bPaymenttermIsactive: Bool, objAudit: CommonAudit) {
         self.pkiPaymenttermID = pkiPaymenttermID
         self.sPaymenttermCode = sPaymenttermCode
+        self.ePaymenttermType = ePaymenttermType
+        self.iPaymenttermDay = iPaymenttermDay
         self.objPaymenttermDescription = objPaymenttermDescription
         self.bPaymenttermIsactive = bPaymenttermIsactive
         self.objAudit = objAudit
@@ -33,6 +40,8 @@ public struct PaymenttermResponseCompound: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiPaymenttermID
         case sPaymenttermCode
+        case ePaymenttermType
+        case iPaymenttermDay
         case objPaymenttermDescription
         case bPaymenttermIsactive
         case objAudit
@@ -44,6 +53,8 @@ public struct PaymenttermResponseCompound: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiPaymenttermID, forKey: .pkiPaymenttermID)
         try container.encode(sPaymenttermCode, forKey: .sPaymenttermCode)
+        try container.encode(ePaymenttermType, forKey: .ePaymenttermType)
+        try container.encode(iPaymenttermDay, forKey: .iPaymenttermDay)
         try container.encode(objPaymenttermDescription, forKey: .objPaymenttermDescription)
         try container.encode(bPaymenttermIsactive, forKey: .bPaymenttermIsactive)
         try container.encode(objAudit, forKey: .objAudit)

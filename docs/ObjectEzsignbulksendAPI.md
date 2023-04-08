@@ -10,9 +10,9 @@ Method | HTTP request | Description
 [**ezsignbulksendEditObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendeditobjectv1) | **PUT** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
 [**ezsignbulksendGetCsvTemplateV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetcsvtemplatev1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getCsvTemplate | Retrieve an existing Ezsignbulksend&#39;s empty Csv template
 [**ezsignbulksendGetEzsignbulksendtransmissionsV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetezsignbulksendtransmissionsv1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignbulksendtransmissions | Retrieve an existing Ezsignbulksend&#39;s Ezsignbulksendtransmissions
+[**ezsignbulksendGetEzsignsignaturesAutomaticV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetezsignsignaturesautomaticv1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsignbulksend&#39;s automatic Ezsignsignatures
 [**ezsignbulksendGetFormsDataV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetformsdatav1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getFormsData | Retrieve an existing Ezsignbulksend&#39;s forms data
 [**ezsignbulksendGetListV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetlistv1) | **GET** /1/object/ezsignbulksend/getList | Retrieve Ezsignbulksend list
-[**ezsignbulksendGetObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetobjectv1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 [**ezsignbulksendGetObjectV2**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetobjectv2) | **GET** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 [**ezsignbulksendReorderV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendreorderv1) | **POST** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder | Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
@@ -321,6 +321,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsignbulksendGetEzsignsignaturesAutomaticV1**
+```swift
+    open class func ezsignbulksendGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
+
+Return the Ezsignsignatures that can be signed by the current user at the current step in the process
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignbulksendID = 987 // Int | 
+
+// Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
+ObjectEzsignbulksendAPI.ezsignbulksendGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignbulksendID** | **Int** |  | 
+
+### Return type
+
+[**EzsignbulksendGetEzsignsignaturesAutomaticV1Response**](EzsignbulksendGetEzsignsignaturesAutomaticV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsignbulksendGetFormsDataV1**
 ```swift
     open class func ezsignbulksendGetFormsDataV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetFormsDataV1Response?, _ error: Error?) -> Void)
@@ -426,56 +476,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ezsignbulksendGetObjectV1**
-```swift
-    open class func ezsignbulksendGetObjectV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Retrieve an existing Ezsignbulksend
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiEzsignbulksendID = 987 // Int | 
-
-// Retrieve an existing Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendGetObjectV1(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEzsignbulksendID** | **Int** |  | 
-
-### Return type
-
-[**EzsignbulksendGetObjectV1Response**](EzsignbulksendGetObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

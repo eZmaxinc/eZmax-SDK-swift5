@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **sEzsigntemplateDescription** | **String** | The description of the Ezsigntemplate | 
 **bEzsigntemplateAdminonly** | **Bool** | Whether the Ezsigntemplate can be accessed by admin users only (eUserType&#x3D;Normal) | 
 **sEzsignfoldertypeNameX** | **String** | The name of the Ezsignfoldertype in the language of the requester | 
+**objAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 **objEzsigntemplatedocument** | [**EzsigntemplatedocumentResponse**](EzsigntemplatedocumentResponse.md) |  | [optional] 
 **aObjEzsigntemplatesigner** | [EzsigntemplatesignerResponseCompound] |  | 
 

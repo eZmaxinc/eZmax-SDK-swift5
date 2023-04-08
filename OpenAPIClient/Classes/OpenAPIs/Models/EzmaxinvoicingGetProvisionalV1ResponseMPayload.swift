@@ -13,6 +13,15 @@ import AnyCodable
 /** Payload for GET /1/object/ezmaxinvoicing/getProvisional */
 public struct EzmaxinvoicingGetProvisionalV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzmaxinvoicingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzmaxinvoicingcontractIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzmaxpricingIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let yyyymmEzmaxinvoicingRule = StringRule(minLength: nil, maxLength: 7, pattern: nil)
+    static let iEzmaxinvoicingDaysRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let dEzmaxinvoicingRebatepaymenttypeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    static let iEzmaxinvoicingContractlengthRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let dEzmaxinvoicingRebatecontractlengthRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezmaxinvoicing */
     public var pkiEzmaxinvoicingID: Int?
     /** The unique ID of the Ezmaxinvoicingcontract */

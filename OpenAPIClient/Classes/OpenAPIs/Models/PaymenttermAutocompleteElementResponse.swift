@@ -13,6 +13,7 @@ import AnyCodable
 /** A Paymentterm AutocompleteElement Response */
 public struct PaymenttermAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
+    static let sPaymenttermDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
     /** The unique ID of the Paymentterm */
     public var pkiPaymenttermID: Int
     /** The description of the Paymentterm in the language of the requester */

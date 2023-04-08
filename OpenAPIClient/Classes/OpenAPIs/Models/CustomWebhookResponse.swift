@@ -13,6 +13,8 @@ import AnyCodable
 /** A custom Webhook object */
 public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
 
+    static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** Wheter the webhook received is a manual test or a real event */

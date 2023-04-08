@@ -13,6 +13,7 @@ import AnyCodable
 /** A Timezone AutocompleteElement Response */
 public struct TimezoneAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiTimezoneIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The description of the Timezone in the language of the requester */
     public var sTimezoneName: String
     /** The unique ID of the Timezone */

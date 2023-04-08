@@ -13,6 +13,7 @@ import AnyCodable
 /** An Emailstatic Object */
 public struct EmailstaticResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEmailstaticIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Emailstatic */
     public var pkiEmailstaticID: Int
     /** The email address. */

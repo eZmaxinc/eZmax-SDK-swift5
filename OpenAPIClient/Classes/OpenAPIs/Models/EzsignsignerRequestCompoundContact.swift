@@ -13,6 +13,9 @@ import AnyCodable
 /** A Ezsignsigner-&gt;Contact Object and children to create a complete structure */
 public struct EzsignsignerRequestCompoundContact: Codable, JSONEncodable, Hashable {
 
+    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
+    static let sPhoneE164CellRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
     /** The First name of the contact */
     public var sContactFirstname: String
     /** The Last name of the contact */

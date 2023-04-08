@@ -13,6 +13,8 @@ import AnyCodable
 /** Description of the Paymentterm */
 public struct MultilingualPaymenttermDescription: Codable, JSONEncodable, Hashable {
 
+    static let sPaymenttermDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
+    static let sPaymenttermDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
     /** The description of the Paymentterm in french */
     public var sPaymenttermDescription1: String?
     /** The description of the Paymentterm in english */

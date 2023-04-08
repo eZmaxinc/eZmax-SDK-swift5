@@ -13,6 +13,7 @@ import AnyCodable
 /** A Billingentityinternal AutocompleteElement Response */
 public struct BillingentityinternalAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The description of the Billingentityinternal in the language of the requester */
     public var sBillingentityinternalDescriptionX: String
     /** The unique ID of the Billingentityinternal. */

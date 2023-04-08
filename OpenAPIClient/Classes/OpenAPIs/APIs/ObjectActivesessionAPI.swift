@@ -35,7 +35,7 @@ open class ObjectActivesessionAPI {
      - GET /1/object/activesession/getCurrent
      - Retrieve the details about the current activesession
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - returns: RequestBuilder<ActivesessionGetCurrentV1Response> 
      */
@@ -53,6 +53,96 @@ open class ObjectActivesessionAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<ActivesessionGetCurrentV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_activesessionGetListV1: String, CaseIterable {
+        case pkiactivesessionidAsc = "pkiActivesessionID_ASC"
+        case pkiactivesessionidDesc = "pkiActivesessionID_DESC"
+        case fkiuseridAsc = "fkiUserID_ASC"
+        case fkiuseridDesc = "fkiUserID_DESC"
+        case fkicomputeridAsc = "fkiComputerID_ASC"
+        case fkicomputeridDesc = "fkiComputerID_DESC"
+        case fkicompanyidAsc = "fkiCompanyID_ASC"
+        case fkicompanyidDesc = "fkiCompanyID_DESC"
+        case fkidepartmentidAsc = "fkiDepartmentID_ASC"
+        case fkidepartmentidDesc = "fkiDepartmentID_DESC"
+        case scompanynamexAsc = "sCompanyNameX_ASC"
+        case scompanynamexDesc = "sCompanyNameX_DESC"
+        case sdepartmentnamexAsc = "sDepartmentNameX_ASC"
+        case sdepartmentnamexDesc = "sDepartmentNameX_DESC"
+        case sactivesessionloginnameAsc = "sActivesessionLoginname_ASC"
+        case sactivesessionloginnameDesc = "sActivesessionLoginname_DESC"
+        case scomputerdescriptionAsc = "sComputerDescription_ASC"
+        case scomputerdescriptionDesc = "sComputerDescription_DESC"
+        case dtactivesessionfirsthitAsc = "dtActivesessionFirsthit_ASC"
+        case dtactivesessionfirsthitDesc = "dtActivesessionFirsthit_DESC"
+        case dtactivesessionlasthitAsc = "dtActivesessionLasthit_ASC"
+        case dtactivesessionlasthitDesc = "dtActivesessionLasthit_DESC"
+        case sactivesessionipAsc = "sActivesessionIP_ASC"
+        case sactivesessionipDesc = "sActivesessionIP_DESC"
+    }
+
+    /**
+     Retrieve Activesession list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func activesessionGetListV1(eOrderBy: EOrderBy_activesessionGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ActivesessionGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return activesessionGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Activesession list
+     - GET /1/object/activesession/getList
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - returns: RequestBuilder<ActivesessionGetListV1Response> 
+     */
+    open class func activesessionGetListV1WithRequestBuilder(eOrderBy: EOrderBy_activesessionGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<ActivesessionGetListV1Response> {
+        let localVariablePath = "/1/object/activesession/getList"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ActivesessionGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

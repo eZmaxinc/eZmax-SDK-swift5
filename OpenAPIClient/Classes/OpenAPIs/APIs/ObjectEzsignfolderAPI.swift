@@ -37,7 +37,7 @@ open class ObjectEzsignfolderAPI {
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/archive
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter body: (body)  
@@ -88,7 +88,7 @@ open class ObjectEzsignfolderAPI {
      Download multiples files from an Ezsignfolder
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/batchDownload
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderBatchDownloadV1Request: (body)  
@@ -140,7 +140,7 @@ open class ObjectEzsignfolderAPI {
      - POST /1/object/ezsignfolder
      - The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignfolderCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsignfolderCreateObjectV1Response> 
@@ -188,7 +188,7 @@ open class ObjectEzsignfolderAPI {
      - POST /2/object/ezsignfolder
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignfolderCreateObjectV2Request: (body)  
      - returns: RequestBuilder<EzsignfolderCreateObjectV2Response> 
@@ -234,7 +234,7 @@ open class ObjectEzsignfolderAPI {
      Delete an existing Ezsignfolder
      - DELETE /1/object/ezsignfolder/{pkiEzsignfolderID}
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - returns: RequestBuilder<EzsignfolderDeleteObjectV1Response> 
@@ -284,7 +284,7 @@ open class ObjectEzsignfolderAPI {
      - POST /1/object/ezsignfolder/disposeEzsignfolders
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignfolderDisposeEzsignfoldersV1Request: (body)  
      - returns: RequestBuilder<EzsignfolderDisposeEzsignfoldersV1Response> 
@@ -332,7 +332,7 @@ open class ObjectEzsignfolderAPI {
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter body: (body)  
@@ -384,7 +384,7 @@ open class ObjectEzsignfolderAPI {
      - PUT /1/object/ezsignfolder/{pkiEzsignfolderID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderEditObjectV1Request: (body)  
@@ -435,7 +435,7 @@ open class ObjectEzsignfolderAPI {
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements
      - Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that can be filled by the current user at the current step in the process
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - returns: RequestBuilder<EzsignfolderGetActionableElementsV1Response> 
@@ -457,6 +457,106 @@ open class ObjectEzsignfolderAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetActionableElementsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Communication count
+     
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfolderGetCommunicationCountV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetCommunicationCountV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderGetCommunicationCountV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationCount
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignfolderID: (path)  
+     - returns: RequestBuilder<EzsignfolderGetCommunicationCountV1Response> 
+     */
+    open class func ezsignfolderGetCommunicationCountV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<EzsignfolderGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationCount"
+        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
+        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetCommunicationCountV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Communication list
+     
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfolderGetCommunicationListV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetCommunicationListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderGetCommunicationListV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Communication list
+     - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignfolderID: (path)  
+     - returns: RequestBuilder<EzsignfolderGetCommunicationListV1Response> 
+     */
+    open class func ezsignfolderGetCommunicationListV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<EzsignfolderGetCommunicationListV1Response> {
+        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList"
+        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
+        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetCommunicationListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -485,7 +585,7 @@ open class ObjectEzsignfolderAPI {
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - returns: RequestBuilder<EzsignfolderGetEzsigndocumentsV1Response> 
@@ -535,7 +635,7 @@ open class ObjectEzsignfolderAPI {
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociations
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - returns: RequestBuilder<EzsignfolderGetEzsignfoldersignerassociationsV1Response> 
@@ -557,6 +657,56 @@ open class ObjectEzsignfolderAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetEzsignfoldersignerassociationsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Ezsignfolder's automatic Ezsignsignatures
+     
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfolderGetEzsignsignaturesAutomaticV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderGetEzsignsignaturesAutomaticV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignfolder's automatic Ezsignsignatures
+     - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignaturesAutomatic
+     - Return the Ezsignsignatures that can be signed by the current user at the current step in the process
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignfolderID: (path)  
+     - returns: RequestBuilder<EzsignfolderGetEzsignsignaturesAutomaticV1Response> 
+     */
+    open class func ezsignfolderGetEzsignsignaturesAutomaticV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<EzsignfolderGetEzsignsignaturesAutomaticV1Response> {
+        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignaturesAutomatic"
+        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
+        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetEzsignsignaturesAutomaticV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -585,7 +735,7 @@ open class ObjectEzsignfolderAPI {
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - returns: RequestBuilder<EzsignfolderGetFormsDataV1Response> 
@@ -669,7 +819,7 @@ open class ObjectEzsignfolderAPI {
      - GET /1/object/ezsignfolder/getList
      - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
      - parameter iRowMax: (query)  (optional)
@@ -726,7 +876,7 @@ open class ObjectEzsignfolderAPI {
      Retrieve an existing Ezsignfolder
      - GET /1/object/ezsignfolder/{pkiEzsignfolderID}
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - returns: RequestBuilder<EzsignfolderGetObjectV1Response> 
@@ -777,7 +927,7 @@ open class ObjectEzsignfolderAPI {
      - GET /2/object/ezsignfolder/{pkiEzsignfolderID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - returns: RequestBuilder<EzsignfolderGetObjectV2Response> 
@@ -828,7 +978,7 @@ open class ObjectEzsignfolderAPI {
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsignfoldersignerassociations
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderImportEzsignfoldersignerassociationsV1Request: (body)  
@@ -880,7 +1030,7 @@ open class ObjectEzsignfolderAPI {
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage
      - This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderImportEzsigntemplatepackageV1Request: (body)  
@@ -931,7 +1081,7 @@ open class ObjectEzsignfolderAPI {
      Reorder Ezsigndocuments in the Ezsignfolder
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/reorder
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderReorderV1Request: (body)  
@@ -984,7 +1134,7 @@ open class ObjectEzsignfolderAPI {
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderSendV1Request: (body)  
@@ -1038,7 +1188,7 @@ open class ObjectEzsignfolderAPI {
      - POST /2/object/ezsignfolder/{pkiEzsignfolderID}/send
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderSendV2Request: (body)  
@@ -1091,7 +1241,7 @@ open class ObjectEzsignfolderAPI {
      - POST /3/object/ezsignfolder/{pkiEzsignfolderID}/send
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderSendV3Request: (body)  
@@ -1143,7 +1293,7 @@ open class ObjectEzsignfolderAPI {
      - POST /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend
      - Once an Ezsignfolder has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsignfolder and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on \"Non-completed\" Ezsigndocuments will be lost.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter body: (body)  

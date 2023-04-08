@@ -13,6 +13,12 @@ import AnyCodable
 /** An Ezsignformfield Object and children to create a complete structure */
 public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignformfieldIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignformfieldXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignformfieldYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignformfieldWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignformfieldHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignformfield */
     public var pkiEzsignformfieldID: Int
     /** The page number in the Ezsigndocument */

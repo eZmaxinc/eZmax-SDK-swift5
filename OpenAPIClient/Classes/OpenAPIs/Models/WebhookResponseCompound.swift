@@ -13,6 +13,7 @@ import AnyCodable
 /** A Webhook Object */
 public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
 
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int
     /** The description of the Webhook */

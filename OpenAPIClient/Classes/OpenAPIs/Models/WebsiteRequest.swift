@@ -13,6 +13,7 @@ import AnyCodable
 /** A Website Object */
 public struct WebsiteRequest: Codable, JSONEncodable, Hashable {
 
+    static let fkiWebsitetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey| */
     public var fkiWebsitetypeID: Int
     /** The URL of the website. */

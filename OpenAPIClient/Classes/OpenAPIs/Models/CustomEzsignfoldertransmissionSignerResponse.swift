@@ -13,6 +13,7 @@ import AnyCodable
 /** A form Signer Object in the context of an Ezsignfoldertransmissions */
 public struct CustomEzsignfoldertransmissionSignerResponse: Codable, JSONEncodable, Hashable {
 
+    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var fkiUserID: Int?
     /** The First name of the contact */

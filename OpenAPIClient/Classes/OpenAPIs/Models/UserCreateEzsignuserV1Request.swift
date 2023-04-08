@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/module/user/createEzsignuser */
 public struct UserCreateEzsignuserV1Request: Codable, JSONEncodable, Hashable {
 
+    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
     /** The First name of the user */

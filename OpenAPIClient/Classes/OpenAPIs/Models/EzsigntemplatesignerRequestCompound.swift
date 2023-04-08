@@ -13,6 +13,8 @@ import AnyCodable
 /** A Ezsigntemplatesigner Object and children */
 public struct EzsigntemplatesignerRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsigntemplatesignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatesigner */
     public var pkiEzsigntemplatesignerID: Int?
     /** The unique ID of the Ezsigntemplate */

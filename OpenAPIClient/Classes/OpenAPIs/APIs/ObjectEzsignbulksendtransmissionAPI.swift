@@ -36,7 +36,7 @@ open class ObjectEzsignbulksendtransmissionAPI {
      - GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getCsvErrors
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksendtransmissionID: (path)  
      - returns: RequestBuilder<String> 
@@ -58,6 +58,56 @@ open class ObjectEzsignbulksendtransmissionAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<String>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksendtransmission's automatic Ezsignsignatures
+     
+     - parameter pkiEzsignbulksendtransmissionID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1(pkiEzsignbulksendtransmissionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksendtransmission's automatic Ezsignsignatures
+     - GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getEzsignsignaturesAutomatic
+     - Return the Ezsignsignatures that can be signed by the current user at the current step in the process
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignbulksendtransmissionID: (path)  
+     - returns: RequestBuilder<EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Response> 
+     */
+    open class func ezsignbulksendtransmissionGetEzsignsignaturesAutomaticV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: Int) -> RequestBuilder<EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Response> {
+        var localVariablePath = "/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getEzsignsignaturesAutomatic"
+        let pkiEzsignbulksendtransmissionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendtransmissionID))"
+        let pkiEzsignbulksendtransmissionIDPostEscape = pkiEzsignbulksendtransmissionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendtransmissionID}", with: pkiEzsignbulksendtransmissionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -86,7 +136,7 @@ open class ObjectEzsignbulksendtransmissionAPI {
      - GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getFormsData
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksendtransmissionID: (path)  
      - returns: RequestBuilder<EzsignbulksendtransmissionGetFormsDataV1Response> 
@@ -119,58 +169,6 @@ open class ObjectEzsignbulksendtransmissionAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func ezsignbulksendtransmissionGetObjectV1(pkiEzsignbulksendtransmissionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendtransmissionGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignbulksendtransmissionGetObjectV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsignbulksendtransmission
-     - GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}
-     - 
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsignbulksendtransmissionID: (path)  
-     - returns: RequestBuilder<EzsignbulksendtransmissionGetObjectV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsignbulksendtransmissionGetObjectV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: Int) -> RequestBuilder<EzsignbulksendtransmissionGetObjectV1Response> {
-        var localVariablePath = "/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}"
-        let pkiEzsignbulksendtransmissionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendtransmissionID))"
-        let pkiEzsignbulksendtransmissionIDPostEscape = pkiEzsignbulksendtransmissionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendtransmissionID}", with: pkiEzsignbulksendtransmissionIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendtransmissionGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Ezsignbulksendtransmission
-     
-     - parameter pkiEzsignbulksendtransmissionID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     @discardableResult
     open class func ezsignbulksendtransmissionGetObjectV2(pkiEzsignbulksendtransmissionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendtransmissionGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendtransmissionGetObjectV2WithRequestBuilder(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID).execute(apiResponseQueue) { result in
@@ -188,7 +186,7 @@ open class ObjectEzsignbulksendtransmissionAPI {
      - GET /2/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksendtransmissionID: (path)  
      - returns: RequestBuilder<EzsignbulksendtransmissionGetObjectV2Response> 

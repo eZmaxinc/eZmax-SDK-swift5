@@ -20,11 +20,21 @@ public struct EzsigntemplatedocumentRequest: Codable, JSONEncodable, Hashable {
     }
     public enum EEzsigntemplatedocumentFormat: String, Codable, CaseIterable {
         case pdf = "Pdf"
+        case doc = "Doc"
+        case docx = "Docx"
+        case xls = "Xls"
+        case xlsx = "Xlsx"
+        case ppt = "Ppt"
+        case pptx = "Pptx"
     }
     public enum EEzsigntemplatedocumentForm: String, Codable, CaseIterable {
         case keep = "Keep"
         case convert = "Convert"
     }
+    static let pkiEzsigntemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplatesignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatedocument */
     public var pkiEzsigntemplatedocumentID: Int?
     /** The unique ID of the Ezsigntemplate */

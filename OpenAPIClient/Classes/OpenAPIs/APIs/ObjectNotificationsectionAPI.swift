@@ -37,7 +37,7 @@ open class ObjectNotificationsectionAPI {
      - GET /1/object/notificationsection/{pkiNotificationsectionID}/getNotificationtests
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiNotificationsectionID: (path)  
      - parameter bShowHidden: (query) Whether or not to return the hidden Notificationtests 

@@ -13,6 +13,8 @@ import AnyCodable
 /** A Phone Object and children to create a complete structure */
 public struct PhoneRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let fkiPhonetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sPhoneInternationalRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
     /** The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free| */
     public var fkiPhonetypeID: Int
     public var ePhoneType: FieldEPhoneType

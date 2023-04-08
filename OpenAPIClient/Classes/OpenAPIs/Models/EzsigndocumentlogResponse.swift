@@ -13,6 +13,8 @@ import AnyCodable
 /** An Ezsigndocumentlog Object */
 public struct EzsigndocumentlogResponse: Codable, JSONEncodable, Hashable {
 
+    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignsignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var fkiUserID: Int?
     /** The unique ID of the Ezsignsigner */

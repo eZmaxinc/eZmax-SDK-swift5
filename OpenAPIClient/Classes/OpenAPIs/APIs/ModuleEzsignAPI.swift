@@ -35,7 +35,7 @@ open class ModuleEzsignAPI {
      - GET /1/module/ezsign/suggestSigners
      - Retrieve previously used Ezsignsigners and all users from the system
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - returns: RequestBuilder<EzsignSuggestSignersV1Response> 
      */
@@ -81,7 +81,7 @@ open class ModuleEzsignAPI {
      - GET /1/module/ezsign/suggestTemplates
      - Retrieve Ezsigntemplates and Ezsigntemplatepackages that can be imported in a Ezsignfolder
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter fkiEzsignfoldertypeID: (query)  (optional)
      - returns: RequestBuilder<EzsignSuggestTemplatesV1Response> 

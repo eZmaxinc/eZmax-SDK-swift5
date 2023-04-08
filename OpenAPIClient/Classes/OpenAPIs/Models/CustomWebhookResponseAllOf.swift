@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct CustomWebhookResponseAllOf: Codable, JSONEncodable, Hashable {
 
+    static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** Wheter the webhook received is a manual test or a real event */

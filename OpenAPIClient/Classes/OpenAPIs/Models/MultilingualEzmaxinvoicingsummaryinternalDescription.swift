@@ -13,6 +13,8 @@ import AnyCodable
 /** Description of the Ezmaxinvoicingsummaryinternal */
 public struct MultilingualEzmaxinvoicingsummaryinternalDescription: Codable, JSONEncodable, Hashable {
 
+    static let sEzmaxinvoicingsummaryinternalDescription1Rule = StringRule(minLength: nil, maxLength: 70, pattern: nil)
+    static let sEzmaxinvoicingsummaryinternalDescription2Rule = StringRule(minLength: nil, maxLength: 70, pattern: nil)
     /** The Ezmaxinvoicingsummaryinternal description in french */
     public var sEzmaxinvoicingsummaryinternalDescription1: String?
     /** The Ezmaxinvoicingsummaryinternal description in english */

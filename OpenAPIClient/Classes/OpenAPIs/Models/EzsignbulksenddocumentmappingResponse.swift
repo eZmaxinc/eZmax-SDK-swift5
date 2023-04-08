@@ -13,6 +13,11 @@ import AnyCodable
 /** A Ezsignbulksenddocumentmapping Object */
 public struct EzsignbulksenddocumentmappingResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignbulksenddocumentmappingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignbulksendIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignbulksenddocumentmappingOrderRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignbulksenddocumentmapping. */
     public var pkiEzsignbulksenddocumentmappingID: Int
     /** The unique ID of the Ezsignbulksend */

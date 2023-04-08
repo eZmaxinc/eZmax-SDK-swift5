@@ -13,6 +13,7 @@ import AnyCodable
 /** An Apikey Object and children to create a complete structure */
 public struct ApikeyResponseCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public var objApikeyDescription: MultilingualApikeyDescription
     /** The secret token for the API key.  This will be returned only on creation. */
     public var sComputedToken: String?

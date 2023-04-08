@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiEzsignfolderID** | **Int** | The unique ID of the Ezsignfolder | 
+**sEzsignfolderDescription** | **String** | The description of the Ezsignfolder | 
 **eEzsignfolderStep** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **iEzsignfolderSignaturetotal** | **Int** | The number of total signatures that were requested in the Ezsignfolder | 
 **iEzsignfolderSignaturesigned** | **Int** | The number of signatures that were signed in the Ezsignfolder. | 

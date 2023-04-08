@@ -13,6 +13,10 @@ import AnyCodable
 /** A Ezsigntemplatepackagemembership Object */
 public struct EzsigntemplatepackagemembershipResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsigntemplatepackagemembershipIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigntemplatepackagemembershipOrderRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatepackagemembership */
     public var pkiEzsigntemplatepackagemembershipID: Int
     /** The unique ID of the Ezsigntemplatepackage */

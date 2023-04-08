@@ -13,6 +13,8 @@ import AnyCodable
 /** A Custom Ezmaxpricing Object */
 public struct CustomEzmaxpricingResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzmaxpricingIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let dEzmaxpricingRebateezsignallagentsRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezmaxpricing */
     public var pkiEzmaxpricingID: Int
     /** The rebate offered when eZsign is taken for all agents */

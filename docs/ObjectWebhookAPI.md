@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**webhookEditObjectV1**](ObjectWebhookAPI.md#webhookeditobjectv1) | **PUT** /1/object/webhook/{pkiWebhookID} | Edit an existing Webhook
 [**webhookGetHistoryV1**](ObjectWebhookAPI.md#webhookgethistoryv1) | **GET** /1/object/webhook/{pkiWebhookID}/getHistory | Retrieve the logs for recent Webhook calls
 [**webhookGetListV1**](ObjectWebhookAPI.md#webhookgetlistv1) | **GET** /1/object/webhook/getList | Retrieve Webhook list
-[**webhookGetObjectV1**](ObjectWebhookAPI.md#webhookgetobjectv1) | **GET** /1/object/webhook/{pkiWebhookID} | Retrieve an existing Webhook
 [**webhookGetObjectV2**](ObjectWebhookAPI.md#webhookgetobjectv2) | **GET** /2/object/webhook/{pkiWebhookID} | Retrieve an existing Webhook
 [**webhookTestV1**](ObjectWebhookAPI.md#webhooktestv1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 
@@ -273,56 +272,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **webhookGetObjectV1**
-```swift
-    open class func webhookGetObjectV1(pkiWebhookID: Int, completion: @escaping (_ data: WebhookGetObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Retrieve an existing Webhook
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiWebhookID = 987 // Int | 
-
-// Retrieve an existing Webhook
-ObjectWebhookAPI.webhookGetObjectV1(pkiWebhookID: pkiWebhookID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiWebhookID** | **Int** |  | 
-
-### Return type
-
-[**WebhookGetObjectV1Response**](WebhookGetObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

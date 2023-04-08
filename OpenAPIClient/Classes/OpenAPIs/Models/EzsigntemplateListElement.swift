@@ -13,6 +13,10 @@ import AnyCodable
 /** A Ezsigntemplate List Element */
 public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigntemplatedocumentPagetotalRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplate */
     public var pkiEzsigntemplateID: Int
     /** The unique ID of the Ezsignfoldertype. */

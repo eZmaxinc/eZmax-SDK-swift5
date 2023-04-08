@@ -13,6 +13,11 @@ import AnyCodable
 /** An Ezsignfolder Object */
 public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntsarequirementIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 3, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsignfolderExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
     /** The unique ID of the Ezsignfoldertype. */
@@ -50,8 +55,10 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfolderMessage: String
     public var objAudit: CommonAudit
+    /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
+    public var sEzsignfolderExternalid: String
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, bEzsignfolderIsdisposable: Bool, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String, objAudit: CommonAudit) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, fkiEzsigntsarequirementID: Int, sEzsigntsarequirementDescriptionX: String, sEzsignfolderDescription: String, tEzsignfolderNote: String, bEzsignfolderIsdisposable: Bool, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String, objAudit: CommonAudit, sEzsignfolderExternalid: String) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
@@ -72,6 +79,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
         self.dtEzsignfolderClose = dtEzsignfolderClose
         self.tEzsignfolderMessage = tEzsignfolderMessage
         self.objAudit = objAudit
+        self.sEzsignfolderExternalid = sEzsignfolderExternalid
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -95,6 +103,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
         case dtEzsignfolderClose
         case tEzsignfolderMessage
         case objAudit
+        case sEzsignfolderExternalid
     }
 
     // Encodable protocol methods
@@ -121,6 +130,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(dtEzsignfolderClose, forKey: .dtEzsignfolderClose)
         try container.encode(tEzsignfolderMessage, forKey: .tEzsignfolderMessage)
         try container.encode(objAudit, forKey: .objAudit)
+        try container.encode(sEzsignfolderExternalid, forKey: .sEzsignfolderExternalid)
     }
 }
 

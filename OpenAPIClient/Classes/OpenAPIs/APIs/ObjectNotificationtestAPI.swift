@@ -36,7 +36,7 @@ open class ObjectNotificationtestAPI {
      - GET /1/object/notificationtest/{pkiNotificationtestID}/getElements
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiNotificationtestID: (path)  
      - returns: RequestBuilder<NotificationtestGetElementsV1Response> 

@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate */
 public struct EzsigndocumentApplyEzsigntemplateV2Request: Codable, JSONEncodable, Hashable {
 
+    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplate */
     public var fkiEzsigntemplateID: Int
     public var aSEzsigntemplatesigner: [String]

@@ -37,7 +37,7 @@ open class ObjectEzsigntemplateAPI {
      - POST /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplateID: (path)  
      - parameter ezsigntemplateCopyV1Request: (body)  
@@ -88,7 +88,7 @@ open class ObjectEzsigntemplateAPI {
      - POST /1/object/ezsigntemplate
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsigntemplateCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsigntemplateCreateObjectV1Response> 
@@ -135,7 +135,7 @@ open class ObjectEzsigntemplateAPI {
      - DELETE /1/object/ezsigntemplate/{pkiEzsigntemplateID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplateID: (path)  
      - returns: RequestBuilder<EzsigntemplateDeleteObjectV1Response> 
@@ -186,7 +186,7 @@ open class ObjectEzsigntemplateAPI {
      - PUT /1/object/ezsigntemplate/{pkiEzsigntemplateID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplateID: (path)  
      - parameter ezsigntemplateEditObjectV1Request: (body)  
@@ -211,84 +211,6 @@ open class ObjectEzsigntemplateAPI {
         let localVariableRequestBuilder: RequestBuilder<EzsigntemplateEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     * enum for parameter sSelector
-     */
-    public enum SSelector_ezsigntemplateGetAutocompleteV1: String, CaseIterable {
-        case all = "All"
-    }
-
-    /**
-     * enum for parameter eFilterActive
-     */
-    public enum EFilterActive_ezsigntemplateGetAutocompleteV1: String, CaseIterable {
-        case all = "All"
-        case active = "Active"
-        case inactive = "Inactive"
-    }
-
-    /**
-     Retrieve Ezsigntemplate and IDs
-     
-     - parameter sSelector: (path) The type of Ezsigntemplate to return 
-     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
-     - parameter sQuery: (query) Allow to filter the returned results (optional)
-     - parameter acceptLanguage: (header)  (optional)
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func ezsigntemplateGetAutocompleteV1(sSelector: SSelector_ezsigntemplateGetAutocompleteV1, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplateGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve Ezsigntemplate and IDs
-     - GET /1/object/ezsigntemplate/getAutocomplete/{sSelector}
-     - Get the list of Ezsigntemplate to be used in a dropdown or autocomplete control.
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter sSelector: (path) The type of Ezsigntemplate to return 
-     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
-     - parameter sQuery: (query) Allow to filter the returned results (optional)
-     - parameter acceptLanguage: (header)  (optional)
-     - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsigntemplateGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_ezsigntemplateGetAutocompleteV1, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
-        var localVariablePath = "/1/object/ezsigntemplate/getAutocomplete/{sSelector}"
-        let sSelectorPreEscape = "\(sSelector.rawValue)"
-        let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "eFilterActive": (wrappedValue: eFilterActive?.encodeToJSON(), isExplode: true),
-            "sQuery": (wrappedValue: sQuery?.encodeToJSON(), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Accept-Language": acceptLanguage?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
@@ -334,7 +256,7 @@ open class ObjectEzsigntemplateAPI {
      - GET /2/object/ezsigntemplate/getAutocomplete/{sSelector}
      - Get the list of Ezsigntemplate to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Ezsigntemplates to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
@@ -421,7 +343,7 @@ open class ObjectEzsigntemplateAPI {
      - GET /1/object/ezsigntemplate/getList
      - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsigntemplateType | Company<br>Team<br>User<br>Usergroup | 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
      - parameter iRowMax: (query)  (optional)
@@ -479,7 +401,7 @@ open class ObjectEzsigntemplateAPI {
      - GET /1/object/ezsigntemplate/{pkiEzsigntemplateID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplateID: (path)  
      - returns: RequestBuilder<EzsigntemplateGetObjectV1Response> 
@@ -530,7 +452,7 @@ open class ObjectEzsigntemplateAPI {
      - GET /2/object/ezsigntemplate/{pkiEzsigntemplateID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplateID: (path)  
      - returns: RequestBuilder<EzsigntemplateGetObjectV2Response> 

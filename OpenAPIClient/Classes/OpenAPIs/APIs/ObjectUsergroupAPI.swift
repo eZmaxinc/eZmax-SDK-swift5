@@ -13,35 +13,15 @@ import AnyCodable
 open class ObjectUsergroupAPI {
 
     /**
-     * enum for parameter sSelector
-     */
-    public enum SSelector_usergroupGetAutocompleteV1: String, CaseIterable {
-        case all = "All"
-    }
-
-    /**
-     * enum for parameter eFilterActive
-     */
-    public enum EFilterActive_usergroupGetAutocompleteV1: String, CaseIterable {
-        case all = "All"
-        case active = "Active"
-        case inactive = "Inactive"
-    }
-
-    /**
-     Retrieve Usergroups and IDs
+     Create a new Usergroup
      
-     - parameter sSelector: (path) The type of Usergroups to return 
-     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
-     - parameter sQuery: (query) Allow to filter the returned results (optional)
-     - parameter acceptLanguage: (header)  (optional)
+     - parameter usergroupCreateObjectV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
-    open class func usergroupGetAutocompleteV1(sSelector: SSelector_usergroupGetAutocompleteV1, eFilterActive: EFilterActive_usergroupGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return usergroupGetAutocompleteV1WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+    open class func usergroupCreateObjectV1(usergroupCreateObjectV1Request: UsergroupCreateObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupCreateObjectV1WithRequestBuilder(usergroupCreateObjectV1Request: usergroupCreateObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -52,42 +32,133 @@ open class ObjectUsergroupAPI {
     }
 
     /**
-     Retrieve Usergroups and IDs
-     - GET /1/object/usergroup/getAutocomplete/{sSelector}
-     - Get the list of Usergroup to be used in a dropdown or autocomplete control.
+     Create a new Usergroup
+     - POST /1/object/usergroup
+     - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter sSelector: (path) The type of Usergroups to return 
-     - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
-     - parameter sQuery: (query) Allow to filter the returned results (optional)
-     - parameter acceptLanguage: (header)  (optional)
-     - returns: RequestBuilder<CommonGetAutocompleteV1Response> 
+     - parameter usergroupCreateObjectV1Request: (body)  
+     - returns: RequestBuilder<UsergroupCreateObjectV1Response> 
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func usergroupGetAutocompleteV1WithRequestBuilder(sSelector: SSelector_usergroupGetAutocompleteV1, eFilterActive: EFilterActive_usergroupGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<CommonGetAutocompleteV1Response> {
-        var localVariablePath = "/1/object/usergroup/getAutocomplete/{sSelector}"
-        let sSelectorPreEscape = "\(sSelector.rawValue)"
-        let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{sSelector}", with: sSelectorPostEscape, options: .literal, range: nil)
+    open class func usergroupCreateObjectV1WithRequestBuilder(usergroupCreateObjectV1Request: UsergroupCreateObjectV1Request) -> RequestBuilder<UsergroupCreateObjectV1Response> {
+        let localVariablePath = "/1/object/usergroup"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: usergroupCreateObjectV1Request)
 
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "eFilterActive": (wrappedValue: eFilterActive?.encodeToJSON(), isExplode: true),
-            "sQuery": (wrappedValue: sQuery?.encodeToJSON(), isExplode: true),
-        ])
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            "Accept-Language": acceptLanguage?.encodeToJSON(),
+            :
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonGetAutocompleteV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UsergroupCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Delete an existing Usergroup
+     
+     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupDeleteObjectV1(pkiUsergroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupDeleteObjectV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Delete an existing Usergroup
+     - DELETE /1/object/usergroup/{pkiUsergroupID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - returns: RequestBuilder<UsergroupDeleteObjectV1Response> 
+     */
+    open class func usergroupDeleteObjectV1WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupDeleteObjectV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Edit an existing Usergroup
+     
+     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter usergroupEditObjectV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupEditObjectV1(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupEditObjectV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID, usergroupEditObjectV1Request: usergroupEditObjectV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit an existing Usergroup
+     - PUT /1/object/usergroup/{pkiUsergroupID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter usergroupEditObjectV1Request: (body)  
+     - returns: RequestBuilder<UsergroupEditObjectV1Response> 
+     */
+    open class func usergroupEditObjectV1WithRequestBuilder(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request) -> RequestBuilder<UsergroupEditObjectV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: usergroupEditObjectV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
@@ -133,7 +204,7 @@ open class ObjectUsergroupAPI {
      - GET /2/object/usergroup/getAutocomplete/{sSelector}
      - Get the list of Usergroup to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Usergroups to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
@@ -162,6 +233,176 @@ open class ObjectUsergroupAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<UsergroupGetAutocompleteV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_usergroupGetListV1: String, CaseIterable {
+        case pkiusergroupidAsc = "pkiUsergroupID_ASC"
+        case pkiusergroupidDesc = "pkiUsergroupID_DESC"
+        case susergroupnamexAsc = "sUsergroupNameX_ASC"
+        case susergroupnamexDesc = "sUsergroupNameX_DESC"
+    }
+
+    /**
+     Retrieve Usergroup list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupGetListV1(eOrderBy: EOrderBy_usergroupGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Usergroup list
+     - GET /1/object/usergroup/getList
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - returns: RequestBuilder<UsergroupGetListV1Response> 
+     */
+    open class func usergroupGetListV1WithRequestBuilder(eOrderBy: EOrderBy_usergroupGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<UsergroupGetListV1Response> {
+        let localVariablePath = "/1/object/usergroup/getList"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Usergroup's members
+     
+     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupGetMembersV1(pkiUsergroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupGetMembersV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupGetMembersV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Usergroup's members
+     - GET /1/object/usergroup/{pkiUsergroupID}/getMembers
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - returns: RequestBuilder<UsergroupGetMembersV1Response> 
+     */
+    open class func usergroupGetMembersV1WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupGetMembersV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}/getMembers"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupGetMembersV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Usergroup
+     
+     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupGetObjectV2(pkiUsergroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupGetObjectV2WithRequestBuilder(pkiUsergroupID: pkiUsergroupID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Usergroup
+     - GET /2/object/usergroup/{pkiUsergroupID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - returns: RequestBuilder<UsergroupGetObjectV2Response> 
+     */
+    open class func usergroupGetObjectV2WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupGetObjectV2Response> {
+        var localVariablePath = "/2/object/usergroup/{pkiUsergroupID}"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

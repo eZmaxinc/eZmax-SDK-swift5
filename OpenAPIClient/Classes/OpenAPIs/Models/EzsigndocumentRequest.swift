@@ -20,11 +20,23 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     }
     public enum EEzsigndocumentFormat: String, Codable, CaseIterable {
         case pdf = "Pdf"
+        case doc = "Doc"
+        case docx = "Docx"
+        case xls = "Xls"
+        case xlsx = "Xlsx"
+        case ppt = "Ppt"
+        case pptx = "Pptx"
     }
     public enum EEzsigndocumentForm: String, Codable, CaseIterable {
         case keep = "Keep"
         case convert = "Convert"
     }
+    static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsigndocumentExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
     /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int?
     /** The unique ID of the Ezsignfolder */
@@ -53,8 +65,10 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     public var dtEzsigndocumentDuedate: String
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */
     public var sEzsigndocumentName: String
+    /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
+    public var sEzsigndocumentExternalid: String?
 
-    public init(pkiEzsigndocumentID: Int? = nil, fkiEzsignfolderID: Int, fkiEzsigntemplateID: Int? = nil, fkiEzsignfoldersignerassociationID: Int? = nil, fkiLanguageID: Int, eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat? = nil, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = nil, eEzsigndocumentForm: EEzsigndocumentForm? = nil, dtEzsigndocumentDuedate: String, sEzsigndocumentName: String) {
+    public init(pkiEzsigndocumentID: Int? = nil, fkiEzsignfolderID: Int, fkiEzsigntemplateID: Int? = nil, fkiEzsignfoldersignerassociationID: Int? = nil, fkiLanguageID: Int, eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat? = nil, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = nil, eEzsigndocumentForm: EEzsigndocumentForm? = nil, dtEzsigndocumentDuedate: String, sEzsigndocumentName: String, sEzsigndocumentExternalid: String? = nil) {
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsigntemplateID = fkiEzsigntemplateID
@@ -69,6 +83,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
         self.eEzsigndocumentForm = eEzsigndocumentForm
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
         self.sEzsigndocumentName = sEzsigndocumentName
+        self.sEzsigndocumentExternalid = sEzsigndocumentExternalid
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -86,6 +101,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
         case eEzsigndocumentForm
         case dtEzsigndocumentDuedate
         case sEzsigndocumentName
+        case sEzsigndocumentExternalid
     }
 
     // Encodable protocol methods
@@ -106,6 +122,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eEzsigndocumentForm, forKey: .eEzsigndocumentForm)
         try container.encode(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)
         try container.encode(sEzsigndocumentName, forKey: .sEzsigndocumentName)
+        try container.encodeIfPresent(sEzsigndocumentExternalid, forKey: .sEzsigndocumentExternalid)
     }
 }
 

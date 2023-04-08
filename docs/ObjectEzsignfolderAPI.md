@@ -13,8 +13,11 @@ Method | HTTP request | Description
 [**ezsignfolderDisposeV1**](ObjectEzsignfolderAPI.md#ezsignfolderdisposev1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose | Dispose the Ezsignfolder
 [**ezsignfolderEditObjectV1**](ObjectEzsignfolderAPI.md#ezsignfoldereditobjectv1) | **PUT** /1/object/ezsignfolder/{pkiEzsignfolderID} | Edit an existing Ezsignfolder
 [**ezsignfolderGetActionableElementsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetactionableelementsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
+[**ezsignfolderGetCommunicationCountV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationcountv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationCount | Retrieve Communication count
+[**ezsignfolderGetCommunicationListV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationlistv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList | Retrieve Communication list
 [**ezsignfolderGetEzsigndocumentsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsigndocumentsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
 [**ezsignfolderGetEzsignfoldersignerassociationsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsignfoldersignerassociationsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociations | Retrieve an existing Ezsignfolder&#39;s Ezsignfoldersignerassociations
+[**ezsignfolderGetEzsignsignaturesAutomaticV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsignsignaturesautomaticv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsignfolder&#39;s automatic Ezsignsignatures
 [**ezsignfolderGetFormsDataV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetformsdatav1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData | Retrieve an existing Ezsignfolder&#39;s forms data
 [**ezsignfolderGetListV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetlistv1) | **GET** /1/object/ezsignfolder/getList | Retrieve Ezsignfolder list
 [**ezsignfolderGetObjectV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetobjectv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
@@ -144,7 +147,7 @@ The endpoint allows to create one or many elements at once.  The array can conta
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignfolderCreateObjectV1Request = [ezsignfolder-createObject-v1-Request(objEzsignfolder: ezsignfolder-Request(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency()), objEzsignfolderCompound: ezsignfolder-RequestCompound(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: nil))] // [EzsignfolderCreateObjectV1Request] | 
+let ezsignfolderCreateObjectV1Request = [ezsignfolder-createObject-v1-Request(objEzsignfolder: ezsignfolder-Request(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency(), sEzsignfolderExternalid: "sEzsignfolderExternalid_example"), objEzsignfolderCompound: ezsignfolder-RequestCompound(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: nil, sEzsignfolderExternalid: "sEzsignfolderExternalid_example"))] // [EzsignfolderCreateObjectV1Request] | 
 
 // Create a new Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderCreateObjectV1(ezsignfolderCreateObjectV1Request: ezsignfolderCreateObjectV1Request) { (response, error) in
@@ -194,7 +197,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignfolderCreateObjectV2Request = ezsignfolder-createObject-v2-Request(aObjEzsignfolder: [ezsignfolder-RequestCompound(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency())]) // EzsignfolderCreateObjectV2Request | 
+let ezsignfolderCreateObjectV2Request = ezsignfolder-createObject-v2-Request(aObjEzsignfolder: [ezsignfolder-RequestCompound(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency(), sEzsignfolderExternalid: "sEzsignfolderExternalid_example")]) // EzsignfolderCreateObjectV2Request | 
 
 // Create a new Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderCreateObjectV2(ezsignfolderCreateObjectV2Request: ezsignfolderCreateObjectV2Request) { (response, error) in
@@ -395,7 +398,7 @@ Edit an existing Ezsignfolder
 import OpenAPIClient
 
 let pkiEzsignfolderID = 987 // Int | 
-let ezsignfolderEditObjectV1Request = ezsignfolder-editObject-v1-Request(objEzsignfolder: ezsignfolder-RequestCompound(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency())) // EzsignfolderEditObjectV1Request | 
+let ezsignfolderEditObjectV1Request = ezsignfolder-editObject-v1-Request(objEzsignfolder: ezsignfolder-RequestCompound(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency(), sEzsignfolderExternalid: "sEzsignfolderExternalid_example")) // EzsignfolderEditObjectV1Request | 
 
 // Edit an existing Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderEditObjectV1(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderEditObjectV1Request: ezsignfolderEditObjectV1Request) { (response, error) in
@@ -470,6 +473,106 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderGetActionableElementsV1Response**](EzsignfolderGetActionableElementsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderGetCommunicationCountV1**
+```swift
+    open class func ezsignfolderGetCommunicationCountV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetCommunicationCountV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Communication count
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+
+// Retrieve Communication count
+ObjectEzsignfolderAPI.ezsignfolderGetCommunicationCountV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfolderGetCommunicationCountV1Response**](EzsignfolderGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderGetCommunicationListV1**
+```swift
+    open class func ezsignfolderGetCommunicationListV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetCommunicationListV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Communication list
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+
+// Retrieve Communication list
+ObjectEzsignfolderAPI.ezsignfolderGetCommunicationListV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfolderGetCommunicationListV1Response**](EzsignfolderGetCommunicationListV1Response.md)
 
 ### Authorization
 
@@ -570,6 +673,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderGetEzsignfoldersignerassociationsV1Response**](EzsignfolderGetEzsignfoldersignerassociationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderGetEzsignsignaturesAutomaticV1**
+```swift
+    open class func ezsignfolderGetEzsignsignaturesAutomaticV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignfolder's automatic Ezsignsignatures
+
+Return the Ezsignsignatures that can be signed by the current user at the current step in the process
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+
+// Retrieve an existing Ezsignfolder's automatic Ezsignsignatures
+ObjectEzsignfolderAPI.ezsignfolderGetEzsignsignaturesAutomaticV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfolderGetEzsignsignaturesAutomaticV1Response**](EzsignfolderGetEzsignsignaturesAutomaticV1Response.md)
 
 ### Authorization
 

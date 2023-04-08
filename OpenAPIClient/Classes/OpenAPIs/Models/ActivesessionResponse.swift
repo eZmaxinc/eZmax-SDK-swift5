@@ -13,6 +13,9 @@ import AnyCodable
 /** An Activesession Object */
 public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
 
+    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
+    static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public var eActivesessionUsertype: FieldEActivesessionUsertype
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */

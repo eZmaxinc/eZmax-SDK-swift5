@@ -6,10 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**brandingCreateObjectV1**](ObjectBrandingAPI.md#brandingcreateobjectv1) | **POST** /1/object/branding | Create a new Branding
 [**brandingEditObjectV1**](ObjectBrandingAPI.md#brandingeditobjectv1) | **PUT** /1/object/branding/{pkiBrandingID} | Edit an existing Branding
-[**brandingGetAutocompleteV1**](ObjectBrandingAPI.md#brandinggetautocompletev1) | **GET** /1/object/branding/getAutocomplete/{sSelector} | Retrieve Brandings and IDs
 [**brandingGetAutocompleteV2**](ObjectBrandingAPI.md#brandinggetautocompletev2) | **GET** /2/object/branding/getAutocomplete/{sSelector} | Retrieve Brandings and IDs
 [**brandingGetListV1**](ObjectBrandingAPI.md#brandinggetlistv1) | **GET** /1/object/branding/getList | Retrieve Branding list
-[**brandingGetObjectV1**](ObjectBrandingAPI.md#brandinggetobjectv1) | **GET** /1/object/branding/{pkiBrandingID} | Retrieve an existing Branding
 [**brandingGetObjectV2**](ObjectBrandingAPI.md#brandinggetobjectv2) | **GET** /2/object/branding/{pkiBrandingID} | Retrieve an existing Branding
 
 
@@ -111,62 +109,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **brandingGetAutocompleteV1**
-```swift
-    open class func brandingGetAutocompleteV1(sSelector: SSelector_brandingGetAutocompleteV1, eFilterActive: EFilterActive_brandingGetAutocompleteV1? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: CommonGetAutocompleteV1Response?, _ error: Error?) -> Void)
-```
-
-Retrieve Brandings and IDs
-
-Get the list of Branding to be used in a dropdown or autocomplete control.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let sSelector = "sSelector_example" // String | The type of Brandings to return
-let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
-let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
-let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
-
-// Retrieve Brandings and IDs
-ObjectBrandingAPI.brandingGetAutocompleteV1(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sSelector** | **String** | The type of Brandings to return | 
- **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
- **sQuery** | **String** | Allow to filter the returned results | [optional] 
- **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
-
-### Return type
-
-[**CommonGetAutocompleteV1Response**](CommonGetAutocompleteV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -282,56 +224,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **brandingGetObjectV1**
-```swift
-    open class func brandingGetObjectV1(pkiBrandingID: Int, completion: @escaping (_ data: BrandingGetObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Retrieve an existing Branding
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiBrandingID = 987 // Int | 
-
-// Retrieve an existing Branding
-ObjectBrandingAPI.brandingGetObjectV1(pkiBrandingID: pkiBrandingID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiBrandingID** | **Int** |  | 
-
-### Return type
-
-[**BrandingGetObjectV1Response**](BrandingGetObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -36,7 +36,7 @@ open class ObjectPaymenttermAPI {
      - POST /1/object/paymentterm
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter paymenttermCreateObjectV1Request: (body)  
      - returns: RequestBuilder<PaymenttermCreateObjectV1Response> 
@@ -83,7 +83,7 @@ open class ObjectPaymenttermAPI {
      - DELETE /1/object/paymentterm/{pkiPaymenttermID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiPaymenttermID: (path)  
      - returns: RequestBuilder<PaymenttermDeleteObjectV1Response> 
@@ -134,7 +134,7 @@ open class ObjectPaymenttermAPI {
      - PUT /1/object/paymentterm/{pkiPaymenttermID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiPaymenttermID: (path)  
      - parameter paymenttermEditObjectV1Request: (body)  
@@ -204,7 +204,7 @@ open class ObjectPaymenttermAPI {
      - GET /2/object/paymentterm/getAutocomplete/{sSelector}
      - Get the list of Paymentterm to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Paymentterms to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
@@ -245,6 +245,10 @@ open class ObjectPaymenttermAPI {
         case pkipaymenttermidDesc = "pkiPaymenttermID_DESC"
         case spaymenttermcodeAsc = "sPaymenttermCode_ASC"
         case spaymenttermcodeDesc = "sPaymenttermCode_DESC"
+        case epaymenttermtypeAsc = "ePaymenttermType_ASC"
+        case epaymenttermtypeDesc = "ePaymenttermType_DESC"
+        case ipaymenttermdayAsc = "iPaymenttermDay_ASC"
+        case ipaymenttermdayDesc = "iPaymenttermDay_DESC"
         case spaymenttermdescriptionxAsc = "sPaymenttermDescriptionX_ASC"
         case spaymenttermdescriptionxDesc = "sPaymenttermDescriptionX_DESC"
         case bpaymenttermisactiveAsc = "bPaymenttermIsactive_ASC"
@@ -278,7 +282,7 @@ open class ObjectPaymenttermAPI {
      Retrieve Paymentterm list
      - GET /1/object/paymentterm/getList
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
      - parameter iRowMax: (query)  (optional)
@@ -335,7 +339,7 @@ open class ObjectPaymenttermAPI {
      - GET /2/object/paymentterm/{pkiPaymenttermID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiPaymenttermID: (path)  
      - returns: RequestBuilder<PaymenttermGetObjectV2Response> 

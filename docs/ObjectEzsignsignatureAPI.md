@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**ezsignsignatureCreateObjectV2**](ObjectEzsignsignatureAPI.md#ezsignsignaturecreateobjectv2) | **POST** /2/object/ezsignsignature | Create a new Ezsignsignature
 [**ezsignsignatureDeleteObjectV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturedeleteobjectv1) | **DELETE** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Delete an existing Ezsignsignature
 [**ezsignsignatureEditObjectV1**](ObjectEzsignsignatureAPI.md#ezsignsignatureeditobjectv1) | **PUT** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Edit an existing Ezsignsignature
-[**ezsignsignatureGetObjectV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturegetobjectv1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
+[**ezsignsignatureGetEzsignsignaturesAutomaticV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturegetezsignsignaturesautomaticv1) | **GET** /1/object/ezsignsignature/getEzsignsignaturesAutomatic | Retrieve all automatic Ezsignsignatures
 [**ezsignsignatureGetObjectV2**](ObjectEzsignsignatureAPI.md#ezsignsignaturegetobjectv2) | **GET** /2/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
 [**ezsignsignatureSignV1**](ObjectEzsignsignatureAPI.md#ezsignsignaturesignv1) | **POST** /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign | Sign the Ezsignsignature
 
@@ -215,24 +215,23 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsignsignatureGetObjectV1**
+# **ezsignsignatureGetEzsignsignaturesAutomaticV1**
 ```swift
-    open class func ezsignsignatureGetObjectV1(pkiEzsignsignatureID: Int, completion: @escaping (_ data: EzsignsignatureGetObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignatureGetEzsignsignaturesAutomaticV1(completion: @escaping (_ data: EzsignsignatureGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
 ```
 
-Retrieve an existing Ezsignsignature
+Retrieve all automatic Ezsignsignatures
 
-
+Return all the Ezsignsignatures that can be signed by the current user
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiEzsignsignatureID = 987 // Int | 
 
-// Retrieve an existing Ezsignsignature
-ObjectEzsignsignatureAPI.ezsignsignatureGetObjectV1(pkiEzsignsignatureID: pkiEzsignsignatureID) { (response, error) in
+// Retrieve all automatic Ezsignsignatures
+ObjectEzsignsignatureAPI.ezsignsignatureGetEzsignsignaturesAutomaticV1() { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -245,14 +244,11 @@ ObjectEzsignsignatureAPI.ezsignsignatureGetObjectV1(pkiEzsignsignatureID: pkiEzs
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEzsignsignatureID** | **Int** |  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**EzsignsignatureGetObjectV1Response**](EzsignsignatureGetObjectV1Response.md)
+[**EzsignsignatureGetEzsignsignaturesAutomaticV1Response**](EzsignsignatureGetEzsignsignaturesAutomaticV1Response.md)
 
 ### Authorization
 

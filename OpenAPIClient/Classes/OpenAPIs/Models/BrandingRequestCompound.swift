@@ -13,6 +13,13 @@ import AnyCodable
 /** A Branding Object and children */
 public struct BrandingRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iBrandingColortextRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let iBrandingColortextlinkboxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let iBrandingColortextbuttonRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let iBrandingColorbackgroundRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let iBrandingColorbackgroundbuttonRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let iBrandingColorbackgroundsmallboxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Branding */
     public var pkiBrandingID: Int?
     public var objBrandingDescription: MultilingualBrandingDescription

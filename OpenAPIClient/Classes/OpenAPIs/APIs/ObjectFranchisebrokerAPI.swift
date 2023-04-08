@@ -57,7 +57,7 @@ open class ObjectFranchisebrokerAPI {
      - GET /1/object/franchisebroker/getAutocomplete/{sSelector}
      - Get the list of Franchisebrokers to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Franchisebrokers to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
@@ -134,7 +134,7 @@ open class ObjectFranchisebrokerAPI {
      - GET /2/object/franchisebroker/getAutocomplete/{sSelector}
      - Get the list of Franchisebroker to be used in a dropdown or autocomplete control.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Franchisebrokers to return 
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)

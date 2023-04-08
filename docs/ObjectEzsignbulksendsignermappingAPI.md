@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsignbulksendsignermappingCreateObjectV1**](ObjectEzsignbulksendsignermappingAPI.md#ezsignbulksendsignermappingcreateobjectv1) | **POST** /1/object/ezsignbulksendsignermapping | Create a new Ezsignbulksendsignermapping
 [**ezsignbulksendsignermappingDeleteObjectV1**](ObjectEzsignbulksendsignermappingAPI.md#ezsignbulksendsignermappingdeleteobjectv1) | **DELETE** /1/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID} | Delete an existing Ezsignbulksendsignermapping
-[**ezsignbulksendsignermappingGetObjectV1**](ObjectEzsignbulksendsignermappingAPI.md#ezsignbulksendsignermappinggetobjectv1) | **GET** /1/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID} | Retrieve an existing Ezsignbulksendsignermapping
 [**ezsignbulksendsignermappingGetObjectV2**](ObjectEzsignbulksendsignermappingAPI.md#ezsignbulksendsignermappinggetobjectv2) | **GET** /2/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID} | Retrieve an existing Ezsignbulksendsignermapping
 
 
@@ -98,56 +97,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendsignermappingDeleteObjectV1Response**](EzsignbulksendsignermappingDeleteObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ezsignbulksendsignermappingGetObjectV1**
-```swift
-    open class func ezsignbulksendsignermappingGetObjectV1(pkiEzsignbulksendsignermappingID: Int, completion: @escaping (_ data: EzsignbulksendsignermappingGetObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Retrieve an existing Ezsignbulksendsignermapping
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiEzsignbulksendsignermappingID = 987 // Int | 
-
-// Retrieve an existing Ezsignbulksendsignermapping
-ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingGetObjectV1(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEzsignbulksendsignermappingID** | **Int** |  | 
-
-### Return type
-
-[**EzsignbulksendsignermappingGetObjectV1Response**](EzsignbulksendsignermappingGetObjectV1Response.md)
 
 ### Authorization
 

@@ -45,7 +45,7 @@ open class GlobalCustomerAPI {
      - GET /1/customer/{pksCustomerCode}/endpoint
      - Retrieve the customer's specific server endpoint where to send requests. This will help locate the proper region (ie: sInfrastructureregionCode) and the proper environment (ie: sInfrastructureenvironmenttypeDescription) where the customer's data is stored.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pksCustomerCode: (path)  
      - parameter sInfrastructureproductCode: (query) The infrastructure product Code  If undefined, \&quot;appcluster01\&quot; is assumed (optional)

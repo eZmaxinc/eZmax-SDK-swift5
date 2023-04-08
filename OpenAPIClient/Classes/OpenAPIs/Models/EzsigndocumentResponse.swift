@@ -13,6 +13,15 @@ import AnyCodable
 /** An Ezsigndocument Object */
 public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
 
+    static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldersignerassociationIDDeclinedtosignRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigndocumentOrderRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigndocumentPagetotalRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigndocumentSignaturesignedRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigndocumentSignaturetotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsigndocumentExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
     /** The unique ID of the Ezsignfoldersignerassociation */
@@ -48,9 +57,13 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
     public var sEzsigndocumentMD5signed: String
     /** If the Ezsigndocument contains an Ezsignform or not */
     public var bEzsigndocumentEzsignform: Bool
+    /** If the Ezsigndocument contains signed signatures (From internal or external sources) */
+    public var bEzsigndocumentHassignedsignatures: Bool
     public var objAudit: CommonAudit
+    /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
+    public var sEzsigndocumentExternalid: String
 
-    public init(fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String, bEzsigndocumentEzsignform: Bool, objAudit: CommonAudit) {
+    public init(fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int, sEzsigndocumentName: String, pkiEzsigndocumentID: Int, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String, bEzsigndocumentEzsignform: Bool, bEzsigndocumentHassignedsignatures: Bool, objAudit: CommonAudit, sEzsigndocumentExternalid: String) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsignfoldersignerassociationIDDeclinedtosign = fkiEzsignfoldersignerassociationIDDeclinedtosign
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
@@ -69,7 +82,9 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         self.tEzsigndocumentDeclinedtosignreason = tEzsigndocumentDeclinedtosignreason
         self.sEzsigndocumentMD5signed = sEzsigndocumentMD5signed
         self.bEzsigndocumentEzsignform = bEzsigndocumentEzsignform
+        self.bEzsigndocumentHassignedsignatures = bEzsigndocumentHassignedsignatures
         self.objAudit = objAudit
+        self.sEzsigndocumentExternalid = sEzsigndocumentExternalid
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -91,7 +106,9 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         case tEzsigndocumentDeclinedtosignreason
         case sEzsigndocumentMD5signed
         case bEzsigndocumentEzsignform
+        case bEzsigndocumentHassignedsignatures
         case objAudit
+        case sEzsigndocumentExternalid
     }
 
     // Encodable protocol methods
@@ -116,7 +133,9 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(tEzsigndocumentDeclinedtosignreason, forKey: .tEzsigndocumentDeclinedtosignreason)
         try container.encode(sEzsigndocumentMD5signed, forKey: .sEzsigndocumentMD5signed)
         try container.encode(bEzsigndocumentEzsignform, forKey: .bEzsigndocumentEzsignform)
+        try container.encode(bEzsigndocumentHassignedsignatures, forKey: .bEzsigndocumentHassignedsignatures)
         try container.encode(objAudit, forKey: .objAudit)
+        try container.encode(sEzsigndocumentExternalid, forKey: .sEzsigndocumentExternalid)
     }
 }
 

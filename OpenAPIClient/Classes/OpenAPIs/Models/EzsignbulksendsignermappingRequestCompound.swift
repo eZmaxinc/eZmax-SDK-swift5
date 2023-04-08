@@ -13,6 +13,9 @@ import AnyCodable
 /** A Ezsignbulksendsignermapping Object and children */
 public struct EzsignbulksendsignermappingRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignbulksendsignermappingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignbulksendIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignbulksendsignermapping */
     public var pkiEzsignbulksendsignermappingID: Int?
     /** The unique ID of the Ezsignbulksend */

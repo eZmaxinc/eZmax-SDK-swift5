@@ -13,6 +13,9 @@ import AnyCodable
 /** A Communicationattachment Object */
 public struct CommunicationattachmentResponse: Codable, JSONEncodable, Hashable {
 
+    static let fkiAttachmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiInvoiceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiSalarypreparationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Communicationattachment */
     public var pkiCommunicationattachmentID: Int
     /** The unique ID of the Attachment. */

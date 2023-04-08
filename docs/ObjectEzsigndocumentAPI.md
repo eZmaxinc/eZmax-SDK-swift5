@@ -12,10 +12,13 @@ Method | HTTP request | Description
 [**ezsigndocumentEditEzsignformfieldgroupsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumenteditezsignformfieldgroupsv1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups | Edit multiple Ezsignformfieldgroups
 [**ezsigndocumentEditEzsignsignaturesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumenteditezsignsignaturesv1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple Ezsignsignatures
 [**ezsigndocumentEndPrematurelyV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentendprematurelyv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
+[**ezsigndocumentFlattenV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentflattenv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten | Flatten
 [**ezsigndocumentGetActionableElementsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetactionableelementsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
 [**ezsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetdownloadurlv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
+[**ezsigndocumentGetEzsignannotationsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignannotationsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations | Retrieve an existing Ezsigndocument&#39;s Ezsignannotations
 [**ezsigndocumentGetEzsignformfieldgroupsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignformfieldgroupsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignformfieldgroups | Retrieve an existing Ezsigndocument&#39;s Ezsignformfieldgroups
 [**ezsigndocumentGetEzsignpagesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignpagesv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
+[**ezsigndocumentGetEzsignsignaturesAutomaticV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignsignaturesautomaticv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsigndocument&#39;s automatic Ezsignsignatures
 [**ezsigndocumentGetEzsignsignaturesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignsignaturesv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignatures | Retrieve an existing Ezsigndocument&#39;s Ezsignsignatures
 [**ezsigndocumentGetFormDataV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetformdatav1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 [**ezsigndocumentGetObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetobjectv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
@@ -144,7 +147,7 @@ The endpoint allows to create one or many elements at once.  The array can conta
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigndocumentCreateObjectV1Request = [ezsigndocument-createObject-v1-Request(objEzsigndocument: ezsigndocument-Request(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example"), objEzsigndocumentCompound: ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example"))] // [EzsigndocumentCreateObjectV1Request] | 
+let ezsigndocumentCreateObjectV1Request = [ezsigndocument-createObject-v1-Request(objEzsigndocument: ezsigndocument-Request(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example"), objEzsigndocumentCompound: ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example"))] // [EzsigndocumentCreateObjectV1Request] | 
 
 // Create a new Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: ezsigndocumentCreateObjectV1Request) { (response, error) in
@@ -194,7 +197,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigndocumentCreateObjectV2Request = ezsigndocument-createObject-v2-Request(aObjEzsigndocument: [ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example")]) // EzsigndocumentCreateObjectV2Request | 
+let ezsigndocumentCreateObjectV2Request = ezsigndocument-createObject-v2-Request(aObjEzsigndocument: [ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")]) // EzsigndocumentCreateObjectV2Request | 
 
 // Create a new Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV2(ezsigndocumentCreateObjectV2Request: ezsigndocumentCreateObjectV2Request) { (response, error) in
@@ -436,6 +439,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocumentFlattenV1**
+```swift
+    open class func ezsigndocumentFlattenV1(pkiEzsigndocumentID: Int, body: AnyCodable, completion: @escaping (_ data: EzsigndocumentFlattenV1Response?, _ error: Error?) -> Void)
+```
+
+Flatten
+
+Flatten an Ezsigndocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+let body = "TODO" // AnyCodable | 
+
+// Flatten
+ObjectEzsigndocumentAPI.ezsigndocumentFlattenV1(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+ **body** | **AnyCodable** |  | 
+
+### Return type
+
+[**EzsigndocumentFlattenV1Response**](EzsigndocumentFlattenV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocumentGetActionableElementsV1**
 ```swift
     open class func ezsigndocumentGetActionableElementsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetActionableElementsV1Response?, _ error: Error?) -> Void)
@@ -538,6 +593,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocumentGetEzsignannotationsV1**
+```swift
+    open class func ezsigndocumentGetEzsignannotationsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignannotationsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigndocument's Ezsignannotations
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// Retrieve an existing Ezsigndocument's Ezsignannotations
+ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignannotationsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentGetEzsignannotationsV1Response**](EzsigndocumentGetEzsignannotationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocumentGetEzsignformfieldgroupsV1**
 ```swift
     open class func ezsigndocumentGetEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)
@@ -626,6 +731,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentGetEzsignpagesV1Response**](EzsigndocumentGetEzsignpagesV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocumentGetEzsignsignaturesAutomaticV1**
+```swift
+    open class func ezsigndocumentGetEzsignsignaturesAutomaticV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigndocument's automatic Ezsignsignatures
+
+Return the Ezsignsignatures that can be signed by the current user at the current step in the process
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// Retrieve an existing Ezsigndocument's automatic Ezsignsignatures
+ObjectEzsigndocumentAPI.ezsigndocumentGetEzsignsignaturesAutomaticV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentGetEzsignsignaturesAutomaticV1Response**](EzsigndocumentGetEzsignsignaturesAutomaticV1Response.md)
 
 ### Authorization
 

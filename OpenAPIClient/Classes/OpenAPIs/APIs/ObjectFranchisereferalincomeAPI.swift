@@ -37,7 +37,7 @@ open class ObjectFranchisereferalincomeAPI {
      - POST /1/object/franchisereferalincome
      - The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter franchisereferalincomeCreateObjectV1Request: (body)  
      - returns: RequestBuilder<FranchisereferalincomeCreateObjectV1Response> 
@@ -85,7 +85,7 @@ open class ObjectFranchisereferalincomeAPI {
      - POST /2/object/franchisereferalincome
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter franchisereferalincomeCreateObjectV2Request: (body)  
      - returns: RequestBuilder<FranchisereferalincomeCreateObjectV2Response> 

@@ -13,6 +13,8 @@ import AnyCodable
 /** Gives informations about the user that created the object or the last user to have modified it.  If the object was never modified after creation, both Created and Modified informations will be the same.  */
 public struct CommonAuditdetail: Codable, JSONEncodable, Hashable {
 
+    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var fkiUserID: Int
     /** The unique ID of the Apikey */

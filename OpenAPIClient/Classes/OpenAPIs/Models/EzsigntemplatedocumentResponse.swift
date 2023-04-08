@@ -13,6 +13,9 @@ import AnyCodable
 /** A Ezsigntemplatedocument Object */
 public struct EzsigntemplatedocumentResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsigntemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigntemplatedocumentPagetotalRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatedocument */
     public var pkiEzsigntemplatedocumentID: Int
     /** The unique ID of the Ezsigntemplate */
@@ -23,13 +26,16 @@ public struct EzsigntemplatedocumentResponse: Codable, JSONEncodable, Hashable {
     public var iEzsigntemplatedocumentPagetotal: Int
     /** The number of total signatures in the Ezsigntemplate. */
     public var iEzsigntemplatedocumentSignaturetotal: Int
+    /** If the Ezsigntemplatedocument contains signed signatures (From internal or external sources) */
+    public var bEzsigntemplatedocumentHassignedsignatures: Bool
 
-    public init(pkiEzsigntemplatedocumentID: Int, fkiEzsigntemplateID: Int, sEzsigntemplatedocumentName: String, iEzsigntemplatedocumentPagetotal: Int, iEzsigntemplatedocumentSignaturetotal: Int) {
+    public init(pkiEzsigntemplatedocumentID: Int, fkiEzsigntemplateID: Int, sEzsigntemplatedocumentName: String, iEzsigntemplatedocumentPagetotal: Int, iEzsigntemplatedocumentSignaturetotal: Int, bEzsigntemplatedocumentHassignedsignatures: Bool) {
         self.pkiEzsigntemplatedocumentID = pkiEzsigntemplatedocumentID
         self.fkiEzsigntemplateID = fkiEzsigntemplateID
         self.sEzsigntemplatedocumentName = sEzsigntemplatedocumentName
         self.iEzsigntemplatedocumentPagetotal = iEzsigntemplatedocumentPagetotal
         self.iEzsigntemplatedocumentSignaturetotal = iEzsigntemplatedocumentSignaturetotal
+        self.bEzsigntemplatedocumentHassignedsignatures = bEzsigntemplatedocumentHassignedsignatures
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -38,6 +44,7 @@ public struct EzsigntemplatedocumentResponse: Codable, JSONEncodable, Hashable {
         case sEzsigntemplatedocumentName
         case iEzsigntemplatedocumentPagetotal
         case iEzsigntemplatedocumentSignaturetotal
+        case bEzsigntemplatedocumentHassignedsignatures
     }
 
     // Encodable protocol methods
@@ -49,6 +56,7 @@ public struct EzsigntemplatedocumentResponse: Codable, JSONEncodable, Hashable {
         try container.encode(sEzsigntemplatedocumentName, forKey: .sEzsigntemplatedocumentName)
         try container.encode(iEzsigntemplatedocumentPagetotal, forKey: .iEzsigntemplatedocumentPagetotal)
         try container.encode(iEzsigntemplatedocumentSignaturetotal, forKey: .iEzsigntemplatedocumentSignaturetotal)
+        try container.encode(bEzsigntemplatedocumentHassignedsignatures, forKey: .bEzsigntemplatedocumentHassignedsignatures)
     }
 }
 

@@ -13,18 +13,26 @@ import AnyCodable
 /** A Paymentterm List Element */
 public struct PaymenttermListElement: Codable, JSONEncodable, Hashable {
 
+    static let sPaymenttermCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[A-Z0-9]{1,4}$/")
+    static let iPaymenttermDayRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    static let sPaymenttermDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
     /** The unique ID of the Paymentterm */
     public var pkiPaymenttermID: Int
     /** The code of the Paymentterm */
     public var sPaymenttermCode: String
+    public var ePaymenttermType: FieldEPaymenttermType
+    /** The day of the Paymentterm */
+    public var iPaymenttermDay: Int
     /** The description of the Paymentterm in the language of the requester */
     public var sPaymenttermDescriptionX: String
     /** Whether the Paymentterm is active or not */
     public var bPaymenttermIsactive: Bool
 
-    public init(pkiPaymenttermID: Int, sPaymenttermCode: String, sPaymenttermDescriptionX: String, bPaymenttermIsactive: Bool) {
+    public init(pkiPaymenttermID: Int, sPaymenttermCode: String, ePaymenttermType: FieldEPaymenttermType, iPaymenttermDay: Int, sPaymenttermDescriptionX: String, bPaymenttermIsactive: Bool) {
         self.pkiPaymenttermID = pkiPaymenttermID
         self.sPaymenttermCode = sPaymenttermCode
+        self.ePaymenttermType = ePaymenttermType
+        self.iPaymenttermDay = iPaymenttermDay
         self.sPaymenttermDescriptionX = sPaymenttermDescriptionX
         self.bPaymenttermIsactive = bPaymenttermIsactive
     }
@@ -32,6 +40,8 @@ public struct PaymenttermListElement: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiPaymenttermID
         case sPaymenttermCode
+        case ePaymenttermType
+        case iPaymenttermDay
         case sPaymenttermDescriptionX
         case bPaymenttermIsactive
     }
@@ -42,6 +52,8 @@ public struct PaymenttermListElement: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiPaymenttermID, forKey: .pkiPaymenttermID)
         try container.encode(sPaymenttermCode, forKey: .sPaymenttermCode)
+        try container.encode(ePaymenttermType, forKey: .ePaymenttermType)
+        try container.encode(iPaymenttermDay, forKey: .iPaymenttermDay)
         try container.encode(sPaymenttermDescriptionX, forKey: .sPaymenttermDescriptionX)
         try container.encode(bPaymenttermIsactive, forKey: .bPaymenttermIsactive)
     }

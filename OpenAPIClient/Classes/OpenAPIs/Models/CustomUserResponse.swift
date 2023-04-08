@@ -13,6 +13,7 @@ import AnyCodable
 /** A User Object */
 public struct CustomUserResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var pkiUserID: Int
     /** The Last name of the user */

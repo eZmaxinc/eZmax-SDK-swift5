@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.description = 'Ezmax Api'
   s.documentation_url = 'https://github.com/eZmaxinc/eZmax-SDK-swift5'
   s.source_files = 'OpenAPIClient/Classes/**/*.swift'
-  s.dependency 'AnyCodable-FlightSchool', '~> 0.6.1'
+  s.dependency 'AnyCodable-FlightSchool', '~> 0.6'
 end

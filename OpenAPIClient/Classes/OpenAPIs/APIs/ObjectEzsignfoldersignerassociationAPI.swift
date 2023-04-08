@@ -37,7 +37,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - POST /1/object/ezsignfoldersignerassociation
      - The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignfoldersignerassociationCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsignfoldersignerassociationCreateObjectV1Response> 
@@ -85,7 +85,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - POST /2/object/ezsignfoldersignerassociation
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignfoldersignerassociationCreateObjectV2Request: (body)  
      - returns: RequestBuilder<EzsignfoldersignerassociationCreateObjectV2Response> 
@@ -132,7 +132,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - DELETE /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldersignerassociationID: (path)  
      - returns: RequestBuilder<EzsignfoldersignerassociationDeleteObjectV1Response> 
@@ -183,7 +183,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - PUT /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldersignerassociationID: (path)  
      - parameter ezsignfoldersignerassociationEditObjectV1Request: (body)  
@@ -235,7 +235,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - POST /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/forceDisconnect
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldersignerassociationID: (path)  
      - parameter body: (body)  
@@ -286,7 +286,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/getInPersonLoginUrl
      - This endpoint returns a Login Url that can be used in a browser or embedded in an I-Frame to allow in person signing.  The signer Login type must be configured as In-Person.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldersignerassociationID: (path)  
      - returns: RequestBuilder<EzsignfoldersignerassociationGetInPersonLoginUrlV1Response> 
@@ -337,7 +337,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldersignerassociationID: (path)  
      - returns: RequestBuilder<EzsignfoldersignerassociationGetObjectV1Response> 
@@ -388,7 +388,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      - GET /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldersignerassociationID: (path)  
      - returns: RequestBuilder<EzsignfoldersignerassociationGetObjectV2Response> 
@@ -438,7 +438,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
      Patch an existing Ezsignfoldersignerassociation
      - PATCH /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldersignerassociationID: (path)  
      - parameter ezsignfoldersignerassociationPatchObjectV1Request: (body)  

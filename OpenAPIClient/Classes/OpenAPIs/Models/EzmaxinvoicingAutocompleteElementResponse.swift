@@ -13,6 +13,8 @@ import AnyCodable
 /** A Ezmaxinvoicing AutocompleteElement Response */
 public struct EzmaxinvoicingAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
+    static let yyyymmEzmaxinvoicingRule = StringRule(minLength: nil, maxLength: 7, pattern: nil)
+    static let pkiEzmaxinvoicingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The YYYYMM period of the Ezmaxinvoicing */
     public var yyyymmEzmaxinvoicing: String
     /** The unique ID of the Ezmaxinvoicing */

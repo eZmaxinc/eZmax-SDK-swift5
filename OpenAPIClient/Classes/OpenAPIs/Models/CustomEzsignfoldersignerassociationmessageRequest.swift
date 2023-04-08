@@ -13,6 +13,7 @@ import AnyCodable
 /** A custom message Object in the context of an Ezsignfolder&#39;s send function */
 public struct CustomEzsignfoldersignerassociationmessageRequest: Codable, JSONEncodable, Hashable {
 
+    static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
     /** A custom text message that will be added to the email sent. */

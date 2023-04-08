@@ -36,7 +36,7 @@ open class ObjectWebhookAPI {
      - POST /1/object/webhook
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter webhookCreateObjectV1Request: (body)  
      - returns: RequestBuilder<WebhookCreateObjectV1Response> 
@@ -83,7 +83,7 @@ open class ObjectWebhookAPI {
      - DELETE /1/object/webhook/{pkiWebhookID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiWebhookID: (path)  
      - returns: RequestBuilder<WebhookDeleteObjectV1Response> 
@@ -134,7 +134,7 @@ open class ObjectWebhookAPI {
      - PUT /1/object/webhook/{pkiWebhookID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiWebhookID: (path)  
      - parameter webhookEditObjectV1Request: (body)  
@@ -194,7 +194,7 @@ open class ObjectWebhookAPI {
      - GET /1/object/webhook/{pkiWebhookID}/getHistory
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiWebhookID: (path)  
      - parameter eWebhookHistoryinterval: (query) The number of days to return 
@@ -276,7 +276,7 @@ open class ObjectWebhookAPI {
      - GET /1/object/webhook/getList
      - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eWebhookModule | Ezsign<br>Management | | eWebhookEzsignevent | DocumentCompleted<br>FolderCompleted | | eWebhookManagementevent | UserCreated |
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
      - parameter iRowMax: (query)  (optional)
@@ -316,58 +316,6 @@ open class ObjectWebhookAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func webhookGetObjectV1(pkiWebhookID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return webhookGetObjectV1WithRequestBuilder(pkiWebhookID: pkiWebhookID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Webhook
-     - GET /1/object/webhook/{pkiWebhookID}
-     - 
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiWebhookID: (path)  
-     - returns: RequestBuilder<WebhookGetObjectV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func webhookGetObjectV1WithRequestBuilder(pkiWebhookID: Int) -> RequestBuilder<WebhookGetObjectV1Response> {
-        var localVariablePath = "/1/object/webhook/{pkiWebhookID}"
-        let pkiWebhookIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiWebhookID))"
-        let pkiWebhookIDPostEscape = pkiWebhookIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiWebhookID}", with: pkiWebhookIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<WebhookGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Webhook
-     
-     - parameter pkiWebhookID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     @discardableResult
     open class func webhookGetObjectV2(pkiWebhookID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return webhookGetObjectV2WithRequestBuilder(pkiWebhookID: pkiWebhookID).execute(apiResponseQueue) { result in
@@ -385,7 +333,7 @@ open class ObjectWebhookAPI {
      - GET /2/object/webhook/{pkiWebhookID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiWebhookID: (path)  
      - returns: RequestBuilder<WebhookGetObjectV2Response> 
@@ -436,7 +384,7 @@ open class ObjectWebhookAPI {
      - POST /1/object/webhook/{pkiWebhookID}/test
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiWebhookID: (path)  
      - parameter body: (body)  

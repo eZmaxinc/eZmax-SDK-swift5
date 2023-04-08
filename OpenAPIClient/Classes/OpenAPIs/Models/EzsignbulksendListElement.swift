@@ -13,6 +13,8 @@ import AnyCodable
 /** An Ezsignbulksend List Element */
 public struct EzsignbulksendListElement: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsignbulksendIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignbulksend */
     public var pkiEzsignbulksendID: Int
     /** The unique ID of the Ezsignfoldertype. */

@@ -13,26 +13,34 @@ import AnyCodable
 /** A Communication Object */
 public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiCommunicationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Communication. */
     public var pkiCommunicationID: Int
     public var eCommunicationImportance: FieldECommunicationImportance
     public var eCommunicationType: FieldECommunicationType
     /** The subject of the Communication */
     public var sCommunicationSubject: String
+    /** The url of the body used as body in the Communication */
+    public var sCommunicationBodyurl: String?
     public var eCommunicationDirection: ComputedECommunicationDirection
     /** The count of Communicationrecipient */
     public var iCommunicationrecipientCount: Int
-    public var objContactFrom: CustomContactNameResponse
+    public var objDescriptionstaticSender: DescriptionstaticResponse?
+    public var objEmailstaticSender: EmailstaticResponse?
+    public var objPhonestaticSender: PhonestaticResponse?
     public var objAudit: CommonAudit
 
-    public init(pkiCommunicationID: Int, eCommunicationImportance: FieldECommunicationImportance, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, eCommunicationDirection: ComputedECommunicationDirection, iCommunicationrecipientCount: Int, objContactFrom: CustomContactNameResponse, objAudit: CommonAudit) {
+    public init(pkiCommunicationID: Int, eCommunicationImportance: FieldECommunicationImportance, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, sCommunicationBodyurl: String? = nil, eCommunicationDirection: ComputedECommunicationDirection, iCommunicationrecipientCount: Int, objDescriptionstaticSender: DescriptionstaticResponse? = nil, objEmailstaticSender: EmailstaticResponse? = nil, objPhonestaticSender: PhonestaticResponse? = nil, objAudit: CommonAudit) {
         self.pkiCommunicationID = pkiCommunicationID
         self.eCommunicationImportance = eCommunicationImportance
         self.eCommunicationType = eCommunicationType
         self.sCommunicationSubject = sCommunicationSubject
+        self.sCommunicationBodyurl = sCommunicationBodyurl
         self.eCommunicationDirection = eCommunicationDirection
         self.iCommunicationrecipientCount = iCommunicationrecipientCount
-        self.objContactFrom = objContactFrom
+        self.objDescriptionstaticSender = objDescriptionstaticSender
+        self.objEmailstaticSender = objEmailstaticSender
+        self.objPhonestaticSender = objPhonestaticSender
         self.objAudit = objAudit
     }
 
@@ -41,9 +49,12 @@ public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
         case eCommunicationImportance
         case eCommunicationType
         case sCommunicationSubject
+        case sCommunicationBodyurl
         case eCommunicationDirection
         case iCommunicationrecipientCount
-        case objContactFrom
+        case objDescriptionstaticSender
+        case objEmailstaticSender
+        case objPhonestaticSender
         case objAudit
     }
 
@@ -55,9 +66,12 @@ public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
         try container.encode(eCommunicationImportance, forKey: .eCommunicationImportance)
         try container.encode(eCommunicationType, forKey: .eCommunicationType)
         try container.encode(sCommunicationSubject, forKey: .sCommunicationSubject)
+        try container.encodeIfPresent(sCommunicationBodyurl, forKey: .sCommunicationBodyurl)
         try container.encode(eCommunicationDirection, forKey: .eCommunicationDirection)
         try container.encode(iCommunicationrecipientCount, forKey: .iCommunicationrecipientCount)
-        try container.encode(objContactFrom, forKey: .objContactFrom)
+        try container.encodeIfPresent(objDescriptionstaticSender, forKey: .objDescriptionstaticSender)
+        try container.encodeIfPresent(objEmailstaticSender, forKey: .objEmailstaticSender)
+        try container.encodeIfPresent(objPhonestaticSender, forKey: .objPhonestaticSender)
         try container.encode(objAudit, forKey: .objAudit)
     }
 }

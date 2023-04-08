@@ -13,6 +13,10 @@ import AnyCodable
 /** A Ezmaxinvoicingcontract Object */
 public struct EzmaxinvoicingcontractResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzmaxinvoicingcontractIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzmaxinvoicingcontractLengthRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let dEzmaxinvoicingcontractLicenseRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    static let dEzmaxinvoicingcontract121qaRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezmaxinvoicingcontract */
     public var pkiEzmaxinvoicingcontractID: Int
     public var eEzmaxinvoicingcontractPaymenttype: FieldEEzmaxinvoicingcontractPaymenttype

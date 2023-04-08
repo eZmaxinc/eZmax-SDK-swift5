@@ -13,6 +13,7 @@ import AnyCodable
 /** An Email Object and children to create a complete structure */
 public struct EmailRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let fkiEmailtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| */
     public var fkiEmailtypeID: Int
     /** The email address. */

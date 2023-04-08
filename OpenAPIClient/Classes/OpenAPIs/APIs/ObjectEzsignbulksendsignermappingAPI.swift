@@ -36,7 +36,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - POST /1/object/ezsignbulksendsignermapping
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignbulksendsignermappingCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsignbulksendsignermappingCreateObjectV1Response> 
@@ -83,7 +83,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - DELETE /1/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksendsignermappingID: (path)  
      - returns: RequestBuilder<EzsignbulksendsignermappingDeleteObjectV1Response> 
@@ -116,58 +116,6 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func ezsignbulksendsignermappingGetObjectV1(pkiEzsignbulksendsignermappingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendsignermappingGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignbulksendsignermappingGetObjectV1WithRequestBuilder(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsignbulksendsignermapping
-     - GET /1/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID}
-     - 
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsignbulksendsignermappingID: (path)  
-     - returns: RequestBuilder<EzsignbulksendsignermappingGetObjectV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsignbulksendsignermappingGetObjectV1WithRequestBuilder(pkiEzsignbulksendsignermappingID: Int) -> RequestBuilder<EzsignbulksendsignermappingGetObjectV1Response> {
-        var localVariablePath = "/1/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID}"
-        let pkiEzsignbulksendsignermappingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendsignermappingID))"
-        let pkiEzsignbulksendsignermappingIDPostEscape = pkiEzsignbulksendsignermappingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendsignermappingID}", with: pkiEzsignbulksendsignermappingIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendsignermappingGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Ezsignbulksendsignermapping
-     
-     - parameter pkiEzsignbulksendsignermappingID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     @discardableResult
     open class func ezsignbulksendsignermappingGetObjectV2(pkiEzsignbulksendsignermappingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendsignermappingGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendsignermappingGetObjectV2WithRequestBuilder(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID).execute(apiResponseQueue) { result in
@@ -185,7 +133,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - GET /2/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksendsignermappingID: (path)  
      - returns: RequestBuilder<EzsignbulksendsignermappingGetObjectV2Response> 

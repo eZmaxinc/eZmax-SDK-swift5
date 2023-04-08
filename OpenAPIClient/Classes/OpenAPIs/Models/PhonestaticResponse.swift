@@ -13,6 +13,9 @@ import AnyCodable
 /** A Phonestatic Object */
 public struct PhonestaticResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiPhonestaticIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sPhonestaticE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
+    static let sPhonestaticExtensionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\d/")
     /** The unique ID of the Phone. */
     public var pkiPhonestaticID: Int
     /** A phone number in E.164 Format */

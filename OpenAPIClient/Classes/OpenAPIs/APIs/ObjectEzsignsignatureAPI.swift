@@ -37,7 +37,7 @@ open class ObjectEzsignsignatureAPI {
      - POST /1/object/ezsignsignature
      - The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignsignatureCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsignsignatureCreateObjectV1Response> 
@@ -85,7 +85,7 @@ open class ObjectEzsignsignatureAPI {
      - POST /2/object/ezsignsignature
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignsignatureCreateObjectV2Request: (body)  
      - returns: RequestBuilder<EzsignsignatureCreateObjectV2Response> 
@@ -132,7 +132,7 @@ open class ObjectEzsignsignatureAPI {
      - DELETE /1/object/ezsignsignature/{pkiEzsignsignatureID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignsignatureID: (path)  
      - returns: RequestBuilder<EzsignsignatureDeleteObjectV1Response> 
@@ -183,7 +183,7 @@ open class ObjectEzsignsignatureAPI {
      - PUT /1/object/ezsignsignature/{pkiEzsignsignatureID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignsignatureID: (path)  
      - parameter ezsignsignatureEditObjectV1Request: (body)  
@@ -211,16 +211,14 @@ open class ObjectEzsignsignatureAPI {
     }
 
     /**
-     Retrieve an existing Ezsignsignature
+     Retrieve all automatic Ezsignsignatures
      
-     - parameter pkiEzsignsignatureID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
-    open class func ezsignsignatureGetObjectV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignsignatureGetObjectV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result in
+    open class func ezsignsignatureGetEzsignsignaturesAutomaticV1(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignsignatureGetEzsignsignaturesAutomaticV1WithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -231,21 +229,16 @@ open class ObjectEzsignsignatureAPI {
     }
 
     /**
-     Retrieve an existing Ezsignsignature
-     - GET /1/object/ezsignsignature/{pkiEzsignsignatureID}
-     - 
+     Retrieve all automatic Ezsignsignatures
+     - GET /1/object/ezsignsignature/getEzsignsignaturesAutomatic
+     - Return all the Ezsignsignatures that can be signed by the current user
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiEzsignsignatureID: (path)  
-     - returns: RequestBuilder<EzsignsignatureGetObjectV1Response> 
+     - returns: RequestBuilder<EzsignsignatureGetEzsignsignaturesAutomaticV1Response> 
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsignsignatureGetObjectV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<EzsignsignatureGetObjectV1Response> {
-        var localVariablePath = "/1/object/ezsignsignature/{pkiEzsignsignatureID}"
-        let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
-        let pkiEzsignsignatureIDPostEscape = pkiEzsignsignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignsignatureID}", with: pkiEzsignsignatureIDPostEscape, options: .literal, range: nil)
+    open class func ezsignsignatureGetEzsignsignaturesAutomaticV1WithRequestBuilder() -> RequestBuilder<EzsignsignatureGetEzsignsignaturesAutomaticV1Response> {
+        let localVariablePath = "/1/object/ezsignsignature/getEzsignsignaturesAutomatic"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
@@ -257,7 +250,7 @@ open class ObjectEzsignsignatureAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureGetEzsignsignaturesAutomaticV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -286,7 +279,7 @@ open class ObjectEzsignsignatureAPI {
      - GET /2/object/ezsignsignature/{pkiEzsignsignatureID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignsignatureID: (path)  
      - returns: RequestBuilder<EzsignsignatureGetObjectV2Response> 
@@ -337,7 +330,7 @@ open class ObjectEzsignsignatureAPI {
      - POST /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignsignatureID: (path)  
      - parameter ezsignsignatureSignV1Request: (body)  

@@ -36,7 +36,7 @@ open class ObjectEzsigntemplatesignatureAPI {
      - POST /1/object/ezsigntemplatesignature
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsigntemplatesignatureCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsigntemplatesignatureCreateObjectV1Response> 
@@ -83,7 +83,7 @@ open class ObjectEzsigntemplatesignatureAPI {
      - DELETE /1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplatesignatureID: (path)  
      - returns: RequestBuilder<EzsigntemplatesignatureDeleteObjectV1Response> 
@@ -134,7 +134,7 @@ open class ObjectEzsigntemplatesignatureAPI {
      - PUT /1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplatesignatureID: (path)  
      - parameter ezsigntemplatesignatureEditObjectV1Request: (body)  
@@ -168,58 +168,6 @@ open class ObjectEzsigntemplatesignatureAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func ezsigntemplatesignatureGetObjectV1(pkiEzsigntemplatesignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatesignatureGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplatesignatureGetObjectV1WithRequestBuilder(pkiEzsigntemplatesignatureID: pkiEzsigntemplatesignatureID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsigntemplatesignature
-     - GET /1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}
-     - 
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Authorization
-     - parameter pkiEzsigntemplatesignatureID: (path)  
-     - returns: RequestBuilder<EzsigntemplatesignatureGetObjectV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsigntemplatesignatureGetObjectV1WithRequestBuilder(pkiEzsigntemplatesignatureID: Int) -> RequestBuilder<EzsigntemplatesignatureGetObjectV1Response> {
-        var localVariablePath = "/1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}"
-        let pkiEzsigntemplatesignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatesignatureID))"
-        let pkiEzsigntemplatesignatureIDPostEscape = pkiEzsigntemplatesignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplatesignatureID}", with: pkiEzsigntemplatesignatureIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatesignatureGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Ezsigntemplatesignature
-     
-     - parameter pkiEzsigntemplatesignatureID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     @discardableResult
     open class func ezsigntemplatesignatureGetObjectV2(pkiEzsigntemplatesignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatesignatureGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatesignatureGetObjectV2WithRequestBuilder(pkiEzsigntemplatesignatureID: pkiEzsigntemplatesignatureID).execute(apiResponseQueue) { result in
@@ -237,7 +185,7 @@ open class ObjectEzsigntemplatesignatureAPI {
      - GET /2/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplatesignatureID: (path)  
      - returns: RequestBuilder<EzsigntemplatesignatureGetObjectV2Response> 

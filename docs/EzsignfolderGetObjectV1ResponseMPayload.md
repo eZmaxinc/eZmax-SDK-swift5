@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **dtEzsignfolderClose** | **String** | The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. | [optional] 
 **tEzsignfolderMessage** | **String** | A custom text message that will be added to the email sent. | 
 **objAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+**sEzsignfolderExternalid** | **String** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

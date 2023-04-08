@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezmaxinvoicingGetAutocompleteV1**](ObjectEzmaxinvoicingAPI.md#ezmaxinvoicinggetautocompletev1) | **GET** /1/object/ezmaxinvoicing/getAutocomplete/{sSelector} | Retrieve Ezmaxinvoicings and IDs
 [**ezmaxinvoicingGetAutocompleteV2**](ObjectEzmaxinvoicingAPI.md#ezmaxinvoicinggetautocompletev2) | **GET** /2/object/ezmaxinvoicing/getAutocomplete/{sSelector} | Retrieve Ezmaxinvoicings and IDs
-[**ezmaxinvoicingGetObjectV1**](ObjectEzmaxinvoicingAPI.md#ezmaxinvoicinggetobjectv1) | **GET** /1/object/ezmaxinvoicing/{pkiEzmaxinvoicingID} | Retrieve an existing Ezmaxinvoicing
 [**ezmaxinvoicingGetObjectV2**](ObjectEzmaxinvoicingAPI.md#ezmaxinvoicinggetobjectv2) | **GET** /2/object/ezmaxinvoicing/{pkiEzmaxinvoicingID} | Retrieve an existing Ezmaxinvoicing
 [**ezmaxinvoicingGetProvisionalV1**](ObjectEzmaxinvoicingAPI.md#ezmaxinvoicinggetprovisionalv1) | **GET** /1/object/ezmaxinvoicing/getProvisional | Retrieve provisional Ezmaxinvoicing
 
@@ -111,56 +110,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzmaxinvoicingGetAutocompleteV2Response**](EzmaxinvoicingGetAutocompleteV2Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ezmaxinvoicingGetObjectV1**
-```swift
-    open class func ezmaxinvoicingGetObjectV1(pkiEzmaxinvoicingID: Int, completion: @escaping (_ data: EzmaxinvoicingGetObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Retrieve an existing Ezmaxinvoicing
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiEzmaxinvoicingID = 987 // Int | 
-
-// Retrieve an existing Ezmaxinvoicing
-ObjectEzmaxinvoicingAPI.ezmaxinvoicingGetObjectV1(pkiEzmaxinvoicingID: pkiEzmaxinvoicingID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEzmaxinvoicingID** | **Int** |  | 
-
-### Return type
-
-[**EzmaxinvoicingGetObjectV1Response**](EzmaxinvoicingGetObjectV1Response.md)
 
 ### Authorization
 

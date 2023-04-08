@@ -38,7 +38,7 @@ open class ObjectEzsigndocumentAPI {
      - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate
      - This function is deprecated. Please use *applyEzsigntemplate* instead which is doing the same thing but with a capital \"E\" to normalize the nomenclature.  This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentApplyEzsigntemplateV1Request: (body)  
@@ -91,7 +91,7 @@ open class ObjectEzsigndocumentAPI {
      - POST /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate
      - This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentApplyEzsigntemplateV2Request: (body)  
@@ -143,7 +143,7 @@ open class ObjectEzsigndocumentAPI {
      - POST /1/object/ezsigndocument
      - The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsigndocumentCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsigndocumentCreateObjectV1Response> 
@@ -191,7 +191,7 @@ open class ObjectEzsigndocumentAPI {
      - POST /2/object/ezsigndocument
      - The endpoint allows to create one or many elements at once.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsigndocumentCreateObjectV2Request: (body)  
      - returns: RequestBuilder<EzsigndocumentCreateObjectV2Response> 
@@ -238,7 +238,7 @@ open class ObjectEzsigndocumentAPI {
      - DELETE /1/object/ezsigndocument/{pkiEzsigndocumentID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentDeleteObjectV1Response> 
@@ -289,7 +289,7 @@ open class ObjectEzsigndocumentAPI {
      - PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups
      - Using this endpoint, you can edit multiple Ezsignformfieldgroups at the same time.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentEditEzsignformfieldgroupsV1Request: (body)  
@@ -341,7 +341,7 @@ open class ObjectEzsigndocumentAPI {
      - PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures
      - Using this endpoint, you can edit multiple Ezsignsignatures at the same time.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentEditEzsignsignaturesV1Request: (body)  
@@ -393,7 +393,7 @@ open class ObjectEzsigndocumentAPI {
      - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely
      - End prematurely an Ezsigndocument when some signatures are still required
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter body: (body)  
@@ -416,6 +416,58 @@ open class ObjectEzsigndocumentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigndocumentEndPrematurelyV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Flatten
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter body: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentFlattenV1(pkiEzsigndocumentID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentFlattenV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentFlattenV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, body: body).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Flatten
+     - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten
+     - Flatten an Ezsigndocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter body: (body)  
+     - returns: RequestBuilder<EzsigndocumentFlattenV1Response> 
+     */
+    open class func ezsigndocumentFlattenV1WithRequestBuilder(pkiEzsigndocumentID: Int, body: AnyCodable) -> RequestBuilder<EzsigndocumentFlattenV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentFlattenV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -444,7 +496,7 @@ open class ObjectEzsigndocumentAPI {
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements
      - Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that can be filled by the current user at the current step in the process
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetActionableElementsV1Response> 
@@ -505,7 +557,7 @@ open class ObjectEzsigndocumentAPI {
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType}
      - This endpoint returns URLs to different files that can be downloaded during the signing process.  These links will expire after 5 minutes so the download of the file should be made soon after retrieving the link.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter eDocumentType: (path) The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more.  
@@ -536,6 +588,56 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Retrieve an existing Ezsigndocument's Ezsignannotations
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentGetEzsignannotationsV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignannotationsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentGetEzsignannotationsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's Ezsignannotations
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetEzsignannotationsV1Response> 
+     */
+    open class func ezsigndocumentGetEzsignannotationsV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetEzsignannotationsV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsignannotationsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve an existing Ezsigndocument's Ezsignformfieldgroups
      
      - parameter pkiEzsigndocumentID: (path)  
@@ -559,7 +661,7 @@ open class ObjectEzsigndocumentAPI {
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignformfieldgroups
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetEzsignformfieldgroupsV1Response> 
@@ -609,7 +711,7 @@ open class ObjectEzsigndocumentAPI {
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetEzsignpagesV1Response> 
@@ -631,6 +733,56 @@ open class ObjectEzsigndocumentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsignpagesV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's automatic Ezsignsignatures
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentGetEzsignsignaturesAutomaticV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentGetEzsignsignaturesAutomaticV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's automatic Ezsignsignatures
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignaturesAutomatic
+     - Return the Ezsignsignatures that can be signed by the current user at the current step in the process
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetEzsignsignaturesAutomaticV1Response> 
+     */
+    open class func ezsigndocumentGetEzsignsignaturesAutomaticV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetEzsignsignaturesAutomaticV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignaturesAutomatic"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsignsignaturesAutomaticV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -659,7 +811,7 @@ open class ObjectEzsigndocumentAPI {
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignatures
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetEzsignsignaturesV1Response> 
@@ -709,7 +861,7 @@ open class ObjectEzsigndocumentAPI {
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetFormDataV1Response> 
@@ -759,7 +911,7 @@ open class ObjectEzsigndocumentAPI {
      Retrieve an existing Ezsigndocument
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetObjectV1Response> 
@@ -810,7 +962,7 @@ open class ObjectEzsigndocumentAPI {
      - GET /2/object/ezsigndocument/{pkiEzsigndocumentID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetObjectV2Response> 
@@ -860,7 +1012,7 @@ open class ObjectEzsigndocumentAPI {
      - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof
      - Retrieve the temporary proof while the Ezsigndocument is being processed since the proof isn't available until the Ezsigndocument is completed
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetTemporaryProofV1Response> 
@@ -911,7 +1063,7 @@ open class ObjectEzsigndocumentAPI {
      - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentGetWordsPositionsV1Request: (body)  
@@ -963,7 +1115,7 @@ open class ObjectEzsigndocumentAPI {
      - PATCH /1/object/ezsigndocument/{pkiEzsigndocumentID}
      - 
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter ezsigndocumentPatchObjectV1Request: (body)  
@@ -1015,7 +1167,7 @@ open class ObjectEzsigndocumentAPI {
      - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/unsend
      - Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
      - API Key:
-       - type: apiKey Authorization 
+       - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
      - parameter body: (body)  

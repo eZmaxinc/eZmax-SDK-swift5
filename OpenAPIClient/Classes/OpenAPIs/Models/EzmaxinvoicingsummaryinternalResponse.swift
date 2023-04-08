@@ -13,6 +13,10 @@ import AnyCodable
 /** A Ezmaxinvoicingsummaryinternal Object */
 public struct EzmaxinvoicingsummaryinternalResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzmaxinvoicingsummaryinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzmaxinvoicingsummaryinternalDescriptionXRule = StringRule(minLength: nil, maxLength: 70, pattern: nil)
+    static let fkiEzmaxinvoicingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezmaxinvoicingsummaryinternal */
     public var pkiEzmaxinvoicingsummaryinternalID: Int?
     public var objEzmaxinvoicingsummaryinternalDescription: MultilingualEzmaxinvoicingsummaryinternalDescription

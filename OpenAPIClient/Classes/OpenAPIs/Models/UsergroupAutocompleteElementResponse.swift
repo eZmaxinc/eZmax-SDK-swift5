@@ -13,6 +13,7 @@ import AnyCodable
 /** A Usergroup AutocompleteElement Response */
 public struct UsergroupAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
+    static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The Name of the Usergroup in the language of the requester */
     public var sUsergroupNameX: String
     /** The unique ID of the Usergroup */

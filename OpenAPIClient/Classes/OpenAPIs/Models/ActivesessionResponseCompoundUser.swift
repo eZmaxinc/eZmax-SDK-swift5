@@ -13,6 +13,10 @@ import AnyCodable
 /** An Activesession-&gt;User Object and children to create a complete structure */
 public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashable {
 
+    static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiTimezoneIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iUserInterfacecolorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iUserListresultRule = NumericRule<Int>(minimum: 5, exclusiveMinimum: false, maximum: 500, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var pkiUserID: Int
     /** The unique ID of the Timezone */

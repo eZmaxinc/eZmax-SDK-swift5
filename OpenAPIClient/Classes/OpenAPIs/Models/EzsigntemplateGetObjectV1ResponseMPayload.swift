@@ -13,6 +13,10 @@ import AnyCodable
 /** Payload for GET /1/object/ezsigntemplate/{pkiEzsigntemplateID} */
 public struct EzsigntemplateGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
+    static let pkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsigntemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplate */
     public var pkiEzsigntemplateID: Int
     /** The unique ID of the Ezsigntemplatedocument */
@@ -29,10 +33,11 @@ public struct EzsigntemplateGetObjectV1ResponseMPayload: Codable, JSONEncodable,
     public var bEzsigntemplateAdminonly: Bool
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String
+    public var objAudit: CommonAudit
     public var objEzsigntemplatedocument: EzsigntemplatedocumentResponse?
     public var aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]
 
-    public init(pkiEzsigntemplateID: Int, fkiEzsigntemplatedocumentID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplateDescription: String, bEzsigntemplateAdminonly: Bool, sEzsignfoldertypeNameX: String, objEzsigntemplatedocument: EzsigntemplatedocumentResponse? = nil, aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]) {
+    public init(pkiEzsigntemplateID: Int, fkiEzsigntemplatedocumentID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplateDescription: String, bEzsigntemplateAdminonly: Bool, sEzsignfoldertypeNameX: String, objAudit: CommonAudit, objEzsigntemplatedocument: EzsigntemplatedocumentResponse? = nil, aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]) {
         self.pkiEzsigntemplateID = pkiEzsigntemplateID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -41,6 +46,7 @@ public struct EzsigntemplateGetObjectV1ResponseMPayload: Codable, JSONEncodable,
         self.sEzsigntemplateDescription = sEzsigntemplateDescription
         self.bEzsigntemplateAdminonly = bEzsigntemplateAdminonly
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+        self.objAudit = objAudit
         self.objEzsigntemplatedocument = objEzsigntemplatedocument
         self.aObjEzsigntemplatesigner = aObjEzsigntemplatesigner
     }
@@ -54,6 +60,7 @@ public struct EzsigntemplateGetObjectV1ResponseMPayload: Codable, JSONEncodable,
         case sEzsigntemplateDescription
         case bEzsigntemplateAdminonly
         case sEzsignfoldertypeNameX
+        case objAudit
         case objEzsigntemplatedocument
         case aObjEzsigntemplatesigner = "a_objEzsigntemplatesigner"
     }
@@ -70,6 +77,7 @@ public struct EzsigntemplateGetObjectV1ResponseMPayload: Codable, JSONEncodable,
         try container.encode(sEzsigntemplateDescription, forKey: .sEzsigntemplateDescription)
         try container.encode(bEzsigntemplateAdminonly, forKey: .bEzsigntemplateAdminonly)
         try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
+        try container.encode(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(objEzsigntemplatedocument, forKey: .objEzsigntemplatedocument)
         try container.encode(aObjEzsigntemplatesigner, forKey: .aObjEzsigntemplatesigner)
     }
