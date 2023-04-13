@@ -15,9 +15,9 @@ public struct MultilingualPaymenttermDescription: Codable, JSONEncodable, Hashab
 
     static let sPaymenttermDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
     static let sPaymenttermDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
-    /** The description of the Paymentterm in french */
+    /** The description of the Paymentterm in French */
     public var sPaymenttermDescription1: String?
-    /** The description of the Paymentterm in english */
+    /** The description of the Paymentterm in English */
     public var sPaymenttermDescription2: String?
 
     public init(sPaymenttermDescription1: String? = nil, sPaymenttermDescription2: String? = nil) {

@@ -15,9 +15,9 @@ public struct MultilingualEzmaxinvoicingsummaryinternalDescription: Codable, JSO
 
     static let sEzmaxinvoicingsummaryinternalDescription1Rule = StringRule(minLength: nil, maxLength: 70, pattern: nil)
     static let sEzmaxinvoicingsummaryinternalDescription2Rule = StringRule(minLength: nil, maxLength: 70, pattern: nil)
-    /** The Ezmaxinvoicingsummaryinternal description in french */
+    /** The Ezmaxinvoicingsummaryinternal description in French */
     public var sEzmaxinvoicingsummaryinternalDescription1: String?
-    /** The Ezmaxinvoicingsummaryinternal description in english */
+    /** The Ezmaxinvoicingsummaryinternal description in English */
     public var sEzmaxinvoicingsummaryinternalDescription2: String?
 
     public init(sEzmaxinvoicingsummaryinternalDescription1: String? = nil, sEzmaxinvoicingsummaryinternalDescription2: String? = nil) {
