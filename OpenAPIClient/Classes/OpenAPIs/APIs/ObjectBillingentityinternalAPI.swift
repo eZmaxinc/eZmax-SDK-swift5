@@ -60,56 +60,6 @@ open class ObjectBillingentityinternalAPI {
     }
 
     /**
-     Delete an existing Billingentityinternal
-     
-     - parameter pkiBillingentityinternalID: (path) The unique ID of the Billingentityinternal 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func billingentityinternalDeleteObjectV1(pkiBillingentityinternalID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BillingentityinternalDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return billingentityinternalDeleteObjectV1WithRequestBuilder(pkiBillingentityinternalID: pkiBillingentityinternalID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Delete an existing Billingentityinternal
-     - DELETE /1/object/billingentityinternal/{pkiBillingentityinternalID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiBillingentityinternalID: (path) The unique ID of the Billingentityinternal 
-     - returns: RequestBuilder<BillingentityinternalDeleteObjectV1Response> 
-     */
-    open class func billingentityinternalDeleteObjectV1WithRequestBuilder(pkiBillingentityinternalID: Int) -> RequestBuilder<BillingentityinternalDeleteObjectV1Response> {
-        var localVariablePath = "/1/object/billingentityinternal/{pkiBillingentityinternalID}"
-        let pkiBillingentityinternalIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBillingentityinternalID))"
-        let pkiBillingentityinternalIDPostEscape = pkiBillingentityinternalIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBillingentityinternalID}", with: pkiBillingentityinternalIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<BillingentityinternalDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
      Edit an existing Billingentityinternal
      
      - parameter pkiBillingentityinternalID: (path) The unique ID of the Billingentityinternal 

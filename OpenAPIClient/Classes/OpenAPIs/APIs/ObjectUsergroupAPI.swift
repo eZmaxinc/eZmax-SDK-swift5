@@ -60,56 +60,6 @@ open class ObjectUsergroupAPI {
     }
 
     /**
-     Delete an existing Usergroup
-     
-     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func usergroupDeleteObjectV1(pkiUsergroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return usergroupDeleteObjectV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Delete an existing Usergroup
-     - DELETE /1/object/usergroup/{pkiUsergroupID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
-     - returns: RequestBuilder<UsergroupDeleteObjectV1Response> 
-     */
-    open class func usergroupDeleteObjectV1WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupDeleteObjectV1Response> {
-        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}"
-        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
-        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<UsergroupDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
      Edit an existing Usergroup
      
      - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
@@ -304,55 +254,6 @@ open class ObjectUsergroupAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<UsergroupGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Usergroup's members
-     
-     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func usergroupGetMembersV1(pkiUsergroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupGetMembersV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return usergroupGetMembersV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Usergroup's members
-     - GET /1/object/usergroup/{pkiUsergroupID}/getMembers
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
-     - returns: RequestBuilder<UsergroupGetMembersV1Response> 
-     */
-    open class func usergroupGetMembersV1WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupGetMembersV1Response> {
-        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}/getMembers"
-        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
-        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<UsergroupGetMembersV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -5,7 +5,6 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**billingentityinternalCreateObjectV1**](ObjectBillingentityinternalAPI.md#billingentityinternalcreateobjectv1) | **POST** /1/object/billingentityinternal | Create a new Billingentityinternal
-[**billingentityinternalDeleteObjectV1**](ObjectBillingentityinternalAPI.md#billingentityinternaldeleteobjectv1) | **DELETE** /1/object/billingentityinternal/{pkiBillingentityinternalID} | Delete an existing Billingentityinternal
 [**billingentityinternalEditObjectV1**](ObjectBillingentityinternalAPI.md#billingentityinternaleditobjectv1) | **PUT** /1/object/billingentityinternal/{pkiBillingentityinternalID} | Edit an existing Billingentityinternal
 [**billingentityinternalGetAutocompleteV2**](ObjectBillingentityinternalAPI.md#billingentityinternalgetautocompletev2) | **GET** /2/object/billingentityinternal/getAutocomplete/{sSelector} | Retrieve Billingentityinternals and IDs
 [**billingentityinternalGetListV1**](ObjectBillingentityinternalAPI.md#billingentityinternalgetlistv1) | **GET** /1/object/billingentityinternal/getList | Retrieve Billingentityinternal list
@@ -58,56 +57,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **billingentityinternalDeleteObjectV1**
-```swift
-    open class func billingentityinternalDeleteObjectV1(pkiBillingentityinternalID: Int, completion: @escaping (_ data: BillingentityinternalDeleteObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Delete an existing Billingentityinternal
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiBillingentityinternalID = 987 // Int | The unique ID of the Billingentityinternal
-
-// Delete an existing Billingentityinternal
-ObjectBillingentityinternalAPI.billingentityinternalDeleteObjectV1(pkiBillingentityinternalID: pkiBillingentityinternalID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiBillingentityinternalID** | **Int** | The unique ID of the Billingentityinternal | 
-
-### Return type
-
-[**BillingentityinternalDeleteObjectV1Response**](BillingentityinternalDeleteObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

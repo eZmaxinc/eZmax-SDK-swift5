@@ -60,56 +60,6 @@ open class ObjectVariableexpenseAPI {
     }
 
     /**
-     Delete an existing Variableexpense
-     
-     - parameter pkiVariableexpenseID: (path) The unique ID of the Variableexpense 
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func variableexpenseDeleteObjectV1(pkiVariableexpenseID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: VariableexpenseDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return variableexpenseDeleteObjectV1WithRequestBuilder(pkiVariableexpenseID: pkiVariableexpenseID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Delete an existing Variableexpense
-     - DELETE /1/object/variableexpense/{pkiVariableexpenseID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiVariableexpenseID: (path) The unique ID of the Variableexpense 
-     - returns: RequestBuilder<VariableexpenseDeleteObjectV1Response> 
-     */
-    open class func variableexpenseDeleteObjectV1WithRequestBuilder(pkiVariableexpenseID: Int) -> RequestBuilder<VariableexpenseDeleteObjectV1Response> {
-        var localVariablePath = "/1/object/variableexpense/{pkiVariableexpenseID}"
-        let pkiVariableexpenseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiVariableexpenseID))"
-        let pkiVariableexpenseIDPostEscape = pkiVariableexpenseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiVariableexpenseID}", with: pkiVariableexpenseIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<VariableexpenseDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
      Edit an existing Variableexpense
      
      - parameter pkiVariableexpenseID: (path) The unique ID of the Variableexpense 

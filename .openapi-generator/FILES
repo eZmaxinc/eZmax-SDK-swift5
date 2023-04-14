@@ -94,7 +94,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/BillingentityinternalCreateObjectV1Request
 OpenAPIClient/Classes/OpenAPIs/Models/BillingentityinternalCreateObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BillingentityinternalCreateObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BillingentityinternalCreateObjectV1ResponseMPayload.swift
-OpenAPIClient/Classes/OpenAPIs/Models/BillingentityinternalDeleteObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BillingentityinternalEditObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BillingentityinternalEditObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/BillingentityinternalGetAutocompleteV2Response.swift
@@ -217,9 +216,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/DepartmentAutocompleteElementResponse.swif
 OpenAPIClient/Classes/OpenAPIs/Models/DepartmentGetAutocompleteV2Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DepartmentGetAutocompleteV2ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DepartmentGetAutocompleteV2ResponseMPayload.swift
-OpenAPIClient/Classes/OpenAPIs/Models/DepartmentGetMembersV1Response.swift
-OpenAPIClient/Classes/OpenAPIs/Models/DepartmentGetMembersV1ResponseAllOf.swift
-OpenAPIClient/Classes/OpenAPIs/Models/DepartmentGetMembersV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DescriptionstaticResponse.swift
 OpenAPIClient/Classes/OpenAPIs/Models/DescriptionstaticResponseCompound.swift
 OpenAPIClient/Classes/OpenAPIs/Models/EmailRequest.swift
@@ -907,7 +903,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/PaymenttermCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaymenttermCreateObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaymenttermCreateObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaymenttermCreateObjectV1ResponseMPayload.swift
-OpenAPIClient/Classes/OpenAPIs/Models/PaymenttermDeleteObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaymenttermEditObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaymenttermEditObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/PaymenttermGetAutocompleteV2Response.swift
@@ -962,7 +957,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/UsergroupCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupCreateObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupCreateObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupCreateObjectV1ResponseMPayload.swift
-OpenAPIClient/Classes/OpenAPIs/Models/UsergroupDeleteObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupEditObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupEditObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetAutocompleteV2Response.swift
@@ -972,9 +966,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetListV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetListV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetListV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetListV1ResponseMPayloadAllOf.swift
-OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetMembersV1Response.swift
-OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetMembersV1ResponseAllOf.swift
-OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetMembersV1ResponseMPayload.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetObjectV2Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetObjectV2ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/UsergroupGetObjectV2ResponseMPayload.swift
@@ -988,7 +979,6 @@ OpenAPIClient/Classes/OpenAPIs/Models/VariableexpenseCreateObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VariableexpenseCreateObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VariableexpenseCreateObjectV1ResponseAllOf.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VariableexpenseCreateObjectV1ResponseMPayload.swift
-OpenAPIClient/Classes/OpenAPIs/Models/VariableexpenseDeleteObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VariableexpenseEditObjectV1Request.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VariableexpenseEditObjectV1Response.swift
 OpenAPIClient/Classes/OpenAPIs/Models/VariableexpenseGetAutocompleteV2Response.swift
@@ -1084,7 +1074,6 @@ docs/BillingentityinternalCreateObjectV1Request.md
 docs/BillingentityinternalCreateObjectV1Response.md
 docs/BillingentityinternalCreateObjectV1ResponseAllOf.md
 docs/BillingentityinternalCreateObjectV1ResponseMPayload.md
-docs/BillingentityinternalDeleteObjectV1Response.md
 docs/BillingentityinternalEditObjectV1Request.md
 docs/BillingentityinternalEditObjectV1Response.md
 docs/BillingentityinternalGetAutocompleteV2Response.md
@@ -1207,9 +1196,6 @@ docs/DepartmentAutocompleteElementResponse.md
 docs/DepartmentGetAutocompleteV2Response.md
 docs/DepartmentGetAutocompleteV2ResponseAllOf.md
 docs/DepartmentGetAutocompleteV2ResponseMPayload.md
-docs/DepartmentGetMembersV1Response.md
-docs/DepartmentGetMembersV1ResponseAllOf.md
-docs/DepartmentGetMembersV1ResponseMPayload.md
 docs/DescriptionstaticResponse.md
 docs/DescriptionstaticResponseCompound.md
 docs/EmailRequest.md
@@ -1946,7 +1932,6 @@ docs/PaymenttermCreateObjectV1Request.md
 docs/PaymenttermCreateObjectV1Response.md
 docs/PaymenttermCreateObjectV1ResponseAllOf.md
 docs/PaymenttermCreateObjectV1ResponseMPayload.md
-docs/PaymenttermDeleteObjectV1Response.md
 docs/PaymenttermEditObjectV1Request.md
 docs/PaymenttermEditObjectV1Response.md
 docs/PaymenttermGetAutocompleteV2Response.md
@@ -2001,7 +1986,6 @@ docs/UsergroupCreateObjectV1Request.md
 docs/UsergroupCreateObjectV1Response.md
 docs/UsergroupCreateObjectV1ResponseAllOf.md
 docs/UsergroupCreateObjectV1ResponseMPayload.md
-docs/UsergroupDeleteObjectV1Response.md
 docs/UsergroupEditObjectV1Request.md
 docs/UsergroupEditObjectV1Response.md
 docs/UsergroupGetAutocompleteV2Response.md
@@ -2011,9 +1995,6 @@ docs/UsergroupGetListV1Response.md
 docs/UsergroupGetListV1ResponseAllOf.md
 docs/UsergroupGetListV1ResponseMPayload.md
 docs/UsergroupGetListV1ResponseMPayloadAllOf.md
-docs/UsergroupGetMembersV1Response.md
-docs/UsergroupGetMembersV1ResponseAllOf.md
-docs/UsergroupGetMembersV1ResponseMPayload.md
 docs/UsergroupGetObjectV2Response.md
 docs/UsergroupGetObjectV2ResponseAllOf.md
 docs/UsergroupGetObjectV2ResponseMPayload.md
@@ -2027,7 +2008,6 @@ docs/VariableexpenseCreateObjectV1Request.md
 docs/VariableexpenseCreateObjectV1Response.md
 docs/VariableexpenseCreateObjectV1ResponseAllOf.md
 docs/VariableexpenseCreateObjectV1ResponseMPayload.md
-docs/VariableexpenseDeleteObjectV1Response.md
 docs/VariableexpenseEditObjectV1Request.md
 docs/VariableexpenseEditObjectV1Response.md
 docs/VariableexpenseGetAutocompleteV2Response.md

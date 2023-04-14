@@ -5,7 +5,6 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**paymenttermCreateObjectV1**](ObjectPaymenttermAPI.md#paymenttermcreateobjectv1) | **POST** /1/object/paymentterm | Create a new Paymentterm
-[**paymenttermDeleteObjectV1**](ObjectPaymenttermAPI.md#paymenttermdeleteobjectv1) | **DELETE** /1/object/paymentterm/{pkiPaymenttermID} | Delete an existing Paymentterm
 [**paymenttermEditObjectV1**](ObjectPaymenttermAPI.md#paymenttermeditobjectv1) | **PUT** /1/object/paymentterm/{pkiPaymenttermID} | Edit an existing Paymentterm
 [**paymenttermGetAutocompleteV2**](ObjectPaymenttermAPI.md#paymenttermgetautocompletev2) | **GET** /2/object/paymentterm/getAutocomplete/{sSelector} | Retrieve Paymentterms and IDs
 [**paymenttermGetListV1**](ObjectPaymenttermAPI.md#paymenttermgetlistv1) | **GET** /1/object/paymentterm/getList | Retrieve Paymentterm list
@@ -58,56 +57,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **paymenttermDeleteObjectV1**
-```swift
-    open class func paymenttermDeleteObjectV1(pkiPaymenttermID: Int, completion: @escaping (_ data: PaymenttermDeleteObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Delete an existing Paymentterm
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiPaymenttermID = 987 // Int | 
-
-// Delete an existing Paymentterm
-ObjectPaymenttermAPI.paymenttermDeleteObjectV1(pkiPaymenttermID: pkiPaymenttermID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiPaymenttermID** | **Int** |  | 
-
-### Return type
-
-[**PaymenttermDeleteObjectV1Response**](PaymenttermDeleteObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

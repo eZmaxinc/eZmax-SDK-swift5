@@ -5,11 +5,9 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**usergroupCreateObjectV1**](ObjectUsergroupAPI.md#usergroupcreateobjectv1) | **POST** /1/object/usergroup | Create a new Usergroup
-[**usergroupDeleteObjectV1**](ObjectUsergroupAPI.md#usergroupdeleteobjectv1) | **DELETE** /1/object/usergroup/{pkiUsergroupID} | Delete an existing Usergroup
 [**usergroupEditObjectV1**](ObjectUsergroupAPI.md#usergroupeditobjectv1) | **PUT** /1/object/usergroup/{pkiUsergroupID} | Edit an existing Usergroup
 [**usergroupGetAutocompleteV2**](ObjectUsergroupAPI.md#usergroupgetautocompletev2) | **GET** /2/object/usergroup/getAutocomplete/{sSelector} | Retrieve Usergroups and IDs
 [**usergroupGetListV1**](ObjectUsergroupAPI.md#usergroupgetlistv1) | **GET** /1/object/usergroup/getList | Retrieve Usergroup list
-[**usergroupGetMembersV1**](ObjectUsergroupAPI.md#usergroupgetmembersv1) | **GET** /1/object/usergroup/{pkiUsergroupID}/getMembers | Retrieve an existing Usergroup&#39;s members
 [**usergroupGetObjectV2**](ObjectUsergroupAPI.md#usergroupgetobjectv2) | **GET** /2/object/usergroup/{pkiUsergroupID} | Retrieve an existing Usergroup
 
 
@@ -59,56 +57,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **usergroupDeleteObjectV1**
-```swift
-    open class func usergroupDeleteObjectV1(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupDeleteObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Delete an existing Usergroup
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiUsergroupID = 987 // Int | The unique ID of the Usergroup
-
-// Delete an existing Usergroup
-ObjectUsergroupAPI.usergroupDeleteObjectV1(pkiUsergroupID: pkiUsergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiUsergroupID** | **Int** | The unique ID of the Usergroup | 
-
-### Return type
-
-[**UsergroupDeleteObjectV1Response**](UsergroupDeleteObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -276,54 +224,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **usergroupGetMembersV1**
-```swift
-    open class func usergroupGetMembersV1(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupGetMembersV1Response?, _ error: Error?) -> Void)
-```
-
-Retrieve an existing Usergroup's members
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiUsergroupID = 987 // Int | The unique ID of the Usergroup
-
-// Retrieve an existing Usergroup's members
-ObjectUsergroupAPI.usergroupGetMembersV1(pkiUsergroupID: pkiUsergroupID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiUsergroupID** | **Int** | The unique ID of the Usergroup | 
-
-### Return type
-
-[**UsergroupGetMembersV1Response**](UsergroupGetMembersV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

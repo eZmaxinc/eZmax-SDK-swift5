@@ -5,7 +5,6 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**variableexpenseCreateObjectV1**](ObjectVariableexpenseAPI.md#variableexpensecreateobjectv1) | **POST** /1/object/variableexpense | Create a new Variableexpense
-[**variableexpenseDeleteObjectV1**](ObjectVariableexpenseAPI.md#variableexpensedeleteobjectv1) | **DELETE** /1/object/variableexpense/{pkiVariableexpenseID} | Delete an existing Variableexpense
 [**variableexpenseEditObjectV1**](ObjectVariableexpenseAPI.md#variableexpenseeditobjectv1) | **PUT** /1/object/variableexpense/{pkiVariableexpenseID} | Edit an existing Variableexpense
 [**variableexpenseGetAutocompleteV2**](ObjectVariableexpenseAPI.md#variableexpensegetautocompletev2) | **GET** /2/object/variableexpense/getAutocomplete/{sSelector} | Retrieve Variableexpenses and IDs
 [**variableexpenseGetListV1**](ObjectVariableexpenseAPI.md#variableexpensegetlistv1) | **GET** /1/object/variableexpense/getList | Retrieve Variableexpense list
@@ -58,56 +57,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **variableexpenseDeleteObjectV1**
-```swift
-    open class func variableexpenseDeleteObjectV1(pkiVariableexpenseID: Int, completion: @escaping (_ data: VariableexpenseDeleteObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Delete an existing Variableexpense
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiVariableexpenseID = 987 // Int | The unique ID of the Variableexpense
-
-// Delete an existing Variableexpense
-ObjectVariableexpenseAPI.variableexpenseDeleteObjectV1(pkiVariableexpenseID: pkiVariableexpenseID) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiVariableexpenseID** | **Int** | The unique ID of the Variableexpense | 
-
-### Return type
-
-[**VariableexpenseDeleteObjectV1Response**](VariableexpenseDeleteObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
