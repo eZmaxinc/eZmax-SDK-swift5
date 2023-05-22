@@ -320,8 +320,8 @@ open class ObjectEzsigntemplatepackageAPI {
      Retrieve Ezsigntemplatepackage list
      
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional)
-     - parameter iRowOffset: (query)  (optional)
+     - parameter iRowMax: (query)  (optional, default to 10000)
+     - parameter iRowOffset: (query)  (optional, default to 0)
      - parameter acceptLanguage: (header)  (optional)
      - parameter sFilter: (query)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -347,8 +347,8 @@ open class ObjectEzsigntemplatepackageAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional)
-     - parameter iRowOffset: (query)  (optional)
+     - parameter iRowMax: (query)  (optional, default to 10000)
+     - parameter iRowOffset: (query)  (optional, default to 0)
      - parameter acceptLanguage: (header)  (optional)
      - parameter sFilter: (query)  (optional)
      - returns: RequestBuilder<EzsigntemplatepackageGetListV1Response> 

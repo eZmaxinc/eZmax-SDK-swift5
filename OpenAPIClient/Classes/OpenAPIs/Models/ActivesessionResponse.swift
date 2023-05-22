@@ -17,6 +17,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public var eActivesessionUsertype: FieldEActivesessionUsertype
+    public var eActivesessionOrigin: FieldEActivesessionOrigin
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
@@ -33,8 +34,9 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     /** The unique ID of the Systemconfigurationtype */
     public var fkiSystemconfigurationtypeID: Int?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
+        self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
         self.fkiLanguageID = fkiLanguageID
         self.sCompanyNameX = sCompanyNameX
@@ -47,6 +49,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case eActivesessionUsertype
+        case eActivesessionOrigin
         case eActivesessionWeekdaystart
         case fkiLanguageID
         case sCompanyNameX
@@ -62,6 +65,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(eActivesessionUsertype, forKey: .eActivesessionUsertype)
+        try container.encode(eActivesessionOrigin, forKey: .eActivesessionOrigin)
         try container.encode(eActivesessionWeekdaystart, forKey: .eActivesessionWeekdaystart)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)

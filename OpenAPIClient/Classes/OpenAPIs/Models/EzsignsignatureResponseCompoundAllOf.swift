@@ -16,15 +16,18 @@ public struct EzsignsignatureResponseCompoundAllOf: Codable, JSONEncodable, Hash
     public var bEzsignsignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
     public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]?
+    public var objCreditcardtransaction: CustomCreditcardtransactionResponse?
 
-    public init(bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil) {
+    public init(bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil) {
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
         self.aObjEzsignsignaturecustomdate = aObjEzsignsignaturecustomdate
+        self.objCreditcardtransaction = objCreditcardtransaction
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case bEzsignsignatureCustomdate
         case aObjEzsignsignaturecustomdate = "a_objEzsignsignaturecustomdate"
+        case objCreditcardtransaction
     }
 
     // Encodable protocol methods
@@ -33,6 +36,7 @@ public struct EzsignsignatureResponseCompoundAllOf: Codable, JSONEncodable, Hash
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(bEzsignsignatureCustomdate, forKey: .bEzsignsignatureCustomdate)
         try container.encodeIfPresent(aObjEzsignsignaturecustomdate, forKey: .aObjEzsignsignaturecustomdate)
+        try container.encodeIfPresent(objCreditcardtransaction, forKey: .objCreditcardtransaction)
     }
 }
 

@@ -18,7 +18,9 @@ open class ObjectUserAPI {
     public enum SSelector_userGetAutocompleteV2: String, CaseIterable {
         case all = "All"
         case agentBrokerEmployeeEzsignUserNormal = "AgentBrokerEmployeeEzsignUserNormal"
+        case agentBrokerEmployeeNormalBuiltIn = "AgentBrokerEmployeeNormalBuiltIn"
         case clonableUsers = "ClonableUsers"
+        case ezsignuserBuiltIn = "EzsignuserBuiltIn"
         case normal = "Normal"
         case normalEzsignSigner = "NormalEzsignSigner"
     }

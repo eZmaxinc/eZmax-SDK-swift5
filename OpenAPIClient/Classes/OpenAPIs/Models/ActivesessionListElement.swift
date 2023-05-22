@@ -19,8 +19,8 @@ public struct ActivesessionListElement: Codable, JSONEncodable, Hashable {
     static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sActivesessionLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,32}$/")
     static let sComputerDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let dtActivesessionFirsthitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) (0[1-9]|1[0-9]|2[0-4]):(0[1-9]|[1-5][0-9]|6[0]):(0[1-9]|[1-5][0-9]|6[0])$/")
-    static let dtActivesessionLasthitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) (0[1-9]|1[0-9]|2[0-4]):(0[1-9]|[1-5][0-9]|6[0]):(0[1-9]|[1-5][0-9]|6[0])$/")
+    static let dtActivesessionFirsthitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
+    static let dtActivesessionLasthitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     /** The unique ID of the Activesession */
     public var pkiActivesessionID: Int
     /** The unique ID of the User */

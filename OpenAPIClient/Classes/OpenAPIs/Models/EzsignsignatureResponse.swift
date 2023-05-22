@@ -20,6 +20,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     static let iEzsignsignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsignsignatureYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldersignerassociationIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let dtEzsignsignatureDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     /** The unique ID of the Ezsignsignature */
     public var pkiEzsignsignatureID: Int
     /** The unique ID of the Ezsigndocument */
@@ -48,8 +49,11 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     public var bEzsignsignatureRequired: Bool?
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationIDValidation: Int?
+    /** The date the Ezsignsignature was signed */
+    public var dtEzsignsignatureDate: String?
+    public var objContactName: CustomContactNameResponse
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, objContactName: CustomContactNameResponse) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
@@ -66,6 +70,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         self.eEzsignsignatureAttachmentnamesource = eEzsignsignatureAttachmentnamesource
         self.bEzsignsignatureRequired = bEzsignsignatureRequired
         self.fkiEzsignfoldersignerassociationIDValidation = fkiEzsignfoldersignerassociationIDValidation
+        self.dtEzsignsignatureDate = dtEzsignsignatureDate
+        self.objContactName = objContactName
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -85,6 +91,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         case eEzsignsignatureAttachmentnamesource
         case bEzsignsignatureRequired
         case fkiEzsignfoldersignerassociationIDValidation
+        case dtEzsignsignatureDate
+        case objContactName
     }
 
     // Encodable protocol methods
@@ -107,6 +115,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eEzsignsignatureAttachmentnamesource, forKey: .eEzsignsignatureAttachmentnamesource)
         try container.encodeIfPresent(bEzsignsignatureRequired, forKey: .bEzsignsignatureRequired)
         try container.encodeIfPresent(fkiEzsignfoldersignerassociationIDValidation, forKey: .fkiEzsignfoldersignerassociationIDValidation)
+        try container.encodeIfPresent(dtEzsignsignatureDate, forKey: .dtEzsignsignatureDate)
+        try container.encode(objContactName, forKey: .objContactName)
     }
 }
 

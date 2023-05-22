@@ -14,22 +14,22 @@ import AnyCodable
 public struct BillingentityinternalAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
     static let pkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    /** The description of the Billingentityinternal in the language of the requester */
-    public var sBillingentityinternalDescriptionX: String
     /** The unique ID of the Billingentityinternal. */
     public var pkiBillingentityinternalID: Int
+    /** The description of the Billingentityinternal in the language of the requester */
+    public var sBillingentityinternalDescriptionX: String
     /** Whether the Billingentityinternal is active or not */
     public var bBillingentityinternalIsactive: Bool
 
-    public init(sBillingentityinternalDescriptionX: String, pkiBillingentityinternalID: Int, bBillingentityinternalIsactive: Bool) {
-        self.sBillingentityinternalDescriptionX = sBillingentityinternalDescriptionX
+    public init(pkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, bBillingentityinternalIsactive: Bool) {
         self.pkiBillingentityinternalID = pkiBillingentityinternalID
+        self.sBillingentityinternalDescriptionX = sBillingentityinternalDescriptionX
         self.bBillingentityinternalIsactive = bBillingentityinternalIsactive
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case sBillingentityinternalDescriptionX
         case pkiBillingentityinternalID
+        case sBillingentityinternalDescriptionX
         case bBillingentityinternalIsactive
     }
 
@@ -37,8 +37,8 @@ public struct BillingentityinternalAutocompleteElementResponse: Codable, JSONEnc
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(sBillingentityinternalDescriptionX, forKey: .sBillingentityinternalDescriptionX)
         try container.encode(pkiBillingentityinternalID, forKey: .pkiBillingentityinternalID)
+        try container.encode(sBillingentityinternalDescriptionX, forKey: .sBillingentityinternalDescriptionX)
         try container.encode(bBillingentityinternalIsactive, forKey: .bBillingentityinternalIsactive)
     }
 }

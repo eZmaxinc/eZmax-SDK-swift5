@@ -523,6 +523,56 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Retrieve completed elements for the Ezsigndocument
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentGetCompletedElementsV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetCompletedElementsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentGetCompletedElementsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve completed elements for the Ezsigndocument
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements
+     - Return the completed Ezsignsignatures, Ezsignformfieldgroups and Ezsignannotations at the current step in the process
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetCompletedElementsV1Response> 
+     */
+    open class func ezsigndocumentGetCompletedElementsV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetCompletedElementsV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetCompletedElementsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter eDocumentType
      */
     public enum EDocumentType_ezsigndocumentGetDownloadUrlV1: String, CaseIterable {

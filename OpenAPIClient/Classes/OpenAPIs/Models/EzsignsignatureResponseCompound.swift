@@ -20,6 +20,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     static let iEzsignsignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsignsignatureYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldersignerassociationIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let dtEzsignsignatureDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     /** The unique ID of the Ezsignsignature */
     public var pkiEzsignsignatureID: Int
     /** The unique ID of the Ezsigndocument */
@@ -48,12 +49,16 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public var bEzsignsignatureRequired: Bool?
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationIDValidation: Int?
+    /** The date the Ezsignsignature was signed */
+    public var dtEzsignsignatureDate: String?
+    public var objContactName: CustomContactNameResponse
     /** Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) */
     public var bEzsignsignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
     public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]?
+    public var objCreditcardtransaction: CustomCreditcardtransactionResponse?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, objContactName: CustomContactNameResponse, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
@@ -70,8 +75,11 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         self.eEzsignsignatureAttachmentnamesource = eEzsignsignatureAttachmentnamesource
         self.bEzsignsignatureRequired = bEzsignsignatureRequired
         self.fkiEzsignfoldersignerassociationIDValidation = fkiEzsignfoldersignerassociationIDValidation
+        self.dtEzsignsignatureDate = dtEzsignsignatureDate
+        self.objContactName = objContactName
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
         self.aObjEzsignsignaturecustomdate = aObjEzsignsignaturecustomdate
+        self.objCreditcardtransaction = objCreditcardtransaction
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -91,8 +99,11 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         case eEzsignsignatureAttachmentnamesource
         case bEzsignsignatureRequired
         case fkiEzsignfoldersignerassociationIDValidation
+        case dtEzsignsignatureDate
+        case objContactName
         case bEzsignsignatureCustomdate
         case aObjEzsignsignaturecustomdate = "a_objEzsignsignaturecustomdate"
+        case objCreditcardtransaction
     }
 
     // Encodable protocol methods
@@ -115,8 +126,11 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(eEzsignsignatureAttachmentnamesource, forKey: .eEzsignsignatureAttachmentnamesource)
         try container.encodeIfPresent(bEzsignsignatureRequired, forKey: .bEzsignsignatureRequired)
         try container.encodeIfPresent(fkiEzsignfoldersignerassociationIDValidation, forKey: .fkiEzsignfoldersignerassociationIDValidation)
+        try container.encodeIfPresent(dtEzsignsignatureDate, forKey: .dtEzsignsignatureDate)
+        try container.encode(objContactName, forKey: .objContactName)
         try container.encodeIfPresent(bEzsignsignatureCustomdate, forKey: .bEzsignsignatureCustomdate)
         try container.encodeIfPresent(aObjEzsignsignaturecustomdate, forKey: .aObjEzsignsignaturecustomdate)
+        try container.encodeIfPresent(objCreditcardtransaction, forKey: .objCreditcardtransaction)
     }
 }
 

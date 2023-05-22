@@ -779,24 +779,24 @@ open class ObjectEzsignfolderAPI {
         case eezsignfolderstepDesc = "eEzsignfolderStep_DESC"
         case dtezsignfoldersentdateAsc = "dtEzsignfolderSentdate_ASC"
         case dtezsignfoldersentdateDesc = "dtEzsignfolderSentdate_DESC"
-        case dtduedateAsc = "dtDueDate_ASC"
-        case dtduedateDesc = "dtDueDate_DESC"
-        case itotaldocumentAsc = "iTotalDocument_ASC"
-        case itotaldocumentDesc = "iTotalDocument_DESC"
-        case itotaldocumentedmAsc = "iTotalDocumentEdm_ASC"
-        case itotaldocumentedmDesc = "iTotalDocumentEdm_DESC"
-        case itotalsignatureAsc = "iTotalSignature_ASC"
-        case itotalsignatureDesc = "iTotalSignature_DESC"
-        case itotalsignaturesignedAsc = "iTotalSignatureSigned_ASC"
-        case itotalsignaturesignedDesc = "iTotalSignatureSigned_DESC"
+        case dtezsignfolderduedateAsc = "dtEzsignfolderDuedate_ASC"
+        case dtezsignfolderduedateDesc = "dtEzsignfolderDuedate_DESC"
+        case iezsigndocumentAsc = "iEzsigndocument_ASC"
+        case iezsigndocumentDesc = "iEzsigndocument_DESC"
+        case iezsigndocumentedmAsc = "iEzsigndocumentEdm_ASC"
+        case iezsigndocumentedmDesc = "iEzsigndocumentEdm_DESC"
+        case iezsignsignatureAsc = "iEzsignsignature_ASC"
+        case iezsignsignatureDesc = "iEzsignsignature_DESC"
+        case iezsignsignaturesignedAsc = "iEzsignsignatureSigned_ASC"
+        case iezsignsignaturesignedDesc = "iEzsignsignatureSigned_DESC"
     }
 
     /**
      Retrieve Ezsignfolder list
      
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional)
-     - parameter iRowOffset: (query)  (optional)
+     - parameter iRowMax: (query)  (optional, default to 10000)
+     - parameter iRowOffset: (query)  (optional, default to 0)
      - parameter acceptLanguage: (header)  (optional)
      - parameter sFilter: (query)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -822,8 +822,8 @@ open class ObjectEzsignfolderAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional)
-     - parameter iRowOffset: (query)  (optional)
+     - parameter iRowMax: (query)  (optional, default to 10000)
+     - parameter iRowOffset: (query)  (optional, default to 0)
      - parameter acceptLanguage: (header)  (optional)
      - parameter sFilter: (query)  (optional)
      - returns: RequestBuilder<EzsignfolderGetListV1Response> 

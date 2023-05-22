@@ -28,6 +28,7 @@ open class GlobalCustomerAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func globalCustomerGetEndpointV1(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: GlobalCustomerGetEndpointV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return globalCustomerGetEndpointV1WithRequestBuilder(pksCustomerCode: pksCustomerCode, sInfrastructureproductCode: sInfrastructureproductCode).execute(apiResponseQueue) { result in
@@ -51,6 +52,7 @@ open class GlobalCustomerAPI {
      - parameter sInfrastructureproductCode: (query) The infrastructure product Code  If undefined, \&quot;appcluster01\&quot; is assumed (optional)
      - returns: RequestBuilder<GlobalCustomerGetEndpointV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func globalCustomerGetEndpointV1WithRequestBuilder(pksCustomerCode: String, sInfrastructureproductCode: SInfrastructureproductCode_globalCustomerGetEndpointV1? = nil) -> RequestBuilder<GlobalCustomerGetEndpointV1Response> {
         var localVariablePath = "/1/customer/{pksCustomerCode}/endpoint"
         let pksCustomerCodePreEscape = "\(APIHelper.mapValueToPathItem(pksCustomerCode))"

@@ -13,5 +13,7 @@ import AnyCodable
 /** This Ezsign Event. This property will be set only if the Module is \&quot;Ezsign\&quot; */
 public enum FieldEWebhookEzsignevent: String, Codable, CaseIterable {
     case documentCompleted = "DocumentCompleted"
+    case ezsignsignerAcceptclause = "EzsignsignerAcceptclause"
+    case ezsignsignerConnect = "EzsignsignerConnect"
     case folderCompleted = "FolderCompleted"
 }

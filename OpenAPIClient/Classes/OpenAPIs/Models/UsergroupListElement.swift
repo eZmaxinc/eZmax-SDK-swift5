@@ -15,19 +15,24 @@ public struct UsergroupListElement: Codable, JSONEncodable, Hashable {
 
     static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     static let sUsergroupNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    static let iCountUserRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Usergroup */
     public var pkiUsergroupID: Int
     /** The Name of the Usergroup in the language of the requester */
     public var sUsergroupNameX: String
+    /** Numer of user in group */
+    public var iCountUser: Int
 
-    public init(pkiUsergroupID: Int, sUsergroupNameX: String) {
+    public init(pkiUsergroupID: Int, sUsergroupNameX: String, iCountUser: Int) {
         self.pkiUsergroupID = pkiUsergroupID
         self.sUsergroupNameX = sUsergroupNameX
+        self.iCountUser = iCountUser
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiUsergroupID
         case sUsergroupNameX
+        case iCountUser
     }
 
     // Encodable protocol methods
@@ -36,6 +41,7 @@ public struct UsergroupListElement: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiUsergroupID, forKey: .pkiUsergroupID)
         try container.encode(sUsergroupNameX, forKey: .sUsergroupNameX)
+        try container.encode(iCountUser, forKey: .iCountUser)
     }
 }
 
