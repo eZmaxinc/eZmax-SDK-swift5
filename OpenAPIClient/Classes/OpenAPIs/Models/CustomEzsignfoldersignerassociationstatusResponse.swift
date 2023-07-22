@@ -17,12 +17,12 @@ public struct CustomEzsignfoldersignerassociationstatusResponse: Codable, JSONEn
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
     /** The last name of the Ezsignsigner */
-    public var sEzsignfoldersignerassociationstatusLastname: String
+    public var sEzsignfoldersignerassociationstatusLastname: String?
     /** The first name of the Ezsignsigner */
-    public var sEzsignfoldersignerassociationstatusFirstname: String
+    public var sEzsignfoldersignerassociationstatusFirstname: String?
     public var aObjEzsignsignaturestatus: [CustomEzsignsignaturestatusResponse]
 
-    public init(fkiEzsignfoldersignerassociationID: Int, sEzsignfoldersignerassociationstatusLastname: String, sEzsignfoldersignerassociationstatusFirstname: String, aObjEzsignsignaturestatus: [CustomEzsignsignaturestatusResponse]) {
+    public init(fkiEzsignfoldersignerassociationID: Int, sEzsignfoldersignerassociationstatusLastname: String? = nil, sEzsignfoldersignerassociationstatusFirstname: String? = nil, aObjEzsignsignaturestatus: [CustomEzsignsignaturestatusResponse]) {
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.sEzsignfoldersignerassociationstatusLastname = sEzsignfoldersignerassociationstatusLastname
         self.sEzsignfoldersignerassociationstatusFirstname = sEzsignfoldersignerassociationstatusFirstname
@@ -41,8 +41,8 @@ public struct CustomEzsignfoldersignerassociationstatusResponse: Codable, JSONEn
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(fkiEzsignfoldersignerassociationID, forKey: .fkiEzsignfoldersignerassociationID)
-        try container.encode(sEzsignfoldersignerassociationstatusLastname, forKey: .sEzsignfoldersignerassociationstatusLastname)
-        try container.encode(sEzsignfoldersignerassociationstatusFirstname, forKey: .sEzsignfoldersignerassociationstatusFirstname)
+        try container.encodeIfPresent(sEzsignfoldersignerassociationstatusLastname, forKey: .sEzsignfoldersignerassociationstatusLastname)
+        try container.encodeIfPresent(sEzsignfoldersignerassociationstatusFirstname, forKey: .sEzsignfoldersignerassociationstatusFirstname)
         try container.encode(aObjEzsignsignaturestatus, forKey: .aObjEzsignsignaturestatus)
     }
 }

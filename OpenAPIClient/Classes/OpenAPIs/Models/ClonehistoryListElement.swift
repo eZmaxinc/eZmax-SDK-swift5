@@ -18,6 +18,8 @@ public struct ClonehistoryListElement: Codable, JSONEncodable, Hashable {
     static let fkiUserIDClonedRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let dtClonehistoryFirsthitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     static let dtClonehistoryLasthitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
+    static let sUserLoginnameCloningRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4})|([a-zA-Z0-9]){1,32})$/")
+    static let sUserLoginnameClonedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4})|([a-zA-Z0-9]){1,32})$/")
     /** The unique ID of the Clonehistory */
     public var pkiClonehistoryID: Int
     /** The unique ID of the User */
@@ -28,17 +30,17 @@ public struct ClonehistoryListElement: Codable, JSONEncodable, Hashable {
     public var dtClonehistoryFirsthit: String
     /** The lasthit of the Clonehistory */
     public var dtClonehistoryLasthit: String?
-    /** The Login name of the User. */
+    /** The login name of the User. */
     public var sUserLoginnameCloning: String
-    /** The First name of the user */
+    /** The first name of the user */
     public var sUserFirstnameCloning: String
-    /** The Last name of the user */
+    /** The last name of the user */
     public var sUserLastnameCloning: String
-    /** The Login name of the User. */
+    /** The login name of the User. */
     public var sUserLoginnameCloned: String
-    /** The First name of the user */
+    /** The first name of the user */
     public var sUserFirstnameCloned: String
-    /** The Last name of the user */
+    /** The last name of the user */
     public var sUserLastnameCloned: String
 
     public init(pkiClonehistoryID: Int, fkiUserIDCloning: Int, fkiUserIDCloned: Int, dtClonehistoryFirsthit: String, dtClonehistoryLasthit: String? = nil, sUserLoginnameCloning: String, sUserFirstnameCloning: String, sUserLastnameCloning: String, sUserLoginnameCloned: String, sUserFirstnameCloned: String, sUserLastnameCloned: String) {

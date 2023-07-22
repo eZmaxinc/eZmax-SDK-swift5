@@ -75,7 +75,7 @@ Edit an existing Variableexpense
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiVariableexpenseID = 987 // Int | The unique ID of the Variableexpense
+let pkiVariableexpenseID = 987 // Int | 
 let variableexpenseEditObjectV1Request = variableexpense-editObject-v1-Request(objVariableexpense: variableexpense-RequestCompound(pkiVariableexpenseID: 123, sVariableexpenseCode: "sVariableexpenseCode_example", objVariableexpenseDescription: Multilingual-VariableexpenseDescription(sVariableexpenseDescription1: "sVariableexpenseDescription1_example", sVariableexpenseDescription2: "sVariableexpenseDescription2_example"), eVariableexpenseTaxable: Field-eVariableexpenseTaxable(), bVariableexpenseIsactive: true)) // VariableexpenseEditObjectV1Request | 
 
 // Edit an existing Variableexpense
@@ -95,7 +95,7 @@ ObjectVariableexpenseAPI.variableexpenseEditObjectV1(pkiVariableexpenseID: pkiVa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiVariableexpenseID** | **Int** | The unique ID of the Variableexpense | 
+ **pkiVariableexpenseID** | **Int** |  | 
  **variableexpenseEditObjectV1Request** | [**VariableexpenseEditObjectV1Request**](VariableexpenseEditObjectV1Request.md) |  | 
 
 ### Return type
@@ -241,7 +241,7 @@ Retrieve an existing Variableexpense
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiVariableexpenseID = 987 // Int | The unique ID of the Variableexpense
+let pkiVariableexpenseID = 987 // Int | 
 
 // Retrieve an existing Variableexpense
 ObjectVariableexpenseAPI.variableexpenseGetObjectV2(pkiVariableexpenseID: pkiVariableexpenseID) { (response, error) in
@@ -260,7 +260,7 @@ ObjectVariableexpenseAPI.variableexpenseGetObjectV2(pkiVariableexpenseID: pkiVar
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiVariableexpenseID** | **Int** | The unique ID of the Variableexpense | 
+ **pkiVariableexpenseID** | **Int** |  | 
 
 ### Return type
 

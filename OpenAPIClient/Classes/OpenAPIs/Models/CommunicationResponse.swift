@@ -25,12 +25,14 @@ public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
     public var eCommunicationDirection: ComputedECommunicationDirection
     /** The count of Communicationrecipient */
     public var iCommunicationrecipientCount: Int
+    /** Whether the Communication is private or not */
+    public var bCommunicationPrivate: Bool
     public var objDescriptionstaticSender: DescriptionstaticResponse?
     public var objEmailstaticSender: EmailstaticResponse?
     public var objPhonestaticSender: PhonestaticResponse?
     public var objAudit: CommonAudit
 
-    public init(pkiCommunicationID: Int, eCommunicationImportance: FieldECommunicationImportance, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, sCommunicationBodyurl: String? = nil, eCommunicationDirection: ComputedECommunicationDirection, iCommunicationrecipientCount: Int, objDescriptionstaticSender: DescriptionstaticResponse? = nil, objEmailstaticSender: EmailstaticResponse? = nil, objPhonestaticSender: PhonestaticResponse? = nil, objAudit: CommonAudit) {
+    public init(pkiCommunicationID: Int, eCommunicationImportance: FieldECommunicationImportance, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, sCommunicationBodyurl: String? = nil, eCommunicationDirection: ComputedECommunicationDirection, iCommunicationrecipientCount: Int, bCommunicationPrivate: Bool, objDescriptionstaticSender: DescriptionstaticResponse? = nil, objEmailstaticSender: EmailstaticResponse? = nil, objPhonestaticSender: PhonestaticResponse? = nil, objAudit: CommonAudit) {
         self.pkiCommunicationID = pkiCommunicationID
         self.eCommunicationImportance = eCommunicationImportance
         self.eCommunicationType = eCommunicationType
@@ -38,6 +40,7 @@ public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
         self.sCommunicationBodyurl = sCommunicationBodyurl
         self.eCommunicationDirection = eCommunicationDirection
         self.iCommunicationrecipientCount = iCommunicationrecipientCount
+        self.bCommunicationPrivate = bCommunicationPrivate
         self.objDescriptionstaticSender = objDescriptionstaticSender
         self.objEmailstaticSender = objEmailstaticSender
         self.objPhonestaticSender = objPhonestaticSender
@@ -52,6 +55,7 @@ public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
         case sCommunicationBodyurl
         case eCommunicationDirection
         case iCommunicationrecipientCount
+        case bCommunicationPrivate
         case objDescriptionstaticSender
         case objEmailstaticSender
         case objPhonestaticSender
@@ -69,6 +73,7 @@ public struct CommunicationResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sCommunicationBodyurl, forKey: .sCommunicationBodyurl)
         try container.encode(eCommunicationDirection, forKey: .eCommunicationDirection)
         try container.encode(iCommunicationrecipientCount, forKey: .iCommunicationrecipientCount)
+        try container.encode(bCommunicationPrivate, forKey: .bCommunicationPrivate)
         try container.encodeIfPresent(objDescriptionstaticSender, forKey: .objDescriptionstaticSender)
         try container.encodeIfPresent(objEmailstaticSender, forKey: .objEmailstaticSender)
         try container.encodeIfPresent(objPhonestaticSender, forKey: .objPhonestaticSender)

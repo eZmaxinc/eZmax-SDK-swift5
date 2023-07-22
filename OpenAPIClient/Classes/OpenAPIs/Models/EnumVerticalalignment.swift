@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The Verticalalignment of the Ezsignannotation.  This can only be set if eEzsignannotationType is **Text** */
+/** The Vertical alignment */
 public enum EnumVerticalalignment: String, Codable, CaseIterable {
     case bottom = "Bottom"
     case middle = "Middle"

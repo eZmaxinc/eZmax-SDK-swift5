@@ -23,9 +23,9 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
     public var fkiTimezoneID: Int
     /** The url of the picture used as avatar */
     public var sAvatarUrl: String
-    /** The First name of the user */
+    /** The first name of the user */
     public var sUserFirstname: String
-    /** The Last name of the user */
+    /** The last name of the user */
     public var sUserLastname: String
     /** The email address. */
     public var sEmailAddress: String

@@ -18,6 +18,8 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
     static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsignsignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsignsignatureYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignsignatureWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignsignatureHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldersignerassociationIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignsignature */
@@ -30,6 +32,10 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
     public var iEzsignsignatureX: Int
     /** The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
     public var iEzsignsignatureY: Int
+    /** The width of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have a width of 2 inches, you would use \"200\" for the iEzsignsignatureWidth. */
+    public var iEzsignsignatureWidth: Int?
+    /** The height of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have an height of 2 inches, you would use \"200\" for the iEzsignsignatureHeight. */
+    public var iEzsignsignatureHeight: Int?
     /** The step when the Ezsignsigner will be invited to sign */
     public var iEzsignsignatureStep: Int
     public var eEzsignsignatureType: FieldEEzsignsignatureType
@@ -48,17 +54,22 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
     public var sEzsignsignatureAttachmentdescription: String?
     /** The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments */
     public var iEzsignsignatureValidationstep: Int?
+    public var eEzsignsignatureTextvalidation: EnumTextvalidation?
+    /** A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** */
+    public var sEzsignsignatureRegexp: String?
     /** Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) */
     public var bEzsignsignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
     public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]?
 
-    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, iEzsignsignatureValidationstep: Int? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]? = nil) {
+    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, iEzsignsignatureValidationstep: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureRegexp: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.iEzsignsignatureX = iEzsignsignatureX
         self.iEzsignsignatureY = iEzsignsignatureY
+        self.iEzsignsignatureWidth = iEzsignsignatureWidth
+        self.iEzsignsignatureHeight = iEzsignsignatureHeight
         self.iEzsignsignatureStep = iEzsignsignatureStep
         self.eEzsignsignatureType = eEzsignsignatureType
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
@@ -70,6 +81,8 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
         self.eEzsignsignatureAttachmentnamesource = eEzsignsignatureAttachmentnamesource
         self.sEzsignsignatureAttachmentdescription = sEzsignsignatureAttachmentdescription
         self.iEzsignsignatureValidationstep = iEzsignsignatureValidationstep
+        self.eEzsignsignatureTextvalidation = eEzsignsignatureTextvalidation
+        self.sEzsignsignatureRegexp = sEzsignsignatureRegexp
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
         self.aObjEzsignsignaturecustomdate = aObjEzsignsignaturecustomdate
     }
@@ -80,6 +93,8 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
         case iEzsignpagePagenumber
         case iEzsignsignatureX
         case iEzsignsignatureY
+        case iEzsignsignatureWidth
+        case iEzsignsignatureHeight
         case iEzsignsignatureStep
         case eEzsignsignatureType
         case fkiEzsigndocumentID
@@ -91,6 +106,8 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
         case eEzsignsignatureAttachmentnamesource
         case sEzsignsignatureAttachmentdescription
         case iEzsignsignatureValidationstep
+        case eEzsignsignatureTextvalidation
+        case sEzsignsignatureRegexp
         case bEzsignsignatureCustomdate
         case aObjEzsignsignaturecustomdate = "a_objEzsignsignaturecustomdate"
     }
@@ -104,6 +121,8 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
         try container.encode(iEzsignsignatureX, forKey: .iEzsignsignatureX)
         try container.encode(iEzsignsignatureY, forKey: .iEzsignsignatureY)
+        try container.encodeIfPresent(iEzsignsignatureWidth, forKey: .iEzsignsignatureWidth)
+        try container.encodeIfPresent(iEzsignsignatureHeight, forKey: .iEzsignsignatureHeight)
         try container.encode(iEzsignsignatureStep, forKey: .iEzsignsignatureStep)
         try container.encode(eEzsignsignatureType, forKey: .eEzsignsignatureType)
         try container.encode(fkiEzsigndocumentID, forKey: .fkiEzsigndocumentID)
@@ -115,6 +134,8 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eEzsignsignatureAttachmentnamesource, forKey: .eEzsignsignatureAttachmentnamesource)
         try container.encodeIfPresent(sEzsignsignatureAttachmentdescription, forKey: .sEzsignsignatureAttachmentdescription)
         try container.encodeIfPresent(iEzsignsignatureValidationstep, forKey: .iEzsignsignatureValidationstep)
+        try container.encodeIfPresent(eEzsignsignatureTextvalidation, forKey: .eEzsignsignatureTextvalidation)
+        try container.encodeIfPresent(sEzsignsignatureRegexp, forKey: .sEzsignsignatureRegexp)
         try container.encodeIfPresent(bEzsignsignatureCustomdate, forKey: .bEzsignsignatureCustomdate)
         try container.encodeIfPresent(aObjEzsignsignaturecustomdate, forKey: .aObjEzsignsignaturecustomdate)
     }

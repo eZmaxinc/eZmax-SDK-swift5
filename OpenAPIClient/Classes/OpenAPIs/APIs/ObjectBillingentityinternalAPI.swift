@@ -62,7 +62,7 @@ open class ObjectBillingentityinternalAPI {
     /**
      Edit an existing Billingentityinternal
      
-     - parameter pkiBillingentityinternalID: (path) The unique ID of the Billingentityinternal 
+     - parameter pkiBillingentityinternalID: (path)  
      - parameter billingentityinternalEditObjectV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -86,7 +86,7 @@ open class ObjectBillingentityinternalAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiBillingentityinternalID: (path) The unique ID of the Billingentityinternal 
+     - parameter pkiBillingentityinternalID: (path)  
      - parameter billingentityinternalEditObjectV1Request: (body)  
      - returns: RequestBuilder<BillingentityinternalEditObjectV1Response> 
      */
@@ -261,7 +261,7 @@ open class ObjectBillingentityinternalAPI {
     /**
      Retrieve an existing Billingentityinternal
      
-     - parameter pkiBillingentityinternalID: (path) The unique ID of the Billingentityinternal 
+     - parameter pkiBillingentityinternalID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -284,7 +284,7 @@ open class ObjectBillingentityinternalAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiBillingentityinternalID: (path) The unique ID of the Billingentityinternal 
+     - parameter pkiBillingentityinternalID: (path)  
      - returns: RequestBuilder<BillingentityinternalGetObjectV2Response> 
      */
     open class func billingentityinternalGetObjectV2WithRequestBuilder(pkiBillingentityinternalID: Int) -> RequestBuilder<BillingentityinternalGetObjectV2Response> {

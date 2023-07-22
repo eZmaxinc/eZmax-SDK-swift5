@@ -22,6 +22,8 @@ public struct UserstagedResponseCompound: Codable, JSONEncodable, Hashable {
     public var pkiUserstagedID: Int
     /** The unique ID of the Email */
     public var fkiEmailID: Int
+    /** The email address. */
+    public var sEmailAddress: String
     /** The firstname of the Userstaged */
     public var sUserstagedFirstname: String
     /** The lastname of the Userstaged */
@@ -29,9 +31,10 @@ public struct UserstagedResponseCompound: Codable, JSONEncodable, Hashable {
     /** The externalid of the Userstaged */
     public var sUserstagedExternalid: String
 
-    public init(pkiUserstagedID: Int, fkiEmailID: Int, sUserstagedFirstname: String, sUserstagedLastname: String, sUserstagedExternalid: String) {
+    public init(pkiUserstagedID: Int, fkiEmailID: Int, sEmailAddress: String, sUserstagedFirstname: String, sUserstagedLastname: String, sUserstagedExternalid: String) {
         self.pkiUserstagedID = pkiUserstagedID
         self.fkiEmailID = fkiEmailID
+        self.sEmailAddress = sEmailAddress
         self.sUserstagedFirstname = sUserstagedFirstname
         self.sUserstagedLastname = sUserstagedLastname
         self.sUserstagedExternalid = sUserstagedExternalid
@@ -40,6 +43,7 @@ public struct UserstagedResponseCompound: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiUserstagedID
         case fkiEmailID
+        case sEmailAddress
         case sUserstagedFirstname
         case sUserstagedLastname
         case sUserstagedExternalid
@@ -51,6 +55,7 @@ public struct UserstagedResponseCompound: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiUserstagedID, forKey: .pkiUserstagedID)
         try container.encode(fkiEmailID, forKey: .fkiEmailID)
+        try container.encode(sEmailAddress, forKey: .sEmailAddress)
         try container.encode(sUserstagedFirstname, forKey: .sUserstagedFirstname)
         try container.encode(sUserstagedLastname, forKey: .sUserstagedLastname)
         try container.encode(sUserstagedExternalid, forKey: .sUserstagedExternalid)

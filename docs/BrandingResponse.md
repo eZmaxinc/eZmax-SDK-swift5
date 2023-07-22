@@ -4,8 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiBrandingID** | **Int** | The unique ID of the Branding | 
+**fkiEmailID** | **Int** | The unique ID of the Email | [optional] 
 **objBrandingDescription** | [**MultilingualBrandingDescription**](MultilingualBrandingDescription.md) |  | 
 **sBrandingDescriptionX** | **String** | The Description of the Branding in the language of the requester | 
+**sBrandingName** | **String** | The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty | [optional] 
+**sEmailAddress** | **String** | The email address. | [optional] 
 **eBrandingLogo** | [**FieldEBrandingLogo**](FieldEBrandingLogo.md) |  | 
 **iBrandingColortext** | **Int** | The color of the text. This is a RGB color converted into integer | 
 **iBrandingColortextlinkbox** | **Int** | The color of the text in the link box. This is a RGB color converted into integer | 

@@ -13,12 +13,12 @@ import AnyCodable
 /** Generic Error Message */
 public struct CommonResponseError: Codable, JSONEncodable, Hashable {
 
-    /** More detail about the error */
+    static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
+    /** The message giving details about the error */
     public var sErrorMessage: String
-    /** The error code. See documentation for valid values */
-    public var eErrorCode: String
+    public var eErrorCode: FieldEErrorCode
 
-    public init(sErrorMessage: String, eErrorCode: String) {
+    public init(sErrorMessage: String, eErrorCode: FieldEErrorCode) {
         self.sErrorMessage = sErrorMessage
         self.eErrorCode = eErrorCode
     }

@@ -13,12 +13,10 @@ import AnyCodable
 /** A custom Creditcardtransaction Object */
 public struct CustomCreditcardtransactionResponse: Codable, JSONEncodable, Hashable {
 
-    static let sCreditcardtypeCodenameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-zA-Z ]{0,15}$/")
     static let dCreditcardtransactionAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
     static let sCreditcardtransactionPartiallydecryptednumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^([X]{4}[ ]){3}(\\d){4}$/")
     static let sCreditcardtransactionReferencenumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{18}$/")
-    /** The codename of the Creditcardtype */
-    public var sCreditcardtypeCodename: String
+    public var eCreditcardtypeCodename: FieldECreditcardtypeCodename?
     /** The amount of the Creditcardtransaction */
     public var dCreditcardtransactionAmount: String
     /** The partially decrypted credit card number used in the Creditcardtransaction */
@@ -26,15 +24,15 @@ public struct CustomCreditcardtransactionResponse: Codable, JSONEncodable, Hasha
     /** The reference number on the creditcard service for the Creditcardtransaction */
     public var sCreditcardtransactionReferencenumber: String
 
-    public init(sCreditcardtypeCodename: String, dCreditcardtransactionAmount: String, sCreditcardtransactionPartiallydecryptednumber: String, sCreditcardtransactionReferencenumber: String) {
-        self.sCreditcardtypeCodename = sCreditcardtypeCodename
+    public init(eCreditcardtypeCodename: FieldECreditcardtypeCodename? = nil, dCreditcardtransactionAmount: String, sCreditcardtransactionPartiallydecryptednumber: String, sCreditcardtransactionReferencenumber: String) {
+        self.eCreditcardtypeCodename = eCreditcardtypeCodename
         self.dCreditcardtransactionAmount = dCreditcardtransactionAmount
         self.sCreditcardtransactionPartiallydecryptednumber = sCreditcardtransactionPartiallydecryptednumber
         self.sCreditcardtransactionReferencenumber = sCreditcardtransactionReferencenumber
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case sCreditcardtypeCodename
+        case eCreditcardtypeCodename
         case dCreditcardtransactionAmount
         case sCreditcardtransactionPartiallydecryptednumber
         case sCreditcardtransactionReferencenumber
@@ -44,7 +42,7 @@ public struct CustomCreditcardtransactionResponse: Codable, JSONEncodable, Hasha
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(sCreditcardtypeCodename, forKey: .sCreditcardtypeCodename)
+        try container.encodeIfPresent(eCreditcardtypeCodename, forKey: .eCreditcardtypeCodename)
         try container.encode(dCreditcardtransactionAmount, forKey: .dCreditcardtransactionAmount)
         try container.encode(sCreditcardtransactionPartiallydecryptednumber, forKey: .sCreditcardtransactionPartiallydecryptednumber)
         try container.encode(sCreditcardtransactionReferencenumber, forKey: .sCreditcardtransactionReferencenumber)

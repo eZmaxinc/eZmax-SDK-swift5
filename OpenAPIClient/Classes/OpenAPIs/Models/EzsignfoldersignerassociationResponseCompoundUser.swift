@@ -19,9 +19,9 @@ public struct EzsignfoldersignerassociationResponseCompoundUser: Codable, JSONEn
     public var pkiUserID: Int
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
-    /** The First name of the user */
+    /** The first name of the user */
     public var sUserFirstname: String
-    /** The Last name of the user */
+    /** The last name of the user */
     public var sUserLastname: String
     /** The email address. */
     public var sEmailAddress: String

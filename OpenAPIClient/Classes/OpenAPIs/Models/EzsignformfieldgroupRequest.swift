@@ -47,8 +47,9 @@ public struct EzsignformfieldgroupRequest: Codable, JSONEncodable, Hashable {
     /** A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup */
     public var tEzsignformfieldgroupTooltip: String?
     public var eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition?
+    public var eEzsignformfieldgroupTextvalidation: EnumTextvalidation?
 
-    public init(pkiEzsignformfieldgroupID: Int? = nil, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil) {
+    public init(pkiEzsignformfieldgroupID: Int? = nil, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, eEzsignformfieldgroupTextvalidation: EnumTextvalidation? = nil) {
         self.pkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.eEzsignformfieldgroupType = eEzsignformfieldgroupType
@@ -64,6 +65,7 @@ public struct EzsignformfieldgroupRequest: Codable, JSONEncodable, Hashable {
         self.sEzsignformfieldgroupRegexp = sEzsignformfieldgroupRegexp
         self.tEzsignformfieldgroupTooltip = tEzsignformfieldgroupTooltip
         self.eEzsignformfieldgroupTooltipposition = eEzsignformfieldgroupTooltipposition
+        self.eEzsignformfieldgroupTextvalidation = eEzsignformfieldgroupTextvalidation
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -82,6 +84,7 @@ public struct EzsignformfieldgroupRequest: Codable, JSONEncodable, Hashable {
         case sEzsignformfieldgroupRegexp
         case tEzsignformfieldgroupTooltip
         case eEzsignformfieldgroupTooltipposition
+        case eEzsignformfieldgroupTextvalidation
     }
 
     // Encodable protocol methods
@@ -103,6 +106,7 @@ public struct EzsignformfieldgroupRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sEzsignformfieldgroupRegexp, forKey: .sEzsignformfieldgroupRegexp)
         try container.encodeIfPresent(tEzsignformfieldgroupTooltip, forKey: .tEzsignformfieldgroupTooltip)
         try container.encodeIfPresent(eEzsignformfieldgroupTooltipposition, forKey: .eEzsignformfieldgroupTooltipposition)
+        try container.encodeIfPresent(eEzsignformfieldgroupTextvalidation, forKey: .eEzsignformfieldgroupTextvalidation)
     }
 }
 

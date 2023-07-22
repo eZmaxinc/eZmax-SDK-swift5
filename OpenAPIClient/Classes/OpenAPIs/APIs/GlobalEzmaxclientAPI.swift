@@ -35,9 +35,6 @@ open class GlobalEzmaxclientAPI {
      Retrieve the latest version of the Ezmaxclient
      - GET /1/ezmaxclient/{pksEzmaxclientOs}/version
      - Retrieve the latest version of the Ezmaxclient that is available on the store.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
      - parameter pksEzmaxclientOs: (path)  
      - returns: RequestBuilder<GlobalEzmaxclientVersionV1Response> 
      */
@@ -59,6 +56,6 @@ open class GlobalEzmaxclientAPI {
 
         let localVariableRequestBuilder: RequestBuilder<GlobalEzmaxclientVersionV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
 }

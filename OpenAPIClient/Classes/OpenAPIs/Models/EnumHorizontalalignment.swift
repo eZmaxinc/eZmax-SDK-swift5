@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The Horizontalalignment of the Ezsignannotation.  This can only be set if eEzsignannotationType is **Text** */
+/** The Horizontal alignment */
 public enum EnumHorizontalalignment: String, Codable, CaseIterable {
     case center = "Center"
     case _left = "Left"

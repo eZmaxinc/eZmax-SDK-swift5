@@ -13,14 +13,14 @@ import AnyCodable
 /** Generic Error Message */
 public struct CommonResponseErrorSTemporaryFileUrl: Codable, JSONEncodable, Hashable {
 
+    static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
     /** The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again. */
     public var sTemporaryFileUrl: String?
-    /** More detail about the error */
+    /** The message giving details about the error */
     public var sErrorMessage: String
-    /** The error code. See documentation for valid values */
-    public var eErrorCode: String
+    public var eErrorCode: FieldEErrorCode
 
-    public init(sTemporaryFileUrl: String? = nil, sErrorMessage: String, eErrorCode: String) {
+    public init(sTemporaryFileUrl: String? = nil, sErrorMessage: String, eErrorCode: FieldEErrorCode) {
         self.sTemporaryFileUrl = sTemporaryFileUrl
         self.sErrorMessage = sErrorMessage
         self.eErrorCode = eErrorCode

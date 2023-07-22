@@ -13,9 +13,61 @@ import AnyCodable
 open class ObjectUserstagedAPI {
 
     /**
+     Create a User from a Userstaged and then map it
+     
+     - parameter pkiUserstagedID: (path)  
+     - parameter body: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userstagedCreateUserV1(pkiUserstagedID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserstagedCreateUserV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userstagedCreateUserV1WithRequestBuilder(pkiUserstagedID: pkiUserstagedID, body: body).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Create a User from a Userstaged and then map it
+     - POST /1/object/userstaged/{pkiUserstagedID}/createUser
+     - Default values will be used while creating the User. If you need to change those values, you should use the route to edit a User.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserstagedID: (path)  
+     - parameter body: (body)  
+     - returns: RequestBuilder<UserstagedCreateUserV1Response> 
+     */
+    open class func userstagedCreateUserV1WithRequestBuilder(pkiUserstagedID: Int, body: AnyCodable) -> RequestBuilder<UserstagedCreateUserV1Response> {
+        var localVariablePath = "/1/object/userstaged/{pkiUserstagedID}/createUser"
+        let pkiUserstagedIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserstagedID))"
+        let pkiUserstagedIDPostEscape = pkiUserstagedIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserstagedID}", with: pkiUserstagedIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserstagedCreateUserV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Delete an existing Userstaged
      
-     - parameter pkiUserstagedID: (path) The unique ID of the Userstaged 
+     - parameter pkiUserstagedID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -38,7 +90,7 @@ open class ObjectUserstagedAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiUserstagedID: (path) The unique ID of the Userstaged 
+     - parameter pkiUserstagedID: (path)  
      - returns: RequestBuilder<UserstagedDeleteObjectV1Response> 
      */
     open class func userstagedDeleteObjectV1WithRequestBuilder(pkiUserstagedID: Int) -> RequestBuilder<UserstagedDeleteObjectV1Response> {
@@ -142,7 +194,7 @@ open class ObjectUserstagedAPI {
     /**
      Retrieve an existing Userstaged
      
-     - parameter pkiUserstagedID: (path) The unique ID of the Userstaged 
+     - parameter pkiUserstagedID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -165,7 +217,7 @@ open class ObjectUserstagedAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiUserstagedID: (path) The unique ID of the Userstaged 
+     - parameter pkiUserstagedID: (path)  
      - returns: RequestBuilder<UserstagedGetObjectV2Response> 
      */
     open class func userstagedGetObjectV2WithRequestBuilder(pkiUserstagedID: Int) -> RequestBuilder<UserstagedGetObjectV2Response> {
@@ -192,7 +244,7 @@ open class ObjectUserstagedAPI {
     /**
      Map the Userstaged to an existing user
      
-     - parameter pkiUserstagedID: (path) The unique ID of the Userstaged 
+     - parameter pkiUserstagedID: (path)  
      - parameter userstagedMapV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -216,7 +268,7 @@ open class ObjectUserstagedAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiUserstagedID: (path) The unique ID of the Userstaged 
+     - parameter pkiUserstagedID: (path)  
      - parameter userstagedMapV1Request: (body)  
      - returns: RequestBuilder<UserstagedMapV1Response> 
      */

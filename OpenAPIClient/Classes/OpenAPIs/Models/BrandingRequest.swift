@@ -20,6 +20,7 @@ public struct BrandingRequest: Codable, JSONEncodable, Hashable {
     static let iBrandingColorbackgroundRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let iBrandingColorbackgroundbuttonRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let iBrandingColorbackgroundsmallboxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let sBrandingNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
     /** The unique ID of the Branding */
     public var pkiBrandingID: Int?
     public var objBrandingDescription: MultilingualBrandingDescription
@@ -38,10 +39,14 @@ public struct BrandingRequest: Codable, JSONEncodable, Hashable {
     public var iBrandingColorbackgroundbutton: Int
     /** The color of the background of the small box. This is a RGB color converted into integer */
     public var iBrandingColorbackgroundsmallbox: Int
+    /** The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty */
+    public var sBrandingName: String?
+    /** The email address. */
+    public var sEmailAddress: String?
     /** Whether the Branding is active or not */
     public var bBrandingIsactive: Bool
 
-    public init(pkiBrandingID: Int? = nil, objBrandingDescription: MultilingualBrandingDescription, eBrandingLogo: FieldEBrandingLogo, sBrandingBase64: Data? = nil, iBrandingColortext: Int, iBrandingColortextlinkbox: Int, iBrandingColortextbutton: Int, iBrandingColorbackground: Int, iBrandingColorbackgroundbutton: Int, iBrandingColorbackgroundsmallbox: Int, bBrandingIsactive: Bool) {
+    public init(pkiBrandingID: Int? = nil, objBrandingDescription: MultilingualBrandingDescription, eBrandingLogo: FieldEBrandingLogo, sBrandingBase64: Data? = nil, iBrandingColortext: Int, iBrandingColortextlinkbox: Int, iBrandingColortextbutton: Int, iBrandingColorbackground: Int, iBrandingColorbackgroundbutton: Int, iBrandingColorbackgroundsmallbox: Int, sBrandingName: String? = nil, sEmailAddress: String? = nil, bBrandingIsactive: Bool) {
         self.pkiBrandingID = pkiBrandingID
         self.objBrandingDescription = objBrandingDescription
         self.eBrandingLogo = eBrandingLogo
@@ -52,6 +57,8 @@ public struct BrandingRequest: Codable, JSONEncodable, Hashable {
         self.iBrandingColorbackground = iBrandingColorbackground
         self.iBrandingColorbackgroundbutton = iBrandingColorbackgroundbutton
         self.iBrandingColorbackgroundsmallbox = iBrandingColorbackgroundsmallbox
+        self.sBrandingName = sBrandingName
+        self.sEmailAddress = sEmailAddress
         self.bBrandingIsactive = bBrandingIsactive
     }
 
@@ -66,6 +73,8 @@ public struct BrandingRequest: Codable, JSONEncodable, Hashable {
         case iBrandingColorbackground
         case iBrandingColorbackgroundbutton
         case iBrandingColorbackgroundsmallbox
+        case sBrandingName
+        case sEmailAddress
         case bBrandingIsactive
     }
 
@@ -83,6 +92,8 @@ public struct BrandingRequest: Codable, JSONEncodable, Hashable {
         try container.encode(iBrandingColorbackground, forKey: .iBrandingColorbackground)
         try container.encode(iBrandingColorbackgroundbutton, forKey: .iBrandingColorbackgroundbutton)
         try container.encode(iBrandingColorbackgroundsmallbox, forKey: .iBrandingColorbackgroundsmallbox)
+        try container.encodeIfPresent(sBrandingName, forKey: .sBrandingName)
+        try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
         try container.encode(bBrandingIsactive, forKey: .bBrandingIsactive)
     }
 }

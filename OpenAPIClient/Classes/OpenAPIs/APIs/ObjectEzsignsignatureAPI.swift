@@ -211,6 +211,55 @@ open class ObjectEzsignsignatureAPI {
     }
 
     /**
+     Retrieve an existing Ezsignsignature's Ezsignsignatureattachments
+     
+     - parameter pkiEzsignsignatureID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignsignatureGetEzsignsignatureattachmentV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureGetEzsignsignatureattachmentV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignsignatureGetEzsignsignatureattachmentV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignsignature's Ezsignsignatureattachments
+     - GET /1/object/ezsignsignature/{pkiEzsignsignatureID}/getEzsignsignatureattachment
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignsignatureID: (path)  
+     - returns: RequestBuilder<EzsignsignatureGetEzsignsignatureattachmentV1Response> 
+     */
+    open class func ezsignsignatureGetEzsignsignatureattachmentV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<EzsignsignatureGetEzsignsignatureattachmentV1Response> {
+        var localVariablePath = "/1/object/ezsignsignature/{pkiEzsignsignatureID}/getEzsignsignatureattachment"
+        let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
+        let pkiEzsignsignatureIDPostEscape = pkiEzsignsignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignsignatureID}", with: pkiEzsignsignatureIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureGetEzsignsignatureattachmentV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve all automatic Ezsignsignatures
      
      - parameter apiResponseQueue: The queue on which api response is dispatched.

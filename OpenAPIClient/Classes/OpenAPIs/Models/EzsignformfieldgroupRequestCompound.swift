@@ -47,11 +47,12 @@ public struct EzsignformfieldgroupRequestCompound: Codable, JSONEncodable, Hasha
     /** A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup */
     public var tEzsignformfieldgroupTooltip: String?
     public var eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition?
+    public var eEzsignformfieldgroupTextvalidation: EnumTextvalidation?
     public var aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerRequestCompound]
     public var aObjDropdownElement: [CustomDropdownElementRequestCompound]?
     public var aObjEzsignformfield: [EzsignformfieldRequestCompound]
 
-    public init(pkiEzsignformfieldgroupID: Int? = nil, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerRequestCompound], aObjDropdownElement: [CustomDropdownElementRequestCompound]? = nil, aObjEzsignformfield: [EzsignformfieldRequestCompound]) {
+    public init(pkiEzsignformfieldgroupID: Int? = nil, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, eEzsignformfieldgroupTextvalidation: EnumTextvalidation? = nil, aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerRequestCompound], aObjDropdownElement: [CustomDropdownElementRequestCompound]? = nil, aObjEzsignformfield: [EzsignformfieldRequestCompound]) {
         self.pkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.eEzsignformfieldgroupType = eEzsignformfieldgroupType
@@ -67,6 +68,7 @@ public struct EzsignformfieldgroupRequestCompound: Codable, JSONEncodable, Hasha
         self.sEzsignformfieldgroupRegexp = sEzsignformfieldgroupRegexp
         self.tEzsignformfieldgroupTooltip = tEzsignformfieldgroupTooltip
         self.eEzsignformfieldgroupTooltipposition = eEzsignformfieldgroupTooltipposition
+        self.eEzsignformfieldgroupTextvalidation = eEzsignformfieldgroupTextvalidation
         self.aObjEzsignformfieldgroupsigner = aObjEzsignformfieldgroupsigner
         self.aObjDropdownElement = aObjDropdownElement
         self.aObjEzsignformfield = aObjEzsignformfield
@@ -88,6 +90,7 @@ public struct EzsignformfieldgroupRequestCompound: Codable, JSONEncodable, Hasha
         case sEzsignformfieldgroupRegexp
         case tEzsignformfieldgroupTooltip
         case eEzsignformfieldgroupTooltipposition
+        case eEzsignformfieldgroupTextvalidation
         case aObjEzsignformfieldgroupsigner = "a_objEzsignformfieldgroupsigner"
         case aObjDropdownElement = "a_objDropdownElement"
         case aObjEzsignformfield = "a_objEzsignformfield"
@@ -112,6 +115,7 @@ public struct EzsignformfieldgroupRequestCompound: Codable, JSONEncodable, Hasha
         try container.encodeIfPresent(sEzsignformfieldgroupRegexp, forKey: .sEzsignformfieldgroupRegexp)
         try container.encodeIfPresent(tEzsignformfieldgroupTooltip, forKey: .tEzsignformfieldgroupTooltip)
         try container.encodeIfPresent(eEzsignformfieldgroupTooltipposition, forKey: .eEzsignformfieldgroupTooltipposition)
+        try container.encodeIfPresent(eEzsignformfieldgroupTextvalidation, forKey: .eEzsignformfieldgroupTextvalidation)
         try container.encode(aObjEzsignformfieldgroupsigner, forKey: .aObjEzsignformfieldgroupsigner)
         try container.encodeIfPresent(aObjDropdownElement, forKey: .aObjDropdownElement)
         try container.encode(aObjEzsignformfield, forKey: .aObjEzsignformfield)

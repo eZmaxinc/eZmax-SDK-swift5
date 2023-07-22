@@ -13,4 +13,5 @@ import AnyCodable
 /** This Management Event. This property will be set only if the Module is \&quot;Management\&quot;. */
 public enum FieldEWebhookManagementevent: String, Codable, CaseIterable {
     case userCreated = "UserCreated"
+    case userstagedCreated = "UserstagedCreated"
 }

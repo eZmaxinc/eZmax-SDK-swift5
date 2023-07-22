@@ -62,7 +62,7 @@ open class ObjectUsergroupAPI {
     /**
      Edit an existing Usergroup
      
-     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter pkiUsergroupID: (path)  
      - parameter usergroupEditObjectV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -86,7 +86,7 @@ open class ObjectUsergroupAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter pkiUsergroupID: (path)  
      - parameter usergroupEditObjectV1Request: (body)  
      - returns: RequestBuilder<UsergroupEditObjectV1Response> 
      */
@@ -107,6 +107,110 @@ open class ObjectUsergroupAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<UsergroupEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Edit multiple Permissions
+     
+     - parameter pkiUsergroupID: (path)  
+     - parameter usergroupEditPermissionsV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupEditPermissionsV1(pkiUsergroupID: Int, usergroupEditPermissionsV1Request: UsergroupEditPermissionsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupEditPermissionsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupEditPermissionsV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID, usergroupEditPermissionsV1Request: usergroupEditPermissionsV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit multiple Permissions
+     - PUT /1/object/usergroup/{pkiUsergroupID}/editPermissions
+     - Using this endpoint, you can edit multiple Permissions at the same time.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path)  
+     - parameter usergroupEditPermissionsV1Request: (body)  
+     - returns: RequestBuilder<UsergroupEditPermissionsV1Response> 
+     */
+    open class func usergroupEditPermissionsV1WithRequestBuilder(pkiUsergroupID: Int, usergroupEditPermissionsV1Request: UsergroupEditPermissionsV1Request) -> RequestBuilder<UsergroupEditPermissionsV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}/editPermissions"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: usergroupEditPermissionsV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupEditPermissionsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Edit multiple Usergroupmemberships
+     
+     - parameter pkiUsergroupID: (path)  
+     - parameter usergroupEditUsergroupmembershipsV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupEditUsergroupmembershipsV1(pkiUsergroupID: Int, usergroupEditUsergroupmembershipsV1Request: UsergroupEditUsergroupmembershipsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupEditUsergroupmembershipsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupEditUsergroupmembershipsV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupmembershipsV1Request: usergroupEditUsergroupmembershipsV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit multiple Usergroupmemberships
+     - PUT /1/object/usergroup/{pkiUsergroupID}/editUsergroupmemberships
+     - Using this endpoint, you can edit multiple Usergroupmemberships at the same time.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path)  
+     - parameter usergroupEditUsergroupmembershipsV1Request: (body)  
+     - returns: RequestBuilder<UsergroupEditUsergroupmembershipsV1Response> 
+     */
+    open class func usergroupEditUsergroupmembershipsV1WithRequestBuilder(pkiUsergroupID: Int, usergroupEditUsergroupmembershipsV1Request: UsergroupEditUsergroupmembershipsV1Request) -> RequestBuilder<UsergroupEditUsergroupmembershipsV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}/editUsergroupmemberships"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: usergroupEditUsergroupmembershipsV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupEditUsergroupmembershipsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -263,7 +367,7 @@ open class ObjectUsergroupAPI {
     /**
      Retrieve an existing Usergroup
      
-     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter pkiUsergroupID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -286,7 +390,7 @@ open class ObjectUsergroupAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiUsergroupID: (path) The unique ID of the Usergroup 
+     - parameter pkiUsergroupID: (path)  
      - returns: RequestBuilder<UsergroupGetObjectV2Response> 
      */
     open class func usergroupGetObjectV2WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupGetObjectV2Response> {
@@ -306,6 +410,104 @@ open class ObjectUsergroupAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<UsergroupGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Usergroup's Permissions
+     
+     - parameter pkiUsergroupID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupGetPermissionsV1(pkiUsergroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupGetPermissionsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupGetPermissionsV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Usergroup's Permissions
+     - GET /1/object/usergroup/{pkiUsergroupID}/getPermissions
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path)  
+     - returns: RequestBuilder<UsergroupGetPermissionsV1Response> 
+     */
+    open class func usergroupGetPermissionsV1WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupGetPermissionsV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}/getPermissions"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupGetPermissionsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Usergroup's Usergroupmemberships
+     
+     - parameter pkiUsergroupID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupGetUsergroupmembershipsV1(pkiUsergroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupGetUsergroupmembershipsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupGetUsergroupmembershipsV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Usergroup's Usergroupmemberships
+     - GET /1/object/usergroup/{pkiUsergroupID}/getUsergroupmemberships
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path)  
+     - returns: RequestBuilder<UsergroupGetUsergroupmembershipsV1Response> 
+     */
+    open class func usergroupGetUsergroupmembershipsV1WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupGetUsergroupmembershipsV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}/getUsergroupmemberships"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupGetUsergroupmembershipsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

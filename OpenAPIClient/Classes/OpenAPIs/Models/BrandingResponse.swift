@@ -14,6 +14,8 @@ import AnyCodable
 public struct BrandingResponse: Codable, JSONEncodable, Hashable {
 
     static let pkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEmailIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let sBrandingNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
     static let iBrandingColortextRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let iBrandingColortextlinkboxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let iBrandingColortextbuttonRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
@@ -22,9 +24,15 @@ public struct BrandingResponse: Codable, JSONEncodable, Hashable {
     static let iBrandingColorbackgroundsmallboxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Branding */
     public var pkiBrandingID: Int
+    /** The unique ID of the Email */
+    public var fkiEmailID: Int?
     public var objBrandingDescription: MultilingualBrandingDescription
     /** The Description of the Branding in the language of the requester */
     public var sBrandingDescriptionX: String
+    /** The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty */
+    public var sBrandingName: String?
+    /** The email address. */
+    public var sEmailAddress: String?
     public var eBrandingLogo: FieldEBrandingLogo
     /** The color of the text. This is a RGB color converted into integer */
     public var iBrandingColortext: Int
@@ -41,10 +49,13 @@ public struct BrandingResponse: Codable, JSONEncodable, Hashable {
     /** Whether the Branding is active or not */
     public var bBrandingIsactive: Bool
 
-    public init(pkiBrandingID: Int, objBrandingDescription: MultilingualBrandingDescription, sBrandingDescriptionX: String, eBrandingLogo: FieldEBrandingLogo, iBrandingColortext: Int, iBrandingColortextlinkbox: Int, iBrandingColortextbutton: Int, iBrandingColorbackground: Int, iBrandingColorbackgroundbutton: Int, iBrandingColorbackgroundsmallbox: Int, bBrandingIsactive: Bool) {
+    public init(pkiBrandingID: Int, fkiEmailID: Int? = nil, objBrandingDescription: MultilingualBrandingDescription, sBrandingDescriptionX: String, sBrandingName: String? = nil, sEmailAddress: String? = nil, eBrandingLogo: FieldEBrandingLogo, iBrandingColortext: Int, iBrandingColortextlinkbox: Int, iBrandingColortextbutton: Int, iBrandingColorbackground: Int, iBrandingColorbackgroundbutton: Int, iBrandingColorbackgroundsmallbox: Int, bBrandingIsactive: Bool) {
         self.pkiBrandingID = pkiBrandingID
+        self.fkiEmailID = fkiEmailID
         self.objBrandingDescription = objBrandingDescription
         self.sBrandingDescriptionX = sBrandingDescriptionX
+        self.sBrandingName = sBrandingName
+        self.sEmailAddress = sEmailAddress
         self.eBrandingLogo = eBrandingLogo
         self.iBrandingColortext = iBrandingColortext
         self.iBrandingColortextlinkbox = iBrandingColortextlinkbox
@@ -57,8 +68,11 @@ public struct BrandingResponse: Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiBrandingID
+        case fkiEmailID
         case objBrandingDescription
         case sBrandingDescriptionX
+        case sBrandingName
+        case sEmailAddress
         case eBrandingLogo
         case iBrandingColortext
         case iBrandingColortextlinkbox
@@ -74,8 +88,11 @@ public struct BrandingResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiBrandingID, forKey: .pkiBrandingID)
+        try container.encodeIfPresent(fkiEmailID, forKey: .fkiEmailID)
         try container.encode(objBrandingDescription, forKey: .objBrandingDescription)
         try container.encode(sBrandingDescriptionX, forKey: .sBrandingDescriptionX)
+        try container.encodeIfPresent(sBrandingName, forKey: .sBrandingName)
+        try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
         try container.encode(eBrandingLogo, forKey: .eBrandingLogo)
         try container.encode(iBrandingColortext, forKey: .iBrandingColortext)
         try container.encode(iBrandingColortextlinkbox, forKey: .iBrandingColortextlinkbox)

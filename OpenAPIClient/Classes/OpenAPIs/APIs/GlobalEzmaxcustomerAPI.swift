@@ -35,9 +35,6 @@ open class GlobalEzmaxcustomerAPI {
      Get ezmaxcustomer configuration
      - GET /1/ezmaxcustomer/{pksEzmaxcustomerCode}/getConfiguration
      - Retrieve the ezmaxcustomer's specific configuration. This will help locate the proper region (ie: sInfrastructureregionCode) and the proper environment (ie: sInfrastructureenvironmenttypeDescription) where the customer's data is stored.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
      - parameter pksEzmaxcustomerCode: (path)  
      - returns: RequestBuilder<GlobalEzmaxcustomerGetConfigurationV1Response> 
      */
@@ -59,6 +56,6 @@ open class GlobalEzmaxcustomerAPI {
 
         let localVariableRequestBuilder: RequestBuilder<GlobalEzmaxcustomerGetConfigurationV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
 }

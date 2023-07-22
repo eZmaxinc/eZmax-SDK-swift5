@@ -62,7 +62,7 @@ open class ObjectVariableexpenseAPI {
     /**
      Edit an existing Variableexpense
      
-     - parameter pkiVariableexpenseID: (path) The unique ID of the Variableexpense 
+     - parameter pkiVariableexpenseID: (path)  
      - parameter variableexpenseEditObjectV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
@@ -86,7 +86,7 @@ open class ObjectVariableexpenseAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiVariableexpenseID: (path) The unique ID of the Variableexpense 
+     - parameter pkiVariableexpenseID: (path)  
      - parameter variableexpenseEditObjectV1Request: (body)  
      - returns: RequestBuilder<VariableexpenseEditObjectV1Response> 
      */
@@ -267,7 +267,7 @@ open class ObjectVariableexpenseAPI {
     /**
      Retrieve an existing Variableexpense
      
-     - parameter pkiVariableexpenseID: (path) The unique ID of the Variableexpense 
+     - parameter pkiVariableexpenseID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -290,7 +290,7 @@ open class ObjectVariableexpenseAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiVariableexpenseID: (path) The unique ID of the Variableexpense 
+     - parameter pkiVariableexpenseID: (path)  
      - returns: RequestBuilder<VariableexpenseGetObjectV2Response> 
      */
     open class func variableexpenseGetObjectV2WithRequestBuilder(pkiVariableexpenseID: Int) -> RequestBuilder<VariableexpenseGetObjectV2Response> {

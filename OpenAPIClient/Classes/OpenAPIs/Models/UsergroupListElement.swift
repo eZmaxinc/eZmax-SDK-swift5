@@ -13,14 +13,14 @@ import AnyCodable
 /** A Usergroup List Element */
 public struct UsergroupListElement: Codable, JSONEncodable, Hashable {
 
-    static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     static let sUsergroupNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let iCountUserRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Usergroup */
     public var pkiUsergroupID: Int
     /** The Name of the Usergroup in the language of the requester */
     public var sUsergroupNameX: String
-    /** Numer of user in group */
+    /** Number of users in group */
     public var iCountUser: Int
 
     public init(pkiUsergroupID: Int, sUsergroupNameX: String, iCountUser: Int) {

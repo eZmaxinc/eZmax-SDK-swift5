@@ -26,13 +26,16 @@ public struct CommunicationattachmentResponse: Codable, JSONEncodable, Hashable 
     public var fkiSalarypreparationID: Int?
     /** The name of the Communicationattachment */
     public var sCommunicationattachmentName: String
+    /** The Url to the requested document.  Url will expire after 3 hours. */
+    public var sDownloadUrl: String?
 
-    public init(pkiCommunicationattachmentID: Int, fkiAttachmentID: Int? = nil, fkiInvoiceID: Int? = nil, fkiSalarypreparationID: Int? = nil, sCommunicationattachmentName: String) {
+    public init(pkiCommunicationattachmentID: Int, fkiAttachmentID: Int? = nil, fkiInvoiceID: Int? = nil, fkiSalarypreparationID: Int? = nil, sCommunicationattachmentName: String, sDownloadUrl: String? = nil) {
         self.pkiCommunicationattachmentID = pkiCommunicationattachmentID
         self.fkiAttachmentID = fkiAttachmentID
         self.fkiInvoiceID = fkiInvoiceID
         self.fkiSalarypreparationID = fkiSalarypreparationID
         self.sCommunicationattachmentName = sCommunicationattachmentName
+        self.sDownloadUrl = sDownloadUrl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -41,6 +44,7 @@ public struct CommunicationattachmentResponse: Codable, JSONEncodable, Hashable 
         case fkiInvoiceID
         case fkiSalarypreparationID
         case sCommunicationattachmentName
+        case sDownloadUrl
     }
 
     // Encodable protocol methods
@@ -52,6 +56,7 @@ public struct CommunicationattachmentResponse: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(fkiInvoiceID, forKey: .fkiInvoiceID)
         try container.encodeIfPresent(fkiSalarypreparationID, forKey: .fkiSalarypreparationID)
         try container.encode(sCommunicationattachmentName, forKey: .sCommunicationattachmentName)
+        try container.encodeIfPresent(sDownloadUrl, forKey: .sDownloadUrl)
     }
 }
 

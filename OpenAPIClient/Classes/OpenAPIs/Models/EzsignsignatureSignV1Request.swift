@@ -13,18 +13,38 @@ import AnyCodable
 /** Request for POST /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign */
 public struct EzsignsignatureSignV1Request: Codable, JSONEncodable, Hashable {
 
+    public enum EAttachmentsConfirmationDecision: String, Codable, CaseIterable {
+        case accepted = "Accepted"
+        case refused = "Refused"
+    }
+    static let sSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,32767}$/")
     /** The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea** */
     public var sValue: String?
+    /** Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** */
+    public var eAttachmentsConfirmationDecision: EAttachmentsConfirmationDecision?
+    /** The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation** */
+    public var sAttachmentsRefusalReason: String?
+    /** The SVG of the handwritten signature.  This can only be set if eEzsignsignatureType is **Handwritten** and **bIsAutomatic** is false */
+    public var sSvg: String?
+    public var aObjFile: [CommonFile]?
     /** Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Handwritten**, **Initials**, **Name** or **Stamp**.  */
     public var bIsAutomatic: Bool
 
-    public init(sValue: String? = nil, bIsAutomatic: Bool) {
+    public init(sValue: String? = nil, eAttachmentsConfirmationDecision: EAttachmentsConfirmationDecision? = nil, sAttachmentsRefusalReason: String? = nil, sSvg: String? = nil, aObjFile: [CommonFile]? = nil, bIsAutomatic: Bool) {
         self.sValue = sValue
+        self.eAttachmentsConfirmationDecision = eAttachmentsConfirmationDecision
+        self.sAttachmentsRefusalReason = sAttachmentsRefusalReason
+        self.sSvg = sSvg
+        self.aObjFile = aObjFile
         self.bIsAutomatic = bIsAutomatic
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case sValue
+        case eAttachmentsConfirmationDecision
+        case sAttachmentsRefusalReason
+        case sSvg
+        case aObjFile = "a_objFile"
         case bIsAutomatic
     }
 
@@ -33,6 +53,10 @@ public struct EzsignsignatureSignV1Request: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(sValue, forKey: .sValue)
+        try container.encodeIfPresent(eAttachmentsConfirmationDecision, forKey: .eAttachmentsConfirmationDecision)
+        try container.encodeIfPresent(sAttachmentsRefusalReason, forKey: .sAttachmentsRefusalReason)
+        try container.encodeIfPresent(sSvg, forKey: .sSvg)
+        try container.encodeIfPresent(aObjFile, forKey: .aObjFile)
         try container.encode(bIsAutomatic, forKey: .bIsAutomatic)
     }
 }

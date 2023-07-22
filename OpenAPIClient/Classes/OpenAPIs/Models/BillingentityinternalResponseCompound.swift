@@ -17,15 +17,18 @@ public struct BillingentityinternalResponseCompound: Codable, JSONEncodable, Has
     /** The unique ID of the Billingentityinternal. */
     public var pkiBillingentityinternalID: Int
     public var objBillingentityinternalDescription: MultilingualBillingentityinternalDescription
+    public var aObjBillingentityinternalproduct: [BillingentityinternalproductResponseCompound]
 
-    public init(pkiBillingentityinternalID: Int, objBillingentityinternalDescription: MultilingualBillingentityinternalDescription) {
+    public init(pkiBillingentityinternalID: Int, objBillingentityinternalDescription: MultilingualBillingentityinternalDescription, aObjBillingentityinternalproduct: [BillingentityinternalproductResponseCompound]) {
         self.pkiBillingentityinternalID = pkiBillingentityinternalID
         self.objBillingentityinternalDescription = objBillingentityinternalDescription
+        self.aObjBillingentityinternalproduct = aObjBillingentityinternalproduct
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiBillingentityinternalID
         case objBillingentityinternalDescription
+        case aObjBillingentityinternalproduct = "a_objBillingentityinternalproduct"
     }
 
     // Encodable protocol methods
@@ -34,6 +37,7 @@ public struct BillingentityinternalResponseCompound: Codable, JSONEncodable, Has
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiBillingentityinternalID, forKey: .pkiBillingentityinternalID)
         try container.encode(objBillingentityinternalDescription, forKey: .objBillingentityinternalDescription)
+        try container.encode(aObjBillingentityinternalproduct, forKey: .aObjBillingentityinternalproduct)
     }
 }
 

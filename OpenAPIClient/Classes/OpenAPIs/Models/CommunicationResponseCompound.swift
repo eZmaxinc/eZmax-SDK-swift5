@@ -25,6 +25,8 @@ public struct CommunicationResponseCompound: Codable, JSONEncodable, Hashable {
     public var eCommunicationDirection: ComputedECommunicationDirection
     /** The count of Communicationrecipient */
     public var iCommunicationrecipientCount: Int
+    /** Whether the Communication is private or not */
+    public var bCommunicationPrivate: Bool
     public var objDescriptionstaticSender: DescriptionstaticResponse?
     public var objEmailstaticSender: EmailstaticResponse?
     public var objPhonestaticSender: PhonestaticResponse?
@@ -33,7 +35,7 @@ public struct CommunicationResponseCompound: Codable, JSONEncodable, Hashable {
     public var aObjCommunicationrecipient: [CommunicationrecipientResponseCompound]
     public var aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound]
 
-    public init(pkiCommunicationID: Int, eCommunicationImportance: FieldECommunicationImportance, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, sCommunicationBodyurl: String? = nil, eCommunicationDirection: ComputedECommunicationDirection, iCommunicationrecipientCount: Int, objDescriptionstaticSender: DescriptionstaticResponse? = nil, objEmailstaticSender: EmailstaticResponse? = nil, objPhonestaticSender: PhonestaticResponse? = nil, objAudit: CommonAudit, aObjCommunicationattachment: [CommunicationattachmentResponseCompound], aObjCommunicationrecipient: [CommunicationrecipientResponseCompound], aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound]) {
+    public init(pkiCommunicationID: Int, eCommunicationImportance: FieldECommunicationImportance, eCommunicationType: FieldECommunicationType, sCommunicationSubject: String, sCommunicationBodyurl: String? = nil, eCommunicationDirection: ComputedECommunicationDirection, iCommunicationrecipientCount: Int, bCommunicationPrivate: Bool, objDescriptionstaticSender: DescriptionstaticResponse? = nil, objEmailstaticSender: EmailstaticResponse? = nil, objPhonestaticSender: PhonestaticResponse? = nil, objAudit: CommonAudit, aObjCommunicationattachment: [CommunicationattachmentResponseCompound], aObjCommunicationrecipient: [CommunicationrecipientResponseCompound], aObjCommunicationexternalrecipient: [CommunicationexternalrecipientResponseCompound]) {
         self.pkiCommunicationID = pkiCommunicationID
         self.eCommunicationImportance = eCommunicationImportance
         self.eCommunicationType = eCommunicationType
@@ -41,6 +43,7 @@ public struct CommunicationResponseCompound: Codable, JSONEncodable, Hashable {
         self.sCommunicationBodyurl = sCommunicationBodyurl
         self.eCommunicationDirection = eCommunicationDirection
         self.iCommunicationrecipientCount = iCommunicationrecipientCount
+        self.bCommunicationPrivate = bCommunicationPrivate
         self.objDescriptionstaticSender = objDescriptionstaticSender
         self.objEmailstaticSender = objEmailstaticSender
         self.objPhonestaticSender = objPhonestaticSender
@@ -58,6 +61,7 @@ public struct CommunicationResponseCompound: Codable, JSONEncodable, Hashable {
         case sCommunicationBodyurl
         case eCommunicationDirection
         case iCommunicationrecipientCount
+        case bCommunicationPrivate
         case objDescriptionstaticSender
         case objEmailstaticSender
         case objPhonestaticSender
@@ -78,6 +82,7 @@ public struct CommunicationResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sCommunicationBodyurl, forKey: .sCommunicationBodyurl)
         try container.encode(eCommunicationDirection, forKey: .eCommunicationDirection)
         try container.encode(iCommunicationrecipientCount, forKey: .iCommunicationrecipientCount)
+        try container.encode(bCommunicationPrivate, forKey: .bCommunicationPrivate)
         try container.encodeIfPresent(objDescriptionstaticSender, forKey: .objDescriptionstaticSender)
         try container.encodeIfPresent(objEmailstaticSender, forKey: .objEmailstaticSender)
         try container.encodeIfPresent(objPhonestaticSender, forKey: .objPhonestaticSender)

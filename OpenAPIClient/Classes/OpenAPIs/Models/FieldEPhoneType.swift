@@ -11,6 +11,7 @@ import AnyCodable
 #endif
 
 /** The type of phone number.  **Local** refers to a north American phone number. You would then need to specify sPhoneRegion, sPhoneExchange, sPhoneNumber. **International** would be used for numbers outside of north america. You would then need to specify sPhoneInternational */
+@available(*, deprecated, message: "This schema is deprecated.")
 public enum FieldEPhoneType: String, Codable, CaseIterable {
     case local = "Local"
     case international = "International"

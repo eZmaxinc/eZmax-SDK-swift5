@@ -16,6 +16,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public var eActivesessionUsertype: FieldEActivesessionUsertype
     public var eActivesessionOrigin: FieldEActivesessionOrigin
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
@@ -33,8 +34,10 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     public var pksCustomerCode: String
     /** The unique ID of the Systemconfigurationtype */
     public var fkiSystemconfigurationtypeID: Int?
+    /** The unique ID of the Signature */
+    public var fkiSignatureID: Int?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil, fkiSignatureID: Int? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -45,6 +48,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         self.bActivesessionIssuperadmin = bActivesessionIssuperadmin
         self.pksCustomerCode = pksCustomerCode
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
+        self.fkiSignatureID = fkiSignatureID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -58,6 +62,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         case bActivesessionIssuperadmin
         case pksCustomerCode
         case fkiSystemconfigurationtypeID
+        case fkiSignatureID
     }
 
     // Encodable protocol methods
@@ -74,6 +79,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encodeIfPresent(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
+        try container.encodeIfPresent(fkiSignatureID, forKey: .fkiSignatureID)
     }
 }
 

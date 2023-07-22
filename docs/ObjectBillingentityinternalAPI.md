@@ -25,7 +25,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let billingentityinternalCreateObjectV1Request = billingentityinternal-createObject-v1-Request(aObjBillingentityinternal: [billingentityinternal-RequestCompound(pkiBillingentityinternalID: 123, objBillingentityinternalDescription: Multilingual-BillingentityinternalDescription(sBillingentityinternalDescription1: "sBillingentityinternalDescription1_example", sBillingentityinternalDescription2: "sBillingentityinternalDescription2_example"))]) // BillingentityinternalCreateObjectV1Request | 
+let billingentityinternalCreateObjectV1Request = billingentityinternal-createObject-v1-Request(aObjBillingentityinternal: [billingentityinternal-RequestCompound(pkiBillingentityinternalID: 123, objBillingentityinternalDescription: Multilingual-BillingentityinternalDescription(sBillingentityinternalDescription1: "sBillingentityinternalDescription1_example", sBillingentityinternalDescription2: "sBillingentityinternalDescription2_example"), aObjBillingentityinternalproduct: [billingentityinternalproduct-RequestCompound(pkiBillingentityinternalproductID: 123, fkiEzmaxproductID: 123, fkiBillingentityexternalID: 123)])]) // BillingentityinternalCreateObjectV1Request | 
 
 // Create a new Billingentityinternal
 ObjectBillingentityinternalAPI.billingentityinternalCreateObjectV1(billingentityinternalCreateObjectV1Request: billingentityinternalCreateObjectV1Request) { (response, error) in
@@ -75,8 +75,8 @@ Edit an existing Billingentityinternal
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiBillingentityinternalID = 987 // Int | The unique ID of the Billingentityinternal
-let billingentityinternalEditObjectV1Request = billingentityinternal-editObject-v1-Request(objBillingentityinternal: billingentityinternal-RequestCompound(pkiBillingentityinternalID: 123, objBillingentityinternalDescription: Multilingual-BillingentityinternalDescription(sBillingentityinternalDescription1: "sBillingentityinternalDescription1_example", sBillingentityinternalDescription2: "sBillingentityinternalDescription2_example"))) // BillingentityinternalEditObjectV1Request | 
+let pkiBillingentityinternalID = 987 // Int | 
+let billingentityinternalEditObjectV1Request = billingentityinternal-editObject-v1-Request(objBillingentityinternal: billingentityinternal-RequestCompound(pkiBillingentityinternalID: 123, objBillingentityinternalDescription: Multilingual-BillingentityinternalDescription(sBillingentityinternalDescription1: "sBillingentityinternalDescription1_example", sBillingentityinternalDescription2: "sBillingentityinternalDescription2_example"), aObjBillingentityinternalproduct: [billingentityinternalproduct-RequestCompound(pkiBillingentityinternalproductID: 123, fkiEzmaxproductID: 123, fkiBillingentityexternalID: 123)])) // BillingentityinternalEditObjectV1Request | 
 
 // Edit an existing Billingentityinternal
 ObjectBillingentityinternalAPI.billingentityinternalEditObjectV1(pkiBillingentityinternalID: pkiBillingentityinternalID, billingentityinternalEditObjectV1Request: billingentityinternalEditObjectV1Request) { (response, error) in
@@ -95,7 +95,7 @@ ObjectBillingentityinternalAPI.billingentityinternalEditObjectV1(pkiBillingentit
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiBillingentityinternalID** | **Int** | The unique ID of the Billingentityinternal | 
+ **pkiBillingentityinternalID** | **Int** |  | 
  **billingentityinternalEditObjectV1Request** | [**BillingentityinternalEditObjectV1Request**](BillingentityinternalEditObjectV1Request.md) |  | 
 
 ### Return type
@@ -241,7 +241,7 @@ Retrieve an existing Billingentityinternal
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiBillingentityinternalID = 987 // Int | The unique ID of the Billingentityinternal
+let pkiBillingentityinternalID = 987 // Int | 
 
 // Retrieve an existing Billingentityinternal
 ObjectBillingentityinternalAPI.billingentityinternalGetObjectV2(pkiBillingentityinternalID: pkiBillingentityinternalID) { (response, error) in
@@ -260,7 +260,7 @@ ObjectBillingentityinternalAPI.billingentityinternalGetObjectV2(pkiBillingentity
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiBillingentityinternalID** | **Int** | The unique ID of the Billingentityinternal | 
+ **pkiBillingentityinternalID** | **Int** |  | 
 
 ### Return type
 

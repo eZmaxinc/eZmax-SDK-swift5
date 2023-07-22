@@ -15,15 +15,16 @@ public struct CommonAuditdetail: Codable, JSONEncodable, Hashable {
 
     static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4})|([a-zA-Z0-9]){1,32})$/")
     /** The unique ID of the User */
     public var fkiUserID: Int
     /** The unique ID of the Apikey */
     public var fkiApikeyID: Int?
-    /** The Login name of the User. */
+    /** The login name of the User. */
     public var sUserLoginname: String
-    /** The Last name of the user */
+    /** The last name of the user */
     public var sUserLastname: String
-    /** The First name of the user */
+    /** The first name of the user */
     public var sUserFirstname: String
     /** The description of the Apikey in the language of the requester */
     public var sApikeyDescriptionX: String?

@@ -20,17 +20,21 @@ public struct ApikeyRequestCompound: Codable, JSONEncodable, Hashable {
     /** The unique ID of the User */
     public var fkiUserID: Int
     public var objApikeyDescription: MultilingualApikeyDescription
+    /** Whether the apikey is active or not */
+    public var bApikeyIsactive: Bool?
 
-    public init(pkiApikeyID: Int? = nil, fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription) {
+    public init(pkiApikeyID: Int? = nil, fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription, bApikeyIsactive: Bool? = nil) {
         self.pkiApikeyID = pkiApikeyID
         self.fkiUserID = fkiUserID
         self.objApikeyDescription = objApikeyDescription
+        self.bApikeyIsactive = bApikeyIsactive
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiApikeyID
         case fkiUserID
         case objApikeyDescription
+        case bApikeyIsactive
     }
 
     // Encodable protocol methods
@@ -40,6 +44,7 @@ public struct ApikeyRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(pkiApikeyID, forKey: .pkiApikeyID)
         try container.encode(fkiUserID, forKey: .fkiUserID)
         try container.encode(objApikeyDescription, forKey: .objApikeyDescription)
+        try container.encodeIfPresent(bApikeyIsactive, forKey: .bApikeyIsactive)
     }
 }
 

@@ -25,7 +25,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let brandingCreateObjectV1Request = branding-createObject-v1-Request(aObjBranding: [branding-RequestCompound(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), sBrandingBase64: 123, iBrandingColortext: 123, iBrandingColortextlinkbox: 123, iBrandingColortextbutton: 123, iBrandingColorbackground: 123, iBrandingColorbackgroundbutton: 123, iBrandingColorbackgroundsmallbox: 123, bBrandingIsactive: true)]) // BrandingCreateObjectV1Request | 
+let brandingCreateObjectV1Request = branding-createObject-v1-Request(aObjBranding: [branding-RequestCompound(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), sBrandingBase64: 123, iBrandingColortext: 123, iBrandingColortextlinkbox: 123, iBrandingColortextbutton: 123, iBrandingColorbackground: 123, iBrandingColorbackgroundbutton: 123, iBrandingColorbackgroundsmallbox: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)]) // BrandingCreateObjectV1Request | 
 
 // Create a new Branding
 ObjectBrandingAPI.brandingCreateObjectV1(brandingCreateObjectV1Request: brandingCreateObjectV1Request) { (response, error) in
@@ -76,7 +76,7 @@ Edit an existing Branding
 import OpenAPIClient
 
 let pkiBrandingID = 987 // Int | 
-let brandingEditObjectV1Request = branding-editObject-v1-Request(objBranding: branding-RequestCompound(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), sBrandingBase64: 123, iBrandingColortext: 123, iBrandingColortextlinkbox: 123, iBrandingColortextbutton: 123, iBrandingColorbackground: 123, iBrandingColorbackgroundbutton: 123, iBrandingColorbackgroundsmallbox: 123, bBrandingIsactive: true)) // BrandingEditObjectV1Request | 
+let brandingEditObjectV1Request = branding-editObject-v1-Request(objBranding: branding-RequestCompound(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), sBrandingBase64: 123, iBrandingColortext: 123, iBrandingColortextlinkbox: 123, iBrandingColortextbutton: 123, iBrandingColorbackground: 123, iBrandingColorbackgroundbutton: 123, iBrandingColorbackgroundsmallbox: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)) // BrandingEditObjectV1Request | 
 
 // Edit an existing Branding
 ObjectBrandingAPI.brandingEditObjectV1(pkiBrandingID: pkiBrandingID, brandingEditObjectV1Request: brandingEditObjectV1Request) { (response, error) in

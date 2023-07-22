@@ -6,9 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**usergroupCreateObjectV1**](ObjectUsergroupAPI.md#usergroupcreateobjectv1) | **POST** /1/object/usergroup | Create a new Usergroup
 [**usergroupEditObjectV1**](ObjectUsergroupAPI.md#usergroupeditobjectv1) | **PUT** /1/object/usergroup/{pkiUsergroupID} | Edit an existing Usergroup
+[**usergroupEditPermissionsV1**](ObjectUsergroupAPI.md#usergroupeditpermissionsv1) | **PUT** /1/object/usergroup/{pkiUsergroupID}/editPermissions | Edit multiple Permissions
+[**usergroupEditUsergroupmembershipsV1**](ObjectUsergroupAPI.md#usergroupeditusergroupmembershipsv1) | **PUT** /1/object/usergroup/{pkiUsergroupID}/editUsergroupmemberships | Edit multiple Usergroupmemberships
 [**usergroupGetAutocompleteV2**](ObjectUsergroupAPI.md#usergroupgetautocompletev2) | **GET** /2/object/usergroup/getAutocomplete/{sSelector} | Retrieve Usergroups and IDs
 [**usergroupGetListV1**](ObjectUsergroupAPI.md#usergroupgetlistv1) | **GET** /1/object/usergroup/getList | Retrieve Usergroup list
 [**usergroupGetObjectV2**](ObjectUsergroupAPI.md#usergroupgetobjectv2) | **GET** /2/object/usergroup/{pkiUsergroupID} | Retrieve an existing Usergroup
+[**usergroupGetPermissionsV1**](ObjectUsergroupAPI.md#usergroupgetpermissionsv1) | **GET** /1/object/usergroup/{pkiUsergroupID}/getPermissions | Retrieve an existing Usergroup&#39;s Permissions
+[**usergroupGetUsergroupmembershipsV1**](ObjectUsergroupAPI.md#usergroupgetusergroupmembershipsv1) | **GET** /1/object/usergroup/{pkiUsergroupID}/getUsergroupmemberships | Retrieve an existing Usergroup&#39;s Usergroupmemberships
 
 
 # **usergroupCreateObjectV1**
@@ -75,7 +79,7 @@ Edit an existing Usergroup
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiUsergroupID = 987 // Int | The unique ID of the Usergroup
+let pkiUsergroupID = 987 // Int | 
 let usergroupEditObjectV1Request = usergroup-editObject-v1-Request(objUsergroup: usergroup-RequestCompound(pkiUsergroupID: 123, objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))) // UsergroupEditObjectV1Request | 
 
 // Edit an existing Usergroup
@@ -95,12 +99,116 @@ ObjectUsergroupAPI.usergroupEditObjectV1(pkiUsergroupID: pkiUsergroupID, usergro
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiUsergroupID** | **Int** | The unique ID of the Usergroup | 
+ **pkiUsergroupID** | **Int** |  | 
  **usergroupEditObjectV1Request** | [**UsergroupEditObjectV1Request**](UsergroupEditObjectV1Request.md) |  | 
 
 ### Return type
 
 [**UsergroupEditObjectV1Response**](UsergroupEditObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **usergroupEditPermissionsV1**
+```swift
+    open class func usergroupEditPermissionsV1(pkiUsergroupID: Int, usergroupEditPermissionsV1Request: UsergroupEditPermissionsV1Request, completion: @escaping (_ data: UsergroupEditPermissionsV1Response?, _ error: Error?) -> Void)
+```
+
+Edit multiple Permissions
+
+Using this endpoint, you can edit multiple Permissions at the same time.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUsergroupID = 987 // Int | 
+let usergroupEditPermissionsV1Request = usergroup-editPermissions-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // UsergroupEditPermissionsV1Request | 
+
+// Edit multiple Permissions
+ObjectUsergroupAPI.usergroupEditPermissionsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditPermissionsV1Request: usergroupEditPermissionsV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUsergroupID** | **Int** |  | 
+ **usergroupEditPermissionsV1Request** | [**UsergroupEditPermissionsV1Request**](UsergroupEditPermissionsV1Request.md) |  | 
+
+### Return type
+
+[**UsergroupEditPermissionsV1Response**](UsergroupEditPermissionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **usergroupEditUsergroupmembershipsV1**
+```swift
+    open class func usergroupEditUsergroupmembershipsV1(pkiUsergroupID: Int, usergroupEditUsergroupmembershipsV1Request: UsergroupEditUsergroupmembershipsV1Request, completion: @escaping (_ data: UsergroupEditUsergroupmembershipsV1Response?, _ error: Error?) -> Void)
+```
+
+Edit multiple Usergroupmemberships
+
+Using this endpoint, you can edit multiple Usergroupmemberships at the same time.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUsergroupID = 987 // Int | 
+let usergroupEditUsergroupmembershipsV1Request = usergroup-editUsergroupmemberships-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123)]) // UsergroupEditUsergroupmembershipsV1Request | 
+
+// Edit multiple Usergroupmemberships
+ObjectUsergroupAPI.usergroupEditUsergroupmembershipsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupmembershipsV1Request: usergroupEditUsergroupmembershipsV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUsergroupID** | **Int** |  | 
+ **usergroupEditUsergroupmembershipsV1Request** | [**UsergroupEditUsergroupmembershipsV1Request**](UsergroupEditUsergroupmembershipsV1Request.md) |  | 
+
+### Return type
+
+[**UsergroupEditUsergroupmembershipsV1Response**](UsergroupEditUsergroupmembershipsV1Response.md)
 
 ### Authorization
 
@@ -241,7 +349,7 @@ Retrieve an existing Usergroup
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiUsergroupID = 987 // Int | The unique ID of the Usergroup
+let pkiUsergroupID = 987 // Int | 
 
 // Retrieve an existing Usergroup
 ObjectUsergroupAPI.usergroupGetObjectV2(pkiUsergroupID: pkiUsergroupID) { (response, error) in
@@ -260,11 +368,107 @@ ObjectUsergroupAPI.usergroupGetObjectV2(pkiUsergroupID: pkiUsergroupID) { (respo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiUsergroupID** | **Int** | The unique ID of the Usergroup | 
+ **pkiUsergroupID** | **Int** |  | 
 
 ### Return type
 
 [**UsergroupGetObjectV2Response**](UsergroupGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **usergroupGetPermissionsV1**
+```swift
+    open class func usergroupGetPermissionsV1(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupGetPermissionsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Usergroup's Permissions
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUsergroupID = 987 // Int | 
+
+// Retrieve an existing Usergroup's Permissions
+ObjectUsergroupAPI.usergroupGetPermissionsV1(pkiUsergroupID: pkiUsergroupID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUsergroupID** | **Int** |  | 
+
+### Return type
+
+[**UsergroupGetPermissionsV1Response**](UsergroupGetPermissionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **usergroupGetUsergroupmembershipsV1**
+```swift
+    open class func usergroupGetUsergroupmembershipsV1(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupGetUsergroupmembershipsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Usergroup's Usergroupmemberships
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUsergroupID = 987 // Int | 
+
+// Retrieve an existing Usergroup's Usergroupmemberships
+ObjectUsergroupAPI.usergroupGetUsergroupmembershipsV1(pkiUsergroupID: pkiUsergroupID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUsergroupID** | **Int** |  | 
+
+### Return type
+
+[**UsergroupGetUsergroupmembershipsV1Response**](UsergroupGetUsergroupmembershipsV1Response.md)
 
 ### Authorization
 

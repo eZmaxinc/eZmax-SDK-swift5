@@ -20,6 +20,7 @@ public struct SessionhistoryListElement: Codable, JSONEncodable, Hashable {
     static let dtSessionhistoryLasthitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     static let sComputerDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let sSessionhistoryDurationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(0[0-9]{1}|\\d{2,}):([0-5][0-9]):([0-5][0-9])$/")
+    static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4})|([a-zA-Z0-9]){1,32})$/")
     /** The unique ID of the Sessionhistory */
     public var pkiSessionhistoryID: Int
     /** The unique ID of the Computer */
@@ -37,7 +38,7 @@ public struct SessionhistoryListElement: Codable, JSONEncodable, Hashable {
     public var sSessionhistoryDuration: String
     /** Represent an IP address. */
     public var sSessionhistoryIP: String
-    /** The Login name of the User. */
+    /** The login name of the User. */
     public var sUserLoginname: String?
 
     public init(pkiSessionhistoryID: Int, fkiComputerID: Int? = nil, fkiUserID: Int? = nil, dtSessionhistoryFirsthit: String, dtSessionhistoryLasthit: String, eSessionhistoryEndby: FieldESessionhistoryEndby, sComputerDescription: String? = nil, sSessionhistoryDuration: String, sSessionhistoryIP: String, sUserLoginname: String? = nil) {

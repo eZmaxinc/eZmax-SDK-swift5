@@ -25,16 +25,20 @@ public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable,
     public var bEzsignfoldersignerassociationReceivecopy: Bool
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfoldersignerassociationMessage: String
+    public var objEzsignsignergroup: EzsignsignergroupResponseCompound?
     public var objUser: EzsignfoldersignerassociationResponseCompoundUser?
+    public var objUsergroup: UsergroupResponseCompound?
     public var objEzsignsigner: EzsignsignerResponseCompound?
 
-    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationDelayedsend: Bool, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil) {
+    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationDelayedsend: Bool, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String, objEzsignsignergroup: EzsignsignergroupResponseCompound? = nil, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objUsergroup: UsergroupResponseCompound? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationDelayedsend = bEzsignfoldersignerassociationDelayedsend
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
         self.tEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
+        self.objEzsignsignergroup = objEzsignsignergroup
         self.objUser = objUser
+        self.objUsergroup = objUsergroup
         self.objEzsignsigner = objEzsignsigner
     }
 
@@ -44,7 +48,9 @@ public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable,
         case bEzsignfoldersignerassociationDelayedsend
         case bEzsignfoldersignerassociationReceivecopy
         case tEzsignfoldersignerassociationMessage
+        case objEzsignsignergroup
         case objUser
+        case objUsergroup
         case objEzsignsigner
     }
 
@@ -57,7 +63,9 @@ public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable,
         try container.encode(bEzsignfoldersignerassociationDelayedsend, forKey: .bEzsignfoldersignerassociationDelayedsend)
         try container.encode(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
         try container.encode(tEzsignfoldersignerassociationMessage, forKey: .tEzsignfoldersignerassociationMessage)
+        try container.encodeIfPresent(objEzsignsignergroup, forKey: .objEzsignsignergroup)
         try container.encodeIfPresent(objUser, forKey: .objUser)
+        try container.encodeIfPresent(objUsergroup, forKey: .objUsergroup)
         try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
     }
 }

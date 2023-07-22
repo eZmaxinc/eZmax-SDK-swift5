@@ -13,23 +13,34 @@ import AnyCodable
 /** A Phone Object and children to create a complete structure */
 public struct PhoneRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiPhoneIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiPhonetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sPhoneInternationalRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
+    static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
+    /** The unique ID of the Phone. */
+    public var pkiPhoneID: Int?
     /** The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free| */
     public var fkiPhonetypeID: Int
-    public var ePhoneType: FieldEPhoneType
+    @available(*, deprecated, message: "This property is deprecated.")
+    public var ePhoneType: FieldEPhoneType?
     /** The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123 */
+    @available(*, deprecated, message: "This property is deprecated.")
     public var sPhoneRegion: String?
     /** The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123 */
+    @available(*, deprecated, message: "This property is deprecated.")
     public var sPhoneExchange: String?
     /** The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123 */
+    @available(*, deprecated, message: "This property is deprecated.")
     public var sPhoneNumber: String?
-    /** A phone number in E.164 Format */
+    /** The international phone number. */
+    @available(*, deprecated, message: "This property is deprecated.")
     public var sPhoneInternational: String?
     /** The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers */
     public var sPhoneExtension: String?
+    /** A phone number in E.164 Format */
+    public var sPhoneE164: String?
 
-    public init(fkiPhonetypeID: Int, ePhoneType: FieldEPhoneType, sPhoneRegion: String? = nil, sPhoneExchange: String? = nil, sPhoneNumber: String? = nil, sPhoneInternational: String? = nil, sPhoneExtension: String? = nil) {
+    public init(pkiPhoneID: Int? = nil, fkiPhonetypeID: Int, ePhoneType: FieldEPhoneType? = nil, sPhoneRegion: String? = nil, sPhoneExchange: String? = nil, sPhoneNumber: String? = nil, sPhoneInternational: String? = nil, sPhoneExtension: String? = nil, sPhoneE164: String? = nil) {
+        self.pkiPhoneID = pkiPhoneID
         self.fkiPhonetypeID = fkiPhonetypeID
         self.ePhoneType = ePhoneType
         self.sPhoneRegion = sPhoneRegion
@@ -37,9 +48,11 @@ public struct PhoneRequestCompound: Codable, JSONEncodable, Hashable {
         self.sPhoneNumber = sPhoneNumber
         self.sPhoneInternational = sPhoneInternational
         self.sPhoneExtension = sPhoneExtension
+        self.sPhoneE164 = sPhoneE164
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiPhoneID
         case fkiPhonetypeID
         case ePhoneType
         case sPhoneRegion
@@ -47,19 +60,22 @@ public struct PhoneRequestCompound: Codable, JSONEncodable, Hashable {
         case sPhoneNumber
         case sPhoneInternational
         case sPhoneExtension
+        case sPhoneE164
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(pkiPhoneID, forKey: .pkiPhoneID)
         try container.encode(fkiPhonetypeID, forKey: .fkiPhonetypeID)
-        try container.encode(ePhoneType, forKey: .ePhoneType)
+        try container.encodeIfPresent(ePhoneType, forKey: .ePhoneType)
         try container.encodeIfPresent(sPhoneRegion, forKey: .sPhoneRegion)
         try container.encodeIfPresent(sPhoneExchange, forKey: .sPhoneExchange)
         try container.encodeIfPresent(sPhoneNumber, forKey: .sPhoneNumber)
         try container.encodeIfPresent(sPhoneInternational, forKey: .sPhoneInternational)
         try container.encodeIfPresent(sPhoneExtension, forKey: .sPhoneExtension)
+        try container.encodeIfPresent(sPhoneE164, forKey: .sPhoneE164)
     }
 }
 

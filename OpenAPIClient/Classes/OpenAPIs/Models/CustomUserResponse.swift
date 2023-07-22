@@ -16,9 +16,9 @@ public struct CustomUserResponse: Codable, JSONEncodable, Hashable {
     static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var pkiUserID: Int
-    /** The Last name of the user */
+    /** The last name of the user */
     public var sUserLastname: String
-    /** The First name of the user */
+    /** The first name of the user */
     public var sUserFirstname: String
     /** The email address. */
     public var sEmailAddress: String
