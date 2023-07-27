@@ -164,6 +164,134 @@ open class ObjectApikeyAPI {
     }
 
     /**
+     Retrieve an existing Apikey's cors
+     
+     - parameter pkiApikeyID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func apikeyGetCorsV1(pkiApikeyID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyGetCorsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return apikeyGetCorsV1WithRequestBuilder(pkiApikeyID: pkiApikeyID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Apikey's cors
+     - GET /1/object/apikey/{pkiApikeyID}/getCors
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiApikeyID: (path)  
+     - returns: RequestBuilder<ApikeyGetCorsV1Response> 
+     */
+    open class func apikeyGetCorsV1WithRequestBuilder(pkiApikeyID: Int) -> RequestBuilder<ApikeyGetCorsV1Response> {
+        var localVariablePath = "/1/object/apikey/{pkiApikeyID}/getCors"
+        let pkiApikeyIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiApikeyID))"
+        let pkiApikeyIDPostEscape = pkiApikeyIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiApikeyID}", with: pkiApikeyIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ApikeyGetCorsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_apikeyGetListV1: String, CaseIterable {
+        case pkiapikeyidAsc = "pkiApikeyID_ASC"
+        case pkiapikeyidDesc = "pkiApikeyID_DESC"
+        case sapikeydescriptionxAsc = "sApikeyDescriptionX_ASC"
+        case sapikeydescriptionxDesc = "sApikeyDescriptionX_DESC"
+        case bapikeyissignedAsc = "bApikeyIssigned_ASC"
+        case bapikeyissignedDesc = "bApikeyIssigned_DESC"
+        case bapikeyisactiveAsc = "bApikeyIsactive_ASC"
+        case bapikeyisactiveDesc = "bApikeyIsactive_DESC"
+        case suserfirstnameAsc = "sUserFirstname_ASC"
+        case suserfirstnameDesc = "sUserFirstname_DESC"
+        case suserlastnameAsc = "sUserLastname_ASC"
+        case suserlastnameDesc = "sUserLastname_DESC"
+    }
+
+    /**
+     Retrieve Apikey list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional, default to 10000)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func apikeyGetListV1(eOrderBy: EOrderBy_apikeyGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return apikeyGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Apikey list
+     - GET /1/object/apikey/getList
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---|
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional, default to 10000)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - returns: RequestBuilder<ApikeyGetListV1Response> 
+     */
+    open class func apikeyGetListV1WithRequestBuilder(eOrderBy: EOrderBy_apikeyGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<ApikeyGetListV1Response> {
+        let localVariablePath = "/1/object/apikey/getList"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ApikeyGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve an existing Apikey
      
      - parameter pkiApikeyID: (path) The unique ID of the Apikey 
@@ -309,5 +437,57 @@ open class ObjectApikeyAPI {
         let localVariableRequestBuilder: RequestBuilder<ApikeyGetSubnetsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Regenerate the Apikey
+     
+     - parameter pkiApikeyID: (path)  
+     - parameter apikeyRegenerateV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func apikeyRegenerateV1(pkiApikeyID: Int, apikeyRegenerateV1Request: ApikeyRegenerateV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyRegenerateV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return apikeyRegenerateV1WithRequestBuilder(pkiApikeyID: pkiApikeyID, apikeyRegenerateV1Request: apikeyRegenerateV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Regenerate the Apikey
+     - POST /1/object/apikey/{pkiApikeyID}/regenerate
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiApikeyID: (path)  
+     - parameter apikeyRegenerateV1Request: (body)  
+     - returns: RequestBuilder<ApikeyRegenerateV1Response> 
+     */
+    open class func apikeyRegenerateV1WithRequestBuilder(pkiApikeyID: Int, apikeyRegenerateV1Request: ApikeyRegenerateV1Request) -> RequestBuilder<ApikeyRegenerateV1Response> {
+        var localVariablePath = "/1/object/apikey/{pkiApikeyID}/regenerate"
+        let pkiApikeyIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiApikeyID))"
+        let pkiApikeyIDPostEscape = pkiApikeyIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiApikeyID}", with: pkiApikeyIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: apikeyRegenerateV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ApikeyRegenerateV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

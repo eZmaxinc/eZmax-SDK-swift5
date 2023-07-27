@@ -20,18 +20,26 @@ public struct ApikeyResponseCompound: Codable, JSONEncodable, Hashable {
     /** The unique ID of the User */
     public var fkiUserID: Int
     public var objApikeyDescription: MultilingualApikeyDescription
-    /** The secret token for the API key.  This will be returned only on creation. */
-    public var sComputedToken: String?
+    public var objContactName: CustomContactNameResponse
+    /** The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. */
+    public var sApikeyApikey: String?
+    /** The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey. */
+    public var sApikeySecret: String?
     /** Whether the apikey is active or not */
     public var bApikeyIsactive: Bool
+    /** Whether the apikey is signed or not */
+    public var bApikeyIssigned: Bool?
     public var objAudit: CommonAudit
 
-    public init(pkiApikeyID: Int, fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription, sComputedToken: String? = nil, bApikeyIsactive: Bool, objAudit: CommonAudit) {
+    public init(pkiApikeyID: Int, fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription, objContactName: CustomContactNameResponse, sApikeyApikey: String? = nil, sApikeySecret: String? = nil, bApikeyIsactive: Bool, bApikeyIssigned: Bool? = nil, objAudit: CommonAudit) {
         self.pkiApikeyID = pkiApikeyID
         self.fkiUserID = fkiUserID
         self.objApikeyDescription = objApikeyDescription
-        self.sComputedToken = sComputedToken
+        self.objContactName = objContactName
+        self.sApikeyApikey = sApikeyApikey
+        self.sApikeySecret = sApikeySecret
         self.bApikeyIsactive = bApikeyIsactive
+        self.bApikeyIssigned = bApikeyIssigned
         self.objAudit = objAudit
     }
 
@@ -39,8 +47,11 @@ public struct ApikeyResponseCompound: Codable, JSONEncodable, Hashable {
         case pkiApikeyID
         case fkiUserID
         case objApikeyDescription
-        case sComputedToken
+        case objContactName
+        case sApikeyApikey
+        case sApikeySecret
         case bApikeyIsactive
+        case bApikeyIssigned
         case objAudit
     }
 
@@ -51,8 +62,11 @@ public struct ApikeyResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(pkiApikeyID, forKey: .pkiApikeyID)
         try container.encode(fkiUserID, forKey: .fkiUserID)
         try container.encode(objApikeyDescription, forKey: .objApikeyDescription)
-        try container.encodeIfPresent(sComputedToken, forKey: .sComputedToken)
+        try container.encode(objContactName, forKey: .objContactName)
+        try container.encodeIfPresent(sApikeyApikey, forKey: .sApikeyApikey)
+        try container.encodeIfPresent(sApikeySecret, forKey: .sApikeySecret)
         try container.encode(bApikeyIsactive, forKey: .bApikeyIsactive)
+        try container.encodeIfPresent(bApikeyIssigned, forKey: .bApikeyIssigned)
         try container.encode(objAudit, forKey: .objAudit)
     }
 }

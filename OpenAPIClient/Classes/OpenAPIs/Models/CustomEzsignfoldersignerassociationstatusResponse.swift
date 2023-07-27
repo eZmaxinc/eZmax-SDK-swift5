@@ -17,15 +17,20 @@ public struct CustomEzsignfoldersignerassociationstatusResponse: Codable, JSONEn
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
     /** The last name of the Ezsignsigner */
+    @available(*, deprecated, message: "This property is deprecated.")
     public var sEzsignfoldersignerassociationstatusLastname: String?
     /** The first name of the Ezsignsigner */
+    @available(*, deprecated, message: "This property is deprecated.")
     public var sEzsignfoldersignerassociationstatusFirstname: String?
+    /** The description of the Ezsignsigner */
+    public var sEzsignfoldersignerassociationstatusDescriptionX: String?
     public var aObjEzsignsignaturestatus: [CustomEzsignsignaturestatusResponse]
 
-    public init(fkiEzsignfoldersignerassociationID: Int, sEzsignfoldersignerassociationstatusLastname: String? = nil, sEzsignfoldersignerassociationstatusFirstname: String? = nil, aObjEzsignsignaturestatus: [CustomEzsignsignaturestatusResponse]) {
+    public init(fkiEzsignfoldersignerassociationID: Int, sEzsignfoldersignerassociationstatusLastname: String? = nil, sEzsignfoldersignerassociationstatusFirstname: String? = nil, sEzsignfoldersignerassociationstatusDescriptionX: String? = nil, aObjEzsignsignaturestatus: [CustomEzsignsignaturestatusResponse]) {
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.sEzsignfoldersignerassociationstatusLastname = sEzsignfoldersignerassociationstatusLastname
         self.sEzsignfoldersignerassociationstatusFirstname = sEzsignfoldersignerassociationstatusFirstname
+        self.sEzsignfoldersignerassociationstatusDescriptionX = sEzsignfoldersignerassociationstatusDescriptionX
         self.aObjEzsignsignaturestatus = aObjEzsignsignaturestatus
     }
 
@@ -33,6 +38,7 @@ public struct CustomEzsignfoldersignerassociationstatusResponse: Codable, JSONEn
         case fkiEzsignfoldersignerassociationID
         case sEzsignfoldersignerassociationstatusLastname
         case sEzsignfoldersignerassociationstatusFirstname
+        case sEzsignfoldersignerassociationstatusDescriptionX
         case aObjEzsignsignaturestatus = "a_objEzsignsignaturestatus"
     }
 
@@ -43,6 +49,7 @@ public struct CustomEzsignfoldersignerassociationstatusResponse: Codable, JSONEn
         try container.encode(fkiEzsignfoldersignerassociationID, forKey: .fkiEzsignfoldersignerassociationID)
         try container.encodeIfPresent(sEzsignfoldersignerassociationstatusLastname, forKey: .sEzsignfoldersignerassociationstatusLastname)
         try container.encodeIfPresent(sEzsignfoldersignerassociationstatusFirstname, forKey: .sEzsignfoldersignerassociationstatusFirstname)
+        try container.encodeIfPresent(sEzsignfoldersignerassociationstatusDescriptionX, forKey: .sEzsignfoldersignerassociationstatusDescriptionX)
         try container.encode(aObjEzsignsignaturestatus, forKey: .aObjEzsignsignaturestatus)
     }
 }

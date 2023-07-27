@@ -38,9 +38,12 @@ Class | Method | HTTP request | Description
 *ObjectApikeyAPI* | [**apikeyCreateObjectV2**](docs/ObjectApikeyAPI.md#apikeycreateobjectv2) | **POST** /2/object/apikey | Create a new Apikey
 *ObjectApikeyAPI* | [**apikeyEditObjectV1**](docs/ObjectApikeyAPI.md#apikeyeditobjectv1) | **PUT** /1/object/apikey/{pkiApikeyID} | Edit an existing Apikey
 *ObjectApikeyAPI* | [**apikeyEditPermissionsV1**](docs/ObjectApikeyAPI.md#apikeyeditpermissionsv1) | **PUT** /1/object/apikey/{pkiApikeyID}/editPermissions | Edit multiple Permissions
+*ObjectApikeyAPI* | [**apikeyGetCorsV1**](docs/ObjectApikeyAPI.md#apikeygetcorsv1) | **GET** /1/object/apikey/{pkiApikeyID}/getCors | Retrieve an existing Apikey&#39;s cors
+*ObjectApikeyAPI* | [**apikeyGetListV1**](docs/ObjectApikeyAPI.md#apikeygetlistv1) | **GET** /1/object/apikey/getList | Retrieve Apikey list
 *ObjectApikeyAPI* | [**apikeyGetObjectV2**](docs/ObjectApikeyAPI.md#apikeygetobjectv2) | **GET** /2/object/apikey/{pkiApikeyID} | Retrieve an existing Apikey
 *ObjectApikeyAPI* | [**apikeyGetPermissionsV1**](docs/ObjectApikeyAPI.md#apikeygetpermissionsv1) | **GET** /1/object/apikey/{pkiApikeyID}/getPermissions | Retrieve an existing Apikey&#39;s Permissions
 *ObjectApikeyAPI* | [**apikeyGetSubnetsV1**](docs/ObjectApikeyAPI.md#apikeygetsubnetsv1) | **GET** /1/object/apikey/{pkiApikeyID}/getSubnets | Retrieve an existing Apikey&#39;s subnets
+*ObjectApikeyAPI* | [**apikeyRegenerateV1**](docs/ObjectApikeyAPI.md#apikeyregeneratev1) | **POST** /1/object/apikey/{pkiApikeyID}/regenerate | Regenerate the Apikey
 *ObjectBillingentityexternalAPI* | [**billingentityexternalGetAutocompleteV2**](docs/ObjectBillingentityexternalAPI.md#billingentityexternalgetautocompletev2) | **GET** /2/object/billingentityexternal/getAutocomplete/{sSelector} | Retrieve Billingentityexternals and IDs
 *ObjectBillingentityinternalAPI* | [**billingentityinternalCreateObjectV1**](docs/ObjectBillingentityinternalAPI.md#billingentityinternalcreateobjectv1) | **POST** /1/object/billingentityinternal | Create a new Billingentityinternal
 *ObjectBillingentityinternalAPI* | [**billingentityinternalEditObjectV1**](docs/ObjectBillingentityinternalAPI.md#billingentityinternaleditobjectv1) | **PUT** /1/object/billingentityinternal/{pkiBillingentityinternalID} | Edit an existing Billingentityinternal
@@ -55,7 +58,12 @@ Class | Method | HTTP request | Description
 *ObjectClonehistoryAPI* | [**clonehistoryGetListV1**](docs/ObjectClonehistoryAPI.md#clonehistorygetlistv1) | **GET** /1/object/clonehistory/getList | Retrieve Clonehistory list
 *ObjectCommunicationAPI* | [**communicationGetObjectV2**](docs/ObjectCommunicationAPI.md#communicationgetobjectv2) | **GET** /2/object/communication/{pkiCommunicationID} | Retrieve an existing Communication
 *ObjectCompanyAPI* | [**companyGetAutocompleteV2**](docs/ObjectCompanyAPI.md#companygetautocompletev2) | **GET** /2/object/company/getAutocomplete/{sSelector} | Retrieve Companys and IDs
+*ObjectCorsAPI* | [**corsCreateObjectV1**](docs/ObjectCorsAPI.md#corscreateobjectv1) | **POST** /1/object/cors | Create a new Cors
+*ObjectCorsAPI* | [**corsDeleteObjectV1**](docs/ObjectCorsAPI.md#corsdeleteobjectv1) | **DELETE** /1/object/cors/{pkiCorsID} | Delete an existing Cors
+*ObjectCorsAPI* | [**corsEditObjectV1**](docs/ObjectCorsAPI.md#corseditobjectv1) | **PUT** /1/object/cors/{pkiCorsID} | Edit an existing Cors
+*ObjectCorsAPI* | [**corsGetObjectV2**](docs/ObjectCorsAPI.md#corsgetobjectv2) | **GET** /2/object/cors/{pkiCorsID} | Retrieve an existing Cors
 *ObjectDepartmentAPI* | [**departmentGetAutocompleteV2**](docs/ObjectDepartmentAPI.md#departmentgetautocompletev2) | **GET** /2/object/department/getAutocomplete/{sSelector} | Retrieve Departments and IDs
+*ObjectEmailtypeAPI* | [**emailtypeGetAutocompleteV2**](docs/ObjectEmailtypeAPI.md#emailtypegetautocompletev2) | **GET** /2/object/emailtype/getAutocomplete/{sSelector} | Retrieve Emailtypes and IDs
 *ObjectEzmaxinvoicingAPI* | [**ezmaxinvoicingGetAutocompleteV1**](docs/ObjectEzmaxinvoicingAPI.md#ezmaxinvoicinggetautocompletev1) | **GET** /1/object/ezmaxinvoicing/getAutocomplete/{sSelector} | Retrieve Ezmaxinvoicings and IDs
 *ObjectEzmaxinvoicingAPI* | [**ezmaxinvoicingGetAutocompleteV2**](docs/ObjectEzmaxinvoicingAPI.md#ezmaxinvoicinggetautocompletev2) | **GET** /2/object/ezmaxinvoicing/getAutocomplete/{sSelector} | Retrieve Ezmaxinvoicings and IDs
 *ObjectEzmaxinvoicingAPI* | [**ezmaxinvoicingGetObjectV2**](docs/ObjectEzmaxinvoicingAPI.md#ezmaxinvoicinggetobjectv2) | **GET** /2/object/ezmaxinvoicing/{pkiEzmaxinvoicingID} | Retrieve an existing Ezmaxinvoicing
@@ -121,6 +129,7 @@ Class | Method | HTTP request | Description
 *ObjectEzsignfolderAPI* | [**ezsignfolderGetCommunicationListV1**](docs/ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationlistv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList | Retrieve Communication list
 *ObjectEzsignfolderAPI* | [**ezsignfolderGetEzsigndocumentsV1**](docs/ObjectEzsignfolderAPI.md#ezsignfoldergetezsigndocumentsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
 *ObjectEzsignfolderAPI* | [**ezsignfolderGetEzsignfoldersignerassociationsV1**](docs/ObjectEzsignfolderAPI.md#ezsignfoldergetezsignfoldersignerassociationsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociations | Retrieve an existing Ezsignfolder&#39;s Ezsignfoldersignerassociations
+*ObjectEzsignfolderAPI* | [**ezsignfolderGetEzsignfoldersignerassociationsmineV1**](docs/ObjectEzsignfolderAPI.md#ezsignfoldergetezsignfoldersignerassociationsminev1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociationsmine | Retrieve your own Ezsignfoldersignerassociations from an existing Ezsignfolder
 *ObjectEzsignfolderAPI* | [**ezsignfolderGetEzsignsignaturesAutomaticV1**](docs/ObjectEzsignfolderAPI.md#ezsignfoldergetezsignsignaturesautomaticv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsignfolder&#39;s automatic Ezsignsignatures
 *ObjectEzsignfolderAPI* | [**ezsignfolderGetFormsDataV1**](docs/ObjectEzsignfolderAPI.md#ezsignfoldergetformsdatav1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData | Retrieve an existing Ezsignfolder&#39;s forms data
 *ObjectEzsignfolderAPI* | [**ezsignfolderGetListV1**](docs/ObjectEzsignfolderAPI.md#ezsignfoldergetlistv1) | **GET** /1/object/ezsignfolder/getList | Retrieve Ezsignfolder list
@@ -161,6 +170,15 @@ Class | Method | HTTP request | Description
 *ObjectEzsignsignatureAPI* | [**ezsignsignatureGetEzsignsignaturesAutomaticV1**](docs/ObjectEzsignsignatureAPI.md#ezsignsignaturegetezsignsignaturesautomaticv1) | **GET** /1/object/ezsignsignature/getEzsignsignaturesAutomatic | Retrieve all automatic Ezsignsignatures
 *ObjectEzsignsignatureAPI* | [**ezsignsignatureGetObjectV2**](docs/ObjectEzsignsignatureAPI.md#ezsignsignaturegetobjectv2) | **GET** /2/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
 *ObjectEzsignsignatureAPI* | [**ezsignsignatureSignV1**](docs/ObjectEzsignsignatureAPI.md#ezsignsignaturesignv1) | **POST** /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign | Sign the Ezsignsignature
+*ObjectEzsignsignergroupAPI* | [**ezsignsignergroupCreateObjectV1**](docs/ObjectEzsignsignergroupAPI.md#ezsignsignergroupcreateobjectv1) | **POST** /1/object/ezsignsignergroup | Create a new Ezsignsignergroup
+*ObjectEzsignsignergroupAPI* | [**ezsignsignergroupDeleteObjectV1**](docs/ObjectEzsignsignergroupAPI.md#ezsignsignergroupdeleteobjectv1) | **DELETE** /1/object/ezsignsignergroup/{pkiEzsignsignergroupID} | Delete an existing Ezsignsignergroup
+*ObjectEzsignsignergroupAPI* | [**ezsignsignergroupEditEzsignsignergroupmembershipsV1**](docs/ObjectEzsignsignergroupAPI.md#ezsignsignergroupeditezsignsignergroupmembershipsv1) | **PUT** /1/object/ezsignsignergroup/{pkiEzsignsignergroupID}/editEzsignsignergroupmemberships | Edit multiple Ezsignsignergroupmemberships
+*ObjectEzsignsignergroupAPI* | [**ezsignsignergroupEditObjectV1**](docs/ObjectEzsignsignergroupAPI.md#ezsignsignergroupeditobjectv1) | **PUT** /1/object/ezsignsignergroup/{pkiEzsignsignergroupID} | Edit an existing Ezsignsignergroup
+*ObjectEzsignsignergroupAPI* | [**ezsignsignergroupGetEzsignsignergroupmembershipsV1**](docs/ObjectEzsignsignergroupAPI.md#ezsignsignergroupgetezsignsignergroupmembershipsv1) | **GET** /1/object/ezsignsignergroup/{pkiEzsignsignergroupID}/getEzsignsignergroupmemberships | Retrieve an existing Ezsignsignergroup&#39;s Ezsignsignergroupmemberships
+*ObjectEzsignsignergroupAPI* | [**ezsignsignergroupGetObjectV2**](docs/ObjectEzsignsignergroupAPI.md#ezsignsignergroupgetobjectv2) | **GET** /2/object/ezsignsignergroup/{pkiEzsignsignergroupID} | Retrieve an existing Ezsignsignergroup
+*ObjectEzsignsignergroupmembershipAPI* | [**ezsignsignergroupmembershipCreateObjectV1**](docs/ObjectEzsignsignergroupmembershipAPI.md#ezsignsignergroupmembershipcreateobjectv1) | **POST** /1/object/ezsignsignergroupmembership | Create a new Ezsignsignergroupmembership
+*ObjectEzsignsignergroupmembershipAPI* | [**ezsignsignergroupmembershipDeleteObjectV1**](docs/ObjectEzsignsignergroupmembershipAPI.md#ezsignsignergroupmembershipdeleteobjectv1) | **DELETE** /1/object/ezsignsignergroupmembership/{pkiEzsignsignergroupmembershipID} | Delete an existing Ezsignsignergroupmembership
+*ObjectEzsignsignergroupmembershipAPI* | [**ezsignsignergroupmembershipGetObjectV2**](docs/ObjectEzsignsignergroupmembershipAPI.md#ezsignsignergroupmembershipgetobjectv2) | **GET** /2/object/ezsignsignergroupmembership/{pkiEzsignsignergroupmembershipID} | Retrieve an existing Ezsignsignergroupmembership
 *ObjectEzsigntemplateAPI* | [**ezsigntemplateCopyV1**](docs/ObjectEzsigntemplateAPI.md#ezsigntemplatecopyv1) | **POST** /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy | Copy the Ezsigntemplate
 *ObjectEzsigntemplateAPI* | [**ezsigntemplateCreateObjectV1**](docs/ObjectEzsigntemplateAPI.md#ezsigntemplatecreateobjectv1) | **POST** /1/object/ezsigntemplate | Create a new Ezsigntemplate
 *ObjectEzsigntemplateAPI* | [**ezsigntemplateDeleteObjectV1**](docs/ObjectEzsigntemplateAPI.md#ezsigntemplatedeleteobjectv1) | **DELETE** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Delete an existing Ezsigntemplate
@@ -230,6 +248,7 @@ Class | Method | HTTP request | Description
 *ObjectPermissionAPI* | [**permissionDeleteObjectV1**](docs/ObjectPermissionAPI.md#permissiondeleteobjectv1) | **DELETE** /1/object/permission/{pkiPermissionID} | Delete an existing Permission
 *ObjectPermissionAPI* | [**permissionEditObjectV1**](docs/ObjectPermissionAPI.md#permissioneditobjectv1) | **PUT** /1/object/permission/{pkiPermissionID} | Edit an existing Permission
 *ObjectPermissionAPI* | [**permissionGetObjectV2**](docs/ObjectPermissionAPI.md#permissiongetobjectv2) | **GET** /2/object/permission/{pkiPermissionID} | Retrieve an existing Permission
+*ObjectPhonetypeAPI* | [**phonetypeGetAutocompleteV2**](docs/ObjectPhonetypeAPI.md#phonetypegetautocompletev2) | **GET** /2/object/phonetype/getAutocomplete/{sSelector} | Retrieve Phonetypes and IDs
 *ObjectSecretquestionAPI* | [**secretquestionGetAutocompleteV2**](docs/ObjectSecretquestionAPI.md#secretquestiongetautocompletev2) | **GET** /2/object/secretquestion/getAutocomplete/{sSelector} | Retrieve Secretquestions and IDs
 *ObjectSessionhistoryAPI* | [**sessionhistoryGetListV1**](docs/ObjectSessionhistoryAPI.md#sessionhistorygetlistv1) | **GET** /1/object/sessionhistory/getList | Retrieve Sessionhistory list
 *ObjectSignatureAPI* | [**signatureCreateObjectV1**](docs/ObjectSignatureAPI.md#signaturecreateobjectv1) | **POST** /1/object/signature | Create a new Signature
@@ -324,6 +343,13 @@ Class | Method | HTTP request | Description
  - [ApikeyEditPermissionsV1Response](docs/ApikeyEditPermissionsV1Response.md)
  - [ApikeyEditPermissionsV1ResponseAllOf](docs/ApikeyEditPermissionsV1ResponseAllOf.md)
  - [ApikeyEditPermissionsV1ResponseMPayload](docs/ApikeyEditPermissionsV1ResponseMPayload.md)
+ - [ApikeyGetCorsV1Response](docs/ApikeyGetCorsV1Response.md)
+ - [ApikeyGetCorsV1ResponseAllOf](docs/ApikeyGetCorsV1ResponseAllOf.md)
+ - [ApikeyGetCorsV1ResponseMPayload](docs/ApikeyGetCorsV1ResponseMPayload.md)
+ - [ApikeyGetListV1Response](docs/ApikeyGetListV1Response.md)
+ - [ApikeyGetListV1ResponseAllOf](docs/ApikeyGetListV1ResponseAllOf.md)
+ - [ApikeyGetListV1ResponseMPayload](docs/ApikeyGetListV1ResponseMPayload.md)
+ - [ApikeyGetListV1ResponseMPayloadAllOf](docs/ApikeyGetListV1ResponseMPayloadAllOf.md)
  - [ApikeyGetObjectV2Response](docs/ApikeyGetObjectV2Response.md)
  - [ApikeyGetObjectV2ResponseAllOf](docs/ApikeyGetObjectV2ResponseAllOf.md)
  - [ApikeyGetObjectV2ResponseMPayload](docs/ApikeyGetObjectV2ResponseMPayload.md)
@@ -333,6 +359,11 @@ Class | Method | HTTP request | Description
  - [ApikeyGetSubnetsV1Response](docs/ApikeyGetSubnetsV1Response.md)
  - [ApikeyGetSubnetsV1ResponseAllOf](docs/ApikeyGetSubnetsV1ResponseAllOf.md)
  - [ApikeyGetSubnetsV1ResponseMPayload](docs/ApikeyGetSubnetsV1ResponseMPayload.md)
+ - [ApikeyListElement](docs/ApikeyListElement.md)
+ - [ApikeyRegenerateV1Request](docs/ApikeyRegenerateV1Request.md)
+ - [ApikeyRegenerateV1Response](docs/ApikeyRegenerateV1Response.md)
+ - [ApikeyRegenerateV1ResponseAllOf](docs/ApikeyRegenerateV1ResponseAllOf.md)
+ - [ApikeyRegenerateV1ResponseMPayload](docs/ApikeyRegenerateV1ResponseMPayload.md)
  - [ApikeyRequest](docs/ApikeyRequest.md)
  - [ApikeyRequestCompound](docs/ApikeyRequestCompound.md)
  - [ApikeyResponse](docs/ApikeyResponse.md)
@@ -456,6 +487,20 @@ Class | Method | HTTP request | Description
  - [ContactinformationsRequest](docs/ContactinformationsRequest.md)
  - [ContactinformationsRequestCompound](docs/ContactinformationsRequestCompound.md)
  - [ContactinformationsRequestCompoundAllOf](docs/ContactinformationsRequestCompoundAllOf.md)
+ - [CorsCreateObjectV1Request](docs/CorsCreateObjectV1Request.md)
+ - [CorsCreateObjectV1Response](docs/CorsCreateObjectV1Response.md)
+ - [CorsCreateObjectV1ResponseAllOf](docs/CorsCreateObjectV1ResponseAllOf.md)
+ - [CorsCreateObjectV1ResponseMPayload](docs/CorsCreateObjectV1ResponseMPayload.md)
+ - [CorsDeleteObjectV1Response](docs/CorsDeleteObjectV1Response.md)
+ - [CorsEditObjectV1Request](docs/CorsEditObjectV1Request.md)
+ - [CorsEditObjectV1Response](docs/CorsEditObjectV1Response.md)
+ - [CorsGetObjectV2Response](docs/CorsGetObjectV2Response.md)
+ - [CorsGetObjectV2ResponseAllOf](docs/CorsGetObjectV2ResponseAllOf.md)
+ - [CorsGetObjectV2ResponseMPayload](docs/CorsGetObjectV2ResponseMPayload.md)
+ - [CorsRequest](docs/CorsRequest.md)
+ - [CorsRequestCompound](docs/CorsRequestCompound.md)
+ - [CorsResponse](docs/CorsResponse.md)
+ - [CorsResponseCompound](docs/CorsResponseCompound.md)
  - [CustomAutocompleteElementResponse](docs/CustomAutocompleteElementResponse.md)
  - [CustomCommunicationListElementResponse](docs/CustomCommunicationListElementResponse.md)
  - [CustomContactNameResponse](docs/CustomContactNameResponse.md)
@@ -474,6 +519,7 @@ Class | Method | HTTP request | Description
  - [CustomEzsignfoldersignerassociationActionableElementResponse](docs/CustomEzsignfoldersignerassociationActionableElementResponse.md)
  - [CustomEzsignfoldersignerassociationActionableElementResponseAllOf](docs/CustomEzsignfoldersignerassociationActionableElementResponseAllOf.md)
  - [CustomEzsignfoldersignerassociationmessageRequest](docs/CustomEzsignfoldersignerassociationmessageRequest.md)
+ - [CustomEzsignfoldersignerassociationmineResponse](docs/CustomEzsignfoldersignerassociationmineResponse.md)
  - [CustomEzsignfoldersignerassociationstatusResponse](docs/CustomEzsignfoldersignerassociationstatusResponse.md)
  - [CustomEzsignfoldertransmissionResponse](docs/CustomEzsignfoldertransmissionResponse.md)
  - [CustomEzsignfoldertransmissionSignerResponse](docs/CustomEzsignfoldertransmissionSignerResponse.md)
@@ -516,6 +562,10 @@ Class | Method | HTTP request | Description
  - [EmailResponseCompound](docs/EmailResponseCompound.md)
  - [EmailstaticResponse](docs/EmailstaticResponse.md)
  - [EmailstaticResponseCompound](docs/EmailstaticResponseCompound.md)
+ - [EmailtypeAutocompleteElementResponse](docs/EmailtypeAutocompleteElementResponse.md)
+ - [EmailtypeGetAutocompleteV2Response](docs/EmailtypeGetAutocompleteV2Response.md)
+ - [EmailtypeGetAutocompleteV2ResponseAllOf](docs/EmailtypeGetAutocompleteV2ResponseAllOf.md)
+ - [EmailtypeGetAutocompleteV2ResponseMPayload](docs/EmailtypeGetAutocompleteV2ResponseMPayload.md)
  - [EnumFontunderline](docs/EnumFontunderline.md)
  - [EnumFontweight](docs/EnumFontweight.md)
  - [EnumHorizontalalignment](docs/EnumHorizontalalignment.md)
@@ -751,6 +801,9 @@ Class | Method | HTTP request | Description
  - [EzsignfolderGetEzsignfoldersignerassociationsV1Response](docs/EzsignfolderGetEzsignfoldersignerassociationsV1Response.md)
  - [EzsignfolderGetEzsignfoldersignerassociationsV1ResponseAllOf](docs/EzsignfolderGetEzsignfoldersignerassociationsV1ResponseAllOf.md)
  - [EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload](docs/EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload.md)
+ - [EzsignfolderGetEzsignfoldersignerassociationsmineV1Response](docs/EzsignfolderGetEzsignfoldersignerassociationsmineV1Response.md)
+ - [EzsignfolderGetEzsignfoldersignerassociationsmineV1ResponseAllOf](docs/EzsignfolderGetEzsignfoldersignerassociationsmineV1ResponseAllOf.md)
+ - [EzsignfolderGetEzsignfoldersignerassociationsmineV1ResponseMPayload](docs/EzsignfolderGetEzsignfoldersignerassociationsmineV1ResponseMPayload.md)
  - [EzsignfolderGetEzsignsignaturesAutomaticV1Response](docs/EzsignfolderGetEzsignsignaturesAutomaticV1Response.md)
  - [EzsignfolderGetEzsignsignaturesAutomaticV1ResponseAllOf](docs/EzsignfolderGetEzsignsignaturesAutomaticV1ResponseAllOf.md)
  - [EzsignfolderGetEzsignsignaturesAutomaticV1ResponseMPayload](docs/EzsignfolderGetEzsignsignaturesAutomaticV1ResponseMPayload.md)
@@ -911,8 +964,39 @@ Class | Method | HTTP request | Description
  - [EzsignsignerResponseCompound](docs/EzsignsignerResponseCompound.md)
  - [EzsignsignerResponseCompoundAllOf](docs/EzsignsignerResponseCompoundAllOf.md)
  - [EzsignsignerResponseCompoundContact](docs/EzsignsignerResponseCompoundContact.md)
+ - [EzsignsignergroupCreateObjectV1Request](docs/EzsignsignergroupCreateObjectV1Request.md)
+ - [EzsignsignergroupCreateObjectV1Response](docs/EzsignsignergroupCreateObjectV1Response.md)
+ - [EzsignsignergroupCreateObjectV1ResponseAllOf](docs/EzsignsignergroupCreateObjectV1ResponseAllOf.md)
+ - [EzsignsignergroupCreateObjectV1ResponseMPayload](docs/EzsignsignergroupCreateObjectV1ResponseMPayload.md)
+ - [EzsignsignergroupDeleteObjectV1Response](docs/EzsignsignergroupDeleteObjectV1Response.md)
+ - [EzsignsignergroupEditEzsignsignergroupmembershipsV1Request](docs/EzsignsignergroupEditEzsignsignergroupmembershipsV1Request.md)
+ - [EzsignsignergroupEditEzsignsignergroupmembershipsV1Response](docs/EzsignsignergroupEditEzsignsignergroupmembershipsV1Response.md)
+ - [EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseAllOf](docs/EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseAllOf.md)
+ - [EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload](docs/EzsignsignergroupEditEzsignsignergroupmembershipsV1ResponseMPayload.md)
+ - [EzsignsignergroupEditObjectV1Request](docs/EzsignsignergroupEditObjectV1Request.md)
+ - [EzsignsignergroupEditObjectV1Response](docs/EzsignsignergroupEditObjectV1Response.md)
+ - [EzsignsignergroupGetEzsignsignergroupmembershipsV1Response](docs/EzsignsignergroupGetEzsignsignergroupmembershipsV1Response.md)
+ - [EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseAllOf](docs/EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseAllOf.md)
+ - [EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload](docs/EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload.md)
+ - [EzsignsignergroupGetObjectV2Response](docs/EzsignsignergroupGetObjectV2Response.md)
+ - [EzsignsignergroupGetObjectV2ResponseAllOf](docs/EzsignsignergroupGetObjectV2ResponseAllOf.md)
+ - [EzsignsignergroupGetObjectV2ResponseMPayload](docs/EzsignsignergroupGetObjectV2ResponseMPayload.md)
+ - [EzsignsignergroupRequest](docs/EzsignsignergroupRequest.md)
+ - [EzsignsignergroupRequestCompound](docs/EzsignsignergroupRequestCompound.md)
  - [EzsignsignergroupResponse](docs/EzsignsignergroupResponse.md)
  - [EzsignsignergroupResponseCompound](docs/EzsignsignergroupResponseCompound.md)
+ - [EzsignsignergroupmembershipCreateObjectV1Request](docs/EzsignsignergroupmembershipCreateObjectV1Request.md)
+ - [EzsignsignergroupmembershipCreateObjectV1Response](docs/EzsignsignergroupmembershipCreateObjectV1Response.md)
+ - [EzsignsignergroupmembershipCreateObjectV1ResponseAllOf](docs/EzsignsignergroupmembershipCreateObjectV1ResponseAllOf.md)
+ - [EzsignsignergroupmembershipCreateObjectV1ResponseMPayload](docs/EzsignsignergroupmembershipCreateObjectV1ResponseMPayload.md)
+ - [EzsignsignergroupmembershipDeleteObjectV1Response](docs/EzsignsignergroupmembershipDeleteObjectV1Response.md)
+ - [EzsignsignergroupmembershipGetObjectV2Response](docs/EzsignsignergroupmembershipGetObjectV2Response.md)
+ - [EzsignsignergroupmembershipGetObjectV2ResponseAllOf](docs/EzsignsignergroupmembershipGetObjectV2ResponseAllOf.md)
+ - [EzsignsignergroupmembershipGetObjectV2ResponseMPayload](docs/EzsignsignergroupmembershipGetObjectV2ResponseMPayload.md)
+ - [EzsignsignergroupmembershipRequest](docs/EzsignsignergroupmembershipRequest.md)
+ - [EzsignsignergroupmembershipRequestCompound](docs/EzsignsignergroupmembershipRequestCompound.md)
+ - [EzsignsignergroupmembershipResponse](docs/EzsignsignergroupmembershipResponse.md)
+ - [EzsignsignergroupmembershipResponseCompound](docs/EzsignsignergroupmembershipResponseCompound.md)
  - [EzsigntemplateAutocompleteElementResponse](docs/EzsigntemplateAutocompleteElementResponse.md)
  - [EzsigntemplateCopyV1Request](docs/EzsigntemplateCopyV1Request.md)
  - [EzsigntemplateCopyV1Response](docs/EzsigntemplateCopyV1Response.md)
@@ -1219,6 +1303,7 @@ Class | Method | HTTP request | Description
  - [MultilingualBrandingDescription](docs/MultilingualBrandingDescription.md)
  - [MultilingualEzmaxinvoicingsummaryinternalDescription](docs/MultilingualEzmaxinvoicingsummaryinternalDescription.md)
  - [MultilingualEzsignfoldertypeName](docs/MultilingualEzsignfoldertypeName.md)
+ - [MultilingualEzsignsignergroupDescription](docs/MultilingualEzsignsignergroupDescription.md)
  - [MultilingualNotificationsubsectionName](docs/MultilingualNotificationsubsectionName.md)
  - [MultilingualNotificationtestName](docs/MultilingualNotificationtestName.md)
  - [MultilingualPaymenttermDescription](docs/MultilingualPaymenttermDescription.md)
@@ -1280,6 +1365,10 @@ Class | Method | HTTP request | Description
  - [PhoneResponseCompound](docs/PhoneResponseCompound.md)
  - [PhonestaticResponse](docs/PhonestaticResponse.md)
  - [PhonestaticResponseCompound](docs/PhonestaticResponseCompound.md)
+ - [PhonetypeAutocompleteElementResponse](docs/PhonetypeAutocompleteElementResponse.md)
+ - [PhonetypeGetAutocompleteV2Response](docs/PhonetypeGetAutocompleteV2Response.md)
+ - [PhonetypeGetAutocompleteV2ResponseAllOf](docs/PhonetypeGetAutocompleteV2ResponseAllOf.md)
+ - [PhonetypeGetAutocompleteV2ResponseMPayload](docs/PhonetypeGetAutocompleteV2ResponseMPayload.md)
  - [ScimAuthenticationScheme](docs/ScimAuthenticationScheme.md)
  - [ScimEmail](docs/ScimEmail.md)
  - [ScimGroup](docs/ScimGroup.md)

@@ -15,15 +15,12 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodab
 
     static let pkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignsignergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var pkiEzsignfoldersignerassociationID: Int?
     /** The unique ID of the User */
     public var fkiUserID: Int?
-    /** The unique ID of the Usergroup */
-    public var fkiUsergroupID: Int?
     /** The unique ID of the Ezsignsignergroup */
     public var fkiEzsignsignergroupID: Int?
     /** The unique ID of the Ezsignfolder */
@@ -34,10 +31,9 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodab
     public var tEzsignfoldersignerassociationMessage: String?
     public var objEzsignsigner: EzsignsignerRequestCompound?
 
-    public init(pkiEzsignfoldersignerassociationID: Int? = nil, fkiUserID: Int? = nil, fkiUsergroupID: Int? = nil, fkiEzsignsignergroupID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil, tEzsignfoldersignerassociationMessage: String? = nil, objEzsignsigner: EzsignsignerRequestCompound? = nil) {
+    public init(pkiEzsignfoldersignerassociationID: Int? = nil, fkiUserID: Int? = nil, fkiEzsignsignergroupID: Int? = nil, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationReceivecopy: Bool? = nil, tEzsignfoldersignerassociationMessage: String? = nil, objEzsignsigner: EzsignsignerRequestCompound? = nil) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiUserID = fkiUserID
-        self.fkiUsergroupID = fkiUsergroupID
         self.fkiEzsignsignergroupID = fkiEzsignsignergroupID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
@@ -48,7 +44,6 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodab
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignfoldersignerassociationID
         case fkiUserID
-        case fkiUsergroupID
         case fkiEzsignsignergroupID
         case fkiEzsignfolderID
         case bEzsignfoldersignerassociationReceivecopy
@@ -62,7 +57,6 @@ public struct EzsignfoldersignerassociationRequestCompound: Codable, JSONEncodab
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiEzsignfoldersignerassociationID, forKey: .pkiEzsignfoldersignerassociationID)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
-        try container.encodeIfPresent(fkiUsergroupID, forKey: .fkiUsergroupID)
         try container.encodeIfPresent(fkiEzsignsignergroupID, forKey: .fkiEzsignsignergroupID)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encodeIfPresent(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)

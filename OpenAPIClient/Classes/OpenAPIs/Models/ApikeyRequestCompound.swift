@@ -22,12 +22,15 @@ public struct ApikeyRequestCompound: Codable, JSONEncodable, Hashable {
     public var objApikeyDescription: MultilingualApikeyDescription
     /** Whether the apikey is active or not */
     public var bApikeyIsactive: Bool?
+    /** Whether the apikey is signed or not */
+    public var bApikeyIssigned: Bool?
 
-    public init(pkiApikeyID: Int? = nil, fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription, bApikeyIsactive: Bool? = nil) {
+    public init(pkiApikeyID: Int? = nil, fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription, bApikeyIsactive: Bool? = nil, bApikeyIssigned: Bool? = nil) {
         self.pkiApikeyID = pkiApikeyID
         self.fkiUserID = fkiUserID
         self.objApikeyDescription = objApikeyDescription
         self.bApikeyIsactive = bApikeyIsactive
+        self.bApikeyIssigned = bApikeyIssigned
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -35,6 +38,7 @@ public struct ApikeyRequestCompound: Codable, JSONEncodable, Hashable {
         case fkiUserID
         case objApikeyDescription
         case bApikeyIsactive
+        case bApikeyIssigned
     }
 
     // Encodable protocol methods
@@ -45,6 +49,7 @@ public struct ApikeyRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encode(fkiUserID, forKey: .fkiUserID)
         try container.encode(objApikeyDescription, forKey: .objApikeyDescription)
         try container.encodeIfPresent(bApikeyIsactive, forKey: .bApikeyIsactive)
+        try container.encodeIfPresent(bApikeyIssigned, forKey: .bApikeyIssigned)
     }
 }
 
