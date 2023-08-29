@@ -13,10 +13,10 @@ import AnyCodable
 /** Response for PUT /1/object/systemconfiguration/{pkiSystemconfigurationID} */
 public struct SystemconfigurationEditObjectV1Response: Codable, JSONEncodable, Hashable {
 
-    public var objDebugPayload: CommonResponseObjDebugPayload?
+    public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload? = nil, objDebug: CommonResponseObjDebug? = nil) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
     }
@@ -30,7 +30,7 @@ public struct SystemconfigurationEditObjectV1Response: Codable, JSONEncodable, H
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(objDebugPayload, forKey: .objDebugPayload)
+        try container.encode(objDebugPayload, forKey: .objDebugPayload)
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }

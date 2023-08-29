@@ -7,11 +7,13 @@ Method | HTTP request | Description
 [**usergroupCreateObjectV1**](ObjectUsergroupAPI.md#usergroupcreateobjectv1) | **POST** /1/object/usergroup | Create a new Usergroup
 [**usergroupEditObjectV1**](ObjectUsergroupAPI.md#usergroupeditobjectv1) | **PUT** /1/object/usergroup/{pkiUsergroupID} | Edit an existing Usergroup
 [**usergroupEditPermissionsV1**](ObjectUsergroupAPI.md#usergroupeditpermissionsv1) | **PUT** /1/object/usergroup/{pkiUsergroupID}/editPermissions | Edit multiple Permissions
+[**usergroupEditUsergroupdelegationsV1**](ObjectUsergroupAPI.md#usergroupeditusergroupdelegationsv1) | **PUT** /1/object/usergroup/{pkiUsergroupID}/editUsergroupdelegations | Edit multiple Usergroupdelegations
 [**usergroupEditUsergroupmembershipsV1**](ObjectUsergroupAPI.md#usergroupeditusergroupmembershipsv1) | **PUT** /1/object/usergroup/{pkiUsergroupID}/editUsergroupmemberships | Edit multiple Usergroupmemberships
 [**usergroupGetAutocompleteV2**](ObjectUsergroupAPI.md#usergroupgetautocompletev2) | **GET** /2/object/usergroup/getAutocomplete/{sSelector} | Retrieve Usergroups and IDs
 [**usergroupGetListV1**](ObjectUsergroupAPI.md#usergroupgetlistv1) | **GET** /1/object/usergroup/getList | Retrieve Usergroup list
 [**usergroupGetObjectV2**](ObjectUsergroupAPI.md#usergroupgetobjectv2) | **GET** /2/object/usergroup/{pkiUsergroupID} | Retrieve an existing Usergroup
 [**usergroupGetPermissionsV1**](ObjectUsergroupAPI.md#usergroupgetpermissionsv1) | **GET** /1/object/usergroup/{pkiUsergroupID}/getPermissions | Retrieve an existing Usergroup&#39;s Permissions
+[**usergroupGetUsergroupdelegationsV1**](ObjectUsergroupAPI.md#usergroupgetusergroupdelegationsv1) | **GET** /1/object/usergroup/{pkiUsergroupID}/getUsergroupdelegations | Retrieve an existing Usergroup&#39;s Usergroupdelegations
 [**usergroupGetUsergroupmembershipsV1**](ObjectUsergroupAPI.md#usergroupgetusergroupmembershipsv1) | **GET** /1/object/usergroup/{pkiUsergroupID}/getUsergroupmemberships | Retrieve an existing Usergroup&#39;s Usergroupmemberships
 
 
@@ -157,6 +159,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UsergroupEditPermissionsV1Response**](UsergroupEditPermissionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **usergroupEditUsergroupdelegationsV1**
+```swift
+    open class func usergroupEditUsergroupdelegationsV1(pkiUsergroupID: Int, usergroupEditUsergroupdelegationsV1Request: UsergroupEditUsergroupdelegationsV1Request, completion: @escaping (_ data: UsergroupEditUsergroupdelegationsV1Response?, _ error: Error?) -> Void)
+```
+
+Edit multiple Usergroupdelegations
+
+Edit multiple Usergroupdelegations
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUsergroupID = 987 // Int | 
+let usergroupEditUsergroupdelegationsV1Request = usergroup-editUsergroupdelegations-v1-Request(aObjUsergroupdelegation: [usergroupdelegation-RequestCompound(pkiUsergroupdelegationID: 123, fkiUsergroupID: 123, fkiUserID: 123)]) // UsergroupEditUsergroupdelegationsV1Request | 
+
+// Edit multiple Usergroupdelegations
+ObjectUsergroupAPI.usergroupEditUsergroupdelegationsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupdelegationsV1Request: usergroupEditUsergroupdelegationsV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUsergroupID** | **Int** |  | 
+ **usergroupEditUsergroupdelegationsV1Request** | [**UsergroupEditUsergroupdelegationsV1Request**](UsergroupEditUsergroupdelegationsV1Request.md) |  | 
+
+### Return type
+
+[**UsergroupEditUsergroupdelegationsV1Response**](UsergroupEditUsergroupdelegationsV1Response.md)
 
 ### Authorization
 
@@ -421,6 +475,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UsergroupGetPermissionsV1Response**](UsergroupGetPermissionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **usergroupGetUsergroupdelegationsV1**
+```swift
+    open class func usergroupGetUsergroupdelegationsV1(pkiUsergroupID: Int, completion: @escaping (_ data: UsergroupGetUsergroupdelegationsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Usergroup's Usergroupdelegations
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUsergroupID = 987 // Int | 
+
+// Retrieve an existing Usergroup's Usergroupdelegations
+ObjectUsergroupAPI.usergroupGetUsergroupdelegationsV1(pkiUsergroupID: pkiUsergroupID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUsergroupID** | **Int** |  | 
+
+### Return type
+
+[**UsergroupGetUsergroupdelegationsV1Response**](UsergroupGetUsergroupdelegationsV1Response.md)
 
 ### Authorization
 

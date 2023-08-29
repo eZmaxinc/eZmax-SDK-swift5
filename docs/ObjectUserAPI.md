@@ -7,12 +7,14 @@ Method | HTTP request | Description
 [**userCreateObjectV1**](ObjectUserAPI.md#usercreateobjectv1) | **POST** /1/object/user | Create a new User
 [**userEditObjectV1**](ObjectUserAPI.md#usereditobjectv1) | **PUT** /1/object/user/{pkiUserID} | Edit an existing User
 [**userEditPermissionsV1**](ObjectUserAPI.md#usereditpermissionsv1) | **PUT** /1/object/user/{pkiUserID}/editPermissions | Edit multiple Permissions
+[**userGetApikeysV1**](ObjectUserAPI.md#usergetapikeysv1) | **GET** /1/object/user/{pkiUserID}/getApikeys | Retrieve an existing User&#39;s Apikeys
 [**userGetAutocompleteV2**](ObjectUserAPI.md#usergetautocompletev2) | **GET** /2/object/user/getAutocomplete/{sSelector} | Retrieve Users and IDs
 [**userGetEffectivePermissionsV1**](ObjectUserAPI.md#usergeteffectivepermissionsv1) | **GET** /1/object/user/{pkiUserID}/getEffectivePermissions | Retrieve an existing User&#39;s Effective Permissions
 [**userGetListV1**](ObjectUserAPI.md#usergetlistv1) | **GET** /1/object/user/getList | Retrieve User list
 [**userGetObjectV2**](ObjectUserAPI.md#usergetobjectv2) | **GET** /2/object/user/{pkiUserID} | Retrieve an existing User
 [**userGetPermissionsV1**](ObjectUserAPI.md#usergetpermissionsv1) | **GET** /1/object/user/{pkiUserID}/getPermissions | Retrieve an existing User&#39;s Permissions
 [**userGetSubnetsV1**](ObjectUserAPI.md#usergetsubnetsv1) | **GET** /1/object/user/{pkiUserID}/getSubnets | Retrieve an existing User&#39;s Subnets
+[**userSendPasswordResetV1**](ObjectUserAPI.md#usersendpasswordresetv1) | **POST** /1/object/user/{pkiUserID}/sendPasswordReset | Send password reset
 
 
 # **userCreateObjectV1**
@@ -165,6 +167,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userGetApikeysV1**
+```swift
+    open class func userGetApikeysV1(pkiUserID: Int, completion: @escaping (_ data: UserGetApikeysV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing User's Apikeys
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUserID = 987 // Int | 
+
+// Retrieve an existing User's Apikeys
+ObjectUserAPI.userGetApikeysV1(pkiUserID: pkiUserID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUserID** | **Int** |  | 
+
+### Return type
+
+[**UserGetApikeysV1Response**](UserGetApikeysV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -475,6 +525,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userSendPasswordResetV1**
+```swift
+    open class func userSendPasswordResetV1(pkiUserID: Int, body: AnyCodable, completion: @escaping (_ data: UserSendPasswordResetV1Response?, _ error: Error?) -> Void)
+```
+
+Send password reset
+
+Send the password reset email
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUserID = 987 // Int | 
+let body = "TODO" // AnyCodable | 
+
+// Send password reset
+ObjectUserAPI.userSendPasswordResetV1(pkiUserID: pkiUserID, body: body) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUserID** | **Int** |  | 
+ **body** | **AnyCodable** |  | 
+
+### Return type
+
+[**UserSendPasswordResetV1Response**](UserSendPasswordResetV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

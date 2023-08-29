@@ -13,31 +13,31 @@ import AnyCodable
 /** Payload for GET /1/object/ezsignbulksend/getList */
 public struct EzsignbulksendGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjEzsignbulksend: [EzsignbulksendListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    public var aObjEzsignbulksend: [EzsignbulksendListElement]
 
-    public init(aObjEzsignbulksend: [EzsignbulksendListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjEzsignbulksend = aObjEzsignbulksend
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjEzsignbulksend: [EzsignbulksendListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjEzsignbulksend = aObjEzsignbulksend
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjEzsignbulksend = "a_objEzsignbulksend"
         case iRowReturned
         case iRowFiltered
+        case aObjEzsignbulksend = "a_objEzsignbulksend"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjEzsignbulksend, forKey: .aObjEzsignbulksend)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjEzsignbulksend, forKey: .aObjEzsignbulksend)
     }
 }
 

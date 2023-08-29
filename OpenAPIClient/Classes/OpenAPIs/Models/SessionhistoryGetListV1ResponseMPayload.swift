@@ -13,31 +13,31 @@ import AnyCodable
 /** Payload for GET /1/object/sessionhistory/getList */
 public struct SessionhistoryGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjSessionhistory: [SessionhistoryListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    public var aObjSessionhistory: [SessionhistoryListElement]
 
-    public init(aObjSessionhistory: [SessionhistoryListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjSessionhistory = aObjSessionhistory
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjSessionhistory: [SessionhistoryListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjSessionhistory = aObjSessionhistory
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjSessionhistory = "a_objSessionhistory"
         case iRowReturned
         case iRowFiltered
+        case aObjSessionhistory = "a_objSessionhistory"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjSessionhistory, forKey: .aObjSessionhistory)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjSessionhistory, forKey: .aObjSessionhistory)
     }
 }
 

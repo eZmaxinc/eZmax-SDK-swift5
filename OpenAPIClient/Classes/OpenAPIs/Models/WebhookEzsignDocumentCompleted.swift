@@ -13,30 +13,30 @@ import AnyCodable
 /** This is the base Webhook object */
 public struct WebhookEzsignDocumentCompleted: Codable, JSONEncodable, Hashable {
 
-    public var objEzsigndocument: EzsigndocumentResponse
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
+    public var objEzsigndocument: EzsigndocumentResponse
 
-    public init(objEzsigndocument: EzsigndocumentResponse, objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
-        self.objEzsigndocument = objEzsigndocument
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objEzsigndocument: EzsigndocumentResponse) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
+        self.objEzsigndocument = objEzsigndocument
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case objEzsigndocument
         case objWebhook
         case aObjAttempt = "a_objAttempt"
+        case objEzsigndocument
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(objEzsigndocument, forKey: .objEzsigndocument)
         try container.encode(objWebhook, forKey: .objWebhook)
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
+        try container.encode(objEzsigndocument, forKey: .objEzsigndocument)
     }
 }
 

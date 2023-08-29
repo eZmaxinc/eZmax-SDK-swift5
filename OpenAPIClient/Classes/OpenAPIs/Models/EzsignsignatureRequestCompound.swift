@@ -22,6 +22,7 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
     static let iEzsignsignatureHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldersignerassociationIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignsignatureMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignsignature */
     public var pkiEzsignsignatureID: Int?
     /** The unique ID of the Ezsignfoldersignerassociation */
@@ -54,6 +55,8 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
     public var sEzsignsignatureAttachmentdescription: String?
     /** The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments */
     public var iEzsignsignatureValidationstep: Int?
+    /** The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** */
+    public var iEzsignsignatureMaxlength: Int?
     public var eEzsignsignatureTextvalidation: EnumTextvalidation?
     /** A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** */
     public var sEzsignsignatureRegexp: String?
@@ -62,7 +65,7 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
     public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]?
 
-    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, iEzsignsignatureValidationstep: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureRegexp: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]? = nil) {
+    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, iEzsignsignatureValidationstep: Int? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureRegexp: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
@@ -81,6 +84,7 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
         self.eEzsignsignatureAttachmentnamesource = eEzsignsignatureAttachmentnamesource
         self.sEzsignsignatureAttachmentdescription = sEzsignsignatureAttachmentdescription
         self.iEzsignsignatureValidationstep = iEzsignsignatureValidationstep
+        self.iEzsignsignatureMaxlength = iEzsignsignatureMaxlength
         self.eEzsignsignatureTextvalidation = eEzsignsignatureTextvalidation
         self.sEzsignsignatureRegexp = sEzsignsignatureRegexp
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
@@ -106,6 +110,7 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
         case eEzsignsignatureAttachmentnamesource
         case sEzsignsignatureAttachmentdescription
         case iEzsignsignatureValidationstep
+        case iEzsignsignatureMaxlength
         case eEzsignsignatureTextvalidation
         case sEzsignsignatureRegexp
         case bEzsignsignatureCustomdate
@@ -134,6 +139,7 @@ public struct EzsignsignatureRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eEzsignsignatureAttachmentnamesource, forKey: .eEzsignsignatureAttachmentnamesource)
         try container.encodeIfPresent(sEzsignsignatureAttachmentdescription, forKey: .sEzsignsignatureAttachmentdescription)
         try container.encodeIfPresent(iEzsignsignatureValidationstep, forKey: .iEzsignsignatureValidationstep)
+        try container.encodeIfPresent(iEzsignsignatureMaxlength, forKey: .iEzsignsignatureMaxlength)
         try container.encodeIfPresent(eEzsignsignatureTextvalidation, forKey: .eEzsignsignatureTextvalidation)
         try container.encodeIfPresent(sEzsignsignatureRegexp, forKey: .sEzsignsignatureRegexp)
         try container.encodeIfPresent(bEzsignsignatureCustomdate, forKey: .bEzsignsignatureCustomdate)

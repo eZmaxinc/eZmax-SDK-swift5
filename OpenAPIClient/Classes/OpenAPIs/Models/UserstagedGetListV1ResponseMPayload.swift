@@ -13,31 +13,31 @@ import AnyCodable
 /** Payload for GET /1/object/userstaged/getList */
 public struct UserstagedGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjUserstaged: [UserstagedListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    public var aObjUserstaged: [UserstagedListElement]
 
-    public init(aObjUserstaged: [UserstagedListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjUserstaged = aObjUserstaged
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjUserstaged: [UserstagedListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjUserstaged = aObjUserstaged
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjUserstaged = "a_objUserstaged"
         case iRowReturned
         case iRowFiltered
+        case aObjUserstaged = "a_objUserstaged"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjUserstaged, forKey: .aObjUserstaged)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjUserstaged, forKey: .aObjUserstaged)
     }
 }
 

@@ -14,31 +14,31 @@ import AnyCodable
 public struct CommonResponseErrorSTemporaryFileUrl: Codable, JSONEncodable, Hashable {
 
     static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
-    /** The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again. */
-    public var sTemporaryFileUrl: String?
     /** The message giving details about the error */
     public var sErrorMessage: String
     public var eErrorCode: FieldEErrorCode
+    /** The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again. */
+    public var sTemporaryFileUrl: String?
 
-    public init(sTemporaryFileUrl: String? = nil, sErrorMessage: String, eErrorCode: FieldEErrorCode) {
-        self.sTemporaryFileUrl = sTemporaryFileUrl
+    public init(sErrorMessage: String, eErrorCode: FieldEErrorCode, sTemporaryFileUrl: String? = nil) {
         self.sErrorMessage = sErrorMessage
         self.eErrorCode = eErrorCode
+        self.sTemporaryFileUrl = sTemporaryFileUrl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case sTemporaryFileUrl
         case sErrorMessage
         case eErrorCode
+        case sTemporaryFileUrl
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(sTemporaryFileUrl, forKey: .sTemporaryFileUrl)
         try container.encode(sErrorMessage, forKey: .sErrorMessage)
         try container.encode(eErrorCode, forKey: .eErrorCode)
+        try container.encodeIfPresent(sTemporaryFileUrl, forKey: .sTemporaryFileUrl)
     }
 }
 

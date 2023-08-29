@@ -13,32 +13,32 @@ import AnyCodable
 /** Payload for GET /1/object/ezsignfoldertype/getList */
 public struct EzsignfoldertypeGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /**  */
-    public var aObjEzsignfoldertype: [EzsignfoldertypeListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    /**  */
+    public var aObjEzsignfoldertype: [EzsignfoldertypeListElement]
 
-    public init(aObjEzsignfoldertype: [EzsignfoldertypeListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjEzsignfoldertype = aObjEzsignfoldertype
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjEzsignfoldertype: [EzsignfoldertypeListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjEzsignfoldertype = aObjEzsignfoldertype
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjEzsignfoldertype = "a_objEzsignfoldertype"
         case iRowReturned
         case iRowFiltered
+        case aObjEzsignfoldertype = "a_objEzsignfoldertype"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjEzsignfoldertype, forKey: .aObjEzsignfoldertype)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjEzsignfoldertype, forKey: .aObjEzsignfoldertype)
     }
 }
 

@@ -13,29 +13,29 @@ import AnyCodable
 /** Response for GET /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} */
 public struct EzsignfoldersignerassociationGetObjectV2Response: Codable, JSONEncodable, Hashable {
 
-    public var mPayload: EzsignfoldersignerassociationGetObjectV2ResponseMPayload
-    public var objDebugPayload: CommonResponseObjDebugPayload?
+    public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
+    public var mPayload: EzsignfoldersignerassociationGetObjectV2ResponseMPayload
 
-    public init(mPayload: EzsignfoldersignerassociationGetObjectV2ResponseMPayload, objDebugPayload: CommonResponseObjDebugPayload? = nil, objDebug: CommonResponseObjDebug? = nil) {
-        self.mPayload = mPayload
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: EzsignfoldersignerassociationGetObjectV2ResponseMPayload) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
+        self.mPayload = mPayload
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case mPayload
         case objDebugPayload
         case objDebug
+        case mPayload
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(mPayload, forKey: .mPayload)
-        try container.encodeIfPresent(objDebugPayload, forKey: .objDebugPayload)
+        try container.encode(objDebugPayload, forKey: .objDebugPayload)
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
+        try container.encode(mPayload, forKey: .mPayload)
     }
 }
 

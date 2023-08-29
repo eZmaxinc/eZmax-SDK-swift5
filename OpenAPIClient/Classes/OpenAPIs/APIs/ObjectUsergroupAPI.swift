@@ -164,6 +164,58 @@ open class ObjectUsergroupAPI {
     }
 
     /**
+     Edit multiple Usergroupdelegations
+     
+     - parameter pkiUsergroupID: (path)  
+     - parameter usergroupEditUsergroupdelegationsV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupEditUsergroupdelegationsV1(pkiUsergroupID: Int, usergroupEditUsergroupdelegationsV1Request: UsergroupEditUsergroupdelegationsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupEditUsergroupdelegationsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupEditUsergroupdelegationsV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupdelegationsV1Request: usergroupEditUsergroupdelegationsV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit multiple Usergroupdelegations
+     - PUT /1/object/usergroup/{pkiUsergroupID}/editUsergroupdelegations
+     - Edit multiple Usergroupdelegations
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path)  
+     - parameter usergroupEditUsergroupdelegationsV1Request: (body)  
+     - returns: RequestBuilder<UsergroupEditUsergroupdelegationsV1Response> 
+     */
+    open class func usergroupEditUsergroupdelegationsV1WithRequestBuilder(pkiUsergroupID: Int, usergroupEditUsergroupdelegationsV1Request: UsergroupEditUsergroupdelegationsV1Request) -> RequestBuilder<UsergroupEditUsergroupdelegationsV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}/editUsergroupdelegations"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: usergroupEditUsergroupdelegationsV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupEditUsergroupdelegationsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Edit multiple Usergroupmemberships
      
      - parameter pkiUsergroupID: (path)  
@@ -459,6 +511,55 @@ open class ObjectUsergroupAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<UsergroupGetPermissionsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Usergroup's Usergroupdelegations
+     
+     - parameter pkiUsergroupID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func usergroupGetUsergroupdelegationsV1(pkiUsergroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupGetUsergroupdelegationsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return usergroupGetUsergroupdelegationsV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Usergroup's Usergroupdelegations
+     - GET /1/object/usergroup/{pkiUsergroupID}/getUsergroupdelegations
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUsergroupID: (path)  
+     - returns: RequestBuilder<UsergroupGetUsergroupdelegationsV1Response> 
+     */
+    open class func usergroupGetUsergroupdelegationsV1WithRequestBuilder(pkiUsergroupID: Int) -> RequestBuilder<UsergroupGetUsergroupdelegationsV1Response> {
+        var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}/getUsergroupdelegations"
+        let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
+        let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUsergroupID}", with: pkiUsergroupIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UsergroupGetUsergroupdelegationsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

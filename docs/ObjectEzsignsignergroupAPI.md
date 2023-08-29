@@ -179,7 +179,7 @@ Edit an existing Ezsignsignergroup
 import OpenAPIClient
 
 let pkiEzsignsignergroupID = 987 // Int | The unique ID of the Ezsignsignergroup
-let ezsignsignergroupEditObjectV1Request = ezsignsignergroup-editObject-v1-Request(objBranding: ezsignsignergroup-RequestCompound(pkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, objEzsignsignergroupDescription: Multilingual-EzsignsignergroupDescription(sEzsignsignergroupDescription1: "sEzsignsignergroupDescription1_example", sEzsignsignergroupDescription2: "sEzsignsignergroupDescription2_example"))) // EzsignsignergroupEditObjectV1Request | 
+let ezsignsignergroupEditObjectV1Request = ezsignsignergroup-editObject-v1-Request(objEzsignsignergroup: ezsignsignergroup-RequestCompound(pkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, objEzsignsignergroupDescription: Multilingual-EzsignsignergroupDescription(sEzsignsignergroupDescription1: "sEzsignsignergroupDescription1_example", sEzsignsignergroupDescription2: "sEzsignsignergroupDescription2_example"))) // EzsignsignergroupEditObjectV1Request | 
 
 // Edit an existing Ezsignsignergroup
 ObjectEzsignsignergroupAPI.ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditObjectV1Request: ezsignsignergroupEditObjectV1Request) { (response, error) in

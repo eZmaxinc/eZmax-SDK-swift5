@@ -17,6 +17,8 @@ open class ObjectEzmaxproductAPI {
      */
     public enum SSelector_ezmaxproductGetAutocompleteV2: String, CaseIterable {
         case all = "All"
+        case entitydefault = "Entitydefault"
+        case entityother = "Entityother"
     }
 
     /**

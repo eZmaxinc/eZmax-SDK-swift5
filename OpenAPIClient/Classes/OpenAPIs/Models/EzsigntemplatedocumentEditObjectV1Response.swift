@@ -13,11 +13,11 @@ import AnyCodable
 /** Response for PUT /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID} */
 public struct EzsigntemplatedocumentEditObjectV1Response: Codable, JSONEncodable, Hashable {
 
-    public var objDebugPayload: CommonResponseObjDebugPayload?
+    public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
     public var aObjWarning: [CommonResponseWarning]?
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload? = nil, objDebug: CommonResponseObjDebug? = nil, aObjWarning: [CommonResponseWarning]? = nil) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, aObjWarning: [CommonResponseWarning]? = nil) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
         self.aObjWarning = aObjWarning
@@ -33,7 +33,7 @@ public struct EzsigntemplatedocumentEditObjectV1Response: Codable, JSONEncodable
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(objDebugPayload, forKey: .objDebugPayload)
+        try container.encode(objDebugPayload, forKey: .objDebugPayload)
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
         try container.encodeIfPresent(aObjWarning, forKey: .aObjWarning)
     }

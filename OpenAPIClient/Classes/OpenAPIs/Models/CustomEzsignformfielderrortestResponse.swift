@@ -14,7 +14,7 @@ import AnyCodable
 public struct CustomEzsignformfielderrortestResponse: Codable, JSONEncodable, Hashable {
 
     static let sEzsignformfielderrortestNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sEzsignformfielderrortestDetailRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,100}$/")
+    static let sEzsignformfielderrortestDetailRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
     /** The name of the test */
     public var sEzsignformfielderrortestName: String
     /** The detail why the test failed */

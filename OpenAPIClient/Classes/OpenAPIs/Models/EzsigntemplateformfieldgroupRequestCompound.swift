@@ -19,7 +19,7 @@ public struct EzsigntemplateformfieldgroupRequestCompound: Codable, JSONEncodabl
     static let iEzsigntemplateformfieldgroupStepRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplateformfieldgroupFilledminRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplateformfieldgroupFilledmaxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplateformfieldgroupMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigntemplateformfieldgroupMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplateformfieldgroup */
     public var pkiEzsigntemplateformfieldgroupID: Int?
     /** The unique ID of the Ezsigntemplatedocument */
@@ -44,6 +44,7 @@ public struct EzsigntemplateformfieldgroupRequestCompound: Codable, JSONEncodabl
     public var bEzsigntemplateformfieldgroupEncrypted: Bool?
     /** A regular expression to indicate what values are acceptable for the Ezsigntemplateformfieldgroup.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea** */
     public var sEzsigntemplateformfieldgroupRegexp: String?
+    public var eEzsigntemplateformfieldgroupTextvalidation: EnumTextvalidation?
     /** A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplateformfieldgroup */
     public var tEzsigntemplateformfieldgroupTooltip: String?
     public var eEzsigntemplateformfieldgroupTooltipposition: FieldEEzsigntemplateformfieldgroupTooltipposition?
@@ -51,7 +52,7 @@ public struct EzsigntemplateformfieldgroupRequestCompound: Codable, JSONEncodabl
     public var aObjDropdownElement: [CustomDropdownElementRequestCompound]?
     public var aObjEzsigntemplateformfield: [EzsigntemplateformfieldRequestCompound]
 
-    public init(pkiEzsigntemplateformfieldgroupID: Int? = nil, fkiEzsigntemplatedocumentID: Int, eEzsigntemplateformfieldgroupType: FieldEEzsigntemplateformfieldgroupType, eEzsigntemplateformfieldgroupSignerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement, sEzsigntemplateformfieldgroupLabel: String, iEzsigntemplateformfieldgroupStep: Int, sEzsigntemplateformfieldgroupDefaultvalue: String, iEzsigntemplateformfieldgroupFilledmin: Int, iEzsigntemplateformfieldgroupFilledmax: Int, bEzsigntemplateformfieldgroupReadonly: Bool, iEzsigntemplateformfieldgroupMaxlength: Int? = nil, bEzsigntemplateformfieldgroupEncrypted: Bool? = nil, sEzsigntemplateformfieldgroupRegexp: String? = nil, tEzsigntemplateformfieldgroupTooltip: String? = nil, eEzsigntemplateformfieldgroupTooltipposition: FieldEEzsigntemplateformfieldgroupTooltipposition? = nil, aObjEzsigntemplateformfieldgroupsigner: [EzsigntemplateformfieldgroupsignerRequestCompound], aObjDropdownElement: [CustomDropdownElementRequestCompound]? = nil, aObjEzsigntemplateformfield: [EzsigntemplateformfieldRequestCompound]) {
+    public init(pkiEzsigntemplateformfieldgroupID: Int? = nil, fkiEzsigntemplatedocumentID: Int, eEzsigntemplateformfieldgroupType: FieldEEzsigntemplateformfieldgroupType, eEzsigntemplateformfieldgroupSignerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement, sEzsigntemplateformfieldgroupLabel: String, iEzsigntemplateformfieldgroupStep: Int, sEzsigntemplateformfieldgroupDefaultvalue: String, iEzsigntemplateformfieldgroupFilledmin: Int, iEzsigntemplateformfieldgroupFilledmax: Int, bEzsigntemplateformfieldgroupReadonly: Bool, iEzsigntemplateformfieldgroupMaxlength: Int? = nil, bEzsigntemplateformfieldgroupEncrypted: Bool? = nil, sEzsigntemplateformfieldgroupRegexp: String? = nil, eEzsigntemplateformfieldgroupTextvalidation: EnumTextvalidation? = nil, tEzsigntemplateformfieldgroupTooltip: String? = nil, eEzsigntemplateformfieldgroupTooltipposition: FieldEEzsigntemplateformfieldgroupTooltipposition? = nil, aObjEzsigntemplateformfieldgroupsigner: [EzsigntemplateformfieldgroupsignerRequestCompound], aObjDropdownElement: [CustomDropdownElementRequestCompound]? = nil, aObjEzsigntemplateformfield: [EzsigntemplateformfieldRequestCompound]) {
         self.pkiEzsigntemplateformfieldgroupID = pkiEzsigntemplateformfieldgroupID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.eEzsigntemplateformfieldgroupType = eEzsigntemplateformfieldgroupType
@@ -65,6 +66,7 @@ public struct EzsigntemplateformfieldgroupRequestCompound: Codable, JSONEncodabl
         self.iEzsigntemplateformfieldgroupMaxlength = iEzsigntemplateformfieldgroupMaxlength
         self.bEzsigntemplateformfieldgroupEncrypted = bEzsigntemplateformfieldgroupEncrypted
         self.sEzsigntemplateformfieldgroupRegexp = sEzsigntemplateformfieldgroupRegexp
+        self.eEzsigntemplateformfieldgroupTextvalidation = eEzsigntemplateformfieldgroupTextvalidation
         self.tEzsigntemplateformfieldgroupTooltip = tEzsigntemplateformfieldgroupTooltip
         self.eEzsigntemplateformfieldgroupTooltipposition = eEzsigntemplateformfieldgroupTooltipposition
         self.aObjEzsigntemplateformfieldgroupsigner = aObjEzsigntemplateformfieldgroupsigner
@@ -86,6 +88,7 @@ public struct EzsigntemplateformfieldgroupRequestCompound: Codable, JSONEncodabl
         case iEzsigntemplateformfieldgroupMaxlength
         case bEzsigntemplateformfieldgroupEncrypted
         case sEzsigntemplateformfieldgroupRegexp
+        case eEzsigntemplateformfieldgroupTextvalidation
         case tEzsigntemplateformfieldgroupTooltip
         case eEzsigntemplateformfieldgroupTooltipposition
         case aObjEzsigntemplateformfieldgroupsigner = "a_objEzsigntemplateformfieldgroupsigner"
@@ -110,6 +113,7 @@ public struct EzsigntemplateformfieldgroupRequestCompound: Codable, JSONEncodabl
         try container.encodeIfPresent(iEzsigntemplateformfieldgroupMaxlength, forKey: .iEzsigntemplateformfieldgroupMaxlength)
         try container.encodeIfPresent(bEzsigntemplateformfieldgroupEncrypted, forKey: .bEzsigntemplateformfieldgroupEncrypted)
         try container.encodeIfPresent(sEzsigntemplateformfieldgroupRegexp, forKey: .sEzsigntemplateformfieldgroupRegexp)
+        try container.encodeIfPresent(eEzsigntemplateformfieldgroupTextvalidation, forKey: .eEzsigntemplateformfieldgroupTextvalidation)
         try container.encodeIfPresent(tEzsigntemplateformfieldgroupTooltip, forKey: .tEzsigntemplateformfieldgroupTooltip)
         try container.encodeIfPresent(eEzsigntemplateformfieldgroupTooltipposition, forKey: .eEzsigntemplateformfieldgroupTooltipposition)
         try container.encode(aObjEzsigntemplateformfieldgroupsigner, forKey: .aObjEzsigntemplateformfieldgroupsigner)

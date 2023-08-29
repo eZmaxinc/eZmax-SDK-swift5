@@ -13,31 +13,31 @@ import AnyCodable
 /** Payload for GET /1/object/clonehistory/getList */
 public struct ClonehistoryGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjClonehistory: [ClonehistoryListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    public var aObjClonehistory: [ClonehistoryListElement]
 
-    public init(aObjClonehistory: [ClonehistoryListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjClonehistory = aObjClonehistory
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjClonehistory: [ClonehistoryListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjClonehistory = aObjClonehistory
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjClonehistory = "a_objClonehistory"
         case iRowReturned
         case iRowFiltered
+        case aObjClonehistory = "a_objClonehistory"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjClonehistory, forKey: .aObjClonehistory)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjClonehistory, forKey: .aObjClonehistory)
     }
 }
 

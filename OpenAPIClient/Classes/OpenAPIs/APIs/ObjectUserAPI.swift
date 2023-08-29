@@ -164,16 +164,67 @@ open class ObjectUserAPI {
     }
 
     /**
+     Retrieve an existing User's Apikeys
+     
+     - parameter pkiUserID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userGetApikeysV1(pkiUserID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserGetApikeysV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userGetApikeysV1WithRequestBuilder(pkiUserID: pkiUserID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing User's Apikeys
+     - GET /1/object/user/{pkiUserID}/getApikeys
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserID: (path)  
+     - returns: RequestBuilder<UserGetApikeysV1Response> 
+     */
+    open class func userGetApikeysV1WithRequestBuilder(pkiUserID: Int) -> RequestBuilder<UserGetApikeysV1Response> {
+        var localVariablePath = "/1/object/user/{pkiUserID}/getApikeys"
+        let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
+        let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserID}", with: pkiUserIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserGetApikeysV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter sSelector
      */
     public enum SSelector_userGetAutocompleteV2: String, CaseIterable {
         case all = "All"
         case agentBrokerEmployeeEzsignUserNormal = "AgentBrokerEmployeeEzsignUserNormal"
         case agentBrokerEmployeeNormalBuiltIn = "AgentBrokerEmployeeNormalBuiltIn"
+        case agentBrokerEzsignuserNormal = "AgentBrokerEzsignuserNormal"
         case clonableUsers = "ClonableUsers"
         case ezsignuserBuiltIn = "EzsignuserBuiltIn"
         case normal = "Normal"
         case normalEzsignSigner = "NormalEzsignSigner"
+        case usergroupDelegated = "UsergroupDelegated"
     }
 
     /**
@@ -528,5 +579,57 @@ open class ObjectUserAPI {
         let localVariableRequestBuilder: RequestBuilder<UserGetSubnetsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Send password reset
+     
+     - parameter pkiUserID: (path)  
+     - parameter body: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userSendPasswordResetV1(pkiUserID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSendPasswordResetV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userSendPasswordResetV1WithRequestBuilder(pkiUserID: pkiUserID, body: body).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Send password reset
+     - POST /1/object/user/{pkiUserID}/sendPasswordReset
+     - Send the password reset email
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserID: (path)  
+     - parameter body: (body)  
+     - returns: RequestBuilder<UserSendPasswordResetV1Response> 
+     */
+    open class func userSendPasswordResetV1WithRequestBuilder(pkiUserID: Int, body: AnyCodable) -> RequestBuilder<UserSendPasswordResetV1Response> {
+        var localVariablePath = "/1/object/user/{pkiUserID}/sendPasswordReset"
+        let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
+        let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserID}", with: pkiUserIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserSendPasswordResetV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

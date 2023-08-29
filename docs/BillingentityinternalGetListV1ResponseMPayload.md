@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aObjBillingentityinternal** | [BillingentityinternalListElement] |  | 
 **iRowReturned** | **Int** | The number of rows returned | 
 **iRowFiltered** | **Int** | The number of rows matching your filters (if any) or the total number of rows | 
+**aObjBillingentityinternal** | [BillingentityinternalListElement] |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

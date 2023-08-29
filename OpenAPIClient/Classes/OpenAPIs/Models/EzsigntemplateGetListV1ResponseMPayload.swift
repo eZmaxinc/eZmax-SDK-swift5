@@ -13,31 +13,31 @@ import AnyCodable
 /** Payload for GET /1/object/ezsigntemplate/getList */
 public struct EzsigntemplateGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjEzsigntemplate: [EzsigntemplateListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    public var aObjEzsigntemplate: [EzsigntemplateListElement]
 
-    public init(aObjEzsigntemplate: [EzsigntemplateListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjEzsigntemplate = aObjEzsigntemplate
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjEzsigntemplate: [EzsigntemplateListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjEzsigntemplate = aObjEzsigntemplate
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjEzsigntemplate = "a_objEzsigntemplate"
         case iRowReturned
         case iRowFiltered
+        case aObjEzsigntemplate = "a_objEzsigntemplate"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjEzsigntemplate, forKey: .aObjEzsigntemplate)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjEzsigntemplate, forKey: .aObjEzsigntemplate)
     }
 }
 

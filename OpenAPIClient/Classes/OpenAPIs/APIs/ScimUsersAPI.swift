@@ -34,7 +34,7 @@ open class ScimUsersAPI {
     /**
      Create a new User
      - POST /2/scim/Users
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter scimUser: (body)  
@@ -80,7 +80,7 @@ open class ScimUsersAPI {
     /**
      Delete an existing User
      - DELETE /2/scim/Users/{userId}
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter userId: (path)  
@@ -130,7 +130,7 @@ open class ScimUsersAPI {
     /**
      Edit an existing User
      - PUT /2/scim/Users/{userId}
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter userId: (path)  
@@ -180,7 +180,7 @@ open class ScimUsersAPI {
     /**
      Retrieve User list
      - GET /2/scim/Users
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter filter: (query) Filter expression for searching users (optional)
@@ -229,7 +229,7 @@ open class ScimUsersAPI {
     /**
      Retrieve an existing User
      - GET /2/scim/Users/{userId}
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter userId: (path)  

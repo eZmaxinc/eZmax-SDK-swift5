@@ -13,31 +13,31 @@ import AnyCodable
 /** Payload for GET /1/object/usergroup/getList */
 public struct UsergroupGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjUsergroup: [UsergroupListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    public var aObjUsergroup: [UsergroupListElement]
 
-    public init(aObjUsergroup: [UsergroupListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjUsergroup = aObjUsergroup
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjUsergroup: [UsergroupListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjUsergroup = aObjUsergroup
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjUsergroup = "a_objUsergroup"
         case iRowReturned
         case iRowFiltered
+        case aObjUsergroup = "a_objUsergroup"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjUsergroup, forKey: .aObjUsergroup)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjUsergroup, forKey: .aObjUsergroup)
     }
 }
 

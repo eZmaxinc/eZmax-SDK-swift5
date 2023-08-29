@@ -13,30 +13,30 @@ import AnyCodable
 /** This is the base Webhook object */
 public struct WebhookEzsignFolderCompleted: Codable, JSONEncodable, Hashable {
 
-    public var objEzsignfolder: EzsignfolderResponse
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
+    public var objEzsignfolder: EzsignfolderResponse
 
-    public init(objEzsignfolder: EzsignfolderResponse, objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
-        self.objEzsignfolder = objEzsignfolder
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objEzsignfolder: EzsignfolderResponse) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
+        self.objEzsignfolder = objEzsignfolder
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case objEzsignfolder
         case objWebhook
         case aObjAttempt = "a_objAttempt"
+        case objEzsignfolder
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(objEzsignfolder, forKey: .objEzsignfolder)
         try container.encode(objWebhook, forKey: .objWebhook)
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
+        try container.encode(objEzsignfolder, forKey: .objEzsignfolder)
     }
 }
 

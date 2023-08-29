@@ -13,10 +13,10 @@ import AnyCodable
 /** All API response will inherit this based Response */
 public struct CommonResponseGetList: Codable, JSONEncodable, Hashable {
 
-    public var objDebugPayload: CommonResponseObjDebugPayloadGetList?
+    public var objDebugPayload: CommonResponseObjDebugPayloadGetList
     public var objDebug: CommonResponseObjDebug?
 
-    public init(objDebugPayload: CommonResponseObjDebugPayloadGetList? = nil, objDebug: CommonResponseObjDebug? = nil) {
+    public init(objDebugPayload: CommonResponseObjDebugPayloadGetList, objDebug: CommonResponseObjDebug? = nil) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
     }
@@ -30,7 +30,7 @@ public struct CommonResponseGetList: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(objDebugPayload, forKey: .objDebugPayload)
+        try container.encode(objDebugPayload, forKey: .objDebugPayload)
         try container.encodeIfPresent(objDebug, forKey: .objDebug)
     }
 }

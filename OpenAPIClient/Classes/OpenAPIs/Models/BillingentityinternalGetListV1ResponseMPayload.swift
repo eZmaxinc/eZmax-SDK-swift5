@@ -13,31 +13,31 @@ import AnyCodable
 /** Payload for GET /1/object/billingentityinternal/getList */
 public struct BillingentityinternalGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjBillingentityinternal: [BillingentityinternalListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    public var aObjBillingentityinternal: [BillingentityinternalListElement]
 
-    public init(aObjBillingentityinternal: [BillingentityinternalListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjBillingentityinternal = aObjBillingentityinternal
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjBillingentityinternal: [BillingentityinternalListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjBillingentityinternal = aObjBillingentityinternal
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjBillingentityinternal = "a_objBillingentityinternal"
         case iRowReturned
         case iRowFiltered
+        case aObjBillingentityinternal = "a_objBillingentityinternal"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjBillingentityinternal, forKey: .aObjBillingentityinternal)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjBillingentityinternal, forKey: .aObjBillingentityinternal)
     }
 }
 

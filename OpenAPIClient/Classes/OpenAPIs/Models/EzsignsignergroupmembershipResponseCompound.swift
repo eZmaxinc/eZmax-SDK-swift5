@@ -23,13 +23,13 @@ public struct EzsignsignergroupmembershipResponseCompound: Codable, JSONEncodabl
     /** The unique ID of the Ezsignsignergroup */
     public var fkiEzsignsignergroupID: Int
     /** The unique ID of the Ezsignsigner */
-    public var fkiEzsignsignerID: Int
+    public var fkiEzsignsignerID: Int?
     /** The unique ID of the User */
-    public var fkiUserID: Int
+    public var fkiUserID: Int?
     /** The unique ID of the Usergroup */
-    public var fkiUsergroupID: Int
+    public var fkiUsergroupID: Int?
 
-    public init(pkiEzsignsignergroupmembershipID: Int, fkiEzsignsignergroupID: Int, fkiEzsignsignerID: Int, fkiUserID: Int, fkiUsergroupID: Int) {
+    public init(pkiEzsignsignergroupmembershipID: Int, fkiEzsignsignergroupID: Int, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil, fkiUsergroupID: Int? = nil) {
         self.pkiEzsignsignergroupmembershipID = pkiEzsignsignergroupmembershipID
         self.fkiEzsignsignergroupID = fkiEzsignsignergroupID
         self.fkiEzsignsignerID = fkiEzsignsignerID
@@ -51,9 +51,9 @@ public struct EzsignsignergroupmembershipResponseCompound: Codable, JSONEncodabl
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignsignergroupmembershipID, forKey: .pkiEzsignsignergroupmembershipID)
         try container.encode(fkiEzsignsignergroupID, forKey: .fkiEzsignsignergroupID)
-        try container.encode(fkiEzsignsignerID, forKey: .fkiEzsignsignerID)
-        try container.encode(fkiUserID, forKey: .fkiUserID)
-        try container.encode(fkiUsergroupID, forKey: .fkiUsergroupID)
+        try container.encodeIfPresent(fkiEzsignsignerID, forKey: .fkiEzsignsignerID)
+        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(fkiUsergroupID, forKey: .fkiUsergroupID)
     }
 }
 

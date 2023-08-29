@@ -34,7 +34,7 @@ open class ScimGroupsAPI {
     /**
      Create a new Usergroup
      - POST /2/scim/Groups
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter scimGroup: (body)  
@@ -80,7 +80,7 @@ open class ScimGroupsAPI {
     /**
      Delete an existing Usergroup
      - DELETE /2/scim/Groups/{groupId}
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter groupId: (path)  
@@ -130,7 +130,7 @@ open class ScimGroupsAPI {
     /**
      Edit an existing Usergroup
      - PUT /2/scim/Groups/{groupId}
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter groupId: (path)  
@@ -180,7 +180,7 @@ open class ScimGroupsAPI {
     /**
      Retrieve Usergroup list
      - GET /2/scim/Groups
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter filter: (query) Filter expression for searching groups (optional)
@@ -229,7 +229,7 @@ open class ScimGroupsAPI {
     /**
      Retrieve an existing Usergroup
      - GET /2/scim/Groups/{groupId}
-     - BASIC:
+     - Bearer Token:
        - type: http
        - name: Bearer
      - parameter groupId: (path)  

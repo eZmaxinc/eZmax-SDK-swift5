@@ -13,30 +13,30 @@ import AnyCodable
 /** This is the base Webhook object */
 public struct WebhookUserstagedUserstagedCreated: Codable, JSONEncodable, Hashable {
 
-    public var objUserstaged: UserstagedResponseCompound
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
+    public var objUserstaged: UserstagedResponseCompound
 
-    public init(objUserstaged: UserstagedResponseCompound, objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
-        self.objUserstaged = objUserstaged
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objUserstaged: UserstagedResponseCompound) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
+        self.objUserstaged = objUserstaged
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case objUserstaged
         case objWebhook
         case aObjAttempt = "a_objAttempt"
+        case objUserstaged
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(objUserstaged, forKey: .objUserstaged)
         try container.encode(objWebhook, forKey: .objWebhook)
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
+        try container.encode(objUserstaged, forKey: .objUserstaged)
     }
 }
 

@@ -13,30 +13,30 @@ import AnyCodable
 /** This is the base Webhook object */
 public struct WebhookUserUserCreated: Codable, JSONEncodable, Hashable {
 
-    public var objUser: UserResponseCompound
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
+    public var objUser: UserResponseCompound
 
-    public init(objUser: UserResponseCompound, objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound]) {
-        self.objUser = objUser
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objUser: UserResponseCompound) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
+        self.objUser = objUser
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case objUser
         case objWebhook
         case aObjAttempt = "a_objAttempt"
+        case objUser
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(objUser, forKey: .objUser)
         try container.encode(objWebhook, forKey: .objWebhook)
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
+        try container.encode(objUser, forKey: .objUser)
     }
 }
 

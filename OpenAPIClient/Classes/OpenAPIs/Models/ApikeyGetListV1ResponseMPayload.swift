@@ -13,31 +13,31 @@ import AnyCodable
 /** Payload for GET /1/object/apikey/getList */
 public struct ApikeyGetListV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var aObjApikey: [ApikeyListElement]
     /** The number of rows returned */
     public var iRowReturned: Int
     /** The number of rows matching your filters (if any) or the total number of rows */
     public var iRowFiltered: Int
+    public var aObjApikey: [ApikeyListElement]
 
-    public init(aObjApikey: [ApikeyListElement], iRowReturned: Int, iRowFiltered: Int) {
-        self.aObjApikey = aObjApikey
+    public init(iRowReturned: Int, iRowFiltered: Int, aObjApikey: [ApikeyListElement]) {
         self.iRowReturned = iRowReturned
         self.iRowFiltered = iRowFiltered
+        self.aObjApikey = aObjApikey
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case aObjApikey = "a_objApikey"
         case iRowReturned
         case iRowFiltered
+        case aObjApikey = "a_objApikey"
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aObjApikey, forKey: .aObjApikey)
         try container.encode(iRowReturned, forKey: .iRowReturned)
         try container.encode(iRowFiltered, forKey: .iRowFiltered)
+        try container.encode(aObjApikey, forKey: .aObjApikey)
     }
 }
 

@@ -13,12 +13,8 @@ import AnyCodable
 /** A custom Webhook object */
 public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
 
-    static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    /** The customer code assigned to your account */
-    public var pksCustomerCode: String
-    /** Wheter the webhook received is a manual test or a real event */
-    public var bWebhookTest: Bool
+    static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int
     /** The description of the Webhook */
@@ -38,10 +34,12 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     public var bWebhookIsactive: Bool?
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
+    /** The customer code assigned to your account */
+    public var pksCustomerCode: String
+    /** Wheter the webhook received is a manual test or a real event */
+    public var bWebhookTest: Bool
 
-    public init(pksCustomerCode: String, bWebhookTest: Bool, pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
-        self.pksCustomerCode = pksCustomerCode
-        self.bWebhookTest = bWebhookTest
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool, pksCustomerCode: String, bWebhookTest: Bool) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -53,11 +51,11 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         self.sWebhookEmailfailed = sWebhookEmailfailed
         self.bWebhookIsactive = bWebhookIsactive
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
+        self.pksCustomerCode = pksCustomerCode
+        self.bWebhookTest = bWebhookTest
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case pksCustomerCode
-        case bWebhookTest
         case pkiWebhookID
         case sWebhookDescription
         case fkiEzsignfoldertypeID
@@ -69,14 +67,14 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         case sWebhookEmailfailed
         case bWebhookIsactive
         case bWebhookSkipsslvalidation
+        case pksCustomerCode
+        case bWebhookTest
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
-        try container.encode(bWebhookTest, forKey: .bWebhookTest)
         try container.encode(pkiWebhookID, forKey: .pkiWebhookID)
         try container.encode(sWebhookDescription, forKey: .sWebhookDescription)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
@@ -88,6 +86,8 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
         try container.encodeIfPresent(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
+        try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
+        try container.encode(bWebhookTest, forKey: .bWebhookTest)
     }
 }
 

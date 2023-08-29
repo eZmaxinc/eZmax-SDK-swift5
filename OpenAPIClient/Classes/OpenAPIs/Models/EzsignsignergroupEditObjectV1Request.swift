@@ -13,21 +13,21 @@ import AnyCodable
 /** Request for PUT /1/object/ezsignsignergroup/{pkiEzsignsignergroupID} */
 public struct EzsignsignergroupEditObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    public var objBranding: EzsignsignergroupRequestCompound?
+    public var objEzsignsignergroup: EzsignsignergroupRequestCompound
 
-    public init(objBranding: EzsignsignergroupRequestCompound? = nil) {
-        self.objBranding = objBranding
+    public init(objEzsignsignergroup: EzsignsignergroupRequestCompound) {
+        self.objEzsignsignergroup = objEzsignsignergroup
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case objBranding
+        case objEzsignsignergroup
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(objBranding, forKey: .objBranding)
+        try container.encode(objEzsignsignergroup, forKey: .objEzsignsignergroup)
     }
 }
 

@@ -19,14 +19,17 @@ public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hash
     public var iVersionMax: Int
     /** An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them. */
     public var aRequiredPermission: [Int]
+    /** Wheter the current route is deprecated or not */
+    public var bVersionDeprecated: Bool
     public var aFilter: CommonResponseFilter
     /** List of available values for *eOrderBy* */
     public var aOrderBy: [String: String]
 
-    public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermission: [Int], aFilter: CommonResponseFilter, aOrderBy: [String: String]) {
+    public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermission: [Int], bVersionDeprecated: Bool, aFilter: CommonResponseFilter, aOrderBy: [String: String]) {
         self.iVersionMin = iVersionMin
         self.iVersionMax = iVersionMax
         self.aRequiredPermission = aRequiredPermission
+        self.bVersionDeprecated = bVersionDeprecated
         self.aFilter = aFilter
         self.aOrderBy = aOrderBy
     }
@@ -35,6 +38,7 @@ public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hash
         case iVersionMin
         case iVersionMax
         case aRequiredPermission = "a_RequiredPermission"
+        case bVersionDeprecated
         case aFilter = "a_Filter"
         case aOrderBy = "a_OrderBy"
     }
@@ -46,6 +50,7 @@ public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hash
         try container.encode(iVersionMin, forKey: .iVersionMin)
         try container.encode(iVersionMax, forKey: .iVersionMax)
         try container.encode(aRequiredPermission, forKey: .aRequiredPermission)
+        try container.encode(bVersionDeprecated, forKey: .bVersionDeprecated)
         try container.encode(aFilter, forKey: .aFilter)
         try container.encode(aOrderBy, forKey: .aOrderBy)
     }

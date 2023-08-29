@@ -23,6 +23,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     static let iEzsignsignatureWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldersignerassociationIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let dtEzsignsignatureDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
+    static let iEzsignsignatureMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignsignature */
     public var pkiEzsignsignatureID: Int
     /** The unique ID of the Ezsigndocument */
@@ -61,6 +62,8 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public var iEzsignsignatureattachmentCount: Int?
     /** The value entered while signing Ezsignsignature of eEzsignsignatureType **City**, **FieldText** and **FieldTextarea** */
     public var sEzsignsignatureDescription: String?
+    /** The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** */
+    public var iEzsignsignatureMaxlength: Int?
     public var eEzsignsignatureTextvalidation: EnumTextvalidation?
     /** A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** */
     public var sEzsignsignatureRegexp: String?
@@ -72,7 +75,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]?
     public var objCreditcardtransaction: CustomCreditcardtransactionResponse?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objSignature: SignatureResponseCompound? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objSignature: SignatureResponseCompound? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
@@ -94,6 +97,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         self.dtEzsignsignatureDate = dtEzsignsignatureDate
         self.iEzsignsignatureattachmentCount = iEzsignsignatureattachmentCount
         self.sEzsignsignatureDescription = sEzsignsignatureDescription
+        self.iEzsignsignatureMaxlength = iEzsignsignatureMaxlength
         self.eEzsignsignatureTextvalidation = eEzsignsignatureTextvalidation
         self.sEzsignsignatureRegexp = sEzsignsignatureRegexp
         self.objContactName = objContactName
@@ -125,6 +129,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         case dtEzsignsignatureDate
         case iEzsignsignatureattachmentCount
         case sEzsignsignatureDescription
+        case iEzsignsignatureMaxlength
         case eEzsignsignatureTextvalidation
         case sEzsignsignatureRegexp
         case objContactName
@@ -159,6 +164,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(dtEzsignsignatureDate, forKey: .dtEzsignsignatureDate)
         try container.encodeIfPresent(iEzsignsignatureattachmentCount, forKey: .iEzsignsignatureattachmentCount)
         try container.encodeIfPresent(sEzsignsignatureDescription, forKey: .sEzsignsignatureDescription)
+        try container.encodeIfPresent(iEzsignsignatureMaxlength, forKey: .iEzsignsignatureMaxlength)
         try container.encodeIfPresent(eEzsignsignatureTextvalidation, forKey: .eEzsignsignatureTextvalidation)
         try container.encodeIfPresent(sEzsignsignatureRegexp, forKey: .sEzsignsignatureRegexp)
         try container.encode(objContactName, forKey: .objContactName)

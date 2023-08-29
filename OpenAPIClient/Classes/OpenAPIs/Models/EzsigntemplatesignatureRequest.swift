@@ -20,7 +20,10 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
     static let iEzsigntemplatedocumentpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplatesignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplatesignatureYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigntemplatesignatureWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigntemplatesignatureHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplatesignatureStepRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigntemplatesignatureMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatesignature */
     public var pkiEzsigntemplatesignatureID: Int?
     /** The unique ID of the Ezsigntemplatedocument */
@@ -35,6 +38,10 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
     public var iEzsigntemplatesignatureX: Int
     /** The Y coordinate (Vertical) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
     public var iEzsigntemplatesignatureY: Int
+    /** The width of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have a width of 2 inches, you would use \"200\" for the iEzsigntemplatesignatureWidth. */
+    public var iEzsigntemplatesignatureWidth: Int?
+    /** The height of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have an height of 2 inches, you would use \"200\" for the iEzsigntemplatesignatureHeight. */
+    public var iEzsigntemplatesignatureHeight: Int?
     /** The step when the Ezsigntemplatesigner will be invited to sign */
     public var iEzsigntemplatesignatureStep: Int
     public var eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType
@@ -49,8 +56,13 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
     public var sEzsigntemplatesignatureAttachmentdescription: String?
     /** The step when the Ezsigntemplatesigner will be invited to validate the Ezsigntemplatesignature of eEzsigntemplatesignatureType Attachments */
     public var iEzsigntemplatesignatureValidationstep: Int?
+    /** The maximum length for the value in the Ezsigntemplatesignature  This can only be set if eEzsigntemplatesignatureType is **FieldText** or **FieldTextarea** */
+    public var iEzsigntemplatesignatureMaxlength: Int?
+    /** A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea** */
+    public var sEzsigntemplatesignatureRegexp: String?
+    public var eEzsigntemplatesignatureTextvalidation: EnumTextvalidation?
 
-    public init(pkiEzsigntemplatesignatureID: Int? = nil, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil) {
+    public init(pkiEzsigntemplatesignatureID: Int? = nil, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil) {
         self.pkiEzsigntemplatesignatureID = pkiEzsigntemplatesignatureID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsigntemplatesignerID = fkiEzsigntemplatesignerID
@@ -58,6 +70,8 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.iEzsigntemplatesignatureX = iEzsigntemplatesignatureX
         self.iEzsigntemplatesignatureY = iEzsigntemplatesignatureY
+        self.iEzsigntemplatesignatureWidth = iEzsigntemplatesignatureWidth
+        self.iEzsigntemplatesignatureHeight = iEzsigntemplatesignatureHeight
         self.iEzsigntemplatesignatureStep = iEzsigntemplatesignatureStep
         self.eEzsigntemplatesignatureType = eEzsigntemplatesignatureType
         self.tEzsigntemplatesignatureTooltip = tEzsigntemplatesignatureTooltip
@@ -67,6 +81,9 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
         self.eEzsigntemplatesignatureAttachmentnamesource = eEzsigntemplatesignatureAttachmentnamesource
         self.sEzsigntemplatesignatureAttachmentdescription = sEzsigntemplatesignatureAttachmentdescription
         self.iEzsigntemplatesignatureValidationstep = iEzsigntemplatesignatureValidationstep
+        self.iEzsigntemplatesignatureMaxlength = iEzsigntemplatesignatureMaxlength
+        self.sEzsigntemplatesignatureRegexp = sEzsigntemplatesignatureRegexp
+        self.eEzsigntemplatesignatureTextvalidation = eEzsigntemplatesignatureTextvalidation
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -77,6 +94,8 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
         case iEzsigntemplatedocumentpagePagenumber
         case iEzsigntemplatesignatureX
         case iEzsigntemplatesignatureY
+        case iEzsigntemplatesignatureWidth
+        case iEzsigntemplatesignatureHeight
         case iEzsigntemplatesignatureStep
         case eEzsigntemplatesignatureType
         case tEzsigntemplatesignatureTooltip
@@ -86,6 +105,9 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
         case eEzsigntemplatesignatureAttachmentnamesource
         case sEzsigntemplatesignatureAttachmentdescription
         case iEzsigntemplatesignatureValidationstep
+        case iEzsigntemplatesignatureMaxlength
+        case sEzsigntemplatesignatureRegexp
+        case eEzsigntemplatesignatureTextvalidation
     }
 
     // Encodable protocol methods
@@ -99,6 +121,8 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
         try container.encode(iEzsigntemplatesignatureX, forKey: .iEzsigntemplatesignatureX)
         try container.encode(iEzsigntemplatesignatureY, forKey: .iEzsigntemplatesignatureY)
+        try container.encodeIfPresent(iEzsigntemplatesignatureWidth, forKey: .iEzsigntemplatesignatureWidth)
+        try container.encodeIfPresent(iEzsigntemplatesignatureHeight, forKey: .iEzsigntemplatesignatureHeight)
         try container.encode(iEzsigntemplatesignatureStep, forKey: .iEzsigntemplatesignatureStep)
         try container.encode(eEzsigntemplatesignatureType, forKey: .eEzsigntemplatesignatureType)
         try container.encodeIfPresent(tEzsigntemplatesignatureTooltip, forKey: .tEzsigntemplatesignatureTooltip)
@@ -108,6 +132,9 @@ public struct EzsigntemplatesignatureRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eEzsigntemplatesignatureAttachmentnamesource, forKey: .eEzsigntemplatesignatureAttachmentnamesource)
         try container.encodeIfPresent(sEzsigntemplatesignatureAttachmentdescription, forKey: .sEzsigntemplatesignatureAttachmentdescription)
         try container.encodeIfPresent(iEzsigntemplatesignatureValidationstep, forKey: .iEzsigntemplatesignatureValidationstep)
+        try container.encodeIfPresent(iEzsigntemplatesignatureMaxlength, forKey: .iEzsigntemplatesignatureMaxlength)
+        try container.encodeIfPresent(sEzsigntemplatesignatureRegexp, forKey: .sEzsigntemplatesignatureRegexp)
+        try container.encodeIfPresent(eEzsigntemplatesignatureTextvalidation, forKey: .eEzsigntemplatesignatureTextvalidation)
     }
 }
 
