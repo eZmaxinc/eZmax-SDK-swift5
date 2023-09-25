@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **eEzsignfoldertypeDisposal** | [**FieldEEzsignfoldertypeDisposal**](FieldEEzsignfoldertypeDisposal.md) |  | 
 **iEzsignfoldertypeDisposaldays** | **Int** | The number of days after the archival before the disposal of the Ezsignfolder | [optional] 
 **iEzsignfoldertypeDeadlinedays** | **Int** | The number of days to get all Ezsignsignatures | 
+**bEzsignfoldertypeDelegate** | **Bool** | Wheter if delegation of signature is allowed to another user or not | [optional] 
+**bEzsignfoldertypeReassign** | **Bool** | Wheter if Reassignment of signature is allowed to another signatory or not | [optional] 
 **bEzsignfoldertypeSendattatchmentsigner** | **Bool** | Whether we send the Ezsigndocument and the proof as attachment in the email | 
 **bEzsignfoldertypeSendsignedtodocumentowner** | **Bool** | Whether we send the signed Ezsigndocument to the Ezsigndocument&#39;s owner | 
 **bEzsignfoldertypeSendsignedtofolderowner** | **Bool** | Whether we send the signed Ezsigndocument to the Ezsignfolder&#39;s owner | 
