@@ -35,10 +35,12 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     public var iEzsigntemplateformfieldWidth: Int
     /** The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  */
     public var iEzsigntemplateformfieldHeight: Int
+    /** Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** */
+    public var bEzsigntemplateformfieldAutocomplete: Bool?
     /** Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio** */
     public var bEzsigntemplateformfieldSelected: Bool?
 
-    public init(pkiEzsigntemplateformfieldID: Int, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int, iEzsigntemplateformfieldY: Int, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldSelected: Bool? = nil) {
+    public init(pkiEzsigntemplateformfieldID: Int, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int, iEzsigntemplateformfieldY: Int, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldAutocomplete: Bool? = nil, bEzsigntemplateformfieldSelected: Bool? = nil) {
         self.pkiEzsigntemplateformfieldID = pkiEzsigntemplateformfieldID
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.sEzsigntemplateformfieldLabel = sEzsigntemplateformfieldLabel
@@ -47,6 +49,7 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         self.iEzsigntemplateformfieldY = iEzsigntemplateformfieldY
         self.iEzsigntemplateformfieldWidth = iEzsigntemplateformfieldWidth
         self.iEzsigntemplateformfieldHeight = iEzsigntemplateformfieldHeight
+        self.bEzsigntemplateformfieldAutocomplete = bEzsigntemplateformfieldAutocomplete
         self.bEzsigntemplateformfieldSelected = bEzsigntemplateformfieldSelected
     }
 
@@ -59,6 +62,7 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         case iEzsigntemplateformfieldY
         case iEzsigntemplateformfieldWidth
         case iEzsigntemplateformfieldHeight
+        case bEzsigntemplateformfieldAutocomplete
         case bEzsigntemplateformfieldSelected
     }
 
@@ -74,6 +78,7 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         try container.encode(iEzsigntemplateformfieldY, forKey: .iEzsigntemplateformfieldY)
         try container.encode(iEzsigntemplateformfieldWidth, forKey: .iEzsigntemplateformfieldWidth)
         try container.encode(iEzsigntemplateformfieldHeight, forKey: .iEzsigntemplateformfieldHeight)
+        try container.encodeIfPresent(bEzsigntemplateformfieldAutocomplete, forKey: .bEzsigntemplateformfieldAutocomplete)
         try container.encodeIfPresent(bEzsigntemplateformfieldSelected, forKey: .bEzsigntemplateformfieldSelected)
     }
 }

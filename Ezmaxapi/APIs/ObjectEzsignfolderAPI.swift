@@ -662,56 +662,6 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
-     Retrieve your own Ezsignfoldersignerassociations from an existing Ezsignfolder
-     
-     - parameter pkiEzsignfolderID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func ezsignfolderGetEzsignfoldersignerassociationsmineV1(pkiEzsignfolderID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetEzsignfoldersignerassociationsmineV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfolderGetEzsignfoldersignerassociationsmineV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve your own Ezsignfoldersignerassociations from an existing Ezsignfolder
-     - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociationsmine
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiEzsignfolderID: (path)  
-     - returns: RequestBuilder<EzsignfolderGetEzsignfoldersignerassociationsmineV1Response> 
-     */
-    open class func ezsignfolderGetEzsignfoldersignerassociationsmineV1WithRequestBuilder(pkiEzsignfolderID: Int) -> RequestBuilder<EzsignfolderGetEzsignfoldersignerassociationsmineV1Response> {
-        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociationsmine"
-        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
-        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetEzsignfoldersignerassociationsmineV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
      Retrieve an existing Ezsignfolder's automatic Ezsignsignatures
      
      - parameter pkiEzsignfolderID: (path)  

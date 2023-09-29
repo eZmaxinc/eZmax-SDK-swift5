@@ -35,12 +35,14 @@ public struct EzsignformfieldResponse: Codable, JSONEncodable, Hashable {
     public var iEzsignformfieldWidth: Int
     /** The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  */
     public var iEzsignformfieldHeight: Int
+    /** Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text** */
+    public var bEzsignformfieldAutocomplete: Bool?
     /** Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio** */
     public var bEzsignformfieldSelected: Bool?
     /** This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea** */
     public var sEzsignformfieldEnteredvalue: String?
 
-    public init(pkiEzsignformfieldID: Int, iEzsignpagePagenumber: Int, sEzsignformfieldLabel: String, sEzsignformfieldValue: String? = nil, iEzsignformfieldX: Int, iEzsignformfieldY: Int, iEzsignformfieldWidth: Int, iEzsignformfieldHeight: Int, bEzsignformfieldSelected: Bool? = nil, sEzsignformfieldEnteredvalue: String? = nil) {
+    public init(pkiEzsignformfieldID: Int, iEzsignpagePagenumber: Int, sEzsignformfieldLabel: String, sEzsignformfieldValue: String? = nil, iEzsignformfieldX: Int, iEzsignformfieldY: Int, iEzsignformfieldWidth: Int, iEzsignformfieldHeight: Int, bEzsignformfieldAutocomplete: Bool? = nil, bEzsignformfieldSelected: Bool? = nil, sEzsignformfieldEnteredvalue: String? = nil) {
         self.pkiEzsignformfieldID = pkiEzsignformfieldID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.sEzsignformfieldLabel = sEzsignformfieldLabel
@@ -49,6 +51,7 @@ public struct EzsignformfieldResponse: Codable, JSONEncodable, Hashable {
         self.iEzsignformfieldY = iEzsignformfieldY
         self.iEzsignformfieldWidth = iEzsignformfieldWidth
         self.iEzsignformfieldHeight = iEzsignformfieldHeight
+        self.bEzsignformfieldAutocomplete = bEzsignformfieldAutocomplete
         self.bEzsignformfieldSelected = bEzsignformfieldSelected
         self.sEzsignformfieldEnteredvalue = sEzsignformfieldEnteredvalue
     }
@@ -62,6 +65,7 @@ public struct EzsignformfieldResponse: Codable, JSONEncodable, Hashable {
         case iEzsignformfieldY
         case iEzsignformfieldWidth
         case iEzsignformfieldHeight
+        case bEzsignformfieldAutocomplete
         case bEzsignformfieldSelected
         case sEzsignformfieldEnteredvalue
     }
@@ -78,6 +82,7 @@ public struct EzsignformfieldResponse: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsignformfieldY, forKey: .iEzsignformfieldY)
         try container.encode(iEzsignformfieldWidth, forKey: .iEzsignformfieldWidth)
         try container.encode(iEzsignformfieldHeight, forKey: .iEzsignformfieldHeight)
+        try container.encodeIfPresent(bEzsignformfieldAutocomplete, forKey: .bEzsignformfieldAutocomplete)
         try container.encodeIfPresent(bEzsignformfieldSelected, forKey: .bEzsignformfieldSelected)
         try container.encodeIfPresent(sEzsignformfieldEnteredvalue, forKey: .sEzsignformfieldEnteredvalue)
     }
