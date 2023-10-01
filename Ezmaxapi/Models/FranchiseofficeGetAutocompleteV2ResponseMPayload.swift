@@ -14,9 +14,9 @@ import AnyCodable
 public struct FranchiseofficeGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Franchiseoffice autocomplete element response. */
-    public var aObjFranchiseoffice: [FranchiseofficeAutocompleteElementResponse]?
+    public var aObjFranchiseoffice: [FranchiseofficeAutocompleteElementResponse]
 
-    public init(aObjFranchiseoffice: [FranchiseofficeAutocompleteElementResponse]? = nil) {
+    public init(aObjFranchiseoffice: [FranchiseofficeAutocompleteElementResponse]) {
         self.aObjFranchiseoffice = aObjFranchiseoffice
     }
 
@@ -28,7 +28,7 @@ public struct FranchiseofficeGetAutocompleteV2ResponseMPayload: Codable, JSONEnc
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjFranchiseoffice, forKey: .aObjFranchiseoffice)
+        try container.encode(aObjFranchiseoffice, forKey: .aObjFranchiseoffice)
     }
 }
 

@@ -18,10 +18,10 @@ public struct NotificationtestGetElementsV1ResponseMPayload: Codable, JSONEncoda
     public var pkiNotificationtestID: Int
     /** The function name of the Notificationtest */
     public var sNotificationtestFunction: String
-    public var aSVariableobjectProperty: [String]?
+    public var aSVariableobjectProperty: [String]
     public var aObjVariableobject: [Dictionary]
 
-    public init(pkiNotificationtestID: Int, sNotificationtestFunction: String, aSVariableobjectProperty: [String]? = nil, aObjVariableobject: [Dictionary]) {
+    public init(pkiNotificationtestID: Int, sNotificationtestFunction: String, aSVariableobjectProperty: [String], aObjVariableobject: [Dictionary]) {
         self.pkiNotificationtestID = pkiNotificationtestID
         self.sNotificationtestFunction = sNotificationtestFunction
         self.aSVariableobjectProperty = aSVariableobjectProperty
@@ -41,7 +41,7 @@ public struct NotificationtestGetElementsV1ResponseMPayload: Codable, JSONEncoda
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiNotificationtestID, forKey: .pkiNotificationtestID)
         try container.encode(sNotificationtestFunction, forKey: .sNotificationtestFunction)
-        try container.encodeIfPresent(aSVariableobjectProperty, forKey: .aSVariableobjectProperty)
+        try container.encode(aSVariableobjectProperty, forKey: .aSVariableobjectProperty)
         try container.encode(aObjVariableobject, forKey: .aObjVariableobject)
     }
 }

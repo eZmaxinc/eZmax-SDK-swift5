@@ -16,7 +16,7 @@ public struct CustomCreditcardtransactionResponse: Codable, JSONEncodable, Hasha
     static let dCreditcardtransactionAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
     static let sCreditcardtransactionPartiallydecryptednumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^([X]{4}[ ]){3}(\\d){4}$/")
     static let sCreditcardtransactionReferencenumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{18}$/")
-    public var eCreditcardtypeCodename: FieldECreditcardtypeCodename?
+    public var eCreditcardtypeCodename: FieldECreditcardtypeCodename
     /** The amount of the Creditcardtransaction */
     public var dCreditcardtransactionAmount: String
     /** The partially decrypted credit card number used in the Creditcardtransaction */
@@ -24,7 +24,7 @@ public struct CustomCreditcardtransactionResponse: Codable, JSONEncodable, Hasha
     /** The reference number on the creditcard service for the Creditcardtransaction */
     public var sCreditcardtransactionReferencenumber: String
 
-    public init(eCreditcardtypeCodename: FieldECreditcardtypeCodename? = nil, dCreditcardtransactionAmount: String, sCreditcardtransactionPartiallydecryptednumber: String, sCreditcardtransactionReferencenumber: String) {
+    public init(eCreditcardtypeCodename: FieldECreditcardtypeCodename, dCreditcardtransactionAmount: String, sCreditcardtransactionPartiallydecryptednumber: String, sCreditcardtransactionReferencenumber: String) {
         self.eCreditcardtypeCodename = eCreditcardtypeCodename
         self.dCreditcardtransactionAmount = dCreditcardtransactionAmount
         self.sCreditcardtransactionPartiallydecryptednumber = sCreditcardtransactionPartiallydecryptednumber
@@ -42,7 +42,7 @@ public struct CustomCreditcardtransactionResponse: Codable, JSONEncodable, Hasha
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(eCreditcardtypeCodename, forKey: .eCreditcardtypeCodename)
+        try container.encode(eCreditcardtypeCodename, forKey: .eCreditcardtypeCodename)
         try container.encode(dCreditcardtransactionAmount, forKey: .dCreditcardtransactionAmount)
         try container.encode(sCreditcardtransactionPartiallydecryptednumber, forKey: .sCreditcardtransactionPartiallydecryptednumber)
         try container.encode(sCreditcardtransactionReferencenumber, forKey: .sCreditcardtransactionReferencenumber)

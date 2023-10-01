@@ -14,9 +14,9 @@ import AnyCodable
 public struct PhonetypeGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Phonetype autocomplete element response. */
-    public var aObjPhonetype: [PhonetypeAutocompleteElementResponse]?
+    public var aObjPhonetype: [PhonetypeAutocompleteElementResponse]
 
-    public init(aObjPhonetype: [PhonetypeAutocompleteElementResponse]? = nil) {
+    public init(aObjPhonetype: [PhonetypeAutocompleteElementResponse]) {
         self.aObjPhonetype = aObjPhonetype
     }
 
@@ -28,7 +28,7 @@ public struct PhonetypeGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjPhonetype, forKey: .aObjPhonetype)
+        try container.encode(aObjPhonetype, forKey: .aObjPhonetype)
     }
 }
 

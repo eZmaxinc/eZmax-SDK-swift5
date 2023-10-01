@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Generic Error Message */
 public struct CommonResponseErrorEzsignformValidation: Codable, JSONEncodable, Hashable {
 
     static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")

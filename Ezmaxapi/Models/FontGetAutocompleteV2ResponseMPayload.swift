@@ -14,9 +14,9 @@ import AnyCodable
 public struct FontGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Font autocomplete element response. */
-    public var aObjFont: [FontAutocompleteElementResponse]?
+    public var aObjFont: [FontAutocompleteElementResponse]
 
-    public init(aObjFont: [FontAutocompleteElementResponse]? = nil) {
+    public init(aObjFont: [FontAutocompleteElementResponse]) {
         self.aObjFont = aObjFont
     }
 
@@ -28,7 +28,7 @@ public struct FontGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Has
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjFont, forKey: .aObjFont)
+        try container.encode(aObjFont, forKey: .aObjFont)
     }
 }
 

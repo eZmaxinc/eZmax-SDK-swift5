@@ -14,9 +14,9 @@ import AnyCodable
 public struct CompanyGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Company autocomplete element response. */
-    public var aObjCompany: [CompanyAutocompleteElementResponse]?
+    public var aObjCompany: [CompanyAutocompleteElementResponse]
 
-    public init(aObjCompany: [CompanyAutocompleteElementResponse]? = nil) {
+    public init(aObjCompany: [CompanyAutocompleteElementResponse]) {
         self.aObjCompany = aObjCompany
     }
 
@@ -28,7 +28,7 @@ public struct CompanyGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, 
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjCompany, forKey: .aObjCompany)
+        try container.encode(aObjCompany, forKey: .aObjCompany)
     }
 }
 

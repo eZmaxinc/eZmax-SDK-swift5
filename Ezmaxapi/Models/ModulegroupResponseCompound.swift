@@ -19,9 +19,9 @@ public struct ModulegroupResponseCompound: Codable, JSONEncodable, Hashable {
     public var pkiModulegroupID: Int
     /** The name of the Modulegroup in the language of the requester */
     public var sModulegroupNameX: String
-    public var aObjModule: [ModuleResponseCompound]
+    public var aObjModule: [ModuleResponseCompound]?
 
-    public init(pkiModulegroupID: Int, sModulegroupNameX: String, aObjModule: [ModuleResponseCompound]) {
+    public init(pkiModulegroupID: Int, sModulegroupNameX: String, aObjModule: [ModuleResponseCompound]? = nil) {
         self.pkiModulegroupID = pkiModulegroupID
         self.sModulegroupNameX = sModulegroupNameX
         self.aObjModule = aObjModule
@@ -39,7 +39,7 @@ public struct ModulegroupResponseCompound: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiModulegroupID, forKey: .pkiModulegroupID)
         try container.encode(sModulegroupNameX, forKey: .sModulegroupNameX)
-        try container.encode(aObjModule, forKey: .aObjModule)
+        try container.encodeIfPresent(aObjModule, forKey: .aObjModule)
     }
 }
 

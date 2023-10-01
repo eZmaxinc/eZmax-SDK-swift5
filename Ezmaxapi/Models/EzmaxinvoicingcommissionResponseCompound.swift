@@ -34,9 +34,9 @@ public struct EzmaxinvoicingcommissionResponseCompound: Codable, JSONEncodable, 
     public var iEzmaxinvoicingcommissionDays: Int
     /** The amount of Ezmaxinvoicingcommission */
     public var dEzmaxinvoicingcommissionAmount: String
-    public var objContactName: CustomContactNameResponse
+    public var objContactName: CustomContactNameResponse?
 
-    public init(pkiEzmaxinvoicingcommissionID: Int? = nil, fkiEzmaxinvoicingsummaryglobalID: Int? = nil, fkiEzmaxpartnerID: Int? = nil, fkiEzmaxrepresentativeID: Int? = nil, dtEzmaxinvoicingcommissionStart: String, dtEzmaxinvoicingcommissionEnd: String, iEzmaxinvoicingcommissionDays: Int, dEzmaxinvoicingcommissionAmount: String, objContactName: CustomContactNameResponse) {
+    public init(pkiEzmaxinvoicingcommissionID: Int? = nil, fkiEzmaxinvoicingsummaryglobalID: Int? = nil, fkiEzmaxpartnerID: Int? = nil, fkiEzmaxrepresentativeID: Int? = nil, dtEzmaxinvoicingcommissionStart: String, dtEzmaxinvoicingcommissionEnd: String, iEzmaxinvoicingcommissionDays: Int, dEzmaxinvoicingcommissionAmount: String, objContactName: CustomContactNameResponse? = nil) {
         self.pkiEzmaxinvoicingcommissionID = pkiEzmaxinvoicingcommissionID
         self.fkiEzmaxinvoicingsummaryglobalID = fkiEzmaxinvoicingsummaryglobalID
         self.fkiEzmaxpartnerID = fkiEzmaxpartnerID
@@ -72,7 +72,7 @@ public struct EzmaxinvoicingcommissionResponseCompound: Codable, JSONEncodable, 
         try container.encode(dtEzmaxinvoicingcommissionEnd, forKey: .dtEzmaxinvoicingcommissionEnd)
         try container.encode(iEzmaxinvoicingcommissionDays, forKey: .iEzmaxinvoicingcommissionDays)
         try container.encode(dEzmaxinvoicingcommissionAmount, forKey: .dEzmaxinvoicingcommissionAmount)
-        try container.encode(objContactName, forKey: .objContactName)
+        try container.encodeIfPresent(objContactName, forKey: .objContactName)
     }
 }
 

@@ -33,11 +33,11 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** The unique ID of the Systemconfigurationtype */
-    public var fkiSystemconfigurationtypeID: Int?
+    public var fkiSystemconfigurationtypeID: Int
     /** The unique ID of the Signature */
     public var fkiSignatureID: Int?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil, fkiSignatureID: Int? = nil) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -78,7 +78,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
-        try container.encodeIfPresent(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
+        try container.encode(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encodeIfPresent(fkiSignatureID, forKey: .fkiSignatureID)
     }
 }

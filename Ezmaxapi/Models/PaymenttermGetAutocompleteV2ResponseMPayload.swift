@@ -14,9 +14,9 @@ import AnyCodable
 public struct PaymenttermGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Paymentterm autocomplete element response. */
-    public var aObjPaymentterm: [PaymenttermAutocompleteElementResponse]?
+    public var aObjPaymentterm: [PaymenttermAutocompleteElementResponse]
 
-    public init(aObjPaymentterm: [PaymenttermAutocompleteElementResponse]? = nil) {
+    public init(aObjPaymentterm: [PaymenttermAutocompleteElementResponse]) {
         self.aObjPaymentterm = aObjPaymentterm
     }
 
@@ -28,7 +28,7 @@ public struct PaymenttermGetAutocompleteV2ResponseMPayload: Codable, JSONEncodab
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjPaymentterm, forKey: .aObjPaymentterm)
+        try container.encode(aObjPaymentterm, forKey: .aObjPaymentterm)
     }
 }
 

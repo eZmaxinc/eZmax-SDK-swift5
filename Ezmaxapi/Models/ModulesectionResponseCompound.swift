@@ -23,9 +23,9 @@ public struct ModulesectionResponseCompound: Codable, JSONEncodable, Hashable {
     public var sModulesectionInternalname: String
     /** The Name of the Modulesection in the language of the requester */
     public var sModulesectionNameX: String
-    public var aObjPermission: [PermissionResponseCompound]
+    public var aObjPermission: [PermissionResponseCompound]?
 
-    public init(pkiModulesectionID: Int, fkiModuleID: Int, sModulesectionInternalname: String, sModulesectionNameX: String, aObjPermission: [PermissionResponseCompound]) {
+    public init(pkiModulesectionID: Int, fkiModuleID: Int, sModulesectionInternalname: String, sModulesectionNameX: String, aObjPermission: [PermissionResponseCompound]? = nil) {
         self.pkiModulesectionID = pkiModulesectionID
         self.fkiModuleID = fkiModuleID
         self.sModulesectionInternalname = sModulesectionInternalname
@@ -49,7 +49,7 @@ public struct ModulesectionResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(fkiModuleID, forKey: .fkiModuleID)
         try container.encode(sModulesectionInternalname, forKey: .sModulesectionInternalname)
         try container.encode(sModulesectionNameX, forKey: .sModulesectionNameX)
-        try container.encode(aObjPermission, forKey: .aObjPermission)
+        try container.encodeIfPresent(aObjPermission, forKey: .aObjPermission)
     }
 }
 

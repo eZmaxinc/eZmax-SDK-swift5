@@ -31,9 +31,9 @@ public struct CustomEzsignfoldersignerassociationActionableElementResponse: Coda
     /** Indicates if the Ezsignfoldersignerassociation has actionable elements in the current step */
     public var bEzsignfoldersignerassociationHasactionableelementsCurrent: Bool
     /** Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step */
-    public var bEzsignfoldersignerassociationHasactionableelementsFuture: Bool?
+    public var bEzsignfoldersignerassociationHasactionableelementsFuture: Bool
 
-    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationDelayedsend: Bool, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String, objEzsignsignergroup: EzsignsignergroupResponseCompound? = nil, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil, bEzsignfoldersignerassociationHasactionableelementsCurrent: Bool, bEzsignfoldersignerassociationHasactionableelementsFuture: Bool? = nil) {
+    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationDelayedsend: Bool, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String, objEzsignsignergroup: EzsignsignergroupResponseCompound? = nil, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil, bEzsignfoldersignerassociationHasactionableelementsCurrent: Bool, bEzsignfoldersignerassociationHasactionableelementsFuture: Bool) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationDelayedsend = bEzsignfoldersignerassociationDelayedsend
@@ -72,7 +72,7 @@ public struct CustomEzsignfoldersignerassociationActionableElementResponse: Coda
         try container.encodeIfPresent(objUser, forKey: .objUser)
         try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)
         try container.encode(bEzsignfoldersignerassociationHasactionableelementsCurrent, forKey: .bEzsignfoldersignerassociationHasactionableelementsCurrent)
-        try container.encodeIfPresent(bEzsignfoldersignerassociationHasactionableelementsFuture, forKey: .bEzsignfoldersignerassociationHasactionableelementsFuture)
+        try container.encode(bEzsignfoldersignerassociationHasactionableelementsFuture, forKey: .bEzsignfoldersignerassociationHasactionableelementsFuture)
     }
 }
 

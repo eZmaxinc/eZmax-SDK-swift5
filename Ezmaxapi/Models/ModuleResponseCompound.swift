@@ -27,9 +27,9 @@ public struct ModuleResponseCompound: Codable, JSONEncodable, Hashable {
     public var bModuleRegistered: Bool
     /** Whether the Module is registered or not for api use */
     public var bModuleRegisteredapi: Bool
-    public var aObjModulesection: [ModulesectionResponseCompound]
+    public var aObjModulesection: [ModulesectionResponseCompound]?
 
-    public init(pkiModuleID: Int, fkiModulegroupID: Int, eModuleInternalname: String, sModuleNameX: String, bModuleRegistered: Bool, bModuleRegisteredapi: Bool, aObjModulesection: [ModulesectionResponseCompound]) {
+    public init(pkiModuleID: Int, fkiModulegroupID: Int, eModuleInternalname: String, sModuleNameX: String, bModuleRegistered: Bool, bModuleRegisteredapi: Bool, aObjModulesection: [ModulesectionResponseCompound]? = nil) {
         self.pkiModuleID = pkiModuleID
         self.fkiModulegroupID = fkiModulegroupID
         self.eModuleInternalname = eModuleInternalname
@@ -59,7 +59,7 @@ public struct ModuleResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sModuleNameX, forKey: .sModuleNameX)
         try container.encode(bModuleRegistered, forKey: .bModuleRegistered)
         try container.encode(bModuleRegisteredapi, forKey: .bModuleRegisteredapi)
-        try container.encode(aObjModulesection, forKey: .aObjModulesection)
+        try container.encodeIfPresent(aObjModulesection, forKey: .aObjModulesection)
     }
 }
 

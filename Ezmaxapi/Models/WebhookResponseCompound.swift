@@ -34,9 +34,9 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
     /** The concatenated string to describe the Webhook event */
-    public var sWebhookEvent: String
+    public var sWebhookEvent: String?
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool, sWebhookEvent: String) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool, sWebhookEvent: String? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -81,7 +81,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
         try container.encodeIfPresent(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
-        try container.encode(sWebhookEvent, forKey: .sWebhookEvent)
+        try container.encodeIfPresent(sWebhookEvent, forKey: .sWebhookEvent)
     }
 }
 

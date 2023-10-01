@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **bActivesessionDebug** | **Bool** | Whether the active session is in debug or not | 
 **bActivesessionIssuperadmin** | **Bool** | Whether the active session is superadmin or not | 
 **pksCustomerCode** | **String** | The customer code assigned to your account | 
-**fkiSystemconfigurationtypeID** | **Int** | The unique ID of the Systemconfigurationtype | [optional] 
+**fkiSystemconfigurationtypeID** | **Int** | The unique ID of the Systemconfigurationtype | 
 **fkiSignatureID** | **Int** | The unique ID of the Signature | [optional] 
 **aPkiPermissionID** | **[Int]** | An array of permissions granted to the user or api key | 
 **objUserReal** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 

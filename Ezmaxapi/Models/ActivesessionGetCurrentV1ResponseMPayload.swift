@@ -33,7 +33,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** The unique ID of the Systemconfigurationtype */
-    public var fkiSystemconfigurationtypeID: Int?
+    public var fkiSystemconfigurationtypeID: Int
     /** The unique ID of the Signature */
     public var fkiSignatureID: Int?
     /** An array of permissions granted to the user or api key */
@@ -44,7 +44,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int? = nil, fkiSignatureID: Int? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -95,7 +95,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
-        try container.encodeIfPresent(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
+        try container.encode(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encodeIfPresent(fkiSignatureID, forKey: .fkiSignatureID)
         try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)
         try container.encode(objUserReal, forKey: .objUserReal)

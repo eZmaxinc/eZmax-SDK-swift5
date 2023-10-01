@@ -14,9 +14,9 @@ import AnyCodable
 public struct EzmaxproductGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Ezmaxproduct autocomplete element response. */
-    public var aObjEzmaxproduct: [EzmaxproductAutocompleteElementResponse]?
+    public var aObjEzmaxproduct: [EzmaxproductAutocompleteElementResponse]
 
-    public init(aObjEzmaxproduct: [EzmaxproductAutocompleteElementResponse]? = nil) {
+    public init(aObjEzmaxproduct: [EzmaxproductAutocompleteElementResponse]) {
         self.aObjEzmaxproduct = aObjEzmaxproduct
     }
 
@@ -28,7 +28,7 @@ public struct EzmaxproductGetAutocompleteV2ResponseMPayload: Codable, JSONEncoda
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjEzmaxproduct, forKey: .aObjEzmaxproduct)
+        try container.encode(aObjEzmaxproduct, forKey: .aObjEzmaxproduct)
     }
 }
 

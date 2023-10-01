@@ -14,9 +14,9 @@ import AnyCodable
 public struct PeriodGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Period autocomplete element response. */
-    public var aObjPeriod: [PeriodAutocompleteElementResponse]?
+    public var aObjPeriod: [PeriodAutocompleteElementResponse]
 
-    public init(aObjPeriod: [PeriodAutocompleteElementResponse]? = nil) {
+    public init(aObjPeriod: [PeriodAutocompleteElementResponse]) {
         self.aObjPeriod = aObjPeriod
     }
 
@@ -28,7 +28,7 @@ public struct PeriodGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, H
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjPeriod, forKey: .aObjPeriod)
+        try container.encode(aObjPeriod, forKey: .aObjPeriod)
     }
 }
 

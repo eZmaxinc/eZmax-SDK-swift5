@@ -42,10 +42,10 @@ public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Has
     public var fkiFranchiseofficeID: Int
     /**  */
     public var sFranchisereferalincomeRemoteid: String
-    public var objAddress: AddressRequest
+    public var objAddress: AddressRequest?
     public var aObjContact: [ContactRequestCompound]
 
-    public init(pkiFranchisereferalincomeID: Int? = nil, fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String, objAddress: AddressRequest, aObjContact: [ContactRequestCompound]) {
+    public init(pkiFranchisereferalincomeID: Int? = nil, fkiFranchisebrokerID: Int, fkiFranchisereferalincomeprogramID: Int, fkiPeriodID: Int, dFranchisereferalincomeLoan: String, dFranchisereferalincomeFranchiseamount: String, dFranchisereferalincomeFranchisoramount: String, dFranchisereferalincomeAgentamount: String, dtFranchisereferalincomeDisbursed: String, tFranchisereferalincomeComment: String, fkiFranchiseofficeID: Int, sFranchisereferalincomeRemoteid: String, objAddress: AddressRequest? = nil, aObjContact: [ContactRequestCompound]) {
         self.pkiFranchisereferalincomeID = pkiFranchisereferalincomeID
         self.fkiFranchisebrokerID = fkiFranchisebrokerID
         self.fkiFranchisereferalincomeprogramID = fkiFranchisereferalincomeprogramID
@@ -95,7 +95,7 @@ public struct FranchisereferalincomeRequestCompound: Codable, JSONEncodable, Has
         try container.encode(tFranchisereferalincomeComment, forKey: .tFranchisereferalincomeComment)
         try container.encode(fkiFranchiseofficeID, forKey: .fkiFranchiseofficeID)
         try container.encode(sFranchisereferalincomeRemoteid, forKey: .sFranchisereferalincomeRemoteid)
-        try container.encode(objAddress, forKey: .objAddress)
+        try container.encodeIfPresent(objAddress, forKey: .objAddress)
         try container.encode(aObjContact, forKey: .aObjContact)
     }
 }

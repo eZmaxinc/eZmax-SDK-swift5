@@ -14,9 +14,9 @@ import AnyCodable
 public struct EmailtypeGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Emailtype autocomplete element response. */
-    public var aObjEmailtype: [EmailtypeAutocompleteElementResponse]?
+    public var aObjEmailtype: [EmailtypeAutocompleteElementResponse]
 
-    public init(aObjEmailtype: [EmailtypeAutocompleteElementResponse]? = nil) {
+    public init(aObjEmailtype: [EmailtypeAutocompleteElementResponse]) {
         self.aObjEmailtype = aObjEmailtype
     }
 
@@ -28,7 +28,7 @@ public struct EmailtypeGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjEmailtype, forKey: .aObjEmailtype)
+        try container.encode(aObjEmailtype, forKey: .aObjEmailtype)
     }
 }
 

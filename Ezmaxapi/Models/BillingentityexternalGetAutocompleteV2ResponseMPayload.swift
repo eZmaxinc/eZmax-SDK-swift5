@@ -14,9 +14,9 @@ import AnyCodable
 public struct BillingentityexternalGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Billingentityexternal autocomplete element response. */
-    public var aObjBillingentityexternal: [BillingentityexternalAutocompleteElementResponse]?
+    public var aObjBillingentityexternal: [BillingentityexternalAutocompleteElementResponse]
 
-    public init(aObjBillingentityexternal: [BillingentityexternalAutocompleteElementResponse]? = nil) {
+    public init(aObjBillingentityexternal: [BillingentityexternalAutocompleteElementResponse]) {
         self.aObjBillingentityexternal = aObjBillingentityexternal
     }
 
@@ -28,7 +28,7 @@ public struct BillingentityexternalGetAutocompleteV2ResponseMPayload: Codable, J
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjBillingentityexternal, forKey: .aObjBillingentityexternal)
+        try container.encode(aObjBillingentityexternal, forKey: .aObjBillingentityexternal)
     }
 }
 

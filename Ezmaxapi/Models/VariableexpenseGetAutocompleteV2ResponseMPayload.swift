@@ -14,9 +14,9 @@ import AnyCodable
 public struct VariableexpenseGetAutocompleteV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     /** An array of Variableexpense autocomplete element response. */
-    public var aObjVariableexpense: [VariableexpenseAutocompleteElementResponse]?
+    public var aObjVariableexpense: [VariableexpenseAutocompleteElementResponse]
 
-    public init(aObjVariableexpense: [VariableexpenseAutocompleteElementResponse]? = nil) {
+    public init(aObjVariableexpense: [VariableexpenseAutocompleteElementResponse]) {
         self.aObjVariableexpense = aObjVariableexpense
     }
 
@@ -28,7 +28,7 @@ public struct VariableexpenseGetAutocompleteV2ResponseMPayload: Codable, JSONEnc
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(aObjVariableexpense, forKey: .aObjVariableexpense)
+        try container.encode(aObjVariableexpense, forKey: .aObjVariableexpense)
     }
 }
 
