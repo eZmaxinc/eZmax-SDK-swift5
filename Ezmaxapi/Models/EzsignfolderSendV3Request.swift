@@ -14,12 +14,12 @@ import AnyCodable
 public struct EzsignfolderSendV3Request: Codable, JSONEncodable, Hashable {
 
     /** A custom text message that will be added to the email sent. */
-    public var tEzsignfolderMessage: String
+    public var tEzsignfolderMessage: String?
     /** The date and time at which the Ezsignfolder will be sent in the future. */
     public var dtEzsignfolderDelayedsenddate: String?
     public var aFkiEzsignfoldersignerassociationID: [Int]
 
-    public init(tEzsignfolderMessage: String, dtEzsignfolderDelayedsenddate: String? = nil, aFkiEzsignfoldersignerassociationID: [Int]) {
+    public init(tEzsignfolderMessage: String? = nil, dtEzsignfolderDelayedsenddate: String? = nil, aFkiEzsignfoldersignerassociationID: [Int]) {
         self.tEzsignfolderMessage = tEzsignfolderMessage
         self.dtEzsignfolderDelayedsenddate = dtEzsignfolderDelayedsenddate
         self.aFkiEzsignfoldersignerassociationID = aFkiEzsignfoldersignerassociationID
@@ -35,7 +35,7 @@ public struct EzsignfolderSendV3Request: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(tEzsignfolderMessage, forKey: .tEzsignfolderMessage)
+        try container.encodeIfPresent(tEzsignfolderMessage, forKey: .tEzsignfolderMessage)
         try container.encodeIfPresent(dtEzsignfolderDelayedsenddate, forKey: .dtEzsignfolderDelayedsenddate)
         try container.encode(aFkiEzsignfoldersignerassociationID, forKey: .aFkiEzsignfoldersignerassociationID)
     }

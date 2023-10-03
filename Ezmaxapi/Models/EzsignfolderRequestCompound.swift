@@ -26,12 +26,12 @@ public struct EzsignfolderRequestCompound: Codable, JSONEncodable, Hashable {
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
     /** Note about the Ezsignfolder */
-    public var tEzsignfolderNote: String
+    public var tEzsignfolderNote: String?
     public var eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency
     /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
     public var sEzsignfolderExternalid: String?
 
-    public init(pkiEzsignfolderID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, sEzsignfolderExternalid: String? = nil) {
+    public init(pkiEzsignfolderID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiEzsigntsarequirementID: Int? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency, sEzsignfolderExternalid: String? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiEzsigntsarequirementID = fkiEzsigntsarequirementID
@@ -59,7 +59,7 @@ public struct EzsignfolderRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encodeIfPresent(fkiEzsigntsarequirementID, forKey: .fkiEzsigntsarequirementID)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
-        try container.encode(tEzsignfolderNote, forKey: .tEzsignfolderNote)
+        try container.encodeIfPresent(tEzsignfolderNote, forKey: .tEzsignfolderNote)
         try container.encode(eEzsignfolderSendreminderfrequency, forKey: .eEzsignfolderSendreminderfrequency)
         try container.encodeIfPresent(sEzsignfolderExternalid, forKey: .sEzsignfolderExternalid)
     }
