@@ -50,6 +50,7 @@ Ezmaxapi/APIs/ObjectFontAPI.swift
 Ezmaxapi/APIs/ObjectFranchisebrokerAPI.swift
 Ezmaxapi/APIs/ObjectFranchiseofficeAPI.swift
 Ezmaxapi/APIs/ObjectFranchisereferalincomeAPI.swift
+Ezmaxapi/APIs/ObjectLanguageAPI.swift
 Ezmaxapi/APIs/ObjectModulegroupAPI.swift
 Ezmaxapi/APIs/ObjectNotificationsectionAPI.swift
 Ezmaxapi/APIs/ObjectNotificationtestAPI.swift
@@ -863,6 +864,9 @@ Ezmaxapi/Models/GlobalCustomerGetEndpointV1Response.swift
 Ezmaxapi/Models/GlobalEzmaxclientVersionV1Response.swift
 Ezmaxapi/Models/GlobalEzmaxcustomerGetConfigurationV1Response.swift
 Ezmaxapi/Models/HeaderAcceptLanguage.swift
+Ezmaxapi/Models/LanguageAutocompleteElementResponse.swift
+Ezmaxapi/Models/LanguageGetAutocompleteV2Response.swift
+Ezmaxapi/Models/LanguageGetAutocompleteV2ResponseMPayload.swift
 Ezmaxapi/Models/ModuleResponse.swift
 Ezmaxapi/Models/ModuleResponseCompound.swift
 Ezmaxapi/Models/ModulegroupGetAllV1Response.swift
@@ -1936,6 +1940,9 @@ docs/GlobalEzmaxclientVersionV1Response.md
 docs/GlobalEzmaxcustomerAPI.md
 docs/GlobalEzmaxcustomerGetConfigurationV1Response.md
 docs/HeaderAcceptLanguage.md
+docs/LanguageAutocompleteElementResponse.md
+docs/LanguageGetAutocompleteV2Response.md
+docs/LanguageGetAutocompleteV2ResponseMPayload.md
 docs/ModuleEzsignAPI.md
 docs/ModuleReportAPI.md
 docs/ModuleResponse.md
@@ -2006,6 +2013,7 @@ docs/ObjectFontAPI.md
 docs/ObjectFranchisebrokerAPI.md
 docs/ObjectFranchiseofficeAPI.md
 docs/ObjectFranchisereferalincomeAPI.md
+docs/ObjectLanguageAPI.md
 docs/ObjectModulegroupAPI.md
 docs/ObjectNotificationsectionAPI.md
 docs/ObjectNotificationtestAPI.md
