@@ -41,8 +41,10 @@ public struct EzsignformfieldRequestCompound: Codable, JSONEncodable, Hashable {
     public var bEzsignformfieldSelected: Bool?
     /** This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea** */
     public var sEzsignformfieldEnteredvalue: String?
+    public var eEzsignformfieldDependencyrequirement: FieldEEzsignformfieldDependencyrequirement?
+    public var aObjEzsignelementdependency: [EzsignelementdependencyRequestCompound]?
 
-    public init(pkiEzsignformfieldID: Int? = nil, iEzsignpagePagenumber: Int, sEzsignformfieldLabel: String, sEzsignformfieldValue: String? = nil, iEzsignformfieldX: Int, iEzsignformfieldY: Int, iEzsignformfieldWidth: Int, iEzsignformfieldHeight: Int, bEzsignformfieldAutocomplete: Bool? = nil, bEzsignformfieldSelected: Bool? = nil, sEzsignformfieldEnteredvalue: String? = nil) {
+    public init(pkiEzsignformfieldID: Int? = nil, iEzsignpagePagenumber: Int, sEzsignformfieldLabel: String, sEzsignformfieldValue: String? = nil, iEzsignformfieldX: Int, iEzsignformfieldY: Int, iEzsignformfieldWidth: Int, iEzsignformfieldHeight: Int, bEzsignformfieldAutocomplete: Bool? = nil, bEzsignformfieldSelected: Bool? = nil, sEzsignformfieldEnteredvalue: String? = nil, eEzsignformfieldDependencyrequirement: FieldEEzsignformfieldDependencyrequirement? = nil, aObjEzsignelementdependency: [EzsignelementdependencyRequestCompound]? = nil) {
         self.pkiEzsignformfieldID = pkiEzsignformfieldID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.sEzsignformfieldLabel = sEzsignformfieldLabel
@@ -54,6 +56,8 @@ public struct EzsignformfieldRequestCompound: Codable, JSONEncodable, Hashable {
         self.bEzsignformfieldAutocomplete = bEzsignformfieldAutocomplete
         self.bEzsignformfieldSelected = bEzsignformfieldSelected
         self.sEzsignformfieldEnteredvalue = sEzsignformfieldEnteredvalue
+        self.eEzsignformfieldDependencyrequirement = eEzsignformfieldDependencyrequirement
+        self.aObjEzsignelementdependency = aObjEzsignelementdependency
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -68,6 +72,8 @@ public struct EzsignformfieldRequestCompound: Codable, JSONEncodable, Hashable {
         case bEzsignformfieldAutocomplete
         case bEzsignformfieldSelected
         case sEzsignformfieldEnteredvalue
+        case eEzsignformfieldDependencyrequirement
+        case aObjEzsignelementdependency = "a_objEzsignelementdependency"
     }
 
     // Encodable protocol methods
@@ -85,6 +91,8 @@ public struct EzsignformfieldRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(bEzsignformfieldAutocomplete, forKey: .bEzsignformfieldAutocomplete)
         try container.encodeIfPresent(bEzsignformfieldSelected, forKey: .bEzsignformfieldSelected)
         try container.encodeIfPresent(sEzsignformfieldEnteredvalue, forKey: .sEzsignformfieldEnteredvalue)
+        try container.encodeIfPresent(eEzsignformfieldDependencyrequirement, forKey: .eEzsignformfieldDependencyrequirement)
+        try container.encodeIfPresent(aObjEzsignelementdependency, forKey: .aObjEzsignelementdependency)
     }
 }
 

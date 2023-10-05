@@ -39,8 +39,10 @@ public struct EzsigntemplateformfieldResponseCompound: Codable, JSONEncodable, H
     public var bEzsigntemplateformfieldAutocomplete: Bool?
     /** Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio** */
     public var bEzsigntemplateformfieldSelected: Bool?
+    public var eEzsigntemplateformfieldDependencyrequirement: FieldEEzsigntemplateformfieldDependencyrequirement?
+    public var aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyResponseCompound]?
 
-    public init(pkiEzsigntemplateformfieldID: Int, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int, iEzsigntemplateformfieldY: Int, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldAutocomplete: Bool? = nil, bEzsigntemplateformfieldSelected: Bool? = nil) {
+    public init(pkiEzsigntemplateformfieldID: Int, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int, iEzsigntemplateformfieldY: Int, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldAutocomplete: Bool? = nil, bEzsigntemplateformfieldSelected: Bool? = nil, eEzsigntemplateformfieldDependencyrequirement: FieldEEzsigntemplateformfieldDependencyrequirement? = nil, aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyResponseCompound]? = nil) {
         self.pkiEzsigntemplateformfieldID = pkiEzsigntemplateformfieldID
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.sEzsigntemplateformfieldLabel = sEzsigntemplateformfieldLabel
@@ -51,6 +53,8 @@ public struct EzsigntemplateformfieldResponseCompound: Codable, JSONEncodable, H
         self.iEzsigntemplateformfieldHeight = iEzsigntemplateformfieldHeight
         self.bEzsigntemplateformfieldAutocomplete = bEzsigntemplateformfieldAutocomplete
         self.bEzsigntemplateformfieldSelected = bEzsigntemplateformfieldSelected
+        self.eEzsigntemplateformfieldDependencyrequirement = eEzsigntemplateformfieldDependencyrequirement
+        self.aObjEzsigntemplateelementdependency = aObjEzsigntemplateelementdependency
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -64,6 +68,8 @@ public struct EzsigntemplateformfieldResponseCompound: Codable, JSONEncodable, H
         case iEzsigntemplateformfieldHeight
         case bEzsigntemplateformfieldAutocomplete
         case bEzsigntemplateformfieldSelected
+        case eEzsigntemplateformfieldDependencyrequirement
+        case aObjEzsigntemplateelementdependency = "a_objEzsigntemplateelementdependency"
     }
 
     // Encodable protocol methods
@@ -80,6 +86,8 @@ public struct EzsigntemplateformfieldResponseCompound: Codable, JSONEncodable, H
         try container.encode(iEzsigntemplateformfieldHeight, forKey: .iEzsigntemplateformfieldHeight)
         try container.encodeIfPresent(bEzsigntemplateformfieldAutocomplete, forKey: .bEzsigntemplateformfieldAutocomplete)
         try container.encodeIfPresent(bEzsigntemplateformfieldSelected, forKey: .bEzsigntemplateformfieldSelected)
+        try container.encodeIfPresent(eEzsigntemplateformfieldDependencyrequirement, forKey: .eEzsigntemplateformfieldDependencyrequirement)
+        try container.encodeIfPresent(aObjEzsigntemplateelementdependency, forKey: .aObjEzsigntemplateelementdependency)
     }
 }
 

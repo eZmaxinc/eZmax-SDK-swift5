@@ -62,8 +62,9 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
     /** A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea** */
     public var sEzsigntemplatesignatureRegexp: String?
     public var eEzsigntemplatesignatureTextvalidation: EnumTextvalidation?
+    public var eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement?
 
-    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil) {
+    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil) {
         self.pkiEzsigntemplatesignatureID = pkiEzsigntemplatesignatureID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsigntemplatesignerID = fkiEzsigntemplatesignerID
@@ -85,6 +86,7 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         self.iEzsigntemplatesignatureMaxlength = iEzsigntemplatesignatureMaxlength
         self.sEzsigntemplatesignatureRegexp = sEzsigntemplatesignatureRegexp
         self.eEzsigntemplatesignatureTextvalidation = eEzsigntemplatesignatureTextvalidation
+        self.eEzsigntemplatesignatureDependencyrequirement = eEzsigntemplatesignatureDependencyrequirement
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -109,6 +111,7 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         case iEzsigntemplatesignatureMaxlength
         case sEzsigntemplatesignatureRegexp
         case eEzsigntemplatesignatureTextvalidation
+        case eEzsigntemplatesignatureDependencyrequirement
     }
 
     // Encodable protocol methods
@@ -136,6 +139,7 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(iEzsigntemplatesignatureMaxlength, forKey: .iEzsigntemplatesignatureMaxlength)
         try container.encodeIfPresent(sEzsigntemplatesignatureRegexp, forKey: .sEzsigntemplatesignatureRegexp)
         try container.encodeIfPresent(eEzsigntemplatesignatureTextvalidation, forKey: .eEzsigntemplatesignatureTextvalidation)
+        try container.encodeIfPresent(eEzsigntemplatesignatureDependencyrequirement, forKey: .eEzsigntemplatesignatureDependencyrequirement)
     }
 }
 

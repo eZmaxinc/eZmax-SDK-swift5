@@ -38,4 +38,5 @@ public enum FieldEEzsigndocumentlogType: String, Codable, CaseIterable {
     case delayedSendEmail = "DelayedSendEmail"
     case regeneratePage = "RegeneratePage"
     case regeneratePageForm = "RegeneratePageForm"
+    case reassign = "Reassign"
 }

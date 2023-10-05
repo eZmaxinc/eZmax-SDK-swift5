@@ -62,12 +62,14 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
     /** A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea** */
     public var sEzsigntemplatesignatureRegexp: String?
     public var eEzsigntemplatesignatureTextvalidation: EnumTextvalidation?
+    public var eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement?
     /** Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**) */
     public var bEzsigntemplatesignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
     public var aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateResponseCompound]?
+    public var aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyResponseCompound]?
 
-    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, bEzsigntemplatesignatureCustomdate: Bool? = nil, aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateResponseCompound]? = nil) {
+    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, bEzsigntemplatesignatureCustomdate: Bool? = nil, aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateResponseCompound]? = nil, aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyResponseCompound]? = nil) {
         self.pkiEzsigntemplatesignatureID = pkiEzsigntemplatesignatureID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsigntemplatesignerID = fkiEzsigntemplatesignerID
@@ -89,8 +91,10 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
         self.iEzsigntemplatesignatureMaxlength = iEzsigntemplatesignatureMaxlength
         self.sEzsigntemplatesignatureRegexp = sEzsigntemplatesignatureRegexp
         self.eEzsigntemplatesignatureTextvalidation = eEzsigntemplatesignatureTextvalidation
+        self.eEzsigntemplatesignatureDependencyrequirement = eEzsigntemplatesignatureDependencyrequirement
         self.bEzsigntemplatesignatureCustomdate = bEzsigntemplatesignatureCustomdate
         self.aObjEzsigntemplatesignaturecustomdate = aObjEzsigntemplatesignaturecustomdate
+        self.aObjEzsigntemplateelementdependency = aObjEzsigntemplateelementdependency
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -115,8 +119,10 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
         case iEzsigntemplatesignatureMaxlength
         case sEzsigntemplatesignatureRegexp
         case eEzsigntemplatesignatureTextvalidation
+        case eEzsigntemplatesignatureDependencyrequirement
         case bEzsigntemplatesignatureCustomdate
         case aObjEzsigntemplatesignaturecustomdate = "a_objEzsigntemplatesignaturecustomdate"
+        case aObjEzsigntemplateelementdependency = "a_objEzsigntemplateelementdependency"
     }
 
     // Encodable protocol methods
@@ -144,8 +150,10 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
         try container.encodeIfPresent(iEzsigntemplatesignatureMaxlength, forKey: .iEzsigntemplatesignatureMaxlength)
         try container.encodeIfPresent(sEzsigntemplatesignatureRegexp, forKey: .sEzsigntemplatesignatureRegexp)
         try container.encodeIfPresent(eEzsigntemplatesignatureTextvalidation, forKey: .eEzsigntemplatesignatureTextvalidation)
+        try container.encodeIfPresent(eEzsigntemplatesignatureDependencyrequirement, forKey: .eEzsigntemplatesignatureDependencyrequirement)
         try container.encodeIfPresent(bEzsigntemplatesignatureCustomdate, forKey: .bEzsigntemplatesignatureCustomdate)
         try container.encodeIfPresent(aObjEzsigntemplatesignaturecustomdate, forKey: .aObjEzsigntemplatesignaturecustomdate)
+        try container.encodeIfPresent(aObjEzsigntemplateelementdependency, forKey: .aObjEzsigntemplateelementdependency)
     }
 }
 
