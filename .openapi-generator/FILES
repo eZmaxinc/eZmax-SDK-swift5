@@ -69,6 +69,7 @@ Ezmaxapi/APIs/ObjectUserAPI.swift
 Ezmaxapi/APIs/ObjectUsergroupAPI.swift
 Ezmaxapi/APIs/ObjectUsergroupdelegationAPI.swift
 Ezmaxapi/APIs/ObjectUsergroupmembershipAPI.swift
+Ezmaxapi/APIs/ObjectUserlogintypeAPI.swift
 Ezmaxapi/APIs/ObjectUserstagedAPI.swift
 Ezmaxapi/APIs/ObjectVariableexpenseAPI.swift
 Ezmaxapi/APIs/ObjectVersionhistoryAPI.swift
@@ -1082,6 +1083,9 @@ Ezmaxapi/Models/UsergroupmembershipRequest.swift
 Ezmaxapi/Models/UsergroupmembershipRequestCompound.swift
 Ezmaxapi/Models/UsergroupmembershipResponse.swift
 Ezmaxapi/Models/UsergroupmembershipResponseCompound.swift
+Ezmaxapi/Models/UserlogintypeAutocompleteElementResponse.swift
+Ezmaxapi/Models/UserlogintypeGetAutocompleteV2Response.swift
+Ezmaxapi/Models/UserlogintypeGetAutocompleteV2ResponseMPayload.swift
 Ezmaxapi/Models/UserstagedCreateUserV1Response.swift
 Ezmaxapi/Models/UserstagedCreateUserV1ResponseMPayload.swift
 Ezmaxapi/Models/UserstagedDeleteObjectV1Response.swift
@@ -2032,6 +2036,7 @@ docs/ObjectUserAPI.md
 docs/ObjectUsergroupAPI.md
 docs/ObjectUsergroupdelegationAPI.md
 docs/ObjectUsergroupmembershipAPI.md
+docs/ObjectUserlogintypeAPI.md
 docs/ObjectUserstagedAPI.md
 docs/ObjectVariableexpenseAPI.md
 docs/ObjectVersionhistoryAPI.md
@@ -2227,6 +2232,9 @@ docs/UsergroupmembershipRequest.md
 docs/UsergroupmembershipRequestCompound.md
 docs/UsergroupmembershipResponse.md
 docs/UsergroupmembershipResponseCompound.md
+docs/UserlogintypeAutocompleteElementResponse.md
+docs/UserlogintypeGetAutocompleteV2Response.md
+docs/UserlogintypeGetAutocompleteV2ResponseMPayload.md
 docs/UserstagedCreateUserV1Response.md
 docs/UserstagedCreateUserV1ResponseMPayload.md
 docs/UserstagedDeleteObjectV1Response.md
