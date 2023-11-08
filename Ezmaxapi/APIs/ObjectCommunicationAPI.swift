@@ -13,15 +13,15 @@ import AnyCodable
 open class ObjectCommunicationAPI {
 
     /**
-     Retrieve an existing Communication
+     Send a new Communication
      
-     - parameter pkiCommunicationID: (path)  
+     - parameter communicationSendV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func communicationGetObjectV2(pkiCommunicationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommunicationGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return communicationGetObjectV2WithRequestBuilder(pkiCommunicationID: pkiCommunicationID).execute(apiResponseQueue) { result in
+    open class func communicationSendV1(communicationSendV1Request: CommunicationSendV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommunicationSendV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return communicationSendV1WithRequestBuilder(communicationSendV1Request: communicationSendV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -32,22 +32,19 @@ open class ObjectCommunicationAPI {
     }
 
     /**
-     Retrieve an existing Communication
-     - GET /2/object/communication/{pkiCommunicationID}
-     - 
+     Send a new Communication
+     - POST /1/object/communication/send
+     - The endpoint allows to send one or many elements at once.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter pkiCommunicationID: (path)  
-     - returns: RequestBuilder<CommunicationGetObjectV2Response> 
+     - parameter communicationSendV1Request: (body)  
+     - returns: RequestBuilder<CommunicationSendV1Response> 
      */
-    open class func communicationGetObjectV2WithRequestBuilder(pkiCommunicationID: Int) -> RequestBuilder<CommunicationGetObjectV2Response> {
-        var localVariablePath = "/2/object/communication/{pkiCommunicationID}"
-        let pkiCommunicationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCommunicationID))"
-        let pkiCommunicationIDPostEscape = pkiCommunicationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiCommunicationID}", with: pkiCommunicationIDPostEscape, options: .literal, range: nil)
+    open class func communicationSendV1WithRequestBuilder(communicationSendV1Request: CommunicationSendV1Request) -> RequestBuilder<CommunicationSendV1Response> {
+        let localVariablePath = "/1/object/communication/send"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: communicationSendV1Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -57,8 +54,8 @@ open class ObjectCommunicationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommunicationGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommunicationSendV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

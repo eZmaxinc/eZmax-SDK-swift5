@@ -20,7 +20,7 @@ public struct SessionhistoryListElement: Codable, JSONEncodable, Hashable {
     static let dtSessionhistoryLasthitRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     static let sComputerDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let sSessionhistoryDurationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(0[0-9]{1}|\\d{2,}):([0-5][0-9]):([0-5][0-9])$/")
-    static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4})|([a-zA-Z0-9]){1,32})$/")
+    static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,20})|([a-zA-Z0-9]){1,32})$/")
     /** The unique ID of the Sessionhistory */
     public var pkiSessionhistoryID: Int
     /** The unique ID of the Computer */

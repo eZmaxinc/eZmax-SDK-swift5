@@ -30,11 +30,11 @@ public struct WebhookResponse: Codable, JSONEncodable, Hashable {
     /** The email that will receive the Webhook in case all attempts fail */
     public var sWebhookEmailfailed: String
     /** Whether the Webhook is active or not */
-    public var bWebhookIsactive: Bool?
+    public var bWebhookIsactive: Bool
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookSkipsslvalidation: Bool) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -75,7 +75,7 @@ public struct WebhookResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
         try container.encode(sWebhookUrl, forKey: .sWebhookUrl)
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
-        try container.encodeIfPresent(bWebhookIsactive, forKey: .bWebhookIsactive)
+        try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
     }
 }

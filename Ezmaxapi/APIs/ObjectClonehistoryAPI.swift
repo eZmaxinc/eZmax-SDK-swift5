@@ -44,7 +44,7 @@ open class ObjectClonehistoryAPI {
      Retrieve Clonehistory list
      
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional, default to 10000)
+     - parameter iRowMax: (query)  (optional)
      - parameter iRowOffset: (query)  (optional, default to 0)
      - parameter acceptLanguage: (header)  (optional)
      - parameter sFilter: (query)  (optional)
@@ -71,7 +71,7 @@ open class ObjectClonehistoryAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional, default to 10000)
+     - parameter iRowMax: (query)  (optional)
      - parameter iRowOffset: (query)  (optional, default to 0)
      - parameter acceptLanguage: (header)  (optional)
      - parameter sFilter: (query)  (optional)

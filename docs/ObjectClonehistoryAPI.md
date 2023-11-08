@@ -22,7 +22,7 @@ Retrieve Clonehistory list
 import OpenAPIClient
 
 let eOrderBy = "eOrderBy_example" // String | Specify how you want the results to be sorted (optional)
-let iRowMax = 987 // Int |  (optional) (default to 10000)
+let iRowMax = 987 // Int |  (optional)
 let iRowOffset = 987 // Int |  (optional) (default to 0)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 let sFilter = "sFilter_example" // String |  (optional)
@@ -45,7 +45,7 @@ ObjectClonehistoryAPI.clonehistoryGetListV1(eOrderBy: eOrderBy, iRowMax: iRowMax
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **eOrderBy** | **String** | Specify how you want the results to be sorted | [optional] 
- **iRowMax** | **Int** |  | [optional] [default to 10000]
+ **iRowMax** | **Int** |  | [optional] 
  **iRowOffset** | **Int** |  | [optional] [default to 0]
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
  **sFilter** | **String** |  | [optional] 

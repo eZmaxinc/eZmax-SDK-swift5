@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **eWebhookManagementevent** | [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **sWebhookUrl** | **String** | The URL of the Webhook callback | 
 **sWebhookEmailfailed** | **String** | The email that will receive the Webhook in case all attempts fail | 
-**bWebhookIsactive** | **Bool** | Whether the Webhook is active or not | [optional] 
+**bWebhookIsactive** | **Bool** | Whether the Webhook is active or not | 
 **bWebhookSkipsslvalidation** | **Bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **sWebhookEvent** | **String** | The concatenated string to describe the Webhook event | [optional] 
 

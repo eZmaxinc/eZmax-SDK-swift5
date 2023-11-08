@@ -26,12 +26,12 @@ public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hash
     public var aFilter: CommonResponseFilter
     /** List of available values for *eOrderBy* */
     public var aOrderBy: [String: String]
-    /** The maximum numbers of results to be returned */
-    public var iRowMax: Int = 10000
+    /** The maximum numbers of results to be returned.  When the content-type is **application/json** there is an implicit default of 10 000.  When it's **application/vnd.openxmlformats-officedocument.spreadsheetml.sheet** the is no implicit default so if you do not specify iRowMax, all records will be returned. */
+    public var iRowMax: Int
     /** The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100, */
     public var iRowOffset: Int = 0
 
-    public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermission: [Int], bVersionDeprecated: Bool, aFilter: CommonResponseFilter, aOrderBy: [String: String], iRowMax: Int = 10000, iRowOffset: Int = 0) {
+    public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermission: [Int], bVersionDeprecated: Bool, aFilter: CommonResponseFilter, aOrderBy: [String: String], iRowMax: Int, iRowOffset: Int = 0) {
         self.iVersionMin = iVersionMin
         self.iVersionMax = iVersionMax
         self.aRequiredPermission = aRequiredPermission

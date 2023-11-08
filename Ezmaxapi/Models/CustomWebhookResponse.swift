@@ -31,7 +31,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     /** The email that will receive the Webhook in case all attempts fail */
     public var sWebhookEmailfailed: String
     /** Whether the Webhook is active or not */
-    public var bWebhookIsactive: Bool?
+    public var bWebhookIsactive: Bool
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
     /** The customer code assigned to your account */
@@ -39,7 +39,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     /** Wheter the webhook received is a manual test or a real event */
     public var bWebhookTest: Bool
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool? = nil, bWebhookSkipsslvalidation: Bool, pksCustomerCode: String, bWebhookTest: Bool) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookSkipsslvalidation: Bool, pksCustomerCode: String, bWebhookTest: Bool) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -84,7 +84,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
         try container.encode(sWebhookUrl, forKey: .sWebhookUrl)
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
-        try container.encodeIfPresent(bWebhookIsactive, forKey: .bWebhookIsactive)
+        try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(bWebhookTest, forKey: .bWebhookTest)

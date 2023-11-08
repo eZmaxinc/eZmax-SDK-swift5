@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send */
+/** Response for GET /1/object/attachment/{pkiAttachmentID}/download */
 public struct EzsignfolderSendV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload

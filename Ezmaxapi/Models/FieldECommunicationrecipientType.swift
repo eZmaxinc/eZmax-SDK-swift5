@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The type for the Communicationrecipient */
+/** The type for the Communicationrecipient.  Only used when eCommunicationType is **Email** */
 public enum FieldECommunicationrecipientType: String, Codable, CaseIterable {
     case to = "To"
     case cc = "Cc"

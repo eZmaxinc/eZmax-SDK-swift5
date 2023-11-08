@@ -4,27 +4,27 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**communicationGetObjectV2**](ObjectCommunicationAPI.md#communicationgetobjectv2) | **GET** /2/object/communication/{pkiCommunicationID} | Retrieve an existing Communication
+[**communicationSendV1**](ObjectCommunicationAPI.md#communicationsendv1) | **POST** /1/object/communication/send | Send a new Communication
 
 
-# **communicationGetObjectV2**
+# **communicationSendV1**
 ```swift
-    open class func communicationGetObjectV2(pkiCommunicationID: Int, completion: @escaping (_ data: CommunicationGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func communicationSendV1(communicationSendV1Request: CommunicationSendV1Request, completion: @escaping (_ data: CommunicationSendV1Response?, _ error: Error?) -> Void)
 ```
 
-Retrieve an existing Communication
+Send a new Communication
 
-
+The endpoint allows to send one or many elements at once.
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let pkiCommunicationID = 987 // Int | 
+let communicationSendV1Request = communication-send-v1-Request(aObjCommunication: [communication-RequestCompound(pkiCommunicationID: 123, eCommunicationImportance: Field-eCommunicationImportance(), eCommunicationType: Field-eCommunicationType(), objCommunicationsender: Custom-Communicationsender-Request(fkiAgentID: 123, fkiBrokerID: 123, fkiMailboxsharedID: 123, fkiUserID: 123), sCommunicationSubject: "sCommunicationSubject_example", tCommunicationBody: "tCommunicationBody_example", bCommunicationPrivate: false, eCommunicationAttachmenttype: "eCommunicationAttachmenttype_example", iCommunicationAttachmentlinkexpiration: 123, bCommunicationReadreceipt: false, aObjCommunicationattachment: [Custom-Communicationattachment-Request(objCommunicationattachment: communicationattachment-RequestCompound(pkiCommunicationattachmentID: 123, fkiAttachmentID: 123, fkiInvoiceID: 123, fkiSalarypreparationID: 123), objCommunicationexternalattachment: Common-File(sFileName: "sFileName_example", sFileUrl: "sFileUrl_example", sFileBase64: 123, eFileSource: "eFileSource_example"))], aObjCommunicationrecipient: [communicationrecipient-RequestCompound(pkiCommunicationrecipientID: 123, fkiAgentID: 123, fkiAgentincorporationID: 123, fkiBrokerID: 123, fkiCustomerID: 123, fkiEmployeeID: 123, fkiAssistantID: 123, fkiExternalbrokerID: 123, fkiEzsignsignerID: 123, fkiNotaryID: 123, fkiSupplierID: 123, fkiUserID: 123, eCommunicationrecipientType: Field-eCommunicationrecipientType())], aObjCommunicationreference: [communicationreference-RequestCompound(pkiCommunicationreferenceID: 123, fkiBuyercontractID: 123, fkiEzsignfolderID: 123, fkiInscriptionID: 123, fkiInscriptiontempID: 123, fkiInvoiceID: 123, fkiOtherincomeID: 123, fkiElectronicfundstransferID: 123, fkiRejectedoffertopurchaseID: 123)], aObjCommunicationexternalrecipient: [communicationexternalrecipient-RequestCompound(pkiCommunicationexternalrecipientID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", eCommunicationexternalrecipientType: Field-eCommunicationexternalrecipientType(), sCommunicationexternalrecipientName: "sCommunicationexternalrecipientName_example")])]) // CommunicationSendV1Request | 
 
-// Retrieve an existing Communication
-ObjectCommunicationAPI.communicationGetObjectV2(pkiCommunicationID: pkiCommunicationID) { (response, error) in
+// Send a new Communication
+ObjectCommunicationAPI.communicationSendV1(communicationSendV1Request: communicationSendV1Request) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -40,11 +40,11 @@ ObjectCommunicationAPI.communicationGetObjectV2(pkiCommunicationID: pkiCommunica
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pkiCommunicationID** | **Int** |  | 
+ **communicationSendV1Request** | [**CommunicationSendV1Request**](CommunicationSendV1Request.md) |  | 
 
 ### Return type
 
-[**CommunicationGetObjectV2Response**](CommunicationGetObjectV2Response.md)
+[**CommunicationSendV1Response**](CommunicationSendV1Response.md)
 
 ### Authorization
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
