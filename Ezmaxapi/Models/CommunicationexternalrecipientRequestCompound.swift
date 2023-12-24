@@ -23,9 +23,9 @@ public struct CommunicationexternalrecipientRequestCompound: Codable, JSONEncoda
     public var sPhoneE164: String?
     public var eCommunicationexternalrecipientType: FieldECommunicationexternalrecipientType?
     /** The name of the Communicationexternalrecipient */
-    public var sCommunicationexternalrecipientName: String
+    public var sCommunicationexternalrecipientName: String?
 
-    public init(pkiCommunicationexternalrecipientID: Int? = nil, sEmailAddress: String? = nil, sPhoneE164: String? = nil, eCommunicationexternalrecipientType: FieldECommunicationexternalrecipientType? = nil, sCommunicationexternalrecipientName: String) {
+    public init(pkiCommunicationexternalrecipientID: Int? = nil, sEmailAddress: String? = nil, sPhoneE164: String? = nil, eCommunicationexternalrecipientType: FieldECommunicationexternalrecipientType? = nil, sCommunicationexternalrecipientName: String? = nil) {
         self.pkiCommunicationexternalrecipientID = pkiCommunicationexternalrecipientID
         self.sEmailAddress = sEmailAddress
         self.sPhoneE164 = sPhoneE164
@@ -49,7 +49,7 @@ public struct CommunicationexternalrecipientRequestCompound: Codable, JSONEncoda
         try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
         try container.encodeIfPresent(sPhoneE164, forKey: .sPhoneE164)
         try container.encodeIfPresent(eCommunicationexternalrecipientType, forKey: .eCommunicationexternalrecipientType)
-        try container.encode(sCommunicationexternalrecipientName, forKey: .sCommunicationexternalrecipientName)
+        try container.encodeIfPresent(sCommunicationexternalrecipientName, forKey: .sCommunicationexternalrecipientName)
     }
 }
 

@@ -15,8 +15,8 @@ public struct CommunicationrecipientRequest: Codable, JSONEncodable, Hashable {
 
     static let pkiCommunicationrecipientIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiAgentincorporationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiContactIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiCustomerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEmployeeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiAssistantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -25,14 +25,16 @@ public struct CommunicationrecipientRequest: Codable, JSONEncodable, Hashable {
     static let fkiNotaryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiSupplierIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiMailboxsharedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiPhonelinesharedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Communicationrecipient. */
     public var pkiCommunicationrecipientID: Int?
     /** The unique ID of the Agent. */
     public var fkiAgentID: Int?
-    /** The unique ID of the Agentincorporation. */
-    public var fkiAgentincorporationID: Int?
     /** The unique ID of the Broker. */
     public var fkiBrokerID: Int?
+    /** The unique ID of the Contact */
+    public var fkiContactID: Int?
     /** The unique ID of the Customer. */
     public var fkiCustomerID: Int?
     /** The unique ID of the Employee. */
@@ -49,13 +51,17 @@ public struct CommunicationrecipientRequest: Codable, JSONEncodable, Hashable {
     public var fkiSupplierID: Int?
     /** The unique ID of the User */
     public var fkiUserID: Int?
+    /** The unique ID of the Mailboxshared */
+    public var fkiMailboxsharedID: Int?
+    /** The unique ID of the Phonelineshared */
+    public var fkiPhonelinesharedID: Int?
     public var eCommunicationrecipientType: FieldECommunicationrecipientType?
 
-    public init(pkiCommunicationrecipientID: Int? = nil, fkiAgentID: Int? = nil, fkiAgentincorporationID: Int? = nil, fkiBrokerID: Int? = nil, fkiCustomerID: Int? = nil, fkiEmployeeID: Int? = nil, fkiAssistantID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiNotaryID: Int? = nil, fkiSupplierID: Int? = nil, fkiUserID: Int? = nil, eCommunicationrecipientType: FieldECommunicationrecipientType? = nil) {
+    public init(pkiCommunicationrecipientID: Int? = nil, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiContactID: Int? = nil, fkiCustomerID: Int? = nil, fkiEmployeeID: Int? = nil, fkiAssistantID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiNotaryID: Int? = nil, fkiSupplierID: Int? = nil, fkiUserID: Int? = nil, fkiMailboxsharedID: Int? = nil, fkiPhonelinesharedID: Int? = nil, eCommunicationrecipientType: FieldECommunicationrecipientType? = nil) {
         self.pkiCommunicationrecipientID = pkiCommunicationrecipientID
         self.fkiAgentID = fkiAgentID
-        self.fkiAgentincorporationID = fkiAgentincorporationID
         self.fkiBrokerID = fkiBrokerID
+        self.fkiContactID = fkiContactID
         self.fkiCustomerID = fkiCustomerID
         self.fkiEmployeeID = fkiEmployeeID
         self.fkiAssistantID = fkiAssistantID
@@ -64,14 +70,16 @@ public struct CommunicationrecipientRequest: Codable, JSONEncodable, Hashable {
         self.fkiNotaryID = fkiNotaryID
         self.fkiSupplierID = fkiSupplierID
         self.fkiUserID = fkiUserID
+        self.fkiMailboxsharedID = fkiMailboxsharedID
+        self.fkiPhonelinesharedID = fkiPhonelinesharedID
         self.eCommunicationrecipientType = eCommunicationrecipientType
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCommunicationrecipientID
         case fkiAgentID
-        case fkiAgentincorporationID
         case fkiBrokerID
+        case fkiContactID
         case fkiCustomerID
         case fkiEmployeeID
         case fkiAssistantID
@@ -80,6 +88,8 @@ public struct CommunicationrecipientRequest: Codable, JSONEncodable, Hashable {
         case fkiNotaryID
         case fkiSupplierID
         case fkiUserID
+        case fkiMailboxsharedID
+        case fkiPhonelinesharedID
         case eCommunicationrecipientType
     }
 
@@ -89,8 +99,8 @@ public struct CommunicationrecipientRequest: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiCommunicationrecipientID, forKey: .pkiCommunicationrecipientID)
         try container.encodeIfPresent(fkiAgentID, forKey: .fkiAgentID)
-        try container.encodeIfPresent(fkiAgentincorporationID, forKey: .fkiAgentincorporationID)
         try container.encodeIfPresent(fkiBrokerID, forKey: .fkiBrokerID)
+        try container.encodeIfPresent(fkiContactID, forKey: .fkiContactID)
         try container.encodeIfPresent(fkiCustomerID, forKey: .fkiCustomerID)
         try container.encodeIfPresent(fkiEmployeeID, forKey: .fkiEmployeeID)
         try container.encodeIfPresent(fkiAssistantID, forKey: .fkiAssistantID)
@@ -99,6 +109,8 @@ public struct CommunicationrecipientRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fkiNotaryID, forKey: .fkiNotaryID)
         try container.encodeIfPresent(fkiSupplierID, forKey: .fkiSupplierID)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(fkiMailboxsharedID, forKey: .fkiMailboxsharedID)
+        try container.encodeIfPresent(fkiPhonelinesharedID, forKey: .fkiPhonelinesharedID)
         try container.encodeIfPresent(eCommunicationrecipientType, forKey: .eCommunicationrecipientType)
     }
 }

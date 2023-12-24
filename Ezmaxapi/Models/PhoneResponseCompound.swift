@@ -26,13 +26,16 @@ public struct PhoneResponseCompound: Codable, JSONEncodable, Hashable {
     public var sPhoneE164: String?
     /** The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers */
     public var sPhoneExtension: String?
+    /** Indicate the phone number is an international phone number. */
+    public var bPhoneInternational: Bool?
 
-    public init(pkiPhoneID: Int, fkiPhonetypeID: Int, ePhoneType: FieldEPhoneType? = nil, sPhoneE164: String? = nil, sPhoneExtension: String? = nil) {
+    public init(pkiPhoneID: Int, fkiPhonetypeID: Int, ePhoneType: FieldEPhoneType? = nil, sPhoneE164: String? = nil, sPhoneExtension: String? = nil, bPhoneInternational: Bool? = nil) {
         self.pkiPhoneID = pkiPhoneID
         self.fkiPhonetypeID = fkiPhonetypeID
         self.ePhoneType = ePhoneType
         self.sPhoneE164 = sPhoneE164
         self.sPhoneExtension = sPhoneExtension
+        self.bPhoneInternational = bPhoneInternational
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -41,6 +44,7 @@ public struct PhoneResponseCompound: Codable, JSONEncodable, Hashable {
         case ePhoneType
         case sPhoneE164
         case sPhoneExtension
+        case bPhoneInternational
     }
 
     // Encodable protocol methods
@@ -52,6 +56,7 @@ public struct PhoneResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(ePhoneType, forKey: .ePhoneType)
         try container.encodeIfPresent(sPhoneE164, forKey: .sPhoneE164)
         try container.encodeIfPresent(sPhoneExtension, forKey: .sPhoneExtension)
+        try container.encodeIfPresent(bPhoneInternational, forKey: .bPhoneInternational)
     }
 }
 

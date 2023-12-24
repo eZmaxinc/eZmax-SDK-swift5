@@ -16,17 +16,22 @@ public struct WebsocketResponseErrorV1: Codable, JSONEncodable, Hashable {
     public enum EWebsocketMessagetype: String, Codable, CaseIterable {
         case responseErrorV1 = "Response-Error-V1"
     }
+    static let sWebsocketChannelRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-zA-Z0-9_@.]{32}$/")
     /** The Type of message */
     public var eWebsocketMessagetype: EWebsocketMessagetype
+    /** The Channel on which to route the websocket message */
+    public var sWebsocketChannel: String
     public var mPayload: WebsocketResponseErrorV1MPayload
 
-    public init(eWebsocketMessagetype: EWebsocketMessagetype, mPayload: WebsocketResponseErrorV1MPayload) {
+    public init(eWebsocketMessagetype: EWebsocketMessagetype, sWebsocketChannel: String, mPayload: WebsocketResponseErrorV1MPayload) {
         self.eWebsocketMessagetype = eWebsocketMessagetype
+        self.sWebsocketChannel = sWebsocketChannel
         self.mPayload = mPayload
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case eWebsocketMessagetype
+        case sWebsocketChannel
         case mPayload
     }
 
@@ -35,6 +40,7 @@ public struct WebsocketResponseErrorV1: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(eWebsocketMessagetype, forKey: .eWebsocketMessagetype)
+        try container.encode(sWebsocketChannel, forKey: .sWebsocketChannel)
         try container.encode(mPayload, forKey: .mPayload)
     }
 }

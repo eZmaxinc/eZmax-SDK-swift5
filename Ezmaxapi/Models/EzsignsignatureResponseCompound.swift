@@ -16,6 +16,8 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     static let pkiEzsignsignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsignsigningreasonDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsignsignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsignsignatureYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -31,6 +33,10 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public var fkiEzsigndocumentID: Int
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
+    /** The unique ID of the Ezsignsigningreason */
+    public var fkiEzsignsigningreasonID: Int?
+    /** The description of the Ezsignsigningreason in the language of the requester */
+    public var sEzsignsigningreasonDescriptionX: String?
     /** The page number in the Ezsigndocument */
     public var iEzsignpagePagenumber: Int
     /** The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
@@ -79,10 +85,12 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public var objCreditcardtransaction: CustomCreditcardtransactionResponse?
     public var aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
+        self.fkiEzsignsigningreasonID = fkiEzsignsigningreasonID
+        self.sEzsignsigningreasonDescriptionX = sEzsignsigningreasonDescriptionX
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.iEzsignsignatureX = iEzsignsignatureX
         self.iEzsignsignatureY = iEzsignsignatureY
@@ -118,6 +126,8 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         case pkiEzsignsignatureID
         case fkiEzsigndocumentID
         case fkiEzsignfoldersignerassociationID
+        case fkiEzsignsigningreasonID
+        case sEzsignsigningreasonDescriptionX
         case iEzsignpagePagenumber
         case iEzsignsignatureX
         case iEzsignsignatureY
@@ -156,6 +166,8 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         try container.encode(pkiEzsignsignatureID, forKey: .pkiEzsignsignatureID)
         try container.encode(fkiEzsigndocumentID, forKey: .fkiEzsigndocumentID)
         try container.encode(fkiEzsignfoldersignerassociationID, forKey: .fkiEzsignfoldersignerassociationID)
+        try container.encodeIfPresent(fkiEzsignsigningreasonID, forKey: .fkiEzsignsigningreasonID)
+        try container.encodeIfPresent(sEzsignsigningreasonDescriptionX, forKey: .sEzsignsigningreasonDescriptionX)
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
         try container.encode(iEzsignsignatureX, forKey: .iEzsignsignatureX)
         try container.encode(iEzsignsignatureY, forKey: .iEzsignsignatureY)

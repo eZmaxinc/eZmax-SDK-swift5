@@ -13,6 +13,56 @@ import AnyCodable
 open class ObjectInvoiceAPI {
 
     /**
+     Retrieve Invoice's Attachments
+     
+     - parameter pkiInvoiceID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func invoiceGetAttachmentsV1(pkiInvoiceID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InvoiceGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return invoiceGetAttachmentsV1WithRequestBuilder(pkiInvoiceID: pkiInvoiceID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Invoice's Attachments
+     - GET /1/object/invoice/{pkiInvoiceID}/getAttachments
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInvoiceID: (path)  
+     - returns: RequestBuilder<InvoiceGetAttachmentsV1Response> 
+     */
+    open class func invoiceGetAttachmentsV1WithRequestBuilder(pkiInvoiceID: Int) -> RequestBuilder<InvoiceGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/invoice/{pkiInvoiceID}/getAttachments"
+        let pkiInvoiceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInvoiceID))"
+        let pkiInvoiceIDPostEscape = pkiInvoiceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInvoiceID}", with: pkiInvoiceIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InvoiceGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication list
      
      - parameter pkiInvoiceID: (path)  

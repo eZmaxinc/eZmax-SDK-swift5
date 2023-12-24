@@ -13,6 +13,7 @@ import AnyCodable
 /** The OS of the system running the application */
 public enum FieldPksEzmaxclientOs: String, Codable, CaseIterable {
     case ios = "iOS"
+    case ipados = "iPadOS"
     case macos = "macOS"
     case windows = "Windows"
 }

@@ -375,7 +375,7 @@ Sign the Ezsignsignature
 import OpenAPIClient
 
 let pkiEzsignsignatureID = 987 // Int | 
-let ezsignsignatureSignV1Request = ezsignsignature-sign-v1-Request(sValue: "sValue_example", eAttachmentsConfirmationDecision: "eAttachmentsConfirmationDecision_example", sAttachmentsRefusalReason: "sAttachmentsRefusalReason_example", sSvg: "sSvg_example", aObjFile: [Common-File(sFileName: "sFileName_example", sFileUrl: "sFileUrl_example", sFileBase64: 123, eFileSource: "eFileSource_example")], bIsAutomatic: false) // EzsignsignatureSignV1Request | 
+let ezsignsignatureSignV1Request = ezsignsignature-sign-v1-Request(fkiEzsignsigningreasonID: 123, sValue: "sValue_example", eAttachmentsConfirmationDecision: "eAttachmentsConfirmationDecision_example", sAttachmentsRefusalReason: "sAttachmentsRefusalReason_example", sSvg: "sSvg_example", aObjFile: [Common-File(sFileName: "sFileName_example", sFileUrl: "sFileUrl_example", sFileBase64: 123, eFileSource: "eFileSource_example")], bIsAutomatic: false) // EzsignsignatureSignV1Request | 
 
 // Sign the Ezsignsignature
 ObjectEzsignsignatureAPI.ezsignsignatureSignV1(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureSignV1Request: ezsignsignatureSignV1Request) { (response, error) in

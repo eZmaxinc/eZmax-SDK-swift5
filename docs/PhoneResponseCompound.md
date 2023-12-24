@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ePhoneType** | [**FieldEPhoneType**](FieldEPhoneType.md) |  | [optional] 
 **sPhoneE164** | **String** | A phone number in E.164 Format | [optional] 
 **sPhoneExtension** | **String** | The extension of the phone number.  The extension is the \&quot;123\&quot; section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers | [optional] 
+**bPhoneInternational** | **Bool** | Indicate the phone number is an international phone number. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,12 +4,12 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**eletronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#eletronicfundstransfergetcommunicationlistv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
+[**electronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationlistv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 
 
-# **eletronicfundstransferGetCommunicationListV1**
+# **electronicfundstransferGetCommunicationListV1**
 ```swift
-    open class func eletronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: Int, completion: @escaping (_ data: ElectronicfundstransferGetCommunicationListV1Response?, _ error: Error?) -> Void)
+    open class func electronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: Int, completion: @escaping (_ data: ElectronicfundstransferGetCommunicationListV1Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Communication list
@@ -24,7 +24,7 @@ import OpenAPIClient
 let pkiElectronicfundstransferID = 987 // Int | 
 
 // Retrieve Communication list
-ObjectElectronicfundstransferAPI.eletronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID) { (response, error) in
+ObjectElectronicfundstransferAPI.electronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID) { (response, error) in
     guard error == nil else {
         print(error)
         return

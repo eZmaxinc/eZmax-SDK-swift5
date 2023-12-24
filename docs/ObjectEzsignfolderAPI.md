@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**ezsignfolderDisposeV1**](ObjectEzsignfolderAPI.md#ezsignfolderdisposev1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose | Dispose the Ezsignfolder
 [**ezsignfolderEditObjectV1**](ObjectEzsignfolderAPI.md#ezsignfoldereditobjectv1) | **PUT** /1/object/ezsignfolder/{pkiEzsignfolderID} | Edit an existing Ezsignfolder
 [**ezsignfolderGetActionableElementsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetactionableelementsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
+[**ezsignfolderGetAttachmentCountV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetattachmentcountv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachmentCount | Retrieve Attachment count
+[**ezsignfolderGetAttachmentsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetattachmentsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachments | Retrieve Ezsignfolder&#39;s Attachments
 [**ezsignfolderGetCommunicationCountV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationcountv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationCount | Retrieve Communication count
 [**ezsignfolderGetCommunicationListV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationlistv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList | Retrieve Communication list
 [**ezsignfolderGetCommunicationrecipientsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationrecipientsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationrecipients | Retrieve Ezsignfolder&#39;s Communicationrecipient
@@ -475,6 +477,106 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderGetActionableElementsV1Response**](EzsignfolderGetActionableElementsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderGetAttachmentCountV1**
+```swift
+    open class func ezsignfolderGetAttachmentCountV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetAttachmentCountV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Attachment count
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+
+// Retrieve Attachment count
+ObjectEzsignfolderAPI.ezsignfolderGetAttachmentCountV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfolderGetAttachmentCountV1Response**](EzsignfolderGetAttachmentCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderGetAttachmentsV1**
+```swift
+    open class func ezsignfolderGetAttachmentsV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Ezsignfolder's Attachments
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+
+// Retrieve Ezsignfolder's Attachments
+ObjectEzsignfolderAPI.ezsignfolderGetAttachmentsV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfolderGetAttachmentsV1Response**](EzsignfolderGetAttachmentsV1Response.md)
 
 ### Authorization
 

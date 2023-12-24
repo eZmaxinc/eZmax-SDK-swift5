@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 **pkiEzsignsignatureID** | **Int** | The unique ID of the Ezsignsignature | 
 **fkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
 **fkiEzsignfoldersignerassociationID** | **Int** | The unique ID of the Ezsignfoldersignerassociation | 
+**fkiEzsignsigningreasonID** | **Int** | The unique ID of the Ezsignsigningreason | [optional] 
+**sEzsignsigningreasonDescriptionX** | **String** | The description of the Ezsignsigningreason in the language of the requester | [optional] 
 **iEzsignpagePagenumber** | **Int** | The page number in the Ezsigndocument | 
 **iEzsignsignatureX** | **Int** | The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
 **iEzsignsignatureY** | **Int** | The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \&quot;300\&quot; for the Y coordinate. | 

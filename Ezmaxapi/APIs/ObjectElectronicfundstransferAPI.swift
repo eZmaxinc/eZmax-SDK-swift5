@@ -20,8 +20,8 @@ open class ObjectElectronicfundstransferAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func eletronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ElectronicfundstransferGetCommunicationListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return eletronicfundstransferGetCommunicationListV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID).execute(apiResponseQueue) { result in
+    open class func electronicfundstransferGetCommunicationListV1(pkiElectronicfundstransferID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ElectronicfundstransferGetCommunicationListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return electronicfundstransferGetCommunicationListV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -41,7 +41,7 @@ open class ObjectElectronicfundstransferAPI {
      - parameter pkiElectronicfundstransferID: (path)  
      - returns: RequestBuilder<ElectronicfundstransferGetCommunicationListV1Response> 
      */
-    open class func eletronicfundstransferGetCommunicationListV1WithRequestBuilder(pkiElectronicfundstransferID: Int) -> RequestBuilder<ElectronicfundstransferGetCommunicationListV1Response> {
+    open class func electronicfundstransferGetCommunicationListV1WithRequestBuilder(pkiElectronicfundstransferID: Int) -> RequestBuilder<ElectronicfundstransferGetCommunicationListV1Response> {
         var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList"
         let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
         let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

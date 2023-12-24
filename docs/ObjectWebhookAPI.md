@@ -5,11 +5,13 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**webhookCreateObjectV1**](ObjectWebhookAPI.md#webhookcreateobjectv1) | **POST** /1/object/webhook | Create a new Webhook
+[**webhookCreateObjectV2**](ObjectWebhookAPI.md#webhookcreateobjectv2) | **POST** /2/object/webhook | Create a new Webhook
 [**webhookDeleteObjectV1**](ObjectWebhookAPI.md#webhookdeleteobjectv1) | **DELETE** /1/object/webhook/{pkiWebhookID} | Delete an existing Webhook
 [**webhookEditObjectV1**](ObjectWebhookAPI.md#webhookeditobjectv1) | **PUT** /1/object/webhook/{pkiWebhookID} | Edit an existing Webhook
 [**webhookGetHistoryV1**](ObjectWebhookAPI.md#webhookgethistoryv1) | **GET** /1/object/webhook/{pkiWebhookID}/getHistory | Retrieve the logs for recent Webhook calls
 [**webhookGetListV1**](ObjectWebhookAPI.md#webhookgetlistv1) | **GET** /1/object/webhook/getList | Retrieve Webhook list
 [**webhookGetObjectV2**](ObjectWebhookAPI.md#webhookgetobjectv2) | **GET** /2/object/webhook/{pkiWebhookID} | Retrieve an existing Webhook
+[**webhookRegenerateApikeyV1**](ObjectWebhookAPI.md#webhookregenerateapikeyv1) | **POST** /1/object/webhook/{pkiWebhookID}/regenerateApikey | Regenerate the Apikey
 [**webhookTestV1**](ObjectWebhookAPI.md#webhooktestv1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 
 
@@ -27,7 +29,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let webhookCreateObjectV1Request = webhook-createObject-v1-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookSkipsslvalidation: false)]) // WebhookCreateObjectV1Request | 
+let webhookCreateObjectV1Request = webhook-createObject-v1-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false)]) // WebhookCreateObjectV1Request | 
 
 // Create a new Webhook
 ObjectWebhookAPI.webhookCreateObjectV1(webhookCreateObjectV1Request: webhookCreateObjectV1Request) { (response, error) in
@@ -51,6 +53,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WebhookCreateObjectV1Response**](WebhookCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **webhookCreateObjectV2**
+```swift
+    open class func webhookCreateObjectV2(webhookCreateObjectV2Request: WebhookCreateObjectV2Request, completion: @escaping (_ data: WebhookCreateObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Create a new Webhook
+
+The endpoint allows to create one or many elements at once.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let webhookCreateObjectV2Request = webhook-createObject-v2-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false)]) // WebhookCreateObjectV2Request | 
+
+// Create a new Webhook
+ObjectWebhookAPI.webhookCreateObjectV2(webhookCreateObjectV2Request: webhookCreateObjectV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhookCreateObjectV2Request** | [**WebhookCreateObjectV2Request**](WebhookCreateObjectV2Request.md) |  | 
+
+### Return type
+
+[**WebhookCreateObjectV2Response**](WebhookCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -128,7 +180,7 @@ Edit an existing Webhook
 import OpenAPIClient
 
 let pkiWebhookID = 987 // Int | 
-let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookSkipsslvalidation: false)) // WebhookEditObjectV1Request | 
+let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false)) // WebhookEditObjectV1Request | 
 
 // Edit an existing Webhook
 ObjectWebhookAPI.webhookEditObjectV1(pkiWebhookID: pkiWebhookID, webhookEditObjectV1Request: webhookEditObjectV1Request) { (response, error) in
@@ -321,6 +373,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **webhookRegenerateApikeyV1**
+```swift
+    open class func webhookRegenerateApikeyV1(pkiWebhookID: Int, webhookRegenerateApikeyV1Request: WebhookRegenerateApikeyV1Request, completion: @escaping (_ data: WebhookRegenerateApikeyV1Response?, _ error: Error?) -> Void)
+```
+
+Regenerate the Apikey
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiWebhookID = 987 // Int | 
+let webhookRegenerateApikeyV1Request = webhook-regenerateApikey-v1-Request(bWebhookIssigned: true) // WebhookRegenerateApikeyV1Request | 
+
+// Regenerate the Apikey
+ObjectWebhookAPI.webhookRegenerateApikeyV1(pkiWebhookID: pkiWebhookID, webhookRegenerateApikeyV1Request: webhookRegenerateApikeyV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiWebhookID** | **Int** |  | 
+ **webhookRegenerateApikeyV1Request** | [**WebhookRegenerateApikeyV1Request**](WebhookRegenerateApikeyV1Request.md) |  | 
+
+### Return type
+
+[**WebhookRegenerateApikeyV1Response**](WebhookRegenerateApikeyV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -17,4 +17,6 @@ public enum FieldEEzsigntemplateformfieldgroupType: String, Codable, CaseIterabl
     case dropdown = "Dropdown"
     case radio = "Radio"
     case checkbox = "Checkbox"
+    case number = "Number"
+    case date = "Date"
 }

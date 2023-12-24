@@ -22,6 +22,7 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable, JSONEncodable,
     static let iEzsigndocumentSignaturesignedRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigndocumentSignaturetotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsigndocumentExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
+    static let iEzsigndocumentEzsignsignatureattachmenttotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int
     /** The unique ID of the Ezsignfolder */
@@ -62,6 +63,8 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable, JSONEncodable,
     public var objAudit: CommonAudit?
     /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
     public var sEzsigndocumentExternalid: String?
+    /** The number of Ezsigndocumentattachment total */
+    public var iEzsigndocumentEzsignsignatureattachmenttotal: Int
     public var eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype
     /** The total number of steps in the form filling phase */
     public var iEzsigndocumentStepformtotal: Int
@@ -73,7 +76,7 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable, JSONEncodable,
     public var iEzsigndocumentStepsignatureCurrent: Int
     public var aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]
 
-    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]) {
+    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int, eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]) {
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsignfoldersignerassociationIDDeclinedtosign = fkiEzsignfoldersignerassociationIDDeclinedtosign
@@ -95,6 +98,7 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable, JSONEncodable,
         self.bEzsigndocumentHassignedsignatures = bEzsigndocumentHassignedsignatures
         self.objAudit = objAudit
         self.sEzsigndocumentExternalid = sEzsigndocumentExternalid
+        self.iEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
         self.eEzsigndocumentSteptype = eEzsigndocumentSteptype
         self.iEzsigndocumentStepformtotal = iEzsigndocumentStepformtotal
         self.iEzsigndocumentStepformcurrent = iEzsigndocumentStepformcurrent
@@ -125,6 +129,7 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable, JSONEncodable,
         case bEzsigndocumentHassignedsignatures
         case objAudit
         case sEzsigndocumentExternalid
+        case iEzsigndocumentEzsignsignatureattachmenttotal
         case eEzsigndocumentSteptype
         case iEzsigndocumentStepformtotal
         case iEzsigndocumentStepformcurrent
@@ -158,6 +163,7 @@ public struct EzsigndocumentGetObjectV1ResponseMPayload: Codable, JSONEncodable,
         try container.encodeIfPresent(bEzsigndocumentHassignedsignatures, forKey: .bEzsigndocumentHassignedsignatures)
         try container.encodeIfPresent(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sEzsigndocumentExternalid, forKey: .sEzsigndocumentExternalid)
+        try container.encode(iEzsigndocumentEzsignsignatureattachmenttotal, forKey: .iEzsigndocumentEzsignsignatureattachmenttotal)
         try container.encode(eEzsigndocumentSteptype, forKey: .eEzsigndocumentSteptype)
         try container.encode(iEzsigndocumentStepformtotal, forKey: .iEzsigndocumentStepformtotal)
         try container.encode(iEzsigndocumentStepformcurrent, forKey: .iEzsigndocumentStepformcurrent)

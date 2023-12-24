@@ -15,13 +15,17 @@ public struct GlobalEzmaxclientVersionV1Response: Codable, JSONEncodable, Hashab
 
     /** The version on the store */
     public var sEzmaxclientVersion: String
+    /** The latest OS version of the system running the application at the time of release */
+    public var sEzmaxclientOslatestversion: String = "11"
 
-    public init(sEzmaxclientVersion: String) {
+    public init(sEzmaxclientVersion: String, sEzmaxclientOslatestversion: String = "11") {
         self.sEzmaxclientVersion = sEzmaxclientVersion
+        self.sEzmaxclientOslatestversion = sEzmaxclientOslatestversion
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case sEzmaxclientVersion
+        case sEzmaxclientOslatestversion
     }
 
     // Encodable protocol methods
@@ -29,6 +33,7 @@ public struct GlobalEzmaxclientVersionV1Response: Codable, JSONEncodable, Hashab
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sEzmaxclientVersion, forKey: .sEzmaxclientVersion)
+        try container.encode(sEzmaxclientOslatestversion, forKey: .sEzmaxclientOslatestversion)
     }
 }
 

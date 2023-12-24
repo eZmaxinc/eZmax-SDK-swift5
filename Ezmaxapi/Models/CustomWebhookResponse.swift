@@ -30,8 +30,14 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     public var sWebhookUrl: String
     /** The email that will receive the Webhook in case all attempts fail */
     public var sWebhookEmailfailed: String
+    /** The Apikey for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey. */
+    public var sWebhookApikey: String?
+    /** The Secret for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey. */
+    public var sWebhookSecret: String?
     /** Whether the Webhook is active or not */
     public var bWebhookIsactive: Bool
+    /** Whether the requests will be signed or not */
+    public var bWebhookIssigned: Bool
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
     /** The customer code assigned to your account */
@@ -39,7 +45,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     /** Wheter the webhook received is a manual test or a real event */
     public var bWebhookTest: Bool
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookSkipsslvalidation: Bool, pksCustomerCode: String, bWebhookTest: Bool) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, pksCustomerCode: String, bWebhookTest: Bool) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -49,7 +55,10 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         self.eWebhookManagementevent = eWebhookManagementevent
         self.sWebhookUrl = sWebhookUrl
         self.sWebhookEmailfailed = sWebhookEmailfailed
+        self.sWebhookApikey = sWebhookApikey
+        self.sWebhookSecret = sWebhookSecret
         self.bWebhookIsactive = bWebhookIsactive
+        self.bWebhookIssigned = bWebhookIssigned
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
         self.pksCustomerCode = pksCustomerCode
         self.bWebhookTest = bWebhookTest
@@ -65,7 +74,10 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         case eWebhookManagementevent
         case sWebhookUrl
         case sWebhookEmailfailed
+        case sWebhookApikey
+        case sWebhookSecret
         case bWebhookIsactive
+        case bWebhookIssigned
         case bWebhookSkipsslvalidation
         case pksCustomerCode
         case bWebhookTest
@@ -84,7 +96,10 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
         try container.encode(sWebhookUrl, forKey: .sWebhookUrl)
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
+        try container.encodeIfPresent(sWebhookApikey, forKey: .sWebhookApikey)
+        try container.encodeIfPresent(sWebhookSecret, forKey: .sWebhookSecret)
         try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
+        try container.encode(bWebhookIssigned, forKey: .bWebhookIssigned)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(bWebhookTest, forKey: .bWebhookTest)

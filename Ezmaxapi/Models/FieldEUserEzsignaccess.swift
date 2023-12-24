@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The type or eZsign access the User has */
+/** The type of eZsign access the User has */
 public enum FieldEUserEzsignaccess: String, Codable, CaseIterable {
     case no = "No"
     case paidByOffice = "PaidByOffice"

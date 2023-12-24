@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**ezsigndocumentEndPrematurelyV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentendprematurelyv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
 [**ezsigndocumentFlattenV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentflattenv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten | Flatten
 [**ezsigndocumentGetActionableElementsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetactionableelementsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
+[**ezsigndocumentGetAttachmentsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetattachmentsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getAttachments | Retrieve Ezsigndocument&#39;s Attachments
 [**ezsigndocumentGetCompletedElementsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetcompletedelementsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements | Retrieve completed elements for the Ezsigndocument
 [**ezsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetdownloadurlv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
 [**ezsigndocumentGetEzsignannotationsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignannotationsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations | Retrieve an existing Ezsigndocument&#39;s Ezsignannotations
@@ -584,6 +585,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentGetActionableElementsV1Response**](EzsigndocumentGetActionableElementsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocumentGetAttachmentsV1**
+```swift
+    open class func ezsigndocumentGetAttachmentsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Ezsigndocument's Attachments
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// Retrieve Ezsigndocument's Attachments
+ObjectEzsigndocumentAPI.ezsigndocumentGetAttachmentsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentGetAttachmentsV1Response**](EzsigndocumentGetAttachmentsV1Response.md)
 
 ### Authorization
 

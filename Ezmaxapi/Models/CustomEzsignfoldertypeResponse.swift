@@ -18,20 +18,29 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
     public var pkiEzsignfoldertypeID: Int
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String?
-    /** Whether we include the proof with the signed Ezsigndocument for Ezsignsigners */
+    /** Whether we send the proof in the email to Ezsignsigner */
+    public var bEzsignfoldertypeSendproofezsignsigner: Bool?
+    /** THIS FIELD WILL BE DELETED. Whether we include the proof with the signed Ezsigndocument for Ezsignsigners */
     public var bEzsignfoldertypeIncludeproofsigner: Bool?
     /** Whether we include the proof with the signed Ezsigndocument for users */
     public var bEzsignfoldertypeIncludeproofuser: Bool?
+    /** Whether we allow the Ezsigndocument to be downloaded by an Ezsignsigner */
+    public var bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool?
+    /** Whether we allow the proof to be downloaded by an Ezsignsigner */
+    public var bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool?
     /** Wheter if delegation of signature is allowed to another user or not */
     public var bEzsignfoldertypeDelegate: Bool?
     /** Wheter if Reassignment of signature is allowed to another signatory or not */
     public var bEzsignfoldertypeReassign: Bool?
 
-    public init(pkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String? = nil, bEzsignfoldertypeIncludeproofsigner: Bool? = nil, bEzsignfoldertypeIncludeproofuser: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeReassign: Bool? = nil) {
+    public init(pkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeIncludeproofsigner: Bool? = nil, bEzsignfoldertypeIncludeproofuser: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeReassign: Bool? = nil) {
         self.pkiEzsignfoldertypeID = pkiEzsignfoldertypeID
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+        self.bEzsignfoldertypeSendproofezsignsigner = bEzsignfoldertypeSendproofezsignsigner
         self.bEzsignfoldertypeIncludeproofsigner = bEzsignfoldertypeIncludeproofsigner
         self.bEzsignfoldertypeIncludeproofuser = bEzsignfoldertypeIncludeproofuser
+        self.bEzsignfoldertypeAllowdownloadattachmentezsignsigner = bEzsignfoldertypeAllowdownloadattachmentezsignsigner
+        self.bEzsignfoldertypeAllowdownloadproofezsignsigner = bEzsignfoldertypeAllowdownloadproofezsignsigner
         self.bEzsignfoldertypeDelegate = bEzsignfoldertypeDelegate
         self.bEzsignfoldertypeReassign = bEzsignfoldertypeReassign
     }
@@ -39,8 +48,11 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignfoldertypeID
         case sEzsignfoldertypeNameX
+        case bEzsignfoldertypeSendproofezsignsigner
         case bEzsignfoldertypeIncludeproofsigner
         case bEzsignfoldertypeIncludeproofuser
+        case bEzsignfoldertypeAllowdownloadattachmentezsignsigner
+        case bEzsignfoldertypeAllowdownloadproofezsignsigner
         case bEzsignfoldertypeDelegate
         case bEzsignfoldertypeReassign
     }
@@ -51,8 +63,11 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignfoldertypeID, forKey: .pkiEzsignfoldertypeID)
         try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
+        try container.encodeIfPresent(bEzsignfoldertypeSendproofezsignsigner, forKey: .bEzsignfoldertypeSendproofezsignsigner)
         try container.encodeIfPresent(bEzsignfoldertypeIncludeproofsigner, forKey: .bEzsignfoldertypeIncludeproofsigner)
         try container.encodeIfPresent(bEzsignfoldertypeIncludeproofuser, forKey: .bEzsignfoldertypeIncludeproofuser)
+        try container.encodeIfPresent(bEzsignfoldertypeAllowdownloadattachmentezsignsigner, forKey: .bEzsignfoldertypeAllowdownloadattachmentezsignsigner)
+        try container.encodeIfPresent(bEzsignfoldertypeAllowdownloadproofezsignsigner, forKey: .bEzsignfoldertypeAllowdownloadproofezsignsigner)
         try container.encodeIfPresent(bEzsignfoldertypeDelegate, forKey: .bEzsignfoldertypeDelegate)
         try container.encodeIfPresent(bEzsignfoldertypeReassign, forKey: .bEzsignfoldertypeReassign)
     }

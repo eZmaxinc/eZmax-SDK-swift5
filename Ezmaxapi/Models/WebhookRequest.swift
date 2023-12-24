@@ -29,10 +29,12 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
     public var sWebhookEmailfailed: String
     /** Whether the Webhook is active or not */
     public var bWebhookIsactive: Bool
+    /** Whether the requests will be signed or not */
+    public var bWebhookIssigned: Bool?
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
 
-    public init(pkiWebhookID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, sWebhookDescription: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookSkipsslvalidation: Bool) {
+    public init(pkiWebhookID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, sWebhookDescription: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookIssigned: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
         self.pkiWebhookID = pkiWebhookID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sWebhookDescription = sWebhookDescription
@@ -42,6 +44,7 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
         self.sWebhookUrl = sWebhookUrl
         self.sWebhookEmailfailed = sWebhookEmailfailed
         self.bWebhookIsactive = bWebhookIsactive
+        self.bWebhookIssigned = bWebhookIssigned
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
     }
 
@@ -55,6 +58,7 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
         case sWebhookUrl
         case sWebhookEmailfailed
         case bWebhookIsactive
+        case bWebhookIssigned
         case bWebhookSkipsslvalidation
     }
 
@@ -71,6 +75,7 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
         try container.encode(sWebhookUrl, forKey: .sWebhookUrl)
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
         try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
+        try container.encodeIfPresent(bWebhookIssigned, forKey: .bWebhookIssigned)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
     }
 }

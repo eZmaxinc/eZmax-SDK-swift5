@@ -17,6 +17,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let dtUserEzsignprepaidexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public var eActivesessionUsertype: FieldEActivesessionUsertype
     public var eActivesessionOrigin: FieldEActivesessionOrigin
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
@@ -36,6 +37,10 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     public var fkiSystemconfigurationtypeID: Int
     /** The unique ID of the Signature */
     public var fkiSignatureID: Int?
+    public var eUserEzsignaccess: FieldEUserEzsignaccess
+    public var eUserEzsignprepaid: FieldEUserEzsignprepaid?
+    /** The eZsign prepaid expiration date */
+    public var dtUserEzsignprepaidexpiration: String?
     /** An array of permissions granted to the user or api key */
     public var aPkiPermissionID: [Int]
     public var objUserReal: ActivesessionResponseCompoundUser
@@ -44,7 +49,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, dtUserEzsignprepaidexpiration: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -56,6 +61,9 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         self.pksCustomerCode = pksCustomerCode
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.fkiSignatureID = fkiSignatureID
+        self.eUserEzsignaccess = eUserEzsignaccess
+        self.eUserEzsignprepaid = eUserEzsignprepaid
+        self.dtUserEzsignprepaidexpiration = dtUserEzsignprepaidexpiration
         self.aPkiPermissionID = aPkiPermissionID
         self.objUserReal = objUserReal
         self.objUserCloned = objUserCloned
@@ -75,6 +83,9 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         case pksCustomerCode
         case fkiSystemconfigurationtypeID
         case fkiSignatureID
+        case eUserEzsignaccess
+        case eUserEzsignprepaid
+        case dtUserEzsignprepaidexpiration
         case aPkiPermissionID = "a_pkiPermissionID"
         case objUserReal
         case objUserCloned
@@ -97,6 +108,9 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encodeIfPresent(fkiSignatureID, forKey: .fkiSignatureID)
+        try container.encode(eUserEzsignaccess, forKey: .eUserEzsignaccess)
+        try container.encodeIfPresent(eUserEzsignprepaid, forKey: .eUserEzsignprepaid)
+        try container.encodeIfPresent(dtUserEzsignprepaidexpiration, forKey: .dtUserEzsignprepaidexpiration)
         try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)
         try container.encode(objUserReal, forKey: .objUserReal)
         try container.encodeIfPresent(objUserCloned, forKey: .objUserCloned)

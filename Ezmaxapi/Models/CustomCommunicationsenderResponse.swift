@@ -18,12 +18,13 @@ public struct CustomCommunicationsenderResponse: Codable, JSONEncodable, Hashabl
         case broker = "Broker"
         case user = "User"
         case mailboxshared = "Mailboxshared"
+        case phonelineshared = "Phonelineshared"
     }
     static let fkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiMailboxsharedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
+    static let fkiPhonelinesharedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Agent. */
     public var fkiAgentID: Int?
     /** The unique ID of the Broker. */
@@ -32,22 +33,25 @@ public struct CustomCommunicationsenderResponse: Codable, JSONEncodable, Hashabl
     public var fkiUserID: Int?
     /** The unique ID of the Mailboxshared */
     public var fkiMailboxsharedID: Int?
+    /** The unique ID of the Phonelineshared */
+    public var fkiPhonelinesharedID: Int?
     public var eCommunicationsenderObjecttype: ECommunicationsenderObjecttype
     public var objContactName: CustomContactNameResponse
-    /** The email address. */
-    public var sEmailAddress: String?
-    /** A phone number in E.164 Format */
-    public var sPhoneE164: String?
+    public var objEmail: EmailResponseCompound?
+    public var objPhoneFax: PhoneResponseCompound?
+    public var objPhoneSMS: PhoneResponseCompound?
 
-    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiUserID: Int? = nil, fkiMailboxsharedID: Int? = nil, eCommunicationsenderObjecttype: ECommunicationsenderObjecttype, objContactName: CustomContactNameResponse, sEmailAddress: String? = nil, sPhoneE164: String? = nil) {
+    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiUserID: Int? = nil, fkiMailboxsharedID: Int? = nil, fkiPhonelinesharedID: Int? = nil, eCommunicationsenderObjecttype: ECommunicationsenderObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponseCompound? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
         self.fkiUserID = fkiUserID
         self.fkiMailboxsharedID = fkiMailboxsharedID
+        self.fkiPhonelinesharedID = fkiPhonelinesharedID
         self.eCommunicationsenderObjecttype = eCommunicationsenderObjecttype
         self.objContactName = objContactName
-        self.sEmailAddress = sEmailAddress
-        self.sPhoneE164 = sPhoneE164
+        self.objEmail = objEmail
+        self.objPhoneFax = objPhoneFax
+        self.objPhoneSMS = objPhoneSMS
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -55,10 +59,12 @@ public struct CustomCommunicationsenderResponse: Codable, JSONEncodable, Hashabl
         case fkiBrokerID
         case fkiUserID
         case fkiMailboxsharedID
+        case fkiPhonelinesharedID
         case eCommunicationsenderObjecttype
         case objContactName
-        case sEmailAddress
-        case sPhoneE164
+        case objEmail
+        case objPhoneFax
+        case objPhoneSMS
     }
 
     // Encodable protocol methods
@@ -69,10 +75,12 @@ public struct CustomCommunicationsenderResponse: Codable, JSONEncodable, Hashabl
         try container.encodeIfPresent(fkiBrokerID, forKey: .fkiBrokerID)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
         try container.encodeIfPresent(fkiMailboxsharedID, forKey: .fkiMailboxsharedID)
+        try container.encodeIfPresent(fkiPhonelinesharedID, forKey: .fkiPhonelinesharedID)
         try container.encode(eCommunicationsenderObjecttype, forKey: .eCommunicationsenderObjecttype)
         try container.encode(objContactName, forKey: .objContactName)
-        try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
-        try container.encodeIfPresent(sPhoneE164, forKey: .sPhoneE164)
+        try container.encodeIfPresent(objEmail, forKey: .objEmail)
+        try container.encodeIfPresent(objPhoneFax, forKey: .objPhoneFax)
+        try container.encodeIfPresent(objPhoneSMS, forKey: .objPhoneSMS)
     }
 }
 

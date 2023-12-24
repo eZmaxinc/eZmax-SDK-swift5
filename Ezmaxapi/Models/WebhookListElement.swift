@@ -28,8 +28,10 @@ public struct WebhookListElement: Codable, JSONEncodable, Hashable {
     public var eWebhookManagementevent: FieldEWebhookManagementevent?
     /** Whether the Webhook is active or not */
     public var bWebhookIsactive: Bool
+    /** Whether the requests will be signed or not */
+    public var bWebhookIssigned: Bool
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, sWebhookUrl: String, sWebhookEvent: String, sWebhookEmailfailed: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, bWebhookIsactive: Bool) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, sWebhookUrl: String, sWebhookEvent: String, sWebhookEmailfailed: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.sWebhookUrl = sWebhookUrl
@@ -39,6 +41,7 @@ public struct WebhookListElement: Codable, JSONEncodable, Hashable {
         self.eWebhookEzsignevent = eWebhookEzsignevent
         self.eWebhookManagementevent = eWebhookManagementevent
         self.bWebhookIsactive = bWebhookIsactive
+        self.bWebhookIssigned = bWebhookIssigned
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -51,6 +54,7 @@ public struct WebhookListElement: Codable, JSONEncodable, Hashable {
         case eWebhookEzsignevent
         case eWebhookManagementevent
         case bWebhookIsactive
+        case bWebhookIssigned
     }
 
     // Encodable protocol methods
@@ -66,6 +70,7 @@ public struct WebhookListElement: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eWebhookEzsignevent, forKey: .eWebhookEzsignevent)
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
         try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
+        try container.encode(bWebhookIssigned, forKey: .bWebhookIssigned)
     }
 }
 
