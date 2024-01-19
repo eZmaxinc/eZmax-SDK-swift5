@@ -21,4 +21,5 @@ public enum FieldEEzsigntemplatesignatureType: String, Codable, CaseIterable {
     case attachments = "Attachments"
     case fieldText = "FieldText"
     case fieldTextarea = "FieldTextarea"
+    case consultation = "Consultation"
 }

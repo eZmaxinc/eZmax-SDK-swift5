@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsigndocumentApplyEzsigntemplateV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplatev1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument.
 [**ezsigndocumentApplyEzsigntemplateV2**](ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplatev2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument.
+[**ezsigndocumentCreateEzsignelementsPositionedByWordV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateezsignelementspositionedbywordv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**ezsigndocumentCreateObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateobjectv1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocumentCreateObjectV2**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateobjectv2) | **POST** /2/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocumentDeclineToSignV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentdeclinetosignv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/declineToSign | Decline to sign
@@ -19,6 +20,7 @@ Method | HTTP request | Description
 [**ezsigndocumentGetCompletedElementsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetcompletedelementsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements | Retrieve completed elements for the Ezsigndocument
 [**ezsigndocumentGetDownloadUrlV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetdownloadurlv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
 [**ezsigndocumentGetEzsignannotationsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignannotationsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations | Retrieve an existing Ezsigndocument&#39;s Ezsignannotations
+[**ezsigndocumentGetEzsigndiscussionsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsigndiscussionsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsigndiscussions | Retrieve an existing Ezsigndocument&#39;s Ezsigndiscussions
 [**ezsigndocumentGetEzsignformfieldgroupsV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignformfieldgroupsv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignformfieldgroups | Retrieve an existing Ezsigndocument&#39;s Ezsignformfieldgroups
 [**ezsigndocumentGetEzsignpagesV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignpagesv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 [**ezsigndocumentGetEzsignsignaturesAutomaticV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentgetezsignsignaturesautomaticv1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsigndocument&#39;s automatic Ezsignsignatures
@@ -125,6 +127,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentApplyEzsigntemplateV2Response**](EzsigndocumentApplyEzsigntemplateV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocumentCreateEzsignelementsPositionedByWordV1**
+```swift
+    open class func ezsigndocumentCreateEzsignelementsPositionedByWordV1(pkiEzsigndocumentID: Int, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request, completion: @escaping (_ data: EzsigndocumentCreateEzsignelementsPositionedByWordV1Response?, _ error: Error?) -> Void)
+```
+
+Create multiple Ezsignsignatures/Ezsignformfieldgroups
+
+Using this endpoint, you can create multiple Ezsignsignatures/Ezsignformfieldgroups positioned by word at the same time.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+let ezsigndocumentCreateEzsignelementsPositionedByWordV1Request = ezsigndocument-createEzsignelementsPositionedByWord-v1-Request(aObjEzsignformfieldgroup: [Custom-EzsignformfieldgroupCreateEzsignelementsPositionedByWord-Request(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])], objCreateezsignelementspositionedbyword: Custom-CreateEzsignelementsPositionedByWord-Request(sCreateezsignelementspositionedbywordPattern: "sCreateezsignelementspositionedbywordPattern_example", iCreateezsignelementspositionedbywordOffsetx: 123, iCreateezsignelementspositionedbywordOffsety: 123, eCreateezsignelementspositionedbywordOccurance: "eCreateezsignelementspositionedbywordOccurance_example"))], aObjEzsignsignature: [Custom-EzsignsignatureCreateEzsignelementsPositionedByWord-Request(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, eEzsignsignatureTextvalidation: nil, sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [nil], objCreateezsignelementspositionedbyword: nil)]) // EzsigndocumentCreateEzsignelementsPositionedByWordV1Request | 
+
+// Create multiple Ezsignsignatures/Ezsignformfieldgroups
+ObjectEzsigndocumentAPI.ezsigndocumentCreateEzsignelementsPositionedByWordV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: ezsigndocumentCreateEzsignelementsPositionedByWordV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+ **ezsigndocumentCreateEzsignelementsPositionedByWordV1Request** | [**EzsigndocumentCreateEzsignelementsPositionedByWordV1Request**](EzsigndocumentCreateEzsignelementsPositionedByWordV1Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentCreateEzsignelementsPositionedByWordV1Response**](EzsigndocumentCreateEzsignelementsPositionedByWordV1Response.md)
 
 ### Authorization
 
@@ -712,7 +766,7 @@ This endpoint returns URLs to different files that can be downloaded during the 
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
-let eDocumentType = "eDocumentType_example" // String | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. 
+let eDocumentType = "eDocumentType_example" // String | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. 
 
 // Retrieve a URL to download documents.
 ObjectEzsigndocumentAPI.ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: pkiEzsigndocumentID, eDocumentType: eDocumentType) { (response, error) in
@@ -732,7 +786,7 @@ ObjectEzsigndocumentAPI.ezsigndocumentGetDownloadUrlV1(pkiEzsigndocumentID: pkiE
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiEzsigndocumentID** | **Int** |  | 
- **eDocumentType** | **String** | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  | 
+ **eDocumentType** | **String** | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.&lt;br&gt;     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  | 
 
 ### Return type
 
@@ -787,6 +841,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentGetEzsignannotationsV1Response**](EzsigndocumentGetEzsignannotationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocumentGetEzsigndiscussionsV1**
+```swift
+    open class func ezsigndocumentGetEzsigndiscussionsV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentGetEzsigndiscussionsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigndocument's Ezsigndiscussions
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+
+// Retrieve an existing Ezsigndocument's Ezsigndiscussions
+ObjectEzsigndocumentAPI.ezsigndocumentGetEzsigndiscussionsV1(pkiEzsigndocumentID: pkiEzsigndocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigndocumentGetEzsigndiscussionsV1Response**](EzsigndocumentGetEzsigndiscussionsV1Response.md)
 
 ### Authorization
 

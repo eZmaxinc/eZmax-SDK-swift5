@@ -32,8 +32,12 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
     public var bEzsignfoldertypeDelegate: Bool?
     /** Wheter if Reassignment of signature is allowed to another signatory or not */
     public var bEzsignfoldertypeReassign: Bool?
+    /** Wheter if Reassignment of signature is allowed by a signatory to another signatory or not */
+    public var bEzsignfoldertypeReassignezsignsigner: Bool?
+    /** Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not */
+    public var bEzsignfoldertypeReassignuser: Bool?
 
-    public init(pkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeIncludeproofsigner: Bool? = nil, bEzsignfoldertypeIncludeproofuser: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeReassign: Bool? = nil) {
+    public init(pkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeIncludeproofsigner: Bool? = nil, bEzsignfoldertypeIncludeproofuser: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeReassign: Bool? = nil, bEzsignfoldertypeReassignezsignsigner: Bool? = nil, bEzsignfoldertypeReassignuser: Bool? = nil) {
         self.pkiEzsignfoldertypeID = pkiEzsignfoldertypeID
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.bEzsignfoldertypeSendproofezsignsigner = bEzsignfoldertypeSendproofezsignsigner
@@ -43,6 +47,8 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
         self.bEzsignfoldertypeAllowdownloadproofezsignsigner = bEzsignfoldertypeAllowdownloadproofezsignsigner
         self.bEzsignfoldertypeDelegate = bEzsignfoldertypeDelegate
         self.bEzsignfoldertypeReassign = bEzsignfoldertypeReassign
+        self.bEzsignfoldertypeReassignezsignsigner = bEzsignfoldertypeReassignezsignsigner
+        self.bEzsignfoldertypeReassignuser = bEzsignfoldertypeReassignuser
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -55,6 +61,8 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
         case bEzsignfoldertypeAllowdownloadproofezsignsigner
         case bEzsignfoldertypeDelegate
         case bEzsignfoldertypeReassign
+        case bEzsignfoldertypeReassignezsignsigner
+        case bEzsignfoldertypeReassignuser
     }
 
     // Encodable protocol methods
@@ -70,6 +78,8 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(bEzsignfoldertypeAllowdownloadproofezsignsigner, forKey: .bEzsignfoldertypeAllowdownloadproofezsignsigner)
         try container.encodeIfPresent(bEzsignfoldertypeDelegate, forKey: .bEzsignfoldertypeDelegate)
         try container.encodeIfPresent(bEzsignfoldertypeReassign, forKey: .bEzsignfoldertypeReassign)
+        try container.encodeIfPresent(bEzsignfoldertypeReassignezsignsigner, forKey: .bEzsignfoldertypeReassignezsignsigner)
+        try container.encodeIfPresent(bEzsignfoldertypeReassignuser, forKey: .bEzsignfoldertypeReassignuser)
     }
 }
 

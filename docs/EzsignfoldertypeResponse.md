@@ -21,10 +21,13 @@ Name | Type | Description | Notes
 **eEzsignfoldertypeSendreminderfrequency** | [**FieldEEzsignfoldertypeSendreminderfrequency**](FieldEEzsignfoldertypeSendreminderfrequency.md) |  | [optional] 
 **iEzsignfoldertypeArchivaldays** | **Int** | The number of days before the archival of Ezsignfolders created using this Ezsignfoldertype | 
 **eEzsignfoldertypeDisposal** | [**FieldEEzsignfoldertypeDisposal**](FieldEEzsignfoldertypeDisposal.md) |  | 
+**eEzsignfoldertypeCompletion** | [**FieldEEzsignfoldertypeCompletion**](FieldEEzsignfoldertypeCompletion.md) |  | [optional] 
 **iEzsignfoldertypeDisposaldays** | **Int** | The number of days after the archival before the disposal of the Ezsignfolder | [optional] 
 **iEzsignfoldertypeDeadlinedays** | **Int** | The number of days to get all Ezsignsignatures | 
 **bEzsignfoldertypeDelegate** | **Bool** | Wheter if delegation of signature is allowed to another user or not | [optional] 
 **bEzsignfoldertypeReassign** | **Bool** | Wheter if Reassignment of signature is allowed to another signatory or not | [optional] 
+**bEzsignfoldertypeReassignezsignsigner** | **Bool** | Wheter if Reassignment of signature is allowed by a signatory to another signatory or not | [optional] 
+**bEzsignfoldertypeReassignuser** | **Bool** | Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not | [optional] 
 **bEzsignfoldertypeSendattatchmentsigner** | **Bool** | THIS FIELD WILL BE DELETED. Whether we send the Ezsigndocument and the proof as attachment in the email | [optional] 
 **bEzsignfoldertypeSendsignedtoezsignsigner** | **Bool** | Whether we send an email to Ezsignsigner  when document is completed | [optional] 
 **bEzsignfoldertypeSendsignedtouser** | **Bool** | Whether we send an email to User who signed when document is completed | [optional] 

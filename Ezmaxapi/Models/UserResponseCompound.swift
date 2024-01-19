@@ -26,6 +26,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
     static let fkiSecretquestionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiModuleIDFormRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,20})|([a-zA-Z0-9]){1,32})$/")
+    static let sUserJobtitleRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let dtUserLastlogondateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     static let dtUserPasswordchangedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     static let dtUserEzsignprepaidexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
@@ -77,6 +78,8 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
     public var sUserLastname: String
     /** The login name of the User. */
     public var sUserLoginname: String
+    /** The job title of the user */
+    public var sUserJobtitle: String?
     public var eUserEzsignaccess: FieldEUserEzsignaccess
     /** The last logon date of the User */
     public var dtUserLastlogondate: String?
@@ -96,7 +99,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
     public var bUserChangepassword: Bool
     public var objAudit: CommonAudit
 
-    public init(pkiUserID: Int, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiAssistantID: Int? = nil, fkiEmployeeID: Int? = nil, fkiCompanyIDDefault: Int, sCompanyNameX: String, fkiDepartmentIDDefault: Int, sDepartmentNameX: String, fkiTimezoneID: Int, sTimezoneName: String, fkiLanguageID: Int, sLanguageNameX: String, objEmail: EmailResponseCompound, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, objPhoneHome: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil, fkiSecretquestionID: Int? = nil, fkiModuleIDForm: Int? = nil, sModuleNameX: String? = nil, eUserOrigin: FieldEUserOrigin, eUserType: FieldEUserType, eUserLogintype: FieldEUserLogintype, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserLastlogondate: String? = nil, dtUserPasswordchanged: String? = nil, dtUserEzsignprepaidexpiration: String? = nil, bUserIsactive: Bool, bUserValidatebyadministration: Bool? = nil, bUserValidatebydirector: Bool? = nil, bUserAttachmentautoverified: Bool? = nil, bUserChangepassword: Bool, objAudit: CommonAudit) {
+    public init(pkiUserID: Int, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiAssistantID: Int? = nil, fkiEmployeeID: Int? = nil, fkiCompanyIDDefault: Int, sCompanyNameX: String, fkiDepartmentIDDefault: Int, sDepartmentNameX: String, fkiTimezoneID: Int, sTimezoneName: String, fkiLanguageID: Int, sLanguageNameX: String, objEmail: EmailResponseCompound, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, objPhoneHome: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil, fkiSecretquestionID: Int? = nil, fkiModuleIDForm: Int? = nil, sModuleNameX: String? = nil, eUserOrigin: FieldEUserOrigin, eUserType: FieldEUserType, eUserLogintype: FieldEUserLogintype, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, sUserJobtitle: String? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserLastlogondate: String? = nil, dtUserPasswordchanged: String? = nil, dtUserEzsignprepaidexpiration: String? = nil, bUserIsactive: Bool, bUserValidatebyadministration: Bool? = nil, bUserValidatebydirector: Bool? = nil, bUserAttachmentautoverified: Bool? = nil, bUserChangepassword: Bool, objAudit: CommonAudit) {
         self.pkiUserID = pkiUserID
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
@@ -124,6 +127,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
         self.sUserFirstname = sUserFirstname
         self.sUserLastname = sUserLastname
         self.sUserLoginname = sUserLoginname
+        self.sUserJobtitle = sUserJobtitle
         self.eUserEzsignaccess = eUserEzsignaccess
         self.dtUserLastlogondate = dtUserLastlogondate
         self.dtUserPasswordchanged = dtUserPasswordchanged
@@ -164,6 +168,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
         case sUserFirstname
         case sUserLastname
         case sUserLoginname
+        case sUserJobtitle
         case eUserEzsignaccess
         case dtUserLastlogondate
         case dtUserPasswordchanged
@@ -207,6 +212,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sUserFirstname, forKey: .sUserFirstname)
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encode(sUserLoginname, forKey: .sUserLoginname)
+        try container.encodeIfPresent(sUserJobtitle, forKey: .sUserJobtitle)
         try container.encode(eUserEzsignaccess, forKey: .eUserEzsignaccess)
         try container.encodeIfPresent(dtUserLastlogondate, forKey: .dtUserLastlogondate)
         try container.encodeIfPresent(dtUserPasswordchanged, forKey: .dtUserPasswordchanged)

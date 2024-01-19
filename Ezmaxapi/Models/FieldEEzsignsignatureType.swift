@@ -22,4 +22,5 @@ public enum FieldEEzsignsignatureType: String, Codable, CaseIterable {
     case attachmentsConfirmation = "AttachmentsConfirmation"
     case fieldText = "FieldText"
     case fieldTextarea = "FieldTextarea"
+    case consultation = "Consultation"
 }

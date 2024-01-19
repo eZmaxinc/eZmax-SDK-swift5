@@ -49,6 +49,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     public var iEzsignsignatureWidth: Int?
     /** The step when the Ezsignsigner will be invited to sign */
     public var iEzsignsignatureStep: Int
+    /** The step when the Ezsignsigner will be invited to sign */
+    public var iEzsignsignatureStepadjusted: Int?
     public var eEzsignsignatureType: FieldEEzsignsignatureType
     /** A tooltip that will be presented to Ezsignsigner about the Ezsignsignature */
     public var tEzsignsignatureTooltip: String?
@@ -79,7 +81,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     public var objContactNameDelegation: CustomContactNameResponse?
     public var objSignature: SignatureResponseCompound?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
@@ -91,6 +93,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         self.iEzsignsignatureHeight = iEzsignsignatureHeight
         self.iEzsignsignatureWidth = iEzsignsignatureWidth
         self.iEzsignsignatureStep = iEzsignsignatureStep
+        self.iEzsignsignatureStepadjusted = iEzsignsignatureStepadjusted
         self.eEzsignsignatureType = eEzsignsignatureType
         self.tEzsignsignatureTooltip = tEzsignsignatureTooltip
         self.eEzsignsignatureTooltipposition = eEzsignsignatureTooltipposition
@@ -124,6 +127,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         case iEzsignsignatureHeight
         case iEzsignsignatureWidth
         case iEzsignsignatureStep
+        case iEzsignsignatureStepadjusted
         case eEzsignsignatureType
         case tEzsignsignatureTooltip
         case eEzsignsignatureTooltipposition
@@ -160,6 +164,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(iEzsignsignatureHeight, forKey: .iEzsignsignatureHeight)
         try container.encodeIfPresent(iEzsignsignatureWidth, forKey: .iEzsignsignatureWidth)
         try container.encode(iEzsignsignatureStep, forKey: .iEzsignsignatureStep)
+        try container.encodeIfPresent(iEzsignsignatureStepadjusted, forKey: .iEzsignsignatureStepadjusted)
         try container.encode(eEzsignsignatureType, forKey: .eEzsignsignatureType)
         try container.encodeIfPresent(tEzsignsignatureTooltip, forKey: .tEzsignsignatureTooltip)
         try container.encodeIfPresent(eEzsignsignatureTooltipposition, forKey: .eEzsignsignatureTooltipposition)

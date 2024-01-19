@@ -23,6 +23,7 @@ public struct EzsignfolderGetObjectV1ResponseMPayload: Codable, JSONEncodable, H
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int?
     public var objEzsignfoldertype: CustomEzsignfoldertypeResponse?
+    public var eEzsignfolderCompletion: FieldEEzsignfolderCompletion?
     @available(*, deprecated, message: "This property is deprecated.")
     public var sEzsignfoldertypeNameX: String?
     /** The unique ID of the Billingentityinternal. */
@@ -59,10 +60,11 @@ public struct EzsignfolderGetObjectV1ResponseMPayload: Codable, JSONEncodable, H
     /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
     public var sEzsignfolderExternalid: String?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion? = nil, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.objEzsignfoldertype = objEzsignfoldertype
+        self.eEzsignfolderCompletion = eEzsignfolderCompletion
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.fkiBillingentityinternalID = fkiBillingentityinternalID
         self.sBillingentityinternalDescriptionX = sBillingentityinternalDescriptionX
@@ -88,6 +90,7 @@ public struct EzsignfolderGetObjectV1ResponseMPayload: Codable, JSONEncodable, H
         case pkiEzsignfolderID
         case fkiEzsignfoldertypeID
         case objEzsignfoldertype
+        case eEzsignfolderCompletion
         case sEzsignfoldertypeNameX
         case fkiBillingentityinternalID
         case sBillingentityinternalDescriptionX
@@ -116,6 +119,7 @@ public struct EzsignfolderGetObjectV1ResponseMPayload: Codable, JSONEncodable, H
         try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encodeIfPresent(objEzsignfoldertype, forKey: .objEzsignfoldertype)
+        try container.encodeIfPresent(eEzsignfolderCompletion, forKey: .eEzsignfolderCompletion)
         try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encodeIfPresent(fkiBillingentityinternalID, forKey: .fkiBillingentityinternalID)
         try container.encodeIfPresent(sBillingentityinternalDescriptionX, forKey: .sBillingentityinternalDescriptionX)

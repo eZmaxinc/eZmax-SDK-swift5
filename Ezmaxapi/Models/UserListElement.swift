@@ -16,6 +16,7 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
     static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,20})|([a-zA-Z0-9]){1,32})$/")
     static let dtUserEzsignprepaidexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    static let sUserJobtitleRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the User */
     public var pkiUserID: Int
     /** The first name of the user */
@@ -33,8 +34,10 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
     public var dtUserEzsignprepaidexpiration: String?
     /** The email address. */
     public var sEmailAddress: String
+    /** The job title of the user */
+    public var sUserJobtitle: String?
 
-    public init(pkiUserID: Int, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, bUserIsactive: Bool, eUserType: FieldEUserType, eUserOrigin: FieldEUserOrigin, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserEzsignprepaidexpiration: String? = nil, sEmailAddress: String) {
+    public init(pkiUserID: Int, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, bUserIsactive: Bool, eUserType: FieldEUserType, eUserOrigin: FieldEUserOrigin, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserEzsignprepaidexpiration: String? = nil, sEmailAddress: String, sUserJobtitle: String? = nil) {
         self.pkiUserID = pkiUserID
         self.sUserFirstname = sUserFirstname
         self.sUserLastname = sUserLastname
@@ -45,6 +48,7 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
         self.eUserEzsignaccess = eUserEzsignaccess
         self.dtUserEzsignprepaidexpiration = dtUserEzsignprepaidexpiration
         self.sEmailAddress = sEmailAddress
+        self.sUserJobtitle = sUserJobtitle
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -58,6 +62,7 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
         case eUserEzsignaccess
         case dtUserEzsignprepaidexpiration
         case sEmailAddress
+        case sUserJobtitle
     }
 
     // Encodable protocol methods
@@ -74,6 +79,7 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
         try container.encode(eUserEzsignaccess, forKey: .eUserEzsignaccess)
         try container.encodeIfPresent(dtUserEzsignprepaidexpiration, forKey: .dtUserEzsignprepaidexpiration)
         try container.encode(sEmailAddress, forKey: .sEmailAddress)
+        try container.encodeIfPresent(sUserJobtitle, forKey: .sUserJobtitle)
     }
 }
 

@@ -14,8 +14,11 @@ import AnyCodable
 public struct CustomEzmaxinvoicingEzsigndocumentResponse: Codable, JSONEncodable, Hashable {
 
     static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
+    /** The unique ID of the Billingentityinternal. */
+    public var fkiBillingentityinternalID: Int?
     public var sName: String
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
@@ -24,8 +27,9 @@ public struct CustomEzmaxinvoicingEzsigndocumentResponse: Codable, JSONEncodable
     /** Whether you have access to the Ezsignfolder or not */
     public var bEzsignfolderAllowed: Bool
 
-    public init(fkiEzsignfolderID: Int, sName: String, sEzsignfolderDescription: String, sEzsigndocumentName: String, bEzsignfolderAllowed: Bool) {
+    public init(fkiEzsignfolderID: Int, fkiBillingentityinternalID: Int? = nil, sName: String, sEzsignfolderDescription: String, sEzsigndocumentName: String, bEzsignfolderAllowed: Bool) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
+        self.fkiBillingentityinternalID = fkiBillingentityinternalID
         self.sName = sName
         self.sEzsignfolderDescription = sEzsignfolderDescription
         self.sEzsigndocumentName = sEzsigndocumentName
@@ -34,6 +38,7 @@ public struct CustomEzmaxinvoicingEzsigndocumentResponse: Codable, JSONEncodable
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case fkiEzsignfolderID
+        case fkiBillingentityinternalID
         case sName
         case sEzsignfolderDescription
         case sEzsigndocumentName
@@ -45,6 +50,7 @@ public struct CustomEzmaxinvoicingEzsigndocumentResponse: Codable, JSONEncodable
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
+        try container.encodeIfPresent(fkiBillingentityinternalID, forKey: .fkiBillingentityinternalID)
         try container.encode(sName, forKey: .sName)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(sEzsigndocumentName, forKey: .sEzsigndocumentName)

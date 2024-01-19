@@ -26,6 +26,7 @@ public struct UserRequest: Codable, JSONEncodable, Hashable {
     static let fkiSecretquestionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiModuleIDFormRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w\\.-]+@[\\w\\.-]+\\.\\w{2,20})|([a-zA-Z0-9]){1,32})$/")
+    static let sUserJobtitleRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the User */
     public var pkiUserID: Int?
     /** The unique ID of the Agent. */
@@ -63,6 +64,8 @@ public struct UserRequest: Codable, JSONEncodable, Hashable {
     public var sUserLastname: String
     /** The login name of the User. */
     public var sUserLoginname: String
+    /** The job title of the user */
+    public var sUserJobtitle: String?
     public var eUserEzsignaccess: FieldEUserEzsignaccess
     /** Whether the User is active or not */
     public var bUserIsactive: Bool
@@ -75,7 +78,7 @@ public struct UserRequest: Codable, JSONEncodable, Hashable {
     /** Whether if the User is forced to change its password */
     public var bUserChangepassword: Bool?
 
-    public init(pkiUserID: Int? = nil, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiAssistantID: Int? = nil, fkiEmployeeID: Int? = nil, fkiCompanyIDDefault: Int, fkiDepartmentIDDefault: Int, fkiTimezoneID: Int, fkiLanguageID: Int, objEmail: EmailRequestCompound, fkiBillingentityinternalID: Int, objPhoneHome: PhoneRequestCompound? = nil, objPhoneSMS: PhoneRequestCompound? = nil, fkiSecretquestionID: Int? = nil, sUserSecretresponse: String? = nil, fkiModuleIDForm: Int? = nil, eUserType: FieldEUserType, eUserLogintype: FieldEUserLogintype, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, eUserEzsignaccess: FieldEUserEzsignaccess, bUserIsactive: Bool, bUserValidatebyadministration: Bool? = nil, bUserValidatebydirector: Bool? = nil, bUserAttachmentautoverified: Bool? = nil, bUserChangepassword: Bool? = nil) {
+    public init(pkiUserID: Int? = nil, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiAssistantID: Int? = nil, fkiEmployeeID: Int? = nil, fkiCompanyIDDefault: Int, fkiDepartmentIDDefault: Int, fkiTimezoneID: Int, fkiLanguageID: Int, objEmail: EmailRequestCompound, fkiBillingentityinternalID: Int, objPhoneHome: PhoneRequestCompound? = nil, objPhoneSMS: PhoneRequestCompound? = nil, fkiSecretquestionID: Int? = nil, sUserSecretresponse: String? = nil, fkiModuleIDForm: Int? = nil, eUserType: FieldEUserType, eUserLogintype: FieldEUserLogintype, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, sUserJobtitle: String? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, bUserIsactive: Bool, bUserValidatebyadministration: Bool? = nil, bUserValidatebydirector: Bool? = nil, bUserAttachmentautoverified: Bool? = nil, bUserChangepassword: Bool? = nil) {
         self.pkiUserID = pkiUserID
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
@@ -97,6 +100,7 @@ public struct UserRequest: Codable, JSONEncodable, Hashable {
         self.sUserFirstname = sUserFirstname
         self.sUserLastname = sUserLastname
         self.sUserLoginname = sUserLoginname
+        self.sUserJobtitle = sUserJobtitle
         self.eUserEzsignaccess = eUserEzsignaccess
         self.bUserIsactive = bUserIsactive
         self.bUserValidatebyadministration = bUserValidatebyadministration
@@ -127,6 +131,7 @@ public struct UserRequest: Codable, JSONEncodable, Hashable {
         case sUserFirstname
         case sUserLastname
         case sUserLoginname
+        case sUserJobtitle
         case eUserEzsignaccess
         case bUserIsactive
         case bUserValidatebyadministration
@@ -160,6 +165,7 @@ public struct UserRequest: Codable, JSONEncodable, Hashable {
         try container.encode(sUserFirstname, forKey: .sUserFirstname)
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encode(sUserLoginname, forKey: .sUserLoginname)
+        try container.encodeIfPresent(sUserJobtitle, forKey: .sUserJobtitle)
         try container.encode(eUserEzsignaccess, forKey: .eUserEzsignaccess)
         try container.encode(bUserIsactive, forKey: .bUserIsactive)
         try container.encodeIfPresent(bUserValidatebyadministration, forKey: .bUserValidatebyadministration)

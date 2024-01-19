@@ -14,8 +14,11 @@ import AnyCodable
 public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, Hashable {
 
     static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
+    /** The unique ID of the Billingentityinternal. */
+    public var fkiBillingentityinternalID: Int?
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
     /** Whether the TSA requirement is billable or not */
@@ -27,8 +30,9 @@ public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, 
     /** Whether you have access to the Ezsignfolder or not */
     public var bEzsignfolderAllowed: Bool
 
-    public init(fkiEzsignfolderID: Int, sEzsignfolderDescription: String, bEzsigntsarequirementBillable: Bool, bEzsignfolderMfaused: Bool, bEzsignfolderPaymentused: Bool, bEzsignfolderAllowed: Bool) {
+    public init(fkiEzsignfolderID: Int, fkiBillingentityinternalID: Int? = nil, sEzsignfolderDescription: String, bEzsigntsarequirementBillable: Bool, bEzsignfolderMfaused: Bool, bEzsignfolderPaymentused: Bool, bEzsignfolderAllowed: Bool) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
+        self.fkiBillingentityinternalID = fkiBillingentityinternalID
         self.sEzsignfolderDescription = sEzsignfolderDescription
         self.bEzsigntsarequirementBillable = bEzsigntsarequirementBillable
         self.bEzsignfolderMfaused = bEzsignfolderMfaused
@@ -38,6 +42,7 @@ public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, 
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case fkiEzsignfolderID
+        case fkiBillingentityinternalID
         case sEzsignfolderDescription
         case bEzsigntsarequirementBillable
         case bEzsignfolderMfaused
@@ -50,6 +55,7 @@ public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
+        try container.encodeIfPresent(fkiBillingentityinternalID, forKey: .fkiBillingentityinternalID)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(bEzsigntsarequirementBillable, forKey: .bEzsigntsarequirementBillable)
         try container.encode(bEzsignfolderMfaused, forKey: .bEzsignfolderMfaused)

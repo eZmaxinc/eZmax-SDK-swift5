@@ -39,10 +39,11 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
     public var bWebhookIssigned: Bool
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
+    public var objAudit: CommonAudit
     /** The concatenated string to describe the Webhook event */
     public var sWebhookEvent: String?
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sWebhookEvent: String? = nil) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, objAudit: CommonAudit, sWebhookEvent: String? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -57,6 +58,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         self.bWebhookIsactive = bWebhookIsactive
         self.bWebhookIssigned = bWebhookIssigned
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
+        self.objAudit = objAudit
         self.sWebhookEvent = sWebhookEvent
     }
 
@@ -75,6 +77,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         case bWebhookIsactive
         case bWebhookIssigned
         case bWebhookSkipsslvalidation
+        case objAudit
         case sWebhookEvent
     }
 
@@ -96,6 +99,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookIssigned, forKey: .bWebhookIssigned)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
+        try container.encode(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sWebhookEvent, forKey: .sWebhookEvent)
     }
 }

@@ -119,6 +119,58 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Create multiple Ezsignsignatures/Ezsignformfieldgroups
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentCreateEzsignelementsPositionedByWordV1(pkiEzsigndocumentID: Int, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentCreateEzsignelementsPositionedByWordV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentCreateEzsignelementsPositionedByWordV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: ezsigndocumentCreateEzsignelementsPositionedByWordV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Create multiple Ezsignsignatures/Ezsignformfieldgroups
+     - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord
+     - Using this endpoint, you can create multiple Ezsignsignatures/Ezsignformfieldgroups positioned by word at the same time.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: (body)  
+     - returns: RequestBuilder<EzsigndocumentCreateEzsignelementsPositionedByWordV1Response> 
+     */
+    open class func ezsigndocumentCreateEzsignelementsPositionedByWordV1WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request) -> RequestBuilder<EzsigndocumentCreateEzsignelementsPositionedByWordV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigndocumentCreateEzsignelementsPositionedByWordV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentCreateEzsignelementsPositionedByWordV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Create a new Ezsigndocument
      
      - parameter ezsigndocumentCreateObjectV1Request: (body)  
@@ -689,7 +741,7 @@ open class ObjectEzsigndocumentAPI {
      Retrieve a URL to download documents.
      
      - parameter pkiEzsigndocumentID: (path)  
-     - parameter eDocumentType: (path) The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  
+     - parameter eDocumentType: (path) The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.&lt;br&gt;     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -713,7 +765,7 @@ open class ObjectEzsigndocumentAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndocumentID: (path)  
-     - parameter eDocumentType: (path) The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  
+     - parameter eDocumentType: (path) The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.&lt;br&gt;     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  
      - returns: RequestBuilder<EzsigndocumentGetDownloadUrlV1Response> 
      */
     open class func ezsigndocumentGetDownloadUrlV1WithRequestBuilder(pkiEzsigndocumentID: Int, eDocumentType: EDocumentType_ezsigndocumentGetDownloadUrlV1) -> RequestBuilder<EzsigndocumentGetDownloadUrlV1Response> {
@@ -786,6 +838,56 @@ open class ObjectEzsigndocumentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsignannotationsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's Ezsigndiscussions
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentGetEzsigndiscussionsV1(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetEzsigndiscussionsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentGetEzsigndiscussionsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigndocument's Ezsigndiscussions
+     - GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsigndiscussions
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetEzsigndiscussionsV1Response> 
+     */
+    open class func ezsigndocumentGetEzsigndiscussionsV1WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetEzsigndiscussionsV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsigndiscussions"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetEzsigndiscussionsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

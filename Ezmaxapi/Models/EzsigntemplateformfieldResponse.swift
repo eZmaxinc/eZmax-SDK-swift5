@@ -19,8 +19,10 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     static let iEzsigntemplateformfieldYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplateformfieldWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplateformfieldHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsigntemplateformfieldPositioningpatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
     /** The unique ID of the Ezsigntemplateformfield */
     public var pkiEzsigntemplateformfieldID: Int
+    public var eEzsigntemplateformfieldPositioning: FieldEEzsigntemplateformfieldPositioning?
     /** The page number in the Ezsigntemplatedocument */
     public var iEzsigntemplatedocumentpagePagenumber: Int
     /** The Label for the Ezsigntemplateformfield */
@@ -28,9 +30,9 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     /** The value for the Ezsigntemplateformfield */
     public var sEzsigntemplateformfieldValue: String?
     /** The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
-    public var iEzsigntemplateformfieldX: Int
+    public var iEzsigntemplateformfieldX: Int?
     /** The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
-    public var iEzsigntemplateformfieldY: Int
+    public var iEzsigntemplateformfieldY: Int?
     /** The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     | */
     public var iEzsigntemplateformfieldWidth: Int
     /** The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  */
@@ -40,9 +42,17 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     /** Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio** */
     public var bEzsigntemplateformfieldSelected: Bool?
     public var eEzsigntemplateformfieldDependencyrequirement: FieldEEzsigntemplateformfieldDependencyrequirement?
+    /** The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** */
+    public var sEzsigntemplateformfieldPositioningpattern: String?
+    /** The offset X  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** */
+    public var iEzsigntemplateformfieldPositioningoffsetx: Int?
+    /** The offset Y  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** */
+    public var iEzsigntemplateformfieldPositioningoffsety: Int?
+    public var eEzsigntemplateformfieldPositioningoccurence: FieldEEzsigntemplateformfieldPositioningoccurence?
 
-    public init(pkiEzsigntemplateformfieldID: Int, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int, iEzsigntemplateformfieldY: Int, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldAutocomplete: Bool? = nil, bEzsigntemplateformfieldSelected: Bool? = nil, eEzsigntemplateformfieldDependencyrequirement: FieldEEzsigntemplateformfieldDependencyrequirement? = nil) {
+    public init(pkiEzsigntemplateformfieldID: Int, eEzsigntemplateformfieldPositioning: FieldEEzsigntemplateformfieldPositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int? = nil, iEzsigntemplateformfieldY: Int? = nil, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldAutocomplete: Bool? = nil, bEzsigntemplateformfieldSelected: Bool? = nil, eEzsigntemplateformfieldDependencyrequirement: FieldEEzsigntemplateformfieldDependencyrequirement? = nil, sEzsigntemplateformfieldPositioningpattern: String? = nil, iEzsigntemplateformfieldPositioningoffsetx: Int? = nil, iEzsigntemplateformfieldPositioningoffsety: Int? = nil, eEzsigntemplateformfieldPositioningoccurence: FieldEEzsigntemplateformfieldPositioningoccurence? = nil) {
         self.pkiEzsigntemplateformfieldID = pkiEzsigntemplateformfieldID
+        self.eEzsigntemplateformfieldPositioning = eEzsigntemplateformfieldPositioning
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.sEzsigntemplateformfieldLabel = sEzsigntemplateformfieldLabel
         self.sEzsigntemplateformfieldValue = sEzsigntemplateformfieldValue
@@ -53,10 +63,15 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         self.bEzsigntemplateformfieldAutocomplete = bEzsigntemplateformfieldAutocomplete
         self.bEzsigntemplateformfieldSelected = bEzsigntemplateformfieldSelected
         self.eEzsigntemplateformfieldDependencyrequirement = eEzsigntemplateformfieldDependencyrequirement
+        self.sEzsigntemplateformfieldPositioningpattern = sEzsigntemplateformfieldPositioningpattern
+        self.iEzsigntemplateformfieldPositioningoffsetx = iEzsigntemplateformfieldPositioningoffsetx
+        self.iEzsigntemplateformfieldPositioningoffsety = iEzsigntemplateformfieldPositioningoffsety
+        self.eEzsigntemplateformfieldPositioningoccurence = eEzsigntemplateformfieldPositioningoccurence
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsigntemplateformfieldID
+        case eEzsigntemplateformfieldPositioning
         case iEzsigntemplatedocumentpagePagenumber
         case sEzsigntemplateformfieldLabel
         case sEzsigntemplateformfieldValue
@@ -67,6 +82,10 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         case bEzsigntemplateformfieldAutocomplete
         case bEzsigntemplateformfieldSelected
         case eEzsigntemplateformfieldDependencyrequirement
+        case sEzsigntemplateformfieldPositioningpattern
+        case iEzsigntemplateformfieldPositioningoffsetx
+        case iEzsigntemplateformfieldPositioningoffsety
+        case eEzsigntemplateformfieldPositioningoccurence
     }
 
     // Encodable protocol methods
@@ -74,16 +93,21 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsigntemplateformfieldID, forKey: .pkiEzsigntemplateformfieldID)
+        try container.encodeIfPresent(eEzsigntemplateformfieldPositioning, forKey: .eEzsigntemplateformfieldPositioning)
         try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
         try container.encode(sEzsigntemplateformfieldLabel, forKey: .sEzsigntemplateformfieldLabel)
         try container.encodeIfPresent(sEzsigntemplateformfieldValue, forKey: .sEzsigntemplateformfieldValue)
-        try container.encode(iEzsigntemplateformfieldX, forKey: .iEzsigntemplateformfieldX)
-        try container.encode(iEzsigntemplateformfieldY, forKey: .iEzsigntemplateformfieldY)
+        try container.encodeIfPresent(iEzsigntemplateformfieldX, forKey: .iEzsigntemplateformfieldX)
+        try container.encodeIfPresent(iEzsigntemplateformfieldY, forKey: .iEzsigntemplateformfieldY)
         try container.encode(iEzsigntemplateformfieldWidth, forKey: .iEzsigntemplateformfieldWidth)
         try container.encode(iEzsigntemplateformfieldHeight, forKey: .iEzsigntemplateformfieldHeight)
         try container.encodeIfPresent(bEzsigntemplateformfieldAutocomplete, forKey: .bEzsigntemplateformfieldAutocomplete)
         try container.encodeIfPresent(bEzsigntemplateformfieldSelected, forKey: .bEzsigntemplateformfieldSelected)
         try container.encodeIfPresent(eEzsigntemplateformfieldDependencyrequirement, forKey: .eEzsigntemplateformfieldDependencyrequirement)
+        try container.encodeIfPresent(sEzsigntemplateformfieldPositioningpattern, forKey: .sEzsigntemplateformfieldPositioningpattern)
+        try container.encodeIfPresent(iEzsigntemplateformfieldPositioningoffsetx, forKey: .iEzsigntemplateformfieldPositioningoffsetx)
+        try container.encodeIfPresent(iEzsigntemplateformfieldPositioningoffsety, forKey: .iEzsigntemplateformfieldPositioningoffsety)
+        try container.encodeIfPresent(eEzsigntemplateformfieldPositioningoccurence, forKey: .eEzsigntemplateformfieldPositioningoccurence)
     }
 }
 

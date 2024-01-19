@@ -25,6 +25,7 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
     static let iEzsigntemplatesignatureStepRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplatesignatureMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsigntemplatesignatureRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
+    static let sEzsigntemplatesignaturePositioningpatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
     /** The unique ID of the Ezsigntemplatesignature */
     public var pkiEzsigntemplatesignatureID: Int?
     /** The unique ID of the Ezsigntemplatedocument */
@@ -33,12 +34,13 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
     public var fkiEzsigntemplatesignerID: Int
     /** The unique ID of the Ezsigntemplatesigner */
     public var fkiEzsigntemplatesignerIDValidation: Int?
+    public var eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning?
     /** The page number in the Ezsigntemplatedocument */
     public var iEzsigntemplatedocumentpagePagenumber: Int
     /** The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
-    public var iEzsigntemplatesignatureX: Int
+    public var iEzsigntemplatesignatureX: Int?
     /** The Y coordinate (Vertical) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
-    public var iEzsigntemplatesignatureY: Int
+    public var iEzsigntemplatesignatureY: Int?
     /** The width of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have a width of 2 inches, you would use \"200\" for the iEzsigntemplatesignatureWidth. */
     public var iEzsigntemplatesignatureWidth: Int?
     /** The height of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have an height of 2 inches, you would use \"200\" for the iEzsigntemplatesignatureHeight. */
@@ -63,17 +65,25 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
     public var sEzsigntemplatesignatureRegexp: String?
     public var eEzsigntemplatesignatureTextvalidation: EnumTextvalidation?
     public var eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement?
+    /** The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** */
+    public var sEzsigntemplatesignaturePositioningpattern: String?
+    /** The offset X  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** */
+    public var iEzsigntemplatesignaturePositioningoffsetx: Int?
+    /** The offset Y  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** */
+    public var iEzsigntemplatesignaturePositioningoffsety: Int?
+    public var eEzsigntemplatesignaturePositioningoccurence: FieldEEzsigntemplatesignaturePositioningoccurence?
     /** Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**) */
     public var bEzsigntemplatesignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
     public var aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateRequestCompound]?
     public var aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyRequestCompound]?
 
-    public init(pkiEzsigntemplatesignatureID: Int? = nil, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int, iEzsigntemplatesignatureY: Int, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, bEzsigntemplatesignatureCustomdate: Bool? = nil, aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateRequestCompound]? = nil, aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyRequestCompound]? = nil) {
+    public init(pkiEzsigntemplatesignatureID: Int? = nil, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int? = nil, iEzsigntemplatesignatureY: Int? = nil, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, sEzsigntemplatesignaturePositioningpattern: String? = nil, iEzsigntemplatesignaturePositioningoffsetx: Int? = nil, iEzsigntemplatesignaturePositioningoffsety: Int? = nil, eEzsigntemplatesignaturePositioningoccurence: FieldEEzsigntemplatesignaturePositioningoccurence? = nil, bEzsigntemplatesignatureCustomdate: Bool? = nil, aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateRequestCompound]? = nil, aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyRequestCompound]? = nil) {
         self.pkiEzsigntemplatesignatureID = pkiEzsigntemplatesignatureID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsigntemplatesignerID = fkiEzsigntemplatesignerID
         self.fkiEzsigntemplatesignerIDValidation = fkiEzsigntemplatesignerIDValidation
+        self.eEzsigntemplatesignaturePositioning = eEzsigntemplatesignaturePositioning
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.iEzsigntemplatesignatureX = iEzsigntemplatesignatureX
         self.iEzsigntemplatesignatureY = iEzsigntemplatesignatureY
@@ -92,6 +102,10 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         self.sEzsigntemplatesignatureRegexp = sEzsigntemplatesignatureRegexp
         self.eEzsigntemplatesignatureTextvalidation = eEzsigntemplatesignatureTextvalidation
         self.eEzsigntemplatesignatureDependencyrequirement = eEzsigntemplatesignatureDependencyrequirement
+        self.sEzsigntemplatesignaturePositioningpattern = sEzsigntemplatesignaturePositioningpattern
+        self.iEzsigntemplatesignaturePositioningoffsetx = iEzsigntemplatesignaturePositioningoffsetx
+        self.iEzsigntemplatesignaturePositioningoffsety = iEzsigntemplatesignaturePositioningoffsety
+        self.eEzsigntemplatesignaturePositioningoccurence = eEzsigntemplatesignaturePositioningoccurence
         self.bEzsigntemplatesignatureCustomdate = bEzsigntemplatesignatureCustomdate
         self.aObjEzsigntemplatesignaturecustomdate = aObjEzsigntemplatesignaturecustomdate
         self.aObjEzsigntemplateelementdependency = aObjEzsigntemplateelementdependency
@@ -102,6 +116,7 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         case fkiEzsigntemplatedocumentID
         case fkiEzsigntemplatesignerID
         case fkiEzsigntemplatesignerIDValidation
+        case eEzsigntemplatesignaturePositioning
         case iEzsigntemplatedocumentpagePagenumber
         case iEzsigntemplatesignatureX
         case iEzsigntemplatesignatureY
@@ -120,6 +135,10 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         case sEzsigntemplatesignatureRegexp
         case eEzsigntemplatesignatureTextvalidation
         case eEzsigntemplatesignatureDependencyrequirement
+        case sEzsigntemplatesignaturePositioningpattern
+        case iEzsigntemplatesignaturePositioningoffsetx
+        case iEzsigntemplatesignaturePositioningoffsety
+        case eEzsigntemplatesignaturePositioningoccurence
         case bEzsigntemplatesignatureCustomdate
         case aObjEzsigntemplatesignaturecustomdate = "a_objEzsigntemplatesignaturecustomdate"
         case aObjEzsigntemplateelementdependency = "a_objEzsigntemplateelementdependency"
@@ -133,9 +152,10 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         try container.encode(fkiEzsigntemplatedocumentID, forKey: .fkiEzsigntemplatedocumentID)
         try container.encode(fkiEzsigntemplatesignerID, forKey: .fkiEzsigntemplatesignerID)
         try container.encodeIfPresent(fkiEzsigntemplatesignerIDValidation, forKey: .fkiEzsigntemplatesignerIDValidation)
+        try container.encodeIfPresent(eEzsigntemplatesignaturePositioning, forKey: .eEzsigntemplatesignaturePositioning)
         try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
-        try container.encode(iEzsigntemplatesignatureX, forKey: .iEzsigntemplatesignatureX)
-        try container.encode(iEzsigntemplatesignatureY, forKey: .iEzsigntemplatesignatureY)
+        try container.encodeIfPresent(iEzsigntemplatesignatureX, forKey: .iEzsigntemplatesignatureX)
+        try container.encodeIfPresent(iEzsigntemplatesignatureY, forKey: .iEzsigntemplatesignatureY)
         try container.encodeIfPresent(iEzsigntemplatesignatureWidth, forKey: .iEzsigntemplatesignatureWidth)
         try container.encodeIfPresent(iEzsigntemplatesignatureHeight, forKey: .iEzsigntemplatesignatureHeight)
         try container.encode(iEzsigntemplatesignatureStep, forKey: .iEzsigntemplatesignatureStep)
@@ -151,6 +171,10 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         try container.encodeIfPresent(sEzsigntemplatesignatureRegexp, forKey: .sEzsigntemplatesignatureRegexp)
         try container.encodeIfPresent(eEzsigntemplatesignatureTextvalidation, forKey: .eEzsigntemplatesignatureTextvalidation)
         try container.encodeIfPresent(eEzsigntemplatesignatureDependencyrequirement, forKey: .eEzsigntemplatesignatureDependencyrequirement)
+        try container.encodeIfPresent(sEzsigntemplatesignaturePositioningpattern, forKey: .sEzsigntemplatesignaturePositioningpattern)
+        try container.encodeIfPresent(iEzsigntemplatesignaturePositioningoffsetx, forKey: .iEzsigntemplatesignaturePositioningoffsetx)
+        try container.encodeIfPresent(iEzsigntemplatesignaturePositioningoffsety, forKey: .iEzsigntemplatesignaturePositioningoffsety)
+        try container.encodeIfPresent(eEzsigntemplatesignaturePositioningoccurence, forKey: .eEzsigntemplatesignaturePositioningoccurence)
         try container.encodeIfPresent(bEzsigntemplatesignatureCustomdate, forKey: .bEzsigntemplatesignatureCustomdate)
         try container.encodeIfPresent(aObjEzsigntemplatesignaturecustomdate, forKey: .aObjEzsigntemplatesignaturecustomdate)
         try container.encodeIfPresent(aObjEzsigntemplateelementdependency, forKey: .aObjEzsigntemplateelementdependency)
