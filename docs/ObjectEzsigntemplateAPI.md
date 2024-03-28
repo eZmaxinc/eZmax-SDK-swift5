@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsigntemplateCopyV1**](ObjectEzsigntemplateAPI.md#ezsigntemplatecopyv1) | **POST** /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy | Copy the Ezsigntemplate
 [**ezsigntemplateCreateObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplatecreateobjectv1) | **POST** /1/object/ezsigntemplate | Create a new Ezsigntemplate
+[**ezsigntemplateCreateObjectV2**](ObjectEzsigntemplateAPI.md#ezsigntemplatecreateobjectv2) | **POST** /2/object/ezsigntemplate | Create a new Ezsigntemplate
 [**ezsigntemplateDeleteObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplatedeleteobjectv1) | **DELETE** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Delete an existing Ezsigntemplate
 [**ezsigntemplateEditObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplateeditobjectv1) | **PUT** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Edit an existing Ezsigntemplate
+[**ezsigntemplateEditObjectV2**](ObjectEzsigntemplateAPI.md#ezsigntemplateeditobjectv2) | **PUT** /2/object/ezsigntemplate/{pkiEzsigntemplateID} | Edit an existing Ezsigntemplate
 [**ezsigntemplateGetAutocompleteV2**](ObjectEzsigntemplateAPI.md#ezsigntemplategetautocompletev2) | **GET** /2/object/ezsigntemplate/getAutocomplete/{sSelector} | Retrieve Ezsigntemplates and IDs
 [**ezsigntemplateGetListV1**](ObjectEzsigntemplateAPI.md#ezsigntemplategetlistv1) | **GET** /1/object/ezsigntemplate/getList | Retrieve Ezsigntemplate list
 [**ezsigntemplateGetObjectV1**](ObjectEzsigntemplateAPI.md#ezsigntemplategetobjectv1) | **GET** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Retrieve an existing Ezsigntemplate
@@ -80,7 +82,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplateCreateObjectV1Request = ezsigntemplate-createObject-v1-Request(aObjEzsigntemplate: [ezsigntemplate-RequestCompound(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", bEzsigntemplateAdminonly: false)]) // EzsigntemplateCreateObjectV1Request | 
+let ezsigntemplateCreateObjectV1Request = ezsigntemplate-createObject-v1-Request(aObjEzsigntemplate: [ezsigntemplate-RequestCompound(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateFilenamepattern: "sEzsigntemplateFilenamepattern_example", bEzsigntemplateAdminonly: false)]) // EzsigntemplateCreateObjectV1Request | 
 
 // Create a new Ezsigntemplate
 ObjectEzsigntemplateAPI.ezsigntemplateCreateObjectV1(ezsigntemplateCreateObjectV1Request: ezsigntemplateCreateObjectV1Request) { (response, error) in
@@ -104,6 +106,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplateCreateObjectV1Response**](EzsigntemplateCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplateCreateObjectV2**
+```swift
+    open class func ezsigntemplateCreateObjectV2(ezsigntemplateCreateObjectV2Request: EzsigntemplateCreateObjectV2Request, completion: @escaping (_ data: EzsigntemplateCreateObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Create a new Ezsigntemplate
+
+The endpoint allows to create one or many elements at once.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let ezsigntemplateCreateObjectV2Request = ezsigntemplate-createObject-v2-Request(aObjEzsigntemplate: [ezsigntemplate-RequestCompoundV2(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateFilenamepattern: "sEzsigntemplateFilenamepattern_example", bEzsigntemplateAdminonly: false, eEzsigntemplateType: Field-eEzsigntemplateType())]) // EzsigntemplateCreateObjectV2Request | 
+
+// Create a new Ezsigntemplate
+ObjectEzsigntemplateAPI.ezsigntemplateCreateObjectV2(ezsigntemplateCreateObjectV2Request: ezsigntemplateCreateObjectV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsigntemplateCreateObjectV2Request** | [**EzsigntemplateCreateObjectV2Request**](EzsigntemplateCreateObjectV2Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplateCreateObjectV2Response**](EzsigntemplateCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -181,7 +233,7 @@ Edit an existing Ezsigntemplate
 import OpenAPIClient
 
 let pkiEzsigntemplateID = 987 // Int | 
-let ezsigntemplateEditObjectV1Request = ezsigntemplate-editObject-v1-Request(objEzsigntemplate: ezsigntemplate-RequestCompound(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", bEzsigntemplateAdminonly: false)) // EzsigntemplateEditObjectV1Request | 
+let ezsigntemplateEditObjectV1Request = ezsigntemplate-editObject-v1-Request(objEzsigntemplate: ezsigntemplate-RequestCompound(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateFilenamepattern: "sEzsigntemplateFilenamepattern_example", bEzsigntemplateAdminonly: false)) // EzsigntemplateEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplate
 ObjectEzsigntemplateAPI.ezsigntemplateEditObjectV1(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV1Request: ezsigntemplateEditObjectV1Request) { (response, error) in
@@ -206,6 +258,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplateEditObjectV1Response**](EzsigntemplateEditObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplateEditObjectV2**
+```swift
+    open class func ezsigntemplateEditObjectV2(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV2Request: EzsigntemplateEditObjectV2Request, completion: @escaping (_ data: EzsigntemplateEditObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Edit an existing Ezsigntemplate
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplateID = 987 // Int | 
+let ezsigntemplateEditObjectV2Request = ezsigntemplate-editObject-v2-Request(objEzsigntemplate: ezsigntemplate-RequestCompoundV2(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateFilenamepattern: "sEzsigntemplateFilenamepattern_example", bEzsigntemplateAdminonly: false, eEzsigntemplateType: Field-eEzsigntemplateType())) // EzsigntemplateEditObjectV2Request | 
+
+// Edit an existing Ezsigntemplate
+ObjectEzsigntemplateAPI.ezsigntemplateEditObjectV2(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV2Request: ezsigntemplateEditObjectV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplateID** | **Int** |  | 
+ **ezsigntemplateEditObjectV2Request** | [**EzsigntemplateEditObjectV2Request**](EzsigntemplateEditObjectV2Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplateEditObjectV2Response**](EzsigntemplateEditObjectV2Response.md)
 
 ### Authorization
 

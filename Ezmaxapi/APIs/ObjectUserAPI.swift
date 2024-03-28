@@ -60,6 +60,53 @@ open class ObjectUserAPI {
     }
 
     /**
+     Create a new User
+     
+     - parameter userCreateObjectV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userCreateObjectV2(userCreateObjectV2Request: UserCreateObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserCreateObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userCreateObjectV2WithRequestBuilder(userCreateObjectV2Request: userCreateObjectV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Create a new User
+     - POST /2/object/user
+     - The endpoint allows to create one or many elements at once.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter userCreateObjectV2Request: (body)  
+     - returns: RequestBuilder<UserCreateObjectV2Response> 
+     */
+    open class func userCreateObjectV2WithRequestBuilder(userCreateObjectV2Request: UserCreateObjectV2Request) -> RequestBuilder<UserCreateObjectV2Response> {
+        let localVariablePath = "/2/object/user"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userCreateObjectV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserCreateObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Edit an existing User
      
      - parameter pkiUserID: (path) The unique ID of the User 
@@ -575,6 +622,104 @@ open class ObjectUserAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<UserGetSubnetsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Get User's Usergroupexternals
+     
+     - parameter pkiUserID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userGetUsergroupexternalsV1(pkiUserID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserGetUsergroupexternalsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userGetUsergroupexternalsV1WithRequestBuilder(pkiUserID: pkiUserID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get User's Usergroupexternals
+     - GET /1/object/user/{pkiUserID}/getUsergroupexternals
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserID: (path)  
+     - returns: RequestBuilder<UserGetUsergroupexternalsV1Response> 
+     */
+    open class func userGetUsergroupexternalsV1WithRequestBuilder(pkiUserID: Int) -> RequestBuilder<UserGetUsergroupexternalsV1Response> {
+        var localVariablePath = "/1/object/user/{pkiUserID}/getUsergroupexternals"
+        let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
+        let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserID}", with: pkiUserIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserGetUsergroupexternalsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Get User's Usergroups
+     
+     - parameter pkiUserID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userGetUsergroupsV1(pkiUserID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserGetUsergroupsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userGetUsergroupsV1WithRequestBuilder(pkiUserID: pkiUserID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get User's Usergroups
+     - GET /1/object/user/{pkiUserID}/getUsergroups
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserID: (path)  
+     - returns: RequestBuilder<UserGetUsergroupsV1Response> 
+     */
+    open class func userGetUsergroupsV1WithRequestBuilder(pkiUserID: Int) -> RequestBuilder<UserGetUsergroupsV1Response> {
+        var localVariablePath = "/1/object/user/{pkiUserID}/getUsergroups"
+        let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
+        let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserID}", with: pkiUserIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserGetUsergroupsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

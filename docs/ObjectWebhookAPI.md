@@ -4,7 +4,6 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**webhookCreateObjectV1**](ObjectWebhookAPI.md#webhookcreateobjectv1) | **POST** /1/object/webhook | Create a new Webhook
 [**webhookCreateObjectV2**](ObjectWebhookAPI.md#webhookcreateobjectv2) | **POST** /2/object/webhook | Create a new Webhook
 [**webhookDeleteObjectV1**](ObjectWebhookAPI.md#webhookdeleteobjectv1) | **DELETE** /1/object/webhook/{pkiWebhookID} | Delete an existing Webhook
 [**webhookEditObjectV1**](ObjectWebhookAPI.md#webhookeditobjectv1) | **PUT** /1/object/webhook/{pkiWebhookID} | Edit an existing Webhook
@@ -14,56 +13,6 @@ Method | HTTP request | Description
 [**webhookRegenerateApikeyV1**](ObjectWebhookAPI.md#webhookregenerateapikeyv1) | **POST** /1/object/webhook/{pkiWebhookID}/regenerateApikey | Regenerate the Apikey
 [**webhookTestV1**](ObjectWebhookAPI.md#webhooktestv1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 
-
-# **webhookCreateObjectV1**
-```swift
-    open class func webhookCreateObjectV1(webhookCreateObjectV1Request: WebhookCreateObjectV1Request, completion: @escaping (_ data: WebhookCreateObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Create a new Webhook
-
-The endpoint allows to create one or many elements at once.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let webhookCreateObjectV1Request = webhook-createObject-v1-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false)]) // WebhookCreateObjectV1Request | 
-
-// Create a new Webhook
-ObjectWebhookAPI.webhookCreateObjectV1(webhookCreateObjectV1Request: webhookCreateObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookCreateObjectV1Request** | [**WebhookCreateObjectV1Request**](WebhookCreateObjectV1Request.md) |  | 
-
-### Return type
-
-[**WebhookCreateObjectV1Response**](WebhookCreateObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhookCreateObjectV2**
 ```swift
@@ -79,7 +28,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let webhookCreateObjectV2Request = webhook-createObject-v2-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false)]) // WebhookCreateObjectV2Request | 
+let webhookCreateObjectV2Request = webhook-createObject-v2-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])]) // WebhookCreateObjectV2Request | 
 
 // Create a new Webhook
 ObjectWebhookAPI.webhookCreateObjectV2(webhookCreateObjectV2Request: webhookCreateObjectV2Request) { (response, error) in
@@ -180,7 +129,7 @@ Edit an existing Webhook
 import OpenAPIClient
 
 let pkiWebhookID = 987 // Int | 
-let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false)) // WebhookEditObjectV1Request | 
+let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(pkiWebhookID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])) // WebhookEditObjectV1Request | 
 
 // Edit an existing Webhook
 ObjectWebhookAPI.webhookEditObjectV1(pkiWebhookID: pkiWebhookID, webhookEditObjectV1Request: webhookEditObjectV1Request) { (response, error) in

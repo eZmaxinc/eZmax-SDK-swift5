@@ -14,7 +14,7 @@ import AnyCodable
 public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatepackage */
     public var pkiEzsigntemplatepackageID: Int
@@ -34,10 +34,12 @@ public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Has
     public var bEzsigntemplatepackageIsactive: Bool
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String
+    /** Whether the Ezsigntemplatepackage if allowed to edit or not */
+    public var bEzsigntemplatepackageEditallowed: Bool
     public var aObjEzsigntemplatepackagesigner: [EzsigntemplatepackagesignerResponseCompound]
     public var aObjEzsigntemplatepackagemembership: [EzsigntemplatepackagemembershipResponseCompound]
 
-    public init(pkiEzsigntemplatepackageID: Int, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplatepackageDescription: String, bEzsigntemplatepackageAdminonly: Bool, bEzsigntemplatepackageNeedvalidation: Bool, bEzsigntemplatepackageIsactive: Bool, sEzsignfoldertypeNameX: String, aObjEzsigntemplatepackagesigner: [EzsigntemplatepackagesignerResponseCompound], aObjEzsigntemplatepackagemembership: [EzsigntemplatepackagemembershipResponseCompound]) {
+    public init(pkiEzsigntemplatepackageID: Int, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplatepackageDescription: String, bEzsigntemplatepackageAdminonly: Bool, bEzsigntemplatepackageNeedvalidation: Bool, bEzsigntemplatepackageIsactive: Bool, sEzsignfoldertypeNameX: String, bEzsigntemplatepackageEditallowed: Bool, aObjEzsigntemplatepackagesigner: [EzsigntemplatepackagesignerResponseCompound], aObjEzsigntemplatepackagemembership: [EzsigntemplatepackagemembershipResponseCompound]) {
         self.pkiEzsigntemplatepackageID = pkiEzsigntemplatepackageID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiLanguageID = fkiLanguageID
@@ -47,6 +49,7 @@ public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Has
         self.bEzsigntemplatepackageNeedvalidation = bEzsigntemplatepackageNeedvalidation
         self.bEzsigntemplatepackageIsactive = bEzsigntemplatepackageIsactive
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+        self.bEzsigntemplatepackageEditallowed = bEzsigntemplatepackageEditallowed
         self.aObjEzsigntemplatepackagesigner = aObjEzsigntemplatepackagesigner
         self.aObjEzsigntemplatepackagemembership = aObjEzsigntemplatepackagemembership
     }
@@ -61,6 +64,7 @@ public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Has
         case bEzsigntemplatepackageNeedvalidation
         case bEzsigntemplatepackageIsactive
         case sEzsignfoldertypeNameX
+        case bEzsigntemplatepackageEditallowed
         case aObjEzsigntemplatepackagesigner = "a_objEzsigntemplatepackagesigner"
         case aObjEzsigntemplatepackagemembership = "a_objEzsigntemplatepackagemembership"
     }
@@ -78,6 +82,7 @@ public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Has
         try container.encode(bEzsigntemplatepackageNeedvalidation, forKey: .bEzsigntemplatepackageNeedvalidation)
         try container.encode(bEzsigntemplatepackageIsactive, forKey: .bEzsigntemplatepackageIsactive)
         try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
+        try container.encode(bEzsigntemplatepackageEditallowed, forKey: .bEzsigntemplatepackageEditallowed)
         try container.encode(aObjEzsigntemplatepackagesigner, forKey: .aObjEzsigntemplatepackagesigner)
         try container.encode(aObjEzsigntemplatepackagemembership, forKey: .aObjEzsigntemplatepackagemembership)
     }

@@ -22,6 +22,7 @@ public struct BrandingResponseCompound: Codable, JSONEncodable, Hashable {
     static let iBrandingColorbackgroundRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let iBrandingColorbackgroundbuttonRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let iBrandingColorbackgroundsmallboxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let iBrandingInterfacecolorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Branding */
     public var pkiBrandingID: Int
     /** The unique ID of the Email */
@@ -34,6 +35,7 @@ public struct BrandingResponseCompound: Codable, JSONEncodable, Hashable {
     /** The email address. */
     public var sEmailAddress: String?
     public var eBrandingLogo: FieldEBrandingLogo
+    public var eBrandingLogointerface: FieldEBrandingLogointerface?
     /** The color of the text. This is a RGB color converted into integer */
     public var iBrandingColortext: Int
     /** The color of the text in the link box. This is a RGB color converted into integer */
@@ -46,12 +48,16 @@ public struct BrandingResponseCompound: Codable, JSONEncodable, Hashable {
     public var iBrandingColorbackgroundbutton: Int
     /** The color of the background of the small box. This is a RGB color converted into integer */
     public var iBrandingColorbackgroundsmallbox: Int
+    /** The color of the interface. This is a RGB color converted into integer */
+    public var iBrandingInterfacecolor: Int?
     /** Whether the Branding is active or not */
     public var bBrandingIsactive: Bool
     /** The url of the picture used as logo in the Branding */
     public var sBrandingLogourl: String?
+    /** The url of the picture used as logo in the Branding */
+    public var sBrandingLogointerfaceurl: String?
 
-    public init(pkiBrandingID: Int, fkiEmailID: Int? = nil, objBrandingDescription: MultilingualBrandingDescription, sBrandingDescriptionX: String, sBrandingName: String? = nil, sEmailAddress: String? = nil, eBrandingLogo: FieldEBrandingLogo, iBrandingColortext: Int, iBrandingColortextlinkbox: Int, iBrandingColortextbutton: Int, iBrandingColorbackground: Int, iBrandingColorbackgroundbutton: Int, iBrandingColorbackgroundsmallbox: Int, bBrandingIsactive: Bool, sBrandingLogourl: String? = nil) {
+    public init(pkiBrandingID: Int, fkiEmailID: Int? = nil, objBrandingDescription: MultilingualBrandingDescription, sBrandingDescriptionX: String, sBrandingName: String? = nil, sEmailAddress: String? = nil, eBrandingLogo: FieldEBrandingLogo, eBrandingLogointerface: FieldEBrandingLogointerface? = nil, iBrandingColortext: Int, iBrandingColortextlinkbox: Int, iBrandingColortextbutton: Int, iBrandingColorbackground: Int, iBrandingColorbackgroundbutton: Int, iBrandingColorbackgroundsmallbox: Int, iBrandingInterfacecolor: Int? = nil, bBrandingIsactive: Bool, sBrandingLogourl: String? = nil, sBrandingLogointerfaceurl: String? = nil) {
         self.pkiBrandingID = pkiBrandingID
         self.fkiEmailID = fkiEmailID
         self.objBrandingDescription = objBrandingDescription
@@ -59,14 +65,17 @@ public struct BrandingResponseCompound: Codable, JSONEncodable, Hashable {
         self.sBrandingName = sBrandingName
         self.sEmailAddress = sEmailAddress
         self.eBrandingLogo = eBrandingLogo
+        self.eBrandingLogointerface = eBrandingLogointerface
         self.iBrandingColortext = iBrandingColortext
         self.iBrandingColortextlinkbox = iBrandingColortextlinkbox
         self.iBrandingColortextbutton = iBrandingColortextbutton
         self.iBrandingColorbackground = iBrandingColorbackground
         self.iBrandingColorbackgroundbutton = iBrandingColorbackgroundbutton
         self.iBrandingColorbackgroundsmallbox = iBrandingColorbackgroundsmallbox
+        self.iBrandingInterfacecolor = iBrandingInterfacecolor
         self.bBrandingIsactive = bBrandingIsactive
         self.sBrandingLogourl = sBrandingLogourl
+        self.sBrandingLogointerfaceurl = sBrandingLogointerfaceurl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -77,14 +86,17 @@ public struct BrandingResponseCompound: Codable, JSONEncodable, Hashable {
         case sBrandingName
         case sEmailAddress
         case eBrandingLogo
+        case eBrandingLogointerface
         case iBrandingColortext
         case iBrandingColortextlinkbox
         case iBrandingColortextbutton
         case iBrandingColorbackground
         case iBrandingColorbackgroundbutton
         case iBrandingColorbackgroundsmallbox
+        case iBrandingInterfacecolor
         case bBrandingIsactive
         case sBrandingLogourl
+        case sBrandingLogointerfaceurl
     }
 
     // Encodable protocol methods
@@ -98,14 +110,17 @@ public struct BrandingResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sBrandingName, forKey: .sBrandingName)
         try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
         try container.encode(eBrandingLogo, forKey: .eBrandingLogo)
+        try container.encodeIfPresent(eBrandingLogointerface, forKey: .eBrandingLogointerface)
         try container.encode(iBrandingColortext, forKey: .iBrandingColortext)
         try container.encode(iBrandingColortextlinkbox, forKey: .iBrandingColortextlinkbox)
         try container.encode(iBrandingColortextbutton, forKey: .iBrandingColortextbutton)
         try container.encode(iBrandingColorbackground, forKey: .iBrandingColorbackground)
         try container.encode(iBrandingColorbackgroundbutton, forKey: .iBrandingColorbackgroundbutton)
         try container.encode(iBrandingColorbackgroundsmallbox, forKey: .iBrandingColorbackgroundsmallbox)
+        try container.encodeIfPresent(iBrandingInterfacecolor, forKey: .iBrandingInterfacecolor)
         try container.encode(bBrandingIsactive, forKey: .bBrandingIsactive)
         try container.encodeIfPresent(sBrandingLogourl, forKey: .sBrandingLogourl)
+        try container.encodeIfPresent(sBrandingLogointerfaceurl, forKey: .sBrandingLogointerfaceurl)
     }
 }
 

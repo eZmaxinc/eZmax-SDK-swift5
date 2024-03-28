@@ -14,7 +14,7 @@ import AnyCodable
 public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsigntsarequirementIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 3, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsignfolderExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
@@ -23,7 +23,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int?
     public var objEzsignfoldertype: CustomEzsignfoldertypeResponse?
-    public var eEzsignfolderCompletion: FieldEEzsignfolderCompletion?
+    public var eEzsignfolderCompletion: FieldEEzsignfolderCompletion
     @available(*, deprecated, message: "This property is deprecated.")
     public var sEzsignfoldertypeNameX: String?
     /** The unique ID of the Billingentityinternal. */
@@ -60,7 +60,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
     /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
     public var sEzsignfolderExternalid: String?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion? = nil, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.objEzsignfoldertype = objEzsignfoldertype
@@ -119,7 +119,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
         try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encodeIfPresent(objEzsignfoldertype, forKey: .objEzsignfoldertype)
-        try container.encodeIfPresent(eEzsignfolderCompletion, forKey: .eEzsignfolderCompletion)
+        try container.encode(eEzsignfolderCompletion, forKey: .eEzsignfolderCompletion)
         try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encodeIfPresent(fkiBillingentityinternalID, forKey: .fkiBillingentityinternalID)
         try container.encodeIfPresent(sBillingentityinternalDescriptionX, forKey: .sBillingentityinternalDescriptionX)

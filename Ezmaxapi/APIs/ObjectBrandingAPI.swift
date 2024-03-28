@@ -237,7 +237,7 @@ open class ObjectBrandingAPI {
     /**
      Retrieve Branding list
      - GET /1/object/branding/getList
-     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eBrandingLogo | Default<br>JPEG<br>PNG |
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eBrandingLogo | Default<br>JPEG<br>PNG | | eBrandingLogointerface | Default<br>JPEG<br>PNG |
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization

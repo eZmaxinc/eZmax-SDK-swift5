@@ -26,12 +26,13 @@ public struct CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequ
     /** The unique ID of the Ezsigndocument */
     public var fkiEzsigndocumentID: Int
     public var eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType
-    public var eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement
+    @available(*, deprecated, message: "This property is deprecated.")
+    public var eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement?
     /** The Label for the Ezsignformfieldgroup */
     public var sEzsignformfieldgroupLabel: String
     /** The step when the Ezsignsigner will be invited to fill the form fields */
     public var iEzsignformfieldgroupStep: Int
-    /** The default value for the Ezsignformfieldgroup */
+    /** The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | */
     public var sEzsignformfieldgroupDefaultvalue: String?
     /** The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup */
     public var iEzsignformfieldgroupFilledmin: Int
@@ -54,7 +55,7 @@ public struct CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequ
     public var aObjEzsignformfield: [EzsignformfieldRequestCompound]
     public var objCreateezsignelementspositionedbyword: CustomCreateEzsignelementsPositionedByWordRequest
 
-    public init(pkiEzsignformfieldgroupID: Int? = nil, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String? = nil, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, eEzsignformfieldgroupTextvalidation: EnumTextvalidation? = nil, aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerRequestCompound], aObjDropdownElement: [CustomDropdownElementRequestCompound]? = nil, aObjEzsignformfield: [EzsignformfieldRequestCompound], objCreateezsignelementspositionedbyword: CustomCreateEzsignelementsPositionedByWordRequest) {
+    public init(pkiEzsignformfieldgroupID: Int? = nil, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement? = nil, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String? = nil, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, eEzsignformfieldgroupTextvalidation: EnumTextvalidation? = nil, aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerRequestCompound], aObjDropdownElement: [CustomDropdownElementRequestCompound]? = nil, aObjEzsignformfield: [EzsignformfieldRequestCompound], objCreateezsignelementspositionedbyword: CustomCreateEzsignelementsPositionedByWordRequest) {
         self.pkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.eEzsignformfieldgroupType = eEzsignformfieldgroupType
@@ -107,7 +108,7 @@ public struct CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequ
         try container.encodeIfPresent(pkiEzsignformfieldgroupID, forKey: .pkiEzsignformfieldgroupID)
         try container.encode(fkiEzsigndocumentID, forKey: .fkiEzsigndocumentID)
         try container.encode(eEzsignformfieldgroupType, forKey: .eEzsignformfieldgroupType)
-        try container.encode(eEzsignformfieldgroupSignerrequirement, forKey: .eEzsignformfieldgroupSignerrequirement)
+        try container.encodeIfPresent(eEzsignformfieldgroupSignerrequirement, forKey: .eEzsignformfieldgroupSignerrequirement)
         try container.encode(sEzsignformfieldgroupLabel, forKey: .sEzsignformfieldgroupLabel)
         try container.encode(iEzsignformfieldgroupStep, forKey: .iEzsignformfieldgroupStep)
         try container.encodeIfPresent(sEzsignformfieldgroupDefaultvalue, forKey: .sEzsignformfieldgroupDefaultvalue)

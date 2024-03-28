@@ -65,8 +65,10 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
     public var sEzsigndocumentExternalid: String?
     /** The number of Ezsigndocumentattachment total */
     public var iEzsigndocumentEzsignsignatureattachmenttotal: Int
+    /** The total number of Ezsigndiscussions */
+    public var iEzsigndocumentEzsigndiscussiontotal: Int
 
-    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int) {
+    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int, iEzsigndocumentEzsigndiscussiontotal: Int) {
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsignfoldersignerassociationIDDeclinedtosign = fkiEzsignfoldersignerassociationIDDeclinedtosign
@@ -89,6 +91,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         self.objAudit = objAudit
         self.sEzsigndocumentExternalid = sEzsigndocumentExternalid
         self.iEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
+        self.iEzsigndocumentEzsigndiscussiontotal = iEzsigndocumentEzsigndiscussiontotal
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -114,6 +117,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         case objAudit
         case sEzsigndocumentExternalid
         case iEzsigndocumentEzsignsignatureattachmenttotal
+        case iEzsigndocumentEzsigndiscussiontotal
     }
 
     // Encodable protocol methods
@@ -142,6 +146,7 @@ public struct EzsigndocumentResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sEzsigndocumentExternalid, forKey: .sEzsigndocumentExternalid)
         try container.encode(iEzsigndocumentEzsignsignatureattachmenttotal, forKey: .iEzsigndocumentEzsignsignatureattachmenttotal)
+        try container.encode(iEzsigndocumentEzsigndiscussiontotal, forKey: .iEzsigndocumentEzsigndiscussiontotal)
     }
 }
 

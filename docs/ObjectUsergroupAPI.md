@@ -238,7 +238,7 @@ Using this endpoint, you can edit multiple Usergroupmemberships at the same time
 import OpenAPIClient
 
 let pkiUsergroupID = 987 // Int | 
-let usergroupEditUsergroupmembershipsV1Request = usergroup-editUsergroupmemberships-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123)]) // UsergroupEditUsergroupmembershipsV1Request | 
+let usergroupEditUsergroupmembershipsV1Request = usergroup-editUsergroupmemberships-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123, fkiUsergroupexternalID: 123)]) // UsergroupEditUsergroupmembershipsV1Request | 
 
 // Edit multiple Usergroupmemberships
 ObjectUsergroupAPI.usergroupEditUsergroupmembershipsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupmembershipsV1Request: usergroupEditUsergroupmembershipsV1Request) { (response, error) in

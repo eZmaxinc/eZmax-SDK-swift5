@@ -16,23 +16,28 @@ public struct UsergroupmembershipRequest: Codable, JSONEncodable, Hashable {
     static let pkiUsergroupmembershipIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiUsergroupexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Usergroupmembership */
     public var pkiUsergroupmembershipID: Int?
     /** The unique ID of the Usergroup */
     public var fkiUsergroupID: Int
     /** The unique ID of the User */
-    public var fkiUserID: Int
+    public var fkiUserID: Int?
+    /** The unique ID of the Usergroupexternal */
+    public var fkiUsergroupexternalID: Int?
 
-    public init(pkiUsergroupmembershipID: Int? = nil, fkiUsergroupID: Int, fkiUserID: Int) {
+    public init(pkiUsergroupmembershipID: Int? = nil, fkiUsergroupID: Int, fkiUserID: Int? = nil, fkiUsergroupexternalID: Int? = nil) {
         self.pkiUsergroupmembershipID = pkiUsergroupmembershipID
         self.fkiUsergroupID = fkiUsergroupID
         self.fkiUserID = fkiUserID
+        self.fkiUsergroupexternalID = fkiUsergroupexternalID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiUsergroupmembershipID
         case fkiUsergroupID
         case fkiUserID
+        case fkiUsergroupexternalID
     }
 
     // Encodable protocol methods
@@ -41,7 +46,8 @@ public struct UsergroupmembershipRequest: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiUsergroupmembershipID, forKey: .pkiUsergroupmembershipID)
         try container.encode(fkiUsergroupID, forKey: .fkiUsergroupID)
-        try container.encode(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(fkiUsergroupexternalID, forKey: .fkiUsergroupexternalID)
     }
 }
 

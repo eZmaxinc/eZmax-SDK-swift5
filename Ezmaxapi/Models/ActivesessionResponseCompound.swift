@@ -37,6 +37,9 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     public var fkiSystemconfigurationtypeID: Int
     /** The unique ID of the Signature */
     public var fkiSignatureID: Int?
+    /** Whether if Ezsign is paid by the company or not */
+    public var bSystemconfigurationEzsignpaidbyoffice: Bool?
+    public var eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan?
     public var eUserEzsignaccess: FieldEUserEzsignaccess
     public var eUserEzsignprepaid: FieldEUserEzsignprepaid?
     /** The eZsign prepaid expiration date */
@@ -49,7 +52,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, dtUserEzsignprepaidexpiration: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, dtUserEzsignprepaidexpiration: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -61,6 +64,8 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         self.pksCustomerCode = pksCustomerCode
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.fkiSignatureID = fkiSignatureID
+        self.bSystemconfigurationEzsignpaidbyoffice = bSystemconfigurationEzsignpaidbyoffice
+        self.eSystemconfigurationEzsignofficeplan = eSystemconfigurationEzsignofficeplan
         self.eUserEzsignaccess = eUserEzsignaccess
         self.eUserEzsignprepaid = eUserEzsignprepaid
         self.dtUserEzsignprepaidexpiration = dtUserEzsignprepaidexpiration
@@ -83,6 +88,8 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         case pksCustomerCode
         case fkiSystemconfigurationtypeID
         case fkiSignatureID
+        case bSystemconfigurationEzsignpaidbyoffice
+        case eSystemconfigurationEzsignofficeplan
         case eUserEzsignaccess
         case eUserEzsignprepaid
         case dtUserEzsignprepaidexpiration
@@ -108,6 +115,8 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encodeIfPresent(fkiSignatureID, forKey: .fkiSignatureID)
+        try container.encodeIfPresent(bSystemconfigurationEzsignpaidbyoffice, forKey: .bSystemconfigurationEzsignpaidbyoffice)
+        try container.encodeIfPresent(eSystemconfigurationEzsignofficeplan, forKey: .eSystemconfigurationEzsignofficeplan)
         try container.encode(eUserEzsignaccess, forKey: .eUserEzsignaccess)
         try container.encodeIfPresent(eUserEzsignprepaid, forKey: .eUserEzsignprepaid)
         try container.encodeIfPresent(dtUserEzsignprepaidexpiration, forKey: .dtUserEzsignprepaidexpiration)

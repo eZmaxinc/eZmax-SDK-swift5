@@ -13,7 +13,7 @@ import AnyCodable
 /** A Webhook Object and children */
 public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int?
     /** The unique ID of the Ezsignfoldertype. */
@@ -33,8 +33,9 @@ public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
     public var bWebhookIssigned: Bool?
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
+    public var aObjWebhookheader: [WebhookheaderRequestCompound]?
 
-    public init(pkiWebhookID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, sWebhookDescription: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookIssigned: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
+    public init(pkiWebhookID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, sWebhookDescription: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookIssigned: Bool? = nil, bWebhookSkipsslvalidation: Bool, aObjWebhookheader: [WebhookheaderRequestCompound]? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sWebhookDescription = sWebhookDescription
@@ -46,6 +47,7 @@ public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
         self.bWebhookIsactive = bWebhookIsactive
         self.bWebhookIssigned = bWebhookIssigned
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
+        self.aObjWebhookheader = aObjWebhookheader
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -60,6 +62,7 @@ public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
         case bWebhookIsactive
         case bWebhookIssigned
         case bWebhookSkipsslvalidation
+        case aObjWebhookheader = "a_objWebhookheader"
     }
 
     // Encodable protocol methods
@@ -77,6 +80,7 @@ public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encodeIfPresent(bWebhookIssigned, forKey: .bWebhookIssigned)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
+        try container.encodeIfPresent(aObjWebhookheader, forKey: .aObjWebhookheader)
     }
 }
 

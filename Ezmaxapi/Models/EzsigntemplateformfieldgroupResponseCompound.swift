@@ -26,12 +26,13 @@ public struct EzsigntemplateformfieldgroupResponseCompound: Codable, JSONEncodab
     /** The unique ID of the Ezsigntemplatedocument */
     public var fkiEzsigntemplatedocumentID: Int
     public var eEzsigntemplateformfieldgroupType: FieldEEzsigntemplateformfieldgroupType
-    public var eEzsigntemplateformfieldgroupSignerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement
+    @available(*, deprecated, message: "This property is deprecated.")
+    public var eEzsigntemplateformfieldgroupSignerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement?
     /** The Label for the Ezsigntemplateformfieldgroup */
     public var sEzsigntemplateformfieldgroupLabel: String
     /** The step when the Ezsigntemplatesigner will be invited to fill the form fields */
     public var iEzsigntemplateformfieldgroupStep: Int
-    /** The default value for the Ezsigntemplateformfieldgroup */
+    /** The default value for the Ezsigntemplateformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | */
     public var sEzsigntemplateformfieldgroupDefaultvalue: String?
     /** The minimum number of Ezsigntemplateformfield that must be filled in the Ezsigntemplateformfieldgroup */
     public var iEzsigntemplateformfieldgroupFilledmin: Int
@@ -53,7 +54,7 @@ public struct EzsigntemplateformfieldgroupResponseCompound: Codable, JSONEncodab
     public var aObjDropdownElement: [CustomDropdownElementResponseCompound]?
     public var aObjEzsigntemplateformfield: [EzsigntemplateformfieldResponseCompound]
 
-    public init(pkiEzsigntemplateformfieldgroupID: Int, fkiEzsigntemplatedocumentID: Int, eEzsigntemplateformfieldgroupType: FieldEEzsigntemplateformfieldgroupType, eEzsigntemplateformfieldgroupSignerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement, sEzsigntemplateformfieldgroupLabel: String, iEzsigntemplateformfieldgroupStep: Int, sEzsigntemplateformfieldgroupDefaultvalue: String? = nil, iEzsigntemplateformfieldgroupFilledmin: Int, iEzsigntemplateformfieldgroupFilledmax: Int, bEzsigntemplateformfieldgroupReadonly: Bool, iEzsigntemplateformfieldgroupMaxlength: Int? = nil, bEzsigntemplateformfieldgroupEncrypted: Bool? = nil, sEzsigntemplateformfieldgroupRegexp: String? = nil, eEzsigntemplateformfieldgroupTextvalidation: EnumTextvalidation? = nil, tEzsigntemplateformfieldgroupTooltip: String? = nil, eEzsigntemplateformfieldgroupTooltipposition: FieldEEzsigntemplateformfieldgroupTooltipposition? = nil, aObjEzsigntemplateformfieldgroupsigner: [EzsigntemplateformfieldgroupsignerResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsigntemplateformfield: [EzsigntemplateformfieldResponseCompound]) {
+    public init(pkiEzsigntemplateformfieldgroupID: Int, fkiEzsigntemplatedocumentID: Int, eEzsigntemplateformfieldgroupType: FieldEEzsigntemplateformfieldgroupType, eEzsigntemplateformfieldgroupSignerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement? = nil, sEzsigntemplateformfieldgroupLabel: String, iEzsigntemplateformfieldgroupStep: Int, sEzsigntemplateformfieldgroupDefaultvalue: String? = nil, iEzsigntemplateformfieldgroupFilledmin: Int, iEzsigntemplateformfieldgroupFilledmax: Int, bEzsigntemplateformfieldgroupReadonly: Bool, iEzsigntemplateformfieldgroupMaxlength: Int? = nil, bEzsigntemplateformfieldgroupEncrypted: Bool? = nil, sEzsigntemplateformfieldgroupRegexp: String? = nil, eEzsigntemplateformfieldgroupTextvalidation: EnumTextvalidation? = nil, tEzsigntemplateformfieldgroupTooltip: String? = nil, eEzsigntemplateformfieldgroupTooltipposition: FieldEEzsigntemplateformfieldgroupTooltipposition? = nil, aObjEzsigntemplateformfieldgroupsigner: [EzsigntemplateformfieldgroupsignerResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsigntemplateformfield: [EzsigntemplateformfieldResponseCompound]) {
         self.pkiEzsigntemplateformfieldgroupID = pkiEzsigntemplateformfieldgroupID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.eEzsigntemplateformfieldgroupType = eEzsigntemplateformfieldgroupType
@@ -104,7 +105,7 @@ public struct EzsigntemplateformfieldgroupResponseCompound: Codable, JSONEncodab
         try container.encode(pkiEzsigntemplateformfieldgroupID, forKey: .pkiEzsigntemplateformfieldgroupID)
         try container.encode(fkiEzsigntemplatedocumentID, forKey: .fkiEzsigntemplatedocumentID)
         try container.encode(eEzsigntemplateformfieldgroupType, forKey: .eEzsigntemplateformfieldgroupType)
-        try container.encode(eEzsigntemplateformfieldgroupSignerrequirement, forKey: .eEzsigntemplateformfieldgroupSignerrequirement)
+        try container.encodeIfPresent(eEzsigntemplateformfieldgroupSignerrequirement, forKey: .eEzsigntemplateformfieldgroupSignerrequirement)
         try container.encode(sEzsigntemplateformfieldgroupLabel, forKey: .sEzsigntemplateformfieldgroupLabel)
         try container.encode(iEzsigntemplateformfieldgroupStep, forKey: .iEzsigntemplateformfieldgroupStep)
         try container.encodeIfPresent(sEzsigntemplateformfieldgroupDefaultvalue, forKey: .sEzsigntemplateformfieldgroupDefaultvalue)

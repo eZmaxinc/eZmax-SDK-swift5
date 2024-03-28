@@ -12,7 +12,8 @@ import AnyCodable
 
 /** Subscription level when a user has a Prepaid subscription. */
 public enum FieldEUserEzsignprepaid: String, Codable, CaseIterable {
+    case no = "No"
     case basic = "Basic"
-    case unlimited = "Unlimited"
+    case standard = "Standard"
     case pro = "Pro"
 }

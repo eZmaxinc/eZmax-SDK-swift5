@@ -17,6 +17,7 @@ open class ObjectUserlogintypeAPI {
      */
     public enum SSelector_userlogintypeGetAutocompleteV2: String, CaseIterable {
         case all = "All"
+        case ezsignfoldertype = "Ezsignfoldertype"
     }
 
     /**
@@ -32,6 +33,7 @@ open class ObjectUserlogintypeAPI {
      Retrieve Userlogintypes and IDs
      
      - parameter sSelector: (path) The type of Userlogintypes to return 
+     - parameter fkiEzsignfoldertypeID: (query)  (optional)
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
@@ -39,8 +41,8 @@ open class ObjectUserlogintypeAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func userlogintypeGetAutocompleteV2(sSelector: SSelector_userlogintypeGetAutocompleteV2, eFilterActive: EFilterActive_userlogintypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserlogintypeGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return userlogintypeGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+    open class func userlogintypeGetAutocompleteV2(sSelector: SSelector_userlogintypeGetAutocompleteV2, fkiEzsignfoldertypeID: Int? = nil, eFilterActive: EFilterActive_userlogintypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserlogintypeGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userlogintypeGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -58,12 +60,13 @@ open class ObjectUserlogintypeAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter sSelector: (path) The type of Userlogintypes to return 
+     - parameter fkiEzsignfoldertypeID: (query)  (optional)
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
      - returns: RequestBuilder<UserlogintypeGetAutocompleteV2Response> 
      */
-    open class func userlogintypeGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_userlogintypeGetAutocompleteV2, eFilterActive: EFilterActive_userlogintypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<UserlogintypeGetAutocompleteV2Response> {
+    open class func userlogintypeGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_userlogintypeGetAutocompleteV2, fkiEzsignfoldertypeID: Int? = nil, eFilterActive: EFilterActive_userlogintypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<UserlogintypeGetAutocompleteV2Response> {
         var localVariablePath = "/2/object/userlogintype/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -73,6 +76,7 @@ open class ObjectUserlogintypeAPI {
 
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "fkiEzsignfoldertypeID": (wrappedValue: fkiEzsignfoldertypeID?.encodeToJSON(), isExplode: true),
             "eFilterActive": (wrappedValue: eFilterActive?.encodeToJSON(), isExplode: true),
             "sQuery": (wrappedValue: sQuery?.encodeToJSON(), isExplode: true),
         ])

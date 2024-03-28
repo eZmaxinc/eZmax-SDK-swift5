@@ -65,6 +65,8 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     public var sEzsigndocumentExternalid: String?
     /** The number of Ezsigndocumentattachment total */
     public var iEzsigndocumentEzsignsignatureattachmenttotal: Int
+    /** The total number of Ezsigndiscussions */
+    public var iEzsigndocumentEzsigndiscussiontotal: Int
     public var eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype
     /** The total number of steps in the form filling phase */
     public var iEzsigndocumentStepformtotal: Int
@@ -76,7 +78,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     public var iEzsigndocumentStepsignatureCurrent: Int
     public var aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]
 
-    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int, eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]) {
+    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int, iEzsigndocumentEzsigndiscussiontotal: Int, eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]) {
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsignfoldersignerassociationIDDeclinedtosign = fkiEzsignfoldersignerassociationIDDeclinedtosign
@@ -99,6 +101,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         self.objAudit = objAudit
         self.sEzsigndocumentExternalid = sEzsigndocumentExternalid
         self.iEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
+        self.iEzsigndocumentEzsigndiscussiontotal = iEzsigndocumentEzsigndiscussiontotal
         self.eEzsigndocumentSteptype = eEzsigndocumentSteptype
         self.iEzsigndocumentStepformtotal = iEzsigndocumentStepformtotal
         self.iEzsigndocumentStepformcurrent = iEzsigndocumentStepformcurrent
@@ -130,6 +133,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         case objAudit
         case sEzsigndocumentExternalid
         case iEzsigndocumentEzsignsignatureattachmenttotal
+        case iEzsigndocumentEzsigndiscussiontotal
         case eEzsigndocumentSteptype
         case iEzsigndocumentStepformtotal
         case iEzsigndocumentStepformcurrent
@@ -164,6 +168,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sEzsigndocumentExternalid, forKey: .sEzsigndocumentExternalid)
         try container.encode(iEzsigndocumentEzsignsignatureattachmenttotal, forKey: .iEzsigndocumentEzsignsignatureattachmenttotal)
+        try container.encode(iEzsigndocumentEzsigndiscussiontotal, forKey: .iEzsigndocumentEzsigndiscussiontotal)
         try container.encode(eEzsigndocumentSteptype, forKey: .eEzsigndocumentSteptype)
         try container.encode(iEzsigndocumentStepformtotal, forKey: .iEzsigndocumentStepformtotal)
         try container.encode(iEzsigndocumentStepformcurrent, forKey: .iEzsigndocumentStepformcurrent)

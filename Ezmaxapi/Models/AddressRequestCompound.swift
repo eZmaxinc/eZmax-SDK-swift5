@@ -16,6 +16,8 @@ public struct AddressRequestCompound: Codable, JSONEncodable, Hashable {
     static let fkiAddresstypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiProvinceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fAddressLongitudeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(-?)(180(\\.0{1,15})?|((1[0-7]\\d)|(\\d{1,2}))(\\.\\d{1,15})?)$/")
+    static let fAddressLatitudeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(-?)(90(\\.0{1,15})?|([1-8]?\\d(\\.\\d{1,15})?))$/")
     /** The unique ID of the Addresstype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Real Estate Invoice| |4|Invoicing| |5|Shipping| */
     public var fkiAddresstypeID: Int
     /** The Civic number. */
@@ -32,8 +34,12 @@ public struct AddressRequestCompound: Codable, JSONEncodable, Hashable {
     public var fkiCountryID: Int
     /** The Postal/Zip Code  The value must be entered without spaces */
     public var sAddressZip: String
+    /** The Longitude of the Address */
+    public var fAddressLongitude: String?
+    /** The Latitude of the Address */
+    public var fAddressLatitude: String?
 
-    public init(fkiAddresstypeID: Int, sAddressCivic: String, sAddressStreet: String, sAddressSuite: String, sAddressCity: String, fkiProvinceID: Int, fkiCountryID: Int, sAddressZip: String) {
+    public init(fkiAddresstypeID: Int, sAddressCivic: String, sAddressStreet: String, sAddressSuite: String, sAddressCity: String, fkiProvinceID: Int, fkiCountryID: Int, sAddressZip: String, fAddressLongitude: String? = nil, fAddressLatitude: String? = nil) {
         self.fkiAddresstypeID = fkiAddresstypeID
         self.sAddressCivic = sAddressCivic
         self.sAddressStreet = sAddressStreet
@@ -42,6 +48,8 @@ public struct AddressRequestCompound: Codable, JSONEncodable, Hashable {
         self.fkiProvinceID = fkiProvinceID
         self.fkiCountryID = fkiCountryID
         self.sAddressZip = sAddressZip
+        self.fAddressLongitude = fAddressLongitude
+        self.fAddressLatitude = fAddressLatitude
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -53,6 +61,8 @@ public struct AddressRequestCompound: Codable, JSONEncodable, Hashable {
         case fkiProvinceID
         case fkiCountryID
         case sAddressZip
+        case fAddressLongitude
+        case fAddressLatitude
     }
 
     // Encodable protocol methods
@@ -67,6 +77,8 @@ public struct AddressRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encode(fkiProvinceID, forKey: .fkiProvinceID)
         try container.encode(fkiCountryID, forKey: .fkiCountryID)
         try container.encode(sAddressZip, forKey: .sAddressZip)
+        try container.encodeIfPresent(fAddressLongitude, forKey: .fAddressLongitude)
+        try container.encodeIfPresent(fAddressLatitude, forKey: .fAddressLatitude)
     }
 }
 

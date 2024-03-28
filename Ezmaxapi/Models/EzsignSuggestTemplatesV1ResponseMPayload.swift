@@ -15,15 +15,18 @@ public struct EzsignSuggestTemplatesV1ResponseMPayload: Codable, JSONEncodable, 
 
     public var aObjEzsigntemplate: [EzsigntemplateResponseCompound]
     public var aObjEzsigntemplatepackage: [EzsigntemplatepackageResponseCompound]
+    public var aObjEzsigntemplateglobal: [EzsigntemplateglobalResponseCompound]
 
-    public init(aObjEzsigntemplate: [EzsigntemplateResponseCompound], aObjEzsigntemplatepackage: [EzsigntemplatepackageResponseCompound]) {
+    public init(aObjEzsigntemplate: [EzsigntemplateResponseCompound], aObjEzsigntemplatepackage: [EzsigntemplatepackageResponseCompound], aObjEzsigntemplateglobal: [EzsigntemplateglobalResponseCompound]) {
         self.aObjEzsigntemplate = aObjEzsigntemplate
         self.aObjEzsigntemplatepackage = aObjEzsigntemplatepackage
+        self.aObjEzsigntemplateglobal = aObjEzsigntemplateglobal
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjEzsigntemplate = "a_objEzsigntemplate"
         case aObjEzsigntemplatepackage = "a_objEzsigntemplatepackage"
+        case aObjEzsigntemplateglobal = "a_objEzsigntemplateglobal"
     }
 
     // Encodable protocol methods
@@ -32,6 +35,7 @@ public struct EzsignSuggestTemplatesV1ResponseMPayload: Codable, JSONEncodable, 
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(aObjEzsigntemplate, forKey: .aObjEzsigntemplate)
         try container.encode(aObjEzsigntemplatepackage, forKey: .aObjEzsigntemplatepackage)
+        try container.encode(aObjEzsigntemplateglobal, forKey: .aObjEzsigntemplateglobal)
     }
 }
 

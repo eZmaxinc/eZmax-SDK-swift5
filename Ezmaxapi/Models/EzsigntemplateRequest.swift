@@ -14,8 +14,9 @@ import AnyCodable
 public struct EzsigntemplateRequest: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsigntemplateFilenamepatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
     /** The unique ID of the Ezsigntemplate */
     public var pkiEzsigntemplateID: Int?
     /** The unique ID of the Ezsignfoldertype. */
@@ -24,14 +25,17 @@ public struct EzsigntemplateRequest: Codable, JSONEncodable, Hashable {
     public var fkiLanguageID: Int
     /** The description of the Ezsigntemplate */
     public var sEzsigntemplateDescription: String
+    /** The filename pattern of the Ezsigntemplate */
+    public var sEzsigntemplateFilenamepattern: String?
     /** Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal) */
     public var bEzsigntemplateAdminonly: Bool
 
-    public init(pkiEzsigntemplateID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sEzsigntemplateDescription: String, bEzsigntemplateAdminonly: Bool) {
+    public init(pkiEzsigntemplateID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sEzsigntemplateDescription: String, sEzsigntemplateFilenamepattern: String? = nil, bEzsigntemplateAdminonly: Bool) {
         self.pkiEzsigntemplateID = pkiEzsigntemplateID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiLanguageID = fkiLanguageID
         self.sEzsigntemplateDescription = sEzsigntemplateDescription
+        self.sEzsigntemplateFilenamepattern = sEzsigntemplateFilenamepattern
         self.bEzsigntemplateAdminonly = bEzsigntemplateAdminonly
     }
 
@@ -40,6 +44,7 @@ public struct EzsigntemplateRequest: Codable, JSONEncodable, Hashable {
         case fkiEzsignfoldertypeID
         case fkiLanguageID
         case sEzsigntemplateDescription
+        case sEzsigntemplateFilenamepattern
         case bEzsigntemplateAdminonly
     }
 
@@ -51,6 +56,7 @@ public struct EzsigntemplateRequest: Codable, JSONEncodable, Hashable {
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sEzsigntemplateDescription, forKey: .sEzsigntemplateDescription)
+        try container.encodeIfPresent(sEzsigntemplateFilenamepattern, forKey: .sEzsigntemplateFilenamepattern)
         try container.encode(bEzsigntemplateAdminonly, forKey: .bEzsigntemplateAdminonly)
     }
 }

@@ -11,6 +11,7 @@ import AnyCodable
 #endif
 
 /** The Signer requirement of the Ezsignformfieldgroup. **All** means anyone can fill it, **One** means a specific person must fill it. */
+@available(*, deprecated, message: "This schema is deprecated.")
 public enum FieldEEzsignformfieldgroupSignerrequirement: String, Codable, CaseIterable {
     case all = "All"
     case one = "One"

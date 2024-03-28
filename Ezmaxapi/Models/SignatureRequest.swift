@@ -14,7 +14,7 @@ import AnyCodable
 public struct SignatureRequest: Codable, JSONEncodable, Hashable {
 
     static let pkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let tSignatureSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    static let tSignatureSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{60,65535}$/")
     /** The unique ID of the Signature */
     public var pkiSignatureID: Int?
     /** The svg of the Signature */

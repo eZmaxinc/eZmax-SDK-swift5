@@ -21,7 +21,11 @@ public struct SystemconfigurationRequestCompound: Codable, JSONEncodable, Hashab
     public var eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction
     public var eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1
     public var eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2
+    @available(*, deprecated, message: "This property is deprecated.")
     public var eSystemconfigurationEzsign: FieldESystemconfigurationEzsign?
+    public var eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan?
+    /** Whether if Ezsign is paid by the company or not */
+    public var bSystemconfigurationEzsignpaidbyoffice: Bool?
     /** Whether if we allow the creation of personal files in eZsign */
     public var bSystemconfigurationEzsignpersonnal: Bool
     /** Whether if we allow SSPR */
@@ -31,12 +35,14 @@ public struct SystemconfigurationRequestCompound: Codable, JSONEncodable, Hashab
     /** The end date where the system will be in read only */
     public var dtSystemconfigurationReadonlyexpirationend: String?
 
-    public init(pkiSystemconfigurationID: Int? = nil, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil) {
+    public init(pkiSystemconfigurationID: Int? = nil, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil) {
         self.pkiSystemconfigurationID = pkiSystemconfigurationID
         self.eSystemconfigurationNewexternaluseraction = eSystemconfigurationNewexternaluseraction
         self.eSystemconfigurationLanguage1 = eSystemconfigurationLanguage1
         self.eSystemconfigurationLanguage2 = eSystemconfigurationLanguage2
         self.eSystemconfigurationEzsign = eSystemconfigurationEzsign
+        self.eSystemconfigurationEzsignofficeplan = eSystemconfigurationEzsignofficeplan
+        self.bSystemconfigurationEzsignpaidbyoffice = bSystemconfigurationEzsignpaidbyoffice
         self.bSystemconfigurationEzsignpersonnal = bSystemconfigurationEzsignpersonnal
         self.bSystemconfigurationSspr = bSystemconfigurationSspr
         self.dtSystemconfigurationReadonlyexpirationstart = dtSystemconfigurationReadonlyexpirationstart
@@ -49,6 +55,8 @@ public struct SystemconfigurationRequestCompound: Codable, JSONEncodable, Hashab
         case eSystemconfigurationLanguage1
         case eSystemconfigurationLanguage2
         case eSystemconfigurationEzsign
+        case eSystemconfigurationEzsignofficeplan
+        case bSystemconfigurationEzsignpaidbyoffice
         case bSystemconfigurationEzsignpersonnal
         case bSystemconfigurationSspr
         case dtSystemconfigurationReadonlyexpirationstart
@@ -64,6 +72,8 @@ public struct SystemconfigurationRequestCompound: Codable, JSONEncodable, Hashab
         try container.encode(eSystemconfigurationLanguage1, forKey: .eSystemconfigurationLanguage1)
         try container.encode(eSystemconfigurationLanguage2, forKey: .eSystemconfigurationLanguage2)
         try container.encodeIfPresent(eSystemconfigurationEzsign, forKey: .eSystemconfigurationEzsign)
+        try container.encodeIfPresent(eSystemconfigurationEzsignofficeplan, forKey: .eSystemconfigurationEzsignofficeplan)
+        try container.encodeIfPresent(bSystemconfigurationEzsignpaidbyoffice, forKey: .bSystemconfigurationEzsignpaidbyoffice)
         try container.encode(bSystemconfigurationEzsignpersonnal, forKey: .bSystemconfigurationEzsignpersonnal)
         try container.encode(bSystemconfigurationSspr, forKey: .bSystemconfigurationSspr)
         try container.encodeIfPresent(dtSystemconfigurationReadonlyexpirationstart, forKey: .dtSystemconfigurationReadonlyexpirationstart)

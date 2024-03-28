@@ -13,7 +13,7 @@ import AnyCodable
 /** A Ezsignfoldertype AutocompleteElement Response */
 public struct EzsignfoldertypeAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let pkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public var eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String

@@ -14,13 +14,13 @@ import AnyCodable
 public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplatedocumentPagetotalRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplate */
     public var pkiEzsigntemplateID: Int
     /** The unique ID of the Ezsignfoldertype. */
-    public var fkiEzsignfoldertypeID: Int
+    public var fkiEzsignfoldertypeID: Int?
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
     /** The description of the Ezsigntemplate */
@@ -34,9 +34,10 @@ public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
     /** Indicate the Ezsigntemplate is incomplete and cannot be used */
     public var bEzsigntemplateIncomplete: Bool
     /** The name of the Ezsignfoldertype in the language of the requester */
-    public var sEzsignfoldertypeNameX: String
+    public var sEzsignfoldertypeNameX: String?
+    public var eEzsigntemplateType: FieldEEzsigntemplateType
 
-    public init(pkiEzsigntemplateID: Int, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sEzsigntemplateDescription: String, iEzsigntemplatedocumentPagetotal: Int? = nil, iEzsigntemplateSignaturetotal: Int? = nil, iEzsigntemplateFormfieldtotal: Int? = nil, bEzsigntemplateIncomplete: Bool, sEzsignfoldertypeNameX: String) {
+    public init(pkiEzsigntemplateID: Int, fkiEzsignfoldertypeID: Int? = nil, fkiLanguageID: Int, sEzsigntemplateDescription: String, iEzsigntemplatedocumentPagetotal: Int? = nil, iEzsigntemplateSignaturetotal: Int? = nil, iEzsigntemplateFormfieldtotal: Int? = nil, bEzsigntemplateIncomplete: Bool, sEzsignfoldertypeNameX: String? = nil, eEzsigntemplateType: FieldEEzsigntemplateType) {
         self.pkiEzsigntemplateID = pkiEzsigntemplateID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiLanguageID = fkiLanguageID
@@ -46,6 +47,7 @@ public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
         self.iEzsigntemplateFormfieldtotal = iEzsigntemplateFormfieldtotal
         self.bEzsigntemplateIncomplete = bEzsigntemplateIncomplete
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+        self.eEzsigntemplateType = eEzsigntemplateType
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -58,6 +60,7 @@ public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
         case iEzsigntemplateFormfieldtotal
         case bEzsigntemplateIncomplete
         case sEzsignfoldertypeNameX
+        case eEzsigntemplateType
     }
 
     // Encodable protocol methods
@@ -65,14 +68,15 @@ public struct EzsigntemplateListElement: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsigntemplateID, forKey: .pkiEzsigntemplateID)
-        try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sEzsigntemplateDescription, forKey: .sEzsigntemplateDescription)
         try container.encodeIfPresent(iEzsigntemplatedocumentPagetotal, forKey: .iEzsigntemplatedocumentPagetotal)
         try container.encodeIfPresent(iEzsigntemplateSignaturetotal, forKey: .iEzsigntemplateSignaturetotal)
         try container.encodeIfPresent(iEzsigntemplateFormfieldtotal, forKey: .iEzsigntemplateFormfieldtotal)
         try container.encode(bEzsigntemplateIncomplete, forKey: .bEzsigntemplateIncomplete)
-        try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
+        try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
+        try container.encode(eEzsigntemplateType, forKey: .eEzsigntemplateType)
     }
 }
 

@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**ezsignfolderDisposeEzsignfoldersV1**](ObjectEzsignfolderAPI.md#ezsignfolderdisposeezsignfoldersv1) | **POST** /1/object/ezsignfolder/disposeEzsignfolders | Dispose Ezsignfolders
 [**ezsignfolderDisposeV1**](ObjectEzsignfolderAPI.md#ezsignfolderdisposev1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose | Dispose the Ezsignfolder
 [**ezsignfolderEditObjectV1**](ObjectEzsignfolderAPI.md#ezsignfoldereditobjectv1) | **PUT** /1/object/ezsignfolder/{pkiEzsignfolderID} | Edit an existing Ezsignfolder
+[**ezsignfolderEndPrematurelyV1**](ObjectEzsignfolderAPI.md#ezsignfolderendprematurelyv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/endPrematurely | End prematurely
 [**ezsignfolderGetActionableElementsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetactionableelementsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
 [**ezsignfolderGetAttachmentCountV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetattachmentcountv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachmentCount | Retrieve Attachment count
 [**ezsignfolderGetAttachmentsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetattachmentsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachments | Retrieve Ezsignfolder&#39;s Attachments
@@ -30,7 +31,6 @@ Method | HTTP request | Description
 [**ezsignfolderImportEzsigntemplatepackageV1**](ObjectEzsignfolderAPI.md#ezsignfolderimportezsigntemplatepackagev1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage | Import an Ezsigntemplatepackage in the Ezsignfolder.
 [**ezsignfolderReorderV1**](ObjectEzsignfolderAPI.md#ezsignfolderreorderv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/reorder | Reorder Ezsigndocuments in the Ezsignfolder
 [**ezsignfolderSendV1**](ObjectEzsignfolderAPI.md#ezsignfoldersendv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
-[**ezsignfolderSendV2**](ObjectEzsignfolderAPI.md#ezsignfoldersendv2) | **POST** /2/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**ezsignfolderSendV3**](ObjectEzsignfolderAPI.md#ezsignfoldersendv3) | **POST** /3/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**ezsignfolderUnsendV1**](ObjectEzsignfolderAPI.md#ezsignfolderunsendv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend | Unsend the Ezsignfolder
 
@@ -427,6 +427,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderEditObjectV1Response**](EzsignfolderEditObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderEndPrematurelyV1**
+```swift
+    open class func ezsignfolderEndPrematurelyV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignfolderEndPrematurelyV1Response?, _ error: Error?) -> Void)
+```
+
+End prematurely
+
+End prematurely all Ezsigndocument of Ezsignfolder when some signatures are still required
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+let body = "TODO" // AnyCodable | 
+
+// End prematurely
+ObjectEzsignfolderAPI.ezsignfolderEndPrematurelyV1(pkiEzsignfolderID: pkiEzsignfolderID, body: body) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+ **body** | **AnyCodable** |  | 
+
+### Return type
+
+[**EzsignfolderEndPrematurelyV1Response**](EzsignfolderEndPrematurelyV1Response.md)
 
 ### Authorization
 
@@ -1339,58 +1391,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderSendV1Response**](EzsignfolderSendV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ezsignfolderSendV2**
-```swift
-    open class func ezsignfolderSendV2(pkiEzsignfolderID: Int, ezsignfolderSendV2Request: EzsignfolderSendV2Request, completion: @escaping (_ data: EzsignfolderSendV2Response?, _ error: Error?) -> Void)
-```
-
-Send the Ezsignfolder to the signatories for signature
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiEzsignfolderID = 987 // Int | 
-let ezsignfolderSendV2Request = ezsignfolder-send-v2-Request(tEzsignfolderMessage: "tEzsignfolderMessage_example", aFkiEzsignfoldersignerassociationID: [123], aObjEzsignfoldersignerassociationmessage: [Custom-Ezsignfoldersignerassociationmessage-Request(fkiEzsignfoldersignerassociationID: 123, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example")]) // EzsignfolderSendV2Request | 
-
-// Send the Ezsignfolder to the signatories for signature
-ObjectEzsignfolderAPI.ezsignfolderSendV2(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderSendV2Request: ezsignfolderSendV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEzsignfolderID** | **Int** |  | 
- **ezsignfolderSendV2Request** | [**EzsignfolderSendV2Request**](EzsignfolderSendV2Request.md) |  | 
-
-### Return type
-
-[**EzsignfolderSendV2Response**](EzsignfolderSendV2Response.md)
 
 ### Authorization
 

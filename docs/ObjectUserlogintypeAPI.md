@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **userlogintypeGetAutocompleteV2**
 ```swift
-    open class func userlogintypeGetAutocompleteV2(sSelector: SSelector_userlogintypeGetAutocompleteV2, eFilterActive: EFilterActive_userlogintypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: UserlogintypeGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func userlogintypeGetAutocompleteV2(sSelector: SSelector_userlogintypeGetAutocompleteV2, fkiEzsignfoldertypeID: Int? = nil, eFilterActive: EFilterActive_userlogintypeGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: UserlogintypeGetAutocompleteV2Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Userlogintypes and IDs
@@ -22,12 +22,13 @@ Get the list of Userlogintype to be used in a dropdown or autocomplete control.
 import OpenAPIClient
 
 let sSelector = "sSelector_example" // String | The type of Userlogintypes to return
+let fkiEzsignfoldertypeID = 987 // Int |  (optional)
 let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
 
 // Retrieve Userlogintypes and IDs
-ObjectUserlogintypeAPI.userlogintypeGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+ObjectUserlogintypeAPI.userlogintypeGetAutocompleteV2(sSelector: sSelector, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -44,6 +45,7 @@ ObjectUserlogintypeAPI.userlogintypeGetAutocompleteV2(sSelector: sSelector, eFil
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sSelector** | **String** | The type of Userlogintypes to return | 
+ **fkiEzsignfoldertypeID** | **Int** |  | [optional] 
  **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 

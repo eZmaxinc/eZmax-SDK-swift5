@@ -22,13 +22,13 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
     /** The unique ID of the Timezone */
     public var fkiTimezoneID: Int
     /** The url of the picture used as avatar */
-    public var sAvatarUrl: String
+    public var sAvatarUrl: String?
     /** The first name of the user */
     public var sUserFirstname: String
     /** The last name of the user */
     public var sUserLastname: String
     /** The email address. */
-    public var sEmailAddress: String
+    public var sEmailAddress: String?
     public var eUserEzsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency
     /** The int32 representation of the interface color. For example, RGB color #39435B would be 3752795 */
     public var iUserInterfacecolor: Int
@@ -37,7 +37,7 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
     /** The number of rows to return by default in lists */
     public var iUserListresult: Int
 
-    public init(pkiUserID: Int, fkiTimezoneID: Int, sAvatarUrl: String, sUserFirstname: String, sUserLastname: String, sEmailAddress: String, eUserEzsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor: Int, bUserInterfacedark: Bool, iUserListresult: Int) {
+    public init(pkiUserID: Int, fkiTimezoneID: Int, sAvatarUrl: String? = nil, sUserFirstname: String, sUserLastname: String, sEmailAddress: String? = nil, eUserEzsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor: Int, bUserInterfacedark: Bool, iUserListresult: Int) {
         self.pkiUserID = pkiUserID
         self.fkiTimezoneID = fkiTimezoneID
         self.sAvatarUrl = sAvatarUrl
@@ -69,10 +69,10 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiUserID, forKey: .pkiUserID)
         try container.encode(fkiTimezoneID, forKey: .fkiTimezoneID)
-        try container.encode(sAvatarUrl, forKey: .sAvatarUrl)
+        try container.encodeIfPresent(sAvatarUrl, forKey: .sAvatarUrl)
         try container.encode(sUserFirstname, forKey: .sUserFirstname)
         try container.encode(sUserLastname, forKey: .sUserLastname)
-        try container.encode(sEmailAddress, forKey: .sEmailAddress)
+        try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
         try container.encode(eUserEzsignsendreminderfrequency, forKey: .eUserEzsignsendreminderfrequency)
         try container.encode(iUserInterfacecolor, forKey: .iUserInterfacecolor)
         try container.encode(bUserInterfacedark, forKey: .bUserInterfacedark)

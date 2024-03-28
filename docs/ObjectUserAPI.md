@@ -5,6 +5,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**userCreateObjectV1**](ObjectUserAPI.md#usercreateobjectv1) | **POST** /1/object/user | Create a new User
+[**userCreateObjectV2**](ObjectUserAPI.md#usercreateobjectv2) | **POST** /2/object/user | Create a new User
 [**userEditObjectV1**](ObjectUserAPI.md#usereditobjectv1) | **PUT** /1/object/user/{pkiUserID} | Edit an existing User
 [**userEditPermissionsV1**](ObjectUserAPI.md#usereditpermissionsv1) | **PUT** /1/object/user/{pkiUserID}/editPermissions | Edit multiple Permissions
 [**userGetApikeysV1**](ObjectUserAPI.md#usergetapikeysv1) | **GET** /1/object/user/{pkiUserID}/getApikeys | Retrieve an existing User&#39;s Apikeys
@@ -14,6 +15,8 @@ Method | HTTP request | Description
 [**userGetObjectV2**](ObjectUserAPI.md#usergetobjectv2) | **GET** /2/object/user/{pkiUserID} | Retrieve an existing User
 [**userGetPermissionsV1**](ObjectUserAPI.md#usergetpermissionsv1) | **GET** /1/object/user/{pkiUserID}/getPermissions | Retrieve an existing User&#39;s Permissions
 [**userGetSubnetsV1**](ObjectUserAPI.md#usergetsubnetsv1) | **GET** /1/object/user/{pkiUserID}/getSubnets | Retrieve an existing User&#39;s Subnets
+[**userGetUsergroupexternalsV1**](ObjectUserAPI.md#usergetusergroupexternalsv1) | **GET** /1/object/user/{pkiUserID}/getUsergroupexternals | Get User&#39;s Usergroupexternals
+[**userGetUsergroupsV1**](ObjectUserAPI.md#usergetusergroupsv1) | **GET** /1/object/user/{pkiUserID}/getUsergroups | Get User&#39;s Usergroups
 [**userSendPasswordResetV1**](ObjectUserAPI.md#usersendpasswordresetv1) | **POST** /1/object/user/{pkiUserID}/sendPasswordReset | Send password reset
 
 
@@ -55,6 +58,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserCreateObjectV1Response**](UserCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userCreateObjectV2**
+```swift
+    open class func userCreateObjectV2(userCreateObjectV2Request: UserCreateObjectV2Request, completion: @escaping (_ data: UserCreateObjectV2Response?, _ error: Error?) -> Void)
+```
+
+Create a new User
+
+The endpoint allows to create one or many elements at once.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let userCreateObjectV2Request = user-createObject-v2-Request(aObjUser: [user-RequestCompoundV2(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompoundV2(pkiPhoneID: 123, fkiPhonetypeID: 123, sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV2Request | 
+
+// Create a new User
+ObjectUserAPI.userCreateObjectV2(userCreateObjectV2Request: userCreateObjectV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userCreateObjectV2Request** | [**UserCreateObjectV2Request**](UserCreateObjectV2Request.md) |  | 
+
+### Return type
+
+[**UserCreateObjectV2Response**](UserCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -517,6 +570,102 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserGetSubnetsV1Response**](UserGetSubnetsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userGetUsergroupexternalsV1**
+```swift
+    open class func userGetUsergroupexternalsV1(pkiUserID: Int, completion: @escaping (_ data: UserGetUsergroupexternalsV1Response?, _ error: Error?) -> Void)
+```
+
+Get User's Usergroupexternals
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUserID = 987 // Int | 
+
+// Get User's Usergroupexternals
+ObjectUserAPI.userGetUsergroupexternalsV1(pkiUserID: pkiUserID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUserID** | **Int** |  | 
+
+### Return type
+
+[**UserGetUsergroupexternalsV1Response**](UserGetUsergroupexternalsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userGetUsergroupsV1**
+```swift
+    open class func userGetUsergroupsV1(pkiUserID: Int, completion: @escaping (_ data: UserGetUsergroupsV1Response?, _ error: Error?) -> Void)
+```
+
+Get User's Usergroups
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUserID = 987 // Int | 
+
+// Get User's Usergroups
+ObjectUserAPI.userGetUsergroupsV1(pkiUserID: pkiUserID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUserID** | **Int** |  | 
+
+### Return type
+
+[**UserGetUsergroupsV1Response**](UserGetUsergroupsV1Response.md)
 
 ### Authorization
 

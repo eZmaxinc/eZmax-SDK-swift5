@@ -14,7 +14,7 @@ import AnyCodable
 public struct EzsigntemplatepackageResponse: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatepackage */
     public var pkiEzsigntemplatepackageID: Int
@@ -34,8 +34,10 @@ public struct EzsigntemplatepackageResponse: Codable, JSONEncodable, Hashable {
     public var bEzsigntemplatepackageIsactive: Bool
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String
+    /** Whether the Ezsigntemplatepackage if allowed to edit or not */
+    public var bEzsigntemplatepackageEditallowed: Bool
 
-    public init(pkiEzsigntemplatepackageID: Int, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplatepackageDescription: String, bEzsigntemplatepackageAdminonly: Bool, bEzsigntemplatepackageNeedvalidation: Bool, bEzsigntemplatepackageIsactive: Bool, sEzsignfoldertypeNameX: String) {
+    public init(pkiEzsigntemplatepackageID: Int, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplatepackageDescription: String, bEzsigntemplatepackageAdminonly: Bool, bEzsigntemplatepackageNeedvalidation: Bool, bEzsigntemplatepackageIsactive: Bool, sEzsignfoldertypeNameX: String, bEzsigntemplatepackageEditallowed: Bool) {
         self.pkiEzsigntemplatepackageID = pkiEzsigntemplatepackageID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiLanguageID = fkiLanguageID
@@ -45,6 +47,7 @@ public struct EzsigntemplatepackageResponse: Codable, JSONEncodable, Hashable {
         self.bEzsigntemplatepackageNeedvalidation = bEzsigntemplatepackageNeedvalidation
         self.bEzsigntemplatepackageIsactive = bEzsigntemplatepackageIsactive
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
+        self.bEzsigntemplatepackageEditallowed = bEzsigntemplatepackageEditallowed
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -57,6 +60,7 @@ public struct EzsigntemplatepackageResponse: Codable, JSONEncodable, Hashable {
         case bEzsigntemplatepackageNeedvalidation
         case bEzsigntemplatepackageIsactive
         case sEzsignfoldertypeNameX
+        case bEzsigntemplatepackageEditallowed
     }
 
     // Encodable protocol methods
@@ -72,6 +76,7 @@ public struct EzsigntemplatepackageResponse: Codable, JSONEncodable, Hashable {
         try container.encode(bEzsigntemplatepackageNeedvalidation, forKey: .bEzsigntemplatepackageNeedvalidation)
         try container.encode(bEzsigntemplatepackageIsactive, forKey: .bEzsigntemplatepackageIsactive)
         try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
+        try container.encode(bEzsigntemplatepackageEditallowed, forKey: .bEzsigntemplatepackageEditallowed)
     }
 }
 

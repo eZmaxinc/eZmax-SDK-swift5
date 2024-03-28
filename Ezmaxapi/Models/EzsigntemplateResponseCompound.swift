@@ -15,38 +15,47 @@ public struct EzsigntemplateResponseCompound: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsigntemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsigntemplateFilenamepatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
     /** The unique ID of the Ezsigntemplate */
     public var pkiEzsigntemplateID: Int
     /** The unique ID of the Ezsigntemplatedocument */
     public var fkiEzsigntemplatedocumentID: Int?
     /** The unique ID of the Ezsignfoldertype. */
-    public var fkiEzsignfoldertypeID: Int
+    public var fkiEzsignfoldertypeID: Int?
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
     /** The Name of the Language in the language of the requester */
     public var sLanguageNameX: String
     /** The description of the Ezsigntemplate */
     public var sEzsigntemplateDescription: String
+    /** The filename pattern of the Ezsigntemplate */
+    public var sEzsigntemplateFilenamepattern: String?
     /** Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal) */
     public var bEzsigntemplateAdminonly: Bool
     /** The name of the Ezsignfoldertype in the language of the requester */
-    public var sEzsignfoldertypeNameX: String
+    public var sEzsignfoldertypeNameX: String?
     public var objAudit: CommonAudit
+    /** Whether the Ezsigntemplate if allowed to edit or not */
+    public var bEzsigntemplateEditallowed: Bool
+    public var eEzsigntemplateType: FieldEEzsigntemplateType?
     public var objEzsigntemplatedocument: EzsigntemplatedocumentResponse?
     public var aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]
 
-    public init(pkiEzsigntemplateID: Int, fkiEzsigntemplatedocumentID: Int? = nil, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplateDescription: String, bEzsigntemplateAdminonly: Bool, sEzsignfoldertypeNameX: String, objAudit: CommonAudit, objEzsigntemplatedocument: EzsigntemplatedocumentResponse? = nil, aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]) {
+    public init(pkiEzsigntemplateID: Int, fkiEzsigntemplatedocumentID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplateDescription: String, sEzsigntemplateFilenamepattern: String? = nil, bEzsigntemplateAdminonly: Bool, sEzsignfoldertypeNameX: String? = nil, objAudit: CommonAudit, bEzsigntemplateEditallowed: Bool, eEzsigntemplateType: FieldEEzsigntemplateType? = nil, objEzsigntemplatedocument: EzsigntemplatedocumentResponse? = nil, aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]) {
         self.pkiEzsigntemplateID = pkiEzsigntemplateID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.fkiLanguageID = fkiLanguageID
         self.sLanguageNameX = sLanguageNameX
         self.sEzsigntemplateDescription = sEzsigntemplateDescription
+        self.sEzsigntemplateFilenamepattern = sEzsigntemplateFilenamepattern
         self.bEzsigntemplateAdminonly = bEzsigntemplateAdminonly
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.objAudit = objAudit
+        self.bEzsigntemplateEditallowed = bEzsigntemplateEditallowed
+        self.eEzsigntemplateType = eEzsigntemplateType
         self.objEzsigntemplatedocument = objEzsigntemplatedocument
         self.aObjEzsigntemplatesigner = aObjEzsigntemplatesigner
     }
@@ -58,9 +67,12 @@ public struct EzsigntemplateResponseCompound: Codable, JSONEncodable, Hashable {
         case fkiLanguageID
         case sLanguageNameX
         case sEzsigntemplateDescription
+        case sEzsigntemplateFilenamepattern
         case bEzsigntemplateAdminonly
         case sEzsignfoldertypeNameX
         case objAudit
+        case bEzsigntemplateEditallowed
+        case eEzsigntemplateType
         case objEzsigntemplatedocument
         case aObjEzsigntemplatesigner = "a_objEzsigntemplatesigner"
     }
@@ -71,13 +83,16 @@ public struct EzsigntemplateResponseCompound: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsigntemplateID, forKey: .pkiEzsigntemplateID)
         try container.encodeIfPresent(fkiEzsigntemplatedocumentID, forKey: .fkiEzsigntemplatedocumentID)
-        try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(sLanguageNameX, forKey: .sLanguageNameX)
         try container.encode(sEzsigntemplateDescription, forKey: .sEzsigntemplateDescription)
+        try container.encodeIfPresent(sEzsigntemplateFilenamepattern, forKey: .sEzsigntemplateFilenamepattern)
         try container.encode(bEzsigntemplateAdminonly, forKey: .bEzsigntemplateAdminonly)
-        try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
+        try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encode(objAudit, forKey: .objAudit)
+        try container.encode(bEzsigntemplateEditallowed, forKey: .bEzsigntemplateEditallowed)
+        try container.encodeIfPresent(eEzsigntemplateType, forKey: .eEzsigntemplateType)
         try container.encodeIfPresent(objEzsigntemplatedocument, forKey: .objEzsigntemplatedocument)
         try container.encode(aObjEzsigntemplatesigner, forKey: .aObjEzsigntemplatesigner)
     }

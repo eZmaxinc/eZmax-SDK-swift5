@@ -30,6 +30,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     public enum EEzsigndocumentForm: String, Codable, CaseIterable {
         case keep = "Keep"
         case convert = "Convert"
+        case discard = "Discard"
     }
     static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -59,7 +60,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     public var bEzsigndocumentForcerepair: Bool? = true
     /** If the source document is password protected, the password to open/modify it. */
     public var sEzsigndocumentPassword: String?
-    /** If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID** */
+    /** If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**  **Discard** removes the form from the document. */
     public var eEzsigndocumentForm: EEzsigndocumentForm?
     /** The maximum date and time at which the Ezsigndocument can be signed. */
     public var dtEzsigndocumentDuedate: String

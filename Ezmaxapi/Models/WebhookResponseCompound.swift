@@ -13,7 +13,7 @@ import AnyCodable
 /** A Webhook Object */
 public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int
     /** The description of the Webhook */
@@ -42,8 +42,9 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
     public var objAudit: CommonAudit
     /** The concatenated string to describe the Webhook event */
     public var sWebhookEvent: String?
+    public var aObjWebhookheader: [WebhookheaderResponseCompound]?
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, objAudit: CommonAudit, sWebhookEvent: String? = nil) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, objAudit: CommonAudit, sWebhookEvent: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -60,6 +61,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
         self.objAudit = objAudit
         self.sWebhookEvent = sWebhookEvent
+        self.aObjWebhookheader = aObjWebhookheader
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -79,6 +81,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         case bWebhookSkipsslvalidation
         case objAudit
         case sWebhookEvent
+        case aObjWebhookheader = "a_objWebhookheader"
     }
 
     // Encodable protocol methods
@@ -101,6 +104,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
         try container.encode(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sWebhookEvent, forKey: .sWebhookEvent)
+        try container.encodeIfPresent(aObjWebhookheader, forKey: .aObjWebhookheader)
     }
 }
 
