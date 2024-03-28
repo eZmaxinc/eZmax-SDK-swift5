@@ -31,7 +31,7 @@ This endpoint creates an Url that can be used in a browser or embedded in an I-F
 import OpenAPIClient
 
 let pkiEzsignfoldersignerassociationID = 987 // Int | 
-let ezsignfoldersignerassociationCreateEmbeddedUrlV1Request = ezsignfoldersignerassociation-createEmbeddedUrl-v1-Request(sReturnUrl: "sReturnUrl_example", sIframedomain: "sIframedomain_example", bIsiframe: false) // EzsignfoldersignerassociationCreateEmbeddedUrlV1Request | 
+let ezsignfoldersignerassociationCreateEmbeddedUrlV1Request = ezsignfoldersignerassociation-createEmbeddedUrl-v1-Request(sReturnUrl: "sReturnUrl_example", sIframedomain: "sIframedomain_example", bIsIframe: false) // EzsignfoldersignerassociationCreateEmbeddedUrlV1Request | 
 
 // Creates an Url to allow embedded signing
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateEmbeddedUrlV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV1Request: ezsignfoldersignerassociationCreateEmbeddedUrlV1Request) { (response, error) in

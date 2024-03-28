@@ -20,18 +20,18 @@ public struct EzsignfoldersignerassociationCreateEmbeddedUrlV1Request: Codable, 
     /** Domain protection for the iFrame */
     public var sIframedomain: String?
     /** Whether the url would be in an iFrame or not */
-    public var bIsiframe: Bool?
+    public var bIsIframe: Bool?
 
-    public init(sReturnUrl: String? = nil, sIframedomain: String? = nil, bIsiframe: Bool? = nil) {
+    public init(sReturnUrl: String? = nil, sIframedomain: String? = nil, bIsIframe: Bool? = nil) {
         self.sReturnUrl = sReturnUrl
         self.sIframedomain = sIframedomain
-        self.bIsiframe = bIsiframe
+        self.bIsIframe = bIsIframe
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case sReturnUrl
         case sIframedomain
-        case bIsiframe
+        case bIsIframe
     }
 
     // Encodable protocol methods
@@ -40,7 +40,7 @@ public struct EzsignfoldersignerassociationCreateEmbeddedUrlV1Request: Codable, 
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(sReturnUrl, forKey: .sReturnUrl)
         try container.encodeIfPresent(sIframedomain, forKey: .sIframedomain)
-        try container.encodeIfPresent(bIsiframe, forKey: .bIsiframe)
+        try container.encodeIfPresent(bIsIframe, forKey: .bIsIframe)
     }
 }
 
