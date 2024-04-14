@@ -13,8 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsignfoldersignerassociation/createEmbeddedUrl */
 public struct EzsignfoldersignerassociationCreateEmbeddedUrlV1Request: Codable, JSONEncodable, Hashable {
 
-    static let sReturnUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,2048}$/")
-    static let sIframedomainRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,2048}$/")
+    static let sReturnUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     /** The return Url to redirect after the signing is completed */
     public var sReturnUrl: String?
     /** Domain protection for the iFrame */

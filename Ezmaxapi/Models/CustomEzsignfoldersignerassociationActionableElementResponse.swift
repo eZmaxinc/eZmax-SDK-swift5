@@ -25,6 +25,8 @@ public struct CustomEzsignfoldersignerassociationActionableElementResponse: Coda
     public var bEzsignfoldersignerassociationReceivecopy: Bool
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfoldersignerassociationMessage: String
+    /** If the Ezsignfoldersignerassociation is allowed to sign in person or not */
+    public var bEzsignfoldersignerassociationAllowsigninginperson: Bool
     public var objEzsignsignergroup: EzsignsignergroupResponseCompound?
     public var objUser: EzsignfoldersignerassociationResponseCompoundUser?
     public var objEzsignsigner: EzsignsignerResponseCompound?
@@ -33,12 +35,13 @@ public struct CustomEzsignfoldersignerassociationActionableElementResponse: Coda
     /** Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step */
     public var bEzsignfoldersignerassociationHasactionableelementsFuture: Bool
 
-    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationDelayedsend: Bool, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String, objEzsignsignergroup: EzsignsignergroupResponseCompound? = nil, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil, bEzsignfoldersignerassociationHasactionableelementsCurrent: Bool, bEzsignfoldersignerassociationHasactionableelementsFuture: Bool) {
+    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationDelayedsend: Bool, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String, bEzsignfoldersignerassociationAllowsigninginperson: Bool, objEzsignsignergroup: EzsignsignergroupResponseCompound? = nil, objUser: EzsignfoldersignerassociationResponseCompoundUser? = nil, objEzsignsigner: EzsignsignerResponseCompound? = nil, bEzsignfoldersignerassociationHasactionableelementsCurrent: Bool, bEzsignfoldersignerassociationHasactionableelementsFuture: Bool) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationDelayedsend = bEzsignfoldersignerassociationDelayedsend
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
         self.tEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
+        self.bEzsignfoldersignerassociationAllowsigninginperson = bEzsignfoldersignerassociationAllowsigninginperson
         self.objEzsignsignergroup = objEzsignsignergroup
         self.objUser = objUser
         self.objEzsignsigner = objEzsignsigner
@@ -52,6 +55,7 @@ public struct CustomEzsignfoldersignerassociationActionableElementResponse: Coda
         case bEzsignfoldersignerassociationDelayedsend
         case bEzsignfoldersignerassociationReceivecopy
         case tEzsignfoldersignerassociationMessage
+        case bEzsignfoldersignerassociationAllowsigninginperson
         case objEzsignsignergroup
         case objUser
         case objEzsignsigner
@@ -68,6 +72,7 @@ public struct CustomEzsignfoldersignerassociationActionableElementResponse: Coda
         try container.encode(bEzsignfoldersignerassociationDelayedsend, forKey: .bEzsignfoldersignerassociationDelayedsend)
         try container.encode(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
         try container.encode(tEzsignfoldersignerassociationMessage, forKey: .tEzsignfoldersignerassociationMessage)
+        try container.encode(bEzsignfoldersignerassociationAllowsigninginperson, forKey: .bEzsignfoldersignerassociationAllowsigninginperson)
         try container.encodeIfPresent(objEzsignsignergroup, forKey: .objEzsignsignergroup)
         try container.encodeIfPresent(objUser, forKey: .objUser)
         try container.encodeIfPresent(objEzsignsigner, forKey: .objEzsignsigner)

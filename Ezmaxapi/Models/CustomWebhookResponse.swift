@@ -14,6 +14,7 @@ import AnyCodable
 public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
 
     static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int

@@ -14,6 +14,7 @@ import AnyCodable
 public struct UserstagedListElement: Codable, JSONEncodable, Hashable {
 
     static let pkiUserstagedIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     static let sUserstagedFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
     static let sUserstagedLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
     static let sUserstagedExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,60}$/")

@@ -22,6 +22,7 @@ public struct BrandingRequest: Codable, JSONEncodable, Hashable {
     static let iBrandingColorbackgroundsmallboxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let iBrandingInterfacecolorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let sBrandingNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
+    static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     /** The unique ID of the Branding */
     public var pkiBrandingID: Int?
     public var objBrandingDescription: MultilingualBrandingDescription

@@ -13,6 +13,7 @@ import AnyCodable
 /** A Communicationexternalrecipient Object and children */
 public struct CommunicationexternalrecipientRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     static let sPhoneE164Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\+[1-9]\\d{1,14}$/")
     static let sCommunicationexternalrecipientNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Communicationexternalrecipient */

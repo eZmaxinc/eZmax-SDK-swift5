@@ -23,6 +23,8 @@ public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hash
     public var aRequiredPermission: [Int]
     /** Wheter the current route is deprecated or not */
     public var bVersionDeprecated: Bool
+    /** Represent a Date Time. The timezone is the one configured in the User's profile. */
+    public var dtResponseDate: String
     public var aFilter: CommonResponseFilter
     /** List of available values for *eOrderBy* */
     public var aOrderBy: [String: String]
@@ -31,11 +33,12 @@ public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hash
     /** The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100, */
     public var iRowOffset: Int = 0
 
-    public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermission: [Int], bVersionDeprecated: Bool, aFilter: CommonResponseFilter, aOrderBy: [String: String], iRowMax: Int, iRowOffset: Int = 0) {
+    public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermission: [Int], bVersionDeprecated: Bool, dtResponseDate: String, aFilter: CommonResponseFilter, aOrderBy: [String: String], iRowMax: Int, iRowOffset: Int = 0) {
         self.iVersionMin = iVersionMin
         self.iVersionMax = iVersionMax
         self.aRequiredPermission = aRequiredPermission
         self.bVersionDeprecated = bVersionDeprecated
+        self.dtResponseDate = dtResponseDate
         self.aFilter = aFilter
         self.aOrderBy = aOrderBy
         self.iRowMax = iRowMax
@@ -47,6 +50,7 @@ public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hash
         case iVersionMax
         case aRequiredPermission = "a_RequiredPermission"
         case bVersionDeprecated
+        case dtResponseDate
         case aFilter = "a_Filter"
         case aOrderBy = "a_OrderBy"
         case iRowMax
@@ -61,6 +65,7 @@ public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hash
         try container.encode(iVersionMax, forKey: .iVersionMax)
         try container.encode(aRequiredPermission, forKey: .aRequiredPermission)
         try container.encode(bVersionDeprecated, forKey: .bVersionDeprecated)
+        try container.encode(dtResponseDate, forKey: .dtResponseDate)
         try container.encode(aFilter, forKey: .aFilter)
         try container.encode(aOrderBy, forKey: .aOrderBy)
         try container.encode(iRowMax, forKey: .iRowMax)

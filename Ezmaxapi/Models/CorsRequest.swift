@@ -15,7 +15,7 @@ public struct CorsRequest: Codable, JSONEncodable, Hashable {
 
     static let pkiCorsIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sCorsEntryurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,2048}$/")
+    static let sCorsEntryurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     /** The unique ID of the Cors */
     public var pkiCorsID: Int?
     /** The unique ID of the Apikey */

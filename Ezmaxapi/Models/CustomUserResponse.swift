@@ -14,6 +14,7 @@ import AnyCodable
 public struct CustomUserResponse: Codable, JSONEncodable, Hashable {
 
     static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     /** The unique ID of the User */
     public var pkiUserID: Int
     /** The last name of the user */

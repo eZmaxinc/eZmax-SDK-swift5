@@ -21,12 +21,15 @@ public struct CommonResponseObjDebugPayload: Codable, JSONEncodable, Hashable {
     public var aRequiredPermission: [Int]
     /** Wheter the current route is deprecated or not */
     public var bVersionDeprecated: Bool
+    /** Represent a Date Time. The timezone is the one configured in the User's profile. */
+    public var dtResponseDate: String
 
-    public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermission: [Int], bVersionDeprecated: Bool) {
+    public init(iVersionMin: Int, iVersionMax: Int, aRequiredPermission: [Int], bVersionDeprecated: Bool, dtResponseDate: String) {
         self.iVersionMin = iVersionMin
         self.iVersionMax = iVersionMax
         self.aRequiredPermission = aRequiredPermission
         self.bVersionDeprecated = bVersionDeprecated
+        self.dtResponseDate = dtResponseDate
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -34,6 +37,7 @@ public struct CommonResponseObjDebugPayload: Codable, JSONEncodable, Hashable {
         case iVersionMax
         case aRequiredPermission = "a_RequiredPermission"
         case bVersionDeprecated
+        case dtResponseDate
     }
 
     // Encodable protocol methods
@@ -44,6 +48,7 @@ public struct CommonResponseObjDebugPayload: Codable, JSONEncodable, Hashable {
         try container.encode(iVersionMax, forKey: .iVersionMax)
         try container.encode(aRequiredPermission, forKey: .aRequiredPermission)
         try container.encode(bVersionDeprecated, forKey: .bVersionDeprecated)
+        try container.encode(dtResponseDate, forKey: .dtResponseDate)
     }
 }
 

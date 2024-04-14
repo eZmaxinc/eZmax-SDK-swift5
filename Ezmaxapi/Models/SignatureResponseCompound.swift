@@ -14,7 +14,7 @@ import AnyCodable
 public struct SignatureResponseCompound: Codable, JSONEncodable, Hashable {
 
     static let pkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let sSignatureUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,2048}$/")
+    static let sSignatureUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     /** The unique ID of the Signature */
     public var pkiSignatureID: Int
     /** The URL of the SVG file for the Signature */

@@ -25,13 +25,16 @@ public struct EzsignfoldersignerassociationResponse: Codable, JSONEncodable, Has
     public var bEzsignfoldersignerassociationReceivecopy: Bool
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfoldersignerassociationMessage: String
+    /** If the Ezsignfoldersignerassociation is allowed to sign in person or not */
+    public var bEzsignfoldersignerassociationAllowsigninginperson: Bool
 
-    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationDelayedsend: Bool, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String) {
+    public init(pkiEzsignfoldersignerassociationID: Int, fkiEzsignfolderID: Int, bEzsignfoldersignerassociationDelayedsend: Bool, bEzsignfoldersignerassociationReceivecopy: Bool, tEzsignfoldersignerassociationMessage: String, bEzsignfoldersignerassociationAllowsigninginperson: Bool) {
         self.pkiEzsignfoldersignerassociationID = pkiEzsignfoldersignerassociationID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.bEzsignfoldersignerassociationDelayedsend = bEzsignfoldersignerassociationDelayedsend
         self.bEzsignfoldersignerassociationReceivecopy = bEzsignfoldersignerassociationReceivecopy
         self.tEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
+        self.bEzsignfoldersignerassociationAllowsigninginperson = bEzsignfoldersignerassociationAllowsigninginperson
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -40,6 +43,7 @@ public struct EzsignfoldersignerassociationResponse: Codable, JSONEncodable, Has
         case bEzsignfoldersignerassociationDelayedsend
         case bEzsignfoldersignerassociationReceivecopy
         case tEzsignfoldersignerassociationMessage
+        case bEzsignfoldersignerassociationAllowsigninginperson
     }
 
     // Encodable protocol methods
@@ -51,6 +55,7 @@ public struct EzsignfoldersignerassociationResponse: Codable, JSONEncodable, Has
         try container.encode(bEzsignfoldersignerassociationDelayedsend, forKey: .bEzsignfoldersignerassociationDelayedsend)
         try container.encode(bEzsignfoldersignerassociationReceivecopy, forKey: .bEzsignfoldersignerassociationReceivecopy)
         try container.encode(tEzsignfoldersignerassociationMessage, forKey: .tEzsignfoldersignerassociationMessage)
+        try container.encode(bEzsignfoldersignerassociationAllowsigninginperson, forKey: .bEzsignfoldersignerassociationAllowsigninginperson)
     }
 }
 
