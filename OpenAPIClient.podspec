@@ -4,8 +4,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.13'
   s.tvos.deployment_target = '11.0'
   s.watchos.deployment_target = '4.0'
-  s.version = '1.2.0'
-  s.source = { :git => 'git@github.com:OpenAPITools/openapi-generator.git', :tag => 'v1.2.0' }
+  s.version = '1.2.1'
+  s.source = { :git => 'git@github.com:OpenAPITools/openapi-generator.git', :tag => 'v1.2.1' }
   s.authors = 'eZmax Solutions inc.'
   s.license = 'Proprietary'
   s.homepage = 'https://github.com/eZmaxinc/eZmax-SDK-swift5'
