@@ -168,6 +168,7 @@ open class ObjectSignatureAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func signatureGetObjectV2(pkiSignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SignatureGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return signatureGetObjectV2WithRequestBuilder(pkiSignatureID: pkiSignatureID).execute(apiResponseQueue) { result in
@@ -190,6 +191,7 @@ open class ObjectSignatureAPI {
      - parameter pkiSignatureID: (path) The unique ID of the Signature 
      - returns: RequestBuilder<SignatureGetObjectV2Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func signatureGetObjectV2WithRequestBuilder(pkiSignatureID: Int) -> RequestBuilder<SignatureGetObjectV2Response> {
         var localVariablePath = "/2/object/signature/{pkiSignatureID}"
         let pkiSignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSignatureID))"
@@ -207,6 +209,156 @@ open class ObjectSignatureAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<SignatureGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Signature
+     
+     - parameter pkiSignatureID: (path) The unique ID of the Signature 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func signatureGetObjectV3(pkiSignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SignatureGetObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return signatureGetObjectV3WithRequestBuilder(pkiSignatureID: pkiSignatureID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Signature
+     - GET /3/object/signature/{pkiSignatureID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSignatureID: (path) The unique ID of the Signature 
+     - returns: RequestBuilder<SignatureGetObjectV3Response> 
+     */
+    open class func signatureGetObjectV3WithRequestBuilder(pkiSignatureID: Int) -> RequestBuilder<SignatureGetObjectV3Response> {
+        var localVariablePath = "/3/object/signature/{pkiSignatureID}"
+        let pkiSignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSignatureID))"
+        let pkiSignatureIDPostEscape = pkiSignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSignatureID}", with: pkiSignatureIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SignatureGetObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Signature initial SVG
+     
+     - parameter pkiSignatureID: (path) The unique ID of the Signature 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func signatureGetSVGInitialsV1(pkiSignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return signatureGetSVGInitialsV1WithRequestBuilder(pkiSignatureID: pkiSignatureID).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Signature initial SVG
+     - GET /1/object/signature/{pkiSignatureID}/getSVGInitials
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSignatureID: (path) The unique ID of the Signature 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func signatureGetSVGInitialsV1WithRequestBuilder(pkiSignatureID: Int) -> RequestBuilder<Void> {
+        var localVariablePath = "/1/object/signature/{pkiSignatureID}/getSVGInitials"
+        let pkiSignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSignatureID))"
+        let pkiSignatureIDPostEscape = pkiSignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSignatureID}", with: pkiSignatureIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Signature SVG
+     
+     - parameter pkiSignatureID: (path) The unique ID of the Signature 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func signatureGetSVGSignatureV1(pkiSignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return signatureGetSVGSignatureV1WithRequestBuilder(pkiSignatureID: pkiSignatureID).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Signature SVG
+     - GET /1/object/signature/{pkiSignatureID}/getSVGSignature
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSignatureID: (path) The unique ID of the Signature 
+     - returns: RequestBuilder<Void> 
+     */
+    open class func signatureGetSVGSignatureV1WithRequestBuilder(pkiSignatureID: Int) -> RequestBuilder<Void> {
+        var localVariablePath = "/1/object/signature/{pkiSignatureID}/getSVGSignature"
+        let pkiSignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSignatureID))"
+        let pkiSignatureIDPostEscape = pkiSignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSignatureID}", with: pkiSignatureIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

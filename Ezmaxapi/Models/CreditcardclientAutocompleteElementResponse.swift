@@ -19,19 +19,15 @@ public struct CreditcardclientAutocompleteElementResponse: Codable, JSONEncodabl
     public var pkiCreditcardclientID: Int
     /** The description of the Creditcardclient */
     public var sCreditcardclientDescription: String
-    /** Whether the creditcardclient is active or not */
-    public var bCreditcardclientIsactive: Bool
 
-    public init(pkiCreditcardclientID: Int, sCreditcardclientDescription: String, bCreditcardclientIsactive: Bool) {
+    public init(pkiCreditcardclientID: Int, sCreditcardclientDescription: String) {
         self.pkiCreditcardclientID = pkiCreditcardclientID
         self.sCreditcardclientDescription = sCreditcardclientDescription
-        self.bCreditcardclientIsactive = bCreditcardclientIsactive
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCreditcardclientID
         case sCreditcardclientDescription
-        case bCreditcardclientIsactive
     }
 
     // Encodable protocol methods
@@ -40,7 +36,6 @@ public struct CreditcardclientAutocompleteElementResponse: Codable, JSONEncodabl
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCreditcardclientID, forKey: .pkiCreditcardclientID)
         try container.encode(sCreditcardclientDescription, forKey: .sCreditcardclientDescription)
-        try container.encode(bCreditcardclientIsactive, forKey: .bCreditcardclientIsactive)
     }
 }
 

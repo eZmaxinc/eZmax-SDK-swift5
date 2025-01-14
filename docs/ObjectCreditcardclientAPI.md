@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**creditcardclientGetAutocompleteV2**](ObjectCreditcardclientAPI.md#creditcardclientgetautocompletev2) | **GET** /2/object/creditcardclient/getAutocomplete/{sSelector} | Retrieve Creditcardclients and IDs
 [**creditcardclientGetListV1**](ObjectCreditcardclientAPI.md#creditcardclientgetlistv1) | **GET** /1/object/creditcardclient/getList | Retrieve Creditcardclient list
 [**creditcardclientGetObjectV2**](ObjectCreditcardclientAPI.md#creditcardclientgetobjectv2) | **GET** /2/object/creditcardclient/{pkiCreditcardclientID} | Retrieve an existing Creditcardclient
+[**creditcardclientPatchObjectV1**](ObjectCreditcardclientAPI.md#creditcardclientpatchobjectv1) | **PATCH** /1/object/creditcardclient/{pkiCreditcardclientID} | Patch an existing Creditcardclient
 
 
 # **creditcardclientCreateObjectV1**
@@ -26,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let creditcardclientCreateObjectV1Request = creditcardclient-createObject-v1-Request(aObjCreditcardclient: [creditcardclient-RequestCompound(pkiCreditcardclientID: 123, fksCreditcardtokenID: "fksCreditcardtokenID_example", bCreditcardclientrelationIsdefault: true, sCreditcardclientDescription: "sCreditcardclientDescription_example", bCreditcardclientIsactive: true, bCreditcardclientAllowedagencypayment: true, bCreditcardclientAllowedroyallepageprotection: true, bCreditcardclientAllowedtranquillit: true, objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example"), sCreditcardclientCVV: "sCreditcardclientCVV_example")]) // CreditcardclientCreateObjectV1Request | 
+let creditcardclientCreateObjectV1Request = creditcardclient-createObject-v1-Request(aObjCreditcardclient: [creditcardclient-RequestCompound(pkiCreditcardclientID: 123, fksCreditcardtokenID: "fksCreditcardtokenID_example", bCreditcardclientrelationIsdefault: true, sCreditcardclientDescription: "sCreditcardclientDescription_example", bCreditcardclientAllowedcompanypayment: true, bCreditcardclientAllowedezsign: true, bCreditcardclientAllowedtranquillit: true, objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example"), sCreditcardclientCVV: "sCreditcardclientCVV_example")]) // CreditcardclientCreateObjectV1Request | 
 
 // Create a new Creditcardclient
 ObjectCreditcardclientAPI.creditcardclientCreateObjectV1(creditcardclientCreateObjectV1Request: creditcardclientCreateObjectV1Request) { (response, error) in
@@ -127,7 +128,7 @@ Edit an existing Creditcardclient
 import OpenAPIClient
 
 let pkiCreditcardclientID = 987 // Int | The unique ID of the Creditcardclient
-let creditcardclientEditObjectV1Request = creditcardclient-editObject-v1-Request(objCreditcardclient: creditcardclient-RequestCompound(pkiCreditcardclientID: 123, fksCreditcardtokenID: "fksCreditcardtokenID_example", bCreditcardclientrelationIsdefault: true, sCreditcardclientDescription: "sCreditcardclientDescription_example", bCreditcardclientIsactive: true, bCreditcardclientAllowedagencypayment: true, bCreditcardclientAllowedroyallepageprotection: true, bCreditcardclientAllowedtranquillit: true, objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example"), sCreditcardclientCVV: "sCreditcardclientCVV_example")) // CreditcardclientEditObjectV1Request | 
+let creditcardclientEditObjectV1Request = creditcardclient-editObject-v1-Request(objCreditcardclient: creditcardclient-RequestCompound(pkiCreditcardclientID: 123, fksCreditcardtokenID: "fksCreditcardtokenID_example", bCreditcardclientrelationIsdefault: true, sCreditcardclientDescription: "sCreditcardclientDescription_example", bCreditcardclientAllowedcompanypayment: true, bCreditcardclientAllowedezsign: true, bCreditcardclientAllowedtranquillit: true, objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example"), sCreditcardclientCVV: "sCreditcardclientCVV_example")) // CreditcardclientEditObjectV1Request | 
 
 // Edit an existing Creditcardclient
 ObjectCreditcardclientAPI.creditcardclientEditObjectV1(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientEditObjectV1Request: creditcardclientEditObjectV1Request) { (response, error) in
@@ -324,6 +325,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **creditcardclientPatchObjectV1**
+```swift
+    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, completion: @escaping (_ data: CreditcardclientPatchObjectV1Response?, _ error: Error?) -> Void)
+```
+
+Patch an existing Creditcardclient
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiCreditcardclientID = 987 // Int | The unique ID of the Creditcardclient
+let creditcardclientPatchObjectV1Request = creditcardclient-patchObject-v1-Request(objCreditcardclient: creditcardclient-RequestPatch(bCreditcardclientrelationIsdefault: true)) // CreditcardclientPatchObjectV1Request | 
+
+// Patch an existing Creditcardclient
+ObjectCreditcardclientAPI.creditcardclientPatchObjectV1(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientPatchObjectV1Request: creditcardclientPatchObjectV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiCreditcardclientID** | **Int** | The unique ID of the Creditcardclient | 
+ **creditcardclientPatchObjectV1Request** | [**CreditcardclientPatchObjectV1Request**](CreditcardclientPatchObjectV1Request.md) |  | 
+
+### Return type
+
+[**CreditcardclientPatchObjectV1Response**](CreditcardclientPatchObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

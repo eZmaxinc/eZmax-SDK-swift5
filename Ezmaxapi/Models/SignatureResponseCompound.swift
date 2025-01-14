@@ -14,20 +14,30 @@ import AnyCodable
 public struct SignatureResponseCompound: Codable, JSONEncodable, Hashable {
 
     static let pkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sSignatureUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    static let sSignatureUrlinitialsRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     /** The unique ID of the Signature */
     public var pkiSignatureID: Int
+    /** The unique ID of the Font */
+    public var fkiFontID: Int?
     /** The URL of the SVG file for the Signature */
-    public var sSignatureUrl: String
+    public var sSignatureUrl: String?
+    /** The URL of the SVG file for the Initials */
+    public var sSignatureUrlinitials: String?
 
-    public init(pkiSignatureID: Int, sSignatureUrl: String) {
+    public init(pkiSignatureID: Int, fkiFontID: Int? = nil, sSignatureUrl: String? = nil, sSignatureUrlinitials: String? = nil) {
         self.pkiSignatureID = pkiSignatureID
+        self.fkiFontID = fkiFontID
         self.sSignatureUrl = sSignatureUrl
+        self.sSignatureUrlinitials = sSignatureUrlinitials
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiSignatureID
+        case fkiFontID
         case sSignatureUrl
+        case sSignatureUrlinitials
     }
 
     // Encodable protocol methods
@@ -35,7 +45,9 @@ public struct SignatureResponseCompound: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiSignatureID, forKey: .pkiSignatureID)
-        try container.encode(sSignatureUrl, forKey: .sSignatureUrl)
+        try container.encodeIfPresent(fkiFontID, forKey: .fkiFontID)
+        try container.encodeIfPresent(sSignatureUrl, forKey: .sSignatureUrl)
+        try container.encodeIfPresent(sSignatureUrlinitials, forKey: .sSignatureUrlinitials)
     }
 }
 

@@ -63,6 +63,56 @@ open class ObjectInscriptionAPI {
     }
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiInscriptionID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionGetCommunicationCountV1(pkiInscriptionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptionGetCommunicationCountV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionGetCommunicationCountV1WithRequestBuilder(pkiInscriptionID: pkiInscriptionID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/inscription/{pkiInscriptionID}/getCommunicationCount
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionID: (path)  
+     - returns: RequestBuilder<InscriptionGetCommunicationCountV1Response> 
+     */
+    open class func inscriptionGetCommunicationCountV1WithRequestBuilder(pkiInscriptionID: Int) -> RequestBuilder<InscriptionGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/inscription/{pkiInscriptionID}/getCommunicationCount"
+        let pkiInscriptionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionID))"
+        let pkiInscriptionIDPostEscape = pkiInscriptionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionID}", with: pkiInscriptionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionGetCommunicationCountV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication list
      
      - parameter pkiInscriptionID: (path)  
@@ -108,6 +158,56 @@ open class ObjectInscriptionAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<InscriptionGetCommunicationListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Inscription's Communicationrecipient
+     
+     - parameter pkiInscriptionID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionGetCommunicationrecipientsV1(pkiInscriptionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptionGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionGetCommunicationrecipientsV1WithRequestBuilder(pkiInscriptionID: pkiInscriptionID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Inscription's Communicationrecipient
+     - GET /1/object/inscription/{pkiInscriptionID}/getCommunicationrecipients
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionID: (path)  
+     - returns: RequestBuilder<InscriptionGetCommunicationrecipientsV1Response> 
+     */
+    open class func inscriptionGetCommunicationrecipientsV1WithRequestBuilder(pkiInscriptionID: Int) -> RequestBuilder<InscriptionGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/inscription/{pkiInscriptionID}/getCommunicationrecipients"
+        let pkiInscriptionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionID))"
+        let pkiInscriptionIDPostEscape = pkiInscriptionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionID}", with: pkiInscriptionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionGetCommunicationrecipientsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

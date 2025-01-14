@@ -11,6 +11,7 @@ import AnyCodable
 #endif
 
 /** Frequency at which reminders will be sent to signers that haven&#39;t signed the documents */
+@available(*, deprecated, message: "This schema is deprecated.")
 public enum FieldEEzsignfolderSendreminderfrequency: String, Codable, CaseIterable {
     case _none = "None"
     case daily = "Daily"

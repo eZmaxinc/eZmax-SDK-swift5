@@ -15,23 +15,45 @@ public struct EzsigntemplatesignerRequest: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsigntemplatesignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzdoctemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsigntemplatesignerDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
     /** The unique ID of the Ezsigntemplatesigner */
     public var pkiEzsigntemplatesignerID: Int?
     /** The unique ID of the Ezsigntemplate */
     public var fkiEzsigntemplateID: Int
+    /** The unique ID of the User */
+    public var fkiUserID: Int?
+    /** The unique ID of the Usergroup */
+    public var fkiUsergroupID: Int?
+    /** The unique ID of the Ezdoctemplatedocument */
+    public var fkiEzdoctemplatedocumentID: Int?
+    /** If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document. */
+    public var bEzsigntemplatesignerReceivecopy: Bool?
+    public var eEzsigntemplatesignerMapping: FieldEEzsigntemplatesignerMapping?
     /** The description of the Ezsigntemplatesigner */
     public var sEzsigntemplatesignerDescription: String
 
-    public init(pkiEzsigntemplatesignerID: Int? = nil, fkiEzsigntemplateID: Int, sEzsigntemplatesignerDescription: String) {
+    public init(pkiEzsigntemplatesignerID: Int? = nil, fkiEzsigntemplateID: Int, fkiUserID: Int? = nil, fkiUsergroupID: Int? = nil, fkiEzdoctemplatedocumentID: Int? = nil, bEzsigntemplatesignerReceivecopy: Bool? = nil, eEzsigntemplatesignerMapping: FieldEEzsigntemplatesignerMapping? = nil, sEzsigntemplatesignerDescription: String) {
         self.pkiEzsigntemplatesignerID = pkiEzsigntemplatesignerID
         self.fkiEzsigntemplateID = fkiEzsigntemplateID
+        self.fkiUserID = fkiUserID
+        self.fkiUsergroupID = fkiUsergroupID
+        self.fkiEzdoctemplatedocumentID = fkiEzdoctemplatedocumentID
+        self.bEzsigntemplatesignerReceivecopy = bEzsigntemplatesignerReceivecopy
+        self.eEzsigntemplatesignerMapping = eEzsigntemplatesignerMapping
         self.sEzsigntemplatesignerDescription = sEzsigntemplatesignerDescription
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsigntemplatesignerID
         case fkiEzsigntemplateID
+        case fkiUserID
+        case fkiUsergroupID
+        case fkiEzdoctemplatedocumentID
+        case bEzsigntemplatesignerReceivecopy
+        case eEzsigntemplatesignerMapping
         case sEzsigntemplatesignerDescription
     }
 
@@ -41,6 +63,11 @@ public struct EzsigntemplatesignerRequest: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiEzsigntemplatesignerID, forKey: .pkiEzsigntemplatesignerID)
         try container.encode(fkiEzsigntemplateID, forKey: .fkiEzsigntemplateID)
+        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(fkiUsergroupID, forKey: .fkiUsergroupID)
+        try container.encodeIfPresent(fkiEzdoctemplatedocumentID, forKey: .fkiEzdoctemplatedocumentID)
+        try container.encodeIfPresent(bEzsigntemplatesignerReceivecopy, forKey: .bEzsigntemplatesignerReceivecopy)
+        try container.encodeIfPresent(eEzsigntemplatesignerMapping, forKey: .eEzsigntemplatesignerMapping)
         try container.encode(sEzsigntemplatesignerDescription, forKey: .sEzsigntemplatesignerDescription)
     }
 }

@@ -21,30 +21,27 @@ public struct CreditcardclientRequest: Codable, JSONEncodable, Hashable {
     public var pkiCreditcardclientID: Int?
     /** The creditcard token identifier */
     public var fksCreditcardtokenID: String?
-    /** Whether if it's an relationisdefault */
+    /** Whether if it's the creditcardclient is the default one */
     public var bCreditcardclientrelationIsdefault: Bool
     /** The description of the Creditcardclient */
     public var sCreditcardclientDescription: String
-    /** Whether the creditcardclient is active or not */
-    public var bCreditcardclientIsactive: Bool
     /** Whether if it's an allowedagencypayment */
-    public var bCreditcardclientAllowedagencypayment: Bool
+    public var bCreditcardclientAllowedcompanypayment: Bool
     /** Whether if it's an allowedroyallepageprotection */
-    public var bCreditcardclientAllowedroyallepageprotection: Bool
+    public var bCreditcardclientAllowedezsign: Bool
     /** Whether if it's an allowedtranquillit */
     public var bCreditcardclientAllowedtranquillit: Bool
     public var objCreditcarddetail: CreditcarddetailRequest
     /** The creditcard card CVV */
     public var sCreditcardclientCVV: String
 
-    public init(pkiCreditcardclientID: Int? = nil, fksCreditcardtokenID: String? = nil, bCreditcardclientrelationIsdefault: Bool, sCreditcardclientDescription: String, bCreditcardclientIsactive: Bool, bCreditcardclientAllowedagencypayment: Bool, bCreditcardclientAllowedroyallepageprotection: Bool, bCreditcardclientAllowedtranquillit: Bool, objCreditcarddetail: CreditcarddetailRequest, sCreditcardclientCVV: String) {
+    public init(pkiCreditcardclientID: Int? = nil, fksCreditcardtokenID: String? = nil, bCreditcardclientrelationIsdefault: Bool, sCreditcardclientDescription: String, bCreditcardclientAllowedcompanypayment: Bool, bCreditcardclientAllowedezsign: Bool, bCreditcardclientAllowedtranquillit: Bool, objCreditcarddetail: CreditcarddetailRequest, sCreditcardclientCVV: String) {
         self.pkiCreditcardclientID = pkiCreditcardclientID
         self.fksCreditcardtokenID = fksCreditcardtokenID
         self.bCreditcardclientrelationIsdefault = bCreditcardclientrelationIsdefault
         self.sCreditcardclientDescription = sCreditcardclientDescription
-        self.bCreditcardclientIsactive = bCreditcardclientIsactive
-        self.bCreditcardclientAllowedagencypayment = bCreditcardclientAllowedagencypayment
-        self.bCreditcardclientAllowedroyallepageprotection = bCreditcardclientAllowedroyallepageprotection
+        self.bCreditcardclientAllowedcompanypayment = bCreditcardclientAllowedcompanypayment
+        self.bCreditcardclientAllowedezsign = bCreditcardclientAllowedezsign
         self.bCreditcardclientAllowedtranquillit = bCreditcardclientAllowedtranquillit
         self.objCreditcarddetail = objCreditcarddetail
         self.sCreditcardclientCVV = sCreditcardclientCVV
@@ -55,9 +52,8 @@ public struct CreditcardclientRequest: Codable, JSONEncodable, Hashable {
         case fksCreditcardtokenID
         case bCreditcardclientrelationIsdefault
         case sCreditcardclientDescription
-        case bCreditcardclientIsactive
-        case bCreditcardclientAllowedagencypayment
-        case bCreditcardclientAllowedroyallepageprotection
+        case bCreditcardclientAllowedcompanypayment
+        case bCreditcardclientAllowedezsign
         case bCreditcardclientAllowedtranquillit
         case objCreditcarddetail
         case sCreditcardclientCVV
@@ -71,9 +67,8 @@ public struct CreditcardclientRequest: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fksCreditcardtokenID, forKey: .fksCreditcardtokenID)
         try container.encode(bCreditcardclientrelationIsdefault, forKey: .bCreditcardclientrelationIsdefault)
         try container.encode(sCreditcardclientDescription, forKey: .sCreditcardclientDescription)
-        try container.encode(bCreditcardclientIsactive, forKey: .bCreditcardclientIsactive)
-        try container.encode(bCreditcardclientAllowedagencypayment, forKey: .bCreditcardclientAllowedagencypayment)
-        try container.encode(bCreditcardclientAllowedroyallepageprotection, forKey: .bCreditcardclientAllowedroyallepageprotection)
+        try container.encode(bCreditcardclientAllowedcompanypayment, forKey: .bCreditcardclientAllowedcompanypayment)
+        try container.encode(bCreditcardclientAllowedezsign, forKey: .bCreditcardclientAllowedezsign)
         try container.encode(bCreditcardclientAllowedtranquillit, forKey: .bCreditcardclientAllowedtranquillit)
         try container.encode(objCreditcarddetail, forKey: .objCreditcarddetail)
         try container.encode(sCreditcardclientCVV, forKey: .sCreditcardclientCVV)

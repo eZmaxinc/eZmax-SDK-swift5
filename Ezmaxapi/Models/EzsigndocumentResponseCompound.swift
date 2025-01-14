@@ -21,6 +21,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     static let iEzsigndocumentPagetotalRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigndocumentSignaturesignedRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigndocumentSignaturetotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsigndocumentFormfieldtotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsigndocumentExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,128}$/")
     static let iEzsigndocumentEzsignsignatureattachmenttotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigndocument */
@@ -50,6 +51,8 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     public var iEzsigndocumentSignaturesigned: Int
     /** The number of total signatures that were requested in the Ezsigndocument. */
     public var iEzsigndocumentSignaturetotal: Int
+    /** The number of total Ezsignformfield that were requested in the Ezsigndocument. */
+    public var iEzsigndocumentFormfieldtotal: Int
     /** MD5 Hash of the initial PDF Document before signatures were applied to it. */
     public var sEzsigndocumentMD5initial: String?
     /** A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign */
@@ -77,8 +80,9 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     /** The current step in the signature phase */
     public var iEzsigndocumentStepsignatureCurrent: Int
     public var aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]
+    public var aObjEzsigndocumentdependency: [EzsigndocumentdependencyResponse]?
 
-    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int, iEzsigndocumentEzsigndiscussiontotal: Int, eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]) {
+    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, iEzsigndocumentFormfieldtotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int, iEzsigndocumentEzsigndiscussiontotal: Int, eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse], aObjEzsigndocumentdependency: [EzsigndocumentdependencyResponse]? = nil) {
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsignfoldersignerassociationIDDeclinedtosign = fkiEzsignfoldersignerassociationIDDeclinedtosign
@@ -93,6 +97,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         self.iEzsigndocumentPagetotal = iEzsigndocumentPagetotal
         self.iEzsigndocumentSignaturesigned = iEzsigndocumentSignaturesigned
         self.iEzsigndocumentSignaturetotal = iEzsigndocumentSignaturetotal
+        self.iEzsigndocumentFormfieldtotal = iEzsigndocumentFormfieldtotal
         self.sEzsigndocumentMD5initial = sEzsigndocumentMD5initial
         self.tEzsigndocumentDeclinedtosignreason = tEzsigndocumentDeclinedtosignreason
         self.sEzsigndocumentMD5signed = sEzsigndocumentMD5signed
@@ -108,6 +113,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         self.iEzsigndocumentStepsignaturetotal = iEzsigndocumentStepsignaturetotal
         self.iEzsigndocumentStepsignatureCurrent = iEzsigndocumentStepsignatureCurrent
         self.aObjEzsignfoldersignerassociationstatus = aObjEzsignfoldersignerassociationstatus
+        self.aObjEzsigndocumentdependency = aObjEzsigndocumentdependency
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -125,6 +131,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         case iEzsigndocumentPagetotal
         case iEzsigndocumentSignaturesigned
         case iEzsigndocumentSignaturetotal
+        case iEzsigndocumentFormfieldtotal
         case sEzsigndocumentMD5initial
         case tEzsigndocumentDeclinedtosignreason
         case sEzsigndocumentMD5signed
@@ -140,6 +147,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         case iEzsigndocumentStepsignaturetotal
         case iEzsigndocumentStepsignatureCurrent
         case aObjEzsignfoldersignerassociationstatus = "a_objEzsignfoldersignerassociationstatus"
+        case aObjEzsigndocumentdependency = "a_objEzsigndocumentdependency"
     }
 
     // Encodable protocol methods
@@ -160,6 +168,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsigndocumentPagetotal, forKey: .iEzsigndocumentPagetotal)
         try container.encode(iEzsigndocumentSignaturesigned, forKey: .iEzsigndocumentSignaturesigned)
         try container.encode(iEzsigndocumentSignaturetotal, forKey: .iEzsigndocumentSignaturetotal)
+        try container.encode(iEzsigndocumentFormfieldtotal, forKey: .iEzsigndocumentFormfieldtotal)
         try container.encodeIfPresent(sEzsigndocumentMD5initial, forKey: .sEzsigndocumentMD5initial)
         try container.encodeIfPresent(tEzsigndocumentDeclinedtosignreason, forKey: .tEzsigndocumentDeclinedtosignreason)
         try container.encodeIfPresent(sEzsigndocumentMD5signed, forKey: .sEzsigndocumentMD5signed)
@@ -175,6 +184,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsigndocumentStepsignaturetotal, forKey: .iEzsigndocumentStepsignaturetotal)
         try container.encode(iEzsigndocumentStepsignatureCurrent, forKey: .iEzsigndocumentStepsignatureCurrent)
         try container.encode(aObjEzsignfoldersignerassociationstatus, forKey: .aObjEzsignfoldersignerassociationstatus)
+        try container.encodeIfPresent(aObjEzsigndocumentdependency, forKey: .aObjEzsigndocumentdependency)
     }
 }
 

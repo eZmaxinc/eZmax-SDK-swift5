@@ -13,21 +13,32 @@ import AnyCodable
 /** Request for POST /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy */
 public struct EzsigntemplateCopyV1Request: Codable, JSONEncodable, Hashable {
 
-    public var aFkiEzsignfoldertypeID: [Int]
+    static let aFkiEzsignfoldertypeIDRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
+    public var aFkiEzsignfoldertypeID: [Int]?
+    /** Whether we shall copy the Ezsigntemplate as a company Ezsigntemplate */
+    public var bCopyCompany: Bool?
+    /** Whether we shall copy the Ezsigntemplate as a user Ezsigntemplate */
+    public var bCopyUser: Bool?
 
-    public init(aFkiEzsignfoldertypeID: [Int]) {
+    public init(aFkiEzsignfoldertypeID: [Int]? = nil, bCopyCompany: Bool? = nil, bCopyUser: Bool? = nil) {
         self.aFkiEzsignfoldertypeID = aFkiEzsignfoldertypeID
+        self.bCopyCompany = bCopyCompany
+        self.bCopyUser = bCopyUser
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aFkiEzsignfoldertypeID = "a_fkiEzsignfoldertypeID"
+        case bCopyCompany
+        case bCopyUser
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(aFkiEzsignfoldertypeID, forKey: .aFkiEzsignfoldertypeID)
+        try container.encodeIfPresent(aFkiEzsignfoldertypeID, forKey: .aFkiEzsignfoldertypeID)
+        try container.encodeIfPresent(bCopyCompany, forKey: .bCopyCompany)
+        try container.encodeIfPresent(bCopyUser, forKey: .bCopyUser)
     }
 }
 

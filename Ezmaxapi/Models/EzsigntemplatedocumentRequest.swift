@@ -31,6 +31,7 @@ public struct EzsigntemplatedocumentRequest: Codable, JSONEncodable, Hashable {
         case keep = "Keep"
         case convert = "Convert"
         case discard = "Discard"
+        case flatten = "Flatten"
     }
     static let pkiEzsigntemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -56,7 +57,7 @@ public struct EzsigntemplatedocumentRequest: Codable, JSONEncodable, Hashable {
     public var sEzsigntemplatedocumentUrl: String?
     /** Try to repair the document or flatten it if it cannot be used for electronic signature. */
     public var bEzsigntemplatedocumentForcerepair: Bool?
-    /** If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document */
+    /** If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document  **Flatten** prints the form values in the document. */
     public var eEzsigntemplatedocumentForm: EEzsigntemplatedocumentForm?
     /** If the source template is password protected, the password to open/modify it. */
     public var sEzsigntemplatedocumentPassword: String? = ""

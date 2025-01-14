@@ -13,18 +13,23 @@ import AnyCodable
 /** A Website Object and children to create a complete structure */
 public struct WebsiteRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let pkiWebsiteIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let fkiWebsitetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    /** The unique ID of the Website Default */
+    public var pkiWebsiteID: Int?
     /** The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey| */
     public var fkiWebsitetypeID: Int
     /** The URL of the website. */
     public var sWebsiteAddress: String
 
-    public init(fkiWebsitetypeID: Int, sWebsiteAddress: String) {
+    public init(pkiWebsiteID: Int? = nil, fkiWebsitetypeID: Int, sWebsiteAddress: String) {
+        self.pkiWebsiteID = pkiWebsiteID
         self.fkiWebsitetypeID = fkiWebsitetypeID
         self.sWebsiteAddress = sWebsiteAddress
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case pkiWebsiteID
         case fkiWebsitetypeID
         case sWebsiteAddress
     }
@@ -33,6 +38,7 @@ public struct WebsiteRequestCompound: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(pkiWebsiteID, forKey: .pkiWebsiteID)
         try container.encode(fkiWebsitetypeID, forKey: .fkiWebsitetypeID)
         try container.encode(sWebsiteAddress, forKey: .sWebsiteAddress)
     }

@@ -13,6 +13,56 @@ import AnyCodable
 open class ObjectElectronicfundstransferAPI {
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiElectronicfundstransferID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func electronicfundstransferGetCommunicationCountV1(pkiElectronicfundstransferID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ElectronicfundstransferGetCommunicationCountV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return electronicfundstransferGetCommunicationCountV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationCount
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiElectronicfundstransferID: (path)  
+     - returns: RequestBuilder<ElectronicfundstransferGetCommunicationCountV1Response> 
+     */
+    open class func electronicfundstransferGetCommunicationCountV1WithRequestBuilder(pkiElectronicfundstransferID: Int) -> RequestBuilder<ElectronicfundstransferGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationCount"
+        let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
+        let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiElectronicfundstransferID}", with: pkiElectronicfundstransferIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferGetCommunicationCountV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication list
      
      - parameter pkiElectronicfundstransferID: (path)  
@@ -58,6 +108,106 @@ open class ObjectElectronicfundstransferAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferGetCommunicationListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Electronicfundstransfer's Communicationrecipient
+     
+     - parameter pkiElectronicfundstransferID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func electronicfundstransferGetCommunicationrecipientsV1(pkiElectronicfundstransferID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ElectronicfundstransferGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return electronicfundstransferGetCommunicationrecipientsV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Electronicfundstransfer's Communicationrecipient
+     - GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiElectronicfundstransferID: (path)  
+     - returns: RequestBuilder<ElectronicfundstransferGetCommunicationrecipientsV1Response> 
+     */
+    open class func electronicfundstransferGetCommunicationrecipientsV1WithRequestBuilder(pkiElectronicfundstransferID: Int) -> RequestBuilder<ElectronicfundstransferGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients"
+        let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
+        let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiElectronicfundstransferID}", with: pkiElectronicfundstransferIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferGetCommunicationrecipientsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Electronicfundstransfer's Communicationsender
+     
+     - parameter pkiElectronicfundstransferID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func electronicfundstransferGetCommunicationsendersV1(pkiElectronicfundstransferID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ElectronicfundstransferGetCommunicationsendersV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return electronicfundstransferGetCommunicationsendersV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Electronicfundstransfer's Communicationsender
+     - GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiElectronicfundstransferID: (path)  
+     - returns: RequestBuilder<ElectronicfundstransferGetCommunicationsendersV1Response> 
+     */
+    open class func electronicfundstransferGetCommunicationsendersV1WithRequestBuilder(pkiElectronicfundstransferID: Int) -> RequestBuilder<ElectronicfundstransferGetCommunicationsendersV1Response> {
+        var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders"
+        let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
+        let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiElectronicfundstransferID}", with: pkiElectronicfundstransferIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferGetCommunicationsendersV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -31,9 +31,9 @@ public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable 
     public var iEzsignformfieldX: Int
     /** The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
     public var iEzsignformfieldY: Int
-    /** The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     | */
+    /** The Width of the Ezsignformfield in pixels calculated at 100 DPI */
     public var iEzsignformfieldWidth: Int
-    /** The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  */
+    /** The Height of the Ezsignformfield in pixels calculated at 100 DPI  */
     public var iEzsignformfieldHeight: Int
     /** Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text** */
     public var bEzsignformfieldAutocomplete: Bool?
@@ -42,9 +42,11 @@ public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable 
     /** This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea** */
     public var sEzsignformfieldEnteredvalue: String?
     public var eEzsignformfieldDependencyrequirement: FieldEEzsignformfieldDependencyrequirement?
+    public var eEzsignformfieldHorizontalalignment: EnumHorizontalalignment?
+    public var objTextstylestatic: TextstylestaticResponseCompound?
     public var aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]?
 
-    public init(pkiEzsignformfieldID: Int, iEzsignpagePagenumber: Int, sEzsignformfieldLabel: String, sEzsignformfieldValue: String? = nil, iEzsignformfieldX: Int, iEzsignformfieldY: Int, iEzsignformfieldWidth: Int, iEzsignformfieldHeight: Int, bEzsignformfieldAutocomplete: Bool? = nil, bEzsignformfieldSelected: Bool? = nil, sEzsignformfieldEnteredvalue: String? = nil, eEzsignformfieldDependencyrequirement: FieldEEzsignformfieldDependencyrequirement? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil) {
+    public init(pkiEzsignformfieldID: Int, iEzsignpagePagenumber: Int, sEzsignformfieldLabel: String, sEzsignformfieldValue: String? = nil, iEzsignformfieldX: Int, iEzsignformfieldY: Int, iEzsignformfieldWidth: Int, iEzsignformfieldHeight: Int, bEzsignformfieldAutocomplete: Bool? = nil, bEzsignformfieldSelected: Bool? = nil, sEzsignformfieldEnteredvalue: String? = nil, eEzsignformfieldDependencyrequirement: FieldEEzsignformfieldDependencyrequirement? = nil, eEzsignformfieldHorizontalalignment: EnumHorizontalalignment? = nil, objTextstylestatic: TextstylestaticResponseCompound? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil) {
         self.pkiEzsignformfieldID = pkiEzsignformfieldID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.sEzsignformfieldLabel = sEzsignformfieldLabel
@@ -57,6 +59,8 @@ public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable 
         self.bEzsignformfieldSelected = bEzsignformfieldSelected
         self.sEzsignformfieldEnteredvalue = sEzsignformfieldEnteredvalue
         self.eEzsignformfieldDependencyrequirement = eEzsignformfieldDependencyrequirement
+        self.eEzsignformfieldHorizontalalignment = eEzsignformfieldHorizontalalignment
+        self.objTextstylestatic = objTextstylestatic
         self.aObjEzsignelementdependency = aObjEzsignelementdependency
     }
 
@@ -73,6 +77,8 @@ public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable 
         case bEzsignformfieldSelected
         case sEzsignformfieldEnteredvalue
         case eEzsignformfieldDependencyrequirement
+        case eEzsignformfieldHorizontalalignment
+        case objTextstylestatic
         case aObjEzsignelementdependency = "a_objEzsignelementdependency"
     }
 
@@ -92,6 +98,8 @@ public struct EzsignformfieldResponseCompound: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(bEzsignformfieldSelected, forKey: .bEzsignformfieldSelected)
         try container.encodeIfPresent(sEzsignformfieldEnteredvalue, forKey: .sEzsignformfieldEnteredvalue)
         try container.encodeIfPresent(eEzsignformfieldDependencyrequirement, forKey: .eEzsignformfieldDependencyrequirement)
+        try container.encodeIfPresent(eEzsignformfieldHorizontalalignment, forKey: .eEzsignformfieldHorizontalalignment)
+        try container.encodeIfPresent(objTextstylestatic, forKey: .objTextstylestatic)
         try container.encodeIfPresent(aObjEzsignelementdependency, forKey: .aObjEzsignelementdependency)
     }
 }

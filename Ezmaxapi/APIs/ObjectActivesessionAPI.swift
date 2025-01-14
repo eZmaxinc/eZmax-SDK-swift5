@@ -13,6 +13,53 @@ import AnyCodable
 open class ObjectActivesessionAPI {
 
     /**
+     Generate a federation token
+     
+     - parameter activesessionGenerateFederationTokenV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func activesessionGenerateFederationTokenV1(activesessionGenerateFederationTokenV1Request: ActivesessionGenerateFederationTokenV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ActivesessionGenerateFederationTokenV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return activesessionGenerateFederationTokenV1WithRequestBuilder(activesessionGenerateFederationTokenV1Request: activesessionGenerateFederationTokenV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Generate a federation token
+     - POST /1/object/activesession/generateFederationToken
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter activesessionGenerateFederationTokenV1Request: (body)  
+     - returns: RequestBuilder<ActivesessionGenerateFederationTokenV1Response> 
+     */
+    open class func activesessionGenerateFederationTokenV1WithRequestBuilder(activesessionGenerateFederationTokenV1Request: ActivesessionGenerateFederationTokenV1Request) -> RequestBuilder<ActivesessionGenerateFederationTokenV1Response> {
+        let localVariablePath = "/1/object/activesession/generateFederationToken"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: activesessionGenerateFederationTokenV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ActivesessionGenerateFederationTokenV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Get Current Activesession
      
      - parameter apiResponseQueue: The queue on which api response is dispatched.

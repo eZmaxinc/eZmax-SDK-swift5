@@ -17,6 +17,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     static let fkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsignsigningreasonDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsignsignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -26,6 +27,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     static let fkiEzsignfoldersignerassociationIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let dtEzsignsignatureDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     static let iEzsignsignatureMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsignsignatureTextvalidationcustommessageRule = StringRule(minLength: 0, maxLength: 50, pattern: nil)
     static let sEzsignsignatureRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
     /** The unique ID of the Ezsignsignature */
     public var pkiEzsignsignatureID: Int
@@ -35,6 +37,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     public var fkiEzsignfoldersignerassociationID: Int
     /** The unique ID of the Ezsignsigningreason */
     public var fkiEzsignsigningreasonID: Int?
+    /** The unique ID of the Font */
+    public var fkiFontID: Int?
     /** The description of the Ezsignsigningreason in the language of the requester */
     public var sEzsignsigningreasonDescriptionX: String?
     /** The page number in the Ezsigndocument */
@@ -61,7 +65,12 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     /** The description attached to the attachment name added in Ezsignsignature of eEzsignsignatureType Attachments */
     public var sEzsignsignatureAttachmentdescription: String?
     public var eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource?
-    /** Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments. */
+    public var eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger?
+    /** Whether the Ezsignsignature must be handwritten or not when eEzsignsignatureType = Signature. */
+    public var bEzsignsignatureHandwritten: Bool?
+    /** Whether the Ezsignsignature must include a reason or not when eEzsignsignatureType = Signature. */
+    public var bEzsignsignatureReason: Bool?
+    /** Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments, Text or Textarea. */
     public var bEzsignsignatureRequired: Bool?
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationIDValidation: Int?
@@ -74,18 +83,23 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     /** The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** */
     public var iEzsignsignatureMaxlength: Int?
     public var eEzsignsignatureTextvalidation: EnumTextvalidation?
+    /** Description of validation rule. Show by signatory. */
+    public var sEzsignsignatureTextvalidationcustommessage: String?
     public var eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement?
+    /** The default value for the Ezsignsignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | */
+    public var sEzsignsignatureDefaultvalue: String?
     /** A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** */
     public var sEzsignsignatureRegexp: String?
     public var objContactName: CustomContactNameResponse
     public var objContactNameDelegation: CustomContactNameResponse?
     public var objSignature: SignatureResponseCompound?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.fkiEzsignsigningreasonID = fkiEzsignsigningreasonID
+        self.fkiFontID = fkiFontID
         self.sEzsignsigningreasonDescriptionX = sEzsignsigningreasonDescriptionX
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.iEzsignsignatureX = iEzsignsignatureX
@@ -101,6 +115,9 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         self.iEzsignsignatureValidationstep = iEzsignsignatureValidationstep
         self.sEzsignsignatureAttachmentdescription = sEzsignsignatureAttachmentdescription
         self.eEzsignsignatureAttachmentnamesource = eEzsignsignatureAttachmentnamesource
+        self.eEzsignsignatureConsultationtrigger = eEzsignsignatureConsultationtrigger
+        self.bEzsignsignatureHandwritten = bEzsignsignatureHandwritten
+        self.bEzsignsignatureReason = bEzsignsignatureReason
         self.bEzsignsignatureRequired = bEzsignsignatureRequired
         self.fkiEzsignfoldersignerassociationIDValidation = fkiEzsignfoldersignerassociationIDValidation
         self.dtEzsignsignatureDate = dtEzsignsignatureDate
@@ -108,7 +125,9 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         self.sEzsignsignatureDescription = sEzsignsignatureDescription
         self.iEzsignsignatureMaxlength = iEzsignsignatureMaxlength
         self.eEzsignsignatureTextvalidation = eEzsignsignatureTextvalidation
+        self.sEzsignsignatureTextvalidationcustommessage = sEzsignsignatureTextvalidationcustommessage
         self.eEzsignsignatureDependencyrequirement = eEzsignsignatureDependencyrequirement
+        self.sEzsignsignatureDefaultvalue = sEzsignsignatureDefaultvalue
         self.sEzsignsignatureRegexp = sEzsignsignatureRegexp
         self.objContactName = objContactName
         self.objContactNameDelegation = objContactNameDelegation
@@ -120,6 +139,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         case fkiEzsigndocumentID
         case fkiEzsignfoldersignerassociationID
         case fkiEzsignsigningreasonID
+        case fkiFontID
         case sEzsignsigningreasonDescriptionX
         case iEzsignpagePagenumber
         case iEzsignsignatureX
@@ -135,6 +155,9 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         case iEzsignsignatureValidationstep
         case sEzsignsignatureAttachmentdescription
         case eEzsignsignatureAttachmentnamesource
+        case eEzsignsignatureConsultationtrigger
+        case bEzsignsignatureHandwritten
+        case bEzsignsignatureReason
         case bEzsignsignatureRequired
         case fkiEzsignfoldersignerassociationIDValidation
         case dtEzsignsignatureDate
@@ -142,7 +165,9 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         case sEzsignsignatureDescription
         case iEzsignsignatureMaxlength
         case eEzsignsignatureTextvalidation
+        case sEzsignsignatureTextvalidationcustommessage
         case eEzsignsignatureDependencyrequirement
+        case sEzsignsignatureDefaultvalue
         case sEzsignsignatureRegexp
         case objContactName
         case objContactNameDelegation
@@ -157,6 +182,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         try container.encode(fkiEzsigndocumentID, forKey: .fkiEzsigndocumentID)
         try container.encode(fkiEzsignfoldersignerassociationID, forKey: .fkiEzsignfoldersignerassociationID)
         try container.encodeIfPresent(fkiEzsignsigningreasonID, forKey: .fkiEzsignsigningreasonID)
+        try container.encodeIfPresent(fkiFontID, forKey: .fkiFontID)
         try container.encodeIfPresent(sEzsignsigningreasonDescriptionX, forKey: .sEzsignsigningreasonDescriptionX)
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
         try container.encode(iEzsignsignatureX, forKey: .iEzsignsignatureX)
@@ -172,6 +198,9 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(iEzsignsignatureValidationstep, forKey: .iEzsignsignatureValidationstep)
         try container.encodeIfPresent(sEzsignsignatureAttachmentdescription, forKey: .sEzsignsignatureAttachmentdescription)
         try container.encodeIfPresent(eEzsignsignatureAttachmentnamesource, forKey: .eEzsignsignatureAttachmentnamesource)
+        try container.encodeIfPresent(eEzsignsignatureConsultationtrigger, forKey: .eEzsignsignatureConsultationtrigger)
+        try container.encodeIfPresent(bEzsignsignatureHandwritten, forKey: .bEzsignsignatureHandwritten)
+        try container.encodeIfPresent(bEzsignsignatureReason, forKey: .bEzsignsignatureReason)
         try container.encodeIfPresent(bEzsignsignatureRequired, forKey: .bEzsignsignatureRequired)
         try container.encodeIfPresent(fkiEzsignfoldersignerassociationIDValidation, forKey: .fkiEzsignfoldersignerassociationIDValidation)
         try container.encodeIfPresent(dtEzsignsignatureDate, forKey: .dtEzsignsignatureDate)
@@ -179,7 +208,9 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sEzsignsignatureDescription, forKey: .sEzsignsignatureDescription)
         try container.encodeIfPresent(iEzsignsignatureMaxlength, forKey: .iEzsignsignatureMaxlength)
         try container.encodeIfPresent(eEzsignsignatureTextvalidation, forKey: .eEzsignsignatureTextvalidation)
+        try container.encodeIfPresent(sEzsignsignatureTextvalidationcustommessage, forKey: .sEzsignsignatureTextvalidationcustommessage)
         try container.encodeIfPresent(eEzsignsignatureDependencyrequirement, forKey: .eEzsignsignatureDependencyrequirement)
+        try container.encodeIfPresent(sEzsignsignatureDefaultvalue, forKey: .sEzsignsignatureDefaultvalue)
         try container.encodeIfPresent(sEzsignsignatureRegexp, forKey: .sEzsignsignatureRegexp)
         try container.encode(objContactName, forKey: .objContactName)
         try container.encodeIfPresent(objContactNameDelegation, forKey: .objContactNameDelegation)

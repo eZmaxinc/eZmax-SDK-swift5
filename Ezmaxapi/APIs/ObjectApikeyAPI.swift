@@ -164,6 +164,53 @@ open class ObjectApikeyAPI {
     }
 
     /**
+     Generate a delegated credentials
+     
+     - parameter apikeyGenerateDelegatedCredentialsV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func apikeyGenerateDelegatedCredentialsV1(apikeyGenerateDelegatedCredentialsV1Request: ApikeyGenerateDelegatedCredentialsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyGenerateDelegatedCredentialsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return apikeyGenerateDelegatedCredentialsV1WithRequestBuilder(apikeyGenerateDelegatedCredentialsV1Request: apikeyGenerateDelegatedCredentialsV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Generate a delegated credentials
+     - POST /1/object/apikey/generateDelegatedCredentials
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter apikeyGenerateDelegatedCredentialsV1Request: (body)  
+     - returns: RequestBuilder<ApikeyGenerateDelegatedCredentialsV1Response> 
+     */
+    open class func apikeyGenerateDelegatedCredentialsV1WithRequestBuilder(apikeyGenerateDelegatedCredentialsV1Request: ApikeyGenerateDelegatedCredentialsV1Request) -> RequestBuilder<ApikeyGenerateDelegatedCredentialsV1Response> {
+        let localVariablePath = "/1/object/apikey/generateDelegatedCredentials"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: apikeyGenerateDelegatedCredentialsV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ApikeyGenerateDelegatedCredentialsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve an existing Apikey's cors
      
      - parameter pkiApikeyID: (path)  

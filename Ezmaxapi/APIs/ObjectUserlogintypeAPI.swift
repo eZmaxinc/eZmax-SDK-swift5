@@ -18,6 +18,7 @@ open class ObjectUserlogintypeAPI {
     public enum SSelector_userlogintypeGetAutocompleteV2: String, CaseIterable {
         case all = "All"
         case ezsignfoldertype = "Ezsignfoldertype"
+        case ezsigntemplatepublic = "Ezsigntemplatepublic"
     }
 
     /**

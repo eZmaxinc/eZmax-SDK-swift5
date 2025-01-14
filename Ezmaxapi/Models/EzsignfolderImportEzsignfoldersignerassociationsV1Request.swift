@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsignfoldersignerassociations */
 public struct EzsignfolderImportEzsignfoldersignerassociationsV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aFkiEzsignfoldersignerassociationIDRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: true)
     public var aFkiEzsignfoldersignerassociationID: Set<Int>
 
     public init(aFkiEzsignfoldersignerassociationID: Set<Int>) {

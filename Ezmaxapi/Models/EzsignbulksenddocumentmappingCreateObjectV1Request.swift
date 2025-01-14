@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsignbulksenddocumentmapping */
 public struct EzsignbulksenddocumentmappingCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjEzsignbulksenddocumentmappingRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsignbulksenddocumentmapping: [EzsignbulksenddocumentmappingRequestCompound]
 
     public init(aObjEzsignbulksenddocumentmapping: [EzsignbulksenddocumentmappingRequestCompound]) {

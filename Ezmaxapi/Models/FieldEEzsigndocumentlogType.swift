@@ -30,8 +30,10 @@ public enum FieldEEzsigndocumentlogType: String, Codable, CaseIterable {
     case changelimitdate = "Changelimitdate"
     case unsign = "Unsign"
     case importFromInstanet = "ImportFromInstanet"
+    case createdFromEzsigntemplatepublic = "CreatedFromEzsigntemplatepublic"
     case sendEmail = "SendEmail"
     case formCompletion = "FormCompletion"
+    case formSaveAsDraft = "FormSaveAsDraft"
     case signatureAttachmentAdd = "SignatureAttachmentAdd"
     case signatureAttachmentValidation = "SignatureAttachmentValidation"
     case signatureAttachmentRefused = "SignatureAttachmentRefused"
@@ -43,4 +45,5 @@ public enum FieldEEzsigndocumentlogType: String, Codable, CaseIterable {
     case regeneratePage = "RegeneratePage"
     case regeneratePageForm = "RegeneratePageForm"
     case reassign = "Reassign"
+    case documentCompletion = "DocumentCompletion"
 }

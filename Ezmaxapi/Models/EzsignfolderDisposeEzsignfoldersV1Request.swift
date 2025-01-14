@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsignfolder/disposeEzsignfolders */
 public struct EzsignfolderDisposeEzsignfoldersV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aPkiEzsignfolderIDRule = ArrayRule(minItems: 1, maxItems: 500, uniqueItems: false)
     public var aPkiEzsignfolderID: [Int]
 
     public init(aPkiEzsignfolderID: [Int]) {

@@ -35,7 +35,7 @@ open class ObjectEzsignfoldersignerassociationAPI {
     /**
      Creates an Url to allow embedded signing
      - POST /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl
-     - This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.  There will be a list to retrieve informations after the signing happens in the embedded version. To do so, there is a list of parameter to add to your sReturnUrl.  In example: https://www.example.com/sReturl?sParameter1&sParameter2. The sParameter1 et sParameter2 will be replace when we will redirect on the url.
+     - This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
@@ -515,5 +515,57 @@ open class ObjectEzsignfoldersignerassociationAPI {
         let localVariableRequestBuilder: RequestBuilder<EzsignfoldersignerassociationPatchObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Reassign remaining unsigned signatures and forms
+     
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
+     - parameter ezsignfoldersignerassociationReassignV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationReassignV1Request: EzsignfoldersignerassociationReassignV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationReassignV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfoldersignerassociationReassignV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationReassignV1Request: ezsignfoldersignerassociationReassignV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Reassign remaining unsigned signatures and forms
+     - POST /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/reassign
+     - Reassign remaining unsigned signatures and forms
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
+     - parameter ezsignfoldersignerassociationReassignV1Request: (body)  
+     - returns: RequestBuilder<EzsignfoldersignerassociationReassignV1Response> 
+     */
+    open class func ezsignfoldersignerassociationReassignV1WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationReassignV1Request: EzsignfoldersignerassociationReassignV1Request) -> RequestBuilder<EzsignfoldersignerassociationReassignV1Response> {
+        var localVariablePath = "/1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/reassign"
+        let pkiEzsignfoldersignerassociationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldersignerassociationID))"
+        let pkiEzsignfoldersignerassociationIDPostEscape = pkiEzsignfoldersignerassociationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldersignerassociationID}", with: pkiEzsignfoldersignerassociationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldersignerassociationReassignV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfoldersignerassociationReassignV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

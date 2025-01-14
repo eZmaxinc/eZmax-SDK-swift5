@@ -17,18 +17,22 @@ public struct CommonResponseErrorEzsignformValidation: Codable, JSONEncodable, H
     /** The message giving details about the error */
     public var sErrorMessage: String
     public var eErrorCode: FieldEErrorCode
+    /** More error message detail */
+    public var aSErrorMessagedetail: [String]?
     /**  */
     public var aObjEzsignformfielderror: [CustomEzsignformfielderrorResponse]
 
-    public init(sErrorMessage: String, eErrorCode: FieldEErrorCode, aObjEzsignformfielderror: [CustomEzsignformfielderrorResponse]) {
+    public init(sErrorMessage: String, eErrorCode: FieldEErrorCode, aSErrorMessagedetail: [String]? = nil, aObjEzsignformfielderror: [CustomEzsignformfielderrorResponse]) {
         self.sErrorMessage = sErrorMessage
         self.eErrorCode = eErrorCode
+        self.aSErrorMessagedetail = aSErrorMessagedetail
         self.aObjEzsignformfielderror = aObjEzsignformfielderror
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case sErrorMessage
         case eErrorCode
+        case aSErrorMessagedetail = "a_sErrorMessagedetail"
         case aObjEzsignformfielderror = "a_objEzsignformfielderror"
     }
 
@@ -38,6 +42,7 @@ public struct CommonResponseErrorEzsignformValidation: Codable, JSONEncodable, H
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sErrorMessage, forKey: .sErrorMessage)
         try container.encode(eErrorCode, forKey: .eErrorCode)
+        try container.encodeIfPresent(aSErrorMessagedetail, forKey: .aSErrorMessagedetail)
         try container.encode(aObjEzsignformfielderror, forKey: .aObjEzsignformfielderror)
     }
 }

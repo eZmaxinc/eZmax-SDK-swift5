@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/usergroupexternal */
 public struct UsergroupexternalCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjUsergroupexternalRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjUsergroupexternal: [UsergroupexternalRequestCompound]
 
     public init(aObjUsergroupexternal: [UsergroupexternalRequestCompound]) {

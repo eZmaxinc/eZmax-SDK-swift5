@@ -67,14 +67,13 @@ open class ObjectEzsigntemplateAPI {
     /**
      Create a new Ezsigntemplate
      
-     - parameter ezsigntemplateCreateObjectV1Request: (body)  
+     - parameter ezsigntemplateCreateObjectV3Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
-    open class func ezsigntemplateCreateObjectV1(ezsigntemplateCreateObjectV1Request: EzsigntemplateCreateObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplateCreateObjectV1WithRequestBuilder(ezsigntemplateCreateObjectV1Request: ezsigntemplateCreateObjectV1Request).execute(apiResponseQueue) { result in
+    open class func ezsigntemplateCreateObjectV3(ezsigntemplateCreateObjectV3Request: EzsigntemplateCreateObjectV3Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateCreateObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplateCreateObjectV3WithRequestBuilder(ezsigntemplateCreateObjectV3Request: ezsigntemplateCreateObjectV3Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -86,19 +85,18 @@ open class ObjectEzsigntemplateAPI {
 
     /**
      Create a new Ezsigntemplate
-     - POST /1/object/ezsigntemplate
+     - POST /3/object/ezsigntemplate
      - The endpoint allows to create one or many elements at once.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter ezsigntemplateCreateObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsigntemplateCreateObjectV1Response> 
+     - parameter ezsigntemplateCreateObjectV3Request: (body)  
+     - returns: RequestBuilder<EzsigntemplateCreateObjectV3Response> 
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsigntemplateCreateObjectV1WithRequestBuilder(ezsigntemplateCreateObjectV1Request: EzsigntemplateCreateObjectV1Request) -> RequestBuilder<EzsigntemplateCreateObjectV1Response> {
-        let localVariablePath = "/1/object/ezsigntemplate"
+    open class func ezsigntemplateCreateObjectV3WithRequestBuilder(ezsigntemplateCreateObjectV3Request: EzsigntemplateCreateObjectV3Request) -> RequestBuilder<EzsigntemplateCreateObjectV3Response> {
+        let localVariablePath = "/3/object/ezsigntemplate"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigntemplateCreateObjectV1Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigntemplateCreateObjectV3Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -108,54 +106,7 @@ open class ObjectEzsigntemplateAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Create a new Ezsigntemplate
-     
-     - parameter ezsigntemplateCreateObjectV2Request: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func ezsigntemplateCreateObjectV2(ezsigntemplateCreateObjectV2Request: EzsigntemplateCreateObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateCreateObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplateCreateObjectV2WithRequestBuilder(ezsigntemplateCreateObjectV2Request: ezsigntemplateCreateObjectV2Request).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Create a new Ezsigntemplate
-     - POST /2/object/ezsigntemplate
-     - The endpoint allows to create one or many elements at once.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter ezsigntemplateCreateObjectV2Request: (body)  
-     - returns: RequestBuilder<EzsigntemplateCreateObjectV2Response> 
-     */
-    open class func ezsigntemplateCreateObjectV2WithRequestBuilder(ezsigntemplateCreateObjectV2Request: EzsigntemplateCreateObjectV2Request) -> RequestBuilder<EzsigntemplateCreateObjectV2Response> {
-        let localVariablePath = "/2/object/ezsigntemplate"
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigntemplateCreateObjectV2Request)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateCreateObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateCreateObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -214,14 +165,13 @@ open class ObjectEzsigntemplateAPI {
      Edit an existing Ezsigntemplate
      
      - parameter pkiEzsigntemplateID: (path)  
-     - parameter ezsigntemplateEditObjectV1Request: (body)  
+     - parameter ezsigntemplateEditObjectV3Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
-    open class func ezsigntemplateEditObjectV1(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV1Request: EzsigntemplateEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplateEditObjectV1WithRequestBuilder(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV1Request: ezsigntemplateEditObjectV1Request).execute(apiResponseQueue) { result in
+    open class func ezsigntemplateEditObjectV3(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV3Request: EzsigntemplateEditObjectV3Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateEditObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplateEditObjectV3WithRequestBuilder(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV3Request: ezsigntemplateEditObjectV3Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -233,23 +183,22 @@ open class ObjectEzsigntemplateAPI {
 
     /**
      Edit an existing Ezsigntemplate
-     - PUT /1/object/ezsigntemplate/{pkiEzsigntemplateID}
+     - PUT /3/object/ezsigntemplate/{pkiEzsigntemplateID}
      - 
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplateID: (path)  
-     - parameter ezsigntemplateEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsigntemplateEditObjectV1Response> 
+     - parameter ezsigntemplateEditObjectV3Request: (body)  
+     - returns: RequestBuilder<EzsigntemplateEditObjectV3Response> 
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsigntemplateEditObjectV1WithRequestBuilder(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV1Request: EzsigntemplateEditObjectV1Request) -> RequestBuilder<EzsigntemplateEditObjectV1Response> {
-        var localVariablePath = "/1/object/ezsigntemplate/{pkiEzsigntemplateID}"
+    open class func ezsigntemplateEditObjectV3WithRequestBuilder(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV3Request: EzsigntemplateEditObjectV3Request) -> RequestBuilder<EzsigntemplateEditObjectV3Response> {
+        var localVariablePath = "/3/object/ezsigntemplate/{pkiEzsigntemplateID}"
         let pkiEzsigntemplateIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplateID))"
         let pkiEzsigntemplateIDPostEscape = pkiEzsigntemplateIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplateID}", with: pkiEzsigntemplateIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigntemplateEditObjectV1Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigntemplateEditObjectV3Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -259,59 +208,7 @@ open class ObjectEzsigntemplateAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Edit an existing Ezsigntemplate
-     
-     - parameter pkiEzsigntemplateID: (path)  
-     - parameter ezsigntemplateEditObjectV2Request: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func ezsigntemplateEditObjectV2(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV2Request: EzsigntemplateEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateEditObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplateEditObjectV2WithRequestBuilder(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV2Request: ezsigntemplateEditObjectV2Request).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Edit an existing Ezsigntemplate
-     - PUT /2/object/ezsigntemplate/{pkiEzsigntemplateID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiEzsigntemplateID: (path)  
-     - parameter ezsigntemplateEditObjectV2Request: (body)  
-     - returns: RequestBuilder<EzsigntemplateEditObjectV2Response> 
-     */
-    open class func ezsigntemplateEditObjectV2WithRequestBuilder(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV2Request: EzsigntemplateEditObjectV2Request) -> RequestBuilder<EzsigntemplateEditObjectV2Response> {
-        var localVariablePath = "/2/object/ezsigntemplate/{pkiEzsigntemplateID}"
-        let pkiEzsigntemplateIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplateID))"
-        let pkiEzsigntemplateIDPostEscape = pkiEzsigntemplateIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplateID}", with: pkiEzsigntemplateIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigntemplateEditObjectV2Request)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateEditObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateEditObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -321,6 +218,7 @@ open class ObjectEzsigntemplateAPI {
      */
     public enum SSelector_ezsigntemplateGetAutocompleteV2: String, CaseIterable {
         case all = "All"
+        case ezsigntemplatepublic = "Ezsigntemplatepublic"
     }
 
     /**
@@ -339,12 +237,13 @@ open class ObjectEzsigntemplateAPI {
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
+     - parameter fkiEzsignfoldertypeID: (query) The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplateGetAutocompleteV2(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplateGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+    open class func ezsigntemplateGetAutocompleteV2(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiEzsignfoldertypeID: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplateGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -365,9 +264,10 @@ open class ObjectEzsigntemplateAPI {
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
+     - parameter fkiEzsignfoldertypeID: (query) The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic (optional)
      - returns: RequestBuilder<EzsigntemplateGetAutocompleteV2Response> 
      */
-    open class func ezsigntemplateGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<EzsigntemplateGetAutocompleteV2Response> {
+    open class func ezsigntemplateGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_ezsigntemplateGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplateGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiEzsignfoldertypeID: Int? = nil) -> RequestBuilder<EzsigntemplateGetAutocompleteV2Response> {
         var localVariablePath = "/2/object/ezsigntemplate/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -379,6 +279,7 @@ open class ObjectEzsigntemplateAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "eFilterActive": (wrappedValue: eFilterActive?.encodeToJSON(), isExplode: true),
             "sQuery": (wrappedValue: sQuery?.encodeToJSON(), isExplode: true),
+            "fkiEzsignfoldertypeID": (wrappedValue: fkiEzsignfoldertypeID?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [
@@ -490,10 +391,9 @@ open class ObjectEzsigntemplateAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
-    open class func ezsigntemplateGetObjectV1(pkiEzsigntemplateID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateGetObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplateGetObjectV1WithRequestBuilder(pkiEzsigntemplateID: pkiEzsigntemplateID).execute(apiResponseQueue) { result in
+    open class func ezsigntemplateGetObjectV3(pkiEzsigntemplateID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateGetObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplateGetObjectV3WithRequestBuilder(pkiEzsigntemplateID: pkiEzsigntemplateID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -505,17 +405,16 @@ open class ObjectEzsigntemplateAPI {
 
     /**
      Retrieve an existing Ezsigntemplate
-     - GET /1/object/ezsigntemplate/{pkiEzsigntemplateID}
+     - GET /3/object/ezsigntemplate/{pkiEzsigntemplateID}
      - 
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplateID: (path)  
-     - returns: RequestBuilder<EzsigntemplateGetObjectV1Response> 
+     - returns: RequestBuilder<EzsigntemplateGetObjectV3Response> 
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsigntemplateGetObjectV1WithRequestBuilder(pkiEzsigntemplateID: Int) -> RequestBuilder<EzsigntemplateGetObjectV1Response> {
-        var localVariablePath = "/1/object/ezsigntemplate/{pkiEzsigntemplateID}"
+    open class func ezsigntemplateGetObjectV3WithRequestBuilder(pkiEzsigntemplateID: Int) -> RequestBuilder<EzsigntemplateGetObjectV3Response> {
+        var localVariablePath = "/3/object/ezsigntemplate/{pkiEzsigntemplateID}"
         let pkiEzsigntemplateIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplateID))"
         let pkiEzsigntemplateIDPostEscape = pkiEzsigntemplateIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplateID}", with: pkiEzsigntemplateIDPostEscape, options: .literal, range: nil)
@@ -530,57 +429,7 @@ open class ObjectEzsigntemplateAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateGetObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Ezsigntemplate
-     
-     - parameter pkiEzsigntemplateID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func ezsigntemplateGetObjectV2(pkiEzsigntemplateID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplateGetObjectV2WithRequestBuilder(pkiEzsigntemplateID: pkiEzsigntemplateID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsigntemplate
-     - GET /2/object/ezsigntemplate/{pkiEzsigntemplateID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiEzsigntemplateID: (path)  
-     - returns: RequestBuilder<EzsigntemplateGetObjectV2Response> 
-     */
-    open class func ezsigntemplateGetObjectV2WithRequestBuilder(pkiEzsigntemplateID: Int) -> RequestBuilder<EzsigntemplateGetObjectV2Response> {
-        var localVariablePath = "/2/object/ezsigntemplate/{pkiEzsigntemplateID}"
-        let pkiEzsigntemplateIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplateID))"
-        let pkiEzsigntemplateIDPostEscape = pkiEzsigntemplateIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplateID}", with: pkiEzsigntemplateIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateGetObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

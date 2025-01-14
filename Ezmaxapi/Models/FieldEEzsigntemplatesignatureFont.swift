@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The font of the signature. This can only be set if eEzsigntemplatesignatureType is **Name** or **Initials** */
+/** The font of the signature. This can only be set if eEzsigntemplatesignatureType is **Name** or **Initials** **Deprecated** */
 public enum FieldEEzsigntemplatesignatureFont: String, Codable, CaseIterable {
     case normal = "Normal"
     case cursive = "Cursive"

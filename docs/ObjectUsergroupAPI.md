@@ -31,7 +31,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let usergroupCreateObjectV1Request = usergroup-createObject-v1-Request(aObjUsergroup: [usergroup-RequestCompound(pkiUsergroupID: 123, objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))]) // UsergroupCreateObjectV1Request | 
+let usergroupCreateObjectV1Request = usergroup-createObject-v1-Request(aObjUsergroup: [usergroup-RequestCompound(pkiUsergroupID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))]) // UsergroupCreateObjectV1Request | 
 
 // Create a new Usergroup
 ObjectUsergroupAPI.usergroupCreateObjectV1(usergroupCreateObjectV1Request: usergroupCreateObjectV1Request) { (response, error) in
@@ -82,7 +82,7 @@ Edit an existing Usergroup
 import OpenAPIClient
 
 let pkiUsergroupID = 987 // Int | 
-let usergroupEditObjectV1Request = usergroup-editObject-v1-Request(objUsergroup: usergroup-RequestCompound(pkiUsergroupID: 123, objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))) // UsergroupEditObjectV1Request | 
+let usergroupEditObjectV1Request = usergroup-editObject-v1-Request(objUsergroup: usergroup-RequestCompound(pkiUsergroupID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))) // UsergroupEditObjectV1Request | 
 
 // Edit an existing Usergroup
 ObjectUsergroupAPI.usergroupEditObjectV1(pkiUsergroupID: pkiUsergroupID, usergroupEditObjectV1Request: usergroupEditObjectV1Request) { (response, error) in

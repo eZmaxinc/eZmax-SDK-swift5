@@ -13,6 +13,56 @@ import AnyCodable
 open class ObjectInscriptiontempAPI {
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiInscriptiontempID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptiontempGetCommunicationCountV1(pkiInscriptiontempID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptiontempGetCommunicationCountV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptiontempGetCommunicationCountV1WithRequestBuilder(pkiInscriptiontempID: pkiInscriptiontempID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationCount
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptiontempID: (path)  
+     - returns: RequestBuilder<InscriptiontempGetCommunicationCountV1Response> 
+     */
+    open class func inscriptiontempGetCommunicationCountV1WithRequestBuilder(pkiInscriptiontempID: Int) -> RequestBuilder<InscriptiontempGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationCount"
+        let pkiInscriptiontempIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptiontempID))"
+        let pkiInscriptiontempIDPostEscape = pkiInscriptiontempIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptiontempID}", with: pkiInscriptiontempIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptiontempGetCommunicationCountV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication list
      
      - parameter pkiInscriptiontempID: (path)  
@@ -58,6 +108,106 @@ open class ObjectInscriptiontempAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<InscriptiontempGetCommunicationListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Inscriptiontemp's Communicationrecipient
+     
+     - parameter pkiInscriptiontempID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptiontempGetCommunicationrecipientsV1(pkiInscriptiontempID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptiontempGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptiontempGetCommunicationrecipientsV1WithRequestBuilder(pkiInscriptiontempID: pkiInscriptiontempID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Inscriptiontemp's Communicationrecipient
+     - GET /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationrecipients
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptiontempID: (path)  
+     - returns: RequestBuilder<InscriptiontempGetCommunicationrecipientsV1Response> 
+     */
+    open class func inscriptiontempGetCommunicationrecipientsV1WithRequestBuilder(pkiInscriptiontempID: Int) -> RequestBuilder<InscriptiontempGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationrecipients"
+        let pkiInscriptiontempIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptiontempID))"
+        let pkiInscriptiontempIDPostEscape = pkiInscriptiontempIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptiontempID}", with: pkiInscriptiontempIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptiontempGetCommunicationrecipientsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Inscriptiontemp's Communicationsender
+     
+     - parameter pkiInscriptiontempID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptiontempGetCommunicationsendersV1(pkiInscriptiontempID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptiontempGetCommunicationsendersV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptiontempGetCommunicationsendersV1WithRequestBuilder(pkiInscriptiontempID: pkiInscriptiontempID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Inscriptiontemp's Communicationsender
+     - GET /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationsenders
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptiontempID: (path)  
+     - returns: RequestBuilder<InscriptiontempGetCommunicationsendersV1Response> 
+     */
+    open class func inscriptiontempGetCommunicationsendersV1WithRequestBuilder(pkiInscriptiontempID: Int) -> RequestBuilder<InscriptiontempGetCommunicationsendersV1Response> {
+        var localVariablePath = "/1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationsenders"
+        let pkiInscriptiontempIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptiontempID))"
+        let pkiInscriptiontempIDPostEscape = pkiInscriptiontempIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptiontempID}", with: pkiInscriptiontempIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptiontempGetCommunicationsendersV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/discussion */
 public struct DiscussionCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjDiscussionRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjDiscussion: [DiscussionRequestCompound]
 
     public init(aObjDiscussion: [DiscussionRequestCompound]) {

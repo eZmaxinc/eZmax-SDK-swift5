@@ -15,59 +15,56 @@ public struct CreditcardclientListElement: Codable, JSONEncodable, Hashable {
 
     static let pkiCreditcardclientIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiCreditcarddetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiCreditcardtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     static let sCreditcardclientDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let iCreditcarddetailExpirationmonthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
     static let iCreditcarddetailExpirationyearRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2200, exclusiveMaximum: false, multipleOf: nil)
-    static let sCreditcarddetailNumbermaskedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    static let iCreditcarddetailLastdigitsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 9999, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Creditcardclient */
     public var pkiCreditcardclientID: Int
     /** The unique ID of the Creditcarddetail */
     public var fkiCreditcarddetailID: Int
-    /** Whether if it's an relationisdefault */
+    /** The unique ID of the Creditcardtype */
+    public var fkiCreditcardtypeID: Int
+    /** Whether if it's the creditcardclient is the default one */
     public var bCreditcardclientrelationIsdefault: Bool
     /** The description of the Creditcardclient */
     public var sCreditcardclientDescription: String
-    /** Whether the creditcardclient is active or not */
-    public var bCreditcardclientIsactive: Bool
     /** Whether if it's an allowedagencypayment */
-    public var bCreditcardclientAllowedagencypayment: Bool
-    /** Whether if it's an allowedroyallepageprotection */
-    public var bCreditcardclientAllowedroyallepageprotection: Bool
+    public var bCreditcardclientAllowedcompanypayment: Bool
     /** Whether if it's an allowedtranquillit */
     public var bCreditcardclientAllowedtranquillit: Bool
     /** The expirationmonth of the Creditcarddetail */
     public var iCreditcarddetailExpirationmonth: Int
     /** The expirationyear of the Creditcarddetail */
     public var iCreditcarddetailExpirationyear: Int
-    /** The numbermasked of the Creditcarddetail */
-    public var sCreditcarddetailNumbermasked: String
+    /** The last digits of the Creditcarddetail */
+    public var iCreditcarddetailLastdigits: Int
 
-    public init(pkiCreditcardclientID: Int, fkiCreditcarddetailID: Int, bCreditcardclientrelationIsdefault: Bool, sCreditcardclientDescription: String, bCreditcardclientIsactive: Bool, bCreditcardclientAllowedagencypayment: Bool, bCreditcardclientAllowedroyallepageprotection: Bool, bCreditcardclientAllowedtranquillit: Bool, iCreditcarddetailExpirationmonth: Int, iCreditcarddetailExpirationyear: Int, sCreditcarddetailNumbermasked: String) {
+    public init(pkiCreditcardclientID: Int, fkiCreditcarddetailID: Int, fkiCreditcardtypeID: Int, bCreditcardclientrelationIsdefault: Bool, sCreditcardclientDescription: String, bCreditcardclientAllowedcompanypayment: Bool, bCreditcardclientAllowedtranquillit: Bool, iCreditcarddetailExpirationmonth: Int, iCreditcarddetailExpirationyear: Int, iCreditcarddetailLastdigits: Int) {
         self.pkiCreditcardclientID = pkiCreditcardclientID
         self.fkiCreditcarddetailID = fkiCreditcarddetailID
+        self.fkiCreditcardtypeID = fkiCreditcardtypeID
         self.bCreditcardclientrelationIsdefault = bCreditcardclientrelationIsdefault
         self.sCreditcardclientDescription = sCreditcardclientDescription
-        self.bCreditcardclientIsactive = bCreditcardclientIsactive
-        self.bCreditcardclientAllowedagencypayment = bCreditcardclientAllowedagencypayment
-        self.bCreditcardclientAllowedroyallepageprotection = bCreditcardclientAllowedroyallepageprotection
+        self.bCreditcardclientAllowedcompanypayment = bCreditcardclientAllowedcompanypayment
         self.bCreditcardclientAllowedtranquillit = bCreditcardclientAllowedtranquillit
         self.iCreditcarddetailExpirationmonth = iCreditcarddetailExpirationmonth
         self.iCreditcarddetailExpirationyear = iCreditcarddetailExpirationyear
-        self.sCreditcarddetailNumbermasked = sCreditcarddetailNumbermasked
+        self.iCreditcarddetailLastdigits = iCreditcarddetailLastdigits
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCreditcardclientID
         case fkiCreditcarddetailID
+        case fkiCreditcardtypeID
         case bCreditcardclientrelationIsdefault
         case sCreditcardclientDescription
-        case bCreditcardclientIsactive
-        case bCreditcardclientAllowedagencypayment
-        case bCreditcardclientAllowedroyallepageprotection
+        case bCreditcardclientAllowedcompanypayment
         case bCreditcardclientAllowedtranquillit
         case iCreditcarddetailExpirationmonth
         case iCreditcarddetailExpirationyear
-        case sCreditcarddetailNumbermasked
+        case iCreditcarddetailLastdigits
     }
 
     // Encodable protocol methods
@@ -76,15 +73,14 @@ public struct CreditcardclientListElement: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCreditcardclientID, forKey: .pkiCreditcardclientID)
         try container.encode(fkiCreditcarddetailID, forKey: .fkiCreditcarddetailID)
+        try container.encode(fkiCreditcardtypeID, forKey: .fkiCreditcardtypeID)
         try container.encode(bCreditcardclientrelationIsdefault, forKey: .bCreditcardclientrelationIsdefault)
         try container.encode(sCreditcardclientDescription, forKey: .sCreditcardclientDescription)
-        try container.encode(bCreditcardclientIsactive, forKey: .bCreditcardclientIsactive)
-        try container.encode(bCreditcardclientAllowedagencypayment, forKey: .bCreditcardclientAllowedagencypayment)
-        try container.encode(bCreditcardclientAllowedroyallepageprotection, forKey: .bCreditcardclientAllowedroyallepageprotection)
+        try container.encode(bCreditcardclientAllowedcompanypayment, forKey: .bCreditcardclientAllowedcompanypayment)
         try container.encode(bCreditcardclientAllowedtranquillit, forKey: .bCreditcardclientAllowedtranquillit)
         try container.encode(iCreditcarddetailExpirationmonth, forKey: .iCreditcarddetailExpirationmonth)
         try container.encode(iCreditcarddetailExpirationyear, forKey: .iCreditcarddetailExpirationyear)
-        try container.encode(sCreditcarddetailNumbermasked, forKey: .sCreditcarddetailNumbermasked)
+        try container.encode(iCreditcarddetailLastdigits, forKey: .iCreditcarddetailLastdigits)
     }
 }
 

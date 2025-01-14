@@ -15,12 +15,15 @@ public struct TextstylestaticResponse: Codable, JSONEncodable, Hashable {
 
     static let pkiTextstylestaticIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sFontNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let iTextstylestaticFontcolorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let iTextstylestaticSizeRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Textstylestatic */
     public var pkiTextstylestaticID: Int?
     /** The unique ID of the Font */
     public var fkiFontID: Int
+    /** The name of the Font */
+    public var sFontName: String
     /** Whether the Textstylestatic is Bold or not */
     public var bTextstylestaticBold: Bool
     /** Whether the Textstylestatic is Underline or not */
@@ -34,9 +37,10 @@ public struct TextstylestaticResponse: Codable, JSONEncodable, Hashable {
     /** The Size for the Font of the Textstylestatic */
     public var iTextstylestaticSize: Int
 
-    public init(pkiTextstylestaticID: Int? = nil, fkiFontID: Int, bTextstylestaticBold: Bool, bTextstylestaticUnderline: Bool, bTextstylestaticItalic: Bool, bTextstylestaticStrikethrough: Bool, iTextstylestaticFontcolor: Int, iTextstylestaticSize: Int) {
+    public init(pkiTextstylestaticID: Int? = nil, fkiFontID: Int, sFontName: String, bTextstylestaticBold: Bool, bTextstylestaticUnderline: Bool, bTextstylestaticItalic: Bool, bTextstylestaticStrikethrough: Bool, iTextstylestaticFontcolor: Int, iTextstylestaticSize: Int) {
         self.pkiTextstylestaticID = pkiTextstylestaticID
         self.fkiFontID = fkiFontID
+        self.sFontName = sFontName
         self.bTextstylestaticBold = bTextstylestaticBold
         self.bTextstylestaticUnderline = bTextstylestaticUnderline
         self.bTextstylestaticItalic = bTextstylestaticItalic
@@ -48,6 +52,7 @@ public struct TextstylestaticResponse: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiTextstylestaticID
         case fkiFontID
+        case sFontName
         case bTextstylestaticBold
         case bTextstylestaticUnderline
         case bTextstylestaticItalic
@@ -62,6 +67,7 @@ public struct TextstylestaticResponse: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiTextstylestaticID, forKey: .pkiTextstylestaticID)
         try container.encode(fkiFontID, forKey: .fkiFontID)
+        try container.encode(sFontName, forKey: .sFontName)
         try container.encode(bTextstylestaticBold, forKey: .bTextstylestaticBold)
         try container.encode(bTextstylestaticUnderline, forKey: .bTextstylestaticUnderline)
         try container.encode(bTextstylestaticItalic, forKey: .bTextstylestaticItalic)

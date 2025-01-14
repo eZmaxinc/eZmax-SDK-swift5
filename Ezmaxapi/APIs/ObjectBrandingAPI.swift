@@ -15,13 +15,13 @@ open class ObjectBrandingAPI {
     /**
      Create a new Branding
      
-     - parameter brandingCreateObjectV1Request: (body)  
+     - parameter brandingCreateObjectV2Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func brandingCreateObjectV1(brandingCreateObjectV1Request: BrandingCreateObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return brandingCreateObjectV1WithRequestBuilder(brandingCreateObjectV1Request: brandingCreateObjectV1Request).execute(apiResponseQueue) { result in
+    open class func brandingCreateObjectV2(brandingCreateObjectV2Request: BrandingCreateObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingCreateObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return brandingCreateObjectV2WithRequestBuilder(brandingCreateObjectV2Request: brandingCreateObjectV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -33,18 +33,18 @@ open class ObjectBrandingAPI {
 
     /**
      Create a new Branding
-     - POST /1/object/branding
+     - POST /2/object/branding
      - The endpoint allows to create one or many elements at once.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter brandingCreateObjectV1Request: (body)  
-     - returns: RequestBuilder<BrandingCreateObjectV1Response> 
+     - parameter brandingCreateObjectV2Request: (body)  
+     - returns: RequestBuilder<BrandingCreateObjectV2Response> 
      */
-    open class func brandingCreateObjectV1WithRequestBuilder(brandingCreateObjectV1Request: BrandingCreateObjectV1Request) -> RequestBuilder<BrandingCreateObjectV1Response> {
-        let localVariablePath = "/1/object/branding"
+    open class func brandingCreateObjectV2WithRequestBuilder(brandingCreateObjectV2Request: BrandingCreateObjectV2Request) -> RequestBuilder<BrandingCreateObjectV2Response> {
+        let localVariablePath = "/2/object/branding"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: brandingCreateObjectV1Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: brandingCreateObjectV2Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -54,7 +54,7 @@ open class ObjectBrandingAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BrandingCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BrandingCreateObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -63,13 +63,13 @@ open class ObjectBrandingAPI {
      Edit an existing Branding
      
      - parameter pkiBrandingID: (path)  
-     - parameter brandingEditObjectV1Request: (body)  
+     - parameter brandingEditObjectV2Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func brandingEditObjectV1(pkiBrandingID: Int, brandingEditObjectV1Request: BrandingEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return brandingEditObjectV1WithRequestBuilder(pkiBrandingID: pkiBrandingID, brandingEditObjectV1Request: brandingEditObjectV1Request).execute(apiResponseQueue) { result in
+    open class func brandingEditObjectV2(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingEditObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return brandingEditObjectV2WithRequestBuilder(pkiBrandingID: pkiBrandingID, brandingEditObjectV2Request: brandingEditObjectV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -81,22 +81,22 @@ open class ObjectBrandingAPI {
 
     /**
      Edit an existing Branding
-     - PUT /1/object/branding/{pkiBrandingID}
+     - PUT /2/object/branding/{pkiBrandingID}
      - 
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiBrandingID: (path)  
-     - parameter brandingEditObjectV1Request: (body)  
-     - returns: RequestBuilder<BrandingEditObjectV1Response> 
+     - parameter brandingEditObjectV2Request: (body)  
+     - returns: RequestBuilder<BrandingEditObjectV2Response> 
      */
-    open class func brandingEditObjectV1WithRequestBuilder(pkiBrandingID: Int, brandingEditObjectV1Request: BrandingEditObjectV1Request) -> RequestBuilder<BrandingEditObjectV1Response> {
-        var localVariablePath = "/1/object/branding/{pkiBrandingID}"
+    open class func brandingEditObjectV2WithRequestBuilder(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request) -> RequestBuilder<BrandingEditObjectV2Response> {
+        var localVariablePath = "/2/object/branding/{pkiBrandingID}"
         let pkiBrandingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBrandingID))"
         let pkiBrandingIDPostEscape = pkiBrandingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBrandingID}", with: pkiBrandingIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: brandingEditObjectV1Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: brandingEditObjectV2Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -106,7 +106,7 @@ open class ObjectBrandingAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BrandingEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BrandingEditObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -280,8 +280,8 @@ open class ObjectBrandingAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func brandingGetObjectV2(pkiBrandingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return brandingGetObjectV2WithRequestBuilder(pkiBrandingID: pkiBrandingID).execute(apiResponseQueue) { result in
+    open class func brandingGetObjectV3(pkiBrandingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingGetObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return brandingGetObjectV3WithRequestBuilder(pkiBrandingID: pkiBrandingID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -293,16 +293,16 @@ open class ObjectBrandingAPI {
 
     /**
      Retrieve an existing Branding
-     - GET /2/object/branding/{pkiBrandingID}
+     - GET /3/object/branding/{pkiBrandingID}
      - 
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiBrandingID: (path)  
-     - returns: RequestBuilder<BrandingGetObjectV2Response> 
+     - returns: RequestBuilder<BrandingGetObjectV3Response> 
      */
-    open class func brandingGetObjectV2WithRequestBuilder(pkiBrandingID: Int) -> RequestBuilder<BrandingGetObjectV2Response> {
-        var localVariablePath = "/2/object/branding/{pkiBrandingID}"
+    open class func brandingGetObjectV3WithRequestBuilder(pkiBrandingID: Int) -> RequestBuilder<BrandingGetObjectV3Response> {
+        var localVariablePath = "/3/object/branding/{pkiBrandingID}"
         let pkiBrandingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBrandingID))"
         let pkiBrandingIDPostEscape = pkiBrandingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBrandingID}", with: pkiBrandingIDPostEscape, options: .literal, range: nil)
@@ -317,7 +317,7 @@ open class ObjectBrandingAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BrandingGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BrandingGetObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

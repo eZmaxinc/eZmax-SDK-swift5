@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiWebhookID** | **Int** | The unique ID of the Webhook | [optional] 
+**fkiAuthenticationexternalID** | **Int** | The unique ID of the Authenticationexternal | [optional] 
 **fkiEzsignfoldertypeID** | **Int** | The unique ID of the Ezsignfoldertype. | [optional] 
 **sWebhookDescription** | **String** | The description of the Webhook | 
 **eWebhookModule** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 

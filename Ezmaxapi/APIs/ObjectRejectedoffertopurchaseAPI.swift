@@ -13,6 +13,56 @@ import AnyCodable
 open class ObjectRejectedoffertopurchaseAPI {
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiRejectedoffertopurchaseID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func rejectedoffertopurchaseGetCommunicationCountV1(pkiRejectedoffertopurchaseID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: RejectedoffertopurchaseGetCommunicationCountV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return rejectedoffertopurchaseGetCommunicationCountV1WithRequestBuilder(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationCount
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiRejectedoffertopurchaseID: (path)  
+     - returns: RequestBuilder<RejectedoffertopurchaseGetCommunicationCountV1Response> 
+     */
+    open class func rejectedoffertopurchaseGetCommunicationCountV1WithRequestBuilder(pkiRejectedoffertopurchaseID: Int) -> RequestBuilder<RejectedoffertopurchaseGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationCount"
+        let pkiRejectedoffertopurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiRejectedoffertopurchaseID))"
+        let pkiRejectedoffertopurchaseIDPostEscape = pkiRejectedoffertopurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiRejectedoffertopurchaseID}", with: pkiRejectedoffertopurchaseIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseGetCommunicationCountV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication list
      
      - parameter pkiRejectedoffertopurchaseID: (path)  
@@ -58,6 +108,106 @@ open class ObjectRejectedoffertopurchaseAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseGetCommunicationListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Rejectedoffertopurchase's Communicationrecipient
+     
+     - parameter pkiRejectedoffertopurchaseID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func rejectedoffertopurchaseGetCommunicationrecipientsV1(pkiRejectedoffertopurchaseID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: RejectedoffertopurchaseGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return rejectedoffertopurchaseGetCommunicationrecipientsV1WithRequestBuilder(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Rejectedoffertopurchase's Communicationrecipient
+     - GET /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationrecipients
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiRejectedoffertopurchaseID: (path)  
+     - returns: RequestBuilder<RejectedoffertopurchaseGetCommunicationrecipientsV1Response> 
+     */
+    open class func rejectedoffertopurchaseGetCommunicationrecipientsV1WithRequestBuilder(pkiRejectedoffertopurchaseID: Int) -> RequestBuilder<RejectedoffertopurchaseGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationrecipients"
+        let pkiRejectedoffertopurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiRejectedoffertopurchaseID))"
+        let pkiRejectedoffertopurchaseIDPostEscape = pkiRejectedoffertopurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiRejectedoffertopurchaseID}", with: pkiRejectedoffertopurchaseIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseGetCommunicationrecipientsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Rejectedoffertopurchase's Communicationsender
+     
+     - parameter pkiRejectedoffertopurchaseID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func rejectedoffertopurchaseGetCommunicationsendersV1(pkiRejectedoffertopurchaseID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: RejectedoffertopurchaseGetCommunicationsendersV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return rejectedoffertopurchaseGetCommunicationsendersV1WithRequestBuilder(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Rejectedoffertopurchase's Communicationsender
+     - GET /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationsenders
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiRejectedoffertopurchaseID: (path)  
+     - returns: RequestBuilder<RejectedoffertopurchaseGetCommunicationsendersV1Response> 
+     */
+    open class func rejectedoffertopurchaseGetCommunicationsendersV1WithRequestBuilder(pkiRejectedoffertopurchaseID: Int) -> RequestBuilder<RejectedoffertopurchaseGetCommunicationsendersV1Response> {
+        var localVariablePath = "/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationsenders"
+        let pkiRejectedoffertopurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiRejectedoffertopurchaseID))"
+        let pkiRejectedoffertopurchaseIDPostEscape = pkiRejectedoffertopurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiRejectedoffertopurchaseID}", with: pkiRejectedoffertopurchaseIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseGetCommunicationsendersV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -10,9 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The Type of Ezsigntemplate */
+/** The Type of Ezsigntemplate  **Usergroup** is now deprecated and replace with **Ezsignfoldertype** */
 public enum FieldEEzsigntemplateType: String, Codable, CaseIterable {
     case user = "User"
     case usergroup = "Usergroup"
     case company = "Company"
+    case ezsignfoldertype = "Ezsignfoldertype"
 }

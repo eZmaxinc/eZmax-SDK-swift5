@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /2/object/webhook */
 public struct WebhookCreateObjectV2Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjWebhookRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjWebhook: [WebhookRequestCompound]
 
     public init(aObjWebhook: [WebhookRequestCompound]) {

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**apikeyCreateObjectV2**](ObjectApikeyAPI.md#apikeycreateobjectv2) | **POST** /2/object/apikey | Create a new Apikey
 [**apikeyEditObjectV1**](ObjectApikeyAPI.md#apikeyeditobjectv1) | **PUT** /1/object/apikey/{pkiApikeyID} | Edit an existing Apikey
 [**apikeyEditPermissionsV1**](ObjectApikeyAPI.md#apikeyeditpermissionsv1) | **PUT** /1/object/apikey/{pkiApikeyID}/editPermissions | Edit multiple Permissions
+[**apikeyGenerateDelegatedCredentialsV1**](ObjectApikeyAPI.md#apikeygeneratedelegatedcredentialsv1) | **POST** /1/object/apikey/generateDelegatedCredentials | Generate a delegated credentials
 [**apikeyGetCorsV1**](ObjectApikeyAPI.md#apikeygetcorsv1) | **GET** /1/object/apikey/{pkiApikeyID}/getCors | Retrieve an existing Apikey&#39;s cors
 [**apikeyGetListV1**](ObjectApikeyAPI.md#apikeygetlistv1) | **GET** /1/object/apikey/getList | Retrieve Apikey list
 [**apikeyGetObjectV2**](ObjectApikeyAPI.md#apikeygetobjectv2) | **GET** /2/object/apikey/{pkiApikeyID} | Retrieve an existing Apikey
@@ -157,6 +158,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ApikeyEditPermissionsV1Response**](ApikeyEditPermissionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **apikeyGenerateDelegatedCredentialsV1**
+```swift
+    open class func apikeyGenerateDelegatedCredentialsV1(apikeyGenerateDelegatedCredentialsV1Request: ApikeyGenerateDelegatedCredentialsV1Request, completion: @escaping (_ data: ApikeyGenerateDelegatedCredentialsV1Response?, _ error: Error?) -> Void)
+```
+
+Generate a delegated credentials
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let apikeyGenerateDelegatedCredentialsV1Request = apikey-generateDelegatedCredentials-v1-Request(iExpirationMinutes: 123) // ApikeyGenerateDelegatedCredentialsV1Request | 
+
+// Generate a delegated credentials
+ObjectApikeyAPI.apikeyGenerateDelegatedCredentialsV1(apikeyGenerateDelegatedCredentialsV1Request: apikeyGenerateDelegatedCredentialsV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apikeyGenerateDelegatedCredentialsV1Request** | [**ApikeyGenerateDelegatedCredentialsV1Request**](ApikeyGenerateDelegatedCredentialsV1Request.md) |  | 
+
+### Return type
+
+[**ApikeyGenerateDelegatedCredentialsV1Response**](ApikeyGenerateDelegatedCredentialsV1Response.md)
 
 ### Authorization
 

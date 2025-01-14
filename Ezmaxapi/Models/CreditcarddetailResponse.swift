@@ -15,18 +15,18 @@ public struct CreditcarddetailResponse: Codable, JSONEncodable, Hashable {
 
     static let pkiCreditcarddetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiCreditcardtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sCreditcarddetailNumbermaskedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    static let iCreditcarddetailLastdigitsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 9999, exclusiveMaximum: false, multipleOf: nil)
     static let iCreditcarddetailExpirationmonthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
     static let iCreditcarddetailExpirationyearRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2200, exclusiveMaximum: false, multipleOf: nil)
-    static let sCreditcarddetailCivicRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,8}$/")
-    static let sCreditcarddetailStreetRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
-    static let sCreditcarddetailZipRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
+    static let sCreditcarddetailCivicRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,8}$/")
+    static let sCreditcarddetailStreetRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,19}$/")
+    static let sCreditcarddetailZipRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,9}$/")
     /** The unique ID of the Creditcarddetail */
     public var pkiCreditcarddetailID: Int
     /** The unique ID of the Creditcardtype */
     public var fkiCreditcardtypeID: Int
-    /** The numbermasked of the Creditcarddetail */
-    public var sCreditcarddetailNumbermasked: String
+    /** The last digits of the Creditcarddetail */
+    public var iCreditcarddetailLastdigits: Int
     /** The expirationmonth of the Creditcarddetail */
     public var iCreditcarddetailExpirationmonth: Int
     /** The expirationyear of the Creditcarddetail */
@@ -38,10 +38,10 @@ public struct CreditcarddetailResponse: Codable, JSONEncodable, Hashable {
     /** The zip of the Creditcarddetail */
     public var sCreditcarddetailZip: String
 
-    public init(pkiCreditcarddetailID: Int, fkiCreditcardtypeID: Int, sCreditcarddetailNumbermasked: String, iCreditcarddetailExpirationmonth: Int, iCreditcarddetailExpirationyear: Int, sCreditcarddetailCivic: String, sCreditcarddetailStreet: String, sCreditcarddetailZip: String) {
+    public init(pkiCreditcarddetailID: Int, fkiCreditcardtypeID: Int, iCreditcarddetailLastdigits: Int, iCreditcarddetailExpirationmonth: Int, iCreditcarddetailExpirationyear: Int, sCreditcarddetailCivic: String, sCreditcarddetailStreet: String, sCreditcarddetailZip: String) {
         self.pkiCreditcarddetailID = pkiCreditcarddetailID
         self.fkiCreditcardtypeID = fkiCreditcardtypeID
-        self.sCreditcarddetailNumbermasked = sCreditcarddetailNumbermasked
+        self.iCreditcarddetailLastdigits = iCreditcarddetailLastdigits
         self.iCreditcarddetailExpirationmonth = iCreditcarddetailExpirationmonth
         self.iCreditcarddetailExpirationyear = iCreditcarddetailExpirationyear
         self.sCreditcarddetailCivic = sCreditcarddetailCivic
@@ -52,7 +52,7 @@ public struct CreditcarddetailResponse: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCreditcarddetailID
         case fkiCreditcardtypeID
-        case sCreditcarddetailNumbermasked
+        case iCreditcarddetailLastdigits
         case iCreditcarddetailExpirationmonth
         case iCreditcarddetailExpirationyear
         case sCreditcarddetailCivic
@@ -66,7 +66,7 @@ public struct CreditcarddetailResponse: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCreditcarddetailID, forKey: .pkiCreditcarddetailID)
         try container.encode(fkiCreditcardtypeID, forKey: .fkiCreditcardtypeID)
-        try container.encode(sCreditcarddetailNumbermasked, forKey: .sCreditcarddetailNumbermasked)
+        try container.encode(iCreditcarddetailLastdigits, forKey: .iCreditcarddetailLastdigits)
         try container.encode(iCreditcarddetailExpirationmonth, forKey: .iCreditcarddetailExpirationmonth)
         try container.encode(iCreditcarddetailExpirationyear, forKey: .iCreditcarddetailExpirationyear)
         try container.encode(sCreditcarddetailCivic, forKey: .sCreditcarddetailCivic)

@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**ezsignfoldersignerassociationGetObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationgetobjectv1) | **GET** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 [**ezsignfoldersignerassociationGetObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationgetobjectv2) | **GET** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Retrieve an existing Ezsignfoldersignerassociation
 [**ezsignfoldersignerassociationPatchObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationpatchobjectv1) | **PATCH** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Patch an existing Ezsignfoldersignerassociation
+[**ezsignfoldersignerassociationReassignV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationreassignv1) | **POST** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/reassign | Reassign remaining unsigned signatures and forms
 
 
 # **ezsignfoldersignerassociationCreateEmbeddedUrlV1**
@@ -23,7 +24,7 @@ Method | HTTP request | Description
 
 Creates an Url to allow embedded signing
 
-This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.  There will be a list to retrieve informations after the signing happens in the embedded version. To do so, there is a list of parameter to add to your sReturnUrl.  In example: https://www.example.com/sReturl?sParameter1&sParameter2. The sParameter1 et sParameter2 will be replace when we will redirect on the url.
+This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.
 
 ### Example
 ```swift
@@ -510,6 +511,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldersignerassociationPatchObjectV1Response**](EzsignfoldersignerassociationPatchObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationReassignV1**
+```swift
+    open class func ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationReassignV1Request: EzsignfoldersignerassociationReassignV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationReassignV1Response?, _ error: Error?) -> Void)
+```
+
+Reassign remaining unsigned signatures and forms
+
+Reassign remaining unsigned signatures and forms
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let ezsignfoldersignerassociationReassignV1Request = ezsignfoldersignerassociation-reassign-v1-Request(fkiEzsignfoldersignerassociationID: 123) // EzsignfoldersignerassociationReassignV1Request | 
+
+// Reassign remaining unsigned signatures and forms
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationReassignV1Request: ezsignfoldersignerassociationReassignV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **ezsignfoldersignerassociationReassignV1Request** | [**EzsignfoldersignerassociationReassignV1Request**](EzsignfoldersignerassociationReassignV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationReassignV1Response**](EzsignfoldersignerassociationReassignV1Response.md)
 
 ### Authorization
 

@@ -414,6 +414,52 @@ open class ObjectWebhookAPI {
     }
 
     /**
+     Emit a Webhook event
+     
+     - parameter webhookSendWebhookV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func webhookSendWebhookV1(webhookSendWebhookV1Request: WebhookSendWebhookV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookSendWebhookV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return webhookSendWebhookV1WithRequestBuilder(webhookSendWebhookV1Request: webhookSendWebhookV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Emit a Webhook event
+     - POST /1/object/webhook/sendWebhook
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter webhookSendWebhookV1Request: (body)  
+     - returns: RequestBuilder<WebhookSendWebhookV1Response> 
+     */
+    open class func webhookSendWebhookV1WithRequestBuilder(webhookSendWebhookV1Request: WebhookSendWebhookV1Request) -> RequestBuilder<WebhookSendWebhookV1Response> {
+        let localVariablePath = "/1/object/webhook/sendWebhook"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webhookSendWebhookV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<WebhookSendWebhookV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Test the Webhook by calling the Url
      
      - parameter pkiWebhookID: (path)  

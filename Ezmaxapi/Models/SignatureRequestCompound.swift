@@ -14,20 +14,33 @@ import AnyCodable
 public struct SignatureRequestCompound: Codable, JSONEncodable, Hashable {
 
     static let pkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let tSignatureSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{60,65535}$/")
+    static let tSignatureSvginitialsRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{60,65535}$/")
     /** The unique ID of the Signature */
     public var pkiSignatureID: Int?
+    /** The unique ID of the Font */
+    public var fkiFontID: Int
+    public var eSignaturePreference: FieldESignaturePreference
     /** The svg of the Signature */
-    public var tSignatureSvg: String
+    public var tSignatureSvg: String?
+    /** The svg of the Initials */
+    public var tSignatureSvginitials: String?
 
-    public init(pkiSignatureID: Int? = nil, tSignatureSvg: String) {
+    public init(pkiSignatureID: Int? = nil, fkiFontID: Int, eSignaturePreference: FieldESignaturePreference, tSignatureSvg: String? = nil, tSignatureSvginitials: String? = nil) {
         self.pkiSignatureID = pkiSignatureID
+        self.fkiFontID = fkiFontID
+        self.eSignaturePreference = eSignaturePreference
         self.tSignatureSvg = tSignatureSvg
+        self.tSignatureSvginitials = tSignatureSvginitials
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiSignatureID
+        case fkiFontID
+        case eSignaturePreference
         case tSignatureSvg
+        case tSignatureSvginitials
     }
 
     // Encodable protocol methods
@@ -35,7 +48,10 @@ public struct SignatureRequestCompound: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiSignatureID, forKey: .pkiSignatureID)
-        try container.encode(tSignatureSvg, forKey: .tSignatureSvg)
+        try container.encode(fkiFontID, forKey: .fkiFontID)
+        try container.encode(eSignaturePreference, forKey: .eSignaturePreference)
+        try container.encodeIfPresent(tSignatureSvg, forKey: .tSignatureSvg)
+        try container.encodeIfPresent(tSignatureSvginitials, forKey: .tSignatureSvginitials)
     }
 }
 

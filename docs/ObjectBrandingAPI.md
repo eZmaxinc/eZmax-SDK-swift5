@@ -4,16 +4,16 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**brandingCreateObjectV1**](ObjectBrandingAPI.md#brandingcreateobjectv1) | **POST** /1/object/branding | Create a new Branding
-[**brandingEditObjectV1**](ObjectBrandingAPI.md#brandingeditobjectv1) | **PUT** /1/object/branding/{pkiBrandingID} | Edit an existing Branding
+[**brandingCreateObjectV2**](ObjectBrandingAPI.md#brandingcreateobjectv2) | **POST** /2/object/branding | Create a new Branding
+[**brandingEditObjectV2**](ObjectBrandingAPI.md#brandingeditobjectv2) | **PUT** /2/object/branding/{pkiBrandingID} | Edit an existing Branding
 [**brandingGetAutocompleteV2**](ObjectBrandingAPI.md#brandinggetautocompletev2) | **GET** /2/object/branding/getAutocomplete/{sSelector} | Retrieve Brandings and IDs
 [**brandingGetListV1**](ObjectBrandingAPI.md#brandinggetlistv1) | **GET** /1/object/branding/getList | Retrieve Branding list
-[**brandingGetObjectV2**](ObjectBrandingAPI.md#brandinggetobjectv2) | **GET** /2/object/branding/{pkiBrandingID} | Retrieve an existing Branding
+[**brandingGetObjectV3**](ObjectBrandingAPI.md#brandinggetobjectv3) | **GET** /3/object/branding/{pkiBrandingID} | Retrieve an existing Branding
 
 
-# **brandingCreateObjectV1**
+# **brandingCreateObjectV2**
 ```swift
-    open class func brandingCreateObjectV1(brandingCreateObjectV1Request: BrandingCreateObjectV1Request, completion: @escaping (_ data: BrandingCreateObjectV1Response?, _ error: Error?) -> Void)
+    open class func brandingCreateObjectV2(brandingCreateObjectV2Request: BrandingCreateObjectV2Request, completion: @escaping (_ data: BrandingCreateObjectV2Response?, _ error: Error?) -> Void)
 ```
 
 Create a new Branding
@@ -25,10 +25,10 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let brandingCreateObjectV1Request = branding-createObject-v1-Request(aObjBranding: [branding-RequestCompound(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), sBrandingBase64: 123, eBrandingLogointerface: Field-eBrandingLogointerface(), sBrandingLogointerfaceBase64: 123, iBrandingColortext: 123, iBrandingColortextlinkbox: 123, iBrandingColortextbutton: 123, iBrandingColorbackground: 123, iBrandingColorbackgroundbutton: 123, iBrandingColorbackgroundsmallbox: 123, iBrandingInterfacecolor: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)]) // BrandingCreateObjectV1Request | 
+let brandingCreateObjectV2Request = branding-createObject-v2-Request(aObjBranding: [branding-RequestCompoundV2(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), eBrandingAlignlogo: Field-eBrandingAlignlogo(), sBrandingBase64: 123, iBrandingColor: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)]) // BrandingCreateObjectV2Request | 
 
 // Create a new Branding
-ObjectBrandingAPI.brandingCreateObjectV1(brandingCreateObjectV1Request: brandingCreateObjectV1Request) { (response, error) in
+ObjectBrandingAPI.brandingCreateObjectV2(brandingCreateObjectV2Request: brandingCreateObjectV2Request) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -44,11 +44,11 @@ ObjectBrandingAPI.brandingCreateObjectV1(brandingCreateObjectV1Request: branding
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **brandingCreateObjectV1Request** | [**BrandingCreateObjectV1Request**](BrandingCreateObjectV1Request.md) |  | 
+ **brandingCreateObjectV2Request** | [**BrandingCreateObjectV2Request**](BrandingCreateObjectV2Request.md) |  | 
 
 ### Return type
 
-[**BrandingCreateObjectV1Response**](BrandingCreateObjectV1Response.md)
+[**BrandingCreateObjectV2Response**](BrandingCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **brandingEditObjectV1**
+# **brandingEditObjectV2**
 ```swift
-    open class func brandingEditObjectV1(pkiBrandingID: Int, brandingEditObjectV1Request: BrandingEditObjectV1Request, completion: @escaping (_ data: BrandingEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func brandingEditObjectV2(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request, completion: @escaping (_ data: BrandingEditObjectV2Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Branding
@@ -76,10 +76,10 @@ Edit an existing Branding
 import OpenAPIClient
 
 let pkiBrandingID = 987 // Int | 
-let brandingEditObjectV1Request = branding-editObject-v1-Request(objBranding: branding-RequestCompound(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), sBrandingBase64: 123, eBrandingLogointerface: Field-eBrandingLogointerface(), sBrandingLogointerfaceBase64: 123, iBrandingColortext: 123, iBrandingColortextlinkbox: 123, iBrandingColortextbutton: 123, iBrandingColorbackground: 123, iBrandingColorbackgroundbutton: 123, iBrandingColorbackgroundsmallbox: 123, iBrandingInterfacecolor: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)) // BrandingEditObjectV1Request | 
+let brandingEditObjectV2Request = branding-editObject-v2-Request(objBranding: branding-RequestCompoundV2(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), eBrandingAlignlogo: Field-eBrandingAlignlogo(), sBrandingBase64: 123, iBrandingColor: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)) // BrandingEditObjectV2Request | 
 
 // Edit an existing Branding
-ObjectBrandingAPI.brandingEditObjectV1(pkiBrandingID: pkiBrandingID, brandingEditObjectV1Request: brandingEditObjectV1Request) { (response, error) in
+ObjectBrandingAPI.brandingEditObjectV2(pkiBrandingID: pkiBrandingID, brandingEditObjectV2Request: brandingEditObjectV2Request) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -96,11 +96,11 @@ ObjectBrandingAPI.brandingEditObjectV1(pkiBrandingID: pkiBrandingID, brandingEdi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiBrandingID** | **Int** |  | 
- **brandingEditObjectV1Request** | [**BrandingEditObjectV1Request**](BrandingEditObjectV1Request.md) |  | 
+ **brandingEditObjectV2Request** | [**BrandingEditObjectV2Request**](BrandingEditObjectV2Request.md) |  | 
 
 ### Return type
 
-[**BrandingEditObjectV1Response**](BrandingEditObjectV1Response.md)
+[**BrandingEditObjectV2Response**](BrandingEditObjectV2Response.md)
 
 ### Authorization
 
@@ -227,9 +227,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **brandingGetObjectV2**
+# **brandingGetObjectV3**
 ```swift
-    open class func brandingGetObjectV2(pkiBrandingID: Int, completion: @escaping (_ data: BrandingGetObjectV2Response?, _ error: Error?) -> Void)
+    open class func brandingGetObjectV3(pkiBrandingID: Int, completion: @escaping (_ data: BrandingGetObjectV3Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve an existing Branding
@@ -244,7 +244,7 @@ import OpenAPIClient
 let pkiBrandingID = 987 // Int | 
 
 // Retrieve an existing Branding
-ObjectBrandingAPI.brandingGetObjectV2(pkiBrandingID: pkiBrandingID) { (response, error) in
+ObjectBrandingAPI.brandingGetObjectV3(pkiBrandingID: pkiBrandingID) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BrandingGetObjectV2Response**](BrandingGetObjectV2Response.md)
+[**BrandingGetObjectV3Response**](BrandingGetObjectV3Response.md)
 
 ### Authorization
 

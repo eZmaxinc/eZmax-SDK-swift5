@@ -4,18 +4,17 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ezsignfoldertypeCreateObjectV2**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypecreateobjectv2) | **POST** /2/object/ezsignfoldertype | Create a new Ezsignfoldertype
-[**ezsignfoldertypeEditObjectV1**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypeeditobjectv1) | **PUT** /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Edit an existing Ezsignfoldertype
-[**ezsignfoldertypeEditObjectV2**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypeeditobjectv2) | **PUT** /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Edit an existing Ezsignfoldertype
+[**ezsignfoldertypeCreateObjectV3**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypecreateobjectv3) | **POST** /3/object/ezsignfoldertype | Create a new Ezsignfoldertype
+[**ezsignfoldertypeEditObjectV3**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypeeditobjectv3) | **PUT** /3/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Edit an existing Ezsignfoldertype
 [**ezsignfoldertypeGetAutocompleteV2**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypegetautocompletev2) | **GET** /2/object/ezsignfoldertype/getAutocomplete/{sSelector} | Retrieve Ezsignfoldertypes and IDs
 [**ezsignfoldertypeGetListV1**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypegetlistv1) | **GET** /1/object/ezsignfoldertype/getList | Retrieve Ezsignfoldertype list
 [**ezsignfoldertypeGetObjectV2**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypegetobjectv2) | **GET** /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Retrieve an existing Ezsignfoldertype
-[**ezsignfoldertypeGetObjectV3**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypegetobjectv3) | **GET** /3/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Retrieve an existing Ezsignfoldertype
+[**ezsignfoldertypeGetObjectV4**](ObjectEzsignfoldertypeAPI.md#ezsignfoldertypegetobjectv4) | **GET** /4/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Retrieve an existing Ezsignfoldertype
 
 
-# **ezsignfoldertypeCreateObjectV2**
+# **ezsignfoldertypeCreateObjectV3**
 ```swift
-    open class func ezsignfoldertypeCreateObjectV2(ezsignfoldertypeCreateObjectV2Request: EzsignfoldertypeCreateObjectV2Request, completion: @escaping (_ data: EzsignfoldertypeCreateObjectV2Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldertypeCreateObjectV3(ezsignfoldertypeCreateObjectV3Request: EzsignfoldertypeCreateObjectV3Request, completion: @escaping (_ data: EzsignfoldertypeCreateObjectV3Response?, _ error: Error?) -> Void)
 ```
 
 Create a new Ezsignfoldertype
@@ -27,10 +26,10 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignfoldertypeCreateObjectV2Request = ezsignfoldertype-createObject-v2-Request(aObjEzsignfoldertype: [ezsignfoldertype-RequestCompoundV2(pkiEzsignfoldertypeID: 123, objEzsignfoldertypeName: Multilingual-EzsignfoldertypeName(sEzsignfoldertypeName1: "sEzsignfoldertypeName1_example", sEzsignfoldertypeName2: "sEzsignfoldertypeName2_example"), fkiBrandingID: 123, fkiBillingentityinternalID: 123, fkiEzsigntsarequirementID: 123, aFkiUserlogintypeID: [123], aFkiUsergroupIDAll: [123], aFkiUsergroupIDRestricted: [123], aFkiUsergroupIDTemplate: [123], sEmailAddressSigned: "sEmailAddressSigned_example", sEmailAddressSummary: "sEmailAddressSummary_example", eEzsignfoldertypePrivacylevel: Field-eEzsignfoldertypePrivacylevel(), eEzsignfoldertypeSendreminderfrequency: Field-eEzsignfoldertypeSendreminderfrequency(), iEzsignfoldertypeArchivaldays: 123, eEzsignfoldertypeDisposal: Field-eEzsignfoldertypeDisposal(), eEzsignfoldertypeCompletion: Field-eEzsignfoldertypeCompletion(), iEzsignfoldertypeDisposaldays: 123, iEzsignfoldertypeDeadlinedays: 123, bEzsignfoldertypeDelegate: true, bEzsignfoldertypeDiscussion: true, bEzsignfoldertypeReassignezsignsigner: true, bEzsignfoldertypeReassignuser: true, bEzsignfoldertypeSendsignedtoezsignsigner: false, bEzsignfoldertypeSendsignedtouser: false, bEzsignfoldertypeSendattachmentezsignsigner: false, bEzsignfoldertypeSendproofezsignsigner: false, bEzsignfoldertypeSendattachmentuser: false, bEzsignfoldertypeSendproofuser: false, bEzsignfoldertypeSendproofemail: false, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: false, bEzsignfoldertypeAllowdownloadproofezsignsigner: false, bEzsignfoldertypeSendproofreceivealldocument: false, bEzsignfoldertypeSendsignedtodocumentowner: false, bEzsignfoldertypeSendsignedtofolderowner: false, bEzsignfoldertypeSendsignedtofullgroup: false, bEzsignfoldertypeSendsignedtolimitedgroup: false, bEzsignfoldertypeSendsignedtocolleague: false, bEzsignfoldertypeSendsummarytodocumentowner: false, bEzsignfoldertypeSendsummarytofolderowner: false, bEzsignfoldertypeSendsummarytofullgroup: false, bEzsignfoldertypeSendsummarytolimitedgroup: false, bEzsignfoldertypeSendsummarytocolleague: false, bEzsignfoldertypeIsactive: true, aFkiUserIDSigned: [123], aFkiUserIDSummary: [123])]) // EzsignfoldertypeCreateObjectV2Request | 
+let ezsignfoldertypeCreateObjectV3Request = ezsignfoldertype-createObject-v3-Request(aObjEzsignfoldertype: [ezsignfoldertype-RequestCompoundV3(pkiEzsignfoldertypeID: 123, objEzsignfoldertypeName: Multilingual-EzsignfoldertypeName(sEzsignfoldertypeName1: "sEzsignfoldertypeName1_example", sEzsignfoldertypeName2: "sEzsignfoldertypeName2_example"), fkiBrandingID: 123, fkiBillingentityinternalID: 123, fkiEzsigntsarequirementID: 123, fkiFontIDAnnotation: 123, fkiFontIDFormfield: 123, fkiFontIDSignature: 123, fkiPdfalevelIDConvert: 123, aFkiPdfalevelID: [123], aFkiUserlogintypeID: [123], aFkiUsergroupIDAll: [123], aFkiUsergroupIDRestricted: [123], aFkiUsergroupIDTemplate: [123], eEzsignfoldertypeDocumentdependency: Field-eEzsignfoldertypeDocumentdependency(), sEmailAddressSigned: "sEmailAddressSigned_example", sEmailAddressSummary: "sEmailAddressSummary_example", eEzsignfoldertypePdfarequirement: Field-eEzsignfoldertypePdfarequirement(), eEzsignfoldertypePdfanoncompliantaction: Field-eEzsignfoldertypePdfanoncompliantaction(), eEzsignfoldertypePrivacylevel: Field-eEzsignfoldertypePrivacylevel(), iEzsignfoldertypeFontsizeannotation: 123, iEzsignfoldertypeFontsizeformfield: 123, iEzsignfoldertypeSendreminderfirstdays: 123, iEzsignfoldertypeSendreminderotherdays: 123, iEzsignfoldertypeArchivaldays: 123, eEzsignfoldertypeDisposal: Field-eEzsignfoldertypeDisposal(), eEzsignfoldertypeCompletion: Field-eEzsignfoldertypeCompletion(), iEzsignfoldertypeDisposaldays: 123, iEzsignfoldertypeDeadlinedays: 123, bEzsignfoldertypePrematurelyendautomatically: true, iEzsignfoldertypePrematurelyendautomaticallydays: 123, bEzsignfoldertypeAutomaticsignature: false, bEzsignfoldertypeDelegate: true, bEzsignfoldertypeDiscussion: true, bEzsignfoldertypeLogrecipientinproof: false, bEzsignfoldertypeReassignezsignsigner: true, bEzsignfoldertypeReassignuser: true, bEzsignfoldertypeReassigngroup: true, bEzsignfoldertypeSendsignedtoezsignsigner: false, bEzsignfoldertypeSendsignedtouser: false, bEzsignfoldertypeSendattachmentezsignsigner: false, bEzsignfoldertypeSendproofezsignsigner: false, bEzsignfoldertypeSendattachmentuser: false, bEzsignfoldertypeSendproofuser: false, bEzsignfoldertypeSendproofemail: false, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: false, bEzsignfoldertypeAllowdownloadproofezsignsigner: false, bEzsignfoldertypeSendproofreceivealldocument: false, bEzsignfoldertypeSendsignedtodocumentowner: false, bEzsignfoldertypeSendsignedtofolderowner: false, bEzsignfoldertypeSendsignedtofullgroup: false, bEzsignfoldertypeSendsignedtolimitedgroup: false, bEzsignfoldertypeSendsignedtocolleague: false, bEzsignfoldertypeSendsummarytodocumentowner: false, bEzsignfoldertypeSendsummarytofolderowner: false, bEzsignfoldertypeSendsummarytofullgroup: false, bEzsignfoldertypeSendsummarytolimitedgroup: false, bEzsignfoldertypeSendsummarytocolleague: false, eEzsignfoldertypeSigneraccess: Field-eEzsignfoldertypeSigneraccess(), bEzsignfoldertypeIsactive: true, aFkiUserIDSigned: [123], aFkiUserIDSummary: [123])]) // EzsignfoldertypeCreateObjectV3Request | 
 
 // Create a new Ezsignfoldertype
-ObjectEzsignfoldertypeAPI.ezsignfoldertypeCreateObjectV2(ezsignfoldertypeCreateObjectV2Request: ezsignfoldertypeCreateObjectV2Request) { (response, error) in
+ObjectEzsignfoldertypeAPI.ezsignfoldertypeCreateObjectV3(ezsignfoldertypeCreateObjectV3Request: ezsignfoldertypeCreateObjectV3Request) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -46,11 +45,11 @@ ObjectEzsignfoldertypeAPI.ezsignfoldertypeCreateObjectV2(ezsignfoldertypeCreateO
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ezsignfoldertypeCreateObjectV2Request** | [**EzsignfoldertypeCreateObjectV2Request**](EzsignfoldertypeCreateObjectV2Request.md) |  | 
+ **ezsignfoldertypeCreateObjectV3Request** | [**EzsignfoldertypeCreateObjectV3Request**](EzsignfoldertypeCreateObjectV3Request.md) |  | 
 
 ### Return type
 
-[**EzsignfoldertypeCreateObjectV2Response**](EzsignfoldertypeCreateObjectV2Response.md)
+[**EzsignfoldertypeCreateObjectV3Response**](EzsignfoldertypeCreateObjectV3Response.md)
 
 ### Authorization
 
@@ -63,9 +62,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsignfoldertypeEditObjectV1**
+# **ezsignfoldertypeEditObjectV3**
 ```swift
-    open class func ezsignfoldertypeEditObjectV1(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV1Request: EzsignfoldertypeEditObjectV1Request, completion: @escaping (_ data: EzsignfoldertypeEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldertypeEditObjectV3(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV3Request: EzsignfoldertypeEditObjectV3Request, completion: @escaping (_ data: EzsignfoldertypeEditObjectV3Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignfoldertype
@@ -78,10 +77,10 @@ Edit an existing Ezsignfoldertype
 import OpenAPIClient
 
 let pkiEzsignfoldertypeID = 987 // Int | 
-let ezsignfoldertypeEditObjectV1Request = ezsignfoldertype-editObject-v1-Request(objEzsignfoldertype: ezsignfoldertype-RequestCompound(pkiEzsignfoldertypeID: 123, objEzsignfoldertypeName: Multilingual-EzsignfoldertypeName(sEzsignfoldertypeName1: "sEzsignfoldertypeName1_example", sEzsignfoldertypeName2: "sEzsignfoldertypeName2_example"), fkiBrandingID: 123, fkiBillingentityinternalID: 123, fkiUsergroupID: 123, fkiUsergroupIDRestricted: 123, fkiEzsigntsarequirementID: 123, sEmailAddressSigned: "sEmailAddressSigned_example", sEmailAddressSummary: "sEmailAddressSummary_example", eEzsignfoldertypePrivacylevel: Field-eEzsignfoldertypePrivacylevel(), eEzsignfoldertypeSendreminderfrequency: Field-eEzsignfoldertypeSendreminderfrequency(), iEzsignfoldertypeArchivaldays: 123, eEzsignfoldertypeDisposal: Field-eEzsignfoldertypeDisposal(), eEzsignfoldertypeCompletion: Field-eEzsignfoldertypeCompletion(), iEzsignfoldertypeDisposaldays: 123, iEzsignfoldertypeDeadlinedays: 123, bEzsignfoldertypeDelegate: true, bEzsignfoldertypeDiscussion: true, bEzsignfoldertypeReassignezsignsigner: true, bEzsignfoldertypeReassignuser: true, bEzsignfoldertypeSendsignedtoezsignsigner: false, bEzsignfoldertypeSendsignedtouser: false, bEzsignfoldertypeSendattachmentezsignsigner: false, bEzsignfoldertypeSendproofezsignsigner: false, bEzsignfoldertypeSendattachmentuser: false, bEzsignfoldertypeSendproofuser: false, bEzsignfoldertypeSendproofemail: false, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: false, bEzsignfoldertypeAllowdownloadproofezsignsigner: false, bEzsignfoldertypeSendproofreceivealldocument: false, bEzsignfoldertypeSendsignedtodocumentowner: false, bEzsignfoldertypeSendsignedtofolderowner: false, bEzsignfoldertypeSendsignedtofullgroup: false, bEzsignfoldertypeSendsignedtolimitedgroup: false, bEzsignfoldertypeSendsignedtocolleague: false, bEzsignfoldertypeSendsummarytodocumentowner: false, bEzsignfoldertypeSendsummarytofolderowner: false, bEzsignfoldertypeSendsummarytofullgroup: false, bEzsignfoldertypeSendsummarytolimitedgroup: false, bEzsignfoldertypeSendsummarytocolleague: false, bEzsignfoldertypeIsactive: true, aFkiUserIDSigned: [123], aFkiUserIDSummary: [123])) // EzsignfoldertypeEditObjectV1Request | 
+let ezsignfoldertypeEditObjectV3Request = ezsignfoldertype-editObject-v3-Request(objEzsignfoldertype: ezsignfoldertype-RequestCompoundV3(pkiEzsignfoldertypeID: 123, objEzsignfoldertypeName: Multilingual-EzsignfoldertypeName(sEzsignfoldertypeName1: "sEzsignfoldertypeName1_example", sEzsignfoldertypeName2: "sEzsignfoldertypeName2_example"), fkiBrandingID: 123, fkiBillingentityinternalID: 123, fkiEzsigntsarequirementID: 123, fkiFontIDAnnotation: 123, fkiFontIDFormfield: 123, fkiFontIDSignature: 123, fkiPdfalevelIDConvert: 123, aFkiPdfalevelID: [123], aFkiUserlogintypeID: [123], aFkiUsergroupIDAll: [123], aFkiUsergroupIDRestricted: [123], aFkiUsergroupIDTemplate: [123], eEzsignfoldertypeDocumentdependency: Field-eEzsignfoldertypeDocumentdependency(), sEmailAddressSigned: "sEmailAddressSigned_example", sEmailAddressSummary: "sEmailAddressSummary_example", eEzsignfoldertypePdfarequirement: Field-eEzsignfoldertypePdfarequirement(), eEzsignfoldertypePdfanoncompliantaction: Field-eEzsignfoldertypePdfanoncompliantaction(), eEzsignfoldertypePrivacylevel: Field-eEzsignfoldertypePrivacylevel(), iEzsignfoldertypeFontsizeannotation: 123, iEzsignfoldertypeFontsizeformfield: 123, iEzsignfoldertypeSendreminderfirstdays: 123, iEzsignfoldertypeSendreminderotherdays: 123, iEzsignfoldertypeArchivaldays: 123, eEzsignfoldertypeDisposal: Field-eEzsignfoldertypeDisposal(), eEzsignfoldertypeCompletion: Field-eEzsignfoldertypeCompletion(), iEzsignfoldertypeDisposaldays: 123, iEzsignfoldertypeDeadlinedays: 123, bEzsignfoldertypePrematurelyendautomatically: true, iEzsignfoldertypePrematurelyendautomaticallydays: 123, bEzsignfoldertypeAutomaticsignature: false, bEzsignfoldertypeDelegate: true, bEzsignfoldertypeDiscussion: true, bEzsignfoldertypeLogrecipientinproof: false, bEzsignfoldertypeReassignezsignsigner: true, bEzsignfoldertypeReassignuser: true, bEzsignfoldertypeReassigngroup: true, bEzsignfoldertypeSendsignedtoezsignsigner: false, bEzsignfoldertypeSendsignedtouser: false, bEzsignfoldertypeSendattachmentezsignsigner: false, bEzsignfoldertypeSendproofezsignsigner: false, bEzsignfoldertypeSendattachmentuser: false, bEzsignfoldertypeSendproofuser: false, bEzsignfoldertypeSendproofemail: false, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: false, bEzsignfoldertypeAllowdownloadproofezsignsigner: false, bEzsignfoldertypeSendproofreceivealldocument: false, bEzsignfoldertypeSendsignedtodocumentowner: false, bEzsignfoldertypeSendsignedtofolderowner: false, bEzsignfoldertypeSendsignedtofullgroup: false, bEzsignfoldertypeSendsignedtolimitedgroup: false, bEzsignfoldertypeSendsignedtocolleague: false, bEzsignfoldertypeSendsummarytodocumentowner: false, bEzsignfoldertypeSendsummarytofolderowner: false, bEzsignfoldertypeSendsummarytofullgroup: false, bEzsignfoldertypeSendsummarytolimitedgroup: false, bEzsignfoldertypeSendsummarytocolleague: false, eEzsignfoldertypeSigneraccess: Field-eEzsignfoldertypeSigneraccess(), bEzsignfoldertypeIsactive: true, aFkiUserIDSigned: [123], aFkiUserIDSummary: [123])) // EzsignfoldertypeEditObjectV3Request | 
 
 // Edit an existing Ezsignfoldertype
-ObjectEzsignfoldertypeAPI.ezsignfoldertypeEditObjectV1(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID, ezsignfoldertypeEditObjectV1Request: ezsignfoldertypeEditObjectV1Request) { (response, error) in
+ObjectEzsignfoldertypeAPI.ezsignfoldertypeEditObjectV3(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID, ezsignfoldertypeEditObjectV3Request: ezsignfoldertypeEditObjectV3Request) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -98,63 +97,11 @@ ObjectEzsignfoldertypeAPI.ezsignfoldertypeEditObjectV1(pkiEzsignfoldertypeID: pk
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiEzsignfoldertypeID** | **Int** |  | 
- **ezsignfoldertypeEditObjectV1Request** | [**EzsignfoldertypeEditObjectV1Request**](EzsignfoldertypeEditObjectV1Request.md) |  | 
+ **ezsignfoldertypeEditObjectV3Request** | [**EzsignfoldertypeEditObjectV3Request**](EzsignfoldertypeEditObjectV3Request.md) |  | 
 
 ### Return type
 
-[**EzsignfoldertypeEditObjectV1Response**](EzsignfoldertypeEditObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ezsignfoldertypeEditObjectV2**
-```swift
-    open class func ezsignfoldertypeEditObjectV2(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV2Request: EzsignfoldertypeEditObjectV2Request, completion: @escaping (_ data: EzsignfoldertypeEditObjectV2Response?, _ error: Error?) -> Void)
-```
-
-Edit an existing Ezsignfoldertype
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiEzsignfoldertypeID = 987 // Int | 
-let ezsignfoldertypeEditObjectV2Request = ezsignfoldertype-editObject-v2-Request(objEzsignfoldertype: ezsignfoldertype-RequestCompoundV2(pkiEzsignfoldertypeID: 123, objEzsignfoldertypeName: Multilingual-EzsignfoldertypeName(sEzsignfoldertypeName1: "sEzsignfoldertypeName1_example", sEzsignfoldertypeName2: "sEzsignfoldertypeName2_example"), fkiBrandingID: 123, fkiBillingentityinternalID: 123, fkiEzsigntsarequirementID: 123, aFkiUserlogintypeID: [123], aFkiUsergroupIDAll: [123], aFkiUsergroupIDRestricted: [123], aFkiUsergroupIDTemplate: [123], sEmailAddressSigned: "sEmailAddressSigned_example", sEmailAddressSummary: "sEmailAddressSummary_example", eEzsignfoldertypePrivacylevel: Field-eEzsignfoldertypePrivacylevel(), eEzsignfoldertypeSendreminderfrequency: Field-eEzsignfoldertypeSendreminderfrequency(), iEzsignfoldertypeArchivaldays: 123, eEzsignfoldertypeDisposal: Field-eEzsignfoldertypeDisposal(), eEzsignfoldertypeCompletion: Field-eEzsignfoldertypeCompletion(), iEzsignfoldertypeDisposaldays: 123, iEzsignfoldertypeDeadlinedays: 123, bEzsignfoldertypeDelegate: true, bEzsignfoldertypeDiscussion: true, bEzsignfoldertypeReassignezsignsigner: true, bEzsignfoldertypeReassignuser: true, bEzsignfoldertypeSendsignedtoezsignsigner: false, bEzsignfoldertypeSendsignedtouser: false, bEzsignfoldertypeSendattachmentezsignsigner: false, bEzsignfoldertypeSendproofezsignsigner: false, bEzsignfoldertypeSendattachmentuser: false, bEzsignfoldertypeSendproofuser: false, bEzsignfoldertypeSendproofemail: false, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: false, bEzsignfoldertypeAllowdownloadproofezsignsigner: false, bEzsignfoldertypeSendproofreceivealldocument: false, bEzsignfoldertypeSendsignedtodocumentowner: false, bEzsignfoldertypeSendsignedtofolderowner: false, bEzsignfoldertypeSendsignedtofullgroup: false, bEzsignfoldertypeSendsignedtolimitedgroup: false, bEzsignfoldertypeSendsignedtocolleague: false, bEzsignfoldertypeSendsummarytodocumentowner: false, bEzsignfoldertypeSendsummarytofolderowner: false, bEzsignfoldertypeSendsummarytofullgroup: false, bEzsignfoldertypeSendsummarytolimitedgroup: false, bEzsignfoldertypeSendsummarytocolleague: false, bEzsignfoldertypeIsactive: true, aFkiUserIDSigned: [123], aFkiUserIDSummary: [123])) // EzsignfoldertypeEditObjectV2Request | 
-
-// Edit an existing Ezsignfoldertype
-ObjectEzsignfoldertypeAPI.ezsignfoldertypeEditObjectV2(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID, ezsignfoldertypeEditObjectV2Request: ezsignfoldertypeEditObjectV2Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEzsignfoldertypeID** | **Int** |  | 
- **ezsignfoldertypeEditObjectV2Request** | [**EzsignfoldertypeEditObjectV2Request**](EzsignfoldertypeEditObjectV2Request.md) |  | 
-
-### Return type
-
-[**EzsignfoldertypeEditObjectV2Response**](EzsignfoldertypeEditObjectV2Response.md)
+[**EzsignfoldertypeEditObjectV3Response**](EzsignfoldertypeEditObjectV3Response.md)
 
 ### Authorization
 
@@ -331,9 +278,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsignfoldertypeGetObjectV3**
+# **ezsignfoldertypeGetObjectV4**
 ```swift
-    open class func ezsignfoldertypeGetObjectV3(pkiEzsignfoldertypeID: Int, completion: @escaping (_ data: EzsignfoldertypeGetObjectV3Response?, _ error: Error?) -> Void)
+    open class func ezsignfoldertypeGetObjectV4(pkiEzsignfoldertypeID: Int, completion: @escaping (_ data: EzsignfoldertypeGetObjectV4Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve an existing Ezsignfoldertype
@@ -348,7 +295,7 @@ import OpenAPIClient
 let pkiEzsignfoldertypeID = 987 // Int | 
 
 // Retrieve an existing Ezsignfoldertype
-ObjectEzsignfoldertypeAPI.ezsignfoldertypeGetObjectV3(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID) { (response, error) in
+ObjectEzsignfoldertypeAPI.ezsignfoldertypeGetObjectV4(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -368,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldertypeGetObjectV3Response**](EzsignfoldertypeGetObjectV3Response.md)
+[**EzsignfoldertypeGetObjectV4Response**](EzsignfoldertypeGetObjectV4Response.md)
 
 ### Authorization
 

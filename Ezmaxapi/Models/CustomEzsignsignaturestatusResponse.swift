@@ -25,12 +25,15 @@ public struct CustomEzsignsignaturestatusResponse: Codable, JSONEncodable, Hasha
     public var iEzsignsignaturestatusTotal: Int
     /** The number of signature or form fields the Ezsignsigner has already processed at the current step */
     public var iEzsignsignaturestatusSigned: Int
+    /** The number of signature or form fields the Ezsignsigner need to sign or fill under current conditions. */
+    public var iEzsignsignaturestatusConditional: Int
 
-    public init(eEzsignsignaturestatusSteptype: EEzsignsignaturestatusSteptype, iEzsignsignaturestatusStep: Int, iEzsignsignaturestatusTotal: Int, iEzsignsignaturestatusSigned: Int) {
+    public init(eEzsignsignaturestatusSteptype: EEzsignsignaturestatusSteptype, iEzsignsignaturestatusStep: Int, iEzsignsignaturestatusTotal: Int, iEzsignsignaturestatusSigned: Int, iEzsignsignaturestatusConditional: Int) {
         self.eEzsignsignaturestatusSteptype = eEzsignsignaturestatusSteptype
         self.iEzsignsignaturestatusStep = iEzsignsignaturestatusStep
         self.iEzsignsignaturestatusTotal = iEzsignsignaturestatusTotal
         self.iEzsignsignaturestatusSigned = iEzsignsignaturestatusSigned
+        self.iEzsignsignaturestatusConditional = iEzsignsignaturestatusConditional
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -38,6 +41,7 @@ public struct CustomEzsignsignaturestatusResponse: Codable, JSONEncodable, Hasha
         case iEzsignsignaturestatusStep
         case iEzsignsignaturestatusTotal
         case iEzsignsignaturestatusSigned
+        case iEzsignsignaturestatusConditional
     }
 
     // Encodable protocol methods
@@ -48,6 +52,7 @@ public struct CustomEzsignsignaturestatusResponse: Codable, JSONEncodable, Hasha
         try container.encode(iEzsignsignaturestatusStep, forKey: .iEzsignsignaturestatusStep)
         try container.encode(iEzsignsignaturestatusTotal, forKey: .iEzsignsignaturestatusTotal)
         try container.encode(iEzsignsignaturestatusSigned, forKey: .iEzsignsignaturestatusSigned)
+        try container.encode(iEzsignsignaturestatusConditional, forKey: .iEzsignsignaturestatusConditional)
     }
 }
 

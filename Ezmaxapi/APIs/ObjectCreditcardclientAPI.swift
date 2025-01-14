@@ -245,6 +245,8 @@ open class ObjectCreditcardclientAPI {
         case pkicreditcardclientidDesc = "pkiCreditcardclientID_DESC"
         case fkicreditcarddetailidAsc = "fkiCreditcarddetailID_ASC"
         case fkicreditcarddetailidDesc = "fkiCreditcarddetailID_DESC"
+        case fkicreditcardtypeidAsc = "fkiCreditcardtypeID_ASC"
+        case fkicreditcardtypeidDesc = "fkiCreditcardtypeID_DESC"
         case bcreditcardclientrelationisdefaultAsc = "bCreditcardclientrelationIsdefault_ASC"
         case bcreditcardclientrelationisdefaultDesc = "bCreditcardclientrelationIsdefault_DESC"
         case screditcardclientdescriptionAsc = "sCreditcardclientDescription_ASC"
@@ -253,8 +255,6 @@ open class ObjectCreditcardclientAPI {
         case bcreditcardclientisactiveDesc = "bCreditcardclientIsactive_DESC"
         case bcreditcardclientallowedagencypaymentAsc = "bCreditcardclientAllowedagencypayment_ASC"
         case bcreditcardclientallowedagencypaymentDesc = "bCreditcardclientAllowedagencypayment_DESC"
-        case bcreditcardclientallowedroyallepageprotectionAsc = "bCreditcardclientAllowedroyallepageprotection_ASC"
-        case bcreditcardclientallowedroyallepageprotectionDesc = "bCreditcardclientAllowedroyallepageprotection_DESC"
         case bcreditcardclientallowedtranquillitAsc = "bCreditcardclientAllowedtranquillit_ASC"
         case bcreditcardclientallowedtranquillitDesc = "bCreditcardclientAllowedtranquillit_DESC"
         case icreditcarddetailexpirationmonthAsc = "iCreditcarddetailExpirationmonth_ASC"
@@ -372,5 +372,57 @@ open class ObjectCreditcardclientAPI {
         let localVariableRequestBuilder: RequestBuilder<CreditcardclientGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Patch an existing Creditcardclient
+     
+     - parameter pkiCreditcardclientID: (path) The unique ID of the Creditcardclient 
+     - parameter creditcardclientPatchObjectV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CreditcardclientPatchObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return creditcardclientPatchObjectV1WithRequestBuilder(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientPatchObjectV1Request: creditcardclientPatchObjectV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Patch an existing Creditcardclient
+     - PATCH /1/object/creditcardclient/{pkiCreditcardclientID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiCreditcardclientID: (path) The unique ID of the Creditcardclient 
+     - parameter creditcardclientPatchObjectV1Request: (body)  
+     - returns: RequestBuilder<CreditcardclientPatchObjectV1Response> 
+     */
+    open class func creditcardclientPatchObjectV1WithRequestBuilder(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request) -> RequestBuilder<CreditcardclientPatchObjectV1Response> {
+        var localVariablePath = "/1/object/creditcardclient/{pkiCreditcardclientID}"
+        let pkiCreditcardclientIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCreditcardclientID))"
+        let pkiCreditcardclientIDPostEscape = pkiCreditcardclientIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiCreditcardclientID}", with: pkiCreditcardclientIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: creditcardclientPatchObjectV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CreditcardclientPatchObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

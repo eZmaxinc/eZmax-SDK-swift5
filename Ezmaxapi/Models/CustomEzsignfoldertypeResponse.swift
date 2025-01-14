@@ -14,8 +14,20 @@ import AnyCodable
 public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiFontIDAnnotationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiFontIDFormfieldRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiFontIDSignatureRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignfoldertypeDeadlinedaysRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 60, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignfoldertypeFontsizeannotationRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    static let iEzsignfoldertypeFontsizeformfieldRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfoldertype. */
     public var pkiEzsignfoldertypeID: Int
+    /** The unique ID of the Font */
+    public var fkiFontIDAnnotation: Int?
+    /** The unique ID of the Font */
+    public var fkiFontIDFormfield: Int?
+    /** The unique ID of the Font */
+    public var fkiFontIDSignature: Int?
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String?
     /** Whether we send the proof in the email to Ezsignsigner */
@@ -24,6 +36,8 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
     public var bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool?
     /** Whether we allow the proof to be downloaded by an Ezsignsigner */
     public var bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool?
+    /** Whether we allow the automatic signature by an User */
+    public var bEzsignfoldertypeAutomaticsignature: Bool?
     /** Wheter if delegation of signature is allowed to another user or not */
     public var bEzsignfoldertypeDelegate: Bool?
     /** Wheter if creating a new Discussion is allowed or not */
@@ -32,29 +46,53 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
     public var bEzsignfoldertypeReassignezsignsigner: Bool?
     /** Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not */
     public var bEzsignfoldertypeReassignuser: Bool?
+    /** Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself */
+    public var bEzsignfoldertypeReassigngroup: Bool?
+    /** The number of days to get all Ezsignsignatures */
+    public var iEzsignfoldertypeDeadlinedays: Int?
+    /** Font size for annotations */
+    public var iEzsignfoldertypeFontsizeannotation: Int?
+    /** Font size for form fields */
+    public var iEzsignfoldertypeFontsizeformfield: Int?
 
-    public init(pkiEzsignfoldertypeID: Int, sEzsignfoldertypeNameX: String? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeDiscussion: Bool? = nil, bEzsignfoldertypeReassignezsignsigner: Bool? = nil, bEzsignfoldertypeReassignuser: Bool? = nil) {
+    public init(pkiEzsignfoldertypeID: Int, fkiFontIDAnnotation: Int? = nil, fkiFontIDFormfield: Int? = nil, fkiFontIDSignature: Int? = nil, sEzsignfoldertypeNameX: String? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeAutomaticsignature: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeDiscussion: Bool? = nil, bEzsignfoldertypeReassignezsignsigner: Bool? = nil, bEzsignfoldertypeReassignuser: Bool? = nil, bEzsignfoldertypeReassigngroup: Bool? = nil, iEzsignfoldertypeDeadlinedays: Int? = nil, iEzsignfoldertypeFontsizeannotation: Int? = nil, iEzsignfoldertypeFontsizeformfield: Int? = nil) {
         self.pkiEzsignfoldertypeID = pkiEzsignfoldertypeID
+        self.fkiFontIDAnnotation = fkiFontIDAnnotation
+        self.fkiFontIDFormfield = fkiFontIDFormfield
+        self.fkiFontIDSignature = fkiFontIDSignature
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.bEzsignfoldertypeSendproofezsignsigner = bEzsignfoldertypeSendproofezsignsigner
         self.bEzsignfoldertypeAllowdownloadattachmentezsignsigner = bEzsignfoldertypeAllowdownloadattachmentezsignsigner
         self.bEzsignfoldertypeAllowdownloadproofezsignsigner = bEzsignfoldertypeAllowdownloadproofezsignsigner
+        self.bEzsignfoldertypeAutomaticsignature = bEzsignfoldertypeAutomaticsignature
         self.bEzsignfoldertypeDelegate = bEzsignfoldertypeDelegate
         self.bEzsignfoldertypeDiscussion = bEzsignfoldertypeDiscussion
         self.bEzsignfoldertypeReassignezsignsigner = bEzsignfoldertypeReassignezsignsigner
         self.bEzsignfoldertypeReassignuser = bEzsignfoldertypeReassignuser
+        self.bEzsignfoldertypeReassigngroup = bEzsignfoldertypeReassigngroup
+        self.iEzsignfoldertypeDeadlinedays = iEzsignfoldertypeDeadlinedays
+        self.iEzsignfoldertypeFontsizeannotation = iEzsignfoldertypeFontsizeannotation
+        self.iEzsignfoldertypeFontsizeformfield = iEzsignfoldertypeFontsizeformfield
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignfoldertypeID
+        case fkiFontIDAnnotation
+        case fkiFontIDFormfield
+        case fkiFontIDSignature
         case sEzsignfoldertypeNameX
         case bEzsignfoldertypeSendproofezsignsigner
         case bEzsignfoldertypeAllowdownloadattachmentezsignsigner
         case bEzsignfoldertypeAllowdownloadproofezsignsigner
+        case bEzsignfoldertypeAutomaticsignature
         case bEzsignfoldertypeDelegate
         case bEzsignfoldertypeDiscussion
         case bEzsignfoldertypeReassignezsignsigner
         case bEzsignfoldertypeReassignuser
+        case bEzsignfoldertypeReassigngroup
+        case iEzsignfoldertypeDeadlinedays
+        case iEzsignfoldertypeFontsizeannotation
+        case iEzsignfoldertypeFontsizeformfield
     }
 
     // Encodable protocol methods
@@ -62,14 +100,22 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignfoldertypeID, forKey: .pkiEzsignfoldertypeID)
+        try container.encodeIfPresent(fkiFontIDAnnotation, forKey: .fkiFontIDAnnotation)
+        try container.encodeIfPresent(fkiFontIDFormfield, forKey: .fkiFontIDFormfield)
+        try container.encodeIfPresent(fkiFontIDSignature, forKey: .fkiFontIDSignature)
         try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encodeIfPresent(bEzsignfoldertypeSendproofezsignsigner, forKey: .bEzsignfoldertypeSendproofezsignsigner)
         try container.encodeIfPresent(bEzsignfoldertypeAllowdownloadattachmentezsignsigner, forKey: .bEzsignfoldertypeAllowdownloadattachmentezsignsigner)
         try container.encodeIfPresent(bEzsignfoldertypeAllowdownloadproofezsignsigner, forKey: .bEzsignfoldertypeAllowdownloadproofezsignsigner)
+        try container.encodeIfPresent(bEzsignfoldertypeAutomaticsignature, forKey: .bEzsignfoldertypeAutomaticsignature)
         try container.encodeIfPresent(bEzsignfoldertypeDelegate, forKey: .bEzsignfoldertypeDelegate)
         try container.encodeIfPresent(bEzsignfoldertypeDiscussion, forKey: .bEzsignfoldertypeDiscussion)
         try container.encodeIfPresent(bEzsignfoldertypeReassignezsignsigner, forKey: .bEzsignfoldertypeReassignezsignsigner)
         try container.encodeIfPresent(bEzsignfoldertypeReassignuser, forKey: .bEzsignfoldertypeReassignuser)
+        try container.encodeIfPresent(bEzsignfoldertypeReassigngroup, forKey: .bEzsignfoldertypeReassigngroup)
+        try container.encodeIfPresent(iEzsignfoldertypeDeadlinedays, forKey: .iEzsignfoldertypeDeadlinedays)
+        try container.encodeIfPresent(iEzsignfoldertypeFontsizeannotation, forKey: .iEzsignfoldertypeFontsizeannotation)
+        try container.encodeIfPresent(iEzsignfoldertypeFontsizeformfield, forKey: .iEzsignfoldertypeFontsizeformfield)
     }
 }
 

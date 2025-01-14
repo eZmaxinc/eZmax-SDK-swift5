@@ -107,6 +107,58 @@ open class ObjectUserAPI {
     }
 
     /**
+     Edit multiple Colleagues
+     
+     - parameter pkiUserID: (path)  
+     - parameter userEditColleaguesV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userEditColleaguesV2(pkiUserID: Int, userEditColleaguesV2Request: UserEditColleaguesV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserEditColleaguesV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userEditColleaguesV2WithRequestBuilder(pkiUserID: pkiUserID, userEditColleaguesV2Request: userEditColleaguesV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit multiple Colleagues
+     - PUT /2/object/user/{pkiUserID}/editColleagues
+     - Using this endpoint, you can edit multiple Colleagues at the same time.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserID: (path)  
+     - parameter userEditColleaguesV2Request: (body)  
+     - returns: RequestBuilder<UserEditColleaguesV2Response> 
+     */
+    open class func userEditColleaguesV2WithRequestBuilder(pkiUserID: Int, userEditColleaguesV2Request: UserEditColleaguesV2Request) -> RequestBuilder<UserEditColleaguesV2Response> {
+        var localVariablePath = "/2/object/user/{pkiUserID}/editColleagues"
+        let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
+        let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserID}", with: pkiUserIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userEditColleaguesV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserEditColleaguesV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Edit an existing User
      
      - parameter pkiUserID: (path) The unique ID of the User 
@@ -263,11 +315,13 @@ open class ObjectUserAPI {
      * enum for parameter sSelector
      */
     public enum SSelector_userGetAutocompleteV2: String, CaseIterable {
+        case agentBrokerAssistant = "AgentBrokerAssistant"
         case agentBrokerEmployeeEzsignUserNormal = "AgentBrokerEmployeeEzsignUserNormal"
         case agentBrokerEmployeeNormalBuiltIn = "AgentBrokerEmployeeNormalBuiltIn"
         case agentBrokerEzsignuserNormal = "AgentBrokerEzsignuserNormal"
         case clonableUsers = "ClonableUsers"
         case ezsignuserBuiltIn = "EzsignuserBuiltIn"
+        case ezsignuser = "Ezsignuser"
         case normal = "Normal"
         case usergroupDelegated = "UsergroupDelegated"
     }
@@ -337,6 +391,55 @@ open class ObjectUserAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<UserGetAutocompleteV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing User's Colleagues
+     
+     - parameter pkiUserID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userGetColleaguesV2(pkiUserID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserGetColleaguesV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userGetColleaguesV2WithRequestBuilder(pkiUserID: pkiUserID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing User's Colleagues
+     - GET /2/object/user/{pkiUserID}/getColleagues
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserID: (path)  
+     - returns: RequestBuilder<UserGetColleaguesV2Response> 
+     */
+    open class func userGetColleaguesV2WithRequestBuilder(pkiUserID: Int) -> RequestBuilder<UserGetColleaguesV2Response> {
+        var localVariablePath = "/2/object/user/{pkiUserID}/getColleagues"
+        let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
+        let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserID}", with: pkiUserIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserGetColleaguesV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

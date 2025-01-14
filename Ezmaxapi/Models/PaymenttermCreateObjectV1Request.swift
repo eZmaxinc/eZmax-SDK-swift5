@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/paymentterm */
 public struct PaymenttermCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjPaymenttermRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjPaymentterm: [PaymenttermRequestCompound]
 
     public init(aObjPaymentterm: [PaymenttermRequestCompound]) {

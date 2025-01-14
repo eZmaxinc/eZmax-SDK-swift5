@@ -18,18 +18,22 @@ public struct CommonResponseErrorSTemporaryFileUrl: Codable, JSONEncodable, Hash
     /** The message giving details about the error */
     public var sErrorMessage: String
     public var eErrorCode: FieldEErrorCode
+    /** More error message detail */
+    public var aSErrorMessagedetail: [String]?
     /** The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again. */
     public var sTemporaryFileUrl: String?
 
-    public init(sErrorMessage: String, eErrorCode: FieldEErrorCode, sTemporaryFileUrl: String? = nil) {
+    public init(sErrorMessage: String, eErrorCode: FieldEErrorCode, aSErrorMessagedetail: [String]? = nil, sTemporaryFileUrl: String? = nil) {
         self.sErrorMessage = sErrorMessage
         self.eErrorCode = eErrorCode
+        self.aSErrorMessagedetail = aSErrorMessagedetail
         self.sTemporaryFileUrl = sTemporaryFileUrl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case sErrorMessage
         case eErrorCode
+        case aSErrorMessagedetail = "a_sErrorMessagedetail"
         case sTemporaryFileUrl
     }
 
@@ -39,6 +43,7 @@ public struct CommonResponseErrorSTemporaryFileUrl: Codable, JSONEncodable, Hash
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(sErrorMessage, forKey: .sErrorMessage)
         try container.encode(eErrorCode, forKey: .eErrorCode)
+        try container.encodeIfPresent(aSErrorMessagedetail, forKey: .aSErrorMessagedetail)
         try container.encodeIfPresent(sTemporaryFileUrl, forKey: .sTemporaryFileUrl)
     }
 }

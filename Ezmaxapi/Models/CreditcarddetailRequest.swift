@@ -15,21 +15,21 @@ public struct CreditcarddetailRequest: Codable, JSONEncodable, Hashable {
 
     static let iCreditcarddetailExpirationmonthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
     static let iCreditcarddetailExpirationyearRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2200, exclusiveMaximum: false, multipleOf: nil)
-    static let sCreditcarddetailCivicRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,8}$/")
-    static let sCreditcarddetailStreetRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
-    static let sCreditcarddetailZipRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
+    static let sCreditcarddetailCivicRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,8}$/")
+    static let sCreditcarddetailStreetRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,19}$/")
+    static let sCreditcarddetailZipRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,9}$/")
     /** The expirationmonth of the Creditcarddetail */
     public var iCreditcarddetailExpirationmonth: Int
     /** The expirationyear of the Creditcarddetail */
     public var iCreditcarddetailExpirationyear: Int
     /** The civic of the Creditcarddetail */
-    public var sCreditcarddetailCivic: String?
+    public var sCreditcarddetailCivic: String
     /** The street of the Creditcarddetail */
-    public var sCreditcarddetailStreet: String?
+    public var sCreditcarddetailStreet: String
     /** The zip of the Creditcarddetail */
-    public var sCreditcarddetailZip: String?
+    public var sCreditcarddetailZip: String
 
-    public init(iCreditcarddetailExpirationmonth: Int, iCreditcarddetailExpirationyear: Int, sCreditcarddetailCivic: String? = nil, sCreditcarddetailStreet: String? = nil, sCreditcarddetailZip: String? = nil) {
+    public init(iCreditcarddetailExpirationmonth: Int, iCreditcarddetailExpirationyear: Int, sCreditcarddetailCivic: String, sCreditcarddetailStreet: String, sCreditcarddetailZip: String) {
         self.iCreditcarddetailExpirationmonth = iCreditcarddetailExpirationmonth
         self.iCreditcarddetailExpirationyear = iCreditcarddetailExpirationyear
         self.sCreditcarddetailCivic = sCreditcarddetailCivic
@@ -51,9 +51,9 @@ public struct CreditcarddetailRequest: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(iCreditcarddetailExpirationmonth, forKey: .iCreditcarddetailExpirationmonth)
         try container.encode(iCreditcarddetailExpirationyear, forKey: .iCreditcarddetailExpirationyear)
-        try container.encodeIfPresent(sCreditcarddetailCivic, forKey: .sCreditcarddetailCivic)
-        try container.encodeIfPresent(sCreditcarddetailStreet, forKey: .sCreditcarddetailStreet)
-        try container.encodeIfPresent(sCreditcarddetailZip, forKey: .sCreditcarddetailZip)
+        try container.encode(sCreditcarddetailCivic, forKey: .sCreditcarddetailCivic)
+        try container.encode(sCreditcarddetailStreet, forKey: .sCreditcarddetailStreet)
+        try container.encode(sCreditcarddetailZip, forKey: .sCreditcarddetailZip)
     }
 }
 

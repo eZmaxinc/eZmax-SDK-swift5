@@ -20,6 +20,10 @@ public struct CommunicationRequestCompound: Codable, JSONEncodable, Hashable {
     static let pkiCommunicationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sCommunicationSubjectRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,200}$/")
     static let iCommunicationAttachmentlinkexpirationRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 30, exclusiveMaximum: false, multipleOf: nil)
+    static let aObjCommunicationattachmentRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
+    static let aObjCommunicationrecipientRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
+    static let aObjCommunicationreferenceRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
+    static let aObjCommunicationexternalrecipientRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
     /** The unique ID of the Communication. */
     public var pkiCommunicationID: Int?
     public var eCommunicationImportance: FieldECommunicationImportance?

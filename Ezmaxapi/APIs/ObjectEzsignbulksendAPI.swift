@@ -16,13 +16,13 @@ open class ObjectEzsignbulksendAPI {
      Create a new Ezsignbulksendtransmission in the Ezsignbulksend
      
      - parameter pkiEzsignbulksendID: (path)  
-     - parameter ezsignbulksendCreateEzsignbulksendtransmissionV1Request: (body)  
+     - parameter ezsignbulksendCreateEzsignbulksendtransmissionV2Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignbulksendCreateEzsignbulksendtransmissionV1(pkiEzsignbulksendID: Int, ezsignbulksendCreateEzsignbulksendtransmissionV1Request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendCreateEzsignbulksendtransmissionV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignbulksendCreateEzsignbulksendtransmissionV1WithRequestBuilder(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendCreateEzsignbulksendtransmissionV1Request: ezsignbulksendCreateEzsignbulksendtransmissionV1Request).execute(apiResponseQueue) { result in
+    open class func ezsignbulksendCreateEzsignbulksendtransmissionV2(pkiEzsignbulksendID: Int, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendCreateEzsignbulksendtransmissionV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignbulksendCreateEzsignbulksendtransmissionV2WithRequestBuilder(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: ezsignbulksendCreateEzsignbulksendtransmissionV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -34,21 +34,21 @@ open class ObjectEzsignbulksendAPI {
 
     /**
      Create a new Ezsignbulksendtransmission in the Ezsignbulksend
-     - POST /1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission
+     - POST /2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksendID: (path)  
-     - parameter ezsignbulksendCreateEzsignbulksendtransmissionV1Request: (body)  
-     - returns: RequestBuilder<EzsignbulksendCreateEzsignbulksendtransmissionV1Response> 
+     - parameter ezsignbulksendCreateEzsignbulksendtransmissionV2Request: (body)  
+     - returns: RequestBuilder<EzsignbulksendCreateEzsignbulksendtransmissionV2Response> 
      */
-    open class func ezsignbulksendCreateEzsignbulksendtransmissionV1WithRequestBuilder(pkiEzsignbulksendID: Int, ezsignbulksendCreateEzsignbulksendtransmissionV1Request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request) -> RequestBuilder<EzsignbulksendCreateEzsignbulksendtransmissionV1Response> {
-        var localVariablePath = "/1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission"
+    open class func ezsignbulksendCreateEzsignbulksendtransmissionV2WithRequestBuilder(pkiEzsignbulksendID: Int, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request) -> RequestBuilder<EzsignbulksendCreateEzsignbulksendtransmissionV2Response> {
+        var localVariablePath = "/2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission"
         let pkiEzsignbulksendIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendID))"
         let pkiEzsignbulksendIDPostEscape = pkiEzsignbulksendIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendID}", with: pkiEzsignbulksendIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignbulksendCreateEzsignbulksendtransmissionV1Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignbulksendCreateEzsignbulksendtransmissionV2Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -58,7 +58,7 @@ open class ObjectEzsignbulksendAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendCreateEzsignbulksendtransmissionV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendCreateEzsignbulksendtransmissionV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

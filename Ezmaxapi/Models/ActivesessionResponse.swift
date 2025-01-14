@@ -30,6 +30,18 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     public var bActivesessionDebug: Bool
     /** Whether the active session is superadmin or not */
     public var bActivesessionIssuperadmin: Bool
+    /** Can access attachment when we clone a user */
+    public var bActivesessionAttachment: Bool?
+    /** Can access canafe when we clone a user */
+    public var bActivesessionCanafe: Bool?
+    /** Can access financial element when we clone a user */
+    public var bActivesessionFinancial: Bool?
+    /** Can access closed realestate folders when we clone a user */
+    public var bActivesessionRealestatecompleted: Bool?
+    public var eActivesessionEzsign: FieldEActivesessionEzsign?
+    public var eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess
+    public var eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid?
+    public var eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress?
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** The unique ID of the Systemconfigurationtype */
@@ -37,7 +49,7 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
     /** The unique ID of the Signature */
     public var fkiSignatureID: Int?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -46,6 +58,14 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
         self.bActivesessionIssuperadmin = bActivesessionIssuperadmin
+        self.bActivesessionAttachment = bActivesessionAttachment
+        self.bActivesessionCanafe = bActivesessionCanafe
+        self.bActivesessionFinancial = bActivesessionFinancial
+        self.bActivesessionRealestatecompleted = bActivesessionRealestatecompleted
+        self.eActivesessionEzsign = eActivesessionEzsign
+        self.eActivesessionEzsignaccess = eActivesessionEzsignaccess
+        self.eActivesessionEzsignprepaid = eActivesessionEzsignprepaid
+        self.eActivesessionRealestateinprogress = eActivesessionRealestateinprogress
         self.pksCustomerCode = pksCustomerCode
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.fkiSignatureID = fkiSignatureID
@@ -60,6 +80,14 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         case sDepartmentNameX
         case bActivesessionDebug
         case bActivesessionIssuperadmin
+        case bActivesessionAttachment
+        case bActivesessionCanafe
+        case bActivesessionFinancial
+        case bActivesessionRealestatecompleted
+        case eActivesessionEzsign
+        case eActivesessionEzsignaccess
+        case eActivesessionEzsignprepaid
+        case eActivesessionRealestateinprogress
         case pksCustomerCode
         case fkiSystemconfigurationtypeID
         case fkiSignatureID
@@ -77,6 +105,14 @@ public struct ActivesessionResponse: Codable, JSONEncodable, Hashable {
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)
+        try container.encodeIfPresent(bActivesessionAttachment, forKey: .bActivesessionAttachment)
+        try container.encodeIfPresent(bActivesessionCanafe, forKey: .bActivesessionCanafe)
+        try container.encodeIfPresent(bActivesessionFinancial, forKey: .bActivesessionFinancial)
+        try container.encodeIfPresent(bActivesessionRealestatecompleted, forKey: .bActivesessionRealestatecompleted)
+        try container.encodeIfPresent(eActivesessionEzsign, forKey: .eActivesessionEzsign)
+        try container.encode(eActivesessionEzsignaccess, forKey: .eActivesessionEzsignaccess)
+        try container.encodeIfPresent(eActivesessionEzsignprepaid, forKey: .eActivesessionEzsignprepaid)
+        try container.encodeIfPresent(eActivesessionRealestateinprogress, forKey: .eActivesessionRealestateinprogress)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encodeIfPresent(fkiSignatureID, forKey: .fkiSignatureID)

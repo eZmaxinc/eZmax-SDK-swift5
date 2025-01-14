@@ -13,11 +13,20 @@ import AnyCodable
 /** A custom Webhook object */
 public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
 
+    public enum EWebhookEmittype: String, Codable, CaseIterable {
+        case automatic = "Automatic"
+        case manual = "Manual"
+        case test = "Test"
+    }
+    static let fkiAuthenticationexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int
+    /** The unique ID of the Authenticationexternal */
+    public var fkiAuthenticationexternalID: Int?
     /** The description of the Webhook */
     public var sWebhookDescription: String
     /** The unique ID of the Ezsignfoldertype. */
@@ -41,6 +50,8 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     public var bWebhookIssigned: Bool
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
+    /** The description of the Authenticationexternal */
+    public var sAuthenticationexternalDescription: String?
     public var objAudit: CommonAudit
     /** The concatenated string to describe the Webhook event */
     public var sWebhookEvent: String?
@@ -48,10 +59,14 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** Wheter the webhook received is a manual test or a real event */
+    @available(*, deprecated, message: "This property is deprecated.")
     public var bWebhookTest: Bool
+    /** Wheter the webhook received is a manual test or a real event */
+    public var eWebhookEmittype: EWebhookEmittype?
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, objAudit: CommonAudit, sWebhookEvent: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil, pksCustomerCode: String, bWebhookTest: Bool) {
+    public init(pkiWebhookID: Int, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit, sWebhookEvent: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil, pksCustomerCode: String, bWebhookTest: Bool, eWebhookEmittype: EWebhookEmittype? = nil) {
         self.pkiWebhookID = pkiWebhookID
+        self.fkiAuthenticationexternalID = fkiAuthenticationexternalID
         self.sWebhookDescription = sWebhookDescription
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
@@ -65,15 +80,18 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         self.bWebhookIsactive = bWebhookIsactive
         self.bWebhookIssigned = bWebhookIssigned
         self.bWebhookSkipsslvalidation = bWebhookSkipsslvalidation
+        self.sAuthenticationexternalDescription = sAuthenticationexternalDescription
         self.objAudit = objAudit
         self.sWebhookEvent = sWebhookEvent
         self.aObjWebhookheader = aObjWebhookheader
         self.pksCustomerCode = pksCustomerCode
         self.bWebhookTest = bWebhookTest
+        self.eWebhookEmittype = eWebhookEmittype
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiWebhookID
+        case fkiAuthenticationexternalID
         case sWebhookDescription
         case fkiEzsignfoldertypeID
         case sEzsignfoldertypeNameX
@@ -87,11 +105,13 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         case bWebhookIsactive
         case bWebhookIssigned
         case bWebhookSkipsslvalidation
+        case sAuthenticationexternalDescription
         case objAudit
         case sWebhookEvent
         case aObjWebhookheader = "a_objWebhookheader"
         case pksCustomerCode
         case bWebhookTest
+        case eWebhookEmittype
     }
 
     // Encodable protocol methods
@@ -99,6 +119,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiWebhookID, forKey: .pkiWebhookID)
+        try container.encodeIfPresent(fkiAuthenticationexternalID, forKey: .fkiAuthenticationexternalID)
         try container.encode(sWebhookDescription, forKey: .sWebhookDescription)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
@@ -112,11 +133,13 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookIssigned, forKey: .bWebhookIssigned)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
+        try container.encodeIfPresent(sAuthenticationexternalDescription, forKey: .sAuthenticationexternalDescription)
         try container.encode(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sWebhookEvent, forKey: .sWebhookEvent)
         try container.encodeIfPresent(aObjWebhookheader, forKey: .aObjWebhookheader)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(bWebhookTest, forKey: .bWebhookTest)
+        try container.encodeIfPresent(eWebhookEmittype, forKey: .eWebhookEmittype)
     }
 }
 

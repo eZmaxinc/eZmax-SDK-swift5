@@ -13,10 +13,13 @@ import AnyCodable
 /** A Webhook Object and children */
 public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
 
+    static let fkiAuthenticationexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int?
+    /** The unique ID of the Authenticationexternal */
+    public var fkiAuthenticationexternalID: Int?
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int?
     /** The description of the Webhook */
@@ -36,8 +39,9 @@ public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
     public var bWebhookSkipsslvalidation: Bool
     public var aObjWebhookheader: [WebhookheaderRequestCompound]?
 
-    public init(pkiWebhookID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, sWebhookDescription: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookIssigned: Bool? = nil, bWebhookSkipsslvalidation: Bool, aObjWebhookheader: [WebhookheaderRequestCompound]? = nil) {
+    public init(pkiWebhookID: Int? = nil, fkiAuthenticationexternalID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, sWebhookDescription: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookIssigned: Bool? = nil, bWebhookSkipsslvalidation: Bool, aObjWebhookheader: [WebhookheaderRequestCompound]? = nil) {
         self.pkiWebhookID = pkiWebhookID
+        self.fkiAuthenticationexternalID = fkiAuthenticationexternalID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.sWebhookDescription = sWebhookDescription
         self.eWebhookModule = eWebhookModule
@@ -53,6 +57,7 @@ public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiWebhookID
+        case fkiAuthenticationexternalID
         case fkiEzsignfoldertypeID
         case sWebhookDescription
         case eWebhookModule
@@ -71,6 +76,7 @@ public struct WebhookRequestCompound: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiWebhookID, forKey: .pkiWebhookID)
+        try container.encodeIfPresent(fkiAuthenticationexternalID, forKey: .fkiAuthenticationexternalID)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encode(sWebhookDescription, forKey: .sWebhookDescription)
         try container.encode(eWebhookModule, forKey: .eWebhookModule)

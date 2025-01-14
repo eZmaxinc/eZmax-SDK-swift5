@@ -6,10 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**userCreateObjectV1**](ObjectUserAPI.md#usercreateobjectv1) | **POST** /1/object/user | Create a new User
 [**userCreateObjectV2**](ObjectUserAPI.md#usercreateobjectv2) | **POST** /2/object/user | Create a new User
+[**userEditColleaguesV2**](ObjectUserAPI.md#usereditcolleaguesv2) | **PUT** /2/object/user/{pkiUserID}/editColleagues | Edit multiple Colleagues
 [**userEditObjectV1**](ObjectUserAPI.md#usereditobjectv1) | **PUT** /1/object/user/{pkiUserID} | Edit an existing User
 [**userEditPermissionsV1**](ObjectUserAPI.md#usereditpermissionsv1) | **PUT** /1/object/user/{pkiUserID}/editPermissions | Edit multiple Permissions
 [**userGetApikeysV1**](ObjectUserAPI.md#usergetapikeysv1) | **GET** /1/object/user/{pkiUserID}/getApikeys | Retrieve an existing User&#39;s Apikeys
 [**userGetAutocompleteV2**](ObjectUserAPI.md#usergetautocompletev2) | **GET** /2/object/user/getAutocomplete/{sSelector} | Retrieve Users and IDs
+[**userGetColleaguesV2**](ObjectUserAPI.md#usergetcolleaguesv2) | **GET** /2/object/user/{pkiUserID}/getColleagues | Retrieve an existing User&#39;s Colleagues
 [**userGetEffectivePermissionsV1**](ObjectUserAPI.md#usergeteffectivepermissionsv1) | **GET** /1/object/user/{pkiUserID}/getEffectivePermissions | Retrieve an existing User&#39;s Effective Permissions
 [**userGetListV1**](ObjectUserAPI.md#usergetlistv1) | **GET** /1/object/user/getList | Retrieve User list
 [**userGetObjectV2**](ObjectUserAPI.md#usergetobjectv2) | **GET** /2/object/user/{pkiUserID} | Retrieve an existing User
@@ -108,6 +110,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserCreateObjectV2Response**](UserCreateObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userEditColleaguesV2**
+```swift
+    open class func userEditColleaguesV2(pkiUserID: Int, userEditColleaguesV2Request: UserEditColleaguesV2Request, completion: @escaping (_ data: UserEditColleaguesV2Response?, _ error: Error?) -> Void)
+```
+
+Edit multiple Colleagues
+
+Using this endpoint, you can edit multiple Colleagues at the same time.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUserID = 987 // Int | 
+let userEditColleaguesV2Request = user-editColleagues-v2-Request(aObjColleague: [colleague-RequestCompoundV2(pkiColleagueID: 123, fkiUserID: 123, fkiUserIDColleague: 123, bColleagueEzsignemail: false, bColleagueFinancial: true, bColleagueUsecloneemail: true, bColleagueAttachment: true, bColleagueCanafe: true, bColleaguePermission: true, bColleagueRealestatecompleted: true, dtColleagueFrom: "dtColleagueFrom_example", dtColleagueTo: "dtColleagueTo_example", eColleagueEzsign: Field-eColleagueEzsign(), eColleagueRealestateinprogress: Field-eColleagueRealestateinprogess())]) // UserEditColleaguesV2Request | 
+
+// Edit multiple Colleagues
+ObjectUserAPI.userEditColleaguesV2(pkiUserID: pkiUserID, userEditColleaguesV2Request: userEditColleaguesV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUserID** | **Int** |  | 
+ **userEditColleaguesV2Request** | [**UserEditColleaguesV2Request**](UserEditColleaguesV2Request.md) |  | 
+
+### Return type
+
+[**UserEditColleaguesV2Response**](UserEditColleaguesV2Response.md)
 
 ### Authorization
 
@@ -316,6 +370,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserGetAutocompleteV2Response**](UserGetAutocompleteV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userGetColleaguesV2**
+```swift
+    open class func userGetColleaguesV2(pkiUserID: Int, completion: @escaping (_ data: UserGetColleaguesV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing User's Colleagues
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUserID = 987 // Int | 
+
+// Retrieve an existing User's Colleagues
+ObjectUserAPI.userGetColleaguesV2(pkiUserID: pkiUserID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUserID** | **Int** |  | 
+
+### Return type
+
+[**UserGetColleaguesV2Response**](UserGetColleaguesV2Response.md)
 
 ### Authorization
 

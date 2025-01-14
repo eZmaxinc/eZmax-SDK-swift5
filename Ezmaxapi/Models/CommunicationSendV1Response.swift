@@ -15,9 +15,9 @@ public struct CommunicationSendV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
-    public var mPayload: CommunicationCreateObjectV1ResponseMPayload
+    public var mPayload: CommunicationSendV1ResponseMPayload
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: CommunicationCreateObjectV1ResponseMPayload) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: CommunicationSendV1ResponseMPayload) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
         self.mPayload = mPayload

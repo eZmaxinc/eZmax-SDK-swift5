@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/usergroup */
 public struct UsergroupCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjUsergroupRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjUsergroup: [UsergroupRequestCompound]
 
     public init(aObjUsergroup: [UsergroupRequestCompound]) {

@@ -21,6 +21,7 @@ public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hash
     static let iEzsignformfieldgroupFilledmaxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsignformfieldgroupMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsignformfieldgroupRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
+    static let sEzsignformfieldgroupTextvalidationcustommessageRule = StringRule(minLength: 0, maxLength: 50, pattern: nil)
     /** The unique ID of the Ezsignformfieldgroup */
     public var pkiEzsignformfieldgroupID: Int
     /** The unique ID of the Ezsigndocument */
@@ -32,7 +33,7 @@ public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hash
     public var sEzsignformfieldgroupLabel: String
     /** The step when the Ezsignsigner will be invited to fill the form fields */
     public var iEzsignformfieldgroupStep: Int
-    /** The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | */
+    /** The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | */
     public var sEzsignformfieldgroupDefaultvalue: String?
     /** The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup */
     public var iEzsignformfieldgroupFilledmin: Int
@@ -47,6 +48,8 @@ public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hash
     public var eEzsignformfieldgroupTextvalidation: EnumTextvalidation?
     /** A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** */
     public var sEzsignformfieldgroupRegexp: String?
+    /** Description of validation rule. Show by signatory. */
+    public var sEzsignformfieldgroupTextvalidationcustommessage: String?
     /** A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup */
     public var tEzsignformfieldgroupTooltip: String?
     public var eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition?
@@ -54,7 +57,7 @@ public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hash
     public var aObjDropdownElement: [CustomDropdownElementResponseCompound]?
     public var aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerResponseCompound]
 
-    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement? = nil, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String? = nil, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, eEzsignformfieldgroupTextvalidation: EnumTextvalidation? = nil, sEzsignformfieldgroupRegexp: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, aObjEzsignformfield: [EzsignformfieldResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerResponseCompound]) {
+    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement? = nil, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String? = nil, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, eEzsignformfieldgroupTextvalidation: EnumTextvalidation? = nil, sEzsignformfieldgroupRegexp: String? = nil, sEzsignformfieldgroupTextvalidationcustommessage: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, aObjEzsignformfield: [EzsignformfieldResponseCompound], aObjDropdownElement: [CustomDropdownElementResponseCompound]? = nil, aObjEzsignformfieldgroupsigner: [EzsignformfieldgroupsignerResponseCompound]) {
         self.pkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.eEzsignformfieldgroupType = eEzsignformfieldgroupType
@@ -69,6 +72,7 @@ public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hash
         self.bEzsignformfieldgroupEncrypted = bEzsignformfieldgroupEncrypted
         self.eEzsignformfieldgroupTextvalidation = eEzsignformfieldgroupTextvalidation
         self.sEzsignformfieldgroupRegexp = sEzsignformfieldgroupRegexp
+        self.sEzsignformfieldgroupTextvalidationcustommessage = sEzsignformfieldgroupTextvalidationcustommessage
         self.tEzsignformfieldgroupTooltip = tEzsignformfieldgroupTooltip
         self.eEzsignformfieldgroupTooltipposition = eEzsignformfieldgroupTooltipposition
         self.aObjEzsignformfield = aObjEzsignformfield
@@ -91,6 +95,7 @@ public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hash
         case bEzsignformfieldgroupEncrypted
         case eEzsignformfieldgroupTextvalidation
         case sEzsignformfieldgroupRegexp
+        case sEzsignformfieldgroupTextvalidationcustommessage
         case tEzsignformfieldgroupTooltip
         case eEzsignformfieldgroupTooltipposition
         case aObjEzsignformfield = "a_objEzsignformfield"
@@ -116,6 +121,7 @@ public struct EzsignformfieldgroupResponseCompound: Codable, JSONEncodable, Hash
         try container.encodeIfPresent(bEzsignformfieldgroupEncrypted, forKey: .bEzsignformfieldgroupEncrypted)
         try container.encodeIfPresent(eEzsignformfieldgroupTextvalidation, forKey: .eEzsignformfieldgroupTextvalidation)
         try container.encodeIfPresent(sEzsignformfieldgroupRegexp, forKey: .sEzsignformfieldgroupRegexp)
+        try container.encodeIfPresent(sEzsignformfieldgroupTextvalidationcustommessage, forKey: .sEzsignformfieldgroupTextvalidationcustommessage)
         try container.encodeIfPresent(tEzsignformfieldgroupTooltip, forKey: .tEzsignformfieldgroupTooltip)
         try container.encodeIfPresent(eEzsignformfieldgroupTooltipposition, forKey: .eEzsignformfieldgroupTooltipposition)
         try container.encode(aObjEzsignformfield, forKey: .aObjEzsignformfield)

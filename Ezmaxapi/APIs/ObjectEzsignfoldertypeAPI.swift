@@ -15,13 +15,13 @@ open class ObjectEzsignfoldertypeAPI {
     /**
      Create a new Ezsignfoldertype
      
-     - parameter ezsignfoldertypeCreateObjectV2Request: (body)  
+     - parameter ezsignfoldertypeCreateObjectV3Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfoldertypeCreateObjectV2(ezsignfoldertypeCreateObjectV2Request: EzsignfoldertypeCreateObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeCreateObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfoldertypeCreateObjectV2WithRequestBuilder(ezsignfoldertypeCreateObjectV2Request: ezsignfoldertypeCreateObjectV2Request).execute(apiResponseQueue) { result in
+    open class func ezsignfoldertypeCreateObjectV3(ezsignfoldertypeCreateObjectV3Request: EzsignfoldertypeCreateObjectV3Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeCreateObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfoldertypeCreateObjectV3WithRequestBuilder(ezsignfoldertypeCreateObjectV3Request: ezsignfoldertypeCreateObjectV3Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -33,18 +33,18 @@ open class ObjectEzsignfoldertypeAPI {
 
     /**
      Create a new Ezsignfoldertype
-     - POST /2/object/ezsignfoldertype
+     - POST /3/object/ezsignfoldertype
      - The endpoint allows to create one or many elements at once.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter ezsignfoldertypeCreateObjectV2Request: (body)  
-     - returns: RequestBuilder<EzsignfoldertypeCreateObjectV2Response> 
+     - parameter ezsignfoldertypeCreateObjectV3Request: (body)  
+     - returns: RequestBuilder<EzsignfoldertypeCreateObjectV3Response> 
      */
-    open class func ezsignfoldertypeCreateObjectV2WithRequestBuilder(ezsignfoldertypeCreateObjectV2Request: EzsignfoldertypeCreateObjectV2Request) -> RequestBuilder<EzsignfoldertypeCreateObjectV2Response> {
-        let localVariablePath = "/2/object/ezsignfoldertype"
+    open class func ezsignfoldertypeCreateObjectV3WithRequestBuilder(ezsignfoldertypeCreateObjectV3Request: EzsignfoldertypeCreateObjectV3Request) -> RequestBuilder<EzsignfoldertypeCreateObjectV3Response> {
+        let localVariablePath = "/3/object/ezsignfoldertype"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldertypeCreateObjectV2Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldertypeCreateObjectV3Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -54,7 +54,7 @@ open class ObjectEzsignfoldertypeAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignfoldertypeCreateObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignfoldertypeCreateObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -63,14 +63,13 @@ open class ObjectEzsignfoldertypeAPI {
      Edit an existing Ezsignfoldertype
      
      - parameter pkiEzsignfoldertypeID: (path)  
-     - parameter ezsignfoldertypeEditObjectV1Request: (body)  
+     - parameter ezsignfoldertypeEditObjectV3Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
-    open class func ezsignfoldertypeEditObjectV1(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV1Request: EzsignfoldertypeEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfoldertypeEditObjectV1WithRequestBuilder(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID, ezsignfoldertypeEditObjectV1Request: ezsignfoldertypeEditObjectV1Request).execute(apiResponseQueue) { result in
+    open class func ezsignfoldertypeEditObjectV3(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV3Request: EzsignfoldertypeEditObjectV3Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeEditObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfoldertypeEditObjectV3WithRequestBuilder(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID, ezsignfoldertypeEditObjectV3Request: ezsignfoldertypeEditObjectV3Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -82,23 +81,22 @@ open class ObjectEzsignfoldertypeAPI {
 
     /**
      Edit an existing Ezsignfoldertype
-     - PUT /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
+     - PUT /3/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
      - 
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldertypeID: (path)  
-     - parameter ezsignfoldertypeEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsignfoldertypeEditObjectV1Response> 
+     - parameter ezsignfoldertypeEditObjectV3Request: (body)  
+     - returns: RequestBuilder<EzsignfoldertypeEditObjectV3Response> 
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsignfoldertypeEditObjectV1WithRequestBuilder(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV1Request: EzsignfoldertypeEditObjectV1Request) -> RequestBuilder<EzsignfoldertypeEditObjectV1Response> {
-        var localVariablePath = "/1/object/ezsignfoldertype/{pkiEzsignfoldertypeID}"
+    open class func ezsignfoldertypeEditObjectV3WithRequestBuilder(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV3Request: EzsignfoldertypeEditObjectV3Request) -> RequestBuilder<EzsignfoldertypeEditObjectV3Response> {
+        var localVariablePath = "/3/object/ezsignfoldertype/{pkiEzsignfoldertypeID}"
         let pkiEzsignfoldertypeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldertypeID))"
         let pkiEzsignfoldertypeIDPostEscape = pkiEzsignfoldertypeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldertypeID}", with: pkiEzsignfoldertypeIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldertypeEditObjectV1Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldertypeEditObjectV3Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -108,59 +106,7 @@ open class ObjectEzsignfoldertypeAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignfoldertypeEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Edit an existing Ezsignfoldertype
-     
-     - parameter pkiEzsignfoldertypeID: (path)  
-     - parameter ezsignfoldertypeEditObjectV2Request: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func ezsignfoldertypeEditObjectV2(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV2Request: EzsignfoldertypeEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeEditObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfoldertypeEditObjectV2WithRequestBuilder(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID, ezsignfoldertypeEditObjectV2Request: ezsignfoldertypeEditObjectV2Request).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Edit an existing Ezsignfoldertype
-     - PUT /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiEzsignfoldertypeID: (path)  
-     - parameter ezsignfoldertypeEditObjectV2Request: (body)  
-     - returns: RequestBuilder<EzsignfoldertypeEditObjectV2Response> 
-     */
-    open class func ezsignfoldertypeEditObjectV2WithRequestBuilder(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV2Request: EzsignfoldertypeEditObjectV2Request) -> RequestBuilder<EzsignfoldertypeEditObjectV2Response> {
-        var localVariablePath = "/2/object/ezsignfoldertype/{pkiEzsignfoldertypeID}"
-        let pkiEzsignfoldertypeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldertypeID))"
-        let pkiEzsignfoldertypeIDPostEscape = pkiEzsignfoldertypeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldertypeID}", with: pkiEzsignfoldertypeIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldertypeEditObjectV2Request)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsignfoldertypeEditObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignfoldertypeEditObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -379,8 +325,8 @@ open class ObjectEzsignfoldertypeAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfoldertypeGetObjectV3(pkiEzsignfoldertypeID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeGetObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfoldertypeGetObjectV3WithRequestBuilder(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID).execute(apiResponseQueue) { result in
+    open class func ezsignfoldertypeGetObjectV4(pkiEzsignfoldertypeID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldertypeGetObjectV4Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfoldertypeGetObjectV4WithRequestBuilder(pkiEzsignfoldertypeID: pkiEzsignfoldertypeID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -392,16 +338,16 @@ open class ObjectEzsignfoldertypeAPI {
 
     /**
      Retrieve an existing Ezsignfoldertype
-     - GET /3/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
+     - GET /4/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
      - 
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignfoldertypeID: (path)  
-     - returns: RequestBuilder<EzsignfoldertypeGetObjectV3Response> 
+     - returns: RequestBuilder<EzsignfoldertypeGetObjectV4Response> 
      */
-    open class func ezsignfoldertypeGetObjectV3WithRequestBuilder(pkiEzsignfoldertypeID: Int) -> RequestBuilder<EzsignfoldertypeGetObjectV3Response> {
-        var localVariablePath = "/3/object/ezsignfoldertype/{pkiEzsignfoldertypeID}"
+    open class func ezsignfoldertypeGetObjectV4WithRequestBuilder(pkiEzsignfoldertypeID: Int) -> RequestBuilder<EzsignfoldertypeGetObjectV4Response> {
+        var localVariablePath = "/4/object/ezsignfoldertype/{pkiEzsignfoldertypeID}"
         let pkiEzsignfoldertypeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldertypeID))"
         let pkiEzsignfoldertypeIDPostEscape = pkiEzsignfoldertypeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldertypeID}", with: pkiEzsignfoldertypeIDPostEscape, options: .literal, range: nil)
@@ -416,7 +362,7 @@ open class ObjectEzsignfoldertypeAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignfoldertypeGetObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignfoldertypeGetObjectV4Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

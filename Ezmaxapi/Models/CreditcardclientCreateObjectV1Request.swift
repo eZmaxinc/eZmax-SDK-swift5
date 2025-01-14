@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/creditcardclient */
 public struct CreditcardclientCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjCreditcardclientRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjCreditcardclient: [CreditcardclientRequestCompound]
 
     public init(aObjCreditcardclient: [CreditcardclientRequestCompound]) {

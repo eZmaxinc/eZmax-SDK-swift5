@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsignbulksend */
 public struct EzsignbulksendCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjEzsignbulksendRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsignbulksend: [EzsignbulksendRequestCompound]
 
     public init(aObjEzsignbulksend: [EzsignbulksendRequestCompound]) {

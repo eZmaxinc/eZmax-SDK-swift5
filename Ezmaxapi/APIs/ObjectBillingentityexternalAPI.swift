@@ -13,6 +13,58 @@ import AnyCodable
 open class ObjectBillingentityexternalAPI {
 
     /**
+     Generate a federation token
+     
+     - parameter pkiBillingentityexternalID: (path)  
+     - parameter billingentityexternalGenerateFederationTokenV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func billingentityexternalGenerateFederationTokenV1(pkiBillingentityexternalID: Int, billingentityexternalGenerateFederationTokenV1Request: BillingentityexternalGenerateFederationTokenV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BillingentityexternalGenerateFederationTokenV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return billingentityexternalGenerateFederationTokenV1WithRequestBuilder(pkiBillingentityexternalID: pkiBillingentityexternalID, billingentityexternalGenerateFederationTokenV1Request: billingentityexternalGenerateFederationTokenV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Generate a federation token
+     - POST /1/object/billingentityexternal/{pkiBillingentityexternalID}/generateFederationToken
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBillingentityexternalID: (path)  
+     - parameter billingentityexternalGenerateFederationTokenV1Request: (body)  
+     - returns: RequestBuilder<BillingentityexternalGenerateFederationTokenV1Response> 
+     */
+    open class func billingentityexternalGenerateFederationTokenV1WithRequestBuilder(pkiBillingentityexternalID: Int, billingentityexternalGenerateFederationTokenV1Request: BillingentityexternalGenerateFederationTokenV1Request) -> RequestBuilder<BillingentityexternalGenerateFederationTokenV1Response> {
+        var localVariablePath = "/1/object/billingentityexternal/{pkiBillingentityexternalID}/generateFederationToken"
+        let pkiBillingentityexternalIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBillingentityexternalID))"
+        let pkiBillingentityexternalIDPostEscape = pkiBillingentityexternalIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBillingentityexternalID}", with: pkiBillingentityexternalIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: billingentityexternalGenerateFederationTokenV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BillingentityexternalGenerateFederationTokenV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter sSelector
      */
     public enum SSelector_billingentityexternalGetAutocompleteV2: String, CaseIterable {

@@ -219,6 +219,7 @@ open class ObjectEzsigntemplatepackageAPI {
     public enum SSelector_ezsigntemplatepackageGetAutocompleteV2: String, CaseIterable {
         case all = "All"
         case allMultipleCopiesDisabled = "AllMultipleCopiesDisabled"
+        case ezsigntemplatepublic = "Ezsigntemplatepublic"
     }
 
     /**
@@ -237,12 +238,13 @@ open class ObjectEzsigntemplatepackageAPI {
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
+     - parameter fkiEzsignfoldertypeID: (query) The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatepackageGetAutocompleteV2(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepackageGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplatepackageGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage).execute(apiResponseQueue) { result in
+    open class func ezsigntemplatepackageGetAutocompleteV2(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiEzsignfoldertypeID: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepackageGetAutocompleteV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplatepackageGetAutocompleteV2WithRequestBuilder(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -263,9 +265,10 @@ open class ObjectEzsigntemplatepackageAPI {
      - parameter eFilterActive: (query) Specify which results we want to display. (optional, default to .active)
      - parameter sQuery: (query) Allow to filter the returned results (optional)
      - parameter acceptLanguage: (header)  (optional)
+     - parameter fkiEzsignfoldertypeID: (query) The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic (optional)
      - returns: RequestBuilder<EzsigntemplatepackageGetAutocompleteV2Response> 
      */
-    open class func ezsigntemplatepackageGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil) -> RequestBuilder<EzsigntemplatepackageGetAutocompleteV2Response> {
+    open class func ezsigntemplatepackageGetAutocompleteV2WithRequestBuilder(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiEzsignfoldertypeID: Int? = nil) -> RequestBuilder<EzsigntemplatepackageGetAutocompleteV2Response> {
         var localVariablePath = "/2/object/ezsigntemplatepackage/getAutocomplete/{sSelector}"
         let sSelectorPreEscape = "\(sSelector.rawValue)"
         let sSelectorPostEscape = sSelectorPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -277,6 +280,7 @@ open class ObjectEzsigntemplatepackageAPI {
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "eFilterActive": (wrappedValue: eFilterActive?.encodeToJSON(), isExplode: true),
             "sQuery": (wrappedValue: sQuery?.encodeToJSON(), isExplode: true),
+            "fkiEzsignfoldertypeID": (wrappedValue: fkiEzsignfoldertypeID?.encodeToJSON(), isExplode: true),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

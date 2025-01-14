@@ -15,18 +15,21 @@ public struct EzsignfolderSendV3Request: Codable, JSONEncodable, Hashable {
 
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfolderMessage: String?
+    public var eEzsignfolderMessageorder: FieldEEzsignfolderMessageorder?
     /** The date and time at which the Ezsignfolder will be sent in the future. */
     public var dtEzsignfolderDelayedsenddate: String?
     public var aFkiEzsignfoldersignerassociationID: [Int]
 
-    public init(tEzsignfolderMessage: String? = nil, dtEzsignfolderDelayedsenddate: String? = nil, aFkiEzsignfoldersignerassociationID: [Int]) {
+    public init(tEzsignfolderMessage: String? = nil, eEzsignfolderMessageorder: FieldEEzsignfolderMessageorder? = nil, dtEzsignfolderDelayedsenddate: String? = nil, aFkiEzsignfoldersignerassociationID: [Int]) {
         self.tEzsignfolderMessage = tEzsignfolderMessage
+        self.eEzsignfolderMessageorder = eEzsignfolderMessageorder
         self.dtEzsignfolderDelayedsenddate = dtEzsignfolderDelayedsenddate
         self.aFkiEzsignfoldersignerassociationID = aFkiEzsignfoldersignerassociationID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case tEzsignfolderMessage
+        case eEzsignfolderMessageorder
         case dtEzsignfolderDelayedsenddate
         case aFkiEzsignfoldersignerassociationID = "a_fkiEzsignfoldersignerassociationID"
     }
@@ -36,6 +39,7 @@ public struct EzsignfolderSendV3Request: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(tEzsignfolderMessage, forKey: .tEzsignfolderMessage)
+        try container.encodeIfPresent(eEzsignfolderMessageorder, forKey: .eEzsignfolderMessageorder)
         try container.encodeIfPresent(dtEzsignfolderDelayedsenddate, forKey: .dtEzsignfolderDelayedsenddate)
         try container.encode(aFkiEzsignfoldersignerassociationID, forKey: .aFkiEzsignfoldersignerassociationID)
     }

@@ -13,6 +13,7 @@ import AnyCodable
 /** A Ezsigntemplate AutocompleteElement Response */
 public struct EzsigntemplateAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
+    static let sEzsigntemplateDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
     static let pkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public var eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel
     /** The description of the Ezsigntemplate */

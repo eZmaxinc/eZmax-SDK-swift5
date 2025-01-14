@@ -15,7 +15,10 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
 
     static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
     static let dEzsignfolderCompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    static let dEzsignfolderFormcompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    static let dEzsignfolderSignaturecompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
     /** The unique ID of the Ezsignfoldertype. */
@@ -48,10 +51,16 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     public var iEzsignformfieldgroupCompleted: Int
     /** Whether the Ezsignform/Ezsignsignatures has dependencies or not */
     public var bEzsignformHasdependencies: Bool?
-    /** Whether the Ezsignform/Ezsignsignatures has dependencies or not */
+    /** Percentage of Ezsignform/Ezsignsignatures has completed */
     public var dEzsignfolderCompletedpercentage: String
+    /** Percentage of Ezsignform has completed */
+    public var dEzsignfolderFormcompletedpercentage: String
+    /** Percentage of Ezsignsignatures has signed */
+    public var dEzsignfolderSignaturecompletedpercentage: String
+    /** Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user */
+    public var bEzsignfolderSigner: Bool?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int, iEzsignformfieldgroup: Int, iEzsignformfieldgroupCompleted: Int, bEzsignformHasdependencies: Bool? = nil, dEzsignfolderCompletedpercentage: String) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int, iEzsignformfieldgroup: Int, iEzsignformfieldgroupCompleted: Int, bEzsignformHasdependencies: Bool? = nil, dEzsignfolderCompletedpercentage: String, dEzsignfolderFormcompletedpercentage: String, dEzsignfolderSignaturecompletedpercentage: String, bEzsignfolderSigner: Bool? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.eEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
@@ -70,6 +79,9 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         self.iEzsignformfieldgroupCompleted = iEzsignformfieldgroupCompleted
         self.bEzsignformHasdependencies = bEzsignformHasdependencies
         self.dEzsignfolderCompletedpercentage = dEzsignfolderCompletedpercentage
+        self.dEzsignfolderFormcompletedpercentage = dEzsignfolderFormcompletedpercentage
+        self.dEzsignfolderSignaturecompletedpercentage = dEzsignfolderSignaturecompletedpercentage
+        self.bEzsignfolderSigner = bEzsignfolderSigner
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -91,6 +103,9 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         case iEzsignformfieldgroupCompleted
         case bEzsignformHasdependencies
         case dEzsignfolderCompletedpercentage
+        case dEzsignfolderFormcompletedpercentage
+        case dEzsignfolderSignaturecompletedpercentage
+        case bEzsignfolderSigner
     }
 
     // Encodable protocol methods
@@ -115,6 +130,9 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsignformfieldgroupCompleted, forKey: .iEzsignformfieldgroupCompleted)
         try container.encodeIfPresent(bEzsignformHasdependencies, forKey: .bEzsignformHasdependencies)
         try container.encode(dEzsignfolderCompletedpercentage, forKey: .dEzsignfolderCompletedpercentage)
+        try container.encode(dEzsignfolderFormcompletedpercentage, forKey: .dEzsignfolderFormcompletedpercentage)
+        try container.encode(dEzsignfolderSignaturecompletedpercentage, forKey: .dEzsignfolderSignaturecompletedpercentage)
+        try container.encodeIfPresent(bEzsignfolderSigner, forKey: .bEzsignfolderSigner)
     }
 }
 

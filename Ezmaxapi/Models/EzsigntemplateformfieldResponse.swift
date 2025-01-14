@@ -33,9 +33,9 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     public var iEzsigntemplateformfieldX: Int?
     /** The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate. */
     public var iEzsigntemplateformfieldY: Int?
-    /** The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     | */
+    /** The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI */
     public var iEzsigntemplateformfieldWidth: Int
-    /** The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     |  */
+    /** The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  */
     public var iEzsigntemplateformfieldHeight: Int
     /** Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** */
     public var bEzsigntemplateformfieldAutocomplete: Bool?
@@ -49,8 +49,10 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
     /** The offset Y  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** */
     public var iEzsigntemplateformfieldPositioningoffsety: Int?
     public var eEzsigntemplateformfieldPositioningoccurence: FieldEEzsigntemplateformfieldPositioningoccurence?
+    public var eEzsigntemplateformfieldHorizontalalignment: EnumHorizontalalignment?
+    public var objTextstylestatic: TextstylestaticResponseCompound?
 
-    public init(pkiEzsigntemplateformfieldID: Int, eEzsigntemplateformfieldPositioning: FieldEEzsigntemplateformfieldPositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int? = nil, iEzsigntemplateformfieldY: Int? = nil, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldAutocomplete: Bool? = nil, bEzsigntemplateformfieldSelected: Bool? = nil, eEzsigntemplateformfieldDependencyrequirement: FieldEEzsigntemplateformfieldDependencyrequirement? = nil, sEzsigntemplateformfieldPositioningpattern: String? = nil, iEzsigntemplateformfieldPositioningoffsetx: Int? = nil, iEzsigntemplateformfieldPositioningoffsety: Int? = nil, eEzsigntemplateformfieldPositioningoccurence: FieldEEzsigntemplateformfieldPositioningoccurence? = nil) {
+    public init(pkiEzsigntemplateformfieldID: Int, eEzsigntemplateformfieldPositioning: FieldEEzsigntemplateformfieldPositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateformfieldLabel: String, sEzsigntemplateformfieldValue: String? = nil, iEzsigntemplateformfieldX: Int? = nil, iEzsigntemplateformfieldY: Int? = nil, iEzsigntemplateformfieldWidth: Int, iEzsigntemplateformfieldHeight: Int, bEzsigntemplateformfieldAutocomplete: Bool? = nil, bEzsigntemplateformfieldSelected: Bool? = nil, eEzsigntemplateformfieldDependencyrequirement: FieldEEzsigntemplateformfieldDependencyrequirement? = nil, sEzsigntemplateformfieldPositioningpattern: String? = nil, iEzsigntemplateformfieldPositioningoffsetx: Int? = nil, iEzsigntemplateformfieldPositioningoffsety: Int? = nil, eEzsigntemplateformfieldPositioningoccurence: FieldEEzsigntemplateformfieldPositioningoccurence? = nil, eEzsigntemplateformfieldHorizontalalignment: EnumHorizontalalignment? = nil, objTextstylestatic: TextstylestaticResponseCompound? = nil) {
         self.pkiEzsigntemplateformfieldID = pkiEzsigntemplateformfieldID
         self.eEzsigntemplateformfieldPositioning = eEzsigntemplateformfieldPositioning
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
@@ -67,6 +69,8 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         self.iEzsigntemplateformfieldPositioningoffsetx = iEzsigntemplateformfieldPositioningoffsetx
         self.iEzsigntemplateformfieldPositioningoffsety = iEzsigntemplateformfieldPositioningoffsety
         self.eEzsigntemplateformfieldPositioningoccurence = eEzsigntemplateformfieldPositioningoccurence
+        self.eEzsigntemplateformfieldHorizontalalignment = eEzsigntemplateformfieldHorizontalalignment
+        self.objTextstylestatic = objTextstylestatic
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -86,6 +90,8 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         case iEzsigntemplateformfieldPositioningoffsetx
         case iEzsigntemplateformfieldPositioningoffsety
         case eEzsigntemplateformfieldPositioningoccurence
+        case eEzsigntemplateformfieldHorizontalalignment
+        case objTextstylestatic
     }
 
     // Encodable protocol methods
@@ -108,6 +114,8 @@ public struct EzsigntemplateformfieldResponse: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(iEzsigntemplateformfieldPositioningoffsetx, forKey: .iEzsigntemplateformfieldPositioningoffsetx)
         try container.encodeIfPresent(iEzsigntemplateformfieldPositioningoffsety, forKey: .iEzsigntemplateformfieldPositioningoffsety)
         try container.encodeIfPresent(eEzsigntemplateformfieldPositioningoccurence, forKey: .eEzsigntemplateformfieldPositioningoccurence)
+        try container.encodeIfPresent(eEzsigntemplateformfieldHorizontalalignment, forKey: .eEzsigntemplateformfieldHorizontalalignment)
+        try container.encodeIfPresent(objTextstylestatic, forKey: .objTextstylestatic)
     }
 }
 

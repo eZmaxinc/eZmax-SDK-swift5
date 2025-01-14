@@ -17,6 +17,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzsignuserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let dtUserEzsignprepaidexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public var eActivesessionUsertype: FieldEActivesessionUsertype
     public var eActivesessionOrigin: FieldEActivesessionOrigin
@@ -31,17 +32,33 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     public var bActivesessionDebug: Bool
     /** Whether the active session is superadmin or not */
     public var bActivesessionIssuperadmin: Bool
+    /** Can access attachment when we clone a user */
+    public var bActivesessionAttachment: Bool?
+    /** Can access canafe when we clone a user */
+    public var bActivesessionCanafe: Bool?
+    /** Can access financial element when we clone a user */
+    public var bActivesessionFinancial: Bool?
+    /** Can access closed realestate folders when we clone a user */
+    public var bActivesessionRealestatecompleted: Bool?
+    public var eActivesessionEzsign: FieldEActivesessionEzsign?
+    public var eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess
+    public var eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid?
+    public var eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress?
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
     /** The unique ID of the Systemconfigurationtype */
     public var fkiSystemconfigurationtypeID: Int
     /** The unique ID of the Signature */
     public var fkiSignatureID: Int?
+    /** The unique ID of the Ezsignuser */
+    public var fkiEzsignuserID: Int?
     /** Whether if Ezsign is paid by the company or not */
     public var bSystemconfigurationEzsignpaidbyoffice: Bool?
     public var eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan?
     public var eUserEzsignaccess: FieldEUserEzsignaccess
     public var eUserEzsignprepaid: FieldEUserEzsignprepaid?
+    /** Whether the User's eZsign subscription is a trial */
+    public var bUserEzsigntrial: Bool?
     /** The eZsign prepaid expiration date */
     public var dtUserEzsignprepaidexpiration: String?
     /** An array of permissions granted to the user or api key */
@@ -52,7 +69,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, dtUserEzsignprepaidexpiration: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, fkiEzsignuserID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, bUserEzsigntrial: Bool? = nil, dtUserEzsignprepaidexpiration: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -61,13 +78,23 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         self.sDepartmentNameX = sDepartmentNameX
         self.bActivesessionDebug = bActivesessionDebug
         self.bActivesessionIssuperadmin = bActivesessionIssuperadmin
+        self.bActivesessionAttachment = bActivesessionAttachment
+        self.bActivesessionCanafe = bActivesessionCanafe
+        self.bActivesessionFinancial = bActivesessionFinancial
+        self.bActivesessionRealestatecompleted = bActivesessionRealestatecompleted
+        self.eActivesessionEzsign = eActivesessionEzsign
+        self.eActivesessionEzsignaccess = eActivesessionEzsignaccess
+        self.eActivesessionEzsignprepaid = eActivesessionEzsignprepaid
+        self.eActivesessionRealestateinprogress = eActivesessionRealestateinprogress
         self.pksCustomerCode = pksCustomerCode
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.fkiSignatureID = fkiSignatureID
+        self.fkiEzsignuserID = fkiEzsignuserID
         self.bSystemconfigurationEzsignpaidbyoffice = bSystemconfigurationEzsignpaidbyoffice
         self.eSystemconfigurationEzsignofficeplan = eSystemconfigurationEzsignofficeplan
         self.eUserEzsignaccess = eUserEzsignaccess
         self.eUserEzsignprepaid = eUserEzsignprepaid
+        self.bUserEzsigntrial = bUserEzsigntrial
         self.dtUserEzsignprepaidexpiration = dtUserEzsignprepaidexpiration
         self.aPkiPermissionID = aPkiPermissionID
         self.objUserReal = objUserReal
@@ -85,13 +112,23 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         case sDepartmentNameX
         case bActivesessionDebug
         case bActivesessionIssuperadmin
+        case bActivesessionAttachment
+        case bActivesessionCanafe
+        case bActivesessionFinancial
+        case bActivesessionRealestatecompleted
+        case eActivesessionEzsign
+        case eActivesessionEzsignaccess
+        case eActivesessionEzsignprepaid
+        case eActivesessionRealestateinprogress
         case pksCustomerCode
         case fkiSystemconfigurationtypeID
         case fkiSignatureID
+        case fkiEzsignuserID
         case bSystemconfigurationEzsignpaidbyoffice
         case eSystemconfigurationEzsignofficeplan
         case eUserEzsignaccess
         case eUserEzsignprepaid
+        case bUserEzsigntrial
         case dtUserEzsignprepaidexpiration
         case aPkiPermissionID = "a_pkiPermissionID"
         case objUserReal
@@ -112,13 +149,23 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(bActivesessionDebug, forKey: .bActivesessionDebug)
         try container.encode(bActivesessionIssuperadmin, forKey: .bActivesessionIssuperadmin)
+        try container.encodeIfPresent(bActivesessionAttachment, forKey: .bActivesessionAttachment)
+        try container.encodeIfPresent(bActivesessionCanafe, forKey: .bActivesessionCanafe)
+        try container.encodeIfPresent(bActivesessionFinancial, forKey: .bActivesessionFinancial)
+        try container.encodeIfPresent(bActivesessionRealestatecompleted, forKey: .bActivesessionRealestatecompleted)
+        try container.encodeIfPresent(eActivesessionEzsign, forKey: .eActivesessionEzsign)
+        try container.encode(eActivesessionEzsignaccess, forKey: .eActivesessionEzsignaccess)
+        try container.encodeIfPresent(eActivesessionEzsignprepaid, forKey: .eActivesessionEzsignprepaid)
+        try container.encodeIfPresent(eActivesessionRealestateinprogress, forKey: .eActivesessionRealestateinprogress)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encodeIfPresent(fkiSignatureID, forKey: .fkiSignatureID)
+        try container.encodeIfPresent(fkiEzsignuserID, forKey: .fkiEzsignuserID)
         try container.encodeIfPresent(bSystemconfigurationEzsignpaidbyoffice, forKey: .bSystemconfigurationEzsignpaidbyoffice)
         try container.encodeIfPresent(eSystemconfigurationEzsignofficeplan, forKey: .eSystemconfigurationEzsignofficeplan)
         try container.encode(eUserEzsignaccess, forKey: .eUserEzsignaccess)
         try container.encodeIfPresent(eUserEzsignprepaid, forKey: .eUserEzsignprepaid)
+        try container.encodeIfPresent(bUserEzsigntrial, forKey: .bUserEzsigntrial)
         try container.encodeIfPresent(dtUserEzsignprepaidexpiration, forKey: .dtUserEzsignprepaidexpiration)
         try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)
         try container.encode(objUserReal, forKey: .objUserReal)

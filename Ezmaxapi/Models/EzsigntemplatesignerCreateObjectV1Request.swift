@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsigntemplatesigner */
 public struct EzsigntemplatesignerCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjEzsigntemplatesignerRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsigntemplatesigner: [EzsigntemplatesignerRequestCompound]
 
     public init(aObjEzsigntemplatesigner: [EzsigntemplatesignerRequestCompound]) {

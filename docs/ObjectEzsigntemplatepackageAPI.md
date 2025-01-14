@@ -27,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatepackageCreateObjectV1Request = ezsigntemplatepackage-createObject-v1-Request(aObjEzsigntemplatepackage: [ezsigntemplatepackage-RequestCompound(pkiEzsigntemplatepackageID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplatepackageDescription: "sEzsigntemplatepackageDescription_example", bEzsigntemplatepackageAdminonly: false, bEzsigntemplatepackageIsactive: true)]) // EzsigntemplatepackageCreateObjectV1Request | 
+let ezsigntemplatepackageCreateObjectV1Request = ezsigntemplatepackage-createObject-v1-Request(aObjEzsigntemplatepackage: [ezsigntemplatepackage-RequestCompound(pkiEzsigntemplatepackageID: 123, fkiEzsignfoldertypeID: 123, fkiEzdoctemplatedocumentID: 123, fkiLanguageID: 123, sEzsigntemplatepackageDescription: "sEzsigntemplatepackageDescription_example", bEzsigntemplatepackageAdminonly: false, bEzsigntemplatepackageIsactive: true)]) // EzsigntemplatepackageCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepackage
 ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageCreateObjectV1(ezsigntemplatepackageCreateObjectV1Request: ezsigntemplatepackageCreateObjectV1Request) { (response, error) in
@@ -128,7 +128,7 @@ Using this endpoint, you can edit multiple Ezsigntemplatepackagesigners at the s
 import OpenAPIClient
 
 let pkiEzsigntemplatepackageID = 987 // Int | 
-let ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Request = ezsigntemplatepackage-editEzsigntemplatepackagesigners-v1-Request(aObjEzsigntemplatepackagesigner: [ezsigntemplatepackagesigner-RequestCompound(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")]) // EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request | 
+let ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Request = ezsigntemplatepackage-editEzsigntemplatepackagesigners-v1-Request(aObjEzsigntemplatepackagesigner: [ezsigntemplatepackagesigner-RequestCompound(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, fkiEzdoctemplatedocumentID: 123, fkiUserID: 123, fkiUsergroupID: 123, bEzsigntemplatepackagesignerReceivecopy: false, eEzsigntemplatepackagesignerMapping: Field-eEzsigntemplatepackagesignerMapping(), sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")]) // EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request | 
 
 // Edit multiple Ezsigntemplatepackagesigners
 ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageEditEzsigntemplatepackagesignersV1(pkiEzsigntemplatepackageID: pkiEzsigntemplatepackageID, ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Request: ezsigntemplatepackageEditEzsigntemplatepackagesignersV1Request) { (response, error) in
@@ -180,7 +180,7 @@ Edit an existing Ezsigntemplatepackage
 import OpenAPIClient
 
 let pkiEzsigntemplatepackageID = 987 // Int | 
-let ezsigntemplatepackageEditObjectV1Request = ezsigntemplatepackage-editObject-v1-Request(objEzsigntemplatepackage: ezsigntemplatepackage-RequestCompound(pkiEzsigntemplatepackageID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsigntemplatepackageDescription: "sEzsigntemplatepackageDescription_example", bEzsigntemplatepackageAdminonly: false, bEzsigntemplatepackageIsactive: true)) // EzsigntemplatepackageEditObjectV1Request | 
+let ezsigntemplatepackageEditObjectV1Request = ezsigntemplatepackage-editObject-v1-Request(objEzsigntemplatepackage: ezsigntemplatepackage-RequestCompound(pkiEzsigntemplatepackageID: 123, fkiEzsignfoldertypeID: 123, fkiEzdoctemplatedocumentID: 123, fkiLanguageID: 123, sEzsigntemplatepackageDescription: "sEzsigntemplatepackageDescription_example", bEzsigntemplatepackageAdminonly: false, bEzsigntemplatepackageIsactive: true)) // EzsigntemplatepackageEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatepackage
 ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageEditObjectV1(pkiEzsigntemplatepackageID: pkiEzsigntemplatepackageID, ezsigntemplatepackageEditObjectV1Request: ezsigntemplatepackageEditObjectV1Request) { (response, error) in
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackageGetAutocompleteV2**
 ```swift
-    open class func ezsigntemplatepackageGetAutocompleteV2(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: EzsigntemplatepackageGetAutocompleteV2Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackageGetAutocompleteV2(sSelector: SSelector_ezsigntemplatepackageGetAutocompleteV2, eFilterActive: EFilterActive_ezsigntemplatepackageGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, fkiEzsignfoldertypeID: Int? = nil, completion: @escaping (_ data: EzsigntemplatepackageGetAutocompleteV2Response?, _ error: Error?) -> Void)
 ```
 
 Retrieve Ezsigntemplatepackages and IDs
@@ -235,9 +235,10 @@ let sSelector = "sSelector_example" // String | The type of Ezsigntemplatepackag
 let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
 let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
 let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
+let fkiEzsignfoldertypeID = 987 // Int | The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic (optional)
 
 // Retrieve Ezsigntemplatepackages and IDs
-ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage, fkiEzsignfoldertypeID: fkiEzsignfoldertypeID) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -257,6 +258,7 @@ Name | Type | Description  | Notes
  **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
  **sQuery** | **String** | Allow to filter the returned results | [optional] 
  **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
+ **fkiEzsignfoldertypeID** | **Int** | The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic | [optional] 
 
 ### Return type
 

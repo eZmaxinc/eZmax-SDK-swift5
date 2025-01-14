@@ -4,7 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ezsignbulksendCreateEzsignbulksendtransmissionV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendcreateezsignbulksendtransmissionv1) | **POST** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission | Create a new Ezsignbulksendtransmission in the Ezsignbulksend
+[**ezsignbulksendCreateEzsignbulksendtransmissionV2**](ObjectEzsignbulksendAPI.md#ezsignbulksendcreateezsignbulksendtransmissionv2) | **POST** /2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission | Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 [**ezsignbulksendCreateObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendcreateobjectv1) | **POST** /1/object/ezsignbulksend | Create a new Ezsignbulksend
 [**ezsignbulksendDeleteObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksenddeleteobjectv1) | **DELETE** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Delete an existing Ezsignbulksend
 [**ezsignbulksendEditObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendeditobjectv1) | **PUT** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
@@ -17,9 +17,9 @@ Method | HTTP request | Description
 [**ezsignbulksendReorderV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendreorderv1) | **POST** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder | Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
 
-# **ezsignbulksendCreateEzsignbulksendtransmissionV1**
+# **ezsignbulksendCreateEzsignbulksendtransmissionV2**
 ```swift
-    open class func ezsignbulksendCreateEzsignbulksendtransmissionV1(pkiEzsignbulksendID: Int, ezsignbulksendCreateEzsignbulksendtransmissionV1Request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request, completion: @escaping (_ data: EzsignbulksendCreateEzsignbulksendtransmissionV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendCreateEzsignbulksendtransmissionV2(pkiEzsignbulksendID: Int, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request, completion: @escaping (_ data: EzsignbulksendCreateEzsignbulksendtransmissionV2Response?, _ error: Error?) -> Void)
 ```
 
 Create a new Ezsignbulksendtransmission in the Ezsignbulksend
@@ -30,10 +30,10 @@ Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 import OpenAPIClient
 
 let pkiEzsignbulksendID = 987 // Int | 
-let ezsignbulksendCreateEzsignbulksendtransmissionV1Request = ezsignbulksend-createEzsignbulksendtransmission-v1-Request(fkiUserlogintypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignbulksendtransmissionDescription: "sEzsignbulksendtransmissionDescription_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency(), tExtraMessage: "tExtraMessage_example", sCsvBase64: 123) // EzsignbulksendCreateEzsignbulksendtransmissionV1Request | 
+let ezsignbulksendCreateEzsignbulksendtransmissionV2Request = ezsignbulksend-createEzsignbulksendtransmission-v2-Request(fkiUserlogintypeID: 123, fkiEzsigntsarequirementID: 123, sEzsignbulksendtransmissionDescription: "sEzsignbulksendtransmissionDescription_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", iEzsignfolderSendreminderfirstdays: 123, iEzsignfolderSendreminderotherdays: 123, tExtraMessage: "tExtraMessage_example", sCsvBase64: 123) // EzsignbulksendCreateEzsignbulksendtransmissionV2Request | 
 
 // Create a new Ezsignbulksendtransmission in the Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendCreateEzsignbulksendtransmissionV1(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendCreateEzsignbulksendtransmissionV1Request: ezsignbulksendCreateEzsignbulksendtransmissionV1Request) { (response, error) in
+ObjectEzsignbulksendAPI.ezsignbulksendCreateEzsignbulksendtransmissionV2(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendCreateEzsignbulksendtransmissionV2Request: ezsignbulksendCreateEzsignbulksendtransmissionV2Request) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -50,11 +50,11 @@ ObjectEzsignbulksendAPI.ezsignbulksendCreateEzsignbulksendtransmissionV1(pkiEzsi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiEzsignbulksendID** | **Int** |  | 
- **ezsignbulksendCreateEzsignbulksendtransmissionV1Request** | [**EzsignbulksendCreateEzsignbulksendtransmissionV1Request**](EzsignbulksendCreateEzsignbulksendtransmissionV1Request.md) |  | 
+ **ezsignbulksendCreateEzsignbulksendtransmissionV2Request** | [**EzsignbulksendCreateEzsignbulksendtransmissionV2Request**](EzsignbulksendCreateEzsignbulksendtransmissionV2Request.md) |  | 
 
 ### Return type
 
-[**EzsignbulksendCreateEzsignbulksendtransmissionV1Response**](EzsignbulksendCreateEzsignbulksendtransmissionV1Response.md)
+[**EzsignbulksendCreateEzsignbulksendtransmissionV2Response**](EzsignbulksendCreateEzsignbulksendtransmissionV2Response.md)
 
 ### Authorization
 

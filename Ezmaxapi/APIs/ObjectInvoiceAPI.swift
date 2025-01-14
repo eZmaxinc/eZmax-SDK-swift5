@@ -63,6 +63,56 @@ open class ObjectInvoiceAPI {
     }
 
     /**
+     Retrieve Communication count
+     
+     - parameter pkiInvoiceID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func invoiceGetCommunicationCountV1(pkiInvoiceID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InvoiceGetCommunicationCountV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return invoiceGetCommunicationCountV1WithRequestBuilder(pkiInvoiceID: pkiInvoiceID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Communication count
+     - GET /1/object/invoice/{pkiInvoiceID}/getCommunicationCount
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInvoiceID: (path)  
+     - returns: RequestBuilder<InvoiceGetCommunicationCountV1Response> 
+     */
+    open class func invoiceGetCommunicationCountV1WithRequestBuilder(pkiInvoiceID: Int) -> RequestBuilder<InvoiceGetCommunicationCountV1Response> {
+        var localVariablePath = "/1/object/invoice/{pkiInvoiceID}/getCommunicationCount"
+        let pkiInvoiceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInvoiceID))"
+        let pkiInvoiceIDPostEscape = pkiInvoiceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInvoiceID}", with: pkiInvoiceIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InvoiceGetCommunicationCountV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication list
      
      - parameter pkiInvoiceID: (path)  
@@ -108,6 +158,106 @@ open class ObjectInvoiceAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<InvoiceGetCommunicationListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Invoice's Communicationrecipient
+     
+     - parameter pkiInvoiceID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func invoiceGetCommunicationrecipientsV1(pkiInvoiceID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InvoiceGetCommunicationrecipientsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return invoiceGetCommunicationrecipientsV1WithRequestBuilder(pkiInvoiceID: pkiInvoiceID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Invoice's Communicationrecipient
+     - GET /1/object/invoice/{pkiInvoiceID}/getCommunicationrecipients
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInvoiceID: (path)  
+     - returns: RequestBuilder<InvoiceGetCommunicationrecipientsV1Response> 
+     */
+    open class func invoiceGetCommunicationrecipientsV1WithRequestBuilder(pkiInvoiceID: Int) -> RequestBuilder<InvoiceGetCommunicationrecipientsV1Response> {
+        var localVariablePath = "/1/object/invoice/{pkiInvoiceID}/getCommunicationrecipients"
+        let pkiInvoiceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInvoiceID))"
+        let pkiInvoiceIDPostEscape = pkiInvoiceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInvoiceID}", with: pkiInvoiceIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InvoiceGetCommunicationrecipientsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Invoice's Communicationsender
+     
+     - parameter pkiInvoiceID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func invoiceGetCommunicationsendersV1(pkiInvoiceID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InvoiceGetCommunicationsendersV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return invoiceGetCommunicationsendersV1WithRequestBuilder(pkiInvoiceID: pkiInvoiceID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Invoice's Communicationsender
+     - GET /1/object/invoice/{pkiInvoiceID}/getCommunicationsenders
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInvoiceID: (path)  
+     - returns: RequestBuilder<InvoiceGetCommunicationsendersV1Response> 
+     */
+    open class func invoiceGetCommunicationsendersV1WithRequestBuilder(pkiInvoiceID: Int) -> RequestBuilder<InvoiceGetCommunicationsendersV1Response> {
+        var localVariablePath = "/1/object/invoice/{pkiInvoiceID}/getCommunicationsenders"
+        let pkiInvoiceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInvoiceID))"
+        let pkiInvoiceIDPostEscape = pkiInvoiceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInvoiceID}", with: pkiInvoiceIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InvoiceGetCommunicationsendersV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

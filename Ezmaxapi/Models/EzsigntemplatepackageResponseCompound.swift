@@ -15,13 +15,20 @@ public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Has
 
     static let pkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiEzdoctemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    static let sEzsigntemplatepackageDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
     /** The unique ID of the Ezsigntemplatepackage */
     public var pkiEzsigntemplatepackageID: Int
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int
+    /** The unique ID of the Ezdoctemplatedocument */
+    public var fkiEzdoctemplatedocumentID: Int?
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
+    /** The name of the Ezdoctemplatedocument in the language of the requester */
+    public var sEzdoctemplatedocumentNameX: String?
     /** The Name of the Language in the language of the requester */
     public var sLanguageNameX: String
     /** The description of the Ezsigntemplatepackage */
@@ -39,10 +46,12 @@ public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Has
     public var aObjEzsigntemplatepackagesigner: [EzsigntemplatepackagesignerResponseCompound]
     public var aObjEzsigntemplatepackagemembership: [EzsigntemplatepackagemembershipResponseCompound]
 
-    public init(pkiEzsigntemplatepackageID: Int, fkiEzsignfoldertypeID: Int, fkiLanguageID: Int, sLanguageNameX: String, sEzsigntemplatepackageDescription: String, bEzsigntemplatepackageAdminonly: Bool, bEzsigntemplatepackageNeedvalidation: Bool, bEzsigntemplatepackageIsactive: Bool, sEzsignfoldertypeNameX: String, bEzsigntemplatepackageEditallowed: Bool, aObjEzsigntemplatepackagesigner: [EzsigntemplatepackagesignerResponseCompound], aObjEzsigntemplatepackagemembership: [EzsigntemplatepackagemembershipResponseCompound]) {
+    public init(pkiEzsigntemplatepackageID: Int, fkiEzsignfoldertypeID: Int, fkiEzdoctemplatedocumentID: Int? = nil, fkiLanguageID: Int, sEzdoctemplatedocumentNameX: String? = nil, sLanguageNameX: String, sEzsigntemplatepackageDescription: String, bEzsigntemplatepackageAdminonly: Bool, bEzsigntemplatepackageNeedvalidation: Bool, bEzsigntemplatepackageIsactive: Bool, sEzsignfoldertypeNameX: String, bEzsigntemplatepackageEditallowed: Bool, aObjEzsigntemplatepackagesigner: [EzsigntemplatepackagesignerResponseCompound], aObjEzsigntemplatepackagemembership: [EzsigntemplatepackagemembershipResponseCompound]) {
         self.pkiEzsigntemplatepackageID = pkiEzsigntemplatepackageID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+        self.fkiEzdoctemplatedocumentID = fkiEzdoctemplatedocumentID
         self.fkiLanguageID = fkiLanguageID
+        self.sEzdoctemplatedocumentNameX = sEzdoctemplatedocumentNameX
         self.sLanguageNameX = sLanguageNameX
         self.sEzsigntemplatepackageDescription = sEzsigntemplatepackageDescription
         self.bEzsigntemplatepackageAdminonly = bEzsigntemplatepackageAdminonly
@@ -57,7 +66,9 @@ public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Has
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsigntemplatepackageID
         case fkiEzsignfoldertypeID
+        case fkiEzdoctemplatedocumentID
         case fkiLanguageID
+        case sEzdoctemplatedocumentNameX
         case sLanguageNameX
         case sEzsigntemplatepackageDescription
         case bEzsigntemplatepackageAdminonly
@@ -75,7 +86,9 @@ public struct EzsigntemplatepackageResponseCompound: Codable, JSONEncodable, Has
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsigntemplatepackageID, forKey: .pkiEzsigntemplatepackageID)
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encodeIfPresent(fkiEzdoctemplatedocumentID, forKey: .fkiEzdoctemplatedocumentID)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encodeIfPresent(sEzdoctemplatedocumentNameX, forKey: .sEzdoctemplatedocumentNameX)
         try container.encode(sLanguageNameX, forKey: .sLanguageNameX)
         try container.encode(sEzsigntemplatepackageDescription, forKey: .sEzsigntemplatepackageDescription)
         try container.encode(bEzsigntemplatepackageAdminonly, forKey: .bEzsigntemplatepackageAdminonly)

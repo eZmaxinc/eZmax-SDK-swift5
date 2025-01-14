@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/billingentityinternal */
 public struct BillingentityinternalCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjBillingentityinternalRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjBillingentityinternal: [BillingentityinternalRequestCompound]
 
     public init(aObjBillingentityinternal: [BillingentityinternalRequestCompound]) {

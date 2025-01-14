@@ -14,10 +14,13 @@ import AnyCodable
 public struct SystemconfigurationRequestCompound: Codable, JSONEncodable, Hashable {
 
     static let pkiSystemconfigurationIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 1, exclusiveMaximum: false, multipleOf: nil)
+    static let fkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let dtSystemconfigurationReadonlyexpirationstartRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     static let dtSystemconfigurationReadonlyexpirationendRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     /** The unique ID of the Systemconfiguration */
     public var pkiSystemconfigurationID: Int?
+    /** The unique ID of the Branding */
+    public var fkiBrandingID: Int?
     public var eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction
     public var eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1
     public var eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2
@@ -35,8 +38,9 @@ public struct SystemconfigurationRequestCompound: Codable, JSONEncodable, Hashab
     /** The end date where the system will be in read only */
     public var dtSystemconfigurationReadonlyexpirationend: String?
 
-    public init(pkiSystemconfigurationID: Int? = nil, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil) {
+    public init(pkiSystemconfigurationID: Int? = nil, fkiBrandingID: Int? = nil, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil) {
         self.pkiSystemconfigurationID = pkiSystemconfigurationID
+        self.fkiBrandingID = fkiBrandingID
         self.eSystemconfigurationNewexternaluseraction = eSystemconfigurationNewexternaluseraction
         self.eSystemconfigurationLanguage1 = eSystemconfigurationLanguage1
         self.eSystemconfigurationLanguage2 = eSystemconfigurationLanguage2
@@ -51,6 +55,7 @@ public struct SystemconfigurationRequestCompound: Codable, JSONEncodable, Hashab
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiSystemconfigurationID
+        case fkiBrandingID
         case eSystemconfigurationNewexternaluseraction
         case eSystemconfigurationLanguage1
         case eSystemconfigurationLanguage2
@@ -68,6 +73,7 @@ public struct SystemconfigurationRequestCompound: Codable, JSONEncodable, Hashab
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiSystemconfigurationID, forKey: .pkiSystemconfigurationID)
+        try container.encodeIfPresent(fkiBrandingID, forKey: .fkiBrandingID)
         try container.encode(eSystemconfigurationNewexternaluseraction, forKey: .eSystemconfigurationNewexternaluseraction)
         try container.encode(eSystemconfigurationLanguage1, forKey: .eSystemconfigurationLanguage1)
         try container.encode(eSystemconfigurationLanguage2, forKey: .eSystemconfigurationLanguage2)

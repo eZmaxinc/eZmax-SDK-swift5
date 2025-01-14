@@ -26,15 +26,18 @@ public struct EzsigntemplatedocumentResponse: Codable, JSONEncodable, Hashable {
     public var iEzsigntemplatedocumentPagetotal: Int
     /** The number of total signatures in the Ezsigntemplate. */
     public var iEzsigntemplatedocumentSignaturetotal: Int
+    /** The number of total form fields in the Ezsigntemplate. */
+    public var iEzsigntemplatedocumentFormfieldtotal: Int
     /** If the Ezsigntemplatedocument contains signed signatures (From internal or external sources) */
     public var bEzsigntemplatedocumentHassignedsignatures: Bool
 
-    public init(pkiEzsigntemplatedocumentID: Int, fkiEzsigntemplateID: Int, sEzsigntemplatedocumentName: String, iEzsigntemplatedocumentPagetotal: Int, iEzsigntemplatedocumentSignaturetotal: Int, bEzsigntemplatedocumentHassignedsignatures: Bool) {
+    public init(pkiEzsigntemplatedocumentID: Int, fkiEzsigntemplateID: Int, sEzsigntemplatedocumentName: String, iEzsigntemplatedocumentPagetotal: Int, iEzsigntemplatedocumentSignaturetotal: Int, iEzsigntemplatedocumentFormfieldtotal: Int, bEzsigntemplatedocumentHassignedsignatures: Bool) {
         self.pkiEzsigntemplatedocumentID = pkiEzsigntemplatedocumentID
         self.fkiEzsigntemplateID = fkiEzsigntemplateID
         self.sEzsigntemplatedocumentName = sEzsigntemplatedocumentName
         self.iEzsigntemplatedocumentPagetotal = iEzsigntemplatedocumentPagetotal
         self.iEzsigntemplatedocumentSignaturetotal = iEzsigntemplatedocumentSignaturetotal
+        self.iEzsigntemplatedocumentFormfieldtotal = iEzsigntemplatedocumentFormfieldtotal
         self.bEzsigntemplatedocumentHassignedsignatures = bEzsigntemplatedocumentHassignedsignatures
     }
 
@@ -44,6 +47,7 @@ public struct EzsigntemplatedocumentResponse: Codable, JSONEncodable, Hashable {
         case sEzsigntemplatedocumentName
         case iEzsigntemplatedocumentPagetotal
         case iEzsigntemplatedocumentSignaturetotal
+        case iEzsigntemplatedocumentFormfieldtotal
         case bEzsigntemplatedocumentHassignedsignatures
     }
 
@@ -56,6 +60,7 @@ public struct EzsigntemplatedocumentResponse: Codable, JSONEncodable, Hashable {
         try container.encode(sEzsigntemplatedocumentName, forKey: .sEzsigntemplatedocumentName)
         try container.encode(iEzsigntemplatedocumentPagetotal, forKey: .iEzsigntemplatedocumentPagetotal)
         try container.encode(iEzsigntemplatedocumentSignaturetotal, forKey: .iEzsigntemplatedocumentSignaturetotal)
+        try container.encode(iEzsigntemplatedocumentFormfieldtotal, forKey: .iEzsigntemplatedocumentFormfieldtotal)
         try container.encode(bEzsigntemplatedocumentHassignedsignatures, forKey: .bEzsigntemplatedocumentHassignedsignatures)
     }
 }

@@ -20,28 +20,22 @@ public struct CreditcardclientResponseCompound: Codable, JSONEncodable, Hashable
     public var pkiCreditcardclientID: Int
     /** The unique ID of the Creditcarddetail */
     public var fkiCreditcarddetailID: Int
-    /** Whether if it's an relationisdefault */
+    /** Whether if it's the creditcardclient is the default one */
     public var bCreditcardclientrelationIsdefault: Bool
     /** The description of the Creditcardclient */
     public var sCreditcardclientDescription: String
-    /** Whether the creditcardclient is active or not */
-    public var bCreditcardclientIsactive: Bool
     /** Whether if it's an allowedagencypayment */
-    public var bCreditcardclientAllowedagencypayment: Bool
-    /** Whether if it's an allowedroyallepageprotection */
-    public var bCreditcardclientAllowedroyallepageprotection: Bool
+    public var bCreditcardclientAllowedcompanypayment: Bool
     /** Whether if it's an allowedtranquillit */
     public var bCreditcardclientAllowedtranquillit: Bool
     public var objCreditcarddetail: CreditcarddetailResponseCompound
 
-    public init(pkiCreditcardclientID: Int, fkiCreditcarddetailID: Int, bCreditcardclientrelationIsdefault: Bool, sCreditcardclientDescription: String, bCreditcardclientIsactive: Bool, bCreditcardclientAllowedagencypayment: Bool, bCreditcardclientAllowedroyallepageprotection: Bool, bCreditcardclientAllowedtranquillit: Bool, objCreditcarddetail: CreditcarddetailResponseCompound) {
+    public init(pkiCreditcardclientID: Int, fkiCreditcarddetailID: Int, bCreditcardclientrelationIsdefault: Bool, sCreditcardclientDescription: String, bCreditcardclientAllowedcompanypayment: Bool, bCreditcardclientAllowedtranquillit: Bool, objCreditcarddetail: CreditcarddetailResponseCompound) {
         self.pkiCreditcardclientID = pkiCreditcardclientID
         self.fkiCreditcarddetailID = fkiCreditcarddetailID
         self.bCreditcardclientrelationIsdefault = bCreditcardclientrelationIsdefault
         self.sCreditcardclientDescription = sCreditcardclientDescription
-        self.bCreditcardclientIsactive = bCreditcardclientIsactive
-        self.bCreditcardclientAllowedagencypayment = bCreditcardclientAllowedagencypayment
-        self.bCreditcardclientAllowedroyallepageprotection = bCreditcardclientAllowedroyallepageprotection
+        self.bCreditcardclientAllowedcompanypayment = bCreditcardclientAllowedcompanypayment
         self.bCreditcardclientAllowedtranquillit = bCreditcardclientAllowedtranquillit
         self.objCreditcarddetail = objCreditcarddetail
     }
@@ -51,9 +45,7 @@ public struct CreditcardclientResponseCompound: Codable, JSONEncodable, Hashable
         case fkiCreditcarddetailID
         case bCreditcardclientrelationIsdefault
         case sCreditcardclientDescription
-        case bCreditcardclientIsactive
-        case bCreditcardclientAllowedagencypayment
-        case bCreditcardclientAllowedroyallepageprotection
+        case bCreditcardclientAllowedcompanypayment
         case bCreditcardclientAllowedtranquillit
         case objCreditcarddetail
     }
@@ -66,9 +58,7 @@ public struct CreditcardclientResponseCompound: Codable, JSONEncodable, Hashable
         try container.encode(fkiCreditcarddetailID, forKey: .fkiCreditcarddetailID)
         try container.encode(bCreditcardclientrelationIsdefault, forKey: .bCreditcardclientrelationIsdefault)
         try container.encode(sCreditcardclientDescription, forKey: .sCreditcardclientDescription)
-        try container.encode(bCreditcardclientIsactive, forKey: .bCreditcardclientIsactive)
-        try container.encode(bCreditcardclientAllowedagencypayment, forKey: .bCreditcardclientAllowedagencypayment)
-        try container.encode(bCreditcardclientAllowedroyallepageprotection, forKey: .bCreditcardclientAllowedroyallepageprotection)
+        try container.encode(bCreditcardclientAllowedcompanypayment, forKey: .bCreditcardclientAllowedcompanypayment)
         try container.encode(bCreditcardclientAllowedtranquillit, forKey: .bCreditcardclientAllowedtranquillit)
         try container.encode(objCreditcarddetail, forKey: .objCreditcarddetail)
     }

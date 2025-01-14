@@ -4,9 +4,60 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**activesessionGenerateFederationTokenV1**](ObjectActivesessionAPI.md#activesessiongeneratefederationtokenv1) | **POST** /1/object/activesession/generateFederationToken | Generate a federation token
 [**activesessionGetCurrentV1**](ObjectActivesessionAPI.md#activesessiongetcurrentv1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
 [**activesessionGetListV1**](ObjectActivesessionAPI.md#activesessiongetlistv1) | **GET** /1/object/activesession/getList | Retrieve Activesession list
 
+
+# **activesessionGenerateFederationTokenV1**
+```swift
+    open class func activesessionGenerateFederationTokenV1(activesessionGenerateFederationTokenV1Request: ActivesessionGenerateFederationTokenV1Request, completion: @escaping (_ data: ActivesessionGenerateFederationTokenV1Response?, _ error: Error?) -> Void)
+```
+
+Generate a federation token
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let activesessionGenerateFederationTokenV1Request = activesession-generateFederationToken-v1-Request(fksEzmaxcustomerCode: "fksEzmaxcustomerCode_example") // ActivesessionGenerateFederationTokenV1Request | 
+
+// Generate a federation token
+ObjectActivesessionAPI.activesessionGenerateFederationTokenV1(activesessionGenerateFederationTokenV1Request: activesessionGenerateFederationTokenV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activesessionGenerateFederationTokenV1Request** | [**ActivesessionGenerateFederationTokenV1Request**](ActivesessionGenerateFederationTokenV1Request.md) |  | 
+
+### Return type
+
+[**ActivesessionGenerateFederationTokenV1Response**](ActivesessionGenerateFederationTokenV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **activesessionGetCurrentV1**
 ```swift

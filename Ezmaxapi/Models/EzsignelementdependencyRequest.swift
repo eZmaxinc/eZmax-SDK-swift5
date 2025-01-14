@@ -13,7 +13,7 @@ import AnyCodable
 /** An Ezsignelementdependency Object */
 public struct EzsignelementdependencyRequest: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignelementdependencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    static let pkiEzsignelementdependencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignformfieldIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiEzsignformfieldgroupIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsignelementdependencyEzsignformfieldgrouplabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)

@@ -17,6 +17,9 @@ open class ObjectFontAPI {
      */
     public enum SSelector_fontGetAutocompleteV2: String, CaseIterable {
         case all = "All"
+        case ezsignannotation = "Ezsignannotation"
+        case ezsignformfield = "Ezsignformfield"
+        case ezsignsignature = "Ezsignsignature"
     }
 
     /**

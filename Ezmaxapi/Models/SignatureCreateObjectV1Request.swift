@@ -13,6 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/signature */
 public struct SignatureCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
+    static let aObjSignatureRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjSignature: [SignatureRequestCompound]
 
     public init(aObjSignature: [SignatureRequestCompound]) {

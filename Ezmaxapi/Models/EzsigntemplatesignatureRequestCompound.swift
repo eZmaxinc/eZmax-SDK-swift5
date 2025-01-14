@@ -25,6 +25,7 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
     static let iEzsigntemplatesignatureStepRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let iEzsigntemplatesignatureMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsigntemplatesignatureRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
+    static let sEzsigntemplatesignatureTextvalidationcustommessageRule = StringRule(minLength: 0, maxLength: 50, pattern: nil)
     static let sEzsigntemplatesignaturePositioningpatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
     /** The unique ID of the Ezsigntemplatesignature */
     public var pkiEzsigntemplatesignatureID: Int?
@@ -34,6 +35,10 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
     public var fkiEzsigntemplatesignerID: Int
     /** The unique ID of the Ezsigntemplatesigner */
     public var fkiEzsigntemplatesignerIDValidation: Int?
+    /** Whether the Ezsigntemplatesignature must be handwritten or not when eEzsigntemplatesignatureType = Signature. */
+    public var bEzsigntemplatesignatureHandwritten: Bool?
+    /** Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType = Signature. */
+    public var bEzsigntemplatesignatureReason: Bool?
     public var eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning?
     /** The page number in the Ezsigntemplatedocument */
     public var iEzsigntemplatedocumentpagePagenumber: Int
@@ -48,6 +53,7 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
     /** The step when the Ezsigntemplatesigner will be invited to sign */
     public var iEzsigntemplatesignatureStep: Int
     public var eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType
+    public var eEzsigntemplatesignatureConsultationtrigger: FieldEEzsigntemplatesignatureConsultationtrigger?
     /** A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplatesignature */
     public var tEzsigntemplatesignatureTooltip: String?
     public var eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition?
@@ -61,9 +67,13 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
     public var iEzsigntemplatesignatureValidationstep: Int?
     /** The maximum length for the value in the Ezsigntemplatesignature  This can only be set if eEzsigntemplatesignatureType is **FieldText** or **FieldTextarea** */
     public var iEzsigntemplatesignatureMaxlength: Int?
+    /** The default value for the Ezsigntemplatesignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | */
+    public var sEzsigntemplatesignatureDefaultvalue: String?
     /** A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea** */
     public var sEzsigntemplatesignatureRegexp: String?
     public var eEzsigntemplatesignatureTextvalidation: EnumTextvalidation?
+    /** Description of validation rule. Show by signatory. */
+    public var sEzsigntemplatesignatureTextvalidationcustommessage: String?
     public var eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement?
     /** The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** */
     public var sEzsigntemplatesignaturePositioningpattern: String?
@@ -78,11 +88,13 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
     public var aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateRequestCompound]?
     public var aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyRequestCompound]?
 
-    public init(pkiEzsigntemplatesignatureID: Int? = nil, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int? = nil, iEzsigntemplatesignatureY: Int? = nil, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, sEzsigntemplatesignaturePositioningpattern: String? = nil, iEzsigntemplatesignaturePositioningoffsetx: Int? = nil, iEzsigntemplatesignaturePositioningoffsety: Int? = nil, eEzsigntemplatesignaturePositioningoccurence: FieldEEzsigntemplatesignaturePositioningoccurence? = nil, bEzsigntemplatesignatureCustomdate: Bool? = nil, aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateRequestCompound]? = nil, aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyRequestCompound]? = nil) {
+    public init(pkiEzsigntemplatesignatureID: Int? = nil, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, bEzsigntemplatesignatureHandwritten: Bool? = nil, bEzsigntemplatesignatureReason: Bool? = nil, eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int? = nil, iEzsigntemplatesignatureY: Int? = nil, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, eEzsigntemplatesignatureConsultationtrigger: FieldEEzsigntemplatesignatureConsultationtrigger? = nil, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureDefaultvalue: String? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, sEzsigntemplatesignatureTextvalidationcustommessage: String? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, sEzsigntemplatesignaturePositioningpattern: String? = nil, iEzsigntemplatesignaturePositioningoffsetx: Int? = nil, iEzsigntemplatesignaturePositioningoffsety: Int? = nil, eEzsigntemplatesignaturePositioningoccurence: FieldEEzsigntemplatesignaturePositioningoccurence? = nil, bEzsigntemplatesignatureCustomdate: Bool? = nil, aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateRequestCompound]? = nil, aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyRequestCompound]? = nil) {
         self.pkiEzsigntemplatesignatureID = pkiEzsigntemplatesignatureID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsigntemplatesignerID = fkiEzsigntemplatesignerID
         self.fkiEzsigntemplatesignerIDValidation = fkiEzsigntemplatesignerIDValidation
+        self.bEzsigntemplatesignatureHandwritten = bEzsigntemplatesignatureHandwritten
+        self.bEzsigntemplatesignatureReason = bEzsigntemplatesignatureReason
         self.eEzsigntemplatesignaturePositioning = eEzsigntemplatesignaturePositioning
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.iEzsigntemplatesignatureX = iEzsigntemplatesignatureX
@@ -91,6 +103,7 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         self.iEzsigntemplatesignatureHeight = iEzsigntemplatesignatureHeight
         self.iEzsigntemplatesignatureStep = iEzsigntemplatesignatureStep
         self.eEzsigntemplatesignatureType = eEzsigntemplatesignatureType
+        self.eEzsigntemplatesignatureConsultationtrigger = eEzsigntemplatesignatureConsultationtrigger
         self.tEzsigntemplatesignatureTooltip = tEzsigntemplatesignatureTooltip
         self.eEzsigntemplatesignatureTooltipposition = eEzsigntemplatesignatureTooltipposition
         self.eEzsigntemplatesignatureFont = eEzsigntemplatesignatureFont
@@ -99,8 +112,10 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         self.sEzsigntemplatesignatureAttachmentdescription = sEzsigntemplatesignatureAttachmentdescription
         self.iEzsigntemplatesignatureValidationstep = iEzsigntemplatesignatureValidationstep
         self.iEzsigntemplatesignatureMaxlength = iEzsigntemplatesignatureMaxlength
+        self.sEzsigntemplatesignatureDefaultvalue = sEzsigntemplatesignatureDefaultvalue
         self.sEzsigntemplatesignatureRegexp = sEzsigntemplatesignatureRegexp
         self.eEzsigntemplatesignatureTextvalidation = eEzsigntemplatesignatureTextvalidation
+        self.sEzsigntemplatesignatureTextvalidationcustommessage = sEzsigntemplatesignatureTextvalidationcustommessage
         self.eEzsigntemplatesignatureDependencyrequirement = eEzsigntemplatesignatureDependencyrequirement
         self.sEzsigntemplatesignaturePositioningpattern = sEzsigntemplatesignaturePositioningpattern
         self.iEzsigntemplatesignaturePositioningoffsetx = iEzsigntemplatesignaturePositioningoffsetx
@@ -116,6 +131,8 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         case fkiEzsigntemplatedocumentID
         case fkiEzsigntemplatesignerID
         case fkiEzsigntemplatesignerIDValidation
+        case bEzsigntemplatesignatureHandwritten
+        case bEzsigntemplatesignatureReason
         case eEzsigntemplatesignaturePositioning
         case iEzsigntemplatedocumentpagePagenumber
         case iEzsigntemplatesignatureX
@@ -124,6 +141,7 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         case iEzsigntemplatesignatureHeight
         case iEzsigntemplatesignatureStep
         case eEzsigntemplatesignatureType
+        case eEzsigntemplatesignatureConsultationtrigger
         case tEzsigntemplatesignatureTooltip
         case eEzsigntemplatesignatureTooltipposition
         case eEzsigntemplatesignatureFont
@@ -132,8 +150,10 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         case sEzsigntemplatesignatureAttachmentdescription
         case iEzsigntemplatesignatureValidationstep
         case iEzsigntemplatesignatureMaxlength
+        case sEzsigntemplatesignatureDefaultvalue
         case sEzsigntemplatesignatureRegexp
         case eEzsigntemplatesignatureTextvalidation
+        case sEzsigntemplatesignatureTextvalidationcustommessage
         case eEzsigntemplatesignatureDependencyrequirement
         case sEzsigntemplatesignaturePositioningpattern
         case iEzsigntemplatesignaturePositioningoffsetx
@@ -152,6 +172,8 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         try container.encode(fkiEzsigntemplatedocumentID, forKey: .fkiEzsigntemplatedocumentID)
         try container.encode(fkiEzsigntemplatesignerID, forKey: .fkiEzsigntemplatesignerID)
         try container.encodeIfPresent(fkiEzsigntemplatesignerIDValidation, forKey: .fkiEzsigntemplatesignerIDValidation)
+        try container.encodeIfPresent(bEzsigntemplatesignatureHandwritten, forKey: .bEzsigntemplatesignatureHandwritten)
+        try container.encodeIfPresent(bEzsigntemplatesignatureReason, forKey: .bEzsigntemplatesignatureReason)
         try container.encodeIfPresent(eEzsigntemplatesignaturePositioning, forKey: .eEzsigntemplatesignaturePositioning)
         try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
         try container.encodeIfPresent(iEzsigntemplatesignatureX, forKey: .iEzsigntemplatesignatureX)
@@ -160,6 +182,7 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         try container.encodeIfPresent(iEzsigntemplatesignatureHeight, forKey: .iEzsigntemplatesignatureHeight)
         try container.encode(iEzsigntemplatesignatureStep, forKey: .iEzsigntemplatesignatureStep)
         try container.encode(eEzsigntemplatesignatureType, forKey: .eEzsigntemplatesignatureType)
+        try container.encodeIfPresent(eEzsigntemplatesignatureConsultationtrigger, forKey: .eEzsigntemplatesignatureConsultationtrigger)
         try container.encodeIfPresent(tEzsigntemplatesignatureTooltip, forKey: .tEzsigntemplatesignatureTooltip)
         try container.encodeIfPresent(eEzsigntemplatesignatureTooltipposition, forKey: .eEzsigntemplatesignatureTooltipposition)
         try container.encodeIfPresent(eEzsigntemplatesignatureFont, forKey: .eEzsigntemplatesignatureFont)
@@ -168,8 +191,10 @@ public struct EzsigntemplatesignatureRequestCompound: Codable, JSONEncodable, Ha
         try container.encodeIfPresent(sEzsigntemplatesignatureAttachmentdescription, forKey: .sEzsigntemplatesignatureAttachmentdescription)
         try container.encodeIfPresent(iEzsigntemplatesignatureValidationstep, forKey: .iEzsigntemplatesignatureValidationstep)
         try container.encodeIfPresent(iEzsigntemplatesignatureMaxlength, forKey: .iEzsigntemplatesignatureMaxlength)
+        try container.encodeIfPresent(sEzsigntemplatesignatureDefaultvalue, forKey: .sEzsigntemplatesignatureDefaultvalue)
         try container.encodeIfPresent(sEzsigntemplatesignatureRegexp, forKey: .sEzsigntemplatesignatureRegexp)
         try container.encodeIfPresent(eEzsigntemplatesignatureTextvalidation, forKey: .eEzsigntemplatesignatureTextvalidation)
+        try container.encodeIfPresent(sEzsigntemplatesignatureTextvalidationcustommessage, forKey: .sEzsigntemplatesignatureTextvalidationcustommessage)
         try container.encodeIfPresent(eEzsigntemplatesignatureDependencyrequirement, forKey: .eEzsigntemplatesignatureDependencyrequirement)
         try container.encodeIfPresent(sEzsigntemplatesignaturePositioningpattern, forKey: .sEzsigntemplatesignaturePositioningpattern)
         try container.encodeIfPresent(iEzsigntemplatesignaturePositioningoffsetx, forKey: .iEzsigntemplatesignaturePositioningoffsetx)

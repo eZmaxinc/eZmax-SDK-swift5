@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatepackagesignerCreateObjectV1Request = ezsigntemplatepackagesigner-createObject-v1-Request(aObjEzsigntemplatepackagesigner: [ezsigntemplatepackagesigner-RequestCompound(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")]) // EzsigntemplatepackagesignerCreateObjectV1Request | 
+let ezsigntemplatepackagesignerCreateObjectV1Request = ezsigntemplatepackagesigner-createObject-v1-Request(aObjEzsigntemplatepackagesigner: [ezsigntemplatepackagesigner-RequestCompound(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, fkiEzdoctemplatedocumentID: 123, fkiUserID: 123, fkiUsergroupID: 123, bEzsigntemplatepackagesignerReceivecopy: false, eEzsigntemplatepackagesignerMapping: Field-eEzsigntemplatepackagesignerMapping(), sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")]) // EzsigntemplatepackagesignerCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepackagesigner
 ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerCreateObjectV1(ezsigntemplatepackagesignerCreateObjectV1Request: ezsigntemplatepackagesignerCreateObjectV1Request) { (response, error) in
@@ -125,7 +125,7 @@ Edit an existing Ezsigntemplatepackagesigner
 import OpenAPIClient
 
 let pkiEzsigntemplatepackagesignerID = 987 // Int | 
-let ezsigntemplatepackagesignerEditObjectV1Request = ezsigntemplatepackagesigner-editObject-v1-Request(objEzsigntemplatepackagesigner: ezsigntemplatepackagesigner-RequestCompound(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")) // EzsigntemplatepackagesignerEditObjectV1Request | 
+let ezsigntemplatepackagesignerEditObjectV1Request = ezsigntemplatepackagesigner-editObject-v1-Request(objEzsigntemplatepackagesigner: ezsigntemplatepackagesigner-RequestCompound(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, fkiEzdoctemplatedocumentID: 123, fkiUserID: 123, fkiUsergroupID: 123, bEzsigntemplatepackagesignerReceivecopy: false, eEzsigntemplatepackagesignerMapping: Field-eEzsigntemplatepackagesignerMapping(), sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")) // EzsigntemplatepackagesignerEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatepackagesigner
 ObjectEzsigntemplatepackagesignerAPI.ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID, ezsigntemplatepackagesignerEditObjectV1Request: ezsigntemplatepackagesignerEditObjectV1Request) { (response, error) in

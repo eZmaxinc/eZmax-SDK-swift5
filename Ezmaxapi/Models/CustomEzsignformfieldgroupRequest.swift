@@ -15,6 +15,7 @@ public struct CustomEzsignformfieldgroupRequest: Codable, JSONEncodable, Hashabl
 
     static let pkiEzsignformfieldgroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let sEzsignformfieldgroupLabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
+    static let aObjEzsignformfieldRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** The unique ID of the Ezsignformfieldgroup */
     public var pkiEzsignformfieldgroupID: Int?
     /** The Label for the Ezsignformfieldgroup */

@@ -4,8 +4,61 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**billingentityexternalGenerateFederationTokenV1**](ObjectBillingentityexternalAPI.md#billingentityexternalgeneratefederationtokenv1) | **POST** /1/object/billingentityexternal/{pkiBillingentityexternalID}/generateFederationToken | Generate a federation token
 [**billingentityexternalGetAutocompleteV2**](ObjectBillingentityexternalAPI.md#billingentityexternalgetautocompletev2) | **GET** /2/object/billingentityexternal/getAutocomplete/{sSelector} | Retrieve Billingentityexternals and IDs
 
+
+# **billingentityexternalGenerateFederationTokenV1**
+```swift
+    open class func billingentityexternalGenerateFederationTokenV1(pkiBillingentityexternalID: Int, billingentityexternalGenerateFederationTokenV1Request: BillingentityexternalGenerateFederationTokenV1Request, completion: @escaping (_ data: BillingentityexternalGenerateFederationTokenV1Response?, _ error: Error?) -> Void)
+```
+
+Generate a federation token
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiBillingentityexternalID = 987 // Int | 
+let billingentityexternalGenerateFederationTokenV1Request = billingentityexternal-generateFederationToken-v1-Request(fksEzmaxcustomerCode: "fksEzmaxcustomerCode_example") // BillingentityexternalGenerateFederationTokenV1Request | 
+
+// Generate a federation token
+ObjectBillingentityexternalAPI.billingentityexternalGenerateFederationTokenV1(pkiBillingentityexternalID: pkiBillingentityexternalID, billingentityexternalGenerateFederationTokenV1Request: billingentityexternalGenerateFederationTokenV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiBillingentityexternalID** | **Int** |  | 
+ **billingentityexternalGenerateFederationTokenV1Request** | [**BillingentityexternalGenerateFederationTokenV1Request**](BillingentityexternalGenerateFederationTokenV1Request.md) |  | 
+
+### Return type
+
+[**BillingentityexternalGenerateFederationTokenV1Response**](BillingentityexternalGenerateFederationTokenV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **billingentityexternalGetAutocompleteV2**
 ```swift

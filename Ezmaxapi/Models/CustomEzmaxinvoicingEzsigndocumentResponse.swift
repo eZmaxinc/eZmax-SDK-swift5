@@ -15,6 +15,7 @@ public struct CustomEzmaxinvoicingEzsigndocumentResponse: Codable, JSONEncodable
 
     static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     static let fkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int
     /** The unique ID of the Billingentityinternal. */
