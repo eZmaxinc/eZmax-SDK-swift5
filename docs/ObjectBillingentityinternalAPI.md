@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **billingentityinternalEditObjectV1**
 ```swift
-    open class func billingentityinternalEditObjectV1(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request, completion: @escaping (_ data: BillingentityinternalEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func billingentityinternalEditObjectV1(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Billingentityinternal
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BillingentityinternalEditObjectV1Response**](BillingentityinternalEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

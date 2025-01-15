@@ -67,7 +67,7 @@ open class ObjectAuthenticationexternalAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticationexternalDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return authenticationexternalDeleteObjectV1WithRequestBuilder(pkiAuthenticationexternalID: pkiAuthenticationexternalID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectAuthenticationexternalAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiAuthenticationexternalID: (path) The unique ID of the Authenticationexternal 
-     - returns: RequestBuilder<AuthenticationexternalDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func authenticationexternalDeleteObjectV1WithRequestBuilder(pkiAuthenticationexternalID: Int) -> RequestBuilder<AuthenticationexternalDeleteObjectV1Response> {
+    open class func authenticationexternalDeleteObjectV1WithRequestBuilder(pkiAuthenticationexternalID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/authenticationexternal/{pkiAuthenticationexternalID}"
         let pkiAuthenticationexternalIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAuthenticationexternalID))"
         let pkiAuthenticationexternalIDPostEscape = pkiAuthenticationexternalIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectAuthenticationexternalAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticationexternalDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectAuthenticationexternalAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func authenticationexternalEditObjectV1(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticationexternalEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func authenticationexternalEditObjectV1(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return authenticationexternalEditObjectV1WithRequestBuilder(pkiAuthenticationexternalID: pkiAuthenticationexternalID, authenticationexternalEditObjectV1Request: authenticationexternalEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectAuthenticationexternalAPI {
        - name: Authorization
      - parameter pkiAuthenticationexternalID: (path) The unique ID of the Authenticationexternal 
      - parameter authenticationexternalEditObjectV1Request: (body)  
-     - returns: RequestBuilder<AuthenticationexternalEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func authenticationexternalEditObjectV1WithRequestBuilder(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request) -> RequestBuilder<AuthenticationexternalEditObjectV1Response> {
+    open class func authenticationexternalEditObjectV1WithRequestBuilder(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/authenticationexternal/{pkiAuthenticationexternalID}"
         let pkiAuthenticationexternalIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAuthenticationexternalID))"
         let pkiAuthenticationexternalIDPostEscape = pkiAuthenticationexternalIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectAuthenticationexternalAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticationexternalEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -369,7 +369,7 @@ open class ObjectAuthenticationexternalAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticationexternalResetAuthorizationV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return authenticationexternalResetAuthorizationV1WithRequestBuilder(pkiAuthenticationexternalID: pkiAuthenticationexternalID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -389,9 +389,9 @@ open class ObjectAuthenticationexternalAPI {
        - name: Authorization
      - parameter pkiAuthenticationexternalID: (path)  
      - parameter body: (body)  
-     - returns: RequestBuilder<AuthenticationexternalResetAuthorizationV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func authenticationexternalResetAuthorizationV1WithRequestBuilder(pkiAuthenticationexternalID: Int, body: AnyCodable) -> RequestBuilder<AuthenticationexternalResetAuthorizationV1Response> {
+    open class func authenticationexternalResetAuthorizationV1WithRequestBuilder(pkiAuthenticationexternalID: Int, body: AnyCodable) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/authenticationexternal/{pkiAuthenticationexternalID}/resetAuthorization"
         let pkiAuthenticationexternalIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAuthenticationexternalID))"
         let pkiAuthenticationexternalIDPostEscape = pkiAuthenticationexternalIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -407,7 +407,7 @@ open class ObjectAuthenticationexternalAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AuthenticationexternalResetAuthorizationV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

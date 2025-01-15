@@ -14,9 +14,10 @@ import AnyCodable
 public struct EzsigndocumentCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var objEzsigndocument: EzsigndocumentRequest?
-    public var objEzsigndocumentCompound: EzsigndocumentRequestCompound?
+    /** An Ezsigndocument Object and children to create a complete structure */
+    public var objEzsigndocumentCompound: EzsigndocumentRequest?
 
-    public init(objEzsigndocument: EzsigndocumentRequest? = nil, objEzsigndocumentCompound: EzsigndocumentRequestCompound? = nil) {
+    public init(objEzsigndocument: EzsigndocumentRequest? = nil, objEzsigndocumentCompound: EzsigndocumentRequest? = nil) {
         self.objEzsigndocument = objEzsigndocument
         self.objEzsigndocumentCompound = objEzsigndocumentCompound
     }

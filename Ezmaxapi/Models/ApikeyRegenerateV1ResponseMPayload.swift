@@ -13,9 +13,10 @@ import AnyCodable
 /** Response for GET /1/object/apikey/{pkiApikeyID}/regenerate */
 public struct ApikeyRegenerateV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var objApikey: ApikeyResponseCompound
+    /** An Apikey Object and children to create a complete structure */
+    public var objApikey: ApikeyResponse
 
-    public init(objApikey: ApikeyResponseCompound) {
+    public init(objApikey: ApikeyResponse) {
         self.objApikey = objApikey
     }
 

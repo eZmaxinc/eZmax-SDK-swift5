@@ -15,9 +15,10 @@ public struct WebhookGetHistoryV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
-    public var mPayload: WebhookGetHistoryV1ResponseMPayload
+    /** Payload for GET /1/object/webhook/{pkiWebhookID}/getHistory */
+    public var mPayload: AnyCodable
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: WebhookGetHistoryV1ResponseMPayload) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: AnyCodable) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
         self.mPayload = mPayload

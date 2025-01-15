@@ -15,9 +15,10 @@ public struct ActivesessionGetCurrentV1Response: Codable, JSONEncodable, Hashabl
 
     public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
-    public var mPayload: ActivesessionGetCurrentV1ResponseMPayload
+    /** Payload for GET /1/object/activesession/getCurrent */
+    public var mPayload: ActivesessionResponseCompound
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: ActivesessionGetCurrentV1ResponseMPayload) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: ActivesessionResponseCompound) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
         self.mPayload = mPayload

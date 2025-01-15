@@ -67,7 +67,7 @@ open class ObjectEzsignbulksenddocumentmappingAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignbulksenddocumentmappingDeleteObjectV1(pkiEzsignbulksenddocumentmappingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksenddocumentmappingDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignbulksenddocumentmappingDeleteObjectV1(pkiEzsignbulksenddocumentmappingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksenddocumentmappingDeleteObjectV1WithRequestBuilder(pkiEzsignbulksenddocumentmappingID: pkiEzsignbulksenddocumentmappingID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectEzsignbulksenddocumentmappingAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksenddocumentmappingID: (path)  
-     - returns: RequestBuilder<EzsignbulksenddocumentmappingDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func ezsignbulksenddocumentmappingDeleteObjectV1WithRequestBuilder(pkiEzsignbulksenddocumentmappingID: Int) -> RequestBuilder<EzsignbulksenddocumentmappingDeleteObjectV1Response> {
+    open class func ezsignbulksenddocumentmappingDeleteObjectV1WithRequestBuilder(pkiEzsignbulksenddocumentmappingID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/ezsignbulksenddocumentmapping/{pkiEzsignbulksenddocumentmappingID}"
         let pkiEzsignbulksenddocumentmappingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksenddocumentmappingID))"
         let pkiEzsignbulksenddocumentmappingIDPostEscape = pkiEzsignbulksenddocumentmappingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectEzsignbulksenddocumentmappingAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignbulksenddocumentmappingDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

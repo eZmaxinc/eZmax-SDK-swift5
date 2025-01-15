@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **dtDiscussionLastread** | **String** | The date the Discussion was last read | [optional] 
 **iDiscussionmessageCount** | **Int** | The count of Attachment. | 
 **iDiscussionmessageCountunread** | **Int** | The count of Attachment. | 
-**objDiscussionconfiguration** | [**CustomDiscussionconfigurationResponse**](CustomDiscussionconfigurationResponse.md) |  | [optional] 
+**objDiscussionconfiguration** | **AnyCodable** | A Custom Discussionconfiguration Object | [optional] 
 **aObjDiscussionmembership** | [DiscussionmembershipResponseCompound] |  | 
 **aObjDiscussionmessage** | [DiscussionmessageResponseCompound] |  | 
 

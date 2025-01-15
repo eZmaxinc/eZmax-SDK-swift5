@@ -67,7 +67,7 @@ open class ObjectSupplyAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func supplyDeleteObjectV1(pkiSupplyID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SupplyDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func supplyDeleteObjectV1(pkiSupplyID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return supplyDeleteObjectV1WithRequestBuilder(pkiSupplyID: pkiSupplyID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectSupplyAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiSupplyID: (path) The unique ID of the Supply 
-     - returns: RequestBuilder<SupplyDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func supplyDeleteObjectV1WithRequestBuilder(pkiSupplyID: Int) -> RequestBuilder<SupplyDeleteObjectV1Response> {
+    open class func supplyDeleteObjectV1WithRequestBuilder(pkiSupplyID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/supply/{pkiSupplyID}"
         let pkiSupplyIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSupplyID))"
         let pkiSupplyIDPostEscape = pkiSupplyIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectSupplyAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SupplyDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectSupplyAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func supplyEditObjectV1(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SupplyEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func supplyEditObjectV1(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return supplyEditObjectV1WithRequestBuilder(pkiSupplyID: pkiSupplyID, supplyEditObjectV1Request: supplyEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectSupplyAPI {
        - name: Authorization
      - parameter pkiSupplyID: (path) The unique ID of the Supply 
      - parameter supplyEditObjectV1Request: (body)  
-     - returns: RequestBuilder<SupplyEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func supplyEditObjectV1WithRequestBuilder(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request) -> RequestBuilder<SupplyEditObjectV1Response> {
+    open class func supplyEditObjectV1WithRequestBuilder(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/supply/{pkiSupplyID}"
         let pkiSupplyIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSupplyID))"
         let pkiSupplyIDPostEscape = pkiSupplyIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectSupplyAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SupplyEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

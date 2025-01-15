@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientDeleteObjectV1**
 ```swift
-    open class func creditcardclientDeleteObjectV1(pkiCreditcardclientID: Int, completion: @escaping (_ data: CreditcardclientDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func creditcardclientDeleteObjectV1(pkiCreditcardclientID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Creditcardclient
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreditcardclientDeleteObjectV1Response**](CreditcardclientDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientEditObjectV1**
 ```swift
-    open class func creditcardclientEditObjectV1(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request, completion: @escaping (_ data: CreditcardclientEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func creditcardclientEditObjectV1(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Creditcardclient
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreditcardclientEditObjectV1Response**](CreditcardclientEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientPatchObjectV1**
 ```swift
-    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, completion: @escaping (_ data: CreditcardclientPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Patch an existing Creditcardclient
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreditcardclientPatchObjectV1Response**](CreditcardclientPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

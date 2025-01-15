@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **brandingEditObjectV2**
 ```swift
-    open class func brandingEditObjectV2(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request, completion: @escaping (_ data: BrandingEditObjectV2Response?, _ error: Error?) -> Void)
+    open class func brandingEditObjectV2(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Branding
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BrandingEditObjectV2Response**](BrandingEditObjectV2Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

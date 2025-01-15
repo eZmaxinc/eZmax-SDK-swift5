@@ -32,12 +32,15 @@ public struct ContactinformationsResponse: Codable, JSONEncodable, Hashable {
     public var eContactinformationsType: FieldEContactinformationsType
     /** The url of the Contactinformations */
     public var sContactinformationsUrl: String?
-    public var objAddressDefault: AddressResponseCompound?
+    /** An Address Object and children to create a complete structure */
+    public var objAddressDefault: AddressResponse?
     public var objPhoneDefault: PhoneResponseCompound?
-    public var objEmailDefault: EmailResponseCompound?
-    public var objWebsiteDefault: WebsiteResponseCompound?
+    /** An Email Object and children to create a complete structure */
+    public var objEmailDefault: EmailResponse?
+    /** A Website Object and children to create a complete structure */
+    public var objWebsiteDefault: WebsiteResponse?
 
-    public init(pkiContactinformationsID: Int, fkiAddressIDDefault: Int? = nil, fkiPhoneIDDefault: Int? = nil, fkiEmailIDDefault: Int? = nil, fkiWebsiteIDDefault: Int? = nil, eContactinformationsType: FieldEContactinformationsType, sContactinformationsUrl: String? = nil, objAddressDefault: AddressResponseCompound? = nil, objPhoneDefault: PhoneResponseCompound? = nil, objEmailDefault: EmailResponseCompound? = nil, objWebsiteDefault: WebsiteResponseCompound? = nil) {
+    public init(pkiContactinformationsID: Int, fkiAddressIDDefault: Int? = nil, fkiPhoneIDDefault: Int? = nil, fkiEmailIDDefault: Int? = nil, fkiWebsiteIDDefault: Int? = nil, eContactinformationsType: FieldEContactinformationsType, sContactinformationsUrl: String? = nil, objAddressDefault: AddressResponse? = nil, objPhoneDefault: PhoneResponseCompound? = nil, objEmailDefault: EmailResponse? = nil, objWebsiteDefault: WebsiteResponse? = nil) {
         self.pkiContactinformationsID = pkiContactinformationsID
         self.fkiAddressIDDefault = fkiAddressIDDefault
         self.fkiPhoneIDDefault = fkiPhoneIDDefault

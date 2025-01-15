@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **supplyDeleteObjectV1**
 ```swift
-    open class func supplyDeleteObjectV1(pkiSupplyID: Int, completion: @escaping (_ data: SupplyDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func supplyDeleteObjectV1(pkiSupplyID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Supply
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SupplyDeleteObjectV1Response**](SupplyDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 # **supplyEditObjectV1**
 ```swift
-    open class func supplyEditObjectV1(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request, completion: @escaping (_ data: SupplyEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func supplyEditObjectV1(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Supply
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SupplyEditObjectV1Response**](SupplyEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

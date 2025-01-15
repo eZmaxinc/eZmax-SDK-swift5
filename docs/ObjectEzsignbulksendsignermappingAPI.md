@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendsignermappingDeleteObjectV1**
 ```swift
-    open class func ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: Int, completion: @escaping (_ data: EzsignbulksendsignermappingDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignbulksendsignermapping
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksendsignermappingDeleteObjectV1Response**](EzsignbulksendsignermappingDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

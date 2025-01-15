@@ -68,7 +68,7 @@ open class ObjectBillingentityinternalAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func billingentityinternalEditObjectV1(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BillingentityinternalEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func billingentityinternalEditObjectV1(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return billingentityinternalEditObjectV1WithRequestBuilder(pkiBillingentityinternalID: pkiBillingentityinternalID, billingentityinternalEditObjectV1Request: billingentityinternalEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -88,9 +88,9 @@ open class ObjectBillingentityinternalAPI {
        - name: Authorization
      - parameter pkiBillingentityinternalID: (path)  
      - parameter billingentityinternalEditObjectV1Request: (body)  
-     - returns: RequestBuilder<BillingentityinternalEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func billingentityinternalEditObjectV1WithRequestBuilder(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request) -> RequestBuilder<BillingentityinternalEditObjectV1Response> {
+    open class func billingentityinternalEditObjectV1WithRequestBuilder(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/billingentityinternal/{pkiBillingentityinternalID}"
         let pkiBillingentityinternalIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBillingentityinternalID))"
         let pkiBillingentityinternalIDPostEscape = pkiBillingentityinternalIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,7 +106,7 @@ open class ObjectBillingentityinternalAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<BillingentityinternalEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

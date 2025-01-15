@@ -67,7 +67,7 @@ open class ObjectDiscussionmembershipAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: DiscussionmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return discussionmembershipDeleteObjectV1WithRequestBuilder(pkiDiscussionmembershipID: pkiDiscussionmembershipID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectDiscussionmembershipAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiDiscussionmembershipID: (path) The unique ID of the Discussionmembership 
-     - returns: RequestBuilder<DiscussionmembershipDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func discussionmembershipDeleteObjectV1WithRequestBuilder(pkiDiscussionmembershipID: Int) -> RequestBuilder<DiscussionmembershipDeleteObjectV1Response> {
+    open class func discussionmembershipDeleteObjectV1WithRequestBuilder(pkiDiscussionmembershipID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/discussionmembership/{pkiDiscussionmembershipID}"
         let pkiDiscussionmembershipIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDiscussionmembershipID))"
         let pkiDiscussionmembershipIDPostEscape = pkiDiscussionmembershipIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectDiscussionmembershipAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DiscussionmembershipDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

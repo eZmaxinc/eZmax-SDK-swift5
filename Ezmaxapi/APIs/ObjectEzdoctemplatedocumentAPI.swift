@@ -121,7 +121,7 @@ open class ObjectEzdoctemplatedocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentEditObjectV1Request: EzdoctemplatedocumentEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzdoctemplatedocumentEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentEditObjectV1Request: EzdoctemplatedocumentEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return ezdoctemplatedocumentEditObjectV1WithRequestBuilder(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID, ezdoctemplatedocumentEditObjectV1Request: ezdoctemplatedocumentEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -141,9 +141,9 @@ open class ObjectEzdoctemplatedocumentAPI {
        - name: Authorization
      - parameter pkiEzdoctemplatedocumentID: (path) The unique ID of the Ezdoctemplatedocument 
      - parameter ezdoctemplatedocumentEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzdoctemplatedocumentEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func ezdoctemplatedocumentEditObjectV1WithRequestBuilder(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentEditObjectV1Request: EzdoctemplatedocumentEditObjectV1Request) -> RequestBuilder<EzdoctemplatedocumentEditObjectV1Response> {
+    open class func ezdoctemplatedocumentEditObjectV1WithRequestBuilder(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentEditObjectV1Request: EzdoctemplatedocumentEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/ezdoctemplatedocument/{pkiEzdoctemplatedocumentID}"
         let pkiEzdoctemplatedocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzdoctemplatedocumentID))"
         let pkiEzdoctemplatedocumentIDPostEscape = pkiEzdoctemplatedocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -159,7 +159,7 @@ open class ObjectEzdoctemplatedocumentAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzdoctemplatedocumentEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -397,7 +397,7 @@ open class ObjectEzdoctemplatedocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezdoctemplatedocumentPatchObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentPatchObjectV1Request: EzdoctemplatedocumentPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzdoctemplatedocumentPatchObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezdoctemplatedocumentPatchObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentPatchObjectV1Request: EzdoctemplatedocumentPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return ezdoctemplatedocumentPatchObjectV1WithRequestBuilder(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID, ezdoctemplatedocumentPatchObjectV1Request: ezdoctemplatedocumentPatchObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -417,9 +417,9 @@ open class ObjectEzdoctemplatedocumentAPI {
        - name: Authorization
      - parameter pkiEzdoctemplatedocumentID: (path) The unique ID of the Ezdoctemplatedocument 
      - parameter ezdoctemplatedocumentPatchObjectV1Request: (body)  
-     - returns: RequestBuilder<EzdoctemplatedocumentPatchObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func ezdoctemplatedocumentPatchObjectV1WithRequestBuilder(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentPatchObjectV1Request: EzdoctemplatedocumentPatchObjectV1Request) -> RequestBuilder<EzdoctemplatedocumentPatchObjectV1Response> {
+    open class func ezdoctemplatedocumentPatchObjectV1WithRequestBuilder(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentPatchObjectV1Request: EzdoctemplatedocumentPatchObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/ezdoctemplatedocument/{pkiEzdoctemplatedocumentID}"
         let pkiEzdoctemplatedocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzdoctemplatedocumentID))"
         let pkiEzdoctemplatedocumentIDPostEscape = pkiEzdoctemplatedocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -435,7 +435,7 @@ open class ObjectEzdoctemplatedocumentAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzdoctemplatedocumentPatchObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

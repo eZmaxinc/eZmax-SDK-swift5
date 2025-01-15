@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **ezsignannotationDeleteObjectV1**
 ```swift
-    open class func ezsignannotationDeleteObjectV1(pkiEzsignannotationID: Int, completion: @escaping (_ data: EzsignannotationDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignannotationDeleteObjectV1(pkiEzsignannotationID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignannotation
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignannotationDeleteObjectV1Response**](EzsignannotationDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **ezsignannotationEditObjectV1**
 ```swift
-    open class func ezsignannotationEditObjectV1(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request, completion: @escaping (_ data: EzsignannotationEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignannotationEditObjectV1(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignannotation
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignannotationEditObjectV1Response**](EzsignannotationEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

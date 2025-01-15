@@ -67,7 +67,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendsignermappingDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendsignermappingDeleteObjectV1WithRequestBuilder(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectEzsignbulksendsignermappingAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksendsignermappingID: (path)  
-     - returns: RequestBuilder<EzsignbulksendsignermappingDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func ezsignbulksendsignermappingDeleteObjectV1WithRequestBuilder(pkiEzsignbulksendsignermappingID: Int) -> RequestBuilder<EzsignbulksendsignermappingDeleteObjectV1Response> {
+    open class func ezsignbulksendsignermappingDeleteObjectV1WithRequestBuilder(pkiEzsignbulksendsignermappingID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID}"
         let pkiEzsignbulksendsignermappingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendsignermappingID))"
         let pkiEzsignbulksendsignermappingIDPostEscape = pkiEzsignbulksendsignermappingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendsignermappingDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

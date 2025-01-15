@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **signatureDeleteObjectV1**
 ```swift
-    open class func signatureDeleteObjectV1(pkiSignatureID: Int, completion: @escaping (_ data: SignatureDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func signatureDeleteObjectV1(pkiSignatureID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Signature
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SignatureDeleteObjectV1Response**](SignatureDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 # **signatureEditObjectV1**
 ```swift
-    open class func signatureEditObjectV1(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request, completion: @escaping (_ data: SignatureEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func signatureEditObjectV1(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Signature
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SignatureEditObjectV1Response**](SignatureEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

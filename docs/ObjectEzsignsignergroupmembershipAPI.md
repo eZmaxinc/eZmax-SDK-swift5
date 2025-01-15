@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupmembershipDeleteObjectV1**
 ```swift
-    open class func ezsignsignergroupmembershipDeleteObjectV1(pkiEzsignsignergroupmembershipID: Int, completion: @escaping (_ data: EzsignsignergroupmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupmembershipDeleteObjectV1(pkiEzsignsignergroupmembershipID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignsignergroupmembership
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignergroupmembershipDeleteObjectV1Response**](EzsignsignergroupmembershipDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
