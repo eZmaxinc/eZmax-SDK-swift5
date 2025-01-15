@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activesessionGenerateFederationTokenV1**](ObjectActivesessionAPI.md#activesessiongeneratefederationtokenv1) | **POST** /1/object/activesession/generateFederationToken | Generate a federation token
 [**activesessionGetCurrentV1**](ObjectActivesessionAPI.md#activesessiongetcurrentv1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
+[**activesessionGetCurrentV2**](ObjectActivesessionAPI.md#activesessiongetcurrentv2) | **GET** /2/object/activesession/getCurrent | Get Current Activesession
 [**activesessionGetListV1**](ObjectActivesessionAPI.md#activesessiongetlistv1) | **GET** /1/object/activesession/getList | Retrieve Activesession list
 
 
@@ -93,6 +94,52 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ActivesessionGetCurrentV1Response**](ActivesessionGetCurrentV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **activesessionGetCurrentV2**
+```swift
+    open class func activesessionGetCurrentV2(completion: @escaping (_ data: ActivesessionGetCurrentV2Response?, _ error: Error?) -> Void)
+```
+
+Get Current Activesession
+
+Retrieve the details about the current activesession
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+
+// Get Current Activesession
+ObjectActivesessionAPI.activesessionGetCurrentV2() { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ActivesessionGetCurrentV2Response**](ActivesessionGetCurrentV2Response.md)
 
 ### Authorization
 

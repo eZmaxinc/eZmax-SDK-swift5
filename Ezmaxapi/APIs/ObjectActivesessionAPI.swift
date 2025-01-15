@@ -65,6 +65,7 @@ open class ObjectActivesessionAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func activesessionGetCurrentV1(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ActivesessionGetCurrentV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return activesessionGetCurrentV1WithRequestBuilder().execute(apiResponseQueue) { result in
@@ -86,6 +87,7 @@ open class ObjectActivesessionAPI {
        - name: Authorization
      - returns: RequestBuilder<ActivesessionGetCurrentV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func activesessionGetCurrentV1WithRequestBuilder() -> RequestBuilder<ActivesessionGetCurrentV1Response> {
         let localVariablePath = "/1/object/activesession/getCurrent"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
@@ -100,6 +102,51 @@ open class ObjectActivesessionAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<ActivesessionGetCurrentV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Get Current Activesession
+     
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func activesessionGetCurrentV2(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ActivesessionGetCurrentV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return activesessionGetCurrentV2WithRequestBuilder().execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get Current Activesession
+     - GET /2/object/activesession/getCurrent
+     - Retrieve the details about the current activesession
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - returns: RequestBuilder<ActivesessionGetCurrentV2Response> 
+     */
+    open class func activesessionGetCurrentV2WithRequestBuilder() -> RequestBuilder<ActivesessionGetCurrentV2Response> {
+        let localVariablePath = "/2/object/activesession/getCurrent"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ActivesessionGetCurrentV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

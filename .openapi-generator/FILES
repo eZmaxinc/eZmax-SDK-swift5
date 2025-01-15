@@ -124,6 +124,8 @@ Ezmaxapi/Models/ActivesessionGenerateFederationTokenV1Response.swift
 Ezmaxapi/Models/ActivesessionGenerateFederationTokenV1ResponseMPayload.swift
 Ezmaxapi/Models/ActivesessionGetCurrentV1Response.swift
 Ezmaxapi/Models/ActivesessionGetCurrentV1ResponseMPayload.swift
+Ezmaxapi/Models/ActivesessionGetCurrentV2Response.swift
+Ezmaxapi/Models/ActivesessionGetCurrentV2ResponseMPayload.swift
 Ezmaxapi/Models/ActivesessionGetListV1Response.swift
 Ezmaxapi/Models/ActivesessionGetListV1ResponseMPayload.swift
 Ezmaxapi/Models/ActivesessionListElement.swift
@@ -1766,6 +1768,8 @@ docs/ActivesessionGenerateFederationTokenV1Response.md
 docs/ActivesessionGenerateFederationTokenV1ResponseMPayload.md
 docs/ActivesessionGetCurrentV1Response.md
 docs/ActivesessionGetCurrentV1ResponseMPayload.md
+docs/ActivesessionGetCurrentV2Response.md
+docs/ActivesessionGetCurrentV2ResponseMPayload.md
 docs/ActivesessionGetListV1Response.md
 docs/ActivesessionGetListV1ResponseMPayload.md
 docs/ActivesessionListElement.md

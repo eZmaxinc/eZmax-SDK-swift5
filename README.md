@@ -34,6 +34,7 @@ Class | Method | HTTP request | Description
 *ModuleUserAPI* | [**userCreateEzsignuserV1**](docs/ModuleUserAPI.md#usercreateezsignuserv1) | **POST** /1/module/user/createezsignuser | Create a new User of type Ezsignuser
 *ObjectActivesessionAPI* | [**activesessionGenerateFederationTokenV1**](docs/ObjectActivesessionAPI.md#activesessiongeneratefederationtokenv1) | **POST** /1/object/activesession/generateFederationToken | Generate a federation token
 *ObjectActivesessionAPI* | [**activesessionGetCurrentV1**](docs/ObjectActivesessionAPI.md#activesessiongetcurrentv1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
+*ObjectActivesessionAPI* | [**activesessionGetCurrentV2**](docs/ObjectActivesessionAPI.md#activesessiongetcurrentv2) | **GET** /2/object/activesession/getCurrent | Get Current Activesession
 *ObjectActivesessionAPI* | [**activesessionGetListV1**](docs/ObjectActivesessionAPI.md#activesessiongetlistv1) | **GET** /1/object/activesession/getList | Retrieve Activesession list
 *ObjectApikeyAPI* | [**apikeyCreateObjectV2**](docs/ObjectApikeyAPI.md#apikeycreateobjectv2) | **POST** /2/object/apikey | Create a new Apikey
 *ObjectApikeyAPI* | [**apikeyEditObjectV1**](docs/ObjectApikeyAPI.md#apikeyeditobjectv1) | **PUT** /1/object/apikey/{pkiApikeyID} | Edit an existing Apikey
@@ -491,6 +492,8 @@ Class | Method | HTTP request | Description
  - [ActivesessionGenerateFederationTokenV1ResponseMPayload](docs/ActivesessionGenerateFederationTokenV1ResponseMPayload.md)
  - [ActivesessionGetCurrentV1Response](docs/ActivesessionGetCurrentV1Response.md)
  - [ActivesessionGetCurrentV1ResponseMPayload](docs/ActivesessionGetCurrentV1ResponseMPayload.md)
+ - [ActivesessionGetCurrentV2Response](docs/ActivesessionGetCurrentV2Response.md)
+ - [ActivesessionGetCurrentV2ResponseMPayload](docs/ActivesessionGetCurrentV2ResponseMPayload.md)
  - [ActivesessionGetListV1Response](docs/ActivesessionGetListV1Response.md)
  - [ActivesessionGetListV1ResponseMPayload](docs/ActivesessionGetListV1ResponseMPayload.md)
  - [ActivesessionListElement](docs/ActivesessionListElement.md)
