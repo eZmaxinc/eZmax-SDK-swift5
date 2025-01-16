@@ -27,12 +27,11 @@ public struct DiscussionResponseCompound: Codable, JSONEncodable, Hashable {
     public var iDiscussionmessageCount: Int
     /** The count of Attachment. */
     public var iDiscussionmessageCountunread: Int
-    /** A Custom Discussionconfiguration Object */
-    public var objDiscussionconfiguration: AnyCodable?
+    public var objDiscussionconfiguration: CustomDiscussionconfigurationResponse?
     public var aObjDiscussionmembership: [DiscussionmembershipResponseCompound]
     public var aObjDiscussionmessage: [DiscussionmessageResponseCompound]
 
-    public init(pkiDiscussionID: Int, sDiscussionDescription: String, bDiscussionClosed: Bool, dtDiscussionLastread: String? = nil, iDiscussionmessageCount: Int, iDiscussionmessageCountunread: Int, objDiscussionconfiguration: AnyCodable? = nil, aObjDiscussionmembership: [DiscussionmembershipResponseCompound], aObjDiscussionmessage: [DiscussionmessageResponseCompound]) {
+    public init(pkiDiscussionID: Int, sDiscussionDescription: String, bDiscussionClosed: Bool, dtDiscussionLastread: String? = nil, iDiscussionmessageCount: Int, iDiscussionmessageCountunread: Int, objDiscussionconfiguration: CustomDiscussionconfigurationResponse? = nil, aObjDiscussionmembership: [DiscussionmembershipResponseCompound], aObjDiscussionmessage: [DiscussionmessageResponseCompound]) {
         self.pkiDiscussionID = pkiDiscussionID
         self.sDiscussionDescription = sDiscussionDescription
         self.bDiscussionClosed = bDiscussionClosed

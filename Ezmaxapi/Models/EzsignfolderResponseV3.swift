@@ -26,8 +26,7 @@ public struct EzsignfolderResponseV3: Codable, JSONEncodable, Hashable {
     public var pkiEzsignfolderID: Int
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int?
-    /** A Custom Ezsignfoldertype Object */
-    public var objEzsignfoldertype: AnyCodable?
+    public var objEzsignfoldertype: CustomEzsignfoldertypeResponse?
     /** The unique ID of the Timezone */
     public var fkiTimezoneID: Int?
     public var eEzsignfolderCompletion: FieldEEzsignfolderCompletion
@@ -72,7 +71,7 @@ public struct EzsignfolderResponseV3: Codable, JSONEncodable, Hashable {
     public var sEzsignfolderExternalid: String?
     public var eEzsignfolderAccess: ComputedEEzsignfolderAccess?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: AnyCodable? = nil, fkiTimezoneID: Int? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, eEzsignfolderDocumentdependency: FieldEEzsignfolderDocumentdependency? = nil, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, iEzsignfolderSendreminderfirstdays: Int? = nil, iEzsignfolderSendreminderotherdays: Int? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil, eEzsignfolderAccess: ComputedEEzsignfolderAccess? = nil) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, fkiTimezoneID: Int? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, eEzsignfolderDocumentdependency: FieldEEzsignfolderDocumentdependency? = nil, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, iEzsignfolderSendreminderfirstdays: Int? = nil, iEzsignfolderSendreminderotherdays: Int? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil, eEzsignfolderAccess: ComputedEEzsignfolderAccess? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.objEzsignfoldertype = objEzsignfoldertype

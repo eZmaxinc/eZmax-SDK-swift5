@@ -46,10 +46,9 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
     public var dtSystemconfigurationReadonlyexpirationstart: String?
     /** The end date where the system will be in read only */
     public var dtSystemconfigurationReadonlyexpirationend: String?
-    /** A Custom Branding Object */
-    public var objBranding: AnyCodable?
+    public var objBranding: CustomBrandingResponse?
 
-    public init(pkiSystemconfigurationID: Int, fkiSystemconfigurationtypeID: Int, fkiBrandingID: Int? = nil, sSystemconfigurationtypeDescriptionX: String, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationHascreditcardmerchant: Bool? = nil, bSystemconfigurationIsdisposalactive: Bool? = nil, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil, objBranding: AnyCodable? = nil) {
+    public init(pkiSystemconfigurationID: Int, fkiSystemconfigurationtypeID: Int, fkiBrandingID: Int? = nil, sSystemconfigurationtypeDescriptionX: String, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationHascreditcardmerchant: Bool? = nil, bSystemconfigurationIsdisposalactive: Bool? = nil, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil, objBranding: CustomBrandingResponse? = nil) {
         self.pkiSystemconfigurationID = pkiSystemconfigurationID
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.fkiBrandingID = fkiBrandingID
