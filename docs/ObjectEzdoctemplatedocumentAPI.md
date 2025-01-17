@@ -27,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezdoctemplatedocumentCreateObjectV1Request = ezdoctemplatedocument-createObject-v1-Request(aObjEzdoctemplatedocument: [ezdoctemplatedocument-RequestCompound(pkiEzdoctemplatedocumentID: 123, fkiLanguageID: 123, fkiEzsignfoldertypeID: 123, fkiEzdoctemplatetypeID: 123, fkiEzdoctemplatefieldtypecategoryID: 123, eEzdoctemplatedocumentPrivacylevel: Field-eEzdoctemplatedocumentPrivacylevel(), bEzdoctemplatedocumentIsactive: true, objEzdoctemplatedocumentName: Multilingual-EzdoctemplatedocumentName(sEzdoctemplatedocumentName1: "sEzdoctemplatedocumentName1_example", sEzdoctemplatedocumentName2: "sEzdoctemplatedocumentName2_example"))]) // EzdoctemplatedocumentCreateObjectV1Request | 
+let ezdoctemplatedocumentCreateObjectV1Request = ezdoctemplatedocument-createObject-v1-Request(aObjEzdoctemplatedocument: [ezdoctemplatedocument-RequestCompound()]) // EzdoctemplatedocumentCreateObjectV1Request | 
 
 // Create a new Ezdoctemplatedocument
 ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentCreateObjectV1(ezdoctemplatedocumentCreateObjectV1Request: ezdoctemplatedocumentCreateObjectV1Request) { (response, error) in
@@ -128,7 +128,7 @@ Edit an existing Ezdoctemplatedocument
 import OpenAPIClient
 
 let pkiEzdoctemplatedocumentID = 987 // Int | The unique ID of the Ezdoctemplatedocument
-let ezdoctemplatedocumentEditObjectV1Request = ezdoctemplatedocument-editObject-v1-Request(objEzdoctemplatedocument: ezdoctemplatedocument-RequestCompound(pkiEzdoctemplatedocumentID: 123, fkiLanguageID: 123, fkiEzsignfoldertypeID: 123, fkiEzdoctemplatetypeID: 123, fkiEzdoctemplatefieldtypecategoryID: 123, eEzdoctemplatedocumentPrivacylevel: Field-eEzdoctemplatedocumentPrivacylevel(), bEzdoctemplatedocumentIsactive: true, objEzdoctemplatedocumentName: Multilingual-EzdoctemplatedocumentName(sEzdoctemplatedocumentName1: "sEzdoctemplatedocumentName1_example", sEzdoctemplatedocumentName2: "sEzdoctemplatedocumentName2_example"))) // EzdoctemplatedocumentEditObjectV1Request | 
+let ezdoctemplatedocumentEditObjectV1Request = ezdoctemplatedocument-editObject-v1-Request(objEzdoctemplatedocument: ezdoctemplatedocument-RequestCompound()) // EzdoctemplatedocumentEditObjectV1Request | 
 
 // Edit an existing Ezdoctemplatedocument
 ObjectEzdoctemplatedocumentAPI.ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: pkiEzdoctemplatedocumentID, ezdoctemplatedocumentEditObjectV1Request: ezdoctemplatedocumentEditObjectV1Request) { (response, error) in

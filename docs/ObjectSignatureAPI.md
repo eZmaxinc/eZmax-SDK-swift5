@@ -27,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let signatureCreateObjectV1Request = signature-createObject-v1-Request(aObjSignature: [signature-RequestCompound(pkiSignatureID: 123, fkiFontID: 123, eSignaturePreference: Field-eSignaturePreference(), tSignatureSvg: "tSignatureSvg_example", tSignatureSvginitials: "tSignatureSvginitials_example")]) // SignatureCreateObjectV1Request | 
+let signatureCreateObjectV1Request = signature-createObject-v1-Request(aObjSignature: [signature-RequestCompound()]) // SignatureCreateObjectV1Request | 
 
 // Create a new Signature
 ObjectSignatureAPI.signatureCreateObjectV1(signatureCreateObjectV1Request: signatureCreateObjectV1Request) { (response, error) in
@@ -128,7 +128,7 @@ Edit an existing Signature
 import OpenAPIClient
 
 let pkiSignatureID = 987 // Int | The unique ID of the Signature
-let signatureEditObjectV1Request = signature-editObject-v1-Request(objSignature: signature-RequestCompound(pkiSignatureID: 123, fkiFontID: 123, eSignaturePreference: Field-eSignaturePreference(), tSignatureSvg: "tSignatureSvg_example", tSignatureSvginitials: "tSignatureSvginitials_example")) // SignatureEditObjectV1Request | 
+let signatureEditObjectV1Request = signature-editObject-v1-Request(objSignature: signature-RequestCompound()) // SignatureEditObjectV1Request | 
 
 // Edit an existing Signature
 ObjectSignatureAPI.signatureEditObjectV1(pkiSignatureID: pkiSignatureID, signatureEditObjectV1Request: signatureEditObjectV1Request) { (response, error) in

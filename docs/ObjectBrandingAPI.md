@@ -25,7 +25,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let brandingCreateObjectV2Request = branding-createObject-v2-Request(aObjBranding: [branding-RequestCompoundV2(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), eBrandingAlignlogo: Field-eBrandingAlignlogo(), sBrandingBase64: 123, iBrandingColor: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)]) // BrandingCreateObjectV2Request | 
+let brandingCreateObjectV2Request = branding-createObject-v2-Request(aObjBranding: [branding-RequestCompoundV2()]) // BrandingCreateObjectV2Request | 
 
 // Create a new Branding
 ObjectBrandingAPI.brandingCreateObjectV2(brandingCreateObjectV2Request: brandingCreateObjectV2Request) { (response, error) in
@@ -76,7 +76,7 @@ Edit an existing Branding
 import OpenAPIClient
 
 let pkiBrandingID = 987 // Int | 
-let brandingEditObjectV2Request = branding-editObject-v2-Request(objBranding: branding-RequestCompoundV2(pkiBrandingID: 123, objBrandingDescription: Multilingual-BrandingDescription(sBrandingDescription1: "sBrandingDescription1_example", sBrandingDescription2: "sBrandingDescription2_example"), eBrandingLogo: Field-eBrandingLogo(), eBrandingAlignlogo: Field-eBrandingAlignlogo(), sBrandingBase64: 123, iBrandingColor: 123, sBrandingName: "sBrandingName_example", sEmailAddress: "sEmailAddress_example", bBrandingIsactive: true)) // BrandingEditObjectV2Request | 
+let brandingEditObjectV2Request = branding-editObject-v2-Request(objBranding: branding-RequestCompoundV2()) // BrandingEditObjectV2Request | 
 
 // Edit an existing Branding
 ObjectBrandingAPI.brandingEditObjectV2(pkiBrandingID: pkiBrandingID, brandingEditObjectV2Request: brandingEditObjectV2Request) { (response, error) in

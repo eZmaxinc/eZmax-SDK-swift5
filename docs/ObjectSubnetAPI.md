@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let subnetCreateObjectV1Request = subnet-createObject-v1-Request(aObjSubnet: [subnet-RequestCompound(pkiSubnetID: 123, fkiUserID: 123, fkiApikeyID: 123, objSubnetDescription: Multilingual-SubnetDescription(sSubnetDescription1: "sSubnetDescription1_example", sSubnetDescription2: "sSubnetDescription2_example"), iSubnetNetwork: 123, iSubnetMask: 123)]) // SubnetCreateObjectV1Request | 
+let subnetCreateObjectV1Request = subnet-createObject-v1-Request(aObjSubnet: [subnet-RequestCompound()]) // SubnetCreateObjectV1Request | 
 
 // Create a new Subnet
 ObjectSubnetAPI.subnetCreateObjectV1(subnetCreateObjectV1Request: subnetCreateObjectV1Request) { (response, error) in
@@ -125,7 +125,7 @@ Edit an existing Subnet
 import OpenAPIClient
 
 let pkiSubnetID = 987 // Int | The unique ID of the Subnet
-let subnetEditObjectV1Request = subnet-editObject-v1-Request(objSubnet: subnet-RequestCompound(pkiSubnetID: 123, fkiUserID: 123, fkiApikeyID: 123, objSubnetDescription: Multilingual-SubnetDescription(sSubnetDescription1: "sSubnetDescription1_example", sSubnetDescription2: "sSubnetDescription2_example"), iSubnetNetwork: 123, iSubnetMask: 123)) // SubnetEditObjectV1Request | 
+let subnetEditObjectV1Request = subnet-editObject-v1-Request(objSubnet: subnet-RequestCompound()) // SubnetEditObjectV1Request | 
 
 // Edit an existing Subnet
 ObjectSubnetAPI.subnetEditObjectV1(pkiSubnetID: pkiSubnetID, subnetEditObjectV1Request: subnetEditObjectV1Request) { (response, error) in

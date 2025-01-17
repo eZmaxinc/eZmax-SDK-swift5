@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let usergroupdelegationCreateObjectV1Request = usergroupdelegation-createObject-v1-Request(aObjUsergroupdelegation: [usergroupdelegation-RequestCompound(pkiUsergroupdelegationID: 123, fkiUsergroupID: 123, fkiUserID: 123)]) // UsergroupdelegationCreateObjectV1Request | 
+let usergroupdelegationCreateObjectV1Request = usergroupdelegation-createObject-v1-Request(aObjUsergroupdelegation: [usergroupdelegation-RequestCompound()]) // UsergroupdelegationCreateObjectV1Request | 
 
 // Create a new Usergroupdelegation
 ObjectUsergroupdelegationAPI.usergroupdelegationCreateObjectV1(usergroupdelegationCreateObjectV1Request: usergroupdelegationCreateObjectV1Request) { (response, error) in
@@ -125,7 +125,7 @@ Edit an existing Usergroupdelegation
 import OpenAPIClient
 
 let pkiUsergroupdelegationID = 987 // Int | The unique ID of the Usergroupdelegation
-let usergroupdelegationEditObjectV1Request = usergroupdelegation-editObject-v1-Request(objUsergroupdelegation: usergroupdelegation-RequestCompound(pkiUsergroupdelegationID: 123, fkiUsergroupID: 123, fkiUserID: 123)) // UsergroupdelegationEditObjectV1Request | 
+let usergroupdelegationEditObjectV1Request = usergroupdelegation-editObject-v1-Request(objUsergroupdelegation: usergroupdelegation-RequestCompound()) // UsergroupdelegationEditObjectV1Request | 
 
 // Edit an existing Usergroupdelegation
 ObjectUsergroupdelegationAPI.usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: pkiUsergroupdelegationID, usergroupdelegationEditObjectV1Request: usergroupdelegationEditObjectV1Request) { (response, error) in

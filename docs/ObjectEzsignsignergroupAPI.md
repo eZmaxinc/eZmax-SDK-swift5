@@ -26,7 +26,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignsignergroupCreateObjectV1Request = ezsignsignergroup-createObject-v1-Request(aObjEzsignsignergroup: [ezsignsignergroup-RequestCompound(pkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, objEzsignsignergroupDescription: Multilingual-EzsignsignergroupDescription(sEzsignsignergroupDescription1: "sEzsignsignergroupDescription1_example", sEzsignsignergroupDescription2: "sEzsignsignergroupDescription2_example"))]) // EzsignsignergroupCreateObjectV1Request | 
+let ezsignsignergroupCreateObjectV1Request = ezsignsignergroup-createObject-v1-Request(aObjEzsignsignergroup: [ezsignsignergroup-RequestCompound()]) // EzsignsignergroupCreateObjectV1Request | 
 
 // Create a new Ezsignsignergroup
 ObjectEzsignsignergroupAPI.ezsignsignergroupCreateObjectV1(ezsignsignergroupCreateObjectV1Request: ezsignsignergroupCreateObjectV1Request) { (response, error) in
@@ -127,7 +127,7 @@ Using this endpoint, you can edit multiple Ezsignsignergroupmemberships at the s
 import OpenAPIClient
 
 let pkiEzsignsignergroupID = 987 // Int | 
-let ezsignsignergroupEditEzsignsignergroupmembershipsV1Request = ezsignsignergroup-editEzsignsignergroupmemberships-v1-Request(aObjEzsignsignergroupmembership: [ezsignsignergroupmembership-RequestCompound(pkiEzsignsignergroupmembershipID: 123, fkiEzsignsignergroupID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUsergroupID: 123)]) // EzsignsignergroupEditEzsignsignergroupmembershipsV1Request | 
+let ezsignsignergroupEditEzsignsignergroupmembershipsV1Request = ezsignsignergroup-editEzsignsignergroupmemberships-v1-Request(aObjEzsignsignergroupmembership: [ezsignsignergroupmembership-RequestCompound()]) // EzsignsignergroupEditEzsignsignergroupmembershipsV1Request | 
 
 // Edit multiple Ezsignsignergroupmemberships
 ObjectEzsignsignergroupAPI.ezsignsignergroupEditEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditEzsignsignergroupmembershipsV1Request: ezsignsignergroupEditEzsignsignergroupmembershipsV1Request) { (response, error) in
@@ -179,7 +179,7 @@ Edit an existing Ezsignsignergroup
 import OpenAPIClient
 
 let pkiEzsignsignergroupID = 987 // Int | The unique ID of the Ezsignsignergroup
-let ezsignsignergroupEditObjectV1Request = ezsignsignergroup-editObject-v1-Request(objEzsignsignergroup: ezsignsignergroup-RequestCompound(pkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, objEzsignsignergroupDescription: Multilingual-EzsignsignergroupDescription(sEzsignsignergroupDescription1: "sEzsignsignergroupDescription1_example", sEzsignsignergroupDescription2: "sEzsignsignergroupDescription2_example"))) // EzsignsignergroupEditObjectV1Request | 
+let ezsignsignergroupEditObjectV1Request = ezsignsignergroup-editObject-v1-Request(objEzsignsignergroup: ezsignsignergroup-RequestCompound()) // EzsignsignergroupEditObjectV1Request | 
 
 // Edit an existing Ezsignsignergroup
 ObjectEzsignsignergroupAPI.ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditObjectV1Request: ezsignsignergroupEditObjectV1Request) { (response, error) in

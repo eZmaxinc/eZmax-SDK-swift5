@@ -23,7 +23,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigndiscussionCreateObjectV1Request = ezsigndiscussion-createObject-v1-Request(aObjEzsigndiscussion: [ezsigndiscussion-RequestCompound(pkiEzsigndiscussionID: 123, fkiEzsigndocumentID: 123, iEzsigndiscussionPagenumber: 123, iEzsigndiscussionX: 123, iEzsigndiscussionY: 123, objDiscussion: discussion-Request(pkiDiscussionID: 123, sDiscussionDescription: "sDiscussionDescription_example", bDiscussionClosed: true))]) // EzsigndiscussionCreateObjectV1Request | 
+let ezsigndiscussionCreateObjectV1Request = ezsigndiscussion-createObject-v1-Request(aObjEzsigndiscussion: [ezsigndiscussion-RequestCompound()]) // EzsigndiscussionCreateObjectV1Request | 
 
 // Create a new Ezsigndiscussion
 ObjectEzsigndiscussionAPI.ezsigndiscussionCreateObjectV1(ezsigndiscussionCreateObjectV1Request: ezsigndiscussionCreateObjectV1Request) { (response, error) in

@@ -28,7 +28,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let usergroupexternalCreateObjectV1Request = usergroupexternal-createObject-v1-Request(aObjUsergroupexternal: [usergroupexternal-RequestCompound(pkiUsergroupexternalID: 123, sUsergroupexternalName: "sUsergroupexternalName_example", sUsergroupexternalID: "sUsergroupexternalID_example")]) // UsergroupexternalCreateObjectV1Request | 
+let usergroupexternalCreateObjectV1Request = usergroupexternal-createObject-v1-Request(aObjUsergroupexternal: [usergroupexternal-RequestCompound()]) // UsergroupexternalCreateObjectV1Request | 
 
 // Create a new Usergroupexternal
 ObjectUsergroupexternalAPI.usergroupexternalCreateObjectV1(usergroupexternalCreateObjectV1Request: usergroupexternalCreateObjectV1Request) { (response, error) in
@@ -129,7 +129,7 @@ Edit an existing Usergroupexternal
 import OpenAPIClient
 
 let pkiUsergroupexternalID = 987 // Int | The unique ID of the Usergroupexternal
-let usergroupexternalEditObjectV1Request = usergroupexternal-editObject-v1-Request(objUsergroupexternal: usergroupexternal-RequestCompound(pkiUsergroupexternalID: 123, sUsergroupexternalName: "sUsergroupexternalName_example", sUsergroupexternalID: "sUsergroupexternalID_example")) // UsergroupexternalEditObjectV1Request | 
+let usergroupexternalEditObjectV1Request = usergroupexternal-editObject-v1-Request(objUsergroupexternal: usergroupexternal-RequestCompound()) // UsergroupexternalEditObjectV1Request | 
 
 // Edit an existing Usergroupexternal
 ObjectUsergroupexternalAPI.usergroupexternalEditObjectV1(pkiUsergroupexternalID: pkiUsergroupexternalID, usergroupexternalEditObjectV1Request: usergroupexternalEditObjectV1Request) { (response, error) in

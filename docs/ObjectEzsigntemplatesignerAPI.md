@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatesignerCreateObjectV1Request = ezsigntemplatesigner-createObject-v1-Request(aObjEzsigntemplatesigner: [ezsigntemplatesigner-RequestCompound(pkiEzsigntemplatesignerID: 123, fkiEzsigntemplateID: 123, fkiUserID: 123, fkiUsergroupID: 123, fkiEzdoctemplatedocumentID: 123, bEzsigntemplatesignerReceivecopy: false, eEzsigntemplatesignerMapping: Field-eEzsigntemplatesignerMapping(), sEzsigntemplatesignerDescription: "sEzsigntemplatesignerDescription_example")]) // EzsigntemplatesignerCreateObjectV1Request | 
+let ezsigntemplatesignerCreateObjectV1Request = ezsigntemplatesigner-createObject-v1-Request(aObjEzsigntemplatesigner: [ezsigntemplatesigner-RequestCompound()]) // EzsigntemplatesignerCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatesigner
 ObjectEzsigntemplatesignerAPI.ezsigntemplatesignerCreateObjectV1(ezsigntemplatesignerCreateObjectV1Request: ezsigntemplatesignerCreateObjectV1Request) { (response, error) in
@@ -125,7 +125,7 @@ Edit an existing Ezsigntemplatesigner
 import OpenAPIClient
 
 let pkiEzsigntemplatesignerID = 987 // Int | 
-let ezsigntemplatesignerEditObjectV1Request = ezsigntemplatesigner-editObject-v1-Request(objEzsigntemplatesigner: ezsigntemplatesigner-RequestCompound(pkiEzsigntemplatesignerID: 123, fkiEzsigntemplateID: 123, fkiUserID: 123, fkiUsergroupID: 123, fkiEzdoctemplatedocumentID: 123, bEzsigntemplatesignerReceivecopy: false, eEzsigntemplatesignerMapping: Field-eEzsigntemplatesignerMapping(), sEzsigntemplatesignerDescription: "sEzsigntemplatesignerDescription_example")) // EzsigntemplatesignerEditObjectV1Request | 
+let ezsigntemplatesignerEditObjectV1Request = ezsigntemplatesigner-editObject-v1-Request(objEzsigntemplatesigner: ezsigntemplatesigner-RequestCompound()) // EzsigntemplatesignerEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatesigner
 ObjectEzsigntemplatesignerAPI.ezsigntemplatesignerEditObjectV1(pkiEzsigntemplatesignerID: pkiEzsigntemplatesignerID, ezsigntemplatesignerEditObjectV1Request: ezsigntemplatesignerEditObjectV1Request) { (response, error) in

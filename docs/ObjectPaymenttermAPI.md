@@ -25,7 +25,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let paymenttermCreateObjectV1Request = paymentterm-createObject-v1-Request(aObjPaymentterm: [paymentterm-RequestCompound(pkiPaymenttermID: 123, sPaymenttermCode: "sPaymenttermCode_example", ePaymenttermType: Field-ePaymenttermType(), iPaymenttermDay: 123, objPaymenttermDescription: Multilingual-PaymenttermDescription(sPaymenttermDescription1: "sPaymenttermDescription1_example", sPaymenttermDescription2: "sPaymenttermDescription2_example"), bPaymenttermIsactive: true)]) // PaymenttermCreateObjectV1Request | 
+let paymenttermCreateObjectV1Request = paymentterm-createObject-v1-Request(aObjPaymentterm: [paymentterm-RequestCompound()]) // PaymenttermCreateObjectV1Request | 
 
 // Create a new Paymentterm
 ObjectPaymenttermAPI.paymenttermCreateObjectV1(paymenttermCreateObjectV1Request: paymenttermCreateObjectV1Request) { (response, error) in
@@ -76,7 +76,7 @@ Edit an existing Paymentterm
 import OpenAPIClient
 
 let pkiPaymenttermID = 987 // Int | 
-let paymenttermEditObjectV1Request = paymentterm-editObject-v1-Request(objPaymentterm: paymentterm-RequestCompound(pkiPaymenttermID: 123, sPaymenttermCode: "sPaymenttermCode_example", ePaymenttermType: Field-ePaymenttermType(), iPaymenttermDay: 123, objPaymenttermDescription: Multilingual-PaymenttermDescription(sPaymenttermDescription1: "sPaymenttermDescription1_example", sPaymenttermDescription2: "sPaymenttermDescription2_example"), bPaymenttermIsactive: true)) // PaymenttermEditObjectV1Request | 
+let paymenttermEditObjectV1Request = paymentterm-editObject-v1-Request(objPaymentterm: paymentterm-RequestCompound()) // PaymenttermEditObjectV1Request | 
 
 // Edit an existing Paymentterm
 ObjectPaymenttermAPI.paymenttermEditObjectV1(pkiPaymenttermID: pkiPaymenttermID, paymenttermEditObjectV1Request: paymenttermEditObjectV1Request) { (response, error) in

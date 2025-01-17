@@ -81,7 +81,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignbulksendCreateObjectV1Request = ezsignbulksend-createObject-v1-Request(aObjEzsignbulksend: [ezsignbulksend-RequestCompound(pkiEzsignbulksendID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsignbulksendDescription: "sEzsignbulksendDescription_example", tEzsignbulksendNote: "tEzsignbulksendNote_example", bEzsignbulksendNeedvalidation: false, bEzsignbulksendIsactive: true)]) // EzsignbulksendCreateObjectV1Request | 
+let ezsignbulksendCreateObjectV1Request = ezsignbulksend-createObject-v1-Request(aObjEzsignbulksend: [ezsignbulksend-RequestCompound()]) // EzsignbulksendCreateObjectV1Request | 
 
 // Create a new Ezsignbulksend
 ObjectEzsignbulksendAPI.ezsignbulksendCreateObjectV1(ezsignbulksendCreateObjectV1Request: ezsignbulksendCreateObjectV1Request) { (response, error) in
@@ -182,7 +182,7 @@ Edit an existing Ezsignbulksend
 import OpenAPIClient
 
 let pkiEzsignbulksendID = 987 // Int | 
-let ezsignbulksendEditObjectV1Request = ezsignbulksend-editObject-v1-Request(objEzsignbulksend: ezsignbulksend-RequestCompound(pkiEzsignbulksendID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsignbulksendDescription: "sEzsignbulksendDescription_example", tEzsignbulksendNote: "tEzsignbulksendNote_example", bEzsignbulksendNeedvalidation: false, bEzsignbulksendIsactive: true)) // EzsignbulksendEditObjectV1Request | 
+let ezsignbulksendEditObjectV1Request = ezsignbulksend-editObject-v1-Request(objEzsignbulksend: ezsignbulksend-RequestCompound()) // EzsignbulksendEditObjectV1Request | 
 
 // Edit an existing Ezsignbulksend
 ObjectEzsignbulksendAPI.ezsignbulksendEditObjectV1(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendEditObjectV1Request: ezsignbulksendEditObjectV1Request) { (response, error) in

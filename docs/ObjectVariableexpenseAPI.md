@@ -25,7 +25,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let variableexpenseCreateObjectV1Request = variableexpense-createObject-v1-Request(aObjVariableexpense: [variableexpense-RequestCompound(pkiVariableexpenseID: 123, sVariableexpenseCode: "sVariableexpenseCode_example", objVariableexpenseDescription: Multilingual-VariableexpenseDescription(sVariableexpenseDescription1: "sVariableexpenseDescription1_example", sVariableexpenseDescription2: "sVariableexpenseDescription2_example"), eVariableexpenseTaxable: Field-eVariableexpenseTaxable(), bVariableexpenseIsactive: true)]) // VariableexpenseCreateObjectV1Request | 
+let variableexpenseCreateObjectV1Request = variableexpense-createObject-v1-Request(aObjVariableexpense: [variableexpense-RequestCompound()]) // VariableexpenseCreateObjectV1Request | 
 
 // Create a new Variableexpense
 ObjectVariableexpenseAPI.variableexpenseCreateObjectV1(variableexpenseCreateObjectV1Request: variableexpenseCreateObjectV1Request) { (response, error) in
@@ -76,7 +76,7 @@ Edit an existing Variableexpense
 import OpenAPIClient
 
 let pkiVariableexpenseID = 987 // Int | 
-let variableexpenseEditObjectV1Request = variableexpense-editObject-v1-Request(objVariableexpense: variableexpense-RequestCompound(pkiVariableexpenseID: 123, sVariableexpenseCode: "sVariableexpenseCode_example", objVariableexpenseDescription: Multilingual-VariableexpenseDescription(sVariableexpenseDescription1: "sVariableexpenseDescription1_example", sVariableexpenseDescription2: "sVariableexpenseDescription2_example"), eVariableexpenseTaxable: Field-eVariableexpenseTaxable(), bVariableexpenseIsactive: true)) // VariableexpenseEditObjectV1Request | 
+let variableexpenseEditObjectV1Request = variableexpense-editObject-v1-Request(objVariableexpense: variableexpense-RequestCompound()) // VariableexpenseEditObjectV1Request | 
 
 // Edit an existing Variableexpense
 ObjectVariableexpenseAPI.variableexpenseEditObjectV1(pkiVariableexpenseID: pkiVariableexpenseID, variableexpenseEditObjectV1Request: variableexpenseEditObjectV1Request) { (response, error) in

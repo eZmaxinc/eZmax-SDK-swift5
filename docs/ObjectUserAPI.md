@@ -36,7 +36,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let userCreateObjectV1Request = user-createObject-v1-Request(aObjUser: [user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-Request(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV1Request | 
+let userCreateObjectV1Request = user-createObject-v1-Request(aObjUser: [user-RequestCompound()]) // UserCreateObjectV1Request | 
 
 // Create a new User
 ObjectUserAPI.userCreateObjectV1(userCreateObjectV1Request: userCreateObjectV1Request) { (response, error) in
@@ -86,7 +86,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let userCreateObjectV2Request = user-createObject-v2-Request(aObjUser: [user-RequestCompoundV2(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestV2(pkiPhoneID: 123, fkiPhonetypeID: 123, sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV2Request | 
+let userCreateObjectV2Request = user-createObject-v2-Request(aObjUser: [user-RequestCompoundV2()]) // UserCreateObjectV2Request | 
 
 // Create a new User
 ObjectUserAPI.userCreateObjectV2(userCreateObjectV2Request: userCreateObjectV2Request) { (response, error) in
@@ -137,7 +137,7 @@ Using this endpoint, you can edit multiple Colleagues at the same time.
 import OpenAPIClient
 
 let pkiUserID = 987 // Int | 
-let userEditColleaguesV2Request = user-editColleagues-v2-Request(aObjColleague: [colleague-RequestCompoundV2(pkiColleagueID: 123, fkiUserID: 123, fkiUserIDColleague: 123, bColleagueEzsignemail: false, bColleagueFinancial: true, bColleagueUsecloneemail: true, bColleagueAttachment: true, bColleagueCanafe: true, bColleaguePermission: true, bColleagueRealestatecompleted: true, dtColleagueFrom: "dtColleagueFrom_example", dtColleagueTo: "dtColleagueTo_example", eColleagueEzsign: Field-eColleagueEzsign(), eColleagueRealestateinprogress: Field-eColleagueRealestateinprogess())]) // UserEditColleaguesV2Request | 
+let userEditColleaguesV2Request = user-editColleagues-v2-Request(aObjColleague: [colleague-RequestCompoundV2()]) // UserEditColleaguesV2Request | 
 
 // Edit multiple Colleagues
 ObjectUserAPI.userEditColleaguesV2(pkiUserID: pkiUserID, userEditColleaguesV2Request: userEditColleaguesV2Request) { (response, error) in
@@ -189,7 +189,7 @@ Edit an existing User
 import OpenAPIClient
 
 let pkiUserID = 987 // Int | The unique ID of the User
-let userEditObjectV1Request = user-editObject-v1-Request(objUser: user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-Request(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)) // UserEditObjectV1Request | 
+let userEditObjectV1Request = user-editObject-v1-Request(objUser: user-RequestCompound()) // UserEditObjectV1Request | 
 
 // Edit an existing User
 ObjectUserAPI.userEditObjectV1(pkiUserID: pkiUserID, userEditObjectV1Request: userEditObjectV1Request) { (response, error) in

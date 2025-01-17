@@ -79,7 +79,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplateCreateObjectV3Request = ezsigntemplate-createObject-v3-Request(aObjEzsigntemplate: [ezsigntemplate-RequestCompoundV3(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, fkiEzdoctemplatedocumentID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateExternaldescription: "sEzsigntemplateExternaldescription_example", tEzsigntemplateComment: "", eEzsigntemplateRecognition: Field-eEzsigntemplateRecognition(), sEzsigntemplateFilenameregexp: "sEzsigntemplateFilenameregexp_example", bEzsigntemplateAdminonly: false, eEzsigntemplateType: Field-eEzsigntemplateType())]) // EzsigntemplateCreateObjectV3Request | 
+let ezsigntemplateCreateObjectV3Request = ezsigntemplate-createObject-v3-Request(aObjEzsigntemplate: [ezsigntemplate-RequestCompoundV3()]) // EzsigntemplateCreateObjectV3Request | 
 
 // Create a new Ezsigntemplate
 ObjectEzsigntemplateAPI.ezsigntemplateCreateObjectV3(ezsigntemplateCreateObjectV3Request: ezsigntemplateCreateObjectV3Request) { (response, error) in
@@ -180,7 +180,7 @@ Edit an existing Ezsigntemplate
 import OpenAPIClient
 
 let pkiEzsigntemplateID = 987 // Int | 
-let ezsigntemplateEditObjectV3Request = ezsigntemplate-editObject-v3-Request(objEzsigntemplate: ezsigntemplate-RequestCompoundV3(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, fkiEzdoctemplatedocumentID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateExternaldescription: "sEzsigntemplateExternaldescription_example", tEzsigntemplateComment: "", eEzsigntemplateRecognition: Field-eEzsigntemplateRecognition(), sEzsigntemplateFilenameregexp: "sEzsigntemplateFilenameregexp_example", bEzsigntemplateAdminonly: false, eEzsigntemplateType: Field-eEzsigntemplateType())) // EzsigntemplateEditObjectV3Request | 
+let ezsigntemplateEditObjectV3Request = ezsigntemplate-editObject-v3-Request(objEzsigntemplate: ezsigntemplate-RequestCompoundV3()) // EzsigntemplateEditObjectV3Request | 
 
 // Edit an existing Ezsigntemplate
 ObjectEzsigntemplateAPI.ezsigntemplateEditObjectV3(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV3Request: ezsigntemplateEditObjectV3Request) { (response, error) in

@@ -23,7 +23,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let discussionmessageCreateObjectV1Request = discussionmessage-createObject-v1-Request(aObjDiscussionmessage: [discussionmessage-RequestCompound(pkiDiscussionmessageID: 123, fkiDiscussionID: 123, fkiDiscussionmembershipIDActionrequired: 123, tDiscussionmessageContent: "tDiscussionmessageContent_example")]) // DiscussionmessageCreateObjectV1Request | 
+let discussionmessageCreateObjectV1Request = discussionmessage-createObject-v1-Request(aObjDiscussionmessage: [discussionmessage-RequestCompound()]) // DiscussionmessageCreateObjectV1Request | 
 
 // Create a new Discussionmessage
 ObjectDiscussionmessageAPI.discussionmessageCreateObjectV1(discussionmessageCreateObjectV1Request: discussionmessageCreateObjectV1Request) { (response, error) in

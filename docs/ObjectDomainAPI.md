@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let domainCreateObjectV1Request = domain-createObject-v1-Request(aObjDomain: [domain-RequestCompound(pkiDomainID: 123, sDomainName: "sDomainName_example")]) // DomainCreateObjectV1Request | 
+let domainCreateObjectV1Request = domain-createObject-v1-Request(aObjDomain: [domain-RequestCompound()]) // DomainCreateObjectV1Request | 
 
 // Create a new Domain
 ObjectDomainAPI.domainCreateObjectV1(domainCreateObjectV1Request: domainCreateObjectV1Request) { (response, error) in

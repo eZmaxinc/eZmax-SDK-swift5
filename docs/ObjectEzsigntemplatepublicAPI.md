@@ -29,7 +29,7 @@ Create an Ezsignfolder
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatepublicCreateEzsignfolderV1Request = ezsigntemplatepublic-createEzsignfolder-v1-Request(pksEzmaxcustomerCode: "pksEzmaxcustomerCode_example", sEzsigntemplatepublicReferenceid: "sEzsigntemplatepublicReferenceid_example", aSEzsigntemplatesignerDescription: ["aSEzsigntemplatesignerDescription_example"], aObjEzsignsigner: [ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example"))]) // EzsigntemplatepublicCreateEzsignfolderV1Request | 
+let ezsigntemplatepublicCreateEzsignfolderV1Request = ezsigntemplatepublic-createEzsignfolder-v1-Request(pksEzmaxcustomerCode: "pksEzmaxcustomerCode_example", sEzsigntemplatepublicReferenceid: "sEzsigntemplatepublicReferenceid_example", aSEzsigntemplatesignerDescription: ["aSEzsigntemplatesignerDescription_example"], aObjEzsignsigner: [ezsignsigner-RequestCompound(objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example"))]) // EzsigntemplatepublicCreateEzsignfolderV1Request | 
 
 // Create an Ezsignfolder
 ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicCreateEzsignfolderV1(ezsigntemplatepublicCreateEzsignfolderV1Request: ezsigntemplatepublicCreateEzsignfolderV1Request) { (response, error) in
@@ -79,7 +79,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatepublicCreateObjectV1Request = ezsigntemplatepublic-createObject-v1-Request(aObjEzsigntemplatepublic: [ezsigntemplatepublic-RequestCompound(pkiEzsigntemplatepublicID: 123, fkiEzsignfoldertypeID: 123, fkiUserlogintypeID: 123, fkiEzsigntemplateID: 123, fkiEzsigntemplatepackageID: 123, sEzsigntemplatepublicDescription: "sEzsigntemplatepublicDescription_example", bEzsigntemplatepublicIsactive: true, tEzsigntemplatepublicNote: "tEzsigntemplatepublicNote_example", eEzsigntemplatepublicLimittype: Field-eEzsigntemplatepublicLimittype(), iEzsigntemplatepublicLimit: 123)]) // EzsigntemplatepublicCreateObjectV1Request | 
+let ezsigntemplatepublicCreateObjectV1Request = ezsigntemplatepublic-createObject-v1-Request(aObjEzsigntemplatepublic: [ezsigntemplatepublic-RequestCompound()]) // EzsigntemplatepublicCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepublic
 ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicCreateObjectV1(ezsigntemplatepublicCreateObjectV1Request: ezsigntemplatepublicCreateObjectV1Request) { (response, error) in
@@ -130,7 +130,7 @@ Edit an existing Ezsigntemplatepublic
 import OpenAPIClient
 
 let pkiEzsigntemplatepublicID = 987 // Int | The unique ID of the Ezsigntemplatepublic
-let ezsigntemplatepublicEditObjectV1Request = ezsigntemplatepublic-editObject-v1-Request(objEzsigntemplatepublic: ezsigntemplatepublic-RequestCompound(pkiEzsigntemplatepublicID: 123, fkiEzsignfoldertypeID: 123, fkiUserlogintypeID: 123, fkiEzsigntemplateID: 123, fkiEzsigntemplatepackageID: 123, sEzsigntemplatepublicDescription: "sEzsigntemplatepublicDescription_example", bEzsigntemplatepublicIsactive: true, tEzsigntemplatepublicNote: "tEzsigntemplatepublicNote_example", eEzsigntemplatepublicLimittype: Field-eEzsigntemplatepublicLimittype(), iEzsigntemplatepublicLimit: 123)) // EzsigntemplatepublicEditObjectV1Request | 
+let ezsigntemplatepublicEditObjectV1Request = ezsigntemplatepublic-editObject-v1-Request(objEzsigntemplatepublic: ezsigntemplatepublic-RequestCompound()) // EzsigntemplatepublicEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatepublic
 ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID, ezsigntemplatepublicEditObjectV1Request: ezsigntemplatepublicEditObjectV1Request) { (response, error) in

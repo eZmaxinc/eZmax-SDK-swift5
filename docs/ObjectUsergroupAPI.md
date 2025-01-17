@@ -31,7 +31,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let usergroupCreateObjectV1Request = usergroup-createObject-v1-Request(aObjUsergroup: [usergroup-RequestCompound(pkiUsergroupID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))]) // UsergroupCreateObjectV1Request | 
+let usergroupCreateObjectV1Request = usergroup-createObject-v1-Request(aObjUsergroup: [usergroup-RequestCompound()]) // UsergroupCreateObjectV1Request | 
 
 // Create a new Usergroup
 ObjectUsergroupAPI.usergroupCreateObjectV1(usergroupCreateObjectV1Request: usergroupCreateObjectV1Request) { (response, error) in
@@ -82,7 +82,7 @@ Edit an existing Usergroup
 import OpenAPIClient
 
 let pkiUsergroupID = 987 // Int | 
-let usergroupEditObjectV1Request = usergroup-editObject-v1-Request(objUsergroup: usergroup-RequestCompound(pkiUsergroupID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), objUsergroupName: Multilingual-UsergroupName(sUsergroupName1: "sUsergroupName1_example", sUsergroupName2: "sUsergroupName2_example"))) // UsergroupEditObjectV1Request | 
+let usergroupEditObjectV1Request = usergroup-editObject-v1-Request(objUsergroup: usergroup-RequestCompound()) // UsergroupEditObjectV1Request | 
 
 // Edit an existing Usergroup
 ObjectUsergroupAPI.usergroupEditObjectV1(pkiUsergroupID: pkiUsergroupID, usergroupEditObjectV1Request: usergroupEditObjectV1Request) { (response, error) in
@@ -186,7 +186,7 @@ Edit multiple Usergroupdelegations
 import OpenAPIClient
 
 let pkiUsergroupID = 987 // Int | 
-let usergroupEditUsergroupdelegationsV1Request = usergroup-editUsergroupdelegations-v1-Request(aObjUsergroupdelegation: [usergroupdelegation-RequestCompound(pkiUsergroupdelegationID: 123, fkiUsergroupID: 123, fkiUserID: 123)]) // UsergroupEditUsergroupdelegationsV1Request | 
+let usergroupEditUsergroupdelegationsV1Request = usergroup-editUsergroupdelegations-v1-Request(aObjUsergroupdelegation: [usergroupdelegation-RequestCompound()]) // UsergroupEditUsergroupdelegationsV1Request | 
 
 // Edit multiple Usergroupdelegations
 ObjectUsergroupAPI.usergroupEditUsergroupdelegationsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupdelegationsV1Request: usergroupEditUsergroupdelegationsV1Request) { (response, error) in
@@ -238,7 +238,7 @@ Using this endpoint, you can edit multiple Usergroupmemberships at the same time
 import OpenAPIClient
 
 let pkiUsergroupID = 987 // Int | 
-let usergroupEditUsergroupmembershipsV1Request = usergroup-editUsergroupmemberships-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123, fkiUsergroupexternalID: 123)]) // UsergroupEditUsergroupmembershipsV1Request | 
+let usergroupEditUsergroupmembershipsV1Request = usergroup-editUsergroupmemberships-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound()]) // UsergroupEditUsergroupmembershipsV1Request | 
 
 // Edit multiple Usergroupmemberships
 ObjectUsergroupAPI.usergroupEditUsergroupmembershipsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditUsergroupmembershipsV1Request: usergroupEditUsergroupmembershipsV1Request) { (response, error) in

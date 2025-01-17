@@ -27,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let authenticationexternalCreateObjectV1Request = authenticationexternal-createObject-v1-Request(aObjAuthenticationexternal: [authenticationexternal-RequestCompound(pkiAuthenticationexternalID: 123, sAuthenticationexternalDescription: "sAuthenticationexternalDescription_example", eAuthenticationexternalType: Field-eAuthenticationexternalType())]) // AuthenticationexternalCreateObjectV1Request | 
+let authenticationexternalCreateObjectV1Request = authenticationexternal-createObject-v1-Request(aObjAuthenticationexternal: [authenticationexternal-RequestCompound()]) // AuthenticationexternalCreateObjectV1Request | 
 
 // Create a new Authenticationexternal
 ObjectAuthenticationexternalAPI.authenticationexternalCreateObjectV1(authenticationexternalCreateObjectV1Request: authenticationexternalCreateObjectV1Request) { (response, error) in
@@ -128,7 +128,7 @@ Edit an existing Authenticationexternal
 import OpenAPIClient
 
 let pkiAuthenticationexternalID = 987 // Int | The unique ID of the Authenticationexternal
-let authenticationexternalEditObjectV1Request = authenticationexternal-editObject-v1-Request(objAuthenticationexternal: authenticationexternal-RequestCompound(pkiAuthenticationexternalID: 123, sAuthenticationexternalDescription: "sAuthenticationexternalDescription_example", eAuthenticationexternalType: Field-eAuthenticationexternalType())) // AuthenticationexternalEditObjectV1Request | 
+let authenticationexternalEditObjectV1Request = authenticationexternal-editObject-v1-Request(objAuthenticationexternal: authenticationexternal-RequestCompound()) // AuthenticationexternalEditObjectV1Request | 
 
 // Edit an existing Authenticationexternal
 ObjectAuthenticationexternalAPI.authenticationexternalEditObjectV1(pkiAuthenticationexternalID: pkiAuthenticationexternalID, authenticationexternalEditObjectV1Request: authenticationexternalEditObjectV1Request) { (response, error) in

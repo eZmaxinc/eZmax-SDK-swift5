@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignannotationCreateObjectV1Request = ezsignannotation-createObject-v1-Request(aObjEzsignannotation: [ezsignannotation-RequestCompound(pkiEzsignannotationID: 123, fkiEzsigndocumentID: 123, eEzsignannotationHorizontalalignment: Enum-Horizontalalignment(), eEzsignannotationVerticalalignment: Enum-Verticalalignment(), eEzsignannotationType: Field-eEzsignannotationType(), iEzsignannotationX: 123, iEzsignannotationY: 123, iEzsignannotationWidth: 123, iEzsignannotationHeight: 123, sEzsignannotationText: "sEzsignannotationText_example", iEzsignpagePagenumber: 123, objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))]) // EzsignannotationCreateObjectV1Request | 
+let ezsignannotationCreateObjectV1Request = ezsignannotation-createObject-v1-Request(aObjEzsignannotation: [ezsignannotation-RequestCompound(objTextstylestatic: textstylestatic-RequestCompound())]) // EzsignannotationCreateObjectV1Request | 
 
 // Create a new Ezsignannotation
 ObjectEzsignannotationAPI.ezsignannotationCreateObjectV1(ezsignannotationCreateObjectV1Request: ezsignannotationCreateObjectV1Request) { (response, error) in
@@ -125,7 +125,7 @@ Edit an existing Ezsignannotation
 import OpenAPIClient
 
 let pkiEzsignannotationID = 987 // Int | 
-let ezsignannotationEditObjectV1Request = ezsignannotation-editObject-v1-Request(objEzsignannotation: ezsignannotation-RequestCompound(pkiEzsignannotationID: 123, fkiEzsigndocumentID: 123, eEzsignannotationHorizontalalignment: Enum-Horizontalalignment(), eEzsignannotationVerticalalignment: Enum-Verticalalignment(), eEzsignannotationType: Field-eEzsignannotationType(), iEzsignannotationX: 123, iEzsignannotationY: 123, iEzsignannotationWidth: 123, iEzsignannotationHeight: 123, sEzsignannotationText: "sEzsignannotationText_example", iEzsignpagePagenumber: 123, objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))) // EzsignannotationEditObjectV1Request | 
+let ezsignannotationEditObjectV1Request = ezsignannotation-editObject-v1-Request(objEzsignannotation: ezsignannotation-RequestCompound(objTextstylestatic: textstylestatic-RequestCompound())) // EzsignannotationEditObjectV1Request | 
 
 // Edit an existing Ezsignannotation
 ObjectEzsignannotationAPI.ezsignannotationEditObjectV1(pkiEzsignannotationID: pkiEzsignannotationID, ezsignannotationEditObjectV1Request: ezsignannotationEditObjectV1Request) { (response, error) in

@@ -25,7 +25,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignsigningreasonCreateObjectV1Request = ezsignsigningreason-createObject-v1-Request(aObjEzsignsigningreason: [ezsignsigningreason-RequestCompound(pkiEzsignsigningreasonID: 123, objEzsignsigningreasonDescription: Multilingual-EzsignsigningreasonDescription(sEzsignsigningreasonDescription1: "sEzsignsigningreasonDescription1_example", sEzsignsigningreasonDescription2: "sEzsignsigningreasonDescription2_example"), bEzsignsigningreasonIsactive: true)]) // EzsignsigningreasonCreateObjectV1Request | 
+let ezsignsigningreasonCreateObjectV1Request = ezsignsigningreason-createObject-v1-Request(aObjEzsignsigningreason: [ezsignsigningreason-RequestCompound()]) // EzsignsigningreasonCreateObjectV1Request | 
 
 // Create a new Ezsignsigningreason
 ObjectEzsignsigningreasonAPI.ezsignsigningreasonCreateObjectV1(ezsignsigningreasonCreateObjectV1Request: ezsignsigningreasonCreateObjectV1Request) { (response, error) in
@@ -76,7 +76,7 @@ Edit an existing Ezsignsigningreason
 import OpenAPIClient
 
 let pkiEzsignsigningreasonID = 987 // Int | The unique ID of the Ezsignsigningreason
-let ezsignsigningreasonEditObjectV1Request = ezsignsigningreason-editObject-v1-Request(objEzsignsigningreason: ezsignsigningreason-RequestCompound(pkiEzsignsigningreasonID: 123, objEzsignsigningreasonDescription: Multilingual-EzsignsigningreasonDescription(sEzsignsigningreasonDescription1: "sEzsignsigningreasonDescription1_example", sEzsignsigningreasonDescription2: "sEzsignsigningreasonDescription2_example"), bEzsignsigningreasonIsactive: true)) // EzsignsigningreasonEditObjectV1Request | 
+let ezsignsigningreasonEditObjectV1Request = ezsignsigningreason-editObject-v1-Request(objEzsignsigningreason: ezsignsigningreason-RequestCompound()) // EzsignsigningreasonEditObjectV1Request | 
 
 // Edit an existing Ezsignsigningreason
 ObjectEzsignsigningreasonAPI.ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: pkiEzsignsigningreasonID, ezsignsigningreasonEditObjectV1Request: ezsignsigningreasonEditObjectV1Request) { (response, error) in
