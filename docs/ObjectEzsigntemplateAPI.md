@@ -79,7 +79,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplateCreateObjectV3Request = ezsigntemplate-createObject-v3-Request(aObjEzsigntemplate: [ezsigntemplate-RequestCompoundV3()]) // EzsigntemplateCreateObjectV3Request | 
+let ezsigntemplateCreateObjectV3Request = ezsigntemplate-createObject-v3-Request(aObjEzsigntemplate: [ezsigntemplate-RequestCompoundV3(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, fkiEzdoctemplatedocumentID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateExternaldescription: "sEzsigntemplateExternaldescription_example", tEzsigntemplateComment: "", eEzsigntemplateRecognition: Field-eEzsigntemplateRecognition(), sEzsigntemplateFilenameregexp: "sEzsigntemplateFilenameregexp_example", bEzsigntemplateAdminonly: false, eEzsigntemplateType: Field-eEzsigntemplateType())]) // EzsigntemplateCreateObjectV3Request | 
 
 // Create a new Ezsigntemplate
 ObjectEzsigntemplateAPI.ezsigntemplateCreateObjectV3(ezsigntemplateCreateObjectV3Request: ezsigntemplateCreateObjectV3Request) { (response, error) in
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateDeleteObjectV1**
 ```swift
-    open class func ezsigntemplateDeleteObjectV1(pkiEzsigntemplateID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplateDeleteObjectV1(pkiEzsigntemplateID: Int, completion: @escaping (_ data: EzsigntemplateDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsigntemplate
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplateDeleteObjectV1Response**](EzsigntemplateDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateEditObjectV3**
 ```swift
-    open class func ezsigntemplateEditObjectV3(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV3Request: EzsigntemplateEditObjectV3Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplateEditObjectV3(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV3Request: EzsigntemplateEditObjectV3Request, completion: @escaping (_ data: EzsigntemplateEditObjectV3Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsigntemplate
@@ -180,7 +180,7 @@ Edit an existing Ezsigntemplate
 import OpenAPIClient
 
 let pkiEzsigntemplateID = 987 // Int | 
-let ezsigntemplateEditObjectV3Request = ezsigntemplate-editObject-v3-Request(objEzsigntemplate: ezsigntemplate-RequestCompoundV3()) // EzsigntemplateEditObjectV3Request | 
+let ezsigntemplateEditObjectV3Request = ezsigntemplate-editObject-v3-Request(objEzsigntemplate: ezsigntemplate-RequestCompoundV3(pkiEzsigntemplateID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, fkiEzdoctemplatedocumentID: 123, sEzsigntemplateDescription: "sEzsigntemplateDescription_example", sEzsigntemplateExternaldescription: "sEzsigntemplateExternaldescription_example", tEzsigntemplateComment: "", eEzsigntemplateRecognition: Field-eEzsigntemplateRecognition(), sEzsigntemplateFilenameregexp: "sEzsigntemplateFilenameregexp_example", bEzsigntemplateAdminonly: false, eEzsigntemplateType: Field-eEzsigntemplateType())) // EzsigntemplateEditObjectV3Request | 
 
 // Edit an existing Ezsigntemplate
 ObjectEzsigntemplateAPI.ezsigntemplateEditObjectV3(pkiEzsigntemplateID: pkiEzsigntemplateID, ezsigntemplateEditObjectV3Request: ezsigntemplateEditObjectV3Request) { (response, error) in
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplateEditObjectV3Response**](EzsigntemplateEditObjectV3Response.md)
 
 ### Authorization
 

@@ -26,7 +26,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignsignergroupCreateObjectV1Request = ezsignsignergroup-createObject-v1-Request(aObjEzsignsignergroup: [ezsignsignergroup-RequestCompound()]) // EzsignsignergroupCreateObjectV1Request | 
+let ezsignsignergroupCreateObjectV1Request = ezsignsignergroup-createObject-v1-Request(aObjEzsignsignergroup: [ezsignsignergroup-RequestCompound(pkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, objEzsignsignergroupDescription: Multilingual-EzsignsignergroupDescription(sEzsignsignergroupDescription1: "sEzsignsignergroupDescription1_example", sEzsignsignergroupDescription2: "sEzsignsignergroupDescription2_example"))]) // EzsignsignergroupCreateObjectV1Request | 
 
 // Create a new Ezsignsignergroup
 ObjectEzsignsignergroupAPI.ezsignsignergroupCreateObjectV1(ezsignsignergroupCreateObjectV1Request: ezsignsignergroupCreateObjectV1Request) { (response, error) in
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupDeleteObjectV1**
 ```swift
-    open class func ezsignsignergroupDeleteObjectV1(pkiEzsignsignergroupID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupDeleteObjectV1(pkiEzsignsignergroupID: Int, completion: @escaping (_ data: EzsignsignergroupDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignsignergroup
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsignergroupDeleteObjectV1Response**](EzsignsignergroupDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -127,7 +127,7 @@ Using this endpoint, you can edit multiple Ezsignsignergroupmemberships at the s
 import OpenAPIClient
 
 let pkiEzsignsignergroupID = 987 // Int | 
-let ezsignsignergroupEditEzsignsignergroupmembershipsV1Request = ezsignsignergroup-editEzsignsignergroupmemberships-v1-Request(aObjEzsignsignergroupmembership: [ezsignsignergroupmembership-RequestCompound()]) // EzsignsignergroupEditEzsignsignergroupmembershipsV1Request | 
+let ezsignsignergroupEditEzsignsignergroupmembershipsV1Request = ezsignsignergroup-editEzsignsignergroupmemberships-v1-Request(aObjEzsignsignergroupmembership: [ezsignsignergroupmembership-RequestCompound(pkiEzsignsignergroupmembershipID: 123, fkiEzsignsignergroupID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUsergroupID: 123)]) // EzsignsignergroupEditEzsignsignergroupmembershipsV1Request | 
 
 // Edit multiple Ezsignsignergroupmemberships
 ObjectEzsignsignergroupAPI.ezsignsignergroupEditEzsignsignergroupmembershipsV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditEzsignsignergroupmembershipsV1Request: ezsignsignergroupEditEzsignsignergroupmembershipsV1Request) { (response, error) in
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupEditObjectV1**
 ```swift
-    open class func ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: Int, ezsignsignergroupEditObjectV1Request: EzsignsignergroupEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: Int, ezsignsignergroupEditObjectV1Request: EzsignsignergroupEditObjectV1Request, completion: @escaping (_ data: EzsignsignergroupEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignsignergroup
@@ -179,7 +179,7 @@ Edit an existing Ezsignsignergroup
 import OpenAPIClient
 
 let pkiEzsignsignergroupID = 987 // Int | The unique ID of the Ezsignsignergroup
-let ezsignsignergroupEditObjectV1Request = ezsignsignergroup-editObject-v1-Request(objEzsignsignergroup: ezsignsignergroup-RequestCompound()) // EzsignsignergroupEditObjectV1Request | 
+let ezsignsignergroupEditObjectV1Request = ezsignsignergroup-editObject-v1-Request(objEzsignsignergroup: ezsignsignergroup-RequestCompound(pkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, objEzsignsignergroupDescription: Multilingual-EzsignsignergroupDescription(sEzsignsignergroupDescription1: "sEzsignsignergroupDescription1_example", sEzsignsignergroupDescription2: "sEzsignsignergroupDescription2_example"))) // EzsignsignergroupEditObjectV1Request | 
 
 // Edit an existing Ezsignsignergroup
 ObjectEzsignsignergroupAPI.ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: pkiEzsignsignergroupID, ezsignsignergroupEditObjectV1Request: ezsignsignergroupEditObjectV1Request) { (response, error) in
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsignergroupEditObjectV1Response**](EzsignsignergroupEditObjectV1Response.md)
 
 ### Authorization
 

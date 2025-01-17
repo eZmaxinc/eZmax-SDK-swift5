@@ -22,7 +22,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let discussionmembershipCreateObjectV1Request = discussionmembership-createObject-v1-Request(aObjDiscussionmembership: [discussionmembership-RequestCompound()]) // DiscussionmembershipCreateObjectV1Request | 
+let discussionmembershipCreateObjectV1Request = discussionmembership-createObject-v1-Request(aObjDiscussionmembership: [discussionmembership-RequestCompound(pkiDiscussionmembershipID: 123, fkiDiscussionID: 123, fkiUserID: 123, fkiUsergroupID: 123, fkiModulesectionID: 123, dtDiscussionmembershipJoined: "dtDiscussionmembershipJoined_example")]) // DiscussionmembershipCreateObjectV1Request | 
 
 // Create a new Discussionmembership
 ObjectDiscussionmembershipAPI.discussionmembershipCreateObjectV1(discussionmembershipCreateObjectV1Request: discussionmembershipCreateObjectV1Request) { (response, error) in
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **discussionmembershipDeleteObjectV1**
 ```swift
-    open class func discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: Int, completion: @escaping (_ data: DiscussionmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Discussionmembership
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmembershipDeleteObjectV1Response**](DiscussionmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 

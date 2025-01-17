@@ -167,7 +167,7 @@ open class ObjectUserAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func userEditObjectV1(pkiUserID: Int, userEditObjectV1Request: UserEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func userEditObjectV1(pkiUserID: Int, userEditObjectV1Request: UserEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return userEditObjectV1WithRequestBuilder(pkiUserID: pkiUserID, userEditObjectV1Request: userEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -187,9 +187,9 @@ open class ObjectUserAPI {
        - name: Authorization
      - parameter pkiUserID: (path) The unique ID of the User 
      - parameter userEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<UserEditObjectV1Response> 
      */
-    open class func userEditObjectV1WithRequestBuilder(pkiUserID: Int, userEditObjectV1Request: UserEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func userEditObjectV1WithRequestBuilder(pkiUserID: Int, userEditObjectV1Request: UserEditObjectV1Request) -> RequestBuilder<UserEditObjectV1Response> {
         var localVariablePath = "/1/object/user/{pkiUserID}"
         let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
         let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -205,7 +205,7 @@ open class ObjectUserAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -836,7 +836,7 @@ open class ObjectUserAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func userSendPasswordResetV1(pkiUserID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func userSendPasswordResetV1(pkiUserID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserSendPasswordResetV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return userSendPasswordResetV1WithRequestBuilder(pkiUserID: pkiUserID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -856,9 +856,9 @@ open class ObjectUserAPI {
        - name: Authorization
      - parameter pkiUserID: (path)  
      - parameter body: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<UserSendPasswordResetV1Response> 
      */
-    open class func userSendPasswordResetV1WithRequestBuilder(pkiUserID: Int, body: AnyCodable) -> RequestBuilder<CommonResponse> {
+    open class func userSendPasswordResetV1WithRequestBuilder(pkiUserID: Int, body: AnyCodable) -> RequestBuilder<UserSendPasswordResetV1Response> {
         var localVariablePath = "/1/object/user/{pkiUserID}/sendPasswordReset"
         let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
         let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -874,7 +874,7 @@ open class ObjectUserAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UserSendPasswordResetV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

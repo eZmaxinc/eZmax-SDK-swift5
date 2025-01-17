@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignannotationCreateObjectV1Request = ezsignannotation-createObject-v1-Request(aObjEzsignannotation: [ezsignannotation-RequestCompound(objTextstylestatic: textstylestatic-RequestCompound())]) // EzsignannotationCreateObjectV1Request | 
+let ezsignannotationCreateObjectV1Request = ezsignannotation-createObject-v1-Request(aObjEzsignannotation: [ezsignannotation-RequestCompound(pkiEzsignannotationID: 123, fkiEzsigndocumentID: 123, eEzsignannotationHorizontalalignment: Enum-Horizontalalignment(), eEzsignannotationVerticalalignment: Enum-Verticalalignment(), eEzsignannotationType: Field-eEzsignannotationType(), iEzsignannotationX: 123, iEzsignannotationY: 123, iEzsignannotationWidth: 123, iEzsignannotationHeight: 123, sEzsignannotationText: "sEzsignannotationText_example", iEzsignpagePagenumber: 123, objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))]) // EzsignannotationCreateObjectV1Request | 
 
 // Create a new Ezsignannotation
 ObjectEzsignannotationAPI.ezsignannotationCreateObjectV1(ezsignannotationCreateObjectV1Request: ezsignannotationCreateObjectV1Request) { (response, error) in
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **ezsignannotationDeleteObjectV1**
 ```swift
-    open class func ezsignannotationDeleteObjectV1(pkiEzsignannotationID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignannotationDeleteObjectV1(pkiEzsignannotationID: Int, completion: @escaping (_ data: EzsignannotationDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignannotation
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignannotationDeleteObjectV1Response**](EzsignannotationDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **ezsignannotationEditObjectV1**
 ```swift
-    open class func ezsignannotationEditObjectV1(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignannotationEditObjectV1(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request, completion: @escaping (_ data: EzsignannotationEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignannotation
@@ -125,7 +125,7 @@ Edit an existing Ezsignannotation
 import OpenAPIClient
 
 let pkiEzsignannotationID = 987 // Int | 
-let ezsignannotationEditObjectV1Request = ezsignannotation-editObject-v1-Request(objEzsignannotation: ezsignannotation-RequestCompound(objTextstylestatic: textstylestatic-RequestCompound())) // EzsignannotationEditObjectV1Request | 
+let ezsignannotationEditObjectV1Request = ezsignannotation-editObject-v1-Request(objEzsignannotation: ezsignannotation-RequestCompound(pkiEzsignannotationID: 123, fkiEzsigndocumentID: 123, eEzsignannotationHorizontalalignment: Enum-Horizontalalignment(), eEzsignannotationVerticalalignment: Enum-Verticalalignment(), eEzsignannotationType: Field-eEzsignannotationType(), iEzsignannotationX: 123, iEzsignannotationY: 123, iEzsignannotationWidth: 123, iEzsignannotationHeight: 123, sEzsignannotationText: "sEzsignannotationText_example", iEzsignpagePagenumber: 123, objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123))) // EzsignannotationEditObjectV1Request | 
 
 // Edit an existing Ezsignannotation
 ObjectEzsignannotationAPI.ezsignannotationEditObjectV1(pkiEzsignannotationID: pkiEzsignannotationID, ezsignannotationEditObjectV1Request: ezsignannotationEditObjectV1Request) { (response, error) in
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignannotationEditObjectV1Response**](EzsignannotationEditObjectV1Response.md)
 
 ### Authorization
 

@@ -27,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let creditcardclientCreateObjectV1Request = creditcardclient-createObject-v1-Request(aObjCreditcardclient: [creditcardclient-RequestCompound()]) // CreditcardclientCreateObjectV1Request | 
+let creditcardclientCreateObjectV1Request = creditcardclient-createObject-v1-Request(aObjCreditcardclient: [creditcardclient-RequestCompound(pkiCreditcardclientID: 123, fksCreditcardtokenID: "fksCreditcardtokenID_example", bCreditcardclientrelationIsdefault: true, sCreditcardclientDescription: "sCreditcardclientDescription_example", bCreditcardclientAllowedcompanypayment: true, bCreditcardclientAllowedezsign: true, bCreditcardclientAllowedtranquillit: true, objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example"), sCreditcardclientCVV: "sCreditcardclientCVV_example")]) // CreditcardclientCreateObjectV1Request | 
 
 // Create a new Creditcardclient
 ObjectCreditcardclientAPI.creditcardclientCreateObjectV1(creditcardclientCreateObjectV1Request: creditcardclientCreateObjectV1Request) { (response, error) in
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientDeleteObjectV1**
 ```swift
-    open class func creditcardclientDeleteObjectV1(pkiCreditcardclientID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func creditcardclientDeleteObjectV1(pkiCreditcardclientID: Int, completion: @escaping (_ data: CreditcardclientDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Creditcardclient
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CreditcardclientDeleteObjectV1Response**](CreditcardclientDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientEditObjectV1**
 ```swift
-    open class func creditcardclientEditObjectV1(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func creditcardclientEditObjectV1(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request, completion: @escaping (_ data: CreditcardclientEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Creditcardclient
@@ -128,7 +128,7 @@ Edit an existing Creditcardclient
 import OpenAPIClient
 
 let pkiCreditcardclientID = 987 // Int | The unique ID of the Creditcardclient
-let creditcardclientEditObjectV1Request = creditcardclient-editObject-v1-Request(objCreditcardclient: creditcardclient-RequestCompound()) // CreditcardclientEditObjectV1Request | 
+let creditcardclientEditObjectV1Request = creditcardclient-editObject-v1-Request(objCreditcardclient: creditcardclient-RequestCompound(pkiCreditcardclientID: 123, fksCreditcardtokenID: "fksCreditcardtokenID_example", bCreditcardclientrelationIsdefault: true, sCreditcardclientDescription: "sCreditcardclientDescription_example", bCreditcardclientAllowedcompanypayment: true, bCreditcardclientAllowedezsign: true, bCreditcardclientAllowedtranquillit: true, objCreditcarddetail: creditcarddetail-Request(iCreditcarddetailExpirationmonth: 123, iCreditcarddetailExpirationyear: 123, sCreditcarddetailCivic: "sCreditcarddetailCivic_example", sCreditcarddetailStreet: "sCreditcarddetailStreet_example", sCreditcarddetailZip: "sCreditcarddetailZip_example"), sCreditcardclientCVV: "sCreditcardclientCVV_example")) // CreditcardclientEditObjectV1Request | 
 
 // Edit an existing Creditcardclient
 ObjectCreditcardclientAPI.creditcardclientEditObjectV1(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientEditObjectV1Request: creditcardclientEditObjectV1Request) { (response, error) in
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CreditcardclientEditObjectV1Response**](CreditcardclientEditObjectV1Response.md)
 
 ### Authorization
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 # **creditcardclientPatchObjectV1**
 ```swift
-    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, completion: @escaping (_ data: CreditcardclientPatchObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Patch an existing Creditcardclient
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CreditcardclientPatchObjectV1Response**](CreditcardclientPatchObjectV1Response.md)
 
 ### Authorization
 

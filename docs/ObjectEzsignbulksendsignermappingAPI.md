@@ -23,7 +23,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignbulksendsignermappingCreateObjectV1Request = ezsignbulksendsignermapping-createObject-v1-Request(aObjEzsignbulksendsignermapping: [ezsignbulksendsignermapping-RequestCompound()]) // EzsignbulksendsignermappingCreateObjectV1Request | 
+let ezsignbulksendsignermappingCreateObjectV1Request = ezsignbulksendsignermapping-createObject-v1-Request(aObjEzsignbulksendsignermapping: [ezsignbulksendsignermapping-RequestCompound(pkiEzsignbulksendsignermappingID: 123, fkiEzsignbulksendID: 123, fkiUserID: 123, sEzsignbulksendsignermappingDescription: "sEzsignbulksendsignermappingDescription_example")]) // EzsignbulksendsignermappingCreateObjectV1Request | 
 
 // Create a new Ezsignbulksendsignermapping
 ObjectEzsignbulksendsignermappingAPI.ezsignbulksendsignermappingCreateObjectV1(ezsignbulksendsignermappingCreateObjectV1Request: ezsignbulksendsignermappingCreateObjectV1Request) { (response, error) in
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendsignermappingDeleteObjectV1**
 ```swift
-    open class func ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignbulksendsignermappingDeleteObjectV1(pkiEzsignbulksendsignermappingID: Int, completion: @escaping (_ data: EzsignbulksendsignermappingDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignbulksendsignermapping
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignbulksendsignermappingDeleteObjectV1Response**](EzsignbulksendsignermappingDeleteObjectV1Response.md)
 
 ### Authorization
 

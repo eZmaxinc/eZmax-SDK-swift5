@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **systemconfigurationEditObjectV1**
 ```swift
-    open class func systemconfigurationEditObjectV1(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func systemconfigurationEditObjectV1(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request, completion: @escaping (_ data: SystemconfigurationEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Systemconfiguration
@@ -23,7 +23,7 @@ Edit an existing Systemconfiguration
 import OpenAPIClient
 
 let pkiSystemconfigurationID = 987 // Int | The unique ID of the Systemconfiguration
-let systemconfigurationEditObjectV1Request = systemconfiguration-editObject-v1-Request(objSystemconfiguration: systemconfiguration-RequestCompound()) // SystemconfigurationEditObjectV1Request | 
+let systemconfigurationEditObjectV1Request = systemconfiguration-editObject-v1-Request(objSystemconfiguration: systemconfiguration-RequestCompound(pkiSystemconfigurationID: 123, fkiBrandingID: 123, eSystemconfigurationNewexternaluseraction: Field-eSystemconfigurationNewexternaluseraction(), eSystemconfigurationLanguage1: Field-eSystemconfigurationLanguage1(), eSystemconfigurationLanguage2: Field-eSystemconfigurationLanguage2(), eSystemconfigurationEzsign: Field-eSystemconfigurationEzsign(), eSystemconfigurationEzsignofficeplan: Field-eSystemconfigurationEzsignofficeplan(), bSystemconfigurationEzsignpaidbyoffice: true, bSystemconfigurationEzsignpersonnal: true, bSystemconfigurationSspr: true, dtSystemconfigurationReadonlyexpirationstart: "dtSystemconfigurationReadonlyexpirationstart_example", dtSystemconfigurationReadonlyexpirationend: "dtSystemconfigurationReadonlyexpirationend_example")) // SystemconfigurationEditObjectV1Request | 
 
 // Edit an existing Systemconfiguration
 ObjectSystemconfigurationAPI.systemconfigurationEditObjectV1(pkiSystemconfigurationID: pkiSystemconfigurationID, systemconfigurationEditObjectV1Request: systemconfigurationEditObjectV1Request) { (response, error) in
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SystemconfigurationEditObjectV1Response**](SystemconfigurationEditObjectV1Response.md)
 
 ### Authorization
 

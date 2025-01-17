@@ -67,7 +67,7 @@ open class ObjectEzsigntemplateformfieldgroupAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplateformfieldgroupDeleteObjectV1(pkiEzsigntemplateformfieldgroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigntemplateformfieldgroupDeleteObjectV1(pkiEzsigntemplateformfieldgroupID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateformfieldgroupDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplateformfieldgroupDeleteObjectV1WithRequestBuilder(pkiEzsigntemplateformfieldgroupID: pkiEzsigntemplateformfieldgroupID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectEzsigntemplateformfieldgroupAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplateformfieldgroupID: (path)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsigntemplateformfieldgroupDeleteObjectV1Response> 
      */
-    open class func ezsigntemplateformfieldgroupDeleteObjectV1WithRequestBuilder(pkiEzsigntemplateformfieldgroupID: Int) -> RequestBuilder<CommonResponse> {
+    open class func ezsigntemplateformfieldgroupDeleteObjectV1WithRequestBuilder(pkiEzsigntemplateformfieldgroupID: Int) -> RequestBuilder<EzsigntemplateformfieldgroupDeleteObjectV1Response> {
         var localVariablePath = "/1/object/ezsigntemplateformfieldgroup/{pkiEzsigntemplateformfieldgroupID}"
         let pkiEzsigntemplateformfieldgroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplateformfieldgroupID))"
         let pkiEzsigntemplateformfieldgroupIDPostEscape = pkiEzsigntemplateformfieldgroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectEzsigntemplateformfieldgroupAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateformfieldgroupDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectEzsigntemplateformfieldgroupAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplateformfieldgroupEditObjectV1(pkiEzsigntemplateformfieldgroupID: Int, ezsigntemplateformfieldgroupEditObjectV1Request: EzsigntemplateformfieldgroupEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigntemplateformfieldgroupEditObjectV1(pkiEzsigntemplateformfieldgroupID: Int, ezsigntemplateformfieldgroupEditObjectV1Request: EzsigntemplateformfieldgroupEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplateformfieldgroupEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplateformfieldgroupEditObjectV1WithRequestBuilder(pkiEzsigntemplateformfieldgroupID: pkiEzsigntemplateformfieldgroupID, ezsigntemplateformfieldgroupEditObjectV1Request: ezsigntemplateformfieldgroupEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectEzsigntemplateformfieldgroupAPI {
        - name: Authorization
      - parameter pkiEzsigntemplateformfieldgroupID: (path)  
      - parameter ezsigntemplateformfieldgroupEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsigntemplateformfieldgroupEditObjectV1Response> 
      */
-    open class func ezsigntemplateformfieldgroupEditObjectV1WithRequestBuilder(pkiEzsigntemplateformfieldgroupID: Int, ezsigntemplateformfieldgroupEditObjectV1Request: EzsigntemplateformfieldgroupEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func ezsigntemplateformfieldgroupEditObjectV1WithRequestBuilder(pkiEzsigntemplateformfieldgroupID: Int, ezsigntemplateformfieldgroupEditObjectV1Request: EzsigntemplateformfieldgroupEditObjectV1Request) -> RequestBuilder<EzsigntemplateformfieldgroupEditObjectV1Response> {
         var localVariablePath = "/1/object/ezsigntemplateformfieldgroup/{pkiEzsigntemplateformfieldgroupID}"
         let pkiEzsigntemplateformfieldgroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplateformfieldgroupID))"
         let pkiEzsigntemplateformfieldgroupIDPostEscape = pkiEzsigntemplateformfieldgroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectEzsigntemplateformfieldgroupAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplateformfieldgroupEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

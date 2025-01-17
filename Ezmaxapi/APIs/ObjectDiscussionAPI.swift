@@ -67,7 +67,7 @@ open class ObjectDiscussionAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func discussionDeleteObjectV1(pkiDiscussionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func discussionDeleteObjectV1(pkiDiscussionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: DiscussionDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return discussionDeleteObjectV1WithRequestBuilder(pkiDiscussionID: pkiDiscussionID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectDiscussionAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiDiscussionID: (path) The unique ID of the Discussion 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<DiscussionDeleteObjectV1Response> 
      */
-    open class func discussionDeleteObjectV1WithRequestBuilder(pkiDiscussionID: Int) -> RequestBuilder<CommonResponse> {
+    open class func discussionDeleteObjectV1WithRequestBuilder(pkiDiscussionID: Int) -> RequestBuilder<DiscussionDeleteObjectV1Response> {
         var localVariablePath = "/1/object/discussion/{pkiDiscussionID}"
         let pkiDiscussionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDiscussionID))"
         let pkiDiscussionIDPostEscape = pkiDiscussionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectDiscussionAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DiscussionDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -168,7 +168,7 @@ open class ObjectDiscussionAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func discussionPatchObjectV1(pkiDiscussionID: Int, discussionPatchObjectV1Request: DiscussionPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func discussionPatchObjectV1(pkiDiscussionID: Int, discussionPatchObjectV1Request: DiscussionPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: DiscussionPatchObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return discussionPatchObjectV1WithRequestBuilder(pkiDiscussionID: pkiDiscussionID, discussionPatchObjectV1Request: discussionPatchObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -188,9 +188,9 @@ open class ObjectDiscussionAPI {
        - name: Authorization
      - parameter pkiDiscussionID: (path) The unique ID of the Discussion 
      - parameter discussionPatchObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<DiscussionPatchObjectV1Response> 
      */
-    open class func discussionPatchObjectV1WithRequestBuilder(pkiDiscussionID: Int, discussionPatchObjectV1Request: DiscussionPatchObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func discussionPatchObjectV1WithRequestBuilder(pkiDiscussionID: Int, discussionPatchObjectV1Request: DiscussionPatchObjectV1Request) -> RequestBuilder<DiscussionPatchObjectV1Response> {
         var localVariablePath = "/1/object/discussion/{pkiDiscussionID}"
         let pkiDiscussionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDiscussionID))"
         let pkiDiscussionIDPostEscape = pkiDiscussionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -206,7 +206,7 @@ open class ObjectDiscussionAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DiscussionPatchObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -220,7 +220,7 @@ open class ObjectDiscussionAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func discussionUpdateDiscussionreadstatusV1(pkiDiscussionID: Int, discussionUpdateDiscussionreadstatusV1Request: DiscussionUpdateDiscussionreadstatusV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func discussionUpdateDiscussionreadstatusV1(pkiDiscussionID: Int, discussionUpdateDiscussionreadstatusV1Request: DiscussionUpdateDiscussionreadstatusV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: DiscussionUpdateDiscussionreadstatusV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return discussionUpdateDiscussionreadstatusV1WithRequestBuilder(pkiDiscussionID: pkiDiscussionID, discussionUpdateDiscussionreadstatusV1Request: discussionUpdateDiscussionreadstatusV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -239,9 +239,9 @@ open class ObjectDiscussionAPI {
        - name: Authorization
      - parameter pkiDiscussionID: (path)  
      - parameter discussionUpdateDiscussionreadstatusV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<DiscussionUpdateDiscussionreadstatusV1Response> 
      */
-    open class func discussionUpdateDiscussionreadstatusV1WithRequestBuilder(pkiDiscussionID: Int, discussionUpdateDiscussionreadstatusV1Request: DiscussionUpdateDiscussionreadstatusV1Request) -> RequestBuilder<CommonResponse> {
+    open class func discussionUpdateDiscussionreadstatusV1WithRequestBuilder(pkiDiscussionID: Int, discussionUpdateDiscussionreadstatusV1Request: DiscussionUpdateDiscussionreadstatusV1Request) -> RequestBuilder<DiscussionUpdateDiscussionreadstatusV1Response> {
         var localVariablePath = "/1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus"
         let pkiDiscussionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDiscussionID))"
         let pkiDiscussionIDPostEscape = pkiDiscussionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -257,7 +257,7 @@ open class ObjectDiscussionAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DiscussionUpdateDiscussionreadstatusV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

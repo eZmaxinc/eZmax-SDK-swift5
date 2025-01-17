@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatedocumentpagerecognitionCreateObjectV1Request = ezsigntemplatedocumentpagerecognition-createObject-v1-Request(aObjEzsigntemplatedocumentpagerecognition: [ezsigntemplatedocumentpagerecognition-RequestCompound()]) // EzsigntemplatedocumentpagerecognitionCreateObjectV1Request | 
+let ezsigntemplatedocumentpagerecognitionCreateObjectV1Request = ezsigntemplatedocumentpagerecognition-createObject-v1-Request(aObjEzsigntemplatedocumentpagerecognition: [ezsigntemplatedocumentpagerecognition-RequestCompound(pkiEzsigntemplatedocumentpagerecognitionID: 123, fkiEzsigntemplatedocumentpageID: 123, eEzsigntemplatedocumentpagerecognitionOperator: Field-eEzsigntemplatedocumentpagerecognitionOperator(), eEzsigntemplatedocumentpagerecognitionSection: Field-eEzsigntemplatedocumentpagerecognitionSection(), iEzsigntemplatedocumentpagerecognitionSimilarpercentage: 123, iEzsigntemplatedocumentpagerecognitionX: 123, iEzsigntemplatedocumentpagerecognitionY: 123, iEzsigntemplatedocumentpagerecognitionWidth: 123, iEzsigntemplatedocumentpagerecognitionHeight: 123, tEzsigntemplatedocumentpagerecognitionText: "tEzsigntemplatedocumentpagerecognitionText_example")]) // EzsigntemplatedocumentpagerecognitionCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatedocumentpagerecognition
 ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionCreateObjectV1(ezsigntemplatedocumentpagerecognitionCreateObjectV1Request: ezsigntemplatedocumentpagerecognitionCreateObjectV1Request) { (response, error) in
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatedocumentpagerecognitionDeleteObjectV1**
 ```swift
-    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, completion: @escaping (_ data: EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsigntemplatedocumentpagerecognition
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response**](EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatedocumentpagerecognitionEditObjectV1**
 ```swift
-    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request, completion: @escaping (_ data: EzsigntemplatedocumentpagerecognitionEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsigntemplatedocumentpagerecognition
@@ -125,7 +125,7 @@ Edit an existing Ezsigntemplatedocumentpagerecognition
 import OpenAPIClient
 
 let pkiEzsigntemplatedocumentpagerecognitionID = 987 // Int | The unique ID of the Ezsigntemplatedocumentpagerecognition
-let ezsigntemplatedocumentpagerecognitionEditObjectV1Request = ezsigntemplatedocumentpagerecognition-editObject-v1-Request(objEzsigntemplatedocumentpagerecognition: ezsigntemplatedocumentpagerecognition-RequestCompound()) // EzsigntemplatedocumentpagerecognitionEditObjectV1Request | 
+let ezsigntemplatedocumentpagerecognitionEditObjectV1Request = ezsigntemplatedocumentpagerecognition-editObject-v1-Request(objEzsigntemplatedocumentpagerecognition: ezsigntemplatedocumentpagerecognition-RequestCompound(pkiEzsigntemplatedocumentpagerecognitionID: 123, fkiEzsigntemplatedocumentpageID: 123, eEzsigntemplatedocumentpagerecognitionOperator: Field-eEzsigntemplatedocumentpagerecognitionOperator(), eEzsigntemplatedocumentpagerecognitionSection: Field-eEzsigntemplatedocumentpagerecognitionSection(), iEzsigntemplatedocumentpagerecognitionSimilarpercentage: 123, iEzsigntemplatedocumentpagerecognitionX: 123, iEzsigntemplatedocumentpagerecognitionY: 123, iEzsigntemplatedocumentpagerecognitionWidth: 123, iEzsigntemplatedocumentpagerecognitionHeight: 123, tEzsigntemplatedocumentpagerecognitionText: "tEzsigntemplatedocumentpagerecognitionText_example")) // EzsigntemplatedocumentpagerecognitionEditObjectV1Request | 
 
 // Edit an existing Ezsigntemplatedocumentpagerecognition
 ObjectEzsigntemplatedocumentpagerecognitionAPI.ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: ezsigntemplatedocumentpagerecognitionEditObjectV1Request) { (response, error) in
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatedocumentpagerecognitionEditObjectV1Response**](EzsigntemplatedocumentpagerecognitionEditObjectV1Response.md)
 
 ### Authorization
 

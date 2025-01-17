@@ -27,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let authenticationexternalCreateObjectV1Request = authenticationexternal-createObject-v1-Request(aObjAuthenticationexternal: [authenticationexternal-RequestCompound()]) // AuthenticationexternalCreateObjectV1Request | 
+let authenticationexternalCreateObjectV1Request = authenticationexternal-createObject-v1-Request(aObjAuthenticationexternal: [authenticationexternal-RequestCompound(pkiAuthenticationexternalID: 123, sAuthenticationexternalDescription: "sAuthenticationexternalDescription_example", eAuthenticationexternalType: Field-eAuthenticationexternalType())]) // AuthenticationexternalCreateObjectV1Request | 
 
 // Create a new Authenticationexternal
 ObjectAuthenticationexternalAPI.authenticationexternalCreateObjectV1(authenticationexternalCreateObjectV1Request: authenticationexternalCreateObjectV1Request) { (response, error) in
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalDeleteObjectV1**
 ```swift
-    open class func authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: Int, completion: @escaping (_ data: AuthenticationexternalDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Authenticationexternal
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalDeleteObjectV1Response**](AuthenticationexternalDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalEditObjectV1**
 ```swift
-    open class func authenticationexternalEditObjectV1(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func authenticationexternalEditObjectV1(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request, completion: @escaping (_ data: AuthenticationexternalEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Authenticationexternal
@@ -128,7 +128,7 @@ Edit an existing Authenticationexternal
 import OpenAPIClient
 
 let pkiAuthenticationexternalID = 987 // Int | The unique ID of the Authenticationexternal
-let authenticationexternalEditObjectV1Request = authenticationexternal-editObject-v1-Request(objAuthenticationexternal: authenticationexternal-RequestCompound()) // AuthenticationexternalEditObjectV1Request | 
+let authenticationexternalEditObjectV1Request = authenticationexternal-editObject-v1-Request(objAuthenticationexternal: authenticationexternal-RequestCompound(pkiAuthenticationexternalID: 123, sAuthenticationexternalDescription: "sAuthenticationexternalDescription_example", eAuthenticationexternalType: Field-eAuthenticationexternalType())) // AuthenticationexternalEditObjectV1Request | 
 
 // Edit an existing Authenticationexternal
 ObjectAuthenticationexternalAPI.authenticationexternalEditObjectV1(pkiAuthenticationexternalID: pkiAuthenticationexternalID, authenticationexternalEditObjectV1Request: authenticationexternalEditObjectV1Request) { (response, error) in
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalEditObjectV1Response**](AuthenticationexternalEditObjectV1Response.md)
 
 ### Authorization
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalResetAuthorizationV1**
 ```swift
-    open class func authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: Int, body: AnyCodable, completion: @escaping (_ data: AuthenticationexternalResetAuthorizationV1Response?, _ error: Error?) -> Void)
 ```
 
 Reset the Authenticationexternal authorization
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalResetAuthorizationV1Response**](AuthenticationexternalResetAuthorizationV1Response.md)
 
 ### Authorization
 

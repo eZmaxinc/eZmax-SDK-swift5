@@ -29,7 +29,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let webhookCreateObjectV2Request = webhook-createObject-v2-Request(aObjWebhook: [webhook-RequestCompound(aObjWebhookheader: [webhookheader-RequestCompound()])]) // WebhookCreateObjectV2Request | 
+let webhookCreateObjectV2Request = webhook-createObject-v2-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiAuthenticationexternalID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])]) // WebhookCreateObjectV2Request | 
 
 // Create a new Webhook
 ObjectWebhookAPI.webhookCreateObjectV2(webhookCreateObjectV2Request: webhookCreateObjectV2Request) { (response, error) in
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 # **webhookDeleteObjectV1**
 ```swift
-    open class func webhookDeleteObjectV1(pkiWebhookID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func webhookDeleteObjectV1(pkiWebhookID: Int, completion: @escaping (_ data: WebhookDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Webhook
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**WebhookDeleteObjectV1Response**](WebhookDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 # **webhookEditObjectV1**
 ```swift
-    open class func webhookEditObjectV1(pkiWebhookID: Int, webhookEditObjectV1Request: WebhookEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func webhookEditObjectV1(pkiWebhookID: Int, webhookEditObjectV1Request: WebhookEditObjectV1Request, completion: @escaping (_ data: WebhookEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Webhook
@@ -130,7 +130,7 @@ Edit an existing Webhook
 import OpenAPIClient
 
 let pkiWebhookID = 987 // Int | 
-let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(aObjWebhookheader: [webhookheader-RequestCompound()])) // WebhookEditObjectV1Request | 
+let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(pkiWebhookID: 123, fkiAuthenticationexternalID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])) // WebhookEditObjectV1Request | 
 
 // Edit an existing Webhook
 ObjectWebhookAPI.webhookEditObjectV1(pkiWebhookID: pkiWebhookID, webhookEditObjectV1Request: webhookEditObjectV1Request) { (response, error) in
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**WebhookEditObjectV1Response**](WebhookEditObjectV1Response.md)
 
 ### Authorization
 
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 # **webhookSendWebhookV1**
 ```swift
-    open class func webhookSendWebhookV1(webhookSendWebhookV1Request: WebhookSendWebhookV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func webhookSendWebhookV1(webhookSendWebhookV1Request: WebhookSendWebhookV1Request, completion: @escaping (_ data: WebhookSendWebhookV1Response?, _ error: Error?) -> Void)
 ```
 
 Emit a Webhook event
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**WebhookSendWebhookV1Response**](WebhookSendWebhookV1Response.md)
 
 ### Authorization
 
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 
 # **webhookTestV1**
 ```swift
-    open class func webhookTestV1(pkiWebhookID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func webhookTestV1(pkiWebhookID: Int, body: AnyCodable, completion: @escaping (_ data: WebhookTestV1Response?, _ error: Error?) -> Void)
 ```
 
 Test the Webhook by calling the Url
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**WebhookTestV1Response**](WebhookTestV1Response.md)
 
 ### Authorization
 

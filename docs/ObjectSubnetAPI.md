@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let subnetCreateObjectV1Request = subnet-createObject-v1-Request(aObjSubnet: [subnet-RequestCompound()]) // SubnetCreateObjectV1Request | 
+let subnetCreateObjectV1Request = subnet-createObject-v1-Request(aObjSubnet: [subnet-RequestCompound(pkiSubnetID: 123, fkiUserID: 123, fkiApikeyID: 123, objSubnetDescription: Multilingual-SubnetDescription(sSubnetDescription1: "sSubnetDescription1_example", sSubnetDescription2: "sSubnetDescription2_example"), iSubnetNetwork: 123, iSubnetMask: 123)]) // SubnetCreateObjectV1Request | 
 
 // Create a new Subnet
 ObjectSubnetAPI.subnetCreateObjectV1(subnetCreateObjectV1Request: subnetCreateObjectV1Request) { (response, error) in
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **subnetDeleteObjectV1**
 ```swift
-    open class func subnetDeleteObjectV1(pkiSubnetID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func subnetDeleteObjectV1(pkiSubnetID: Int, completion: @escaping (_ data: SubnetDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Subnet
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SubnetDeleteObjectV1Response**](SubnetDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **subnetEditObjectV1**
 ```swift
-    open class func subnetEditObjectV1(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func subnetEditObjectV1(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request, completion: @escaping (_ data: SubnetEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Subnet
@@ -125,7 +125,7 @@ Edit an existing Subnet
 import OpenAPIClient
 
 let pkiSubnetID = 987 // Int | The unique ID of the Subnet
-let subnetEditObjectV1Request = subnet-editObject-v1-Request(objSubnet: subnet-RequestCompound()) // SubnetEditObjectV1Request | 
+let subnetEditObjectV1Request = subnet-editObject-v1-Request(objSubnet: subnet-RequestCompound(pkiSubnetID: 123, fkiUserID: 123, fkiApikeyID: 123, objSubnetDescription: Multilingual-SubnetDescription(sSubnetDescription1: "sSubnetDescription1_example", sSubnetDescription2: "sSubnetDescription2_example"), iSubnetNetwork: 123, iSubnetMask: 123)) // SubnetEditObjectV1Request | 
 
 // Edit an existing Subnet
 ObjectSubnetAPI.subnetEditObjectV1(pkiSubnetID: pkiSubnetID, subnetEditObjectV1Request: subnetEditObjectV1Request) { (response, error) in
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SubnetEditObjectV1Response**](SubnetEditObjectV1Response.md)
 
 ### Authorization
 

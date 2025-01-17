@@ -40,7 +40,7 @@ Method | HTTP request | Description
 
 # **ezsignfolderArchiveV1**
 ```swift
-    open class func ezsignfolderArchiveV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderArchiveV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignfolderArchiveV1Response?, _ error: Error?) -> Void)
 ```
 
 Archive the Ezsignfolder
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderArchiveV1Response**](EzsignfolderArchiveV1Response.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ The endpoint allows to create one or many elements at once.  The array can conta
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignfolderCreateObjectV1Request = [ezsignfolder-createObject-v1-Request(objEzsignfolder: ezsignfolder-Request(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency(), sEzsignfolderExternalid: "sEzsignfolderExternalid_example"), objEzsignfolderCompound: nil)] // [EzsignfolderCreateObjectV1Request] | 
+let ezsignfolderCreateObjectV1Request = [ezsignfolder-createObject-v1-Request(objEzsignfolder: ezsignfolder-Request(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency(), sEzsignfolderExternalid: "sEzsignfolderExternalid_example"), objEzsignfolderCompound: ezsignfolder-RequestCompound(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: nil, sEzsignfolderExternalid: "sEzsignfolderExternalid_example"))] // [EzsignfolderCreateObjectV1Request] | 
 
 // Create a new Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderCreateObjectV1(ezsignfolderCreateObjectV1Request: ezsignfolderCreateObjectV1Request) { (response, error) in
@@ -204,7 +204,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignfolderCreateObjectV2Request = ezsignfolder-createObject-v2-Request(aObjEzsignfolder: [ezsignfolder-Request(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency(), sEzsignfolderExternalid: "sEzsignfolderExternalid_example")]) // EzsignfolderCreateObjectV2Request | 
+let ezsignfolderCreateObjectV2Request = ezsignfolder-createObject-v2-Request(aObjEzsignfolder: [ezsignfolder-RequestCompound(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", eEzsignfolderSendreminderfrequency: Field-eEzsignfolderSendreminderfrequency(), sEzsignfolderExternalid: "sEzsignfolderExternalid_example")]) // EzsignfolderCreateObjectV2Request | 
 
 // Create a new Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderCreateObjectV2(ezsignfolderCreateObjectV2Request: ezsignfolderCreateObjectV2Request) { (response, error) in
@@ -254,7 +254,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignfolderCreateObjectV3Request = ezsignfolder-createObject-v3-Request(aObjEzsignfolder: [ezsignfolder-RequestV3(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, eEzsignfolderDocumentdependency: Field-eEzsignfolderDocumentdependency(), sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", tEzsignfolderMessage: "tEzsignfolderMessage_example", iEzsignfolderSendreminderfirstdays: 123, iEzsignfolderSendreminderotherdays: 123, sEzsignfolderExternalid: "sEzsignfolderExternalid_example")]) // EzsignfolderCreateObjectV3Request | 
+let ezsignfolderCreateObjectV3Request = ezsignfolder-createObject-v3-Request(aObjEzsignfolder: [ezsignfolder-RequestCompoundV3(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, eEzsignfolderDocumentdependency: Field-eEzsignfolderDocumentdependency(), sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", tEzsignfolderMessage: "tEzsignfolderMessage_example", iEzsignfolderSendreminderfirstdays: 123, iEzsignfolderSendreminderotherdays: 123, sEzsignfolderExternalid: "sEzsignfolderExternalid_example")]) // EzsignfolderCreateObjectV3Request | 
 
 // Create a new Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderCreateObjectV3(ezsignfolderCreateObjectV3Request: ezsignfolderCreateObjectV3Request) { (response, error) in
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderDeleteObjectV1**
 ```swift
-    open class func ezsignfolderDeleteObjectV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderDeleteObjectV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignfolder
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDeleteObjectV1Response**](EzsignfolderDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderDisposeEzsignfoldersV1**
 ```swift
-    open class func ezsignfolderDisposeEzsignfoldersV1(ezsignfolderDisposeEzsignfoldersV1Request: EzsignfolderDisposeEzsignfoldersV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderDisposeEzsignfoldersV1(ezsignfolderDisposeEzsignfoldersV1Request: EzsignfolderDisposeEzsignfoldersV1Request, completion: @escaping (_ data: EzsignfolderDisposeEzsignfoldersV1Response?, _ error: Error?) -> Void)
 ```
 
 Dispose Ezsignfolders
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDisposeEzsignfoldersV1Response**](EzsignfolderDisposeEzsignfoldersV1Response.md)
 
 ### Authorization
 
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderDisposeV1**
 ```swift
-    open class func ezsignfolderDisposeV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderDisposeV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignfolderDisposeV1Response?, _ error: Error?) -> Void)
 ```
 
 Dispose the Ezsignfolder
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDisposeV1Response**](EzsignfolderDisposeV1Response.md)
 
 ### Authorization
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderEditObjectV3**
 ```swift
-    open class func ezsignfolderEditObjectV3(pkiEzsignfolderID: Int, ezsignfolderEditObjectV3Request: EzsignfolderEditObjectV3Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderEditObjectV3(pkiEzsignfolderID: Int, ezsignfolderEditObjectV3Request: EzsignfolderEditObjectV3Request, completion: @escaping (_ data: EzsignfolderEditObjectV3Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignfolder
@@ -455,7 +455,7 @@ Edit an existing Ezsignfolder
 import OpenAPIClient
 
 let pkiEzsignfolderID = 987 // Int | 
-let ezsignfolderEditObjectV3Request = ezsignfolder-editObject-v3-Request(objEzsignfolder: ezsignfolder-RequestV3(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, eEzsignfolderDocumentdependency: Field-eEzsignfolderDocumentdependency(), sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", tEzsignfolderMessage: "tEzsignfolderMessage_example", iEzsignfolderSendreminderfirstdays: 123, iEzsignfolderSendreminderotherdays: 123, sEzsignfolderExternalid: "sEzsignfolderExternalid_example")) // EzsignfolderEditObjectV3Request | 
+let ezsignfolderEditObjectV3Request = ezsignfolder-editObject-v3-Request(objEzsignfolder: ezsignfolder-RequestCompoundV3(pkiEzsignfolderID: 123, fkiEzsignfoldertypeID: 123, fkiTimezoneID: 123, fkiEzsigntsarequirementID: 123, eEzsignfolderDocumentdependency: Field-eEzsignfolderDocumentdependency(), sEzsignfolderDescription: "sEzsignfolderDescription_example", tEzsignfolderNote: "tEzsignfolderNote_example", tEzsignfolderMessage: "tEzsignfolderMessage_example", iEzsignfolderSendreminderfirstdays: 123, iEzsignfolderSendreminderotherdays: 123, sEzsignfolderExternalid: "sEzsignfolderExternalid_example")) // EzsignfolderEditObjectV3Request | 
 
 // Edit an existing Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderEditObjectV3(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderEditObjectV3Request: ezsignfolderEditObjectV3Request) { (response, error) in
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderEditObjectV3Response**](EzsignfolderEditObjectV3Response.md)
 
 ### Authorization
 
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderEndPrematurelyV1**
 ```swift
-    open class func ezsignfolderEndPrematurelyV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderEndPrematurelyV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignfolderEndPrematurelyV1Response?, _ error: Error?) -> Void)
 ```
 
 End prematurely
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderEndPrematurelyV1Response**](EzsignfolderEndPrematurelyV1Response.md)
 
 ### Authorization
 
@@ -1406,7 +1406,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderReorderV1**
 ```swift
-    open class func ezsignfolderReorderV1(pkiEzsignfolderID: Int, ezsignfolderReorderV1Request: EzsignfolderReorderV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderReorderV1(pkiEzsignfolderID: Int, ezsignfolderReorderV1Request: EzsignfolderReorderV1Request, completion: @escaping (_ data: EzsignfolderReorderV1Response?, _ error: Error?) -> Void)
 ```
 
 Reorder Ezsigndocuments in the Ezsignfolder
@@ -1441,7 +1441,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderReorderV1Response**](EzsignfolderReorderV1Response.md)
 
 ### Authorization
 
@@ -1456,7 +1456,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderReorderV2**
 ```swift
-    open class func ezsignfolderReorderV2(pkiEzsignfolderID: Int, ezsignfolderReorderV2Request: EzsignfolderReorderV2Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderReorderV2(pkiEzsignfolderID: Int, ezsignfolderReorderV2Request: EzsignfolderReorderV2Request, completion: @escaping (_ data: EzsignfolderReorderV2Response?, _ error: Error?) -> Void)
 ```
 
 Reorder Ezsigndocuments in the Ezsignfolder
@@ -1467,7 +1467,7 @@ Reorder Ezsigndocuments in the Ezsignfolder
 import OpenAPIClient
 
 let pkiEzsignfolderID = 987 // Int | 
-let ezsignfolderReorderV2Request = ezsignfolder-reorder-v2-Request(eEzsignfolderDocumentdependency: Field-eEzsignfolderDocumentdependency(), aObjEzsigndocument: [Custom-Ezsigndocument-Request(pkiEzsigndocumentID: 123, aObjEzsigndocumentdependency: [ezsigndocumentdependency-Request(pkiEzsigndocumentdependencyID: 123, fkiEzsigndocumentIDdependency: 123)])]) // EzsignfolderReorderV2Request | 
+let ezsignfolderReorderV2Request = ezsignfolder-reorder-v2-Request(eEzsignfolderDocumentdependency: Field-eEzsignfolderDocumentdependency(), aObjEzsigndocument: [Custom-Ezsigndocument-Request(pkiEzsigndocumentID: 123, aObjEzsigndocumentdependency: [ezsigndocumentdependency-RequestCompound(pkiEzsigndocumentdependencyID: 123, fkiEzsigndocumentIDdependency: 123)])]) // EzsignfolderReorderV2Request | 
 
 // Reorder Ezsigndocuments in the Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderReorderV2(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderReorderV2Request: ezsignfolderReorderV2Request) { (response, error) in
@@ -1491,7 +1491,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderReorderV2Response**](EzsignfolderReorderV2Response.md)
 
 ### Authorization
 
@@ -1506,7 +1506,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderSendV1**
 ```swift
-    open class func ezsignfolderSendV1(pkiEzsignfolderID: Int, ezsignfolderSendV1Request: EzsignfolderSendV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderSendV1(pkiEzsignfolderID: Int, ezsignfolderSendV1Request: EzsignfolderSendV1Request, completion: @escaping (_ data: EzsignfolderSendV1Response?, _ error: Error?) -> Void)
 ```
 
 Send the Ezsignfolder to the signatories for signature
@@ -1543,7 +1543,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderSendV1Response**](EzsignfolderSendV1Response.md)
 
 ### Authorization
 
@@ -1558,7 +1558,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderSendV3**
 ```swift
-    open class func ezsignfolderSendV3(pkiEzsignfolderID: Int, ezsignfolderSendV3Request: EzsignfolderSendV3Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderSendV3(pkiEzsignfolderID: Int, ezsignfolderSendV3Request: EzsignfolderSendV3Request, completion: @escaping (_ data: EzsignfolderSendV3Response?, _ error: Error?) -> Void)
 ```
 
 Send the Ezsignfolder to the signatories for signature
@@ -1595,7 +1595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderSendV3Response**](EzsignfolderSendV3Response.md)
 
 ### Authorization
 
@@ -1610,7 +1610,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderUnsendV1**
 ```swift
-    open class func ezsignfolderUnsendV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfolderUnsendV1(pkiEzsignfolderID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignfolderUnsendV1Response?, _ error: Error?) -> Void)
 ```
 
 Unsend the Ezsignfolder
@@ -1647,7 +1647,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderUnsendV1Response**](EzsignfolderUnsendV1Response.md)
 
 ### Authorization
 

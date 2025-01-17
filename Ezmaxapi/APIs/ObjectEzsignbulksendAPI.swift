@@ -118,7 +118,7 @@ open class ObjectEzsignbulksendAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendDeleteObjectV1WithRequestBuilder(pkiEzsignbulksendID: pkiEzsignbulksendID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -137,9 +137,9 @@ open class ObjectEzsignbulksendAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignbulksendID: (path)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsignbulksendDeleteObjectV1Response> 
      */
-    open class func ezsignbulksendDeleteObjectV1WithRequestBuilder(pkiEzsignbulksendID: Int) -> RequestBuilder<CommonResponse> {
+    open class func ezsignbulksendDeleteObjectV1WithRequestBuilder(pkiEzsignbulksendID: Int) -> RequestBuilder<EzsignbulksendDeleteObjectV1Response> {
         var localVariablePath = "/1/object/ezsignbulksend/{pkiEzsignbulksendID}"
         let pkiEzsignbulksendIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendID))"
         let pkiEzsignbulksendIDPostEscape = pkiEzsignbulksendIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -155,7 +155,7 @@ open class ObjectEzsignbulksendAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -169,7 +169,7 @@ open class ObjectEzsignbulksendAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignbulksendEditObjectV1(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignbulksendEditObjectV1(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendEditObjectV1WithRequestBuilder(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendEditObjectV1Request: ezsignbulksendEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -189,9 +189,9 @@ open class ObjectEzsignbulksendAPI {
        - name: Authorization
      - parameter pkiEzsignbulksendID: (path)  
      - parameter ezsignbulksendEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsignbulksendEditObjectV1Response> 
      */
-    open class func ezsignbulksendEditObjectV1WithRequestBuilder(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func ezsignbulksendEditObjectV1WithRequestBuilder(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request) -> RequestBuilder<EzsignbulksendEditObjectV1Response> {
         var localVariablePath = "/1/object/ezsignbulksend/{pkiEzsignbulksendID}"
         let pkiEzsignbulksendIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendID))"
         let pkiEzsignbulksendIDPostEscape = pkiEzsignbulksendIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -207,7 +207,7 @@ open class ObjectEzsignbulksendAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -575,7 +575,7 @@ open class ObjectEzsignbulksendAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignbulksendReorderV1(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignbulksendReorderV1(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendReorderV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendReorderV1WithRequestBuilder(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendReorderV1Request: ezsignbulksendReorderV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -594,9 +594,9 @@ open class ObjectEzsignbulksendAPI {
        - name: Authorization
      - parameter pkiEzsignbulksendID: (path)  
      - parameter ezsignbulksendReorderV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsignbulksendReorderV1Response> 
      */
-    open class func ezsignbulksendReorderV1WithRequestBuilder(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request) -> RequestBuilder<CommonResponse> {
+    open class func ezsignbulksendReorderV1WithRequestBuilder(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request) -> RequestBuilder<EzsignbulksendReorderV1Response> {
         var localVariablePath = "/1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder"
         let pkiEzsignbulksendIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendID))"
         let pkiEzsignbulksendIDPostEscape = pkiEzsignbulksendIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -612,7 +612,7 @@ open class ObjectEzsignbulksendAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendReorderV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

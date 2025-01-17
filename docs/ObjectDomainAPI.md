@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let domainCreateObjectV1Request = domain-createObject-v1-Request(aObjDomain: [domain-RequestCompound()]) // DomainCreateObjectV1Request | 
+let domainCreateObjectV1Request = domain-createObject-v1-Request(aObjDomain: [domain-RequestCompound(pkiDomainID: 123, sDomainName: "sDomainName_example")]) // DomainCreateObjectV1Request | 
 
 // Create a new Domain
 ObjectDomainAPI.domainCreateObjectV1(domainCreateObjectV1Request: domainCreateObjectV1Request) { (response, error) in
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **domainDeleteObjectV1**
 ```swift
-    open class func domainDeleteObjectV1(pkiDomainID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func domainDeleteObjectV1(pkiDomainID: Int, completion: @escaping (_ data: DomainDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Domain
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DomainDeleteObjectV1Response**](DomainDeleteObjectV1Response.md)
 
 ### Authorization
 

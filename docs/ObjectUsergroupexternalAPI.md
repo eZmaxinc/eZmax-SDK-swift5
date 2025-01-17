@@ -28,7 +28,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let usergroupexternalCreateObjectV1Request = usergroupexternal-createObject-v1-Request(aObjUsergroupexternal: [usergroupexternal-RequestCompound()]) // UsergroupexternalCreateObjectV1Request | 
+let usergroupexternalCreateObjectV1Request = usergroupexternal-createObject-v1-Request(aObjUsergroupexternal: [usergroupexternal-RequestCompound(pkiUsergroupexternalID: 123, sUsergroupexternalName: "sUsergroupexternalName_example", sUsergroupexternalID: "sUsergroupexternalID_example")]) // UsergroupexternalCreateObjectV1Request | 
 
 // Create a new Usergroupexternal
 ObjectUsergroupexternalAPI.usergroupexternalCreateObjectV1(usergroupexternalCreateObjectV1Request: usergroupexternalCreateObjectV1Request) { (response, error) in
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalDeleteObjectV1**
 ```swift
-    open class func usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: Int, completion: @escaping (_ data: UsergroupexternalDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Usergroupexternal
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupexternalDeleteObjectV1Response**](UsergroupexternalDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalEditObjectV1**
 ```swift
-    open class func usergroupexternalEditObjectV1(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupexternalEditObjectV1(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request, completion: @escaping (_ data: UsergroupexternalEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Usergroupexternal
@@ -129,7 +129,7 @@ Edit an existing Usergroupexternal
 import OpenAPIClient
 
 let pkiUsergroupexternalID = 987 // Int | The unique ID of the Usergroupexternal
-let usergroupexternalEditObjectV1Request = usergroupexternal-editObject-v1-Request(objUsergroupexternal: usergroupexternal-RequestCompound()) // UsergroupexternalEditObjectV1Request | 
+let usergroupexternalEditObjectV1Request = usergroupexternal-editObject-v1-Request(objUsergroupexternal: usergroupexternal-RequestCompound(pkiUsergroupexternalID: 123, sUsergroupexternalName: "sUsergroupexternalName_example", sUsergroupexternalID: "sUsergroupexternalID_example")) // UsergroupexternalEditObjectV1Request | 
 
 // Edit an existing Usergroupexternal
 ObjectUsergroupexternalAPI.usergroupexternalEditObjectV1(pkiUsergroupexternalID: pkiUsergroupexternalID, usergroupexternalEditObjectV1Request: usergroupexternalEditObjectV1Request) { (response, error) in
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupexternalEditObjectV1Response**](UsergroupexternalEditObjectV1Response.md)
 
 ### Authorization
 

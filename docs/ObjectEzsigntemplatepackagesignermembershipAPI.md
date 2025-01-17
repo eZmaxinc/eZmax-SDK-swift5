@@ -23,7 +23,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatepackagesignermembershipCreateObjectV1Request = ezsigntemplatepackagesignermembership-createObject-v1-Request(aObjEzsigntemplatepackagesignermembership: [ezsigntemplatepackagesignermembership-RequestCompound()]) // EzsigntemplatepackagesignermembershipCreateObjectV1Request | 
+let ezsigntemplatepackagesignermembershipCreateObjectV1Request = ezsigntemplatepackagesignermembership-createObject-v1-Request(aObjEzsigntemplatepackagesignermembership: [ezsigntemplatepackagesignermembership-RequestCompound(pkiEzsigntemplatepackagesignermembershipID: 123, fkiEzsigntemplatepackagemembershipID: 123, fkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatesignerID: 123, iEzsigntemplatepackagesignermembershipCopy: 123)]) // EzsigntemplatepackagesignermembershipCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepackagesignermembership
 ObjectEzsigntemplatepackagesignermembershipAPI.ezsigntemplatepackagesignermembershipCreateObjectV1(ezsigntemplatepackagesignermembershipCreateObjectV1Request: ezsigntemplatepackagesignermembershipCreateObjectV1Request) { (response, error) in

@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let corsCreateObjectV1Request = cors-createObject-v1-Request(aObjCors: [cors-RequestCompound()]) // CorsCreateObjectV1Request | 
+let corsCreateObjectV1Request = cors-createObject-v1-Request(aObjCors: [cors-RequestCompound(pkiCorsID: 123, fkiApikeyID: 123, sCorsEntryurl: "sCorsEntryurl_example")]) // CorsCreateObjectV1Request | 
 
 // Create a new Cors
 ObjectCorsAPI.corsCreateObjectV1(corsCreateObjectV1Request: corsCreateObjectV1Request) { (response, error) in
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **corsDeleteObjectV1**
 ```swift
-    open class func corsDeleteObjectV1(pkiCorsID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func corsDeleteObjectV1(pkiCorsID: Int, completion: @escaping (_ data: CorsDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Cors
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CorsDeleteObjectV1Response**](CorsDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **corsEditObjectV1**
 ```swift
-    open class func corsEditObjectV1(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func corsEditObjectV1(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request, completion: @escaping (_ data: CorsEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Cors
@@ -125,7 +125,7 @@ Edit an existing Cors
 import OpenAPIClient
 
 let pkiCorsID = 987 // Int | The unique ID of the Cors
-let corsEditObjectV1Request = cors-editObject-v1-Request(objCors: cors-RequestCompound()) // CorsEditObjectV1Request | 
+let corsEditObjectV1Request = cors-editObject-v1-Request(objCors: cors-RequestCompound(pkiCorsID: 123, fkiApikeyID: 123, sCorsEntryurl: "sCorsEntryurl_example")) // CorsEditObjectV1Request | 
 
 // Edit an existing Cors
 ObjectCorsAPI.corsEditObjectV1(pkiCorsID: pkiCorsID, corsEditObjectV1Request: corsEditObjectV1Request) { (response, error) in
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CorsEditObjectV1Response**](CorsEditObjectV1Response.md)
 
 ### Authorization
 

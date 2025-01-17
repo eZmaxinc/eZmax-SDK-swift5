@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **ezsignuserEditObjectV1**
 ```swift
-    open class func ezsignuserEditObjectV1(pkiEzsignuserID: Int, ezsignuserEditObjectV1Request: EzsignuserEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignuserEditObjectV1(pkiEzsignuserID: Int, ezsignuserEditObjectV1Request: EzsignuserEditObjectV1Request, completion: @escaping (_ data: EzsignuserEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignuser
@@ -23,7 +23,7 @@ Edit an existing Ezsignuser
 import OpenAPIClient
 
 let pkiEzsignuserID = 987 // Int | The unique ID of the Ezsignuser
-let ezsignuserEditObjectV1Request = ezsignuser-editObject-v1-Request(objEzsignuser: ezsignuser-RequestCompound()) // EzsignuserEditObjectV1Request | 
+let ezsignuserEditObjectV1Request = ezsignuser-editObject-v1-Request(objEzsignuser: ezsignuser-RequestCompound(pkiEzsignuserID: 123, fkiContactID: 123, objContact: contact-RequestCompoundV2(fkiContacttitleID: 123, fkiLanguageID: 123, eContactType: Field-eContactType(), sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", sContactCompany: "sContactCompany_example", dtContactBirthdate: "dtContactBirthdate_example", sContactOccupation: "sContactOccupation_example", tContactNote: "tContactNote_example", bContactIsactive: true, objContactinformations: contactinformations-RequestCompoundV2(eContactinformationsType: Field-eContactinformationsType(), iAddressDefault: 123, iPhoneDefault: 123, iEmailDefault: 123, iWebsiteDefault: 123, aObjAddress: [address-RequestCompound(pkiAddressID: 123, fkiAddresstypeID: 123, sAddressCivic: "sAddressCivic_example", sAddressStreet: "sAddressStreet_example", sAddressSuite: "sAddressSuite_example", sAddressCity: "sAddressCity_example", fkiProvinceID: 123, fkiCountryID: 123, sAddressZip: "sAddressZip_example", fAddressLongitude: "fAddressLongitude_example", fAddressLatitude: "fAddressLatitude_example")], aObjPhone: [phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example")], aObjEmail: [email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example")], aObjWebsite: [website-RequestCompound(pkiWebsiteID: 123, fkiWebsitetypeID: 123, sWebsiteAddress: "sWebsiteAddress_example")])))) // EzsignuserEditObjectV1Request | 
 
 // Edit an existing Ezsignuser
 ObjectEzsignuserAPI.ezsignuserEditObjectV1(pkiEzsignuserID: pkiEzsignuserID, ezsignuserEditObjectV1Request: ezsignuserEditObjectV1Request) { (response, error) in
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignuserEditObjectV1Response**](EzsignuserEditObjectV1Response.md)
 
 ### Authorization
 

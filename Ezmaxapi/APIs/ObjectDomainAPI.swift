@@ -67,7 +67,7 @@ open class ObjectDomainAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func domainDeleteObjectV1(pkiDomainID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func domainDeleteObjectV1(pkiDomainID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: DomainDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return domainDeleteObjectV1WithRequestBuilder(pkiDomainID: pkiDomainID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectDomainAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiDomainID: (path) The unique ID of the Domain 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<DomainDeleteObjectV1Response> 
      */
-    open class func domainDeleteObjectV1WithRequestBuilder(pkiDomainID: Int) -> RequestBuilder<CommonResponse> {
+    open class func domainDeleteObjectV1WithRequestBuilder(pkiDomainID: Int) -> RequestBuilder<DomainDeleteObjectV1Response> {
         var localVariablePath = "/1/object/domain/{pkiDomainID}"
         let pkiDomainIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiDomainID))"
         let pkiDomainIDPostEscape = pkiDomainIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectDomainAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<DomainDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

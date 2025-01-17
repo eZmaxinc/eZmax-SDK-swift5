@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let usergroupmembershipCreateObjectV1Request = usergroupmembership-createObject-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound()]) // UsergroupmembershipCreateObjectV1Request | 
+let usergroupmembershipCreateObjectV1Request = usergroupmembership-createObject-v1-Request(aObjUsergroupmembership: [usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123, fkiUsergroupexternalID: 123)]) // UsergroupmembershipCreateObjectV1Request | 
 
 // Create a new Usergroupmembership
 ObjectUsergroupmembershipAPI.usergroupmembershipCreateObjectV1(usergroupmembershipCreateObjectV1Request: usergroupmembershipCreateObjectV1Request) { (response, error) in
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **usergroupmembershipDeleteObjectV1**
 ```swift
-    open class func usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: Int, completion: @escaping (_ data: UsergroupmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Usergroupmembership
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupmembershipDeleteObjectV1Response**](UsergroupmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **usergroupmembershipEditObjectV1**
 ```swift
-    open class func usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request, completion: @escaping (_ data: UsergroupmembershipEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Usergroupmembership
@@ -125,7 +125,7 @@ Edit an existing Usergroupmembership
 import OpenAPIClient
 
 let pkiUsergroupmembershipID = 987 // Int | 
-let usergroupmembershipEditObjectV1Request = usergroupmembership-editObject-v1-Request(objUsergroupmembership: usergroupmembership-RequestCompound()) // UsergroupmembershipEditObjectV1Request | 
+let usergroupmembershipEditObjectV1Request = usergroupmembership-editObject-v1-Request(objUsergroupmembership: usergroupmembership-RequestCompound(pkiUsergroupmembershipID: 123, fkiUsergroupID: 123, fkiUserID: 123, fkiUsergroupexternalID: 123)) // UsergroupmembershipEditObjectV1Request | 
 
 // Edit an existing Usergroupmembership
 ObjectUsergroupmembershipAPI.usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: pkiUsergroupmembershipID, usergroupmembershipEditObjectV1Request: usergroupmembershipEditObjectV1Request) { (response, error) in
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupmembershipEditObjectV1Response**](UsergroupmembershipEditObjectV1Response.md)
 
 ### Authorization
 

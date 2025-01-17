@@ -67,7 +67,7 @@ open class ObjectEzsigndiscussionAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigndiscussionDeleteObjectV1(pkiEzsigndiscussionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigndiscussionDeleteObjectV1(pkiEzsigndiscussionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndiscussionDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndiscussionDeleteObjectV1WithRequestBuilder(pkiEzsigndiscussionID: pkiEzsigndiscussionID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectEzsigndiscussionAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigndiscussionID: (path) The unique ID of the Ezsigndiscussion 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsigndiscussionDeleteObjectV1Response> 
      */
-    open class func ezsigndiscussionDeleteObjectV1WithRequestBuilder(pkiEzsigndiscussionID: Int) -> RequestBuilder<CommonResponse> {
+    open class func ezsigndiscussionDeleteObjectV1WithRequestBuilder(pkiEzsigndiscussionID: Int) -> RequestBuilder<EzsigndiscussionDeleteObjectV1Response> {
         var localVariablePath = "/1/object/ezsigndiscussion/{pkiEzsigndiscussionID}"
         let pkiEzsigndiscussionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndiscussionID))"
         let pkiEzsigndiscussionIDPostEscape = pkiEzsigndiscussionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectEzsigndiscussionAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigndiscussionDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -23,7 +23,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigntemplatepackagemembershipCreateObjectV1Request = ezsigntemplatepackagemembership-createObject-v1-Request(aObjEzsigntemplatepackagemembership: [ezsigntemplatepackagemembership-RequestCompound()]) // EzsigntemplatepackagemembershipCreateObjectV1Request | 
+let ezsigntemplatepackagemembershipCreateObjectV1Request = ezsigntemplatepackagemembership-createObject-v1-Request(aObjEzsigntemplatepackagemembership: [ezsigntemplatepackagemembership-RequestCompound(pkiEzsigntemplatepackagemembershipID: 123, fkiEzsigntemplatepackageID: 123, fkiEzsigntemplateID: 123)]) // EzsigntemplatepackagemembershipCreateObjectV1Request | 
 
 // Create a new Ezsigntemplatepackagemembership
 ObjectEzsigntemplatepackagemembershipAPI.ezsigntemplatepackagemembershipCreateObjectV1(ezsigntemplatepackagemembershipCreateObjectV1Request: ezsigntemplatepackagemembershipCreateObjectV1Request) { (response, error) in
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagemembershipDeleteObjectV1**
 ```swift
-    open class func ezsigntemplatepackagemembershipDeleteObjectV1(pkiEzsigntemplatepackagemembershipID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagemembershipDeleteObjectV1(pkiEzsigntemplatepackagemembershipID: Int, completion: @escaping (_ data: EzsigntemplatepackagemembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsigntemplatepackagemembership
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatepackagemembershipDeleteObjectV1Response**](EzsigntemplatepackagemembershipDeleteObjectV1Response.md)
 
 ### Authorization
 

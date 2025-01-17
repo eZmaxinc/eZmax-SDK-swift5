@@ -25,7 +25,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let billingentityinternalCreateObjectV1Request = billingentityinternal-createObject-v1-Request(aObjBillingentityinternal: [billingentityinternal-RequestCompound(aObjBillingentityinternalproduct: [billingentityinternalproduct-RequestCompound()])]) // BillingentityinternalCreateObjectV1Request | 
+let billingentityinternalCreateObjectV1Request = billingentityinternal-createObject-v1-Request(aObjBillingentityinternal: [billingentityinternal-RequestCompound(pkiBillingentityinternalID: 123, objBillingentityinternalDescription: Multilingual-BillingentityinternalDescription(sBillingentityinternalDescription1: "sBillingentityinternalDescription1_example", sBillingentityinternalDescription2: "sBillingentityinternalDescription2_example"), aObjBillingentityinternalproduct: [billingentityinternalproduct-RequestCompound(pkiBillingentityinternalproductID: 123, fkiEzmaxproductID: 123, fkiBillingentityexternalID: 123)])]) // BillingentityinternalCreateObjectV1Request | 
 
 // Create a new Billingentityinternal
 ObjectBillingentityinternalAPI.billingentityinternalCreateObjectV1(billingentityinternalCreateObjectV1Request: billingentityinternalCreateObjectV1Request) { (response, error) in
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **billingentityinternalEditObjectV1**
 ```swift
-    open class func billingentityinternalEditObjectV1(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func billingentityinternalEditObjectV1(pkiBillingentityinternalID: Int, billingentityinternalEditObjectV1Request: BillingentityinternalEditObjectV1Request, completion: @escaping (_ data: BillingentityinternalEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Billingentityinternal
@@ -76,7 +76,7 @@ Edit an existing Billingentityinternal
 import OpenAPIClient
 
 let pkiBillingentityinternalID = 987 // Int | 
-let billingentityinternalEditObjectV1Request = billingentityinternal-editObject-v1-Request(objBillingentityinternal: billingentityinternal-RequestCompound(aObjBillingentityinternalproduct: [billingentityinternalproduct-RequestCompound()])) // BillingentityinternalEditObjectV1Request | 
+let billingentityinternalEditObjectV1Request = billingentityinternal-editObject-v1-Request(objBillingentityinternal: billingentityinternal-RequestCompound(pkiBillingentityinternalID: 123, objBillingentityinternalDescription: Multilingual-BillingentityinternalDescription(sBillingentityinternalDescription1: "sBillingentityinternalDescription1_example", sBillingentityinternalDescription2: "sBillingentityinternalDescription2_example"), aObjBillingentityinternalproduct: [billingentityinternalproduct-RequestCompound(pkiBillingentityinternalproductID: 123, fkiEzmaxproductID: 123, fkiBillingentityexternalID: 123)])) // BillingentityinternalEditObjectV1Request | 
 
 // Edit an existing Billingentityinternal
 ObjectBillingentityinternalAPI.billingentityinternalEditObjectV1(pkiBillingentityinternalID: pkiBillingentityinternalID, billingentityinternalEditObjectV1Request: billingentityinternalEditObjectV1Request) { (response, error) in
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**BillingentityinternalEditObjectV1Response**](BillingentityinternalEditObjectV1Response.md)
 
 ### Authorization
 

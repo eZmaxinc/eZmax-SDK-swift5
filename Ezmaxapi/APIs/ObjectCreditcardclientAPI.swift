@@ -67,7 +67,7 @@ open class ObjectCreditcardclientAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func creditcardclientDeleteObjectV1(pkiCreditcardclientID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func creditcardclientDeleteObjectV1(pkiCreditcardclientID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CreditcardclientDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return creditcardclientDeleteObjectV1WithRequestBuilder(pkiCreditcardclientID: pkiCreditcardclientID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectCreditcardclientAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiCreditcardclientID: (path) The unique ID of the Creditcardclient 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<CreditcardclientDeleteObjectV1Response> 
      */
-    open class func creditcardclientDeleteObjectV1WithRequestBuilder(pkiCreditcardclientID: Int) -> RequestBuilder<CommonResponse> {
+    open class func creditcardclientDeleteObjectV1WithRequestBuilder(pkiCreditcardclientID: Int) -> RequestBuilder<CreditcardclientDeleteObjectV1Response> {
         var localVariablePath = "/1/object/creditcardclient/{pkiCreditcardclientID}"
         let pkiCreditcardclientIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCreditcardclientID))"
         let pkiCreditcardclientIDPostEscape = pkiCreditcardclientIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectCreditcardclientAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CreditcardclientDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectCreditcardclientAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func creditcardclientEditObjectV1(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func creditcardclientEditObjectV1(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CreditcardclientEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return creditcardclientEditObjectV1WithRequestBuilder(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientEditObjectV1Request: creditcardclientEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectCreditcardclientAPI {
        - name: Authorization
      - parameter pkiCreditcardclientID: (path) The unique ID of the Creditcardclient 
      - parameter creditcardclientEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<CreditcardclientEditObjectV1Response> 
      */
-    open class func creditcardclientEditObjectV1WithRequestBuilder(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func creditcardclientEditObjectV1WithRequestBuilder(pkiCreditcardclientID: Int, creditcardclientEditObjectV1Request: CreditcardclientEditObjectV1Request) -> RequestBuilder<CreditcardclientEditObjectV1Response> {
         var localVariablePath = "/1/object/creditcardclient/{pkiCreditcardclientID}"
         let pkiCreditcardclientIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCreditcardclientID))"
         let pkiCreditcardclientIDPostEscape = pkiCreditcardclientIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectCreditcardclientAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CreditcardclientEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -383,7 +383,7 @@ open class ObjectCreditcardclientAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func creditcardclientPatchObjectV1(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CreditcardclientPatchObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return creditcardclientPatchObjectV1WithRequestBuilder(pkiCreditcardclientID: pkiCreditcardclientID, creditcardclientPatchObjectV1Request: creditcardclientPatchObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -403,9 +403,9 @@ open class ObjectCreditcardclientAPI {
        - name: Authorization
      - parameter pkiCreditcardclientID: (path) The unique ID of the Creditcardclient 
      - parameter creditcardclientPatchObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<CreditcardclientPatchObjectV1Response> 
      */
-    open class func creditcardclientPatchObjectV1WithRequestBuilder(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func creditcardclientPatchObjectV1WithRequestBuilder(pkiCreditcardclientID: Int, creditcardclientPatchObjectV1Request: CreditcardclientPatchObjectV1Request) -> RequestBuilder<CreditcardclientPatchObjectV1Response> {
         var localVariablePath = "/1/object/creditcardclient/{pkiCreditcardclientID}"
         let pkiCreditcardclientIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCreditcardclientID))"
         let pkiCreditcardclientIDPostEscape = pkiCreditcardclientIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -421,7 +421,7 @@ open class ObjectCreditcardclientAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CreditcardclientPatchObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

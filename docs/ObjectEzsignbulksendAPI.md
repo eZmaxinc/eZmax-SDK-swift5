@@ -81,7 +81,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignbulksendCreateObjectV1Request = ezsignbulksend-createObject-v1-Request(aObjEzsignbulksend: [ezsignbulksend-RequestCompound()]) // EzsignbulksendCreateObjectV1Request | 
+let ezsignbulksendCreateObjectV1Request = ezsignbulksend-createObject-v1-Request(aObjEzsignbulksend: [ezsignbulksend-RequestCompound(pkiEzsignbulksendID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsignbulksendDescription: "sEzsignbulksendDescription_example", tEzsignbulksendNote: "tEzsignbulksendNote_example", bEzsignbulksendNeedvalidation: false, bEzsignbulksendIsactive: true)]) // EzsignbulksendCreateObjectV1Request | 
 
 // Create a new Ezsignbulksend
 ObjectEzsignbulksendAPI.ezsignbulksendCreateObjectV1(ezsignbulksendCreateObjectV1Request: ezsignbulksendCreateObjectV1Request) { (response, error) in
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendDeleteObjectV1**
 ```swift
-    open class func ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignbulksend
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignbulksendDeleteObjectV1Response**](EzsignbulksendDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendEditObjectV1**
 ```swift
-    open class func ezsignbulksendEditObjectV1(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignbulksendEditObjectV1(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request, completion: @escaping (_ data: EzsignbulksendEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignbulksend
@@ -182,7 +182,7 @@ Edit an existing Ezsignbulksend
 import OpenAPIClient
 
 let pkiEzsignbulksendID = 987 // Int | 
-let ezsignbulksendEditObjectV1Request = ezsignbulksend-editObject-v1-Request(objEzsignbulksend: ezsignbulksend-RequestCompound()) // EzsignbulksendEditObjectV1Request | 
+let ezsignbulksendEditObjectV1Request = ezsignbulksend-editObject-v1-Request(objEzsignbulksend: ezsignbulksend-RequestCompound(pkiEzsignbulksendID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsignbulksendDescription: "sEzsignbulksendDescription_example", tEzsignbulksendNote: "tEzsignbulksendNote_example", bEzsignbulksendNeedvalidation: false, bEzsignbulksendIsactive: true)) // EzsignbulksendEditObjectV1Request | 
 
 // Edit an existing Ezsignbulksend
 ObjectEzsignbulksendAPI.ezsignbulksendEditObjectV1(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendEditObjectV1Request: ezsignbulksendEditObjectV1Request) { (response, error) in
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignbulksendEditObjectV1Response**](EzsignbulksendEditObjectV1Response.md)
 
 ### Authorization
 
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendReorderV1**
 ```swift
-    open class func ezsignbulksendReorderV1(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignbulksendReorderV1(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request, completion: @escaping (_ data: EzsignbulksendReorderV1Response?, _ error: Error?) -> Void)
 ```
 
 Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignbulksendReorderV1Response**](EzsignbulksendReorderV1Response.md)
 
 ### Authorization
 

@@ -26,7 +26,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let supplyCreateObjectV1Request = supply-createObject-v1-Request(aObjSupply: [supply-RequestCompound()]) // SupplyCreateObjectV1Request | 
+let supplyCreateObjectV1Request = supply-createObject-v1-Request(aObjSupply: [supply-RequestCompound(pkiSupplyID: 123, fkiGlaccountID: 123, fkiGlaccountcontainerID: 123, fkiVariableexpenseID: 123, sSupplyCode: "sSupplyCode_example", objSupplyDescription: Multilingual-SupplyDescription(sSupplyDescription1: "sSupplyDescription1_example", sSupplyDescription2: "sSupplyDescription2_example"), dSupplyUnitprice: "dSupplyUnitprice_example", bSupplyIsactive: true, bSupplyVariableprice: true)]) // SupplyCreateObjectV1Request | 
 
 // Create a new Supply
 ObjectSupplyAPI.supplyCreateObjectV1(supplyCreateObjectV1Request: supplyCreateObjectV1Request) { (response, error) in
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **supplyDeleteObjectV1**
 ```swift
-    open class func supplyDeleteObjectV1(pkiSupplyID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func supplyDeleteObjectV1(pkiSupplyID: Int, completion: @escaping (_ data: SupplyDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Supply
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SupplyDeleteObjectV1Response**](SupplyDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 # **supplyEditObjectV1**
 ```swift
-    open class func supplyEditObjectV1(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func supplyEditObjectV1(pkiSupplyID: Int, supplyEditObjectV1Request: SupplyEditObjectV1Request, completion: @escaping (_ data: SupplyEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Supply
@@ -127,7 +127,7 @@ Edit an existing Supply
 import OpenAPIClient
 
 let pkiSupplyID = 987 // Int | The unique ID of the Supply
-let supplyEditObjectV1Request = supply-editObject-v1-Request(objSupply: supply-RequestCompound()) // SupplyEditObjectV1Request | 
+let supplyEditObjectV1Request = supply-editObject-v1-Request(objSupply: supply-RequestCompound(pkiSupplyID: 123, fkiGlaccountID: 123, fkiGlaccountcontainerID: 123, fkiVariableexpenseID: 123, sSupplyCode: "sSupplyCode_example", objSupplyDescription: Multilingual-SupplyDescription(sSupplyDescription1: "sSupplyDescription1_example", sSupplyDescription2: "sSupplyDescription2_example"), dSupplyUnitprice: "dSupplyUnitprice_example", bSupplyIsactive: true, bSupplyVariableprice: true)) // SupplyEditObjectV1Request | 
 
 // Edit an existing Supply
 ObjectSupplyAPI.supplyEditObjectV1(pkiSupplyID: pkiSupplyID, supplyEditObjectV1Request: supplyEditObjectV1Request) { (response, error) in
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SupplyEditObjectV1Response**](SupplyEditObjectV1Response.md)
 
 ### Authorization
 

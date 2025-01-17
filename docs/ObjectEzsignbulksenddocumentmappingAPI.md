@@ -23,7 +23,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignbulksenddocumentmappingCreateObjectV1Request = ezsignbulksenddocumentmapping-createObject-v1-Request(aObjEzsignbulksenddocumentmapping: [ezsignbulksenddocumentmapping-RequestCompound()]) // EzsignbulksenddocumentmappingCreateObjectV1Request | 
+let ezsignbulksenddocumentmappingCreateObjectV1Request = ezsignbulksenddocumentmapping-createObject-v1-Request(aObjEzsignbulksenddocumentmapping: [ezsignbulksenddocumentmapping-RequestCompound(pkiEzsignbulksenddocumentmappingID: 123, fkiEzsignbulksendID: 123, fkiEzsigntemplatepackageID: 123, fkiEzsigntemplateID: 123)]) // EzsignbulksenddocumentmappingCreateObjectV1Request | 
 
 // Create a new Ezsignbulksenddocumentmapping
 ObjectEzsignbulksenddocumentmappingAPI.ezsignbulksenddocumentmappingCreateObjectV1(ezsignbulksenddocumentmappingCreateObjectV1Request: ezsignbulksenddocumentmappingCreateObjectV1Request) { (response, error) in
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksenddocumentmappingDeleteObjectV1**
 ```swift
-    open class func ezsignbulksenddocumentmappingDeleteObjectV1(pkiEzsignbulksenddocumentmappingID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignbulksenddocumentmappingDeleteObjectV1(pkiEzsignbulksenddocumentmappingID: Int, completion: @escaping (_ data: EzsignbulksenddocumentmappingDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignbulksenddocumentmapping
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignbulksenddocumentmappingDeleteObjectV1Response**](EzsignbulksenddocumentmappingDeleteObjectV1Response.md)
 
 ### Authorization
 

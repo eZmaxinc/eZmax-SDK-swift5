@@ -23,7 +23,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignsignergroupmembershipCreateObjectV1Request = ezsignsignergroupmembership-createObject-v1-Request(aObjEzsignsignergroupmembership: [ezsignsignergroupmembership-RequestCompound()]) // EzsignsignergroupmembershipCreateObjectV1Request | 
+let ezsignsignergroupmembershipCreateObjectV1Request = ezsignsignergroupmembership-createObject-v1-Request(aObjEzsignsignergroupmembership: [ezsignsignergroupmembership-RequestCompound(pkiEzsignsignergroupmembershipID: 123, fkiEzsignsignergroupID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUsergroupID: 123)]) // EzsignsignergroupmembershipCreateObjectV1Request | 
 
 // Create a new Ezsignsignergroupmembership
 ObjectEzsignsignergroupmembershipAPI.ezsignsignergroupmembershipCreateObjectV1(ezsignsignergroupmembershipCreateObjectV1Request: ezsignsignergroupmembershipCreateObjectV1Request) { (response, error) in
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupmembershipDeleteObjectV1**
 ```swift
-    open class func ezsignsignergroupmembershipDeleteObjectV1(pkiEzsignsignergroupmembershipID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupmembershipDeleteObjectV1(pkiEzsignsignergroupmembershipID: Int, completion: @escaping (_ data: EzsignsignergroupmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignsignergroupmembership
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsignergroupmembershipDeleteObjectV1Response**](EzsignsignergroupmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 

@@ -27,7 +27,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let signatureCreateObjectV1Request = signature-createObject-v1-Request(aObjSignature: [signature-RequestCompound()]) // SignatureCreateObjectV1Request | 
+let signatureCreateObjectV1Request = signature-createObject-v1-Request(aObjSignature: [signature-RequestCompound(pkiSignatureID: 123, fkiFontID: 123, eSignaturePreference: Field-eSignaturePreference(), tSignatureSvg: "tSignatureSvg_example", tSignatureSvginitials: "tSignatureSvginitials_example")]) // SignatureCreateObjectV1Request | 
 
 // Create a new Signature
 ObjectSignatureAPI.signatureCreateObjectV1(signatureCreateObjectV1Request: signatureCreateObjectV1Request) { (response, error) in
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **signatureDeleteObjectV1**
 ```swift
-    open class func signatureDeleteObjectV1(pkiSignatureID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func signatureDeleteObjectV1(pkiSignatureID: Int, completion: @escaping (_ data: SignatureDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Signature
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SignatureDeleteObjectV1Response**](SignatureDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 # **signatureEditObjectV1**
 ```swift
-    open class func signatureEditObjectV1(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func signatureEditObjectV1(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request, completion: @escaping (_ data: SignatureEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Signature
@@ -128,7 +128,7 @@ Edit an existing Signature
 import OpenAPIClient
 
 let pkiSignatureID = 987 // Int | The unique ID of the Signature
-let signatureEditObjectV1Request = signature-editObject-v1-Request(objSignature: signature-RequestCompound()) // SignatureEditObjectV1Request | 
+let signatureEditObjectV1Request = signature-editObject-v1-Request(objSignature: signature-RequestCompound(pkiSignatureID: 123, fkiFontID: 123, eSignaturePreference: Field-eSignaturePreference(), tSignatureSvg: "tSignatureSvg_example", tSignatureSvginitials: "tSignatureSvginitials_example")) // SignatureEditObjectV1Request | 
 
 // Edit an existing Signature
 ObjectSignatureAPI.signatureEditObjectV1(pkiSignatureID: pkiSignatureID, signatureEditObjectV1Request: signatureEditObjectV1Request) { (response, error) in
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SignatureEditObjectV1Response**](SignatureEditObjectV1Response.md)
 
 ### Authorization
 

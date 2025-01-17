@@ -23,7 +23,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let discussionmessageCreateObjectV1Request = discussionmessage-createObject-v1-Request(aObjDiscussionmessage: [discussionmessage-RequestCompound()]) // DiscussionmessageCreateObjectV1Request | 
+let discussionmessageCreateObjectV1Request = discussionmessage-createObject-v1-Request(aObjDiscussionmessage: [discussionmessage-RequestCompound(pkiDiscussionmessageID: 123, fkiDiscussionID: 123, fkiDiscussionmembershipIDActionrequired: 123, tDiscussionmessageContent: "tDiscussionmessageContent_example")]) // DiscussionmessageCreateObjectV1Request | 
 
 // Create a new Discussionmessage
 ObjectDiscussionmessageAPI.discussionmessageCreateObjectV1(discussionmessageCreateObjectV1Request: discussionmessageCreateObjectV1Request) { (response, error) in
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **discussionmessageDeleteObjectV1**
 ```swift
-    open class func discussionmessageDeleteObjectV1(pkiDiscussionmessageID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func discussionmessageDeleteObjectV1(pkiDiscussionmessageID: Int, completion: @escaping (_ data: DiscussionmessageDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Discussionmessage
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmessageDeleteObjectV1Response**](DiscussionmessageDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 # **discussionmessagePatchObjectV1**
 ```swift
-    open class func discussionmessagePatchObjectV1(pkiDiscussionmessageID: Int, discussionmessagePatchObjectV1Request: DiscussionmessagePatchObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func discussionmessagePatchObjectV1(pkiDiscussionmessageID: Int, discussionmessagePatchObjectV1Request: DiscussionmessagePatchObjectV1Request, completion: @escaping (_ data: DiscussionmessagePatchObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Patch an existing Discussionmessage
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmessagePatchObjectV1Response**](DiscussionmessagePatchObjectV1Response.md)
 
 ### Authorization
 

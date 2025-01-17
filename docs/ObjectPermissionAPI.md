@@ -24,7 +24,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let permissionCreateObjectV1Request = permission-createObject-v1-Request(aObjPermission: [permission-Request(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // PermissionCreateObjectV1Request | 
+let permissionCreateObjectV1Request = permission-createObject-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // PermissionCreateObjectV1Request | 
 
 // Create a new Permission
 ObjectPermissionAPI.permissionCreateObjectV1(permissionCreateObjectV1Request: permissionCreateObjectV1Request) { (response, error) in
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **permissionDeleteObjectV1**
 ```swift
-    open class func permissionDeleteObjectV1(pkiPermissionID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func permissionDeleteObjectV1(pkiPermissionID: Int, completion: @escaping (_ data: PermissionDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Permission
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**PermissionDeleteObjectV1Response**](PermissionDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **permissionEditObjectV1**
 ```swift
-    open class func permissionEditObjectV1(pkiPermissionID: Int, permissionEditObjectV1Request: PermissionEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func permissionEditObjectV1(pkiPermissionID: Int, permissionEditObjectV1Request: PermissionEditObjectV1Request, completion: @escaping (_ data: PermissionEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Permission
@@ -125,7 +125,7 @@ Edit an existing Permission
 import OpenAPIClient
 
 let pkiPermissionID = 987 // Int | The unique ID of the Permission
-let permissionEditObjectV1Request = permission-editObject-v1-Request(objPermission: permission-Request(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)) // PermissionEditObjectV1Request | 
+let permissionEditObjectV1Request = permission-editObject-v1-Request(objPermission: permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)) // PermissionEditObjectV1Request | 
 
 // Edit an existing Permission
 ObjectPermissionAPI.permissionEditObjectV1(pkiPermissionID: pkiPermissionID, permissionEditObjectV1Request: permissionEditObjectV1Request) { (response, error) in
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**PermissionEditObjectV1Response**](PermissionEditObjectV1Response.md)
 
 ### Authorization
 

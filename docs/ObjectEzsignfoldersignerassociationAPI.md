@@ -83,7 +83,7 @@ The endpoint allows to create one or many elements at once.  The array can conta
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignfoldersignerassociationCreateObjectV1Request = [ezsignfoldersignerassociation-createObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-Request(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example"), objEzsignfoldersignerassociationCompound: ezsignfoldersignerassociation-RequestCompound(objEzsignsigner: ezsignsigner-RequestCompound(objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example"))))] // [EzsignfoldersignerassociationCreateObjectV1Request] | 
+let ezsignfoldersignerassociationCreateObjectV1Request = [ezsignfoldersignerassociation-createObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-Request(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example"), objEzsignfoldersignerassociationCompound: ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example"))))] // [EzsignfoldersignerassociationCreateObjectV1Request] | 
 
 // Create a new Ezsignfoldersignerassociation
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV1(ezsignfoldersignerassociationCreateObjectV1Request: ezsignfoldersignerassociationCreateObjectV1Request) { (response, error) in
@@ -133,7 +133,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsignfoldersignerassociationCreateObjectV2Request = ezsignfoldersignerassociation-createObject-v2-Request(aObjEzsignfoldersignerassociation: [ezsignfoldersignerassociation-RequestCompound(objEzsignsigner: ezsignsigner-RequestCompound(objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))]) // EzsignfoldersignerassociationCreateObjectV2Request | 
+let ezsignfoldersignerassociationCreateObjectV2Request = ezsignfoldersignerassociation-createObject-v2-Request(aObjEzsignfoldersignerassociation: [ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))]) // EzsignfoldersignerassociationCreateObjectV2Request | 
 
 // Create a new Ezsignfoldersignerassociation
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateObjectV2(ezsignfoldersignerassociationCreateObjectV2Request: ezsignfoldersignerassociationCreateObjectV2Request) { (response, error) in
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationDeleteObjectV1**
 ```swift
-    open class func ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationDeleteObjectV1(pkiEzsignfoldersignerassociationID: Int, completion: @escaping (_ data: EzsignfoldersignerassociationDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignfoldersignerassociation
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationDeleteObjectV1Response**](EzsignfoldersignerassociationDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationEditObjectV1**
 ```swift
-    open class func ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV1Request: EzsignfoldersignerassociationEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationEditObjectV1Request: EzsignfoldersignerassociationEditObjectV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignfoldersignerassociation
@@ -234,7 +234,7 @@ Edit an existing Ezsignfoldersignerassociation
 import OpenAPIClient
 
 let pkiEzsignfoldersignerassociationID = 987 // Int | 
-let ezsignfoldersignerassociationEditObjectV1Request = ezsignfoldersignerassociation-editObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestCompound(objEzsignsigner: ezsignsigner-RequestCompound(objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))) // EzsignfoldersignerassociationEditObjectV1Request | 
+let ezsignfoldersignerassociationEditObjectV1Request = ezsignfoldersignerassociation-editObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestCompound(pkiEzsignfoldersignerassociationID: 123, fkiUserID: 123, fkiEzsignsignergroupID: 123, fkiEzsignfolderID: 123, bEzsignfoldersignerassociationReceivecopy: false, tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example", objEzsignsigner: ezsignsigner-RequestCompound(fkiUserlogintypeID: 123, fkiTaxassignmentID: 123, fkiSecretquestionID: 123, eEzsignsignerLogintype: "eEzsignsignerLogintype_example", sEzsignsignerSecretanswer: "sEzsignsignerSecretanswer_example", objContact: ezsignsigner-RequestCompound-Contact(sContactFirstname: "sContactFirstname_example", sContactLastname: "sContactLastname_example", fkiLanguageID: 123, sEmailAddress: "sEmailAddress_example", sPhoneE164: "sPhoneE164_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164Cell: "sPhoneE164Cell_example", sPhoneNumber: "sPhoneNumber_example", sPhoneNumberCell: "sPhoneNumberCell_example")))) // EzsignfoldersignerassociationEditObjectV1Request | 
 
 // Edit an existing Ezsignfoldersignerassociation
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationEditObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationEditObjectV1Request: ezsignfoldersignerassociationEditObjectV1Request) { (response, error) in
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationEditObjectV1Response**](EzsignfoldersignerassociationEditObjectV1Response.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationForceDisconnectV1**
 ```swift
-    open class func ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationForceDisconnectV1(pkiEzsignfoldersignerassociationID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignfoldersignerassociationForceDisconnectV1Response?, _ error: Error?) -> Void)
 ```
 
 Disconnects the Ezsignfoldersignerassociation
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationForceDisconnectV1Response**](EzsignfoldersignerassociationForceDisconnectV1Response.md)
 
 ### Authorization
 
@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationPatchObjectV1**
 ```swift
-    open class func ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationPatchObjectV1Request: EzsignfoldersignerassociationPatchObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationPatchObjectV1Request: EzsignfoldersignerassociationPatchObjectV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationPatchObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Patch an existing Ezsignfoldersignerassociation
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationPatchObjectV1Response**](EzsignfoldersignerassociationPatchObjectV1Response.md)
 
 ### Authorization
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldersignerassociationReassignV1**
 ```swift
-    open class func ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationReassignV1Request: EzsignfoldersignerassociationReassignV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfoldersignerassociationReassignV1(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationReassignV1Request: EzsignfoldersignerassociationReassignV1Request, completion: @escaping (_ data: EzsignfoldersignerassociationReassignV1Response?, _ error: Error?) -> Void)
 ```
 
 Reassign remaining unsigned signatures and forms
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldersignerassociationReassignV1Response**](EzsignfoldersignerassociationReassignV1Response.md)
 
 ### Authorization
 

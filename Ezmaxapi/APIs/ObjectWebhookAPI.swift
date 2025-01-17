@@ -67,7 +67,7 @@ open class ObjectWebhookAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func webhookDeleteObjectV1(pkiWebhookID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func webhookDeleteObjectV1(pkiWebhookID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return webhookDeleteObjectV1WithRequestBuilder(pkiWebhookID: pkiWebhookID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectWebhookAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiWebhookID: (path)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<WebhookDeleteObjectV1Response> 
      */
-    open class func webhookDeleteObjectV1WithRequestBuilder(pkiWebhookID: Int) -> RequestBuilder<CommonResponse> {
+    open class func webhookDeleteObjectV1WithRequestBuilder(pkiWebhookID: Int) -> RequestBuilder<WebhookDeleteObjectV1Response> {
         var localVariablePath = "/1/object/webhook/{pkiWebhookID}"
         let pkiWebhookIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiWebhookID))"
         let pkiWebhookIDPostEscape = pkiWebhookIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectWebhookAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectWebhookAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func webhookEditObjectV1(pkiWebhookID: Int, webhookEditObjectV1Request: WebhookEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func webhookEditObjectV1(pkiWebhookID: Int, webhookEditObjectV1Request: WebhookEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return webhookEditObjectV1WithRequestBuilder(pkiWebhookID: pkiWebhookID, webhookEditObjectV1Request: webhookEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectWebhookAPI {
        - name: Authorization
      - parameter pkiWebhookID: (path)  
      - parameter webhookEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<WebhookEditObjectV1Response> 
      */
-    open class func webhookEditObjectV1WithRequestBuilder(pkiWebhookID: Int, webhookEditObjectV1Request: WebhookEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func webhookEditObjectV1WithRequestBuilder(pkiWebhookID: Int, webhookEditObjectV1Request: WebhookEditObjectV1Request) -> RequestBuilder<WebhookEditObjectV1Response> {
         var localVariablePath = "/1/object/webhook/{pkiWebhookID}"
         let pkiWebhookIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiWebhookID))"
         let pkiWebhookIDPostEscape = pkiWebhookIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectWebhookAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -421,7 +421,7 @@ open class ObjectWebhookAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func webhookSendWebhookV1(webhookSendWebhookV1Request: WebhookSendWebhookV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func webhookSendWebhookV1(webhookSendWebhookV1Request: WebhookSendWebhookV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookSendWebhookV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return webhookSendWebhookV1WithRequestBuilder(webhookSendWebhookV1Request: webhookSendWebhookV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -439,9 +439,9 @@ open class ObjectWebhookAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter webhookSendWebhookV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<WebhookSendWebhookV1Response> 
      */
-    open class func webhookSendWebhookV1WithRequestBuilder(webhookSendWebhookV1Request: WebhookSendWebhookV1Request) -> RequestBuilder<CommonResponse> {
+    open class func webhookSendWebhookV1WithRequestBuilder(webhookSendWebhookV1Request: WebhookSendWebhookV1Request) -> RequestBuilder<WebhookSendWebhookV1Response> {
         let localVariablePath = "/1/object/webhook/sendWebhook"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: webhookSendWebhookV1Request)
@@ -454,7 +454,7 @@ open class ObjectWebhookAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookSendWebhookV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -468,7 +468,7 @@ open class ObjectWebhookAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func webhookTestV1(pkiWebhookID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func webhookTestV1(pkiWebhookID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: WebhookTestV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return webhookTestV1WithRequestBuilder(pkiWebhookID: pkiWebhookID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -488,9 +488,9 @@ open class ObjectWebhookAPI {
        - name: Authorization
      - parameter pkiWebhookID: (path)  
      - parameter body: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<WebhookTestV1Response> 
      */
-    open class func webhookTestV1WithRequestBuilder(pkiWebhookID: Int, body: AnyCodable) -> RequestBuilder<CommonResponse> {
+    open class func webhookTestV1WithRequestBuilder(pkiWebhookID: Int, body: AnyCodable) -> RequestBuilder<WebhookTestV1Response> {
         var localVariablePath = "/1/object/webhook/{pkiWebhookID}/test"
         let pkiWebhookIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiWebhookID))"
         let pkiWebhookIDPostEscape = pkiWebhookIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -506,7 +506,7 @@ open class ObjectWebhookAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<WebhookTestV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
