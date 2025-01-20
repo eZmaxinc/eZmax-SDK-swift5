@@ -13,9 +13,10 @@ import AnyCodable
 /** Payload for GET /2/object/permission/{pkiPermissionID} */
 public struct PermissionGetObjectV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var objPermission: PermissionResponseCompound
+    /** A Permission Object and children to create a complete structure */
+    public var objPermission: PermissionResponse
 
-    public init(objPermission: PermissionResponseCompound) {
+    public init(objPermission: PermissionResponse) {
         self.objPermission = objPermission
     }
 

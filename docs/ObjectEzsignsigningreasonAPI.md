@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsigningreasonEditObjectV1**
 ```swift
-    open class func ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: Int, ezsignsigningreasonEditObjectV1Request: EzsignsigningreasonEditObjectV1Request, completion: @escaping (_ data: EzsignsigningreasonEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: Int, ezsignsigningreasonEditObjectV1Request: EzsignsigningreasonEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignsigningreason
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsigningreasonEditObjectV1Response**](EzsignsigningreasonEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

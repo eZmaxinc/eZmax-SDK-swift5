@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **usergroupdelegationDeleteObjectV1**
 ```swift
-    open class func usergroupdelegationDeleteObjectV1(pkiUsergroupdelegationID: Int, completion: @escaping (_ data: UsergroupdelegationDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupdelegationDeleteObjectV1(pkiUsergroupdelegationID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Usergroupdelegation
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsergroupdelegationDeleteObjectV1Response**](UsergroupdelegationDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **usergroupdelegationEditObjectV1**
 ```swift
-    open class func usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: Int, usergroupdelegationEditObjectV1Request: UsergroupdelegationEditObjectV1Request, completion: @escaping (_ data: UsergroupdelegationEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: Int, usergroupdelegationEditObjectV1Request: UsergroupdelegationEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Usergroupdelegation
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsergroupdelegationEditObjectV1Response**](UsergroupdelegationEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

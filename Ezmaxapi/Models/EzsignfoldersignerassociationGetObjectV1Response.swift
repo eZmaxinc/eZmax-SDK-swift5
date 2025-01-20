@@ -15,9 +15,10 @@ public struct EzsignfoldersignerassociationGetObjectV1Response: Codable, JSONEnc
 
     public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
-    public var mPayload: EzsignfoldersignerassociationGetObjectV1ResponseMPayload
+    /** Payload for GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} */
+    public var mPayload: EzsignfoldersignerassociationResponseCompound
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: EzsignfoldersignerassociationGetObjectV1ResponseMPayload) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: EzsignfoldersignerassociationResponseCompound) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
         self.mPayload = mPayload

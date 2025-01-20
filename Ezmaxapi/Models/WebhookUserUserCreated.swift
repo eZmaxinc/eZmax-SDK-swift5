@@ -16,9 +16,10 @@ public struct WebhookUserUserCreated: Codable, JSONEncodable, Hashable {
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
-    public var objUser: UserResponseCompound
+    /** A User Object and children to create a complete structure */
+    public var objUser: UserResponse
 
-    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objUser: UserResponseCompound) {
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objUser: UserResponse) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
         self.objUser = objUser

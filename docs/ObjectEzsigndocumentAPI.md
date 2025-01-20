@@ -42,7 +42,7 @@ Method | HTTP request | Description
 
 # **ezsigndocumentApplyEzsigntemplateV1**
 ```swift
-    open class func ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV1Request: EzsigndocumentApplyEzsigntemplateV1Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentApplyEzsigntemplateV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV1Request: EzsigndocumentApplyEzsigntemplateV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Apply an Ezsigntemplate to the Ezsigndocument.
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentApplyEzsigntemplateV1Response**](EzsigndocumentApplyEzsigntemplateV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ Using this endpoint, you can create multiple Ezsignsignatures/Ezsignformfieldgro
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
-let ezsigndocumentCreateEzsignelementsPositionedByWordV1Request = ezsigndocument-createEzsignelementsPositionedByWord-v1-Request(aObjEzsignformfieldgroup: [Custom-EzsignformfieldgroupCreateEzsignelementsPositionedByWord-Request(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])], objCreateezsignelementspositionedbyword: Custom-CreateEzsignelementsPositionedByWord-Request(sCreateezsignelementspositionedbywordPattern: "sCreateezsignelementspositionedbywordPattern_example", iCreateezsignelementspositionedbywordOffsetx: 123, iCreateezsignelementspositionedbywordOffsety: 123, eCreateezsignelementspositionedbywordOccurance: "eCreateezsignelementspositionedbywordOccurance_example"))], aObjEzsignsignature: [Custom-EzsignsignatureCreateEzsignelementsPositionedByWord-Request(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: nil, sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [nil], objCreateezsignelementspositionedbyword: nil)]) // EzsigndocumentCreateEzsignelementsPositionedByWordV1Request | 
+let ezsigndocumentCreateEzsignelementsPositionedByWordV1Request = ezsigndocument-createEzsignelementsPositionedByWord-v1-Request(aObjEzsignformfieldgroup: [Custom-EzsignformfieldgroupCreateEzsignelementsPositionedByWord-Request(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-Request(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-Request(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-Request(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])], objCreateezsignelementspositionedbyword: Custom-CreateEzsignelementsPositionedByWord-Request(sCreateezsignelementspositionedbywordPattern: "sCreateezsignelementspositionedbywordPattern_example", iCreateezsignelementspositionedbywordOffsetx: 123, iCreateezsignelementspositionedbywordOffsety: 123, eCreateezsignelementspositionedbywordOccurance: "eCreateezsignelementspositionedbywordOccurance_example"))], aObjEzsignsignature: [Custom-EzsignsignatureCreateEzsignelementsPositionedByWord-Request(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: nil, sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-Request(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [nil], objCreateezsignelementspositionedbyword: nil)]) // EzsigndocumentCreateEzsignelementsPositionedByWordV1Request | 
 
 // Create multiple Ezsignsignatures/Ezsignformfieldgroups
 ObjectEzsigndocumentAPI.ezsigndocumentCreateEzsignelementsPositionedByWordV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentCreateEzsignelementsPositionedByWordV1Request: ezsigndocumentCreateEzsignelementsPositionedByWordV1Request) { (response, error) in
@@ -262,7 +262,7 @@ The endpoint allows to create one or many elements at once.  The array can conta
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigndocumentCreateObjectV1Request = [ezsigndocument-createObject-v1-Request(objEzsigndocument: ezsigndocument-Request(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example"), objEzsigndocumentCompound: ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example"))] // [EzsigndocumentCreateObjectV1Request] | 
+let ezsigndocumentCreateObjectV1Request = [ezsigndocument-createObject-v1-Request(objEzsigndocument: ezsigndocument-Request(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example"), objEzsigndocumentCompound: nil)] // [EzsigndocumentCreateObjectV1Request] | 
 
 // Create a new Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV1(ezsigndocumentCreateObjectV1Request: ezsigndocumentCreateObjectV1Request) { (response, error) in
@@ -312,7 +312,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigndocumentCreateObjectV2Request = ezsigndocument-createObject-v2-Request(aObjEzsigndocument: [ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")]) // EzsigndocumentCreateObjectV2Request | 
+let ezsigndocumentCreateObjectV2Request = ezsigndocument-createObject-v2-Request(aObjEzsigndocument: [ezsigndocument-Request(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")]) // EzsigndocumentCreateObjectV2Request | 
 
 // Create a new Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV2(ezsigndocumentCreateObjectV2Request: ezsigndocumentCreateObjectV2Request) { (response, error) in
@@ -362,7 +362,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let ezsigndocumentCreateObjectV3Request = ezsigndocument-createObject-v3-Request(aObjEzsigndocument: [ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")]) // EzsigndocumentCreateObjectV3Request | 
+let ezsigndocumentCreateObjectV3Request = ezsigndocument-createObject-v3-Request(aObjEzsigndocument: [ezsigndocument-Request(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")]) // EzsigndocumentCreateObjectV3Request | 
 
 // Create a new Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentCreateObjectV3(ezsigndocumentCreateObjectV3Request: ezsigndocumentCreateObjectV3Request) { (response, error) in
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentDeclineToSignV1**
 ```swift
-    open class func ezsigndocumentDeclineToSignV1(pkiEzsigndocumentID: Int, ezsigndocumentDeclineToSignV1Request: EzsigndocumentDeclineToSignV1Request, completion: @escaping (_ data: EzsigndocumentDeclineToSignV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentDeclineToSignV1(pkiEzsigndocumentID: Int, ezsigndocumentDeclineToSignV1Request: EzsigndocumentDeclineToSignV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Decline to sign
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentDeclineToSignV1Response**](EzsigndocumentDeclineToSignV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentDeleteObjectV1**
 ```swift
-    open class func ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: EzsigndocumentDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentDeleteObjectV1(pkiEzsigndocumentID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsigndocument
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentDeleteObjectV1Response**](EzsigndocumentDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -567,7 +567,7 @@ Using this endpoint, you can edit multiple Ezsignformfieldgroups at the same tim
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
-let ezsigndocumentEditEzsignformfieldgroupsV1Request = ezsigndocument-editEzsignformfieldgroups-v1-Request(aObjEzsignformfieldgroup: [ezsignformfieldgroup-RequestCompound(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-RequestCompound(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-RequestCompound(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])])]) // EzsigndocumentEditEzsignformfieldgroupsV1Request | 
+let ezsigndocumentEditEzsignformfieldgroupsV1Request = ezsigndocument-editEzsignformfieldgroups-v1-Request(aObjEzsignformfieldgroup: [ezsignformfieldgroup-RequestCompound(pkiEzsignformfieldgroupID: 123, fkiEzsigndocumentID: 123, eEzsignformfieldgroupType: Field-eEzsignformfieldgroupType(), eEzsignformfieldgroupSignerrequirement: Field-eEzsignformfieldgroupSignerrequirement(), sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", iEzsignformfieldgroupStep: 123, sEzsignformfieldgroupDefaultvalue: "sEzsignformfieldgroupDefaultvalue_example", iEzsignformfieldgroupFilledmin: 123, iEzsignformfieldgroupFilledmax: 123, bEzsignformfieldgroupReadonly: false, iEzsignformfieldgroupMaxlength: 123, bEzsignformfieldgroupEncrypted: false, sEzsignformfieldgroupRegexp: "sEzsignformfieldgroupRegexp_example", sEzsignformfieldgroupTextvalidationcustommessage: "sEzsignformfieldgroupTextvalidationcustommessage_example", tEzsignformfieldgroupTooltip: "tEzsignformfieldgroupTooltip_example", eEzsignformfieldgroupTooltipposition: Field-eEzsignformfieldgroupTooltipposition(), eEzsignformfieldgroupTextvalidation: Enum-Textvalidation(), aObjEzsignformfieldgroupsigner: [ezsignformfieldgroupsigner-Request(pkiEzsignformfieldgroupsignerID: 123, fkiEzsignfoldersignerassociationID: 123)], aObjDropdownElement: [Custom-DropdownElement-Request(sLabel: "sLabel_example", sValue: "sValue_example")], aObjEzsignformfield: [ezsignformfield-RequestCompound(pkiEzsignformfieldID: 123, iEzsignpagePagenumber: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", sEzsignformfieldValue: "sEzsignformfieldValue_example", iEzsignformfieldX: 123, iEzsignformfieldY: 123, iEzsignformfieldWidth: 123, iEzsignformfieldHeight: 123, bEzsignformfieldAutocomplete: false, bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example", eEzsignformfieldDependencyrequirement: Field-eEzsignformfieldDependencyrequirement(), eEzsignformfieldHorizontalalignment: Enum-Horizontalalignment(), objTextstylestatic: textstylestatic-RequestCompound(fkiFontID: 123, bTextstylestaticBold: true, bTextstylestaticUnderline: true, bTextstylestaticItalic: true, bTextstylestaticStrikethrough: true, iTextstylestaticFontcolor: 123, iTextstylestaticSize: 123), aObjEzsignelementdependency: [ezsignelementdependency-Request(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])])]) // EzsigndocumentEditEzsignformfieldgroupsV1Request | 
 
 // Edit multiple Ezsignformfieldgroups
 ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV1Request: ezsigndocumentEditEzsignformfieldgroupsV1Request) { (response, error) in
@@ -619,7 +619,7 @@ Using this endpoint, you can edit multiple Ezsignsignatures at the same time.
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
-let ezsigndocumentEditEzsignsignaturesV1Request = ezsigndocument-editEzsignsignatures-v1-Request(aObjEzsignsignature: [ezsignsignature-RequestCompound(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-RequestCompound(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-RequestCompound(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])]) // EzsigndocumentEditEzsignsignaturesV1Request | 
+let ezsigndocumentEditEzsignsignaturesV1Request = ezsigndocument-editEzsignsignatures-v1-Request(aObjEzsignsignature: [ezsignsignature-RequestCompound(pkiEzsignsignatureID: 123, fkiEzsignfoldersignerassociationID: 123, iEzsignpagePagenumber: 123, iEzsignsignatureX: 123, iEzsignsignatureY: 123, iEzsignsignatureWidth: 123, iEzsignsignatureHeight: 123, iEzsignsignatureStep: 123, eEzsignsignatureType: Field-eEzsignsignatureType(), fkiEzsigndocumentID: 123, tEzsignsignatureTooltip: "tEzsignsignatureTooltip_example", eEzsignsignatureTooltipposition: Field-eEzsignsignatureTooltipposition(), eEzsignsignatureFont: Field-eEzsignsignatureFont(), fkiEzsignfoldersignerassociationIDValidation: 123, bEzsignsignatureHandwritten: false, bEzsignsignatureReason: false, bEzsignsignatureRequired: false, eEzsignsignatureAttachmentnamesource: Field-eEzsignsignatureAttachmentnamesource(), sEzsignsignatureAttachmentdescription: "sEzsignsignatureAttachmentdescription_example", eEzsignsignatureConsultationtrigger: Field-eEzsignsignatureConsultationtrigger(), iEzsignsignatureValidationstep: 123, iEzsignsignatureMaxlength: 123, sEzsignsignatureDefaultvalue: "sEzsignsignatureDefaultvalue_example", eEzsignsignatureTextvalidation: Enum-Textvalidation(), sEzsignsignatureTextvalidationcustommessage: "sEzsignsignatureTextvalidationcustommessage_example", sEzsignsignatureRegexp: "sEzsignsignatureRegexp_example", eEzsignsignatureDependencyrequirement: Field-eEzsignsignatureDependencyrequirement(), bEzsignsignatureCustomdate: false, aObjEzsignsignaturecustomdate: [ezsignsignaturecustomdate-Request(pkiEzsignsignaturecustomdateID: 123, iEzsignsignaturecustomdateX: 123, iEzsignsignaturecustomdateY: 123, iEzsignsignaturecustomdateOffsetx: 123, iEzsignsignaturecustomdateOffsety: 123, sEzsignsignaturecustomdateFormat: "sEzsignsignaturecustomdateFormat_example")], aObjEzsignelementdependency: [ezsignelementdependency-Request(pkiEzsignelementdependencyID: 123, fkiEzsignformfieldIDValidation: 123, fkiEzsignformfieldgroupIDValidation: 123, sEzsignelementdependencyEzsignformfieldgrouplabel: "sEzsignelementdependencyEzsignformfieldgrouplabel_example", sEzsignelementdependencyEzsignformfieldlabel: "sEzsignelementdependencyEzsignformfieldlabel_example", eEzsignelementdependencyValidation: Field-eEzsignelementdependencyValidation(), bEzsignelementdependencySelected: false, eEzsignelementdependencyOperator: Field-eEzsignelementdependencyOperator(), sEzsignelementdependencyValue: "sEzsignelementdependencyValue_example")])]) // EzsigndocumentEditEzsignsignaturesV1Request | 
 
 // Edit multiple Ezsignsignatures
 ObjectEzsigndocumentAPI.ezsigndocumentEditEzsignsignaturesV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignsignaturesV1Request: ezsigndocumentEditEzsignsignaturesV1Request) { (response, error) in
@@ -671,7 +671,7 @@ Edit an existing Ezsigndocument
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
-let ezsigndocumentEditObjectV1Request = ezsigndocument-editObject-v1-Request(objEzsigndocument: ezsigndocument-RequestCompound(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")) // EzsigndocumentEditObjectV1Request | 
+let ezsigndocumentEditObjectV1Request = ezsigndocument-editObject-v1-Request(objEzsigndocument: ezsigndocument-Request(pkiEzsigndocumentID: 123, fkiEzsignfolderID: 123, fkiEzsigntemplateID: 123, fkiEzsignfoldersignerassociationID: 123, fkiLanguageID: 123, eEzsigndocumentSource: "eEzsigndocumentSource_example", eEzsigndocumentFormat: "eEzsigndocumentFormat_example", sEzsigndocumentBase64: 123, sEzsigndocumentUrl: "sEzsigndocumentUrl_example", bEzsigndocumentForcerepair: false, sEzsigndocumentPassword: "sEzsigndocumentPassword_example", eEzsigndocumentForm: "eEzsigndocumentForm_example", dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", sEzsigndocumentName: "sEzsigndocumentName_example", sEzsigndocumentExternalid: "sEzsigndocumentExternalid_example")) // EzsigndocumentEditObjectV1Request | 
 
 // Edit an existing Ezsigndocument
 ObjectEzsigndocumentAPI.ezsigndocumentEditObjectV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditObjectV1Request: ezsigndocumentEditObjectV1Request) { (response, error) in
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentEndPrematurelyV1**
 ```swift
-    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, body: AnyCodable, completion: @escaping (_ data: EzsigndocumentEndPrematurelyV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentEndPrematurelyV1(pkiEzsigndocumentID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 End prematurely
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentEndPrematurelyV1Response**](EzsigndocumentEndPrematurelyV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -814,7 +814,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentFlattenV1**
 ```swift
-    open class func ezsigndocumentFlattenV1(pkiEzsigndocumentID: Int, body: AnyCodable, completion: @escaping (_ data: EzsigndocumentFlattenV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentFlattenV1(pkiEzsigndocumentID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Flatten
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentFlattenV1Response**](EzsigndocumentFlattenV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -1618,7 +1618,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentPatchObjectV1**
 ```swift
-    open class func ezsigndocumentPatchObjectV1(pkiEzsigndocumentID: Int, ezsigndocumentPatchObjectV1Request: EzsigndocumentPatchObjectV1Request, completion: @escaping (_ data: EzsigndocumentPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentPatchObjectV1(pkiEzsigndocumentID: Int, ezsigndocumentPatchObjectV1Request: EzsigndocumentPatchObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Patch an existing Ezsigndocument
@@ -1655,7 +1655,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentPatchObjectV1Response**](EzsigndocumentPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -1670,7 +1670,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentSubmitEzsignformV1**
 ```swift
-    open class func ezsigndocumentSubmitEzsignformV1(pkiEzsigndocumentID: Int, ezsigndocumentSubmitEzsignformV1Request: EzsigndocumentSubmitEzsignformV1Request, completion: @escaping (_ data: EzsigndocumentSubmitEzsignformV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentSubmitEzsignformV1(pkiEzsigndocumentID: Int, ezsigndocumentSubmitEzsignformV1Request: EzsigndocumentSubmitEzsignformV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Submit the Ezsignform
@@ -1683,7 +1683,7 @@ Submit the Ezsignform
 import OpenAPIClient
 
 let pkiEzsigndocumentID = 987 // Int | 
-let ezsigndocumentSubmitEzsignformV1Request = ezsigndocument-submitEzsignform-v1-Request(bEzsignformIsdraft: false, aObjEzsignformfieldgroup: [Custom-Ezsignformfieldgroup-Request(pkiEzsignformfieldgroupID: 123, sEzsignformfieldgroupLabel: "sEzsignformfieldgroupLabel_example", aObjEzsignformfield: [Custom-Ezsignformfield-Request(pkiEzsignformfieldID: 123, sEzsignformfieldLabel: "sEzsignformfieldLabel_example", bEzsignformfieldSelected: false, sEzsignformfieldEnteredvalue: "sEzsignformfieldEnteredvalue_example")])]) // EzsigndocumentSubmitEzsignformV1Request | 
+let ezsigndocumentSubmitEzsignformV1Request = ezsigndocument-submitEzsignform-v1-Request(bEzsignformIsdraft: false, aObjEzsignformfieldgroup: [123]) // EzsigndocumentSubmitEzsignformV1Request | 
 
 // Submit the Ezsignform
 ObjectEzsigndocumentAPI.ezsigndocumentSubmitEzsignformV1(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentSubmitEzsignformV1Request: ezsigndocumentSubmitEzsignformV1Request) { (response, error) in
@@ -1707,7 +1707,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentSubmitEzsignformV1Response**](EzsigndocumentSubmitEzsignformV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -1722,7 +1722,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndocumentUnsendV1**
 ```swift
-    open class func ezsigndocumentUnsendV1(pkiEzsigndocumentID: Int, body: AnyCodable, completion: @escaping (_ data: EzsigndocumentUnsendV1Response?, _ error: Error?) -> Void)
+    open class func ezsigndocumentUnsendV1(pkiEzsigndocumentID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Unsend the Ezsigndocument
@@ -1759,7 +1759,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndocumentUnsendV1Response**](EzsigndocumentUnsendV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

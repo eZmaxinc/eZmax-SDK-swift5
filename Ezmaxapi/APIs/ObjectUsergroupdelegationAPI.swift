@@ -67,7 +67,7 @@ open class ObjectUsergroupdelegationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func usergroupdelegationDeleteObjectV1(pkiUsergroupdelegationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupdelegationDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func usergroupdelegationDeleteObjectV1(pkiUsergroupdelegationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return usergroupdelegationDeleteObjectV1WithRequestBuilder(pkiUsergroupdelegationID: pkiUsergroupdelegationID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectUsergroupdelegationAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiUsergroupdelegationID: (path) The unique ID of the Usergroupdelegation 
-     - returns: RequestBuilder<UsergroupdelegationDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func usergroupdelegationDeleteObjectV1WithRequestBuilder(pkiUsergroupdelegationID: Int) -> RequestBuilder<UsergroupdelegationDeleteObjectV1Response> {
+    open class func usergroupdelegationDeleteObjectV1WithRequestBuilder(pkiUsergroupdelegationID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/usergroupdelegation/{pkiUsergroupdelegationID}"
         let pkiUsergroupdelegationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupdelegationID))"
         let pkiUsergroupdelegationIDPostEscape = pkiUsergroupdelegationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectUsergroupdelegationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UsergroupdelegationDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectUsergroupdelegationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: Int, usergroupdelegationEditObjectV1Request: UsergroupdelegationEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupdelegationEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func usergroupdelegationEditObjectV1(pkiUsergroupdelegationID: Int, usergroupdelegationEditObjectV1Request: UsergroupdelegationEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return usergroupdelegationEditObjectV1WithRequestBuilder(pkiUsergroupdelegationID: pkiUsergroupdelegationID, usergroupdelegationEditObjectV1Request: usergroupdelegationEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectUsergroupdelegationAPI {
        - name: Authorization
      - parameter pkiUsergroupdelegationID: (path) The unique ID of the Usergroupdelegation 
      - parameter usergroupdelegationEditObjectV1Request: (body)  
-     - returns: RequestBuilder<UsergroupdelegationEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func usergroupdelegationEditObjectV1WithRequestBuilder(pkiUsergroupdelegationID: Int, usergroupdelegationEditObjectV1Request: UsergroupdelegationEditObjectV1Request) -> RequestBuilder<UsergroupdelegationEditObjectV1Response> {
+    open class func usergroupdelegationEditObjectV1WithRequestBuilder(pkiUsergroupdelegationID: Int, usergroupdelegationEditObjectV1Request: UsergroupdelegationEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/usergroupdelegation/{pkiUsergroupdelegationID}"
         let pkiUsergroupdelegationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupdelegationID))"
         let pkiUsergroupdelegationIDPostEscape = pkiUsergroupdelegationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectUsergroupdelegationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UsergroupdelegationEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepackagesignerEditObjectV1**
 ```swift
-    open class func ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV1Request: EzsigntemplatepackagesignerEditObjectV1Request, completion: @escaping (_ data: EzsigntemplatepackagesignerEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV1Request: EzsigntemplatepackagesignerEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsigntemplatepackagesigner
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatepackagesignerEditObjectV1Response**](EzsigntemplatepackagesignerEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

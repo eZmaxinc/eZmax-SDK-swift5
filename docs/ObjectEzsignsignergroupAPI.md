@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupDeleteObjectV1**
 ```swift
-    open class func ezsignsignergroupDeleteObjectV1(pkiEzsignsignergroupID: Int, completion: @escaping (_ data: EzsignsignergroupDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupDeleteObjectV1(pkiEzsignsignergroupID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignsignergroup
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignergroupDeleteObjectV1Response**](EzsignsignergroupDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 # **ezsignsignergroupEditObjectV1**
 ```swift
-    open class func ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: Int, ezsignsignergroupEditObjectV1Request: EzsignsignergroupEditObjectV1Request, completion: @escaping (_ data: EzsignsignergroupEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignsignergroupEditObjectV1(pkiEzsignsignergroupID: Int, ezsignsignergroupEditObjectV1Request: EzsignsignergroupEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignsignergroup
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignergroupEditObjectV1Response**](EzsignsignergroupEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

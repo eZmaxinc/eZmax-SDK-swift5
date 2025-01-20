@@ -15,9 +15,10 @@ public struct EzsigndocumentGetObjectV1Response: Codable, JSONEncodable, Hashabl
 
     public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
-    public var mPayload: EzsigndocumentGetObjectV1ResponseMPayload
+    /** Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID} */
+    public var mPayload: EzsigndocumentResponseCompound
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: EzsigndocumentGetObjectV1ResponseMPayload) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: EzsigndocumentResponseCompound) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
         self.mPayload = mPayload

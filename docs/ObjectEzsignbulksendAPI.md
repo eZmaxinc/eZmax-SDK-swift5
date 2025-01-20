@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendDeleteObjectV1**
 ```swift
-    open class func ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendDeleteObjectV1(pkiEzsignbulksendID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsignbulksend
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksendDeleteObjectV1Response**](EzsignbulksendDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendEditObjectV1**
 ```swift
-    open class func ezsignbulksendEditObjectV1(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request, completion: @escaping (_ data: EzsignbulksendEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendEditObjectV1(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignbulksend
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksendEditObjectV1Response**](EzsignbulksendEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 # **ezsignbulksendReorderV1**
 ```swift
-    open class func ezsignbulksendReorderV1(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request, completion: @escaping (_ data: EzsignbulksendReorderV1Response?, _ error: Error?) -> Void)
+    open class func ezsignbulksendReorderV1(pkiEzsignbulksendID: Int, ezsignbulksendReorderV1Request: EzsignbulksendReorderV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksendReorderV1Response**](EzsignbulksendReorderV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

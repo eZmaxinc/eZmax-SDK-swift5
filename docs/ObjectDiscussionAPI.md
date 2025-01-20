@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **discussionDeleteObjectV1**
 ```swift
-    open class func discussionDeleteObjectV1(pkiDiscussionID: Int, completion: @escaping (_ data: DiscussionDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionDeleteObjectV1(pkiDiscussionID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Discussion
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DiscussionDeleteObjectV1Response**](DiscussionDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 # **discussionPatchObjectV1**
 ```swift
-    open class func discussionPatchObjectV1(pkiDiscussionID: Int, discussionPatchObjectV1Request: DiscussionPatchObjectV1Request, completion: @escaping (_ data: DiscussionPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func discussionPatchObjectV1(pkiDiscussionID: Int, discussionPatchObjectV1Request: DiscussionPatchObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Patch an existing Discussion
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DiscussionPatchObjectV1Response**](DiscussionPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 # **discussionUpdateDiscussionreadstatusV1**
 ```swift
-    open class func discussionUpdateDiscussionreadstatusV1(pkiDiscussionID: Int, discussionUpdateDiscussionreadstatusV1Request: DiscussionUpdateDiscussionreadstatusV1Request, completion: @escaping (_ data: DiscussionUpdateDiscussionreadstatusV1Response?, _ error: Error?) -> Void)
+    open class func discussionUpdateDiscussionreadstatusV1(pkiDiscussionID: Int, discussionUpdateDiscussionreadstatusV1Request: DiscussionUpdateDiscussionreadstatusV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Update the read status of the discussion
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DiscussionUpdateDiscussionreadstatusV1Response**](DiscussionUpdateDiscussionreadstatusV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

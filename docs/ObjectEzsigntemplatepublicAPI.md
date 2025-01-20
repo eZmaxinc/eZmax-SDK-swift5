@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatepublicEditObjectV1**
 ```swift
-    open class func ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: Int, ezsigntemplatepublicEditObjectV1Request: EzsigntemplatepublicEditObjectV1Request, completion: @escaping (_ data: EzsigntemplatepublicEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: Int, ezsigntemplatepublicEditObjectV1Request: EzsigntemplatepublicEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsigntemplatepublic
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatepublicEditObjectV1Response**](EzsigntemplatepublicEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

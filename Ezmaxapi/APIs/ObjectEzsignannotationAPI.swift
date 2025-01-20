@@ -67,7 +67,7 @@ open class ObjectEzsignannotationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignannotationDeleteObjectV1(pkiEzsignannotationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignannotationDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignannotationDeleteObjectV1(pkiEzsignannotationID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignannotationDeleteObjectV1WithRequestBuilder(pkiEzsignannotationID: pkiEzsignannotationID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectEzsignannotationAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignannotationID: (path)  
-     - returns: RequestBuilder<EzsignannotationDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func ezsignannotationDeleteObjectV1WithRequestBuilder(pkiEzsignannotationID: Int) -> RequestBuilder<EzsignannotationDeleteObjectV1Response> {
+    open class func ezsignannotationDeleteObjectV1WithRequestBuilder(pkiEzsignannotationID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/ezsignannotation/{pkiEzsignannotationID}"
         let pkiEzsignannotationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignannotationID))"
         let pkiEzsignannotationIDPostEscape = pkiEzsignannotationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectEzsignannotationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignannotationDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectEzsignannotationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignannotationEditObjectV1(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignannotationEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignannotationEditObjectV1(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignannotationEditObjectV1WithRequestBuilder(pkiEzsignannotationID: pkiEzsignannotationID, ezsignannotationEditObjectV1Request: ezsignannotationEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectEzsignannotationAPI {
        - name: Authorization
      - parameter pkiEzsignannotationID: (path)  
      - parameter ezsignannotationEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsignannotationEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func ezsignannotationEditObjectV1WithRequestBuilder(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request) -> RequestBuilder<EzsignannotationEditObjectV1Response> {
+    open class func ezsignannotationEditObjectV1WithRequestBuilder(pkiEzsignannotationID: Int, ezsignannotationEditObjectV1Request: EzsignannotationEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/ezsignannotation/{pkiEzsignannotationID}"
         let pkiEzsignannotationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignannotationID))"
         let pkiEzsignannotationIDPostEscape = pkiEzsignannotationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectEzsignannotationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignannotationEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
