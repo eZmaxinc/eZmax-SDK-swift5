@@ -13,9 +13,10 @@ import AnyCodable
 /** Payload for GET /2/object/apikey/{pkiApikeyID} */
 public struct ApikeyGetObjectV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    public var objApikey: ApikeyResponseCompound
+    /** An Apikey Object and children to create a complete structure */
+    public var objApikey: ApikeyResponse
 
-    public init(objApikey: ApikeyResponseCompound) {
+    public init(objApikey: ApikeyResponse) {
         self.objApikey = objApikey
     }
 

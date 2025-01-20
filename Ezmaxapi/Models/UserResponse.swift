@@ -56,7 +56,8 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var fkiLanguageID: Int
     /** The Name of the Language in the language of the requester */
     public var sLanguageNameX: String
-    public var objEmail: EmailResponseCompound
+    /** An Email Object and children to create a complete structure */
+    public var objEmail: EmailResponse
     /** The unique ID of the Billingentityinternal. */
     public var fkiBillingentityinternalID: Int
     /** The description of the Billingentityinternal in the language of the requester */
@@ -99,7 +100,7 @@ public struct UserResponse: Codable, JSONEncodable, Hashable {
     public var bUserChangepassword: Bool
     public var objAudit: CommonAudit
 
-    public init(pkiUserID: Int, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiAssistantID: Int? = nil, fkiEmployeeID: Int? = nil, fkiCompanyIDDefault: Int, sCompanyNameX: String, fkiDepartmentIDDefault: Int, sDepartmentNameX: String, fkiTimezoneID: Int, sTimezoneName: String, fkiLanguageID: Int, sLanguageNameX: String, objEmail: EmailResponseCompound, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, objPhoneHome: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil, fkiSecretquestionID: Int? = nil, fkiModuleIDForm: Int? = nil, sModuleNameX: String? = nil, eUserOrigin: FieldEUserOrigin, eUserType: FieldEUserType, eUserLogintype: FieldEUserLogintype, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, sUserJobtitle: String? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserLastlogondate: String? = nil, dtUserPasswordchanged: String? = nil, dtUserEzsignprepaidexpiration: String? = nil, bUserIsactive: Bool, bUserValidatebyadministration: Bool? = nil, bUserValidatebydirector: Bool? = nil, bUserAttachmentautoverified: Bool? = nil, bUserChangepassword: Bool, objAudit: CommonAudit) {
+    public init(pkiUserID: Int, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiAssistantID: Int? = nil, fkiEmployeeID: Int? = nil, fkiCompanyIDDefault: Int, sCompanyNameX: String, fkiDepartmentIDDefault: Int, sDepartmentNameX: String, fkiTimezoneID: Int, sTimezoneName: String, fkiLanguageID: Int, sLanguageNameX: String, objEmail: EmailResponse, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, objPhoneHome: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil, fkiSecretquestionID: Int? = nil, fkiModuleIDForm: Int? = nil, sModuleNameX: String? = nil, eUserOrigin: FieldEUserOrigin, eUserType: FieldEUserType, eUserLogintype: FieldEUserLogintype, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, sUserJobtitle: String? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserLastlogondate: String? = nil, dtUserPasswordchanged: String? = nil, dtUserEzsignprepaidexpiration: String? = nil, bUserIsactive: Bool, bUserValidatebyadministration: Bool? = nil, bUserValidatebydirector: Bool? = nil, bUserAttachmentautoverified: Bool? = nil, bUserChangepassword: Bool, objAudit: CommonAudit) {
         self.pkiUserID = pkiUserID
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID

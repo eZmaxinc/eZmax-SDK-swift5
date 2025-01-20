@@ -68,7 +68,7 @@ open class ObjectUsergroupAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func usergroupEditObjectV1(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func usergroupEditObjectV1(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return usergroupEditObjectV1WithRequestBuilder(pkiUsergroupID: pkiUsergroupID, usergroupEditObjectV1Request: usergroupEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -88,9 +88,9 @@ open class ObjectUsergroupAPI {
        - name: Authorization
      - parameter pkiUsergroupID: (path)  
      - parameter usergroupEditObjectV1Request: (body)  
-     - returns: RequestBuilder<UsergroupEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func usergroupEditObjectV1WithRequestBuilder(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request) -> RequestBuilder<UsergroupEditObjectV1Response> {
+    open class func usergroupEditObjectV1WithRequestBuilder(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/usergroup/{pkiUsergroupID}"
         let pkiUsergroupIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupID))"
         let pkiUsergroupIDPostEscape = pkiUsergroupIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,7 +106,7 @@ open class ObjectUsergroupAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UsergroupEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

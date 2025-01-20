@@ -37,11 +37,12 @@ public struct CustomCommunicationsenderResponse: Codable, JSONEncodable, Hashabl
     public var fkiPhonelinesharedID: Int?
     public var eCommunicationsenderObjecttype: ECommunicationsenderObjecttype
     public var objContactName: CustomContactNameResponse
-    public var objEmail: EmailResponseCompound?
+    /** An Email Object and children to create a complete structure */
+    public var objEmail: EmailResponse?
     public var objPhoneFax: PhoneResponseCompound?
     public var objPhoneSMS: PhoneResponseCompound?
 
-    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiUserID: Int? = nil, fkiMailboxsharedID: Int? = nil, fkiPhonelinesharedID: Int? = nil, eCommunicationsenderObjecttype: ECommunicationsenderObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponseCompound? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
+    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiUserID: Int? = nil, fkiMailboxsharedID: Int? = nil, fkiPhonelinesharedID: Int? = nil, eCommunicationsenderObjecttype: ECommunicationsenderObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponse? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
         self.fkiUserID = fkiUserID

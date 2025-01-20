@@ -67,7 +67,7 @@ open class ObjectCorsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func corsDeleteObjectV1(pkiCorsID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CorsDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func corsDeleteObjectV1(pkiCorsID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return corsDeleteObjectV1WithRequestBuilder(pkiCorsID: pkiCorsID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectCorsAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiCorsID: (path) The unique ID of the Cors 
-     - returns: RequestBuilder<CorsDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func corsDeleteObjectV1WithRequestBuilder(pkiCorsID: Int) -> RequestBuilder<CorsDeleteObjectV1Response> {
+    open class func corsDeleteObjectV1WithRequestBuilder(pkiCorsID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/cors/{pkiCorsID}"
         let pkiCorsIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCorsID))"
         let pkiCorsIDPostEscape = pkiCorsIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectCorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CorsDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectCorsAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func corsEditObjectV1(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CorsEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func corsEditObjectV1(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return corsEditObjectV1WithRequestBuilder(pkiCorsID: pkiCorsID, corsEditObjectV1Request: corsEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectCorsAPI {
        - name: Authorization
      - parameter pkiCorsID: (path) The unique ID of the Cors 
      - parameter corsEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CorsEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func corsEditObjectV1WithRequestBuilder(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request) -> RequestBuilder<CorsEditObjectV1Response> {
+    open class func corsEditObjectV1WithRequestBuilder(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/cors/{pkiCorsID}"
         let pkiCorsIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiCorsID))"
         let pkiCorsIDPostEscape = pkiCorsIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectCorsAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CorsEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

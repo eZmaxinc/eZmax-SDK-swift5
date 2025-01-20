@@ -68,7 +68,7 @@ open class ObjectEzsignsigningreasonAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: Int, ezsignsigningreasonEditObjectV1Request: EzsignsigningreasonEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsigningreasonEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignsigningreasonEditObjectV1(pkiEzsignsigningreasonID: Int, ezsignsigningreasonEditObjectV1Request: EzsignsigningreasonEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsigningreasonEditObjectV1WithRequestBuilder(pkiEzsignsigningreasonID: pkiEzsignsigningreasonID, ezsignsigningreasonEditObjectV1Request: ezsignsigningreasonEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -88,9 +88,9 @@ open class ObjectEzsignsigningreasonAPI {
        - name: Authorization
      - parameter pkiEzsignsigningreasonID: (path) The unique ID of the Ezsignsigningreason 
      - parameter ezsignsigningreasonEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsignsigningreasonEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func ezsignsigningreasonEditObjectV1WithRequestBuilder(pkiEzsignsigningreasonID: Int, ezsignsigningreasonEditObjectV1Request: EzsignsigningreasonEditObjectV1Request) -> RequestBuilder<EzsignsigningreasonEditObjectV1Response> {
+    open class func ezsignsigningreasonEditObjectV1WithRequestBuilder(pkiEzsignsigningreasonID: Int, ezsignsigningreasonEditObjectV1Request: EzsignsigningreasonEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/ezsignsigningreason/{pkiEzsignsigningreasonID}"
         let pkiEzsignsigningreasonIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsigningreasonID))"
         let pkiEzsignsigningreasonIDPostEscape = pkiEzsignsigningreasonIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,7 +106,7 @@ open class ObjectEzsignsigningreasonAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsignsigningreasonEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **corsDeleteObjectV1**
 ```swift
-    open class func corsDeleteObjectV1(pkiCorsID: Int, completion: @escaping (_ data: CorsDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func corsDeleteObjectV1(pkiCorsID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Cors
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CorsDeleteObjectV1Response**](CorsDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **corsEditObjectV1**
 ```swift
-    open class func corsEditObjectV1(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request, completion: @escaping (_ data: CorsEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func corsEditObjectV1(pkiCorsID: Int, corsEditObjectV1Request: CorsEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Cors
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CorsEditObjectV1Response**](CorsEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

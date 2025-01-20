@@ -72,7 +72,7 @@ open class ObjectUserstagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func userstagedDeleteObjectV1(pkiUserstagedID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserstagedDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func userstagedDeleteObjectV1(pkiUserstagedID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return userstagedDeleteObjectV1WithRequestBuilder(pkiUserstagedID: pkiUserstagedID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -91,9 +91,9 @@ open class ObjectUserstagedAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiUserstagedID: (path)  
-     - returns: RequestBuilder<UserstagedDeleteObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func userstagedDeleteObjectV1WithRequestBuilder(pkiUserstagedID: Int) -> RequestBuilder<UserstagedDeleteObjectV1Response> {
+    open class func userstagedDeleteObjectV1WithRequestBuilder(pkiUserstagedID: Int) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/userstaged/{pkiUserstagedID}"
         let pkiUserstagedIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserstagedID))"
         let pkiUserstagedIDPostEscape = pkiUserstagedIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -109,7 +109,7 @@ open class ObjectUserstagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserstagedDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -250,7 +250,7 @@ open class ObjectUserstagedAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func userstagedMapV1(pkiUserstagedID: Int, userstagedMapV1Request: UserstagedMapV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserstagedMapV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func userstagedMapV1(pkiUserstagedID: Int, userstagedMapV1Request: UserstagedMapV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return userstagedMapV1WithRequestBuilder(pkiUserstagedID: pkiUserstagedID, userstagedMapV1Request: userstagedMapV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -270,9 +270,9 @@ open class ObjectUserstagedAPI {
        - name: Authorization
      - parameter pkiUserstagedID: (path)  
      - parameter userstagedMapV1Request: (body)  
-     - returns: RequestBuilder<UserstagedMapV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func userstagedMapV1WithRequestBuilder(pkiUserstagedID: Int, userstagedMapV1Request: UserstagedMapV1Request) -> RequestBuilder<UserstagedMapV1Response> {
+    open class func userstagedMapV1WithRequestBuilder(pkiUserstagedID: Int, userstagedMapV1Request: UserstagedMapV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/userstaged/{pkiUserstagedID}/map"
         let pkiUserstagedIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserstagedID))"
         let pkiUserstagedIDPostEscape = pkiUserstagedIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -288,7 +288,7 @@ open class ObjectUserstagedAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<UserstagedMapV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

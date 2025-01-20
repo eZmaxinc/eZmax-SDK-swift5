@@ -115,7 +115,7 @@ open class ObjectEzsigntemplatepublicAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: Int, ezsigntemplatepublicEditObjectV1Request: EzsigntemplatepublicEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepublicEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigntemplatepublicEditObjectV1(pkiEzsigntemplatepublicID: Int, ezsigntemplatepublicEditObjectV1Request: EzsigntemplatepublicEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatepublicEditObjectV1WithRequestBuilder(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID, ezsigntemplatepublicEditObjectV1Request: ezsigntemplatepublicEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -135,9 +135,9 @@ open class ObjectEzsigntemplatepublicAPI {
        - name: Authorization
      - parameter pkiEzsigntemplatepublicID: (path) The unique ID of the Ezsigntemplatepublic 
      - parameter ezsigntemplatepublicEditObjectV1Request: (body)  
-     - returns: RequestBuilder<EzsigntemplatepublicEditObjectV1Response> 
+     - returns: RequestBuilder<CommonResponse> 
      */
-    open class func ezsigntemplatepublicEditObjectV1WithRequestBuilder(pkiEzsigntemplatepublicID: Int, ezsigntemplatepublicEditObjectV1Request: EzsigntemplatepublicEditObjectV1Request) -> RequestBuilder<EzsigntemplatepublicEditObjectV1Response> {
+    open class func ezsigntemplatepublicEditObjectV1WithRequestBuilder(pkiEzsigntemplatepublicID: Int, ezsigntemplatepublicEditObjectV1Request: EzsigntemplatepublicEditObjectV1Request) -> RequestBuilder<CommonResponse> {
         var localVariablePath = "/1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}"
         let pkiEzsigntemplatepublicIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatepublicID))"
         let pkiEzsigntemplatepublicIDPostEscape = pkiEzsigntemplatepublicIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -153,7 +153,7 @@ open class ObjectEzsigntemplatepublicAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatepublicEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

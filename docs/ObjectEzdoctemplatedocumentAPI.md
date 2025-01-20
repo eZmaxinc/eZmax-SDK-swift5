@@ -115,7 +115,7 @@ Void (empty response body)
 
 # **ezdoctemplatedocumentEditObjectV1**
 ```swift
-    open class func ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentEditObjectV1Request: EzdoctemplatedocumentEditObjectV1Request, completion: @escaping (_ data: EzdoctemplatedocumentEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentEditObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentEditObjectV1Request: EzdoctemplatedocumentEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezdoctemplatedocument
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzdoctemplatedocumentEditObjectV1Response**](EzdoctemplatedocumentEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 # **ezdoctemplatedocumentPatchObjectV1**
 ```swift
-    open class func ezdoctemplatedocumentPatchObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentPatchObjectV1Request: EzdoctemplatedocumentPatchObjectV1Request, completion: @escaping (_ data: EzdoctemplatedocumentPatchObjectV1Response?, _ error: Error?) -> Void)
+    open class func ezdoctemplatedocumentPatchObjectV1(pkiEzdoctemplatedocumentID: Int, ezdoctemplatedocumentPatchObjectV1Request: EzdoctemplatedocumentPatchObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Patch an existing Ezdoctemplatedocument
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzdoctemplatedocumentPatchObjectV1Response**](EzdoctemplatedocumentPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

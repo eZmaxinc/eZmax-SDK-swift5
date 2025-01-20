@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **userstagedDeleteObjectV1**
 ```swift
-    open class func userstagedDeleteObjectV1(pkiUserstagedID: Int, completion: @escaping (_ data: UserstagedDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func userstagedDeleteObjectV1(pkiUserstagedID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Userstaged
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserstagedDeleteObjectV1Response**](UserstagedDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 # **userstagedMapV1**
 ```swift
-    open class func userstagedMapV1(pkiUserstagedID: Int, userstagedMapV1Request: UserstagedMapV1Request, completion: @escaping (_ data: UserstagedMapV1Response?, _ error: Error?) -> Void)
+    open class func userstagedMapV1(pkiUserstagedID: Int, userstagedMapV1Request: UserstagedMapV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Map the Userstaged to an existing user
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserstagedMapV1Response**](UserstagedMapV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -13,9 +13,10 @@ import AnyCodable
 /** Request for PUT /1/object/apikey/{pkiApikeyID} */
 public struct ApikeyEditObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    public var objApikey: ApikeyRequestCompound
+    /** An Apikey Object and children to create a complete structure */
+    public var objApikey: ApikeyRequest
 
-    public init(objApikey: ApikeyRequestCompound) {
+    public init(objApikey: ApikeyRequest) {
         self.objApikey = objApikey
     }
 

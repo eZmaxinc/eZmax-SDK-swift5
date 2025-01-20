@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **subnetDeleteObjectV1**
 ```swift
-    open class func subnetDeleteObjectV1(pkiSubnetID: Int, completion: @escaping (_ data: SubnetDeleteObjectV1Response?, _ error: Error?) -> Void)
+    open class func subnetDeleteObjectV1(pkiSubnetID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Subnet
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubnetDeleteObjectV1Response**](SubnetDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **subnetEditObjectV1**
 ```swift
-    open class func subnetEditObjectV1(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request, completion: @escaping (_ data: SubnetEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func subnetEditObjectV1(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Subnet
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubnetEditObjectV1Response**](SubnetEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
