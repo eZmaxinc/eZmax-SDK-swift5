@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **discussionmessageDeleteObjectV1**
 ```swift
-    open class func discussionmessageDeleteObjectV1(pkiDiscussionmessageID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func discussionmessageDeleteObjectV1(pkiDiscussionmessageID: Int, completion: @escaping (_ data: DiscussionmessageDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Discussionmessage
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmessageDeleteObjectV1Response**](DiscussionmessageDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 # **discussionmessagePatchObjectV1**
 ```swift
-    open class func discussionmessagePatchObjectV1(pkiDiscussionmessageID: Int, discussionmessagePatchObjectV1Request: DiscussionmessagePatchObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func discussionmessagePatchObjectV1(pkiDiscussionmessageID: Int, discussionmessagePatchObjectV1Request: DiscussionmessagePatchObjectV1Request, completion: @escaping (_ data: DiscussionmessagePatchObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Patch an existing Discussionmessage
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmessagePatchObjectV1Response**](DiscussionmessagePatchObjectV1Response.md)
 
 ### Authorization
 

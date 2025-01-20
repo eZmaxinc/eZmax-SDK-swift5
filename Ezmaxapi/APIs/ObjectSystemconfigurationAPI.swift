@@ -21,7 +21,7 @@ open class ObjectSystemconfigurationAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func systemconfigurationEditObjectV1(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func systemconfigurationEditObjectV1(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SystemconfigurationEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return systemconfigurationEditObjectV1WithRequestBuilder(pkiSystemconfigurationID: pkiSystemconfigurationID, systemconfigurationEditObjectV1Request: systemconfigurationEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -41,9 +41,9 @@ open class ObjectSystemconfigurationAPI {
        - name: Authorization
      - parameter pkiSystemconfigurationID: (path) The unique ID of the Systemconfiguration 
      - parameter systemconfigurationEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<SystemconfigurationEditObjectV1Response> 
      */
-    open class func systemconfigurationEditObjectV1WithRequestBuilder(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func systemconfigurationEditObjectV1WithRequestBuilder(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request) -> RequestBuilder<SystemconfigurationEditObjectV1Response> {
         var localVariablePath = "/1/object/systemconfiguration/{pkiSystemconfigurationID}"
         let pkiSystemconfigurationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSystemconfigurationID))"
         let pkiSystemconfigurationIDPostEscape = pkiSystemconfigurationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -59,7 +59,7 @@ open class ObjectSystemconfigurationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SystemconfigurationEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

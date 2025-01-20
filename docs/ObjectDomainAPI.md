@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **domainDeleteObjectV1**
 ```swift
-    open class func domainDeleteObjectV1(pkiDomainID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func domainDeleteObjectV1(pkiDomainID: Int, completion: @escaping (_ data: DomainDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Domain
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DomainDeleteObjectV1Response**](DomainDeleteObjectV1Response.md)
 
 ### Authorization
 

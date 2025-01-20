@@ -32,19 +32,16 @@ public struct ContactinformationsResponseCompound: Codable, JSONEncodable, Hasha
     public var eContactinformationsType: FieldEContactinformationsType
     /** The url of the Contactinformations */
     public var sContactinformationsUrl: String?
-    /** An Address Object and children to create a complete structure */
-    public var objAddressDefault: AddressResponse?
+    public var objAddressDefault: AddressResponseCompound?
     public var objPhoneDefault: PhoneResponseCompound?
-    /** An Email Object and children to create a complete structure */
-    public var objEmailDefault: EmailResponse?
-    /** A Website Object and children to create a complete structure */
-    public var objWebsiteDefault: WebsiteResponse?
+    public var objEmailDefault: EmailResponseCompound?
+    public var objWebsiteDefault: WebsiteResponseCompound?
     public var aObjAddress: [AddressResponseCompound]
     public var aObjPhone: [PhoneResponseCompound]
     public var aObjEmail: [EmailResponseCompound]
     public var aObjWebsite: [WebsiteResponseCompound]
 
-    public init(pkiContactinformationsID: Int, fkiAddressIDDefault: Int? = nil, fkiPhoneIDDefault: Int? = nil, fkiEmailIDDefault: Int? = nil, fkiWebsiteIDDefault: Int? = nil, eContactinformationsType: FieldEContactinformationsType, sContactinformationsUrl: String? = nil, objAddressDefault: AddressResponse? = nil, objPhoneDefault: PhoneResponseCompound? = nil, objEmailDefault: EmailResponse? = nil, objWebsiteDefault: WebsiteResponse? = nil, aObjAddress: [AddressResponseCompound], aObjPhone: [PhoneResponseCompound], aObjEmail: [EmailResponseCompound], aObjWebsite: [WebsiteResponseCompound]) {
+    public init(pkiContactinformationsID: Int, fkiAddressIDDefault: Int? = nil, fkiPhoneIDDefault: Int? = nil, fkiEmailIDDefault: Int? = nil, fkiWebsiteIDDefault: Int? = nil, eContactinformationsType: FieldEContactinformationsType, sContactinformationsUrl: String? = nil, objAddressDefault: AddressResponseCompound? = nil, objPhoneDefault: PhoneResponseCompound? = nil, objEmailDefault: EmailResponseCompound? = nil, objWebsiteDefault: WebsiteResponseCompound? = nil, aObjAddress: [AddressResponseCompound], aObjPhone: [PhoneResponseCompound], aObjEmail: [EmailResponseCompound], aObjWebsite: [WebsiteResponseCompound]) {
         self.pkiContactinformationsID = pkiContactinformationsID
         self.fkiAddressIDDefault = fkiAddressIDDefault
         self.fkiPhoneIDDefault = fkiPhoneIDDefault

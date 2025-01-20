@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalDeleteObjectV1**
 ```swift
-    open class func usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: Int, completion: @escaping (_ data: UsergroupexternalDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Usergroupexternal
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupexternalDeleteObjectV1Response**](UsergroupexternalDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 # **usergroupexternalEditObjectV1**
 ```swift
-    open class func usergroupexternalEditObjectV1(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupexternalEditObjectV1(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request, completion: @escaping (_ data: UsergroupexternalEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Usergroupexternal
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupexternalEditObjectV1Response**](UsergroupexternalEditObjectV1Response.md)
 
 ### Authorization
 

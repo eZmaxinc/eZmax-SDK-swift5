@@ -78,12 +78,11 @@ public struct CustomCommunicationrecipientsrecipientResponse: Codable, JSONEncod
     public var fkiSupplierID: Int?
     public var eCommunicationrecipientsrecipientObjecttype: ECommunicationrecipientsrecipientObjecttype
     public var objContactName: CustomContactNameResponse
-    /** An Email Object and children to create a complete structure */
-    public var objEmail: EmailResponse?
+    public var objEmail: EmailResponseCompound?
     public var objPhoneFax: PhoneResponseCompound?
     public var objPhoneSMS: PhoneResponseCompound?
 
-    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiContactID: Int? = nil, fkiCustomerID: Int? = nil, fkiEmployeeID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiFranchiseofficeID: Int? = nil, fkiUserID: Int? = nil, fkiAgentincorporationID: Int? = nil, fkiAssistantID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzcomagentID: Int? = nil, fkiNotaryID: Int? = nil, fkiRewardmemberID: Int? = nil, fkiSupplierID: Int? = nil, eCommunicationrecipientsrecipientObjecttype: ECommunicationrecipientsrecipientObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponse? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
+    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiContactID: Int? = nil, fkiCustomerID: Int? = nil, fkiEmployeeID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiFranchiseofficeID: Int? = nil, fkiUserID: Int? = nil, fkiAgentincorporationID: Int? = nil, fkiAssistantID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzcomagentID: Int? = nil, fkiNotaryID: Int? = nil, fkiRewardmemberID: Int? = nil, fkiSupplierID: Int? = nil, eCommunicationrecipientsrecipientObjecttype: ECommunicationrecipientsrecipientObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponseCompound? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
         self.fkiContactID = fkiContactID

@@ -118,7 +118,7 @@ open class ObjectEzsigntemplatepackagesignerAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV1Request: EzsigntemplatepackagesignerEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigntemplatepackagesignerEditObjectV1(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV1Request: EzsigntemplatepackagesignerEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepackagesignerEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatepackagesignerEditObjectV1WithRequestBuilder(pkiEzsigntemplatepackagesignerID: pkiEzsigntemplatepackagesignerID, ezsigntemplatepackagesignerEditObjectV1Request: ezsigntemplatepackagesignerEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectEzsigntemplatepackagesignerAPI {
        - name: Authorization
      - parameter pkiEzsigntemplatepackagesignerID: (path)  
      - parameter ezsigntemplatepackagesignerEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsigntemplatepackagesignerEditObjectV1Response> 
      */
-    open class func ezsigntemplatepackagesignerEditObjectV1WithRequestBuilder(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV1Request: EzsigntemplatepackagesignerEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func ezsigntemplatepackagesignerEditObjectV1WithRequestBuilder(pkiEzsigntemplatepackagesignerID: Int, ezsigntemplatepackagesignerEditObjectV1Request: EzsigntemplatepackagesignerEditObjectV1Request) -> RequestBuilder<EzsigntemplatepackagesignerEditObjectV1Response> {
         var localVariablePath = "/1/object/ezsigntemplatepackagesigner/{pkiEzsigntemplatepackagesignerID}"
         let pkiEzsigntemplatepackagesignerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatepackagesignerID))"
         let pkiEzsigntemplatepackagesignerIDPostEscape = pkiEzsigntemplatepackagesignerIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectEzsigntemplatepackagesignerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatepackagesignerEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

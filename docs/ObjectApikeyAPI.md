@@ -30,7 +30,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let apikeyCreateObjectV2Request = apikey-createObject-v2-Request(aObjApikey: [apikey-Request(pkiApikeyID: 123, fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example"), bApikeyIsactive: true, bApikeyIssigned: true)]) // ApikeyCreateObjectV2Request | 
+let apikeyCreateObjectV2Request = apikey-createObject-v2-Request(aObjApikey: [apikey-RequestCompound(pkiApikeyID: 123, fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example"), bApikeyIsactive: true, bApikeyIssigned: true)]) // ApikeyCreateObjectV2Request | 
 
 // Create a new Apikey
 ObjectApikeyAPI.apikeyCreateObjectV2(apikeyCreateObjectV2Request: apikeyCreateObjectV2Request) { (response, error) in
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 # **apikeyEditObjectV1**
 ```swift
-    open class func apikeyEditObjectV1(pkiApikeyID: Int, apikeyEditObjectV1Request: ApikeyEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func apikeyEditObjectV1(pkiApikeyID: Int, apikeyEditObjectV1Request: ApikeyEditObjectV1Request, completion: @escaping (_ data: ApikeyEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Apikey
@@ -81,7 +81,7 @@ Edit an existing Apikey
 import OpenAPIClient
 
 let pkiApikeyID = 987 // Int | The unique ID of the Apikey
-let apikeyEditObjectV1Request = apikey-editObject-v1-Request(objApikey: apikey-Request(pkiApikeyID: 123, fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example"), bApikeyIsactive: true, bApikeyIssigned: true)) // ApikeyEditObjectV1Request | 
+let apikeyEditObjectV1Request = apikey-editObject-v1-Request(objApikey: apikey-RequestCompound(pkiApikeyID: 123, fkiUserID: 123, objApikeyDescription: Multilingual-ApikeyDescription(sApikeyDescription1: "sApikeyDescription1_example", sApikeyDescription2: "sApikeyDescription2_example"), bApikeyIsactive: true, bApikeyIssigned: true)) // ApikeyEditObjectV1Request | 
 
 // Edit an existing Apikey
 ObjectApikeyAPI.apikeyEditObjectV1(pkiApikeyID: pkiApikeyID, apikeyEditObjectV1Request: apikeyEditObjectV1Request) { (response, error) in
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**ApikeyEditObjectV1Response**](ApikeyEditObjectV1Response.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ Using this endpoint, you can edit multiple Permissions at the same time.
 import OpenAPIClient
 
 let pkiApikeyID = 987 // Int | 
-let apikeyEditPermissionsV1Request = apikey-editPermissions-v1-Request(aObjPermission: [permission-Request(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // ApikeyEditPermissionsV1Request | 
+let apikeyEditPermissionsV1Request = apikey-editPermissions-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // ApikeyEditPermissionsV1Request | 
 
 // Edit multiple Permissions
 ObjectApikeyAPI.apikeyEditPermissionsV1(pkiApikeyID: pkiApikeyID, apikeyEditPermissionsV1Request: apikeyEditPermissionsV1Request) { (response, error) in

@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **usergroupmembershipDeleteObjectV1**
 ```swift
-    open class func usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: Int, completion: @escaping (_ data: UsergroupmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Usergroupmembership
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupmembershipDeleteObjectV1Response**](UsergroupmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **usergroupmembershipEditObjectV1**
 ```swift
-    open class func usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request, completion: @escaping (_ data: UsergroupmembershipEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Usergroupmembership
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupmembershipEditObjectV1Response**](UsergroupmembershipEditObjectV1Response.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **ezsignpageConsultV1**
 ```swift
-    open class func ezsignpageConsultV1(pkiEzsignpageID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignpageConsultV1(pkiEzsignpageID: Int, body: AnyCodable, completion: @escaping (_ data: EzsignpageConsultV1Response?, _ error: Error?) -> Void)
 ```
 
 Consult an Ezsignpage
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignpageConsultV1Response**](EzsignpageConsultV1Response.md)
 
 ### Authorization
 

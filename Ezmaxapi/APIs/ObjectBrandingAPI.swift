@@ -68,7 +68,7 @@ open class ObjectBrandingAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func brandingEditObjectV2(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func brandingEditObjectV2(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrandingEditObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return brandingEditObjectV2WithRequestBuilder(pkiBrandingID: pkiBrandingID, brandingEditObjectV2Request: brandingEditObjectV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -88,9 +88,9 @@ open class ObjectBrandingAPI {
        - name: Authorization
      - parameter pkiBrandingID: (path)  
      - parameter brandingEditObjectV2Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<BrandingEditObjectV2Response> 
      */
-    open class func brandingEditObjectV2WithRequestBuilder(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request) -> RequestBuilder<CommonResponse> {
+    open class func brandingEditObjectV2WithRequestBuilder(pkiBrandingID: Int, brandingEditObjectV2Request: BrandingEditObjectV2Request) -> RequestBuilder<BrandingEditObjectV2Response> {
         var localVariablePath = "/2/object/branding/{pkiBrandingID}"
         let pkiBrandingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBrandingID))"
         let pkiBrandingIDPostEscape = pkiBrandingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,7 +106,7 @@ open class ObjectBrandingAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<BrandingEditObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

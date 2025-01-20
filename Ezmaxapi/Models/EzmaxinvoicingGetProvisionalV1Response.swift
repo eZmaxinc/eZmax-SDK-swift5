@@ -15,10 +15,9 @@ public struct EzmaxinvoicingGetProvisionalV1Response: Codable, JSONEncodable, Ha
 
     public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
-    /** Payload for GET /1/object/ezmaxinvoicing/getProvisional */
-    public var mPayload: EzmaxinvoicingResponseCompound
+    public var mPayload: EzmaxinvoicingGetProvisionalV1ResponseMPayload
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: EzmaxinvoicingResponseCompound) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: EzmaxinvoicingGetProvisionalV1ResponseMPayload) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
         self.mPayload = mPayload

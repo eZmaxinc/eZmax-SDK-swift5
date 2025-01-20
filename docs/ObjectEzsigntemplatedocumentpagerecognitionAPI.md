@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatedocumentpagerecognitionDeleteObjectV1**
 ```swift
-    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, completion: @escaping (_ data: EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsigntemplatedocumentpagerecognition
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response**](EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplatedocumentpagerecognitionEditObjectV1**
 ```swift
-    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request, completion: @escaping (_ data: EzsigntemplatedocumentpagerecognitionEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsigntemplatedocumentpagerecognition
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatedocumentpagerecognitionEditObjectV1Response**](EzsigntemplatedocumentpagerecognitionEditObjectV1Response.md)
 
 ### Authorization
 

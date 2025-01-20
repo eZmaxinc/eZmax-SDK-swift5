@@ -36,7 +36,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let userCreateObjectV1Request = user-createObject-v1-Request(aObjUser: [user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-Request(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV1Request | 
+let userCreateObjectV1Request = user-createObject-v1-Request(aObjUser: [user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV1Request | 
 
 // Create a new User
 ObjectUserAPI.userCreateObjectV1(userCreateObjectV1Request: userCreateObjectV1Request) { (response, error) in
@@ -86,7 +86,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let userCreateObjectV2Request = user-createObject-v2-Request(aObjUser: [user-RequestCompoundV2(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestV2(pkiPhoneID: 123, fkiPhonetypeID: 123, sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV2Request | 
+let userCreateObjectV2Request = user-createObject-v2-Request(aObjUser: [user-RequestCompoundV2(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompoundV2(pkiPhoneID: 123, fkiPhonetypeID: 123, sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV2Request | 
 
 // Create a new User
 ObjectUserAPI.userCreateObjectV2(userCreateObjectV2Request: userCreateObjectV2Request) { (response, error) in
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 # **userEditObjectV1**
 ```swift
-    open class func userEditObjectV1(pkiUserID: Int, userEditObjectV1Request: UserEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func userEditObjectV1(pkiUserID: Int, userEditObjectV1Request: UserEditObjectV1Request, completion: @escaping (_ data: UserEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing User
@@ -189,7 +189,7 @@ Edit an existing User
 import OpenAPIClient
 
 let pkiUserID = 987 // Int | The unique ID of the User
-let userEditObjectV1Request = user-editObject-v1-Request(objUser: user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-Request(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-Request(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)) // UserEditObjectV1Request | 
+let userEditObjectV1Request = user-editObject-v1-Request(objUser: user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)) // UserEditObjectV1Request | 
 
 // Edit an existing User
 ObjectUserAPI.userEditObjectV1(pkiUserID: pkiUserID, userEditObjectV1Request: userEditObjectV1Request) { (response, error) in
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UserEditObjectV1Response**](UserEditObjectV1Response.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ Using this endpoint, you can edit multiple Permissions at the same time.
 import OpenAPIClient
 
 let pkiUserID = 987 // Int | 
-let userEditPermissionsV1Request = user-editPermissions-v1-Request(aObjPermission: [permission-Request(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // UserEditPermissionsV1Request | 
+let userEditPermissionsV1Request = user-editPermissions-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // UserEditPermissionsV1Request | 
 
 // Edit multiple Permissions
 ObjectUserAPI.userEditPermissionsV1(pkiUserID: pkiUserID, userEditPermissionsV1Request: userEditPermissionsV1Request) { (response, error) in
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 
 # **userSendPasswordResetV1**
 ```swift
-    open class func userSendPasswordResetV1(pkiUserID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func userSendPasswordResetV1(pkiUserID: Int, body: AnyCodable, completion: @escaping (_ data: UserSendPasswordResetV1Response?, _ error: Error?) -> Void)
 ```
 
 Send password reset
@@ -819,7 +819,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UserSendPasswordResetV1Response**](UserSendPasswordResetV1Response.md)
 
 ### Authorization
 

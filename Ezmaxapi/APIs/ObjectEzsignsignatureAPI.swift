@@ -165,7 +165,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignsignatureDeleteObjectV1(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureDeleteObjectV1WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -184,9 +184,9 @@ open class ObjectEzsignsignatureAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignsignatureID: (path)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsignsignatureDeleteObjectV1Response> 
      */
-    open class func ezsignsignatureDeleteObjectV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<CommonResponse> {
+    open class func ezsignsignatureDeleteObjectV1WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<EzsignsignatureDeleteObjectV1Response> {
         var localVariablePath = "/1/object/ezsignsignature/{pkiEzsignsignatureID}"
         let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
         let pkiEzsignsignatureIDPostEscape = pkiEzsignsignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -202,7 +202,7 @@ open class ObjectEzsignsignatureAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -216,7 +216,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignsignatureEditObjectV2(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV2Request: EzsignsignatureEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignsignatureEditObjectV2(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV2Request: EzsignsignatureEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureEditObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureEditObjectV2WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureEditObjectV2Request: ezsignsignatureEditObjectV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -236,9 +236,9 @@ open class ObjectEzsignsignatureAPI {
        - name: Authorization
      - parameter pkiEzsignsignatureID: (path)  
      - parameter ezsignsignatureEditObjectV2Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsignsignatureEditObjectV2Response> 
      */
-    open class func ezsignsignatureEditObjectV2WithRequestBuilder(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV2Request: EzsignsignatureEditObjectV2Request) -> RequestBuilder<CommonResponse> {
+    open class func ezsignsignatureEditObjectV2WithRequestBuilder(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV2Request: EzsignsignatureEditObjectV2Request) -> RequestBuilder<EzsignsignatureEditObjectV2Response> {
         var localVariablePath = "/2/object/ezsignsignature/{pkiEzsignsignatureID}"
         let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
         let pkiEzsignsignatureIDPostEscape = pkiEzsignsignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -254,7 +254,7 @@ open class ObjectEzsignsignatureAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureEditObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

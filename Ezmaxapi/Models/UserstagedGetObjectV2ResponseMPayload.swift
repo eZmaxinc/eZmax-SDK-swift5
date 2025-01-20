@@ -13,10 +13,9 @@ import AnyCodable
 /** Payload for GET /2/object/userstaged/{pkiUserstagedID} */
 public struct UserstagedGetObjectV2ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    /** A Userstaged Object */
-    public var objUserstaged: UserstagedResponse
+    public var objUserstaged: UserstagedResponseCompound
 
-    public init(objUserstaged: UserstagedResponse) {
+    public init(objUserstaged: UserstagedResponseCompound) {
         self.objUserstaged = objUserstaged
     }
 

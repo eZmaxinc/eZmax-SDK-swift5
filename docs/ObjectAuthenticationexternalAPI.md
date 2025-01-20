@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalDeleteObjectV1**
 ```swift
-    open class func authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func authenticationexternalDeleteObjectV1(pkiAuthenticationexternalID: Int, completion: @escaping (_ data: AuthenticationexternalDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Authenticationexternal
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalDeleteObjectV1Response**](AuthenticationexternalDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalEditObjectV1**
 ```swift
-    open class func authenticationexternalEditObjectV1(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func authenticationexternalEditObjectV1(pkiAuthenticationexternalID: Int, authenticationexternalEditObjectV1Request: AuthenticationexternalEditObjectV1Request, completion: @escaping (_ data: AuthenticationexternalEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Authenticationexternal
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalEditObjectV1Response**](AuthenticationexternalEditObjectV1Response.md)
 
 ### Authorization
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 # **authenticationexternalResetAuthorizationV1**
 ```swift
-    open class func authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: Int, body: AnyCodable, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func authenticationexternalResetAuthorizationV1(pkiAuthenticationexternalID: Int, body: AnyCodable, completion: @escaping (_ data: AuthenticationexternalResetAuthorizationV1Response?, _ error: Error?) -> Void)
 ```
 
 Reset the Authenticationexternal authorization
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**AuthenticationexternalResetAuthorizationV1Response**](AuthenticationexternalResetAuthorizationV1Response.md)
 
 ### Authorization
 

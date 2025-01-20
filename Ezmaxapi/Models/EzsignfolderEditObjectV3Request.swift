@@ -13,10 +13,9 @@ import AnyCodable
 /** Request for PUT /3/object/ezsignfolder/{pkiEzsignfolderID} */
 public struct EzsignfolderEditObjectV3Request: Codable, JSONEncodable, Hashable {
 
-    /** An Ezsignfolder Object and children to create a complete structure */
-    public var objEzsignfolder: EzsignfolderRequestV3
+    public var objEzsignfolder: EzsignfolderRequestCompoundV3
 
-    public init(objEzsignfolder: EzsignfolderRequestV3) {
+    public init(objEzsignfolder: EzsignfolderRequestCompoundV3) {
         self.objEzsignfolder = objEzsignfolder
     }
 

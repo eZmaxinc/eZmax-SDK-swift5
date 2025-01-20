@@ -67,7 +67,7 @@ open class ObjectUsergroupexternalAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func usergroupexternalDeleteObjectV1(pkiUsergroupexternalID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupexternalDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return usergroupexternalDeleteObjectV1WithRequestBuilder(pkiUsergroupexternalID: pkiUsergroupexternalID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectUsergroupexternalAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiUsergroupexternalID: (path) The unique ID of the Usergroupexternal 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<UsergroupexternalDeleteObjectV1Response> 
      */
-    open class func usergroupexternalDeleteObjectV1WithRequestBuilder(pkiUsergroupexternalID: Int) -> RequestBuilder<CommonResponse> {
+    open class func usergroupexternalDeleteObjectV1WithRequestBuilder(pkiUsergroupexternalID: Int) -> RequestBuilder<UsergroupexternalDeleteObjectV1Response> {
         var localVariablePath = "/1/object/usergroupexternal/{pkiUsergroupexternalID}"
         let pkiUsergroupexternalIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupexternalID))"
         let pkiUsergroupexternalIDPostEscape = pkiUsergroupexternalIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectUsergroupexternalAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UsergroupexternalDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectUsergroupexternalAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func usergroupexternalEditObjectV1(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func usergroupexternalEditObjectV1(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupexternalEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return usergroupexternalEditObjectV1WithRequestBuilder(pkiUsergroupexternalID: pkiUsergroupexternalID, usergroupexternalEditObjectV1Request: usergroupexternalEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectUsergroupexternalAPI {
        - name: Authorization
      - parameter pkiUsergroupexternalID: (path) The unique ID of the Usergroupexternal 
      - parameter usergroupexternalEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<UsergroupexternalEditObjectV1Response> 
      */
-    open class func usergroupexternalEditObjectV1WithRequestBuilder(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func usergroupexternalEditObjectV1WithRequestBuilder(pkiUsergroupexternalID: Int, usergroupexternalEditObjectV1Request: UsergroupexternalEditObjectV1Request) -> RequestBuilder<UsergroupexternalEditObjectV1Response> {
         var localVariablePath = "/1/object/usergroupexternal/{pkiUsergroupexternalID}"
         let pkiUsergroupexternalIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupexternalID))"
         let pkiUsergroupexternalIDPostEscape = pkiUsergroupexternalIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectUsergroupexternalAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UsergroupexternalEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

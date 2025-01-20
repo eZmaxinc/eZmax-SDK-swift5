@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **paymenttermEditObjectV1**
 ```swift
-    open class func paymenttermEditObjectV1(pkiPaymenttermID: Int, paymenttermEditObjectV1Request: PaymenttermEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func paymenttermEditObjectV1(pkiPaymenttermID: Int, paymenttermEditObjectV1Request: PaymenttermEditObjectV1Request, completion: @escaping (_ data: PaymenttermEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Paymentterm
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**PaymenttermEditObjectV1Response**](PaymenttermEditObjectV1Response.md)
 
 ### Authorization
 

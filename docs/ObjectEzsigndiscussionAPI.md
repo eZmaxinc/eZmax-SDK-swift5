@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **ezsigndiscussionDeleteObjectV1**
 ```swift
-    open class func ezsigndiscussionDeleteObjectV1(pkiEzsigndiscussionID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigndiscussionDeleteObjectV1(pkiEzsigndiscussionID: Int, completion: @escaping (_ data: EzsigndiscussionDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsigndiscussion
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndiscussionDeleteObjectV1Response**](EzsigndiscussionDeleteObjectV1Response.md)
 
 ### Authorization
 
