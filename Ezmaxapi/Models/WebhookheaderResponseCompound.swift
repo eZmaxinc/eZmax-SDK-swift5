@@ -13,8 +13,8 @@ import AnyCodable
 /** A Webhookheader Object */
 public struct WebhookheaderResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let sWebhookheaderNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\\s)[^\\s].*$/")
-    static let sWebhookheaderValueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,255}$/")
+    public static let sWebhookheaderNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\\s)[^\\s].*$/")
+    public static let sWebhookheaderValueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,255}$/")
     /** The unique ID of the Webhookheader */
     public var pkiWebhookheaderID: Int
     /** The unique ID of the Webhook */

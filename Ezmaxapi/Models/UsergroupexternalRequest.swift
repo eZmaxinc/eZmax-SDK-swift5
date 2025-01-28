@@ -13,9 +13,9 @@ import AnyCodable
 /** A Usergroupexternal Object */
 public struct UsergroupexternalRequest: Codable, JSONEncodable, Hashable {
 
-    static let pkiUsergroupexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sUsergroupexternalNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
-    static let sUsergroupexternalIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
+    public static let pkiUsergroupexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sUsergroupexternalNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
+    public static let sUsergroupexternalIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,64}$/")
     /** The unique ID of the Usergroupexternal */
     public var pkiUsergroupexternalID: Int?
     /** The name of the Usergroupexternal */

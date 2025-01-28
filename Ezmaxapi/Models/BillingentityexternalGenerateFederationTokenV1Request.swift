@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/billingentityexternal/{pkiBillingentityexternalID}/generateFederationToken */
 public struct BillingentityexternalGenerateFederationTokenV1Request: Codable, JSONEncodable, Hashable {
 
-    static let fksEzmaxcustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: "/^[a-z\\d]{2,6}$/")
+    public static let fksEzmaxcustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: "/^[a-z\\d]{2,6}$/")
     /** The Ezmaxcustomer code */
     public var fksEzmaxcustomerCode: String
 

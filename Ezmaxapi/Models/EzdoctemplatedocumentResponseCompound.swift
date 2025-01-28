@@ -13,14 +13,14 @@ import AnyCodable
 /** A Ezdoctemplatedocument Object */
 public struct EzdoctemplatedocumentResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzdoctemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzdoctemplatetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzdoctemplatefieldtypecategoryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sEzdoctemplatefieldtypecategoryDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
-    static let sEzdoctemplatetypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pkiEzdoctemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzdoctemplatetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzdoctemplatefieldtypecategoryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzdoctemplatefieldtypecategoryDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
+    public static let sEzdoctemplatetypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Ezdoctemplatedocument */
     public var pkiEzdoctemplatedocumentID: Int
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */

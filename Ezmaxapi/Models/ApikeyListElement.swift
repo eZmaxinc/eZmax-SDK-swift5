@@ -13,7 +13,7 @@ import AnyCodable
 /** A Branding List Element */
 public struct ApikeyListElement: Codable, JSONEncodable, Hashable {
 
-    static let pkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Apikey */
     public var pkiApikeyID: Int
     /** The description of the Apikey in the language of the requester */

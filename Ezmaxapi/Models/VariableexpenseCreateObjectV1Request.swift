@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/variableexpense */
 public struct VariableexpenseCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjVariableexpenseRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjVariableexpenseRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjVariableexpense: [VariableexpenseRequestCompound]
 
     public init(aObjVariableexpense: [VariableexpenseRequestCompound]) {

@@ -12,7 +12,7 @@ import AnyCodable
 
 public struct ScimEmail: Codable, JSONEncodable, Hashable {
 
-    static let valueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
+    public static let valueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     /** The email address. */
     public var value: String?
     public var primary: Bool?

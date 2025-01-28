@@ -17,9 +17,9 @@ public struct EzsignsignatureSignV1Request: Codable, JSONEncodable, Hashable {
         case accepted = "Accepted"
         case refused = "Refused"
     }
-    static let fkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let fkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
     /** The unique ID of the Ezsignsigningreason */
     public var fkiEzsignsigningreasonID: Int?
     /** The unique ID of the Font */

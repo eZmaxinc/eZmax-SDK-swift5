@@ -20,11 +20,11 @@ public struct CustomCommunicationsenderResponse: Codable, JSONEncodable, Hashabl
         case mailboxshared = "Mailboxshared"
         case phonelineshared = "Phonelineshared"
     }
-    static let fkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiMailboxsharedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiPhonelinesharedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiMailboxsharedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiPhonelinesharedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Agent. */
     public var fkiAgentID: Int?
     /** The unique ID of the Broker. */
@@ -37,12 +37,11 @@ public struct CustomCommunicationsenderResponse: Codable, JSONEncodable, Hashabl
     public var fkiPhonelinesharedID: Int?
     public var eCommunicationsenderObjecttype: ECommunicationsenderObjecttype
     public var objContactName: CustomContactNameResponse
-    /** An Email Object and children to create a complete structure */
-    public var objEmail: EmailResponse?
+    public var objEmail: EmailResponseCompound?
     public var objPhoneFax: PhoneResponseCompound?
     public var objPhoneSMS: PhoneResponseCompound?
 
-    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiUserID: Int? = nil, fkiMailboxsharedID: Int? = nil, fkiPhonelinesharedID: Int? = nil, eCommunicationsenderObjecttype: ECommunicationsenderObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponse? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
+    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiUserID: Int? = nil, fkiMailboxsharedID: Int? = nil, fkiPhonelinesharedID: Int? = nil, eCommunicationsenderObjecttype: ECommunicationsenderObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponseCompound? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
         self.fkiUserID = fkiUserID

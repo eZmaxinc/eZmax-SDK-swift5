@@ -13,15 +13,15 @@ import AnyCodable
 /** A Ezsigntemplate Object */
 public struct EzsigntemplateResponseV3: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigntemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzdoctemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sEzsigntemplateDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
-    static let sEzsigntemplateExternaldescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
-    static let sEzsigntemplateFilenameregexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
+    public static let pkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzdoctemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzdoctemplatedocumentNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzsigntemplateDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
+    public static let sEzsigntemplateExternaldescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sEzsigntemplateFilenameregexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
     /** The unique ID of the Ezsigntemplate */
     public var pkiEzsigntemplateID: Int
     /** The unique ID of the Ezsigntemplatedocument */

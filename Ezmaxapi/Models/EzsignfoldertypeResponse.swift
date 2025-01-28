@@ -13,19 +13,19 @@ import AnyCodable
 /** A Ezsignfoldertype Object */
 public struct EzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiUsergroupIDRestrictedRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigntsarequirementIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 3, exclusiveMaximum: false, multipleOf: nil)
-    static let sEmailAddressSignedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
-    static let sEmailAddressSummaryRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
-    static let sUsergroupNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sUsergroupNameXRestrictedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let iEzsignfoldertypeArchivaldaysRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 180, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsignfoldertypeDisposaldaysRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 9999, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsignfoldertypeDeadlinedaysRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 60, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiUsergroupIDRestrictedRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntsarequirementIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 3, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEmailAddressSignedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
+    public static let sEmailAddressSummaryRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
+    public static let sUsergroupNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sUsergroupNameXRestrictedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let iEzsignfoldertypeArchivaldaysRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 180, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsignfoldertypeDisposaldaysRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 9999, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsignfoldertypeDeadlinedaysRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 60, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfoldertype. */
     public var pkiEzsignfoldertypeID: Int
     public var objEzsignfoldertypeName: MultilingualEzsignfoldertypeName

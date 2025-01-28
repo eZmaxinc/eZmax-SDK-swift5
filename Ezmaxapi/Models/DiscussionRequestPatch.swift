@@ -13,7 +13,7 @@ import AnyCodable
 /** A Discussion Object */
 public struct DiscussionRequestPatch: Codable, JSONEncodable, Hashable {
 
-    static let sDiscussionDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sDiscussionDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
     /** The description of the Discussion */
     public var sDiscussionDescription: String?
     /** Whether if it's an closed */

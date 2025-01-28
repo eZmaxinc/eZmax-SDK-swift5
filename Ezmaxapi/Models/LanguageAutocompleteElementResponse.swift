@@ -13,7 +13,7 @@ import AnyCodable
 /** A Language AutocompleteElement Response */
 public struct LanguageAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var pkiLanguageID: Int
     /** The Name of the Language in the language of the requester */

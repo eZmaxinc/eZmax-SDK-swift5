@@ -13,9 +13,9 @@ import AnyCodable
 /** An Ezsigntemplatesignaturecustomdate Object */
 public struct EzsigntemplatesignaturecustomdateResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigntemplatesignaturecustomdateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplatesignaturecustomdateXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplatesignaturecustomdateYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsigntemplatesignaturecustomdateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatesignaturecustomdateXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatesignaturecustomdateYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplatesignaturecustomdate */
     public var pkiEzsigntemplatesignaturecustomdateID: Int
     /** The X coordinate (Horizontal) where to put the Ezsigntemplatesignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignaturecustomdate 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */

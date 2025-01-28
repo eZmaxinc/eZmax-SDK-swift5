@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /2/object/franchisereferalincome */
 public struct FranchisereferalincomeCreateObjectV2Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjFranchisereferalincomeRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjFranchisereferalincomeRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjFranchisereferalincome: [FranchisereferalincomeRequestCompound]
 
     public init(aObjFranchisereferalincome: [FranchisereferalincomeRequestCompound]) {

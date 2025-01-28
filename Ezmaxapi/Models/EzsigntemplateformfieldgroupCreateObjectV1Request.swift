@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsigntemplateformfieldgroup */
 public struct EzsigntemplateformfieldgroupCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsigntemplateformfieldgroupRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsigntemplateformfieldgroupRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsigntemplateformfieldgroup: [EzsigntemplateformfieldgroupRequestCompound]
 
     public init(aObjEzsigntemplateformfieldgroup: [EzsigntemplateformfieldgroupRequestCompound]) {

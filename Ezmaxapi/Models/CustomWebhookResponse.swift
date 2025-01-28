@@ -18,11 +18,11 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         case manual = "Manual"
         case test = "Test"
     }
-    static let fkiAuthenticationexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
-    static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
+    public static let fkiAuthenticationexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
     /** The unique ID of the Webhook */
     public var pkiWebhookID: Int
     /** The unique ID of the Authenticationexternal */

@@ -67,7 +67,7 @@ open class ObjectEzsigntemplatedocumentpagerecognitionAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatedocumentpagerecognitionDeleteObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectEzsigntemplatedocumentpagerecognitionAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsigntemplatedocumentpagerecognitionID: (path) The unique ID of the Ezsigntemplatedocumentpagerecognition 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response> 
      */
-    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentpagerecognitionID: Int) -> RequestBuilder<CommonResponse> {
+    open class func ezsigntemplatedocumentpagerecognitionDeleteObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentpagerecognitionID: Int) -> RequestBuilder<EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response> {
         var localVariablePath = "/1/object/ezsigntemplatedocumentpagerecognition/{pkiEzsigntemplatedocumentpagerecognitionID}"
         let pkiEzsigntemplatedocumentpagerecognitionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatedocumentpagerecognitionID))"
         let pkiEzsigntemplatedocumentpagerecognitionIDPostEscape = pkiEzsigntemplatedocumentpagerecognitionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectEzsigntemplatedocumentpagerecognitionAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectEzsigntemplatedocumentpagerecognitionAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatedocumentpagerecognitionEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatedocumentpagerecognitionEditObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentpagerecognitionID: pkiEzsigntemplatedocumentpagerecognitionID, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: ezsigntemplatedocumentpagerecognitionEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectEzsigntemplatedocumentpagerecognitionAPI {
        - name: Authorization
      - parameter pkiEzsigntemplatedocumentpagerecognitionID: (path) The unique ID of the Ezsigntemplatedocumentpagerecognition 
      - parameter ezsigntemplatedocumentpagerecognitionEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsigntemplatedocumentpagerecognitionEditObjectV1Response> 
      */
-    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func ezsigntemplatedocumentpagerecognitionEditObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentpagerecognitionID: Int, ezsigntemplatedocumentpagerecognitionEditObjectV1Request: EzsigntemplatedocumentpagerecognitionEditObjectV1Request) -> RequestBuilder<EzsigntemplatedocumentpagerecognitionEditObjectV1Response> {
         var localVariablePath = "/1/object/ezsigntemplatedocumentpagerecognition/{pkiEzsigntemplatedocumentpagerecognitionID}"
         let pkiEzsigntemplatedocumentpagerecognitionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatedocumentpagerecognitionID))"
         let pkiEzsigntemplatedocumentpagerecognitionIDPostEscape = pkiEzsigntemplatedocumentpagerecognitionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectEzsigntemplatedocumentpagerecognitionAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentpagerecognitionEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

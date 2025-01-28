@@ -328,7 +328,7 @@ open class ObjectEzsigntemplatedocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatedocumentFlattenV1(pkiEzsigntemplatedocumentID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigntemplatedocumentFlattenV1(pkiEzsigntemplatedocumentID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatedocumentFlattenV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatedocumentFlattenV1WithRequestBuilder(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -348,9 +348,9 @@ open class ObjectEzsigntemplatedocumentAPI {
        - name: Authorization
      - parameter pkiEzsigntemplatedocumentID: (path)  
      - parameter body: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsigntemplatedocumentFlattenV1Response> 
      */
-    open class func ezsigntemplatedocumentFlattenV1WithRequestBuilder(pkiEzsigntemplatedocumentID: Int, body: AnyCodable) -> RequestBuilder<CommonResponse> {
+    open class func ezsigntemplatedocumentFlattenV1WithRequestBuilder(pkiEzsigntemplatedocumentID: Int, body: AnyCodable) -> RequestBuilder<EzsigntemplatedocumentFlattenV1Response> {
         var localVariablePath = "/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten"
         let pkiEzsigntemplatedocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatedocumentID))"
         let pkiEzsigntemplatedocumentIDPostEscape = pkiEzsigntemplatedocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -366,7 +366,7 @@ open class ObjectEzsigntemplatedocumentAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentFlattenV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -682,7 +682,7 @@ open class ObjectEzsigntemplatedocumentAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsigntemplatedocumentPatchObjectV1(pkiEzsigntemplatedocumentID: Int, ezsigntemplatedocumentPatchObjectV1Request: EzsigntemplatedocumentPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsigntemplatedocumentPatchObjectV1(pkiEzsigntemplatedocumentID: Int, ezsigntemplatedocumentPatchObjectV1Request: EzsigntemplatedocumentPatchObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatedocumentPatchObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigntemplatedocumentPatchObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID, ezsigntemplatedocumentPatchObjectV1Request: ezsigntemplatedocumentPatchObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -702,9 +702,9 @@ open class ObjectEzsigntemplatedocumentAPI {
        - name: Authorization
      - parameter pkiEzsigntemplatedocumentID: (path)  
      - parameter ezsigntemplatedocumentPatchObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsigntemplatedocumentPatchObjectV1Response> 
      */
-    open class func ezsigntemplatedocumentPatchObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentID: Int, ezsigntemplatedocumentPatchObjectV1Request: EzsigntemplatedocumentPatchObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func ezsigntemplatedocumentPatchObjectV1WithRequestBuilder(pkiEzsigntemplatedocumentID: Int, ezsigntemplatedocumentPatchObjectV1Request: EzsigntemplatedocumentPatchObjectV1Request) -> RequestBuilder<EzsigntemplatedocumentPatchObjectV1Response> {
         var localVariablePath = "/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}"
         let pkiEzsigntemplatedocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatedocumentID))"
         let pkiEzsigntemplatedocumentIDPostEscape = pkiEzsigntemplatedocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -720,7 +720,7 @@ open class ObjectEzsigntemplatedocumentAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentPatchObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PATCH", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

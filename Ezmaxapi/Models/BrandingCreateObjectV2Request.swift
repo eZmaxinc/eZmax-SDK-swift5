@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /2/object/branding */
 public struct BrandingCreateObjectV2Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjBrandingRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjBrandingRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjBranding: [BrandingRequestCompoundV2]
 
     public init(aObjBranding: [BrandingRequestCompoundV2]) {

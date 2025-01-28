@@ -13,15 +13,15 @@ import AnyCodable
 /** An Ezsignformfieldgroup Object */
 public struct EzsignformfieldgroupRequest: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignformfieldgroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzsignformfieldgroupLabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
-    static let iEzsignformfieldgroupStepRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsignformfieldgroupFilledminRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsignformfieldgroupFilledmaxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsignformfieldgroupMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzsignformfieldgroupRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
-    static let sEzsignformfieldgroupTextvalidationcustommessageRule = StringRule(minLength: 0, maxLength: 50, pattern: nil)
+    public static let pkiEzsignformfieldgroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsignformfieldgroupLabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
+    public static let iEzsignformfieldgroupStepRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsignformfieldgroupFilledminRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsignformfieldgroupFilledmaxRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsignformfieldgroupMaxlengthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsignformfieldgroupRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
+    public static let sEzsignformfieldgroupTextvalidationcustommessageRule = StringRule(minLength: 0, maxLength: 50, pattern: nil)
     /** The unique ID of the Ezsignformfieldgroup */
     public var pkiEzsignformfieldgroupID: Int?
     /** The unique ID of the Ezsigndocument */

@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsigntemplatedocumentpagerecognition */
 public struct EzsigntemplatedocumentpagerecognitionCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsigntemplatedocumentpagerecognitionRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsigntemplatedocumentpagerecognitionRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsigntemplatedocumentpagerecognition: [EzsigntemplatedocumentpagerecognitionRequestCompound]
 
     public init(aObjEzsigntemplatedocumentpagerecognition: [EzsigntemplatedocumentpagerecognitionRequestCompound]) {

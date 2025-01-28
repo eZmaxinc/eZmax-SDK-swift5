@@ -13,9 +13,9 @@ import AnyCodable
 /** A Variableexpense List Element */
 public struct VariableexpenseListElement: Codable, JSONEncodable, Hashable {
 
-    static let pkiVariableexpenseIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sVariableexpenseCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,5}$/")
-    static let sVariableexpenseDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let pkiVariableexpenseIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sVariableexpenseCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,5}$/")
+    public static let sVariableexpenseDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
     /** The unique ID of the Variableexpense */
     public var pkiVariableexpenseID: Int
     /** The code of the Variableexpense */

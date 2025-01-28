@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/communication */
 public struct CommunicationSendV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjCommunicationRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjCommunicationRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjCommunication: [CommunicationRequestCompound]
 
     public init(aObjCommunication: [CommunicationRequestCompound]) {

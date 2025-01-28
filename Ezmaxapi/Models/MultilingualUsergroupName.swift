@@ -13,8 +13,8 @@ import AnyCodable
 /** The name of the Usergroup */
 public struct MultilingualUsergroupName: Codable, JSONEncodable, Hashable {
 
-    static let sUsergroupName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sUsergroupName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sUsergroupName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sUsergroupName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The name of the Usergroup in French */
     public var sUsergroupName1: String?
     /** The name of the Usergroup in English */

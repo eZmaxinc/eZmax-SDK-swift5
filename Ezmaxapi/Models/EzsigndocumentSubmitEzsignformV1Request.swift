@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/submitEzsignform */
 public struct EzsigndocumentSubmitEzsignformV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsignformfieldgroupRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsignformfieldgroupRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** Whether the Ezsignform submitted is a draft or not. */
     public var bEzsignformIsdraft: Bool
     public var aObjEzsignformfieldgroup: [CustomEzsignformfieldgroupRequest]

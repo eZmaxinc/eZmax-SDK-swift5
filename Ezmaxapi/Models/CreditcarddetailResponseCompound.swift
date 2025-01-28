@@ -13,14 +13,14 @@ import AnyCodable
 /** A Creditcarddetail Object */
 public struct CreditcarddetailResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiCreditcarddetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiCreditcardtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let iCreditcarddetailLastdigitsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 9999, exclusiveMaximum: false, multipleOf: nil)
-    static let iCreditcarddetailExpirationmonthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
-    static let iCreditcarddetailExpirationyearRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2200, exclusiveMaximum: false, multipleOf: nil)
-    static let sCreditcarddetailCivicRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,8}$/")
-    static let sCreditcarddetailStreetRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,19}$/")
-    static let sCreditcarddetailZipRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,9}$/")
+    public static let pkiCreditcarddetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiCreditcardtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let iCreditcarddetailLastdigitsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 9999, exclusiveMaximum: false, multipleOf: nil)
+    public static let iCreditcarddetailExpirationmonthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
+    public static let iCreditcarddetailExpirationyearRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 2200, exclusiveMaximum: false, multipleOf: nil)
+    public static let sCreditcarddetailCivicRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,8}$/")
+    public static let sCreditcarddetailStreetRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,19}$/")
+    public static let sCreditcarddetailZipRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,9}$/")
     /** The unique ID of the Creditcarddetail */
     public var pkiCreditcarddetailID: Int
     /** The unique ID of the Creditcardtype */

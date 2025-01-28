@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /2/object/ezsignfolder/{pkiEzsignfolderID}/reorder */
 public struct EzsignfolderReorderV2Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsigndocumentRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsigndocumentRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var eEzsignfolderDocumentdependency: FieldEEzsignfolderDocumentdependency?
     public var aObjEzsigndocument: [CustomEzsigndocumentRequest]
 

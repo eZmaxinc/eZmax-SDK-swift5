@@ -13,9 +13,11 @@ import AnyCodable
 /** A form Data Signer Object */
 public struct CustomFormDataSignerResponse: Codable, JSONEncodable, Hashable {
 
-    static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let aObjEzsignformfieldgroupRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: false)
+    public static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
+    public static let aObjEzsignformfieldgroupRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: false)
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
     /** The unique ID of the User */

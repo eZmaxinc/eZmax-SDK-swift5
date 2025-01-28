@@ -13,8 +13,8 @@ import AnyCodable
 /** An Ezsigndocumentdependency Object */
 public struct EzsigndocumentdependencyRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigndocumentdependencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigndocumentIDdependencyRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsigndocumentdependencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigndocumentIDdependencyRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigndocumentdependency */
     public var pkiEzsigndocumentdependencyID: Int?
     /** The unique ID of the Ezsigndocument */

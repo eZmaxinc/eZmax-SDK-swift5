@@ -13,8 +13,8 @@ import AnyCodable
 /** A Emailtype AutocompleteElement Response */
 public struct EmailtypeAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEmailtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sEmailtypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,15}$/")
+    public static let pkiEmailtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEmailtypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,15}$/")
     /** The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| */
     public var pkiEmailtypeID: Int
     /** The name of the Emailtype in the language of the requester */

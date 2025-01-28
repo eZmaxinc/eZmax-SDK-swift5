@@ -13,7 +13,7 @@ import AnyCodable
 /** A Module AutocompleteElement Response */
 public struct ModuleAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiModuleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiModuleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Module */
     public var pkiModuleID: Int
     /** The Name of the Module in the language of the requester */

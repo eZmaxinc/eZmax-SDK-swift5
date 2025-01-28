@@ -13,9 +13,9 @@ import AnyCodable
 /** A form Data Document Object  */
 public struct CustomFormDataDocumentResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let aObjFormDataSignerRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: false)
+    public static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let aObjFormDataSignerRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: false)
     /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int
     /** The unique ID of the Ezsignfolder */

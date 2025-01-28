@@ -13,8 +13,8 @@ import AnyCodable
 /** A Custom Ezsignformfielderrortest Object to contain the detail of the test error */
 public struct CustomEzsignformfielderrortestResponse: Codable, JSONEncodable, Hashable {
 
-    static let sEzsignformfielderrortestNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sEzsignformfielderrortestDetailRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
+    public static let sEzsignformfielderrortestNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzsignformfielderrortestDetailRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
     /** The name of the test */
     public var sEzsignformfielderrortestName: String
     /** The detail why the test failed */

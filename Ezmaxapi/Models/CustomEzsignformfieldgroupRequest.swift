@@ -13,9 +13,9 @@ import AnyCodable
 /** A Custom Ezsignformfieldgroup Object to fill an Ezsignform using submitForm */
 public struct CustomEzsignformfieldgroupRequest: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignformfieldgroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzsignformfieldgroupLabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
-    static let aObjEzsignformfieldRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let pkiEzsignformfieldgroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsignformfieldgroupLabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
+    public static let aObjEzsignformfieldRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** The unique ID of the Ezsignformfieldgroup */
     public var pkiEzsignformfieldgroupID: Int?
     /** The Label for the Ezsignformfieldgroup */

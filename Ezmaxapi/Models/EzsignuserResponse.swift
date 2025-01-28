@@ -13,8 +13,8 @@ import AnyCodable
 /** A Ezsignuser Object */
 public struct EzsignuserResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignuserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiContactIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignuserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiContactIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignuser */
     public var pkiEzsignuserID: Int
     /** The unique ID of the Contact */

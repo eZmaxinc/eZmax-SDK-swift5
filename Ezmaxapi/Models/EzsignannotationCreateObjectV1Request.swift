@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsignannotation */
 public struct EzsignannotationCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsignannotationRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsignannotationRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsignannotation: [EzsignannotationRequestCompound]
 
     public init(aObjEzsignannotation: [EzsignannotationRequestCompound]) {

@@ -67,7 +67,7 @@ open class ObjectSignatureAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func signatureDeleteObjectV1(pkiSignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func signatureDeleteObjectV1(pkiSignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SignatureDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return signatureDeleteObjectV1WithRequestBuilder(pkiSignatureID: pkiSignatureID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectSignatureAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiSignatureID: (path) The unique ID of the Signature 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<SignatureDeleteObjectV1Response> 
      */
-    open class func signatureDeleteObjectV1WithRequestBuilder(pkiSignatureID: Int) -> RequestBuilder<CommonResponse> {
+    open class func signatureDeleteObjectV1WithRequestBuilder(pkiSignatureID: Int) -> RequestBuilder<SignatureDeleteObjectV1Response> {
         var localVariablePath = "/1/object/signature/{pkiSignatureID}"
         let pkiSignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSignatureID))"
         let pkiSignatureIDPostEscape = pkiSignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectSignatureAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SignatureDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectSignatureAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func signatureEditObjectV1(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func signatureEditObjectV1(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SignatureEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return signatureEditObjectV1WithRequestBuilder(pkiSignatureID: pkiSignatureID, signatureEditObjectV1Request: signatureEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectSignatureAPI {
        - name: Authorization
      - parameter pkiSignatureID: (path) The unique ID of the Signature 
      - parameter signatureEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<SignatureEditObjectV1Response> 
      */
-    open class func signatureEditObjectV1WithRequestBuilder(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func signatureEditObjectV1WithRequestBuilder(pkiSignatureID: Int, signatureEditObjectV1Request: SignatureEditObjectV1Request) -> RequestBuilder<SignatureEditObjectV1Response> {
         var localVariablePath = "/1/object/signature/{pkiSignatureID}"
         let pkiSignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSignatureID))"
         let pkiSignatureIDPostEscape = pkiSignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectSignatureAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SignatureEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

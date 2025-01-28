@@ -13,7 +13,7 @@ import AnyCodable
 /** A Franchiseoffice AutocompleteElement Response */
 public struct FranchiseofficeAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiFranchiseofficeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiFranchiseofficeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The description of the Franchiseoffice in the language of the requester */
     public var sFranchiseofficeDescription: String
     /** The unique ID of the Franchisereoffice */

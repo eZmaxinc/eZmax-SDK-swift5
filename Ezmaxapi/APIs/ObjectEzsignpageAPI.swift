@@ -21,7 +21,7 @@ open class ObjectEzsignpageAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignpageConsultV1(pkiEzsignpageID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignpageConsultV1(pkiEzsignpageID: Int, body: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignpageConsultV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignpageConsultV1WithRequestBuilder(pkiEzsignpageID: pkiEzsignpageID, body: body).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -40,9 +40,9 @@ open class ObjectEzsignpageAPI {
        - name: Authorization
      - parameter pkiEzsignpageID: (path)  
      - parameter body: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsignpageConsultV1Response> 
      */
-    open class func ezsignpageConsultV1WithRequestBuilder(pkiEzsignpageID: Int, body: AnyCodable) -> RequestBuilder<CommonResponse> {
+    open class func ezsignpageConsultV1WithRequestBuilder(pkiEzsignpageID: Int, body: AnyCodable) -> RequestBuilder<EzsignpageConsultV1Response> {
         var localVariablePath = "/1/object/ezsignpage/{pkiEzsignpageID}/consult"
         let pkiEzsignpageIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignpageID))"
         let pkiEzsignpageIDPostEscape = pkiEzsignpageIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -58,7 +58,7 @@ open class ObjectEzsignpageAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignpageConsultV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

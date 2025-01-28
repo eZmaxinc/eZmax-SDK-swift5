@@ -13,8 +13,8 @@ import AnyCodable
 /** An Ezsignformfieldgroupsigner Object and children to create a complete structure */
 public struct EzsignformfieldgroupsignerRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignformfieldgroupsignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignformfieldgroupsignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignformfieldgroupsigner */
     public var pkiEzsignformfieldgroupsignerID: Int?
     /** The unique ID of the Ezsignfoldersignerassociation */

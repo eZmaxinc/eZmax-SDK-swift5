@@ -13,7 +13,7 @@ import AnyCodable
 /** A Billingentityinternal Object and children */
 public struct BillingentityinternalRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiBillingentityinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Billingentityinternal. */
     public var pkiBillingentityinternalID: Int?
     public var objBillingentityinternalDescription: MultilingualBillingentityinternalDescription

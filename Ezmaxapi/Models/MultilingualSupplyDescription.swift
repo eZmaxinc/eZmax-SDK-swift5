@@ -13,8 +13,8 @@ import AnyCodable
 /** The description1 of the Supply */
 public struct MultilingualSupplyDescription: Codable, JSONEncodable, Hashable {
 
-    static let sSupplyDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sSupplyDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sSupplyDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sSupplyDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The description of the Supply in French */
     public var sSupplyDescription1: String?
     /** The description of the Supply in English */

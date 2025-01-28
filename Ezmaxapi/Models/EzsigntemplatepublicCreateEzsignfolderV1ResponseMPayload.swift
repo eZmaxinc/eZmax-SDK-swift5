@@ -13,7 +13,7 @@ import AnyCodable
 /** Payload for POST /1/object/ezsigntemplatepublic/createEzsignfolder */
 public struct EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let sEzsigntemplatepublicSigningurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sEzsigntemplatepublicSigningurlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     /** The url to sign the Ezsignfolder created by the Ezsigntemplatepublic. Only used when fkiUserLogintypeID is **No validation** or **Sms only** */
     public var sEzsigntemplatepublicSigningurl: String?
 

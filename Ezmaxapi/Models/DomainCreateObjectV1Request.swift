@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/domain */
 public struct DomainCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjDomainRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjDomainRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjDomain: [DomainRequestCompound]
 
     public init(aObjDomain: [DomainRequestCompound]) {

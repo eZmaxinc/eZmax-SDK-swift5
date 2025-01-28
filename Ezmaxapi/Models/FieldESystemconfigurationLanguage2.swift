@@ -12,7 +12,7 @@ import AnyCodable
 
 /** The type of the english for the client */
 public enum FieldESystemconfigurationLanguage2: String, Codable, CaseIterable {
-    case ca = "en_CA"
-    case qc = "en_QC"
-    case us = "en_US"
+    case enCa = "en_CA"
+    case enQc = "en_QC"
+    case enUs = "en_US"
 }

@@ -13,7 +13,7 @@ import AnyCodable
 /** A Glaccountcontainer AutocompleteElement Response */
 public struct GlaccountcontainerAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiGlaccountcontainerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiGlaccountcontainerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Glaccountcontainer */
     public var pkiGlaccountcontainerID: Int
     /** The Code for the Glaccountcontainer */

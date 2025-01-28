@@ -13,7 +13,7 @@ import AnyCodable
 /** Branding AutocompleteElement Response */
 public struct BrandingAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The Description of the Branding in the language of the requester */
     public var sBrandingDescriptionX: String
     /** The unique ID of the Branding */

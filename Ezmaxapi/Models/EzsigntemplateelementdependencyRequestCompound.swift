@@ -13,11 +13,11 @@ import AnyCodable
 /** An Ezsigntemplateelementdependency Object and children to create a complete structure */
 public struct EzsigntemplateelementdependencyRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigntemplateelementdependencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigntemplateformfieldIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigntemplateformfieldgroupIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
-    static let sEzsigntemplateelementdependencyValueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pkiEzsigntemplateelementdependencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplateformfieldIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplateformfieldgroupIDValidationRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
+    public static let sEzsigntemplateelementdependencyValueRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Ezsigntemplateelementdependency */
     public var pkiEzsigntemplateelementdependencyID: Int?
     /** The unique ID of the Ezsigntemplateformfield */

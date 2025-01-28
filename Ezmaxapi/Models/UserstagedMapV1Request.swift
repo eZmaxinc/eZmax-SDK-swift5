@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/userstaged/{pkiUserstagedID}/map */
 public struct UserstagedMapV1Request: Codable, JSONEncodable, Hashable {
 
-    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var fkiUserID: Int
 

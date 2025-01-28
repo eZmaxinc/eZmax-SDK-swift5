@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateDeleteObjectV1**
 ```swift
-    open class func ezsigntemplateDeleteObjectV1(pkiEzsigntemplateID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplateDeleteObjectV1(pkiEzsigntemplateID: Int, completion: @escaping (_ data: EzsigntemplateDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Ezsigntemplate
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplateDeleteObjectV1Response**](EzsigntemplateDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 # **ezsigntemplateEditObjectV3**
 ```swift
-    open class func ezsigntemplateEditObjectV3(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV3Request: EzsigntemplateEditObjectV3Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsigntemplateEditObjectV3(pkiEzsigntemplateID: Int, ezsigntemplateEditObjectV3Request: EzsigntemplateEditObjectV3Request, completion: @escaping (_ data: EzsigntemplateEditObjectV3Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsigntemplate
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplateEditObjectV3Response**](EzsigntemplateEditObjectV3Response.md)
 
 ### Authorization
 

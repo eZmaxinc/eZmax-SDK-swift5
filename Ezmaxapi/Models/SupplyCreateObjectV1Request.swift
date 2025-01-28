@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/supply */
 public struct SupplyCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjSupplyRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjSupplyRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjSupply: [SupplyRequestCompound]
 
     public init(aObjSupply: [SupplyRequestCompound]) {

@@ -68,7 +68,7 @@ open class ObjectVariableexpenseAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func variableexpenseEditObjectV1(pkiVariableexpenseID: Int, variableexpenseEditObjectV1Request: VariableexpenseEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func variableexpenseEditObjectV1(pkiVariableexpenseID: Int, variableexpenseEditObjectV1Request: VariableexpenseEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: VariableexpenseEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return variableexpenseEditObjectV1WithRequestBuilder(pkiVariableexpenseID: pkiVariableexpenseID, variableexpenseEditObjectV1Request: variableexpenseEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -88,9 +88,9 @@ open class ObjectVariableexpenseAPI {
        - name: Authorization
      - parameter pkiVariableexpenseID: (path)  
      - parameter variableexpenseEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<VariableexpenseEditObjectV1Response> 
      */
-    open class func variableexpenseEditObjectV1WithRequestBuilder(pkiVariableexpenseID: Int, variableexpenseEditObjectV1Request: VariableexpenseEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func variableexpenseEditObjectV1WithRequestBuilder(pkiVariableexpenseID: Int, variableexpenseEditObjectV1Request: VariableexpenseEditObjectV1Request) -> RequestBuilder<VariableexpenseEditObjectV1Response> {
         var localVariablePath = "/1/object/variableexpense/{pkiVariableexpenseID}"
         let pkiVariableexpenseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiVariableexpenseID))"
         let pkiVariableexpenseIDPostEscape = pkiVariableexpenseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,7 +106,7 @@ open class ObjectVariableexpenseAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<VariableexpenseEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

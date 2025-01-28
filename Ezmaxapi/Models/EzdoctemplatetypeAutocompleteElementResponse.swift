@@ -13,8 +13,8 @@ import AnyCodable
 /** A Ezdoctemplatetype AutocompleteElement Response */
 public struct EzdoctemplatetypeAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzdoctemplatetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzdoctemplatetypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pkiEzdoctemplatetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzdoctemplatetypeDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Ezdoctemplatetype */
     public var pkiEzdoctemplatetypeID: Int
     /** The description of the Ezdoctemplatetype in the language of the requester */

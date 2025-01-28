@@ -13,8 +13,8 @@ import AnyCodable
 /** A Module Object */
 public struct ModuleResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiModuleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiModulegroupIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiModuleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiModulegroupIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Module */
     public var pkiModuleID: Int
     /** The unique ID of the Modulegroup */

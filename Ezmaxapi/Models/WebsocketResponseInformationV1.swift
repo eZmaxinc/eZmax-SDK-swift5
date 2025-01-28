@@ -16,7 +16,7 @@ public struct WebsocketResponseInformationV1: Codable, JSONEncodable, Hashable {
     public enum EWebsocketMessagetype: String, Codable, CaseIterable {
         case responseInformationV1 = "Response-Information-V1"
     }
-    static let sWebsocketChannelRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-zA-Z0-9_@.]{32}$/")
+    public static let sWebsocketChannelRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-zA-Z0-9_@.]{32}$/")
     /** The Type of message */
     public var eWebsocketMessagetype: EWebsocketMessagetype
     /** The Channel on which to route the websocket message */

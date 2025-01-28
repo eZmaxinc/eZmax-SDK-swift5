@@ -13,7 +13,7 @@ import AnyCodable
 /** An Ezsignfoldertype List Element */
 public struct EzsignfoldertypeListElement: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfoldertype. */
     public var pkiEzsignfoldertypeID: Int
     public var eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel

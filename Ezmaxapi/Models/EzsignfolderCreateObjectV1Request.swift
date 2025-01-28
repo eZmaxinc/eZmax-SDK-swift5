@@ -14,10 +14,9 @@ import AnyCodable
 public struct EzsignfolderCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
     public var objEzsignfolder: EzsignfolderRequest?
-    /** An Ezsignfolder Object and children to create a complete structure */
-    public var objEzsignfolderCompound: EzsignfolderRequest?
+    public var objEzsignfolderCompound: EzsignfolderRequestCompound?
 
-    public init(objEzsignfolder: EzsignfolderRequest? = nil, objEzsignfolderCompound: EzsignfolderRequest? = nil) {
+    public init(objEzsignfolder: EzsignfolderRequest? = nil, objEzsignfolderCompound: EzsignfolderRequestCompound? = nil) {
         self.objEzsignfolder = objEzsignfolder
         self.objEzsignfolderCompound = objEzsignfolderCompound
     }

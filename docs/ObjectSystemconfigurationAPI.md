@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **systemconfigurationEditObjectV1**
 ```swift
-    open class func systemconfigurationEditObjectV1(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func systemconfigurationEditObjectV1(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request, completion: @escaping (_ data: SystemconfigurationEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Systemconfiguration
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SystemconfigurationEditObjectV1Response**](SystemconfigurationEditObjectV1Response.md)
 
 ### Authorization
 

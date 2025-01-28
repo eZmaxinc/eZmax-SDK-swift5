@@ -13,8 +13,8 @@ import AnyCodable
 /** A Font AutocompleteElement Response */
 public struct FontAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let sFontNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let pkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sFontNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The name of the Font */
     public var sFontName: String
     /** The unique ID of the Font */

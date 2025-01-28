@@ -67,7 +67,7 @@ open class ObjectEzsignsignergroupmembershipAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignsignergroupmembershipDeleteObjectV1(pkiEzsignsignergroupmembershipID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func ezsignsignergroupmembershipDeleteObjectV1(pkiEzsignsignergroupmembershipID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignergroupmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignergroupmembershipDeleteObjectV1WithRequestBuilder(pkiEzsignsignergroupmembershipID: pkiEzsignsignergroupmembershipID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectEzsignsignergroupmembershipAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignsignergroupmembershipID: (path) The unique ID of the Ezsignsignergroupmembership 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<EzsignsignergroupmembershipDeleteObjectV1Response> 
      */
-    open class func ezsignsignergroupmembershipDeleteObjectV1WithRequestBuilder(pkiEzsignsignergroupmembershipID: Int) -> RequestBuilder<CommonResponse> {
+    open class func ezsignsignergroupmembershipDeleteObjectV1WithRequestBuilder(pkiEzsignsignergroupmembershipID: Int) -> RequestBuilder<EzsignsignergroupmembershipDeleteObjectV1Response> {
         var localVariablePath = "/1/object/ezsignsignergroupmembership/{pkiEzsignsignergroupmembershipID}"
         let pkiEzsignsignergroupmembershipIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignergroupmembershipID))"
         let pkiEzsignsignergroupmembershipIDPostEscape = pkiEzsignsignergroupmembershipIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectEzsignsignergroupmembershipAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignergroupmembershipDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

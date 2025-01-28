@@ -13,9 +13,9 @@ import AnyCodable
 /** A custom Creditcardtransactionresponse Object */
 public struct CustomCreditcardtransactionresponseResponse: Codable, JSONEncodable, Hashable {
 
-    static let sCreditcardtransactionISOcodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,2}$/")
-    static let sCreditcardtransactionResponsecodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,3}$/")
-    static let sCreditcardtransactionResponseterminalmessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sCreditcardtransactionISOcodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,2}$/")
+    public static let sCreditcardtransactionResponsecodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,3}$/")
+    public static let sCreditcardtransactionResponseterminalmessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The ISO code */
     public var sCreditcardtransactionISOcode: String
     /** The response code */

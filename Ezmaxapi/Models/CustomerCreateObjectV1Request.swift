@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/customer */
 public struct CustomerCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjCustomerRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjCustomerRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjCustomer: [CustomerRequestCompound]
 
     public init(aObjCustomer: [CustomerRequestCompound]) {

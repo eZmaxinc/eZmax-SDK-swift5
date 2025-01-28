@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/apikey/generateDelegatedCredentials */
 public struct ApikeyGenerateDelegatedCredentialsV1Request: Codable, JSONEncodable, Hashable {
 
-    static let iExpirationMinutesRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 180, exclusiveMaximum: false, multipleOf: nil)
+    public static let iExpirationMinutesRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 180, exclusiveMaximum: false, multipleOf: nil)
     /** The number of minute before key is no longer active */
     public var iExpirationMinutes: Int
 

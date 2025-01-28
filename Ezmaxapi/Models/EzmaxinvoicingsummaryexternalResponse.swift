@@ -13,10 +13,10 @@ import AnyCodable
 /** A Ezmaxinvoicingsummaryexternal Object */
 public struct EzmaxinvoicingsummaryexternalResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzmaxinvoicingsummaryexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzmaxinvoicingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiBillingentityexternalIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzmaxinvoicingsummaryexternalDescriptionRule = StringRule(minLength: nil, maxLength: 70, pattern: nil)
+    public static let pkiEzmaxinvoicingsummaryexternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzmaxinvoicingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiBillingentityexternalIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzmaxinvoicingsummaryexternalDescriptionRule = StringRule(minLength: nil, maxLength: 70, pattern: nil)
     /** The unique ID of the Ezmaxinvoicingsummaryexternal */
     public var pkiEzmaxinvoicingsummaryexternalID: Int?
     /** The unique ID of the Ezmaxinvoicing */

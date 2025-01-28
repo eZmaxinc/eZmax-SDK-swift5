@@ -13,8 +13,8 @@ import AnyCodable
 /** A Discussion Object and children */
 public struct DiscussionRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiDiscussionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let sDiscussionDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let pkiDiscussionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    public static let sDiscussionDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
     /** The unique ID of the Discussion */
     public var pkiDiscussionID: Int?
     /** The description of the Discussion */

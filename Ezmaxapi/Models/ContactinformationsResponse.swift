@@ -13,12 +13,12 @@ import AnyCodable
 /** A Contactinformations Object */
 public struct ContactinformationsResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiContactinformationsIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiAddressIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiPhoneIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEmailIDDefaultRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiWebsiteIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let sContactinformationsUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
+    public static let pkiContactinformationsIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiAddressIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiPhoneIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEmailIDDefaultRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiWebsiteIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    public static let sContactinformationsUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,255}$/")
     /** The unique ID of the Contactinformations */
     public var pkiContactinformationsID: Int
     /** The unique ID of the Address */
@@ -32,15 +32,12 @@ public struct ContactinformationsResponse: Codable, JSONEncodable, Hashable {
     public var eContactinformationsType: FieldEContactinformationsType
     /** The url of the Contactinformations */
     public var sContactinformationsUrl: String?
-    /** An Address Object and children to create a complete structure */
-    public var objAddressDefault: AddressResponse?
+    public var objAddressDefault: AddressResponseCompound?
     public var objPhoneDefault: PhoneResponseCompound?
-    /** An Email Object and children to create a complete structure */
-    public var objEmailDefault: EmailResponse?
-    /** A Website Object and children to create a complete structure */
-    public var objWebsiteDefault: WebsiteResponse?
+    public var objEmailDefault: EmailResponseCompound?
+    public var objWebsiteDefault: WebsiteResponseCompound?
 
-    public init(pkiContactinformationsID: Int, fkiAddressIDDefault: Int? = nil, fkiPhoneIDDefault: Int? = nil, fkiEmailIDDefault: Int? = nil, fkiWebsiteIDDefault: Int? = nil, eContactinformationsType: FieldEContactinformationsType, sContactinformationsUrl: String? = nil, objAddressDefault: AddressResponse? = nil, objPhoneDefault: PhoneResponseCompound? = nil, objEmailDefault: EmailResponse? = nil, objWebsiteDefault: WebsiteResponse? = nil) {
+    public init(pkiContactinformationsID: Int, fkiAddressIDDefault: Int? = nil, fkiPhoneIDDefault: Int? = nil, fkiEmailIDDefault: Int? = nil, fkiWebsiteIDDefault: Int? = nil, eContactinformationsType: FieldEContactinformationsType, sContactinformationsUrl: String? = nil, objAddressDefault: AddressResponseCompound? = nil, objPhoneDefault: PhoneResponseCompound? = nil, objEmailDefault: EmailResponseCompound? = nil, objWebsiteDefault: WebsiteResponseCompound? = nil) {
         self.pkiContactinformationsID = pkiContactinformationsID
         self.fkiAddressIDDefault = fkiAddressIDDefault
         self.fkiPhoneIDDefault = fkiPhoneIDDefault

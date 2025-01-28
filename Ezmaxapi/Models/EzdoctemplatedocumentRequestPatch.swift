@@ -18,7 +18,7 @@ public struct EzdoctemplatedocumentRequestPatch: Codable, JSONEncodable, Hashabl
         case html = "Html"
         case tx = "Tx"
     }
-    static let sEzdoctemplatedocumentFieldsRule = StringRule(minLength: nil, maxLength: 16000000, pattern: "/^.{0,}$/")
+    public static let sEzdoctemplatedocumentFieldsRule = StringRule(minLength: nil, maxLength: 16000000, pattern: "/^.{0,}$/")
     /** Indicates the format of the template.  This field is Required when sEzdoctemplatedocumentBase64 is set. */
     public var eEzdoctemplatedocumentFormat: EEzdoctemplatedocumentFormat?
     /** List of field in Ezdoctemplatedocument */

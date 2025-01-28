@@ -13,10 +13,10 @@ import AnyCodable
 /** A Systemconfiguration Object */
 public struct SystemconfigurationRequest: Codable, JSONEncodable, Hashable {
 
-    static let pkiSystemconfigurationIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 1, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let dtSystemconfigurationReadonlyexpirationstartRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    static let dtSystemconfigurationReadonlyexpirationendRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    public static let pkiSystemconfigurationIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 1, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let dtSystemconfigurationReadonlyexpirationstartRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    public static let dtSystemconfigurationReadonlyexpirationendRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     /** The unique ID of the Systemconfiguration */
     public var pkiSystemconfigurationID: Int?
     /** The unique ID of the Branding */

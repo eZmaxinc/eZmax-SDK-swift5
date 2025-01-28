@@ -13,9 +13,9 @@ import AnyCodable
 /** An Ezsignbulksendtransmission Object and children to create a complete structure */
 public struct EzsignbulksendtransmissionResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignbulksendtransmissionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignbulksendIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsignbulksendtransmissionErrorsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignbulksendtransmissionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignbulksendIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsignbulksendtransmissionErrorsRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignbulksendtransmission */
     public var pkiEzsignbulksendtransmissionID: Int
     /** The unique ID of the Ezsignbulksend */

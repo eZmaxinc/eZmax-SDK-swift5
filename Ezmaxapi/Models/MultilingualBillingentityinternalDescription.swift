@@ -13,8 +13,8 @@ import AnyCodable
 /** The description of the Billingentityinternal */
 public struct MultilingualBillingentityinternalDescription: Codable, JSONEncodable, Hashable {
 
-    static let sBillingentityinternalDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,70}$/")
-    static let sBillingentityinternalDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,70}$/")
+    public static let sBillingentityinternalDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,70}$/")
+    public static let sBillingentityinternalDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,70}$/")
     /** The description of the Billingentityinternal in French */
     public var sBillingentityinternalDescription1: String?
     /** The description of the Billingentityinternal in English */

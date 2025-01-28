@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **variableexpenseEditObjectV1**
 ```swift
-    open class func variableexpenseEditObjectV1(pkiVariableexpenseID: Int, variableexpenseEditObjectV1Request: VariableexpenseEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func variableexpenseEditObjectV1(pkiVariableexpenseID: Int, variableexpenseEditObjectV1Request: VariableexpenseEditObjectV1Request, completion: @escaping (_ data: VariableexpenseEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Variableexpense
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**VariableexpenseEditObjectV1Response**](VariableexpenseEditObjectV1Response.md)
 
 ### Authorization
 

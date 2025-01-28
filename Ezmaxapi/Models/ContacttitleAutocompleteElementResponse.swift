@@ -13,8 +13,8 @@ import AnyCodable
 /** A Contacttitle AutocompleteElement Response */
 public struct ContacttitleAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiContacttitleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sContacttitleNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
+    public static let pkiContacttitleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sContacttitleNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
     /** The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)| */
     public var pkiContacttitleID: Int
     /** The name of the Contacttitle in the language of the requester */

@@ -13,7 +13,7 @@ import AnyCodable
 /** A Period AutocompleteElement Response */
 public struct PeriodAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiPeriodIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiPeriodIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The YYYYMM of the Period */
     public var sPeriodYYYYMM: String
     /** The unique ID of the Period */

@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/usergroupmembership */
 public struct UsergroupmembershipCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjUsergroupmembershipRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjUsergroupmembershipRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjUsergroupmembership: [UsergroupmembershipRequestCompound]
 
     public init(aObjUsergroupmembership: [UsergroupmembershipRequestCompound]) {

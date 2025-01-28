@@ -13,7 +13,7 @@ import AnyCodable
 /** A Custom Ezsignformfield Object to fill an Ezsignform using submitForm */
 public struct CustomEzsignformfieldRequest: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignformfieldIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignformfieldIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignformfield */
     public var pkiEzsignformfieldID: Int?
     /** The Label for the Ezsignformfield */

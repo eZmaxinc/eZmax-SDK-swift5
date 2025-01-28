@@ -13,7 +13,7 @@ import AnyCodable
 /** An Ezsignsignaturecustomdate Object and children to create a complete structure */
 public struct EzsignsignaturecustomdateRequestCompoundV2: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignsignaturecustomdateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignsignaturecustomdateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignsignaturecustomdate */
     public var pkiEzsignsignaturecustomdateID: Int?
     /** The X coordinate (Horizontal) where to put the Ezsignsignaturecustomdate on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignaturecustomdate block 2 inches from the left of the signature, you would use \"200\" for the X coordinate. */

@@ -13,7 +13,7 @@ import AnyCodable
 /** A Ezmaxproduct AutocompleteElement Response */
 public struct EzmaxproductAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzmaxproductIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzmaxproductIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezmaxproduct */
     public var pkiEzmaxproductID: Int
     /** The description of the Ezmaxproduct in the language of the requester */

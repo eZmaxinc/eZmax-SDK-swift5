@@ -13,7 +13,7 @@ import AnyCodable
 /** A Usergroup Object and children */
 public struct UsergroupRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiUsergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Usergroup */
     public var pkiUsergroupID: Int?
     public var objEmail: EmailRequest?

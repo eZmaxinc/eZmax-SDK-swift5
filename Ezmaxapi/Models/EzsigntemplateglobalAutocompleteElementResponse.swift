@@ -13,7 +13,7 @@ import AnyCodable
 /** A Ezsigntemplate AutocompleteElement Response */
 public struct EzsigntemplateglobalAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigntemplateglobalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsigntemplateglobalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplateglobal */
     public var pkiEzsigntemplateglobalID: Int
     /** The description of the Ezsigntemplate */

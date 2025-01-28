@@ -13,12 +13,12 @@ import AnyCodable
 /** An Address Object */
 public struct AddressRequest: Codable, JSONEncodable, Hashable {
 
-    static let pkiAddressIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiAddresstypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiProvinceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fAddressLongitudeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(-?)(180(\\.0{1,15})?|((1[0-7]\\d)|(\\d{1,2}))(\\.\\d{1,15})?)$/")
-    static let fAddressLatitudeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(-?)(90(\\.0{1,15})?|([1-8]?\\d(\\.\\d{1,15})?))$/")
+    public static let pkiAddressIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiAddresstypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiProvinceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fAddressLongitudeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(-?)(180(\\.0{1,15})?|((1[0-7]\\d)|(\\d{1,2}))(\\.\\d{1,15})?)$/")
+    public static let fAddressLatitudeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(-?)(90(\\.0{1,15})?|([1-8]?\\d(\\.\\d{1,15})?))$/")
     /** The unique ID of the Address */
     public var pkiAddressID: Int?
     /** The unique ID of the Addresstype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Real Estate Invoice| |4|Invoicing| |5|Shipping| */

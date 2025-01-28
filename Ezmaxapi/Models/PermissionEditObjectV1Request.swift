@@ -13,10 +13,9 @@ import AnyCodable
 /** Request for PUT /1/object/permission/{pkiPermissionID} */
 public struct PermissionEditObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    /** A Permission Object and children to create a complete structure */
-    public var objPermission: PermissionRequest
+    public var objPermission: PermissionRequestCompound
 
-    public init(objPermission: PermissionRequest) {
+    public init(objPermission: PermissionRequestCompound) {
         self.objPermission = objPermission
     }
 

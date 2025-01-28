@@ -13,9 +13,9 @@ import AnyCodable
 /** A Country AutocompleteElement Response */
 public struct CountryAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
-    static let sCountryShortnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,3}$/")
+    public static let pkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let sCountryShortnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,3}$/")
     /** The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States| */
     public var pkiCountryID: Int
     /** The name of the Country in the language of the requester */

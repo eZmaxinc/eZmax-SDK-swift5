@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /2/object/ezsignfolder */
 public struct EzsignfolderCreateObjectV2Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsignfolderRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsignfolderRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsignfolder: [EzsignfolderRequestCompound]
 
     public init(aObjEzsignfolder: [EzsignfolderRequestCompound]) {

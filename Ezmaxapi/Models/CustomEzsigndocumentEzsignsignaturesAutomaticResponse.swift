@@ -13,7 +13,7 @@ import AnyCodable
 /** An Ezsigndocument Object in the context of an EzsignsignaturesAutomatic path */
 public struct CustomEzsigndocumentEzsignsignaturesAutomaticResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */

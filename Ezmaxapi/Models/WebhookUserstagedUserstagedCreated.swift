@@ -16,10 +16,9 @@ public struct WebhookUserstagedUserstagedCreated: Codable, JSONEncodable, Hashab
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
-    /** A Userstaged Object */
-    public var objUserstaged: UserstagedResponse
+    public var objUserstaged: UserstagedResponseCompound
 
-    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objUserstaged: UserstagedResponse) {
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objUserstaged: UserstagedResponseCompound) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
         self.objUserstaged = objUserstaged

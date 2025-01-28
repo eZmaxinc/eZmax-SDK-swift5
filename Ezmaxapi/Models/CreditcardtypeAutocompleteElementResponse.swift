@@ -13,8 +13,8 @@ import AnyCodable
 /** Creditcardtype AutocompleteElement Response */
 public struct CreditcardtypeAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let sCreditcardtypeNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,30}$/")
-    static let pkiCreditcardtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sCreditcardtypeNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,30}$/")
+    public static let pkiCreditcardtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The name of the Creditcardtype */
     public var sCreditcardtypeName: String
     /** The unique ID of the Creditcardtype */

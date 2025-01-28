@@ -13,8 +13,8 @@ import AnyCodable
 /** A Paymentterm Object */
 public struct PaymenttermResponse: Codable, JSONEncodable, Hashable {
 
-    static let sPaymenttermCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[A-Z0-9]{1,4}$/")
-    static let iPaymenttermDayRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sPaymenttermCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[A-Z0-9]{1,4}$/")
+    public static let iPaymenttermDayRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Paymentterm */
     public var pkiPaymenttermID: Int
     /** The code of the Paymentterm */

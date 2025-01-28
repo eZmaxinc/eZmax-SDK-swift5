@@ -67,7 +67,7 @@ open class ObjectUsergroupmembershipAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func usergroupmembershipDeleteObjectV1(pkiUsergroupmembershipID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return usergroupmembershipDeleteObjectV1WithRequestBuilder(pkiUsergroupmembershipID: pkiUsergroupmembershipID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectUsergroupmembershipAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiUsergroupmembershipID: (path)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<UsergroupmembershipDeleteObjectV1Response> 
      */
-    open class func usergroupmembershipDeleteObjectV1WithRequestBuilder(pkiUsergroupmembershipID: Int) -> RequestBuilder<CommonResponse> {
+    open class func usergroupmembershipDeleteObjectV1WithRequestBuilder(pkiUsergroupmembershipID: Int) -> RequestBuilder<UsergroupmembershipDeleteObjectV1Response> {
         var localVariablePath = "/1/object/usergroupmembership/{pkiUsergroupmembershipID}"
         let pkiUsergroupmembershipIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupmembershipID))"
         let pkiUsergroupmembershipIDPostEscape = pkiUsergroupmembershipIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectUsergroupmembershipAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UsergroupmembershipDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectUsergroupmembershipAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func usergroupmembershipEditObjectV1(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UsergroupmembershipEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return usergroupmembershipEditObjectV1WithRequestBuilder(pkiUsergroupmembershipID: pkiUsergroupmembershipID, usergroupmembershipEditObjectV1Request: usergroupmembershipEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectUsergroupmembershipAPI {
        - name: Authorization
      - parameter pkiUsergroupmembershipID: (path)  
      - parameter usergroupmembershipEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<UsergroupmembershipEditObjectV1Response> 
      */
-    open class func usergroupmembershipEditObjectV1WithRequestBuilder(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func usergroupmembershipEditObjectV1WithRequestBuilder(pkiUsergroupmembershipID: Int, usergroupmembershipEditObjectV1Request: UsergroupmembershipEditObjectV1Request) -> RequestBuilder<UsergroupmembershipEditObjectV1Response> {
         var localVariablePath = "/1/object/usergroupmembership/{pkiUsergroupmembershipID}"
         let pkiUsergroupmembershipIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUsergroupmembershipID))"
         let pkiUsergroupmembershipIDPostEscape = pkiUsergroupmembershipIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectUsergroupmembershipAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<UsergroupmembershipEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

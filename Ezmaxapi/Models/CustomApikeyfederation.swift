@@ -13,8 +13,8 @@ import AnyCodable
 /** A Custom Apikeyfederation Object */
 public struct CustomApikeyfederation: Codable, JSONEncodable, Hashable {
 
-    static let sApikeyfederationKeyRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,200}$/")
-    static let sApikeyfederationSecretRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9a-fA-F]{1,32}$/")
+    public static let sApikeyfederationKeyRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,200}$/")
+    public static let sApikeyfederationSecretRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9a-fA-F]{1,32}$/")
     /** The key of the Apikeyfederation */
     public var sApikeyfederationKey: String
     /** The secret of the Apikeyfederation */

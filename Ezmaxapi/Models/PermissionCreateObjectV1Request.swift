@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/permission */
 public struct PermissionCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjPermissionRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjPermissionRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjPermission: [PermissionRequestCompound]
 
     public init(aObjPermission: [PermissionRequestCompound]) {

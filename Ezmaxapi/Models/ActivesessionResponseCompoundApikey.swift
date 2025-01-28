@@ -13,7 +13,7 @@ import AnyCodable
 /** An Activesession-&gt;Apikey object and children to create a complete structure */
 public struct ActivesessionResponseCompoundApikey: Codable, JSONEncodable, Hashable {
 
-    static let pkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Apikey */
     public var pkiApikeyID: Int
     /** The description of the Apikey in the language of the requester */

@@ -13,8 +13,8 @@ import AnyCodable
 /** This is a debug object containing debugging information on the actual function */
 public struct CommonResponseObjDebugPayloadGetList: Codable, JSONEncodable, Hashable {
 
-    static let iRowMaxRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 10000, exclusiveMaximum: false, multipleOf: nil)
-    static let iRowOffsetRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iRowMaxRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 10000, exclusiveMaximum: false, multipleOf: nil)
+    public static let iRowOffsetRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The minimum version of the function that can be called */
     public var iVersionMin: Int
     /** The maximum version of the function that can be called */

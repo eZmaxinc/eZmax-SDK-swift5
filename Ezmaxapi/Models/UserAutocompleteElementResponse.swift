@@ -13,7 +13,7 @@ import AnyCodable
 /** A User AutocompleteElement Response */
 public struct UserAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public var eUserType: FieldEUserType
     /** The description of the User in the language of the requester */
     public var sUserName: String

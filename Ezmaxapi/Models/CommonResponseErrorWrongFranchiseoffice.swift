@@ -13,9 +13,9 @@ import AnyCodable
 /** Error Message when a Franchisebroker is not in this Franchiseoffice. */
 public struct CommonResponseErrorWrongFranchiseoffice: Codable, JSONEncodable, Hashable {
 
-    static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
-    static let fkiFranchiseagenceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiFranchiseofficeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
+    public static let fkiFranchiseagenceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiFranchiseofficeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The message giving details about the error */
     public var sErrorMessage: String
     public var eErrorCode: FieldEErrorCode

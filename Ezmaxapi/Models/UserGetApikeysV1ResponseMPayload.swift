@@ -13,7 +13,7 @@ import AnyCodable
 /** Response for GET /1/object/user/{pkiUserID}/getApikeys */
 public struct UserGetApikeysV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let aObjApikeyRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
+    public static let aObjApikeyRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
     public var aObjApikey: [ApikeyResponseCompound]
 
     public init(aObjApikey: [ApikeyResponseCompound]) {

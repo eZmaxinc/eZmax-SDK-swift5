@@ -13,8 +13,10 @@ import AnyCodable
 /** A form Signer Object in the context of an Ezsignfoldertransmissions */
 public struct CustomEzsignfolderezsigntemplatepublicSignerResponse: Codable, JSONEncodable, Hashable {
 
-    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignsignergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignsignergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
     /** The unique ID of the User */
     public var fkiUserID: Int?
     /** The unique ID of the Ezsignsignergroup */

@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfoldertypeEditObjectV3**
 ```swift
-    open class func ezsignfoldertypeEditObjectV3(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV3Request: EzsignfoldertypeEditObjectV3Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func ezsignfoldertypeEditObjectV3(pkiEzsignfoldertypeID: Int, ezsignfoldertypeEditObjectV3Request: EzsignfoldertypeEditObjectV3Request, completion: @escaping (_ data: EzsignfoldertypeEditObjectV3Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Ezsignfoldertype
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldertypeEditObjectV3Response**](EzsignfoldertypeEditObjectV3Response.md)
 
 ### Authorization
 

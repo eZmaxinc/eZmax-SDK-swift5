@@ -13,8 +13,8 @@ import AnyCodable
 /** A Domain Object */
 public struct DomainResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiDomainIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sDomainNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?=.{4,75}$)([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,63}$/")
+    public static let pkiDomainIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sDomainNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?=.{4,75}$)([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,63}$/")
     /** The unique ID of the Domain */
     public var pkiDomainID: Int
     /** The name of the Domain */

@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/declineToSign */
 public struct EzsigndocumentDeclineToSignV1Request: Codable, JSONEncodable, Hashable {
 
-    static let sReasonRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let sReasonRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
     /** Reason for refusal */
     public var sReason: String
 

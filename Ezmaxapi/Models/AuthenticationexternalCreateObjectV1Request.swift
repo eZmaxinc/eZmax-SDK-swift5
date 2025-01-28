@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/authenticationexternal */
 public struct AuthenticationexternalCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjAuthenticationexternalRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjAuthenticationexternalRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjAuthenticationexternal: [AuthenticationexternalRequestCompound]
 
     public init(aObjAuthenticationexternal: [AuthenticationexternalRequestCompound]) {

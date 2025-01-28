@@ -13,8 +13,8 @@ import AnyCodable
 /** Request for POST /1/object/ezsigntemplatepublic/getEzsigntemplatepublicDetails */
 public struct EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request: Codable, JSONEncodable, Hashable {
 
-    static let pksEzmaxcustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: "/^[a-z\\d]{2,6}$/")
-    static let sEzsigntemplatepublicReferenceidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,36}$/")
+    public static let pksEzmaxcustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: "/^[a-z\\d]{2,6}$/")
+    public static let sEzsigntemplatepublicReferenceidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,36}$/")
     /** The Ezmaxcustomer code */
     public var pksEzmaxcustomerCode: String
     /** The referenceid of the Ezsigntemplatepublic */

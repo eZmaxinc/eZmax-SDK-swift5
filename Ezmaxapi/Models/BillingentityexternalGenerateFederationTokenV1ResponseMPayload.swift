@@ -13,7 +13,7 @@ import AnyCodable
 /** Payload for POST /1/object/billingentityexternal/{pkiBillingentityexternalID}/generateFederationToken */
 public struct BillingentityexternalGenerateFederationTokenV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let sEzmaxcustomercodeUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sEzmaxcustomercodeUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     public var objApikeyfederation: CustomApikeyfederation
     /** The url of the server the Ezmaxcustomer is located */
     public var sEzmaxcustomercodeUrl: String

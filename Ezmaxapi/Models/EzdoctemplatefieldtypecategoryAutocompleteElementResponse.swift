@@ -13,9 +13,9 @@ import AnyCodable
 /** A Ezdoctemplatefieldtypecategory AutocompleteElement Response */
 public struct EzdoctemplatefieldtypecategoryAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzdoctemplatefieldtypecategoryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzdoctemplatetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzdoctemplatefieldtypecategoryDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
+    public static let pkiEzdoctemplatefieldtypecategoryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzdoctemplatetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzdoctemplatefieldtypecategoryDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
     /** The unique ID of the Ezdoctemplatefieldtypecategory */
     public var pkiEzdoctemplatefieldtypecategoryID: Int
     /** The unique ID of the Ezdoctemplatetype */

@@ -13,7 +13,7 @@ import AnyCodable
 /** A Department AutocompleteElement Response */
 public struct DepartmentAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The Name of the Company in the language of the requester */
     public var sCompanyNameX: String
     /** The Name of the Department in the language of the requester */

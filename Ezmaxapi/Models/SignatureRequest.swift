@@ -13,10 +13,10 @@ import AnyCodable
 /** A Signature Object */
 public struct SignatureRequest: Codable, JSONEncodable, Hashable {
 
-    static let pkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let tSignatureSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{60,65535}$/")
-    static let tSignatureSvginitialsRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{60,65535}$/")
+    public static let pkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let tSignatureSvgRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{60,65535}$/")
+    public static let tSignatureSvginitialsRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{60,65535}$/")
     /** The unique ID of the Signature */
     public var pkiSignatureID: Int?
     /** The unique ID of the Font */

@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy */
 public struct EzsigntemplateCopyV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aFkiEzsignfoldertypeIDRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
+    public static let aFkiEzsignfoldertypeIDRule = ArrayRule(minItems: 0, maxItems: nil, uniqueItems: false)
     public var aFkiEzsignfoldertypeID: [Int]?
     /** Whether we shall copy the Ezsigntemplate as a company Ezsigntemplate */
     public var bCopyCompany: Bool?

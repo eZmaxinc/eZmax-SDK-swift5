@@ -13,7 +13,7 @@ import AnyCodable
 /** A Ezsignsigningreason Object */
 public struct EzsignsigningreasonResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignsigningreason */
     public var pkiEzsignsigningreasonID: Int
     public var objEzsignsigningreasonDescription: MultilingualEzsignsigningreasonDescription

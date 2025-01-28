@@ -13,10 +13,10 @@ import AnyCodable
 /** A Branding Object and children */
 public struct BrandingRequestCompoundV2: Codable, JSONEncodable, Hashable {
 
-    static let pkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iBrandingColorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    static let sBrandingNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
-    static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
+    public static let pkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iBrandingColorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
+    public static let sBrandingNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
+    public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     /** The unique ID of the Branding */
     public var pkiBrandingID: Int?
     public var objBrandingDescription: MultilingualBrandingDescription

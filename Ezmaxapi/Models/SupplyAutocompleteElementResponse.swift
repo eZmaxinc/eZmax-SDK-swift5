@@ -13,8 +13,8 @@ import AnyCodable
 /** A Supply AutocompleteElement Response */
 public struct SupplyAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiSupplyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let sSupplyDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pkiSupplyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sSupplyDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Supply */
     public var pkiSupplyID: Int
     /** The description of the Supply in the language of the requester */

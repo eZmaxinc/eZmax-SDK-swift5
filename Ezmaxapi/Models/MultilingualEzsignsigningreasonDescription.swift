@@ -13,8 +13,8 @@ import AnyCodable
 /** The description of the Ezsignsigningreason */
 public struct MultilingualEzsignsigningreasonDescription: Codable, JSONEncodable, Hashable {
 
-    static let sEzsignsigningreasonDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sEzsignsigningreasonDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzsignsigningreasonDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzsignsigningreasonDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The description of the Ezsignsigningreason in French */
     public var sEzsignsigningreasonDescription1: String?
     /** The description of the Ezsignsigningreason in English */

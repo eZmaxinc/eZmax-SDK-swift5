@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/cors */
 public struct CorsCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjCorsRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjCorsRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjCors: [CorsRequestCompound]
 
     public init(aObjCors: [CorsRequestCompound]) {

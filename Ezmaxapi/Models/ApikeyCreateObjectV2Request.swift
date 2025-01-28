@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /2/object/apikey */
 public struct ApikeyCreateObjectV2Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjApikeyRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjApikeyRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjApikey: [ApikeyRequestCompound]
 
     public init(aObjApikey: [ApikeyRequestCompound]) {

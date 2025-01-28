@@ -13,7 +13,7 @@ import AnyCodable
 /** An Ezsignsignergroup Object */
 public struct EzsignsignergroupResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignsignergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignsignergroupIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignsignergroup */
     public var pkiEzsignsignergroupID: Int
     public var objEzsignsignergroupDescription: MultilingualEzsignsignergroupDescription

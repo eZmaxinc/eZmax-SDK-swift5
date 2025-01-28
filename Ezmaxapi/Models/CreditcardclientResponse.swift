@@ -13,9 +13,9 @@ import AnyCodable
 /** A Creditcardclient Object */
 public struct CreditcardclientResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiCreditcardclientIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiCreditcarddetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let sCreditcardclientDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pkiCreditcardclientIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiCreditcarddetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sCreditcardclientDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Creditcardclient */
     public var pkiCreditcardclientID: Int
     /** The unique ID of the Creditcarddetail */

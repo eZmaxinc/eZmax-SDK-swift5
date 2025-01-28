@@ -13,8 +13,8 @@ import AnyCodable
 /** The description of the Userlogintype */
 public struct MultilingualUserlogintypeDescription: Codable, JSONEncodable, Hashable {
 
-    static let sUserlogintypeDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sUserlogintypeDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sUserlogintypeDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sUserlogintypeDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The description of the Userlogintype in French */
     public var sUserlogintypeDescription1: String?
     /** The description of the Userlogintype in English */

@@ -13,8 +13,8 @@ import AnyCodable
 /** The description of the Variableexpense */
 public struct MultilingualVariableexpenseDescription: Codable, JSONEncodable, Hashable {
 
-    static let sVariableexpenseDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
-    static let sVariableexpenseDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let sVariableexpenseDescription1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let sVariableexpenseDescription2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
     /** The description of the Variableexpense in French */
     public var sVariableexpenseDescription1: String?
     /** The description of the Variableexpense in English */

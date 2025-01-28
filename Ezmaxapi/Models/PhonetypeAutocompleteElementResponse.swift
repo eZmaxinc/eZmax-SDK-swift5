@@ -13,8 +13,8 @@ import AnyCodable
 /** A Phonetype AutocompleteElement Response */
 public struct PhonetypeAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiPhonetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sPhonetypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
+    public static let pkiPhonetypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sPhonetypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
     /** The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free| */
     public var pkiPhonetypeID: Int
     /** The name of the Phonetype in the language of the requester */

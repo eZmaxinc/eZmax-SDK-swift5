@@ -13,8 +13,8 @@ import AnyCodable
 /** The name1 of the Ezdoctemplatedocument */
 public struct MultilingualEzdoctemplatedocumentName: Codable, JSONEncodable, Hashable {
 
-    static let sEzdoctemplatedocumentName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
-    static let sEzdoctemplatedocumentName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzdoctemplatedocumentName1Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sEzdoctemplatedocumentName2Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The name1 of the Ezdoctemplatedocument */
     public var sEzdoctemplatedocumentName1: String?
     /** The name2 of the Ezdoctemplatedocument */

@@ -13,11 +13,11 @@ import AnyCodable
 /** A Ezmaxinvoicingcommission Object */
 public struct EzmaxinvoicingcommissionResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let fkiEzmaxinvoicingsummaryglobalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzmaxpartnerIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzmaxrepresentativeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzmaxinvoicingcommissionDaysRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let dEzmaxinvoicingcommissionAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let fkiEzmaxinvoicingsummaryglobalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzmaxpartnerIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzmaxrepresentativeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzmaxinvoicingcommissionDaysRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let dEzmaxinvoicingcommissionAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezmaxinvoicingcommission */
     public var pkiEzmaxinvoicingcommissionID: Int?
     /** The unique ID of the Ezmaxinvoicingsummaryglobal */

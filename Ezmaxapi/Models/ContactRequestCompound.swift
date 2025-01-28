@@ -13,8 +13,10 @@ import AnyCodable
 /** A Contact Object and children to create a complete structure */
 public struct ContactRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let fkiContacttitleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiContacttitleIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let sContactFirstnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
+    public static let sContactLastnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,25}$/")
     /** The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)| */
     public var fkiContacttitleID: Int
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */

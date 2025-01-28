@@ -13,8 +13,8 @@ import AnyCodable
 /** A Ezsigntemplateglobaldocument Object */
 public struct EzsigntemplateglobaldocumentResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigntemplateglobaldocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplateglobaldocumentPagetotalRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsigntemplateglobaldocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplateglobaldocumentPagetotalRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigntemplateglobaldocument */
     public var pkiEzsigntemplateglobaldocumentID: Int
     /** The name of the Ezsigntemplateglobaldocument. */

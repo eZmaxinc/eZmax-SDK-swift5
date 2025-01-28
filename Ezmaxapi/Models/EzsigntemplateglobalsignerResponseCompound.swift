@@ -13,9 +13,9 @@ import AnyCodable
 /** A Ezsigntemplateglobalsigner Object */
 public struct EzsigntemplateglobalsignerResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigntemplateglobalsignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigntemplateglobalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzsigntemplateglobalsignerDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
+    public static let pkiEzsigntemplateglobalsignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplateglobalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsigntemplateglobalsignerDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
     /** The unique ID of the Ezsigntemplateglobalsigner */
     public var pkiEzsigntemplateglobalsignerID: Int
     /** The unique ID of the Ezsigntemplateglobal */

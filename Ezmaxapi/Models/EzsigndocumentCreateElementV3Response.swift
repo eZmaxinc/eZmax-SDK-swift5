@@ -13,7 +13,7 @@ import AnyCodable
 /** A Ezsigndocument createObject Response */
 public struct EzsigndocumentCreateElementV3Response: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsigndocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigndocument */
     public var pkiEzsigndocumentID: Int
     /** An array of possibly matching template. */

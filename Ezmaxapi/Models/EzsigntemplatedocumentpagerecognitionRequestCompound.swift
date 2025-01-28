@@ -13,14 +13,14 @@ import AnyCodable
 /** A Ezsigntemplatedocumentpagerecognition Object and children */
 public struct EzsigntemplatedocumentpagerecognitionRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigntemplatedocumentpagerecognitionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigntemplatedocumentpageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplatedocumentpagerecognitionSimilarpercentageRule = NumericRule<Int>(minimum: 60, exclusiveMinimum: false, maximum: 100, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplatedocumentpagerecognitionXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplatedocumentpagerecognitionYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplatedocumentpagerecognitionWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplatedocumentpagerecognitionHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let tEzsigntemplatedocumentpagerecognitionTextRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[.\\D\\d]{0,65535}$/")
+    public static let pkiEzsigntemplatedocumentpagerecognitionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplatedocumentpageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatedocumentpagerecognitionSimilarpercentageRule = NumericRule<Int>(minimum: 60, exclusiveMinimum: false, maximum: 100, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatedocumentpagerecognitionXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatedocumentpagerecognitionYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatedocumentpagerecognitionWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatedocumentpagerecognitionHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let tEzsigntemplatedocumentpagerecognitionTextRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[.\\D\\d]{0,65535}$/")
     /** The unique ID of the Ezsigntemplatedocumentpagerecognition */
     public var pkiEzsigntemplatedocumentpagerecognitionID: Int?
     /** The unique ID of the Ezsigntemplatedocumentpage */

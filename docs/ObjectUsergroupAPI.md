@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 # **usergroupEditObjectV1**
 ```swift
-    open class func usergroupEditObjectV1(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func usergroupEditObjectV1(pkiUsergroupID: Int, usergroupEditObjectV1Request: UsergroupEditObjectV1Request, completion: @escaping (_ data: UsergroupEditObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Usergroup
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupEditObjectV1Response**](UsergroupEditObjectV1Response.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ Using this endpoint, you can edit multiple Permissions at the same time.
 import OpenAPIClient
 
 let pkiUsergroupID = 987 // Int | 
-let usergroupEditPermissionsV1Request = usergroup-editPermissions-v1-Request(aObjPermission: [permission-Request(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // UsergroupEditPermissionsV1Request | 
+let usergroupEditPermissionsV1Request = usergroup-editPermissions-v1-Request(aObjPermission: [permission-RequestCompound(pkiPermissionID: 123, fkiUserID: 123, fkiApikeyID: 123, fkiUsergroupID: 123, fkiCompanyID: 123, fkiModulesectionID: 123)]) // UsergroupEditPermissionsV1Request | 
 
 // Edit multiple Permissions
 ObjectUsergroupAPI.usergroupEditPermissionsV1(pkiUsergroupID: pkiUsergroupID, usergroupEditPermissionsV1Request: usergroupEditPermissionsV1Request) { (response, error) in

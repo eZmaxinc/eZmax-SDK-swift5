@@ -13,7 +13,7 @@ import AnyCodable
 /** Generic Error Message */
 public struct CommonResponseError: Codable, JSONEncodable, Hashable {
 
-    static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
+    public static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
     /** The message giving details about the error */
     public var sErrorMessage: String
     public var eErrorCode: FieldEErrorCode

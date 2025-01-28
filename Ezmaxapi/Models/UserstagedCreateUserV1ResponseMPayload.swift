@@ -13,7 +13,7 @@ import AnyCodable
 /** Payload for POST /1/object/userstaged/{pkiUserstagedID}/createUser */
 public struct UserstagedCreateUserV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var pkiUserID: Int
 

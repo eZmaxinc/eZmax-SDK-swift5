@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus */
 public struct DiscussionUpdateDiscussionreadstatusV1Request: Codable, JSONEncodable, Hashable {
 
-    static let dtDiscussionreadstatusDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
+    public static let dtDiscussionreadstatusDateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     /** The date of the last discussion message read */
     public var dtDiscussionreadstatusDate: String?
 

@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/subnet */
 public struct SubnetCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjSubnetRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjSubnetRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjSubnet: [SubnetRequestCompound]
 
     public init(aObjSubnet: [SubnetRequestCompound]) {

@@ -13,12 +13,12 @@ import AnyCodable
 /** An Ezsignfolder List Element */
 public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
-    static let dEzsignfolderCompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
-    static let dEzsignfolderFormcompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
-    static let dEzsignfolderSignaturecompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    public static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let dEzsignfolderCompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    public static let dEzsignfolderFormcompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
+    public static let dEzsignfolderSignaturecompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezsignfolder */
     public var pkiEzsignfolderID: Int
     /** The unique ID of the Ezsignfoldertype. */

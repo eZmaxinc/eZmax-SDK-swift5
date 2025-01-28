@@ -13,9 +13,9 @@ import AnyCodable
 /** A Paymentterm List Element */
 public struct PaymenttermListElement: Codable, JSONEncodable, Hashable {
 
-    static let sPaymenttermCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[A-Z0-9]{1,4}$/")
-    static let iPaymenttermDayRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sPaymenttermDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
+    public static let sPaymenttermCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[A-Z0-9]{1,4}$/")
+    public static let iPaymenttermDayRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sPaymenttermDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,40}$/")
     /** The unique ID of the Paymentterm */
     public var pkiPaymenttermID: Int
     /** The code of the Paymentterm */

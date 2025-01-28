@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /3/object/ezsignsignature */
 public struct EzsignsignatureCreateObjectV3Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsignsignatureRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsignsignatureRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsignsignature: [EzsignsignatureRequestCompoundV2]
 
     public init(aObjEzsignsignature: [EzsignsignatureRequestCompoundV2]) {

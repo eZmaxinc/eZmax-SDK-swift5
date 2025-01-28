@@ -13,8 +13,8 @@ import AnyCodable
 /** Payload for GET /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} */
 public struct EzsignfoldersignerassociationGetObjectV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var pkiEzsignfoldersignerassociationID: Int
     /** The unique ID of the Ezsignfolder */

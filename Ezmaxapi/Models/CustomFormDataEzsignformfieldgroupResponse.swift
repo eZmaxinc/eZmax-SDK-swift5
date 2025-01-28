@@ -13,7 +13,7 @@ import AnyCodable
 /** An FormDataSigner-&gt;Ezsignformfieldgroup Object and children to create a complete structure */
 public struct CustomFormDataEzsignformfieldgroupResponse: Codable, JSONEncodable, Hashable {
 
-    static let sEzsignformfieldgroupLabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
+    public static let sEzsignformfieldgroupLabelRule = StringRule(minLength: 1, maxLength: 50, pattern: nil)
     /** The Label for the Ezsignformfieldgroup */
     public var sEzsignformfieldgroupLabel: String
     public var aObjEzsignformfield: [CustomFormDataEzsignformfieldResponse]

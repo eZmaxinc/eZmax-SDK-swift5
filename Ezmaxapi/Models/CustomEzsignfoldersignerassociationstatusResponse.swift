@@ -13,7 +13,7 @@ import AnyCodable
 /** A Ezsignfoldersignerassociationstatus Object and children to create a complete structure */
 public struct CustomEzsignfoldersignerassociationstatusResponse: Codable, JSONEncodable, Hashable {
 
-    static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
     /** The last name of the Ezsignsigner */

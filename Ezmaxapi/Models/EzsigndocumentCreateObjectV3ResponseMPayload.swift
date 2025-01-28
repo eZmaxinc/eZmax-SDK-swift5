@@ -13,7 +13,7 @@ import AnyCodable
 /** Payload for POST /3/object/ezsigndocument */
 public struct EzsigndocumentCreateObjectV3ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsigndocumentRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsigndocumentRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** An array of objets that contain unique IDs representing the object that were requested to be created and possibly matching template IDs.  They are returned in the same order as the array containing the objects to be created that was sent in the request. */
     public var aObjEzsigndocument: [EzsigndocumentCreateElementV3Response]
 

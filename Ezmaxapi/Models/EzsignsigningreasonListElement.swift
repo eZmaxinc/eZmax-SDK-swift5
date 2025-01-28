@@ -13,8 +13,8 @@ import AnyCodable
 /** A Ezsignsigningreason List Element */
 public struct EzsignsigningreasonListElement: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzsignsigningreasonDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let pkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsignsigningreasonDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Ezsignsigningreason */
     public var pkiEzsignsigningreasonID: Int
     /** The description of the Ezsignsigningreason in the language of the requester */

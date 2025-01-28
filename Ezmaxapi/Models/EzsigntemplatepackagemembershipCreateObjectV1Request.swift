@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsigntemplatepackagemembership */
 public struct EzsigntemplatepackagemembershipCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsigntemplatepackagemembershipRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsigntemplatepackagemembershipRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsigntemplatepackagemembership: [EzsigntemplatepackagemembershipRequestCompound]
 
     public init(aObjEzsigntemplatepackagemembership: [EzsigntemplatepackagemembershipRequestCompound]) {

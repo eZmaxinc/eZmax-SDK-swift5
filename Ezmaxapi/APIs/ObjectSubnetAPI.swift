@@ -67,7 +67,7 @@ open class ObjectSubnetAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func subnetDeleteObjectV1(pkiSubnetID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func subnetDeleteObjectV1(pkiSubnetID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SubnetDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return subnetDeleteObjectV1WithRequestBuilder(pkiSubnetID: pkiSubnetID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -86,9 +86,9 @@ open class ObjectSubnetAPI {
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiSubnetID: (path) The unique ID of the Subnet 
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<SubnetDeleteObjectV1Response> 
      */
-    open class func subnetDeleteObjectV1WithRequestBuilder(pkiSubnetID: Int) -> RequestBuilder<CommonResponse> {
+    open class func subnetDeleteObjectV1WithRequestBuilder(pkiSubnetID: Int) -> RequestBuilder<SubnetDeleteObjectV1Response> {
         var localVariablePath = "/1/object/subnet/{pkiSubnetID}"
         let pkiSubnetIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSubnetID))"
         let pkiSubnetIDPostEscape = pkiSubnetIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -104,7 +104,7 @@ open class ObjectSubnetAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SubnetDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -118,7 +118,7 @@ open class ObjectSubnetAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func subnetEditObjectV1(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func subnetEditObjectV1(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SubnetEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return subnetEditObjectV1WithRequestBuilder(pkiSubnetID: pkiSubnetID, subnetEditObjectV1Request: subnetEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -138,9 +138,9 @@ open class ObjectSubnetAPI {
        - name: Authorization
      - parameter pkiSubnetID: (path) The unique ID of the Subnet 
      - parameter subnetEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<SubnetEditObjectV1Response> 
      */
-    open class func subnetEditObjectV1WithRequestBuilder(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func subnetEditObjectV1WithRequestBuilder(pkiSubnetID: Int, subnetEditObjectV1Request: SubnetEditObjectV1Request) -> RequestBuilder<SubnetEditObjectV1Response> {
         var localVariablePath = "/1/object/subnet/{pkiSubnetID}"
         let pkiSubnetIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSubnetID))"
         let pkiSubnetIDPostEscape = pkiSubnetIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -156,7 +156,7 @@ open class ObjectSubnetAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SubnetEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

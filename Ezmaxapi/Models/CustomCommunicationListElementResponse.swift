@@ -13,8 +13,8 @@ import AnyCodable
 /** A Communication List Element */
 public struct CustomCommunicationListElementResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiCommunicationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sCommunicationSubjectRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,200}$/")
+    public static let pkiCommunicationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sCommunicationSubjectRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,200}$/")
     /** The unique ID of the Communication. */
     public var pkiCommunicationID: Int
     /** The date and time at which the object was created */

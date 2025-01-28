@@ -13,8 +13,8 @@ import AnyCodable
 /** A Notificationtest Object */
 public struct NotificationtestResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiNotificationtestIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiNotificationsubsectionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiNotificationtestIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiNotificationsubsectionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Notificationtest */
     public var pkiNotificationtestID: Int
     public var objNotificationtestName: MultilingualNotificationtestName

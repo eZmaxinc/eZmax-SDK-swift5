@@ -13,12 +13,12 @@ import AnyCodable
 /** A Supply Object and children */
 public struct SupplyRequestCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiSupplyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiGlaccountIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiGlaccountcontainerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiVariableexpenseIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    static let sSupplyCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,5}$/")
-    static let dSupplyUnitpriceRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let pkiSupplyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiGlaccountIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiGlaccountcontainerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiVariableexpenseIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sSupplyCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,5}$/")
+    public static let dSupplyUnitpriceRule = StringRule(minLength: 4, maxLength: 13, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
     /** The unique ID of the Supply */
     public var pkiSupplyID: Int?
     /** The unique ID of the Glaccount */

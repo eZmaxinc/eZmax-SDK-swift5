@@ -13,9 +13,9 @@ import AnyCodable
 /** Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate */
 public struct EzsigndocumentApplyEzsigntemplateV1Request: Codable, JSONEncodable, Hashable {
 
-    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let aSEzsigntemplatesignerRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
-    static let aPkiEzsignfoldersignerassociationIDRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let aSEzsigntemplatesignerRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aPkiEzsignfoldersignerassociationIDRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** The unique ID of the Ezsigntemplate */
     public var fkiEzsigntemplateID: Int
     public var aSEzsigntemplatesigner: [String]

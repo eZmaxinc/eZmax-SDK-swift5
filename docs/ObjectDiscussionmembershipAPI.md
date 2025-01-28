@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **discussionmembershipDeleteObjectV1**
 ```swift
-    open class func discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: Int, completion: @escaping (_ data: CommonResponse?, _ error: Error?) -> Void)
+    open class func discussionmembershipDeleteObjectV1(pkiDiscussionmembershipID: Int, completion: @escaping (_ data: DiscussionmembershipDeleteObjectV1Response?, _ error: Error?) -> Void)
 ```
 
 Delete an existing Discussionmembership
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmembershipDeleteObjectV1Response**](DiscussionmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 

@@ -13,7 +13,7 @@ import AnyCodable
 /** Payload for GET /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignsignaturesAutomatic */
 public struct EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let aEEzsignsignatureTypeRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: true)
+    public static let aEEzsignsignatureTypeRule = ArrayRule(minItems: nil, maxItems: nil, uniqueItems: true)
     /** All eEzsignsignatureType contained in the response */
     public var aEEzsignsignatureType: Set<FieldEEzsignsignatureType>
     public var aObjEzsignfolder: [CustomEzsignfolderEzsignsignaturesAutomaticResponse]

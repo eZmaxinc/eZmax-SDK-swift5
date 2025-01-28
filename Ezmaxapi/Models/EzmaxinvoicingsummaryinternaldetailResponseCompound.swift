@@ -13,14 +13,14 @@ import AnyCodable
 /** A Ezmaxinvoicingsummaryinternaldetail Object */
 public struct EzmaxinvoicingsummaryinternaldetailResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzmaxinvoicingsummaryinternaldetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzmaxinvoicingsummaryinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzmaxproductIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiBillingentityexternalIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let dEzmaxinvoicingsummaryinternaldetailCountrealRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,6}?\\.[\\d]{2}$/")
-    static let dEzmaxinvoicingsummaryinternaldetailSubtotalRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    static let dEzmaxinvoicingsummaryinternaldetailRebateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    static let dEzmaxinvoicingsummaryinternaldetailTotalRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let pkiEzmaxinvoicingsummaryinternaldetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzmaxinvoicingsummaryinternalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzmaxproductIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiBillingentityexternalIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let dEzmaxinvoicingsummaryinternaldetailCountrealRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,6}?\\.[\\d]{2}$/")
+    public static let dEzmaxinvoicingsummaryinternaldetailSubtotalRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let dEzmaxinvoicingsummaryinternaldetailRebateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let dEzmaxinvoicingsummaryinternaldetailTotalRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezmaxinvoicingsummaryinternaldetail */
     public var pkiEzmaxinvoicingsummaryinternaldetailID: Int?
     /** The unique ID of the Ezmaxinvoicingsummaryinternal */

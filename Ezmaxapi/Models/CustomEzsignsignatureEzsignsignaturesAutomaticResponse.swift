@@ -13,8 +13,8 @@ import AnyCodable
 /** An Ezsignsignature Object in the context of an EzsignsignaturesAutomatic path */
 public struct CustomEzsignsignatureEzsignsignaturesAutomaticResponse: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsignsignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let pkiEzsignsignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsignsignature */
     public var pkiEzsignsignatureID: Int
     public var eEzsignsignatureType: FieldEEzsignsignatureType

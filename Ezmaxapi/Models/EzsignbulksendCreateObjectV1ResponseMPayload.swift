@@ -13,7 +13,7 @@ import AnyCodable
 /** Payload for POST /1/object/ezsignbulksend */
 public struct EzsignbulksendCreateObjectV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let aPkiEzsignbulksendIDRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aPkiEzsignbulksendIDRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request. */
     public var aPkiEzsignbulksendID: [Int]
 

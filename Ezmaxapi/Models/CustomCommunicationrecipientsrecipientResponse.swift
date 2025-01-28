@@ -31,21 +31,21 @@ public struct CustomCommunicationrecipientsrecipientResponse: Codable, JSONEncod
         case supplier = "Supplier"
         case user = "User"
     }
-    static let fkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiContactIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiCustomerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEmployeeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignsignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiFranchiseofficeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiAgentincorporationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiAssistantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiExternalbrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzcomagentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiNotaryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiRewardmemberIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiSupplierIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiContactIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiCustomerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEmployeeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignsignerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiFranchiseofficeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiAgentincorporationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiAssistantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiExternalbrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzcomagentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiNotaryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiRewardmemberIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiSupplierIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Agent. */
     public var fkiAgentID: Int?
     /** The unique ID of the Broker. */
@@ -78,12 +78,11 @@ public struct CustomCommunicationrecipientsrecipientResponse: Codable, JSONEncod
     public var fkiSupplierID: Int?
     public var eCommunicationrecipientsrecipientObjecttype: ECommunicationrecipientsrecipientObjecttype
     public var objContactName: CustomContactNameResponse
-    /** An Email Object and children to create a complete structure */
-    public var objEmail: EmailResponse?
+    public var objEmail: EmailResponseCompound?
     public var objPhoneFax: PhoneResponseCompound?
     public var objPhoneSMS: PhoneResponseCompound?
 
-    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiContactID: Int? = nil, fkiCustomerID: Int? = nil, fkiEmployeeID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiFranchiseofficeID: Int? = nil, fkiUserID: Int? = nil, fkiAgentincorporationID: Int? = nil, fkiAssistantID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzcomagentID: Int? = nil, fkiNotaryID: Int? = nil, fkiRewardmemberID: Int? = nil, fkiSupplierID: Int? = nil, eCommunicationrecipientsrecipientObjecttype: ECommunicationrecipientsrecipientObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponse? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
+    public init(fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiContactID: Int? = nil, fkiCustomerID: Int? = nil, fkiEmployeeID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiFranchiseofficeID: Int? = nil, fkiUserID: Int? = nil, fkiAgentincorporationID: Int? = nil, fkiAssistantID: Int? = nil, fkiExternalbrokerID: Int? = nil, fkiEzcomagentID: Int? = nil, fkiNotaryID: Int? = nil, fkiRewardmemberID: Int? = nil, fkiSupplierID: Int? = nil, eCommunicationrecipientsrecipientObjecttype: ECommunicationrecipientsrecipientObjecttype, objContactName: CustomContactNameResponse, objEmail: EmailResponseCompound? = nil, objPhoneFax: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil) {
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
         self.fkiContactID = fkiContactID

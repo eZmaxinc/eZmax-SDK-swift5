@@ -13,7 +13,7 @@ import AnyCodable
 /** Payload for POST /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}/resetUrl */
 public struct EzsigntemplatepublicResetUrlV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
-    static let sEzsigntemplatepublicUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sEzsigntemplatepublicUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     /** The url of the Ezsigntemplatepublic  You can add these value as query parameters to prefill the corresponding role  |Parameter|Description| |-|-| |sEzsigntemplatesignerDescription|The role to fill| |sContactFirstname|The contact firstname| |sContactLastname|The contact lastname| |sEmailAddress|The contact email| |sPhoneE164|The contact phone number| |sPhoneE164Cell|The contact cell phone number| */
     public var sEzsigntemplatepublicUrl: String
 

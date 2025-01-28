@@ -68,7 +68,7 @@ open class ObjectPaymenttermAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func paymenttermEditObjectV1(pkiPaymenttermID: Int, paymenttermEditObjectV1Request: PaymenttermEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func paymenttermEditObjectV1(pkiPaymenttermID: Int, paymenttermEditObjectV1Request: PaymenttermEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaymenttermEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return paymenttermEditObjectV1WithRequestBuilder(pkiPaymenttermID: pkiPaymenttermID, paymenttermEditObjectV1Request: paymenttermEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -88,9 +88,9 @@ open class ObjectPaymenttermAPI {
        - name: Authorization
      - parameter pkiPaymenttermID: (path)  
      - parameter paymenttermEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<PaymenttermEditObjectV1Response> 
      */
-    open class func paymenttermEditObjectV1WithRequestBuilder(pkiPaymenttermID: Int, paymenttermEditObjectV1Request: PaymenttermEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func paymenttermEditObjectV1WithRequestBuilder(pkiPaymenttermID: Int, paymenttermEditObjectV1Request: PaymenttermEditObjectV1Request) -> RequestBuilder<PaymenttermEditObjectV1Response> {
         var localVariablePath = "/1/object/paymentterm/{pkiPaymenttermID}"
         let pkiPaymenttermIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiPaymenttermID))"
         let pkiPaymenttermIDPostEscape = pkiPaymenttermIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,7 +106,7 @@ open class ObjectPaymenttermAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaymenttermEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

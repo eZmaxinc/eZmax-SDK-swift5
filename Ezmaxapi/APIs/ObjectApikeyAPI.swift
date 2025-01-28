@@ -68,7 +68,7 @@ open class ObjectApikeyAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func apikeyEditObjectV1(pkiApikeyID: Int, apikeyEditObjectV1Request: ApikeyEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CommonResponse?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func apikeyEditObjectV1(pkiApikeyID: Int, apikeyEditObjectV1Request: ApikeyEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ApikeyEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return apikeyEditObjectV1WithRequestBuilder(pkiApikeyID: pkiApikeyID, apikeyEditObjectV1Request: apikeyEditObjectV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -88,9 +88,9 @@ open class ObjectApikeyAPI {
        - name: Authorization
      - parameter pkiApikeyID: (path) The unique ID of the Apikey 
      - parameter apikeyEditObjectV1Request: (body)  
-     - returns: RequestBuilder<CommonResponse> 
+     - returns: RequestBuilder<ApikeyEditObjectV1Response> 
      */
-    open class func apikeyEditObjectV1WithRequestBuilder(pkiApikeyID: Int, apikeyEditObjectV1Request: ApikeyEditObjectV1Request) -> RequestBuilder<CommonResponse> {
+    open class func apikeyEditObjectV1WithRequestBuilder(pkiApikeyID: Int, apikeyEditObjectV1Request: ApikeyEditObjectV1Request) -> RequestBuilder<ApikeyEditObjectV1Response> {
         var localVariablePath = "/1/object/apikey/{pkiApikeyID}"
         let pkiApikeyIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiApikeyID))"
         let pkiApikeyIDPostEscape = pkiApikeyIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,7 +106,7 @@ open class ObjectApikeyAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CommonResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ApikeyEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

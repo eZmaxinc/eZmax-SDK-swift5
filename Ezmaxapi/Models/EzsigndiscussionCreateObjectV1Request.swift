@@ -13,7 +13,7 @@ import AnyCodable
 /** Request for POST /1/object/ezsigndiscussion */
 public struct EzsigndiscussionCreateObjectV1Request: Codable, JSONEncodable, Hashable {
 
-    static let aObjEzsigndiscussionRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
+    public static let aObjEzsigndiscussionRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     public var aObjEzsigndiscussion: [EzsigndiscussionRequestCompound]
 
     public init(aObjEzsigndiscussion: [EzsigndiscussionRequestCompound]) {

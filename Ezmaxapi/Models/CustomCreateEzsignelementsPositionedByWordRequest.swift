@@ -18,7 +18,7 @@ public struct CustomCreateEzsignelementsPositionedByWordRequest: Codable, JSONEn
         case first = "First"
         case last = "Last"
     }
-    static let sCreateezsignelementspositionedbywordPatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,35}$/")
+    public static let sCreateezsignelementspositionedbywordPatternRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,35}$/")
     /** The word to search */
     public var sCreateezsignelementspositionedbywordPattern: String
     /** The X offset */

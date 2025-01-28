@@ -13,19 +13,19 @@ import AnyCodable
 /** A Ezsigntemplatepublic Object */
 public struct EzsigntemplatepublicResponseCompound: Codable, JSONEncodable, Hashable {
 
-    static let pkiEzsigntemplatepublicIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiUserlogintypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let fkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    static let sEzsigntemplatepublicDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
-    static let sEzsigntemplatepublicReferenceidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,36}$/")
-    static let tEzsigntemplatepublicNoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
-    static let iEzsigntemplatepublicLimitRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let iEzsigntemplatepublicLimitexceededRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
-    static let dtEzsigntemplatepublicLimitexceededsinceRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-    static let sEzsigntemplatepublicUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
-    static let sEzsigntemplatepublicEzsigntemplatedescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,80}$/")
+    public static let pkiEzsigntemplatepublicIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiUserlogintypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplatepackageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsigntemplatepublicDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
+    public static let sEzsigntemplatepublicReferenceidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,36}$/")
+    public static let tEzsigntemplatepublicNoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let iEzsigntemplatepublicLimitRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatepublicLimitexceededRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let dtEzsigntemplatepublicLimitexceededsinceRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
+    public static let sEzsigntemplatepublicUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sEzsigntemplatepublicEzsigntemplatedescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,80}$/")
     /** The unique ID of the Ezsigntemplatepublic */
     public var pkiEzsigntemplatepublicID: Int
     /** The unique ID of the Ezsignfoldertype. */
