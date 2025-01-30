@@ -93,6 +93,8 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
     public var objContactName: CustomContactNameResponse
     public var objContactNameDelegation: CustomContactNameResponse?
     public var objSignature: SignatureResponseCompound?
+    /** The Description of the Ezsignsignergroup in the language of the requester */
+    public var sEzsignsignergroupDescriptionX: String?
     /** Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) */
     public var bEzsignsignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
@@ -100,7 +102,7 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
     public var objCreditcardtransaction: CustomCreditcardtransactionResponse?
     public var aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompoundV2]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil, sEzsignsignergroupDescriptionX: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompoundV2]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
@@ -138,6 +140,7 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
         self.objContactName = objContactName
         self.objContactNameDelegation = objContactNameDelegation
         self.objSignature = objSignature
+        self.sEzsignsignergroupDescriptionX = sEzsignsignergroupDescriptionX
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
         self.aObjEzsignsignaturecustomdate = aObjEzsignsignaturecustomdate
         self.objCreditcardtransaction = objCreditcardtransaction
@@ -182,6 +185,7 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
         case objContactName
         case objContactNameDelegation
         case objSignature
+        case sEzsignsignergroupDescriptionX
         case bEzsignsignatureCustomdate
         case aObjEzsignsignaturecustomdate = "a_objEzsignsignaturecustomdate"
         case objCreditcardtransaction
@@ -229,6 +233,7 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
         try container.encode(objContactName, forKey: .objContactName)
         try container.encodeIfPresent(objContactNameDelegation, forKey: .objContactNameDelegation)
         try container.encodeIfPresent(objSignature, forKey: .objSignature)
+        try container.encodeIfPresent(sEzsignsignergroupDescriptionX, forKey: .sEzsignsignergroupDescriptionX)
         try container.encodeIfPresent(bEzsignsignatureCustomdate, forKey: .bEzsignsignatureCustomdate)
         try container.encodeIfPresent(aObjEzsignsignaturecustomdate, forKey: .aObjEzsignsignaturecustomdate)
         try container.encodeIfPresent(objCreditcardtransaction, forKey: .objCreditcardtransaction)
