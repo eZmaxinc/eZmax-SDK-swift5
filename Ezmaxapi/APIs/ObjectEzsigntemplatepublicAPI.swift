@@ -107,6 +107,56 @@ open class ObjectEzsigntemplatepublicAPI {
     }
 
     /**
+     Delete an existing Ezsigntemplatepublic
+     
+     - parameter pkiEzsigntemplatepublicID: (path) The unique ID of the Ezsigntemplatepublic 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigntemplatepublicDeleteObjectV1(pkiEzsigntemplatepublicID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatepublicDeleteObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplatepublicDeleteObjectV1WithRequestBuilder(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Delete an existing Ezsigntemplatepublic
+     - DELETE /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigntemplatepublicID: (path) The unique ID of the Ezsigntemplatepublic 
+     - returns: RequestBuilder<EzsigntemplatepublicDeleteObjectV1Response> 
+     */
+    open class func ezsigntemplatepublicDeleteObjectV1WithRequestBuilder(pkiEzsigntemplatepublicID: Int) -> RequestBuilder<EzsigntemplatepublicDeleteObjectV1Response> {
+        var localVariablePath = "/1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}"
+        let pkiEzsigntemplatepublicIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatepublicID))"
+        let pkiEzsigntemplatepublicIDPostEscape = pkiEzsigntemplatepublicIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplatepublicID}", with: pkiEzsigntemplatepublicIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatepublicDeleteObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Edit an existing Ezsigntemplatepublic
      
      - parameter pkiEzsigntemplatepublicID: (path) The unique ID of the Ezsigntemplatepublic 

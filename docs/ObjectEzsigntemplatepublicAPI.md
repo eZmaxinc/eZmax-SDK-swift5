@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsigntemplatepublicCreateEzsignfolderV1**](ObjectEzsigntemplatepublicAPI.md#ezsigntemplatepubliccreateezsignfolderv1) | **POST** /1/object/ezsigntemplatepublic/createEzsignfolder | Create an Ezsignfolder
 [**ezsigntemplatepublicCreateObjectV1**](ObjectEzsigntemplatepublicAPI.md#ezsigntemplatepubliccreateobjectv1) | **POST** /1/object/ezsigntemplatepublic | Create a new Ezsigntemplatepublic
+[**ezsigntemplatepublicDeleteObjectV1**](ObjectEzsigntemplatepublicAPI.md#ezsigntemplatepublicdeleteobjectv1) | **DELETE** /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID} | Delete an existing Ezsigntemplatepublic
 [**ezsigntemplatepublicEditObjectV1**](ObjectEzsigntemplatepublicAPI.md#ezsigntemplatepubliceditobjectv1) | **PUT** /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID} | Edit an existing Ezsigntemplatepublic
 [**ezsigntemplatepublicGetEzsigntemplatepublicDetailsV1**](ObjectEzsigntemplatepublicAPI.md#ezsigntemplatepublicgetezsigntemplatepublicdetailsv1) | **POST** /1/object/ezsigntemplatepublic/getEzsigntemplatepublicDetails | Retrieve the Ezsigntemplatepublic details
 [**ezsigntemplatepublicGetFormsDataV1**](ObjectEzsigntemplatepublicAPI.md#ezsigntemplatepublicgetformsdatav1) | **GET** /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}/getFormsData | Retrieve an existing Ezsigntemplatepublic&#39;s forms data
@@ -111,6 +112,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatepublicDeleteObjectV1**
+```swift
+    open class func ezsigntemplatepublicDeleteObjectV1(pkiEzsigntemplatepublicID: Int, completion: @escaping (_ data: EzsigntemplatepublicDeleteObjectV1Response?, _ error: Error?) -> Void)
+```
+
+Delete an existing Ezsigntemplatepublic
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplatepublicID = 987 // Int | The unique ID of the Ezsigntemplatepublic
+
+// Delete an existing Ezsigntemplatepublic
+ObjectEzsigntemplatepublicAPI.ezsigntemplatepublicDeleteObjectV1(pkiEzsigntemplatepublicID: pkiEzsigntemplatepublicID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplatepublicID** | **Int** | The unique ID of the Ezsigntemplatepublic | 
+
+### Return type
+
+[**EzsigntemplatepublicDeleteObjectV1Response**](EzsigntemplatepublicDeleteObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
