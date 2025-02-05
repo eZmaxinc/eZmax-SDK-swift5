@@ -27,6 +27,7 @@ Ezmaxapi/APIs/ObjectCountryAPI.swift
 Ezmaxapi/APIs/ObjectCreditcardclientAPI.swift
 Ezmaxapi/APIs/ObjectCreditcardmerchantAPI.swift
 Ezmaxapi/APIs/ObjectCreditcardtypeAPI.swift
+Ezmaxapi/APIs/ObjectCurrencyAPI.swift
 Ezmaxapi/APIs/ObjectCustomerAPI.swift
 Ezmaxapi/APIs/ObjectDepartmentAPI.swift
 Ezmaxapi/APIs/ObjectDiscussionAPI.swift
@@ -382,6 +383,9 @@ Ezmaxapi/Models/CreditcardmerchantResponseCompound.swift
 Ezmaxapi/Models/CreditcardtypeAutocompleteElementResponse.swift
 Ezmaxapi/Models/CreditcardtypeGetAutocompleteV2Response.swift
 Ezmaxapi/Models/CreditcardtypeGetAutocompleteV2ResponseMPayload.swift
+Ezmaxapi/Models/CurrencyAutocompleteElementResponse.swift
+Ezmaxapi/Models/CurrencyGetAutocompleteV2Response.swift
+Ezmaxapi/Models/CurrencyGetAutocompleteV2ResponseMPayload.swift
 Ezmaxapi/Models/CustomApikey.swift
 Ezmaxapi/Models/CustomApikeyfederation.swift
 Ezmaxapi/Models/CustomAttachmentResponse.swift
@@ -2048,6 +2052,9 @@ docs/CreditcardmerchantResponseCompound.md
 docs/CreditcardtypeAutocompleteElementResponse.md
 docs/CreditcardtypeGetAutocompleteV2Response.md
 docs/CreditcardtypeGetAutocompleteV2ResponseMPayload.md
+docs/CurrencyAutocompleteElementResponse.md
+docs/CurrencyGetAutocompleteV2Response.md
+docs/CurrencyGetAutocompleteV2ResponseMPayload.md
 docs/CustomApikey.md
 docs/CustomApikeyfederation.md
 docs/CustomAttachmentResponse.md
@@ -3102,6 +3109,7 @@ docs/ObjectCountryAPI.md
 docs/ObjectCreditcardclientAPI.md
 docs/ObjectCreditcardmerchantAPI.md
 docs/ObjectCreditcardtypeAPI.md
+docs/ObjectCurrencyAPI.md
 docs/ObjectCustomerAPI.md
 docs/ObjectDepartmentAPI.md
 docs/ObjectDiscussionAPI.md
