@@ -16,17 +16,21 @@ public struct CommonReportsubsection: Codable, JSONEncodable, Hashable {
     public var objReportsubsectionpartHeader: CommonReportsubsectionpart
     public var objReportsubsectionpartBody: CommonReportsubsectionpart
     public var objReportsubsectionpartFooter: CommonReportsubsectionpart
+    /** The title of this Reportsubsection */
+    public var sReportsubsectionTitle: String?
 
-    public init(objReportsubsectionpartHeader: CommonReportsubsectionpart, objReportsubsectionpartBody: CommonReportsubsectionpart, objReportsubsectionpartFooter: CommonReportsubsectionpart) {
+    public init(objReportsubsectionpartHeader: CommonReportsubsectionpart, objReportsubsectionpartBody: CommonReportsubsectionpart, objReportsubsectionpartFooter: CommonReportsubsectionpart, sReportsubsectionTitle: String? = nil) {
         self.objReportsubsectionpartHeader = objReportsubsectionpartHeader
         self.objReportsubsectionpartBody = objReportsubsectionpartBody
         self.objReportsubsectionpartFooter = objReportsubsectionpartFooter
+        self.sReportsubsectionTitle = sReportsubsectionTitle
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case objReportsubsectionpartHeader
         case objReportsubsectionpartBody
         case objReportsubsectionpartFooter
+        case sReportsubsectionTitle
     }
 
     // Encodable protocol methods
@@ -36,6 +40,7 @@ public struct CommonReportsubsection: Codable, JSONEncodable, Hashable {
         try container.encode(objReportsubsectionpartHeader, forKey: .objReportsubsectionpartHeader)
         try container.encode(objReportsubsectionpartBody, forKey: .objReportsubsectionpartBody)
         try container.encode(objReportsubsectionpartFooter, forKey: .objReportsubsectionpartFooter)
+        try container.encodeIfPresent(sReportsubsectionTitle, forKey: .sReportsubsectionTitle)
     }
 }
 

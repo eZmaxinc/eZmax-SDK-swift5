@@ -15,6 +15,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
 
     public enum EEzsigndocumentSource: String, Codable, CaseIterable {
         case base64 = "Base64"
+        case ezsignimportdocument = "Ezsignimportdocument"
         case ezsigntemplate = "Ezsigntemplate"
         case url = "Url"
     }
@@ -37,6 +38,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     public static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsigntemplateIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignimportdocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     public static let sEzsigndocumentExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,128}$/")
     /** The unique ID of the Ezsigndocument */
@@ -47,6 +49,8 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     public var fkiEzsigntemplateID: Int?
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int?
+    /** The unique ID of the Ezsignimportdocument */
+    public var fkiEzsignimportdocumentID: Int?
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
     /** Indicates where to look for the document binary content. */
@@ -70,11 +74,12 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
     /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
     public var sEzsigndocumentExternalid: String?
 
-    public init(pkiEzsigndocumentID: Int? = nil, fkiEzsignfolderID: Int, fkiEzsigntemplateID: Int? = nil, fkiEzsignfoldersignerassociationID: Int? = nil, fkiLanguageID: Int, eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat? = nil, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = nil, eEzsigndocumentForm: EEzsigndocumentForm? = nil, dtEzsigndocumentDuedate: String, sEzsigndocumentName: String, sEzsigndocumentExternalid: String? = nil) {
+    public init(pkiEzsigndocumentID: Int? = nil, fkiEzsignfolderID: Int, fkiEzsigntemplateID: Int? = nil, fkiEzsignfoldersignerassociationID: Int? = nil, fkiEzsignimportdocumentID: Int? = nil, fkiLanguageID: Int, eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat? = nil, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = nil, eEzsigndocumentForm: EEzsigndocumentForm? = nil, dtEzsigndocumentDuedate: String, sEzsigndocumentName: String, sEzsigndocumentExternalid: String? = nil) {
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsigntemplateID = fkiEzsigntemplateID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
+        self.fkiEzsignimportdocumentID = fkiEzsignimportdocumentID
         self.fkiLanguageID = fkiLanguageID
         self.eEzsigndocumentSource = eEzsigndocumentSource
         self.eEzsigndocumentFormat = eEzsigndocumentFormat
@@ -93,6 +98,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
         case fkiEzsignfolderID
         case fkiEzsigntemplateID
         case fkiEzsignfoldersignerassociationID
+        case fkiEzsignimportdocumentID
         case fkiLanguageID
         case eEzsigndocumentSource
         case eEzsigndocumentFormat
@@ -114,6 +120,7 @@ public struct EzsigndocumentRequest: Codable, JSONEncodable, Hashable {
         try container.encode(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encodeIfPresent(fkiEzsigntemplateID, forKey: .fkiEzsigntemplateID)
         try container.encodeIfPresent(fkiEzsignfoldersignerassociationID, forKey: .fkiEzsignfoldersignerassociationID)
+        try container.encodeIfPresent(fkiEzsignimportdocumentID, forKey: .fkiEzsignimportdocumentID)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(eEzsigndocumentSource, forKey: .eEzsigndocumentSource)
         try container.encodeIfPresent(eEzsigndocumentFormat, forKey: .eEzsigndocumentFormat)

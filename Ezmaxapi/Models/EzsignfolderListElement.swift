@@ -57,10 +57,16 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     public var dEzsignfolderFormcompletedpercentage: String
     /** Percentage of Ezsignsignatures has signed */
     public var dEzsignfolderSignaturecompletedpercentage: String
+    /** The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. */
+    public var dtEzsignfolderClose: String?
+    /** The date and time at which the Ezsignfolder was archived. */
+    public var dtEzsignfolderArchive: String?
+    /** The date and time at which the Ezsignfolder was disposed. */
+    public var dtEzsignfolderDispose: String?
     /** Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user */
     public var bEzsignfolderSigner: Bool?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int, iEzsignformfieldgroup: Int, iEzsignformfieldgroupCompleted: Int, bEzsignformHasdependencies: Bool? = nil, dEzsignfolderCompletedpercentage: String, dEzsignfolderFormcompletedpercentage: String, dEzsignfolderSignaturecompletedpercentage: String, bEzsignfolderSigner: Bool? = nil) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int, iEzsignformfieldgroup: Int, iEzsignformfieldgroupCompleted: Int, bEzsignformHasdependencies: Bool? = nil, dEzsignfolderCompletedpercentage: String, dEzsignfolderFormcompletedpercentage: String, dEzsignfolderSignaturecompletedpercentage: String, dtEzsignfolderClose: String? = nil, dtEzsignfolderArchive: String? = nil, dtEzsignfolderDispose: String? = nil, bEzsignfolderSigner: Bool? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.eEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
@@ -81,6 +87,9 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         self.dEzsignfolderCompletedpercentage = dEzsignfolderCompletedpercentage
         self.dEzsignfolderFormcompletedpercentage = dEzsignfolderFormcompletedpercentage
         self.dEzsignfolderSignaturecompletedpercentage = dEzsignfolderSignaturecompletedpercentage
+        self.dtEzsignfolderClose = dtEzsignfolderClose
+        self.dtEzsignfolderArchive = dtEzsignfolderArchive
+        self.dtEzsignfolderDispose = dtEzsignfolderDispose
         self.bEzsignfolderSigner = bEzsignfolderSigner
     }
 
@@ -105,6 +114,9 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         case dEzsignfolderCompletedpercentage
         case dEzsignfolderFormcompletedpercentage
         case dEzsignfolderSignaturecompletedpercentage
+        case dtEzsignfolderClose
+        case dtEzsignfolderArchive
+        case dtEzsignfolderDispose
         case bEzsignfolderSigner
     }
 
@@ -132,6 +144,9 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         try container.encode(dEzsignfolderCompletedpercentage, forKey: .dEzsignfolderCompletedpercentage)
         try container.encode(dEzsignfolderFormcompletedpercentage, forKey: .dEzsignfolderFormcompletedpercentage)
         try container.encode(dEzsignfolderSignaturecompletedpercentage, forKey: .dEzsignfolderSignaturecompletedpercentage)
+        try container.encodeIfPresent(dtEzsignfolderClose, forKey: .dtEzsignfolderClose)
+        try container.encodeIfPresent(dtEzsignfolderArchive, forKey: .dtEzsignfolderArchive)
+        try container.encodeIfPresent(dtEzsignfolderDispose, forKey: .dtEzsignfolderDispose)
         try container.encodeIfPresent(bEzsignfolderSigner, forKey: .bEzsignfolderSigner)
     }
 }

@@ -28,6 +28,7 @@ public struct EzsigntemplateResponseCompoundV3: Codable, JSONEncodable, Hashable
     public var fkiEzsigntemplatedocumentID: Int?
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int?
+    public var objEzsignfoldertype: CustomEzsignfoldertypeTemplateResponse?
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int
     /** The unique ID of the Ezdoctemplatedocument */
@@ -56,10 +57,11 @@ public struct EzsigntemplateResponseCompoundV3: Codable, JSONEncodable, Hashable
     public var objEzsigntemplatedocument: EzsigntemplatedocumentResponse?
     public var aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]
 
-    public init(pkiEzsigntemplateID: Int, fkiEzsigntemplatedocumentID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, fkiLanguageID: Int, fkiEzdoctemplatedocumentID: Int? = nil, sEzdoctemplatedocumentNameX: String? = nil, sLanguageNameX: String, sEzsigntemplateDescription: String, sEzsigntemplateExternaldescription: String? = nil, tEzsigntemplateComment: String? = nil, eEzsigntemplateRecognition: FieldEEzsigntemplateRecognition? = nil, sEzsigntemplateFilenameregexp: String? = nil, bEzsigntemplateAdminonly: Bool, sEzsignfoldertypeNameX: String? = nil, objAudit: CommonAudit, bEzsigntemplateEditallowed: Bool, eEzsigntemplateType: FieldEEzsigntemplateType? = nil, objEzsigntemplatedocument: EzsigntemplatedocumentResponse? = nil, aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]) {
+    public init(pkiEzsigntemplateID: Int, fkiEzsigntemplatedocumentID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeTemplateResponse? = nil, fkiLanguageID: Int, fkiEzdoctemplatedocumentID: Int? = nil, sEzdoctemplatedocumentNameX: String? = nil, sLanguageNameX: String, sEzsigntemplateDescription: String, sEzsigntemplateExternaldescription: String? = nil, tEzsigntemplateComment: String? = nil, eEzsigntemplateRecognition: FieldEEzsigntemplateRecognition? = nil, sEzsigntemplateFilenameregexp: String? = nil, bEzsigntemplateAdminonly: Bool, sEzsignfoldertypeNameX: String? = nil, objAudit: CommonAudit, bEzsigntemplateEditallowed: Bool, eEzsigntemplateType: FieldEEzsigntemplateType? = nil, objEzsigntemplatedocument: EzsigntemplatedocumentResponse? = nil, aObjEzsigntemplatesigner: [EzsigntemplatesignerResponseCompound]) {
         self.pkiEzsigntemplateID = pkiEzsigntemplateID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+        self.objEzsignfoldertype = objEzsignfoldertype
         self.fkiLanguageID = fkiLanguageID
         self.fkiEzdoctemplatedocumentID = fkiEzdoctemplatedocumentID
         self.sEzdoctemplatedocumentNameX = sEzdoctemplatedocumentNameX
@@ -82,6 +84,7 @@ public struct EzsigntemplateResponseCompoundV3: Codable, JSONEncodable, Hashable
         case pkiEzsigntemplateID
         case fkiEzsigntemplatedocumentID
         case fkiEzsignfoldertypeID
+        case objEzsignfoldertype
         case fkiLanguageID
         case fkiEzdoctemplatedocumentID
         case sEzdoctemplatedocumentNameX
@@ -107,6 +110,7 @@ public struct EzsigntemplateResponseCompoundV3: Codable, JSONEncodable, Hashable
         try container.encode(pkiEzsigntemplateID, forKey: .pkiEzsigntemplateID)
         try container.encodeIfPresent(fkiEzsigntemplatedocumentID, forKey: .fkiEzsigntemplatedocumentID)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encodeIfPresent(objEzsignfoldertype, forKey: .objEzsignfoldertype)
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encodeIfPresent(fkiEzdoctemplatedocumentID, forKey: .fkiEzdoctemplatedocumentID)
         try container.encodeIfPresent(sEzdoctemplatedocumentNameX, forKey: .sEzdoctemplatedocumentNameX)

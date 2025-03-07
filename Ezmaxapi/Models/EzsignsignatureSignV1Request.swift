@@ -33,10 +33,11 @@ public struct EzsignsignatureSignV1Request: Codable, JSONEncodable, Hashable {
     /** The SVG of the signature.  This can only be set if eEzsignsignatureType is **Signature**_/_**Initials** and **bIsAutomatic** is false */
     public var sSvg: String?
     public var aObjFile: [CommonFile]?
+    public var objCreditcard: CustomCreditcardRequest?
     /** Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**.  */
     public var bIsAutomatic: Bool
 
-    public init(fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, sValue: String? = nil, eAttachmentsConfirmationDecision: EAttachmentsConfirmationDecision? = nil, sAttachmentsRefusalReason: String? = nil, sSvg: String? = nil, aObjFile: [CommonFile]? = nil, bIsAutomatic: Bool) {
+    public init(fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, sValue: String? = nil, eAttachmentsConfirmationDecision: EAttachmentsConfirmationDecision? = nil, sAttachmentsRefusalReason: String? = nil, sSvg: String? = nil, aObjFile: [CommonFile]? = nil, objCreditcard: CustomCreditcardRequest? = nil, bIsAutomatic: Bool) {
         self.fkiEzsignsigningreasonID = fkiEzsignsigningreasonID
         self.fkiFontID = fkiFontID
         self.sValue = sValue
@@ -44,6 +45,7 @@ public struct EzsignsignatureSignV1Request: Codable, JSONEncodable, Hashable {
         self.sAttachmentsRefusalReason = sAttachmentsRefusalReason
         self.sSvg = sSvg
         self.aObjFile = aObjFile
+        self.objCreditcard = objCreditcard
         self.bIsAutomatic = bIsAutomatic
     }
 
@@ -55,6 +57,7 @@ public struct EzsignsignatureSignV1Request: Codable, JSONEncodable, Hashable {
         case sAttachmentsRefusalReason
         case sSvg
         case aObjFile = "a_objFile"
+        case objCreditcard
         case bIsAutomatic
     }
 
@@ -69,6 +72,7 @@ public struct EzsignsignatureSignV1Request: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sAttachmentsRefusalReason, forKey: .sAttachmentsRefusalReason)
         try container.encodeIfPresent(sSvg, forKey: .sSvg)
         try container.encodeIfPresent(aObjFile, forKey: .aObjFile)
+        try container.encodeIfPresent(objCreditcard, forKey: .objCreditcard)
         try container.encode(bIsAutomatic, forKey: .bIsAutomatic)
     }
 }

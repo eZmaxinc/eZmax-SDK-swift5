@@ -18,6 +18,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sCurrencyDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
     public static let sEzsignsigningreasonDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     public static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsignsignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -40,6 +41,8 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public var fkiEzsignsigningreasonID: Int?
     /** The unique ID of the Font */
     public var fkiFontID: Int?
+    /** The description of the Currency in the language of the requester */
+    public var sCurrencyDescriptionX: String?
     /** The description of the Ezsignsigningreason in the language of the requester */
     public var sEzsignsigningreasonDescriptionX: String?
     /** The page number in the Ezsigndocument */
@@ -105,13 +108,15 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
     public var objCreditcardtransaction: CustomCreditcardtransactionResponse?
     public var aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]?
     public var objTimezone: CustomTimezoneWithCodeResponse?
+    public var aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailRequestCompound]?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil, dtEzsignsignatureDateInFolderTimezone: String? = nil, sEzsignsignergroupDescriptionX: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil, objTimezone: CustomTimezoneWithCodeResponse? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, sCurrencyDescriptionX: String? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil, dtEzsignsignatureDateInFolderTimezone: String? = nil, sEzsignsignergroupDescriptionX: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompound]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil, objTimezone: CustomTimezoneWithCodeResponse? = nil, aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailRequestCompound]? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.fkiEzsignsigningreasonID = fkiEzsignsigningreasonID
         self.fkiFontID = fkiFontID
+        self.sCurrencyDescriptionX = sCurrencyDescriptionX
         self.sEzsignsigningreasonDescriptionX = sEzsignsigningreasonDescriptionX
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.iEzsignsignatureX = iEzsignsignatureX
@@ -151,6 +156,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         self.objCreditcardtransaction = objCreditcardtransaction
         self.aObjEzsignelementdependency = aObjEzsignelementdependency
         self.objTimezone = objTimezone
+        self.aObjEzsignsignaturepaymentdetail = aObjEzsignsignaturepaymentdetail
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -159,6 +165,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         case fkiEzsignfoldersignerassociationID
         case fkiEzsignsigningreasonID
         case fkiFontID
+        case sCurrencyDescriptionX
         case sEzsignsigningreasonDescriptionX
         case iEzsignpagePagenumber
         case iEzsignsignatureX
@@ -198,6 +205,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         case objCreditcardtransaction
         case aObjEzsignelementdependency = "a_objEzsignelementdependency"
         case objTimezone
+        case aObjEzsignsignaturepaymentdetail = "a_objEzsignsignaturepaymentdetail"
     }
 
     // Encodable protocol methods
@@ -209,6 +217,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         try container.encode(fkiEzsignfoldersignerassociationID, forKey: .fkiEzsignfoldersignerassociationID)
         try container.encodeIfPresent(fkiEzsignsigningreasonID, forKey: .fkiEzsignsigningreasonID)
         try container.encodeIfPresent(fkiFontID, forKey: .fkiFontID)
+        try container.encodeIfPresent(sCurrencyDescriptionX, forKey: .sCurrencyDescriptionX)
         try container.encodeIfPresent(sEzsignsigningreasonDescriptionX, forKey: .sEzsignsigningreasonDescriptionX)
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
         try container.encode(iEzsignsignatureX, forKey: .iEzsignsignatureX)
@@ -248,6 +257,7 @@ public struct EzsignsignatureResponseCompound: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(objCreditcardtransaction, forKey: .objCreditcardtransaction)
         try container.encodeIfPresent(aObjEzsignelementdependency, forKey: .aObjEzsignelementdependency)
         try container.encodeIfPresent(objTimezone, forKey: .objTimezone)
+        try container.encodeIfPresent(aObjEzsignsignaturepaymentdetail, forKey: .aObjEzsignsignaturepaymentdetail)
     }
 }
 

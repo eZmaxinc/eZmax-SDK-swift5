@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **fkiEzsignfoldersignerassociationID** | **Int** | The unique ID of the Ezsignfoldersignerassociation | 
 **fkiEzsignsigningreasonID** | **Int** | The unique ID of the Ezsignsigningreason | [optional] 
 **fkiFontID** | **Int** | The unique ID of the Font | [optional] 
+**sCurrencyDescriptionX** | **String** | The description of the Currency in the language of the requester | [optional] 
 **sEzsignsigningreasonDescriptionX** | **String** | The description of the Ezsignsigningreason in the language of the requester | [optional] 
 **iEzsignpagePagenumber** | **Int** | The page number in the Ezsigndocument | 
 **iEzsignsignatureX** | **Int** | The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \&quot;200\&quot; for the X coordinate. | 
@@ -45,6 +46,7 @@ Name | Type | Description | Notes
 **aObjEzsignsignaturecustomdate** | [EzsignsignaturecustomdateResponseCompoundV2] | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **objCreditcardtransaction** | [**CustomCreditcardtransactionResponse**](CustomCreditcardtransactionResponse.md) |  | [optional] 
 **aObjEzsignelementdependency** | [EzsignelementdependencyResponseCompound] |  | [optional] 
+**aObjEzsignsignaturepaymentdetail** | [EzsignsignaturepaymentdetailResponseCompound] |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

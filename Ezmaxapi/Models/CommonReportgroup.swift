@@ -15,15 +15,22 @@ public struct CommonReportgroup: Codable, JSONEncodable, Hashable {
 
     public var aObjReport: [CommonReport]
     public var aObjReportcellstyleCustom: [CommonReportcellstyle]
+    public var aObjReportgroupParameter: [CommonReportgroupParameter]
+    /** The name of the file */
+    public var sReportgroupFilename: String
 
-    public init(aObjReport: [CommonReport], aObjReportcellstyleCustom: [CommonReportcellstyle]) {
+    public init(aObjReport: [CommonReport], aObjReportcellstyleCustom: [CommonReportcellstyle], aObjReportgroupParameter: [CommonReportgroupParameter], sReportgroupFilename: String) {
         self.aObjReport = aObjReport
         self.aObjReportcellstyleCustom = aObjReportcellstyleCustom
+        self.aObjReportgroupParameter = aObjReportgroupParameter
+        self.sReportgroupFilename = sReportgroupFilename
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjReport = "a_objReport"
         case aObjReportcellstyleCustom = "a_objReportcellstyleCustom"
+        case aObjReportgroupParameter = "a_objReportgroupParameter"
+        case sReportgroupFilename
     }
 
     // Encodable protocol methods
@@ -32,6 +39,8 @@ public struct CommonReportgroup: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(aObjReport, forKey: .aObjReport)
         try container.encode(aObjReportcellstyleCustom, forKey: .aObjReportcellstyleCustom)
+        try container.encode(aObjReportgroupParameter, forKey: .aObjReportgroupParameter)
+        try container.encode(sReportgroupFilename, forKey: .sReportgroupFilename)
     }
 }
 

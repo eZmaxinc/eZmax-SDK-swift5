@@ -15,6 +15,7 @@ public struct EzsignsignatureRequestCompoundV2: Codable, JSONEncodable, Hashable
 
     public static let pkiEzsignsignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiPaymentgatewayIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsignsignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsignsignatureYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -29,6 +30,8 @@ public struct EzsignsignatureRequestCompoundV2: Codable, JSONEncodable, Hashable
     public var pkiEzsignsignatureID: Int?
     /** The unique ID of the Ezsignfoldersignerassociation */
     public var fkiEzsignfoldersignerassociationID: Int
+    /** The unique ID of the Paymentgateway */
+    public var fkiPaymentgatewayID: Int?
     /** The page number in the Ezsigndocument */
     public var iEzsignpagePagenumber: Int
     /** The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate. */
@@ -77,10 +80,12 @@ public struct EzsignsignatureRequestCompoundV2: Codable, JSONEncodable, Hashable
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
     public var aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompoundV2]?
     public var aObjEzsignelementdependency: [EzsignelementdependencyRequestCompound]?
+    public var aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailRequestCompound]?
 
-    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, iEzsignsignatureValidationstep: Int? = nil, iEzsignsignatureMaxlength: Int? = nil, sEzsignsignatureDefaultvalue: String? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, sEzsignsignatureRegexp: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompoundV2]? = nil, aObjEzsignelementdependency: [EzsignelementdependencyRequestCompound]? = nil) {
+    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, fkiPaymentgatewayID: Int? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, iEzsignsignatureValidationstep: Int? = nil, iEzsignsignatureMaxlength: Int? = nil, sEzsignsignatureDefaultvalue: String? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, sEzsignsignatureRegexp: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompoundV2]? = nil, aObjEzsignelementdependency: [EzsignelementdependencyRequestCompound]? = nil, aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailRequestCompound]? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
+        self.fkiPaymentgatewayID = fkiPaymentgatewayID
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.iEzsignsignatureX = iEzsignsignatureX
         self.iEzsignsignatureY = iEzsignsignatureY
@@ -109,11 +114,13 @@ public struct EzsignsignatureRequestCompoundV2: Codable, JSONEncodable, Hashable
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
         self.aObjEzsignsignaturecustomdate = aObjEzsignsignaturecustomdate
         self.aObjEzsignelementdependency = aObjEzsignelementdependency
+        self.aObjEzsignsignaturepaymentdetail = aObjEzsignsignaturepaymentdetail
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignsignatureID
         case fkiEzsignfoldersignerassociationID
+        case fkiPaymentgatewayID
         case iEzsignpagePagenumber
         case iEzsignsignatureX
         case iEzsignsignatureY
@@ -142,6 +149,7 @@ public struct EzsignsignatureRequestCompoundV2: Codable, JSONEncodable, Hashable
         case bEzsignsignatureCustomdate
         case aObjEzsignsignaturecustomdate = "a_objEzsignsignaturecustomdate"
         case aObjEzsignelementdependency = "a_objEzsignelementdependency"
+        case aObjEzsignsignaturepaymentdetail = "a_objEzsignsignaturepaymentdetail"
     }
 
     // Encodable protocol methods
@@ -150,6 +158,7 @@ public struct EzsignsignatureRequestCompoundV2: Codable, JSONEncodable, Hashable
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiEzsignsignatureID, forKey: .pkiEzsignsignatureID)
         try container.encode(fkiEzsignfoldersignerassociationID, forKey: .fkiEzsignfoldersignerassociationID)
+        try container.encodeIfPresent(fkiPaymentgatewayID, forKey: .fkiPaymentgatewayID)
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
         try container.encode(iEzsignsignatureX, forKey: .iEzsignsignatureX)
         try container.encode(iEzsignsignatureY, forKey: .iEzsignsignatureY)
@@ -178,6 +187,7 @@ public struct EzsignsignatureRequestCompoundV2: Codable, JSONEncodable, Hashable
         try container.encodeIfPresent(bEzsignsignatureCustomdate, forKey: .bEzsignsignatureCustomdate)
         try container.encodeIfPresent(aObjEzsignsignaturecustomdate, forKey: .aObjEzsignsignaturecustomdate)
         try container.encodeIfPresent(aObjEzsignelementdependency, forKey: .aObjEzsignelementdependency)
+        try container.encodeIfPresent(aObjEzsignsignaturepaymentdetail, forKey: .aObjEzsignsignaturepaymentdetail)
     }
 }
 

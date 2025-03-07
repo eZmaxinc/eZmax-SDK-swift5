@@ -16,15 +16,18 @@ public struct CommonReportcolumn: Codable, JSONEncodable, Hashable {
     public var objReportcellstyleDefault: CommonReportcellstyle
     /** The Reportcolumn width in pixels */
     public var iReportcolumnWidth: Int
+    public var eReportcolumnType: EnumReportdataType
 
-    public init(objReportcellstyleDefault: CommonReportcellstyle, iReportcolumnWidth: Int) {
+    public init(objReportcellstyleDefault: CommonReportcellstyle, iReportcolumnWidth: Int, eReportcolumnType: EnumReportdataType) {
         self.objReportcellstyleDefault = objReportcellstyleDefault
         self.iReportcolumnWidth = iReportcolumnWidth
+        self.eReportcolumnType = eReportcolumnType
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case objReportcellstyleDefault
         case iReportcolumnWidth
+        case eReportcolumnType
     }
 
     // Encodable protocol methods
@@ -33,6 +36,7 @@ public struct CommonReportcolumn: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(objReportcellstyleDefault, forKey: .objReportcellstyleDefault)
         try container.encode(iReportcolumnWidth, forKey: .iReportcolumnWidth)
+        try container.encode(eReportcolumnType, forKey: .eReportcolumnType)
     }
 }
 

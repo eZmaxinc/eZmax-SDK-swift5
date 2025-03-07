@@ -17,15 +17,23 @@ public struct CommonReportcell: Codable, JSONEncodable, Hashable {
     public var iReportcellColumnspan: Int
     /** The number of Reportrows the Reportcell spans */
     public var iReportcellRowspan: Int
+    /** The content of this Reportcell */
+    public var sReportcellContent: String
+    /** Position of the column where it is placed */
+    public var iReportcellColumn: Int
 
-    public init(iReportcellColumnspan: Int, iReportcellRowspan: Int) {
+    public init(iReportcellColumnspan: Int, iReportcellRowspan: Int, sReportcellContent: String, iReportcellColumn: Int) {
         self.iReportcellColumnspan = iReportcellColumnspan
         self.iReportcellRowspan = iReportcellRowspan
+        self.sReportcellContent = sReportcellContent
+        self.iReportcellColumn = iReportcellColumn
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case iReportcellColumnspan
         case iReportcellRowspan
+        case sReportcellContent
+        case iReportcellColumn
     }
 
     // Encodable protocol methods
@@ -34,6 +42,8 @@ public struct CommonReportcell: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(iReportcellColumnspan, forKey: .iReportcellColumnspan)
         try container.encode(iReportcellRowspan, forKey: .iReportcellRowspan)
+        try container.encode(sReportcellContent, forKey: .sReportcellContent)
+        try container.encode(iReportcellColumn, forKey: .iReportcellColumn)
     }
 }
 

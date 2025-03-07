@@ -14,13 +14,21 @@ import AnyCodable
 public struct CommonReport: Codable, JSONEncodable, Hashable {
 
     public var aObjReportsection: [CommonReportsection]
+    /** Whether we display pagination in the report */
+    public var bReportPaginate: Bool?
+    /** The title of this Report */
+    public var sReportTitle: String?
 
-    public init(aObjReportsection: [CommonReportsection]) {
+    public init(aObjReportsection: [CommonReportsection], bReportPaginate: Bool? = nil, sReportTitle: String? = nil) {
         self.aObjReportsection = aObjReportsection
+        self.bReportPaginate = bReportPaginate
+        self.sReportTitle = sReportTitle
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjReportsection = "a_objReportsection"
+        case bReportPaginate
+        case sReportTitle
     }
 
     // Encodable protocol methods
@@ -28,6 +36,8 @@ public struct CommonReport: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(aObjReportsection, forKey: .aObjReportsection)
+        try container.encodeIfPresent(bReportPaginate, forKey: .bReportPaginate)
+        try container.encodeIfPresent(sReportTitle, forKey: .sReportTitle)
     }
 }
 

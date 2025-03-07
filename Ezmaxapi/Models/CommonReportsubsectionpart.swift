@@ -21,15 +21,18 @@ public struct CommonReportsubsectionpart: Codable, JSONEncodable, Hashable {
     /** The type of the Reportsubsectionpart */
     public var eReportsubsectionpartType: EReportsubsectionpartType
     public var aObjReportrow: [CommonReportrow]
+    public var aSVariableobjectProperty: [String]
 
-    public init(eReportsubsectionpartType: EReportsubsectionpartType, aObjReportrow: [CommonReportrow]) {
+    public init(eReportsubsectionpartType: EReportsubsectionpartType, aObjReportrow: [CommonReportrow], aSVariableobjectProperty: [String]) {
         self.eReportsubsectionpartType = eReportsubsectionpartType
         self.aObjReportrow = aObjReportrow
+        self.aSVariableobjectProperty = aSVariableobjectProperty
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case eReportsubsectionpartType
         case aObjReportrow = "a_objReportrow"
+        case aSVariableobjectProperty = "a_sVariableobjectProperty"
     }
 
     // Encodable protocol methods
@@ -38,6 +41,7 @@ public struct CommonReportsubsectionpart: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(eReportsubsectionpartType, forKey: .eReportsubsectionpartType)
         try container.encode(aObjReportrow, forKey: .aObjReportrow)
+        try container.encode(aSVariableobjectProperty, forKey: .aSVariableobjectProperty)
     }
 }
 

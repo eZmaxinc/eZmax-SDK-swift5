@@ -1655,6 +1655,58 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Prefill an Ezsignform
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentPrefillEzsignformV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentPrefillEzsignformV1(pkiEzsigndocumentID: Int, ezsigndocumentPrefillEzsignformV1Request: EzsigndocumentPrefillEzsignformV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentPrefillEzsignformV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentPrefillEzsignformV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentPrefillEzsignformV1Request: ezsigndocumentPrefillEzsignformV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Prefill an Ezsignform
+     - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/prefillEzsignform
+     - Using this endpoint, you can prefill an Ezsignform.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentPrefillEzsignformV1Request: (body)  
+     - returns: RequestBuilder<EzsigndocumentPrefillEzsignformV1Response> 
+     */
+    open class func ezsigndocumentPrefillEzsignformV1WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentPrefillEzsignformV1Request: EzsigndocumentPrefillEzsignformV1Request) -> RequestBuilder<EzsigndocumentPrefillEzsignformV1Response> {
+        var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/prefillEzsignform"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigndocumentPrefillEzsignformV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentPrefillEzsignformV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Submit the Ezsignform
      
      - parameter pkiEzsigndocumentID: (path)  

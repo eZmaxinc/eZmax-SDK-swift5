@@ -20,13 +20,16 @@ public struct CommonReportsection: Codable, JSONEncodable, Hashable {
     public var iReportsectionColumncount: Int
     /** The combined width of all the Reportcolumns in the Reportsection */
     public var iReportsectionWidth: Int
+    /** The title of this Reportsection */
+    public var sReportsectionTitle: String?
 
-    public init(aObjReportsubsection: [CommonReportsubsection], aObjReportcolumn: [CommonReportcolumn], eReportsectionHorizontalalignment: EnumHorizontalalignment, iReportsectionColumncount: Int, iReportsectionWidth: Int) {
+    public init(aObjReportsubsection: [CommonReportsubsection], aObjReportcolumn: [CommonReportcolumn], eReportsectionHorizontalalignment: EnumHorizontalalignment, iReportsectionColumncount: Int, iReportsectionWidth: Int, sReportsectionTitle: String? = nil) {
         self.aObjReportsubsection = aObjReportsubsection
         self.aObjReportcolumn = aObjReportcolumn
         self.eReportsectionHorizontalalignment = eReportsectionHorizontalalignment
         self.iReportsectionColumncount = iReportsectionColumncount
         self.iReportsectionWidth = iReportsectionWidth
+        self.sReportsectionTitle = sReportsectionTitle
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -35,6 +38,7 @@ public struct CommonReportsection: Codable, JSONEncodable, Hashable {
         case eReportsectionHorizontalalignment
         case iReportsectionColumncount
         case iReportsectionWidth
+        case sReportsectionTitle
     }
 
     // Encodable protocol methods
@@ -46,6 +50,7 @@ public struct CommonReportsection: Codable, JSONEncodable, Hashable {
         try container.encode(eReportsectionHorizontalalignment, forKey: .eReportsectionHorizontalalignment)
         try container.encode(iReportsectionColumncount, forKey: .iReportsectionColumncount)
         try container.encode(iReportsectionWidth, forKey: .iReportsectionWidth)
+        try container.encodeIfPresent(sReportsectionTitle, forKey: .sReportsectionTitle)
     }
 }
 
