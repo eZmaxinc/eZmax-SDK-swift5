@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures */
+/** Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignatures */
 public struct EzsigndocumentGetEzsignsignaturesV1ResponseMPayload: Codable, JSONEncodable, Hashable {
 
     public var aObjEzsignsignature: [EzsignsignatureResponseCompound]

@@ -261,4 +261,56 @@ open class ObjectInvoiceAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     Import attachments into the Invoice
+     
+     - parameter pkiInvoiceID: (path)  
+     - parameter invoiceImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func invoiceImportIntoEDMV1(pkiInvoiceID: Int, invoiceImportIntoEDMV1Request: InvoiceImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InvoiceImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return invoiceImportIntoEDMV1WithRequestBuilder(pkiInvoiceID: pkiInvoiceID, invoiceImportIntoEDMV1Request: invoiceImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Invoice
+     - POST /1/object/invoice/{pkiInvoiceID}/importIntoEDM
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInvoiceID: (path)  
+     - parameter invoiceImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<InvoiceImportIntoEDMV1Response> 
+     */
+    open class func invoiceImportIntoEDMV1WithRequestBuilder(pkiInvoiceID: Int, invoiceImportIntoEDMV1Request: InvoiceImportIntoEDMV1Request) -> RequestBuilder<InvoiceImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/invoice/{pkiInvoiceID}/importIntoEDM"
+        let pkiInvoiceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInvoiceID))"
+        let pkiInvoiceIDPostEscape = pkiInvoiceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInvoiceID}", with: pkiInvoiceIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: invoiceImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InvoiceImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

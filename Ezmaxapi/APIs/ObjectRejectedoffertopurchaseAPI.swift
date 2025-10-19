@@ -211,4 +211,149 @@ open class ObjectRejectedoffertopurchaseAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_rejectedoffertopurchaseGetListV1: String, CaseIterable {
+        case pkirejectedoffertopurchaseidAsc = "pkiRejectedoffertopurchaseID_ASC"
+        case pkirejectedoffertopurchaseidDesc = "pkiRejectedoffertopurchaseID_DESC"
+        case srejectedoffertopurchasenumberAsc = "sRejectedoffertopurchaseNumber_ASC"
+        case srejectedoffertopurchasenumberDesc = "sRejectedoffertopurchaseNumber_DESC"
+        case dtrejectedoffertopurchasedateAsc = "dtRejectedoffertopurchaseDate_ASC"
+        case dtrejectedoffertopurchasedateDesc = "dtRejectedoffertopurchaseDate_DESC"
+        case brejectedoffertopurchaseisactiveAsc = "bRejectedoffertopurchaseIsactive_ASC"
+        case brejectedoffertopurchaseisactiveDesc = "bRejectedoffertopurchaseIsactive_DESC"
+        case brejectedoffertopurchaselinkedtoinscriptionAsc = "bRejectedoffertopurchaseLinkedtoinscription_ASC"
+        case brejectedoffertopurchaselinkedtoinscriptionDesc = "bRejectedoffertopurchaseLinkedtoinscription_DESC"
+        case dtcreateddateAsc = "dtCreatedDate_ASC"
+        case dtcreateddateDesc = "dtCreatedDate_DESC"
+        case saddresscivicAsc = "sAddressCivic_ASC"
+        case saddresscivicDesc = "sAddressCivic_DESC"
+        case saddressstreetAsc = "sAddressStreet_ASC"
+        case saddressstreetDesc = "sAddressStreet_DESC"
+        case saddresssuiteAsc = "sAddressSuite_ASC"
+        case saddresssuiteDesc = "sAddressSuite_DESC"
+        case saddresscityAsc = "sAddressCity_ASC"
+        case saddresscityDesc = "sAddressCity_DESC"
+        case saddresszipAsc = "sAddressZip_ASC"
+        case saddresszipDesc = "sAddressZip_DESC"
+        case sprovincenamexAsc = "sProvinceNameX_ASC"
+        case sprovincenamexDesc = "sProvinceNameX_DESC"
+        case scountrynamexAsc = "sCountryNameX_ASC"
+        case scountrynamexDesc = "sCountryNameX_DESC"
+    }
+
+    /**
+     Retrieve Rejectedoffertopurchase list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func rejectedoffertopurchaseGetListV1(eOrderBy: EOrderBy_rejectedoffertopurchaseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: RejectedoffertopurchaseGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return rejectedoffertopurchaseGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Rejectedoffertopurchase list
+     - GET /1/object/rejectedoffertopurchase/getList
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - returns: RequestBuilder<RejectedoffertopurchaseGetListV1Response> 
+     */
+    open class func rejectedoffertopurchaseGetListV1WithRequestBuilder(eOrderBy: EOrderBy_rejectedoffertopurchaseGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<RejectedoffertopurchaseGetListV1Response> {
+        let localVariablePath = "/1/object/rejectedoffertopurchase/getList"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Import attachments into the Rejectedoffertopurchase
+     
+     - parameter pkiRejectedoffertopurchaseID: (path)  
+     - parameter rejectedoffertopurchaseImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func rejectedoffertopurchaseImportIntoEDMV1(pkiRejectedoffertopurchaseID: Int, rejectedoffertopurchaseImportIntoEDMV1Request: RejectedoffertopurchaseImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: RejectedoffertopurchaseImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return rejectedoffertopurchaseImportIntoEDMV1WithRequestBuilder(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, rejectedoffertopurchaseImportIntoEDMV1Request: rejectedoffertopurchaseImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Rejectedoffertopurchase
+     - POST /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/importIntoEDM
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiRejectedoffertopurchaseID: (path)  
+     - parameter rejectedoffertopurchaseImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<RejectedoffertopurchaseImportIntoEDMV1Response> 
+     */
+    open class func rejectedoffertopurchaseImportIntoEDMV1WithRequestBuilder(pkiRejectedoffertopurchaseID: Int, rejectedoffertopurchaseImportIntoEDMV1Request: RejectedoffertopurchaseImportIntoEDMV1Request) -> RequestBuilder<RejectedoffertopurchaseImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/importIntoEDM"
+        let pkiRejectedoffertopurchaseIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiRejectedoffertopurchaseID))"
+        let pkiRejectedoffertopurchaseIDPostEscape = pkiRejectedoffertopurchaseIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiRejectedoffertopurchaseID}", with: pkiRejectedoffertopurchaseIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: rejectedoffertopurchaseImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RejectedoffertopurchaseImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

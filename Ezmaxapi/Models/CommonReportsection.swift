@@ -14,30 +14,19 @@ import AnyCodable
 public struct CommonReportsection: Codable, JSONEncodable, Hashable {
 
     public var aObjReportsubsection: [CommonReportsubsection]
-    public var aObjReportcolumn: [CommonReportcolumn]
     public var eReportsectionHorizontalalignment: EnumHorizontalalignment
-    /** The number of Reportcolumns in the Reportsection */
-    public var iReportsectionColumncount: Int
-    /** The combined width of all the Reportcolumns in the Reportsection */
-    public var iReportsectionWidth: Int
     /** The title of this Reportsection */
     public var sReportsectionTitle: String?
 
-    public init(aObjReportsubsection: [CommonReportsubsection], aObjReportcolumn: [CommonReportcolumn], eReportsectionHorizontalalignment: EnumHorizontalalignment, iReportsectionColumncount: Int, iReportsectionWidth: Int, sReportsectionTitle: String? = nil) {
+    public init(aObjReportsubsection: [CommonReportsubsection], eReportsectionHorizontalalignment: EnumHorizontalalignment, sReportsectionTitle: String? = nil) {
         self.aObjReportsubsection = aObjReportsubsection
-        self.aObjReportcolumn = aObjReportcolumn
         self.eReportsectionHorizontalalignment = eReportsectionHorizontalalignment
-        self.iReportsectionColumncount = iReportsectionColumncount
-        self.iReportsectionWidth = iReportsectionWidth
         self.sReportsectionTitle = sReportsectionTitle
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjReportsubsection = "a_objReportsubsection"
-        case aObjReportcolumn = "a_objReportcolumn"
         case eReportsectionHorizontalalignment
-        case iReportsectionColumncount
-        case iReportsectionWidth
         case sReportsectionTitle
     }
 
@@ -46,10 +35,7 @@ public struct CommonReportsection: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(aObjReportsubsection, forKey: .aObjReportsubsection)
-        try container.encode(aObjReportcolumn, forKey: .aObjReportcolumn)
         try container.encode(eReportsectionHorizontalalignment, forKey: .eReportsectionHorizontalalignment)
-        try container.encode(iReportsectionColumncount, forKey: .iReportsectionColumncount)
-        try container.encode(iReportsectionWidth, forKey: .iReportsectionWidth)
         try container.encodeIfPresent(sReportsectionTitle, forKey: .sReportsectionTitle)
     }
 }

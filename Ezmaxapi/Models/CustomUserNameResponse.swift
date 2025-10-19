@@ -13,27 +13,39 @@ import AnyCodable
 /** A User name Object */
 public struct CustomUserNameResponse: Codable, JSONEncodable, Hashable {
 
+    public static let sContacttitleNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
+    public static let sUserJobtitleRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    /** The name of the Contacttitle in the language of the requester */
+    public var sContacttitleNameX: String?
     /** The last name of the user */
     public var sUserLastname: String
     /** The first name of the user */
     public var sUserFirstname: String
+    /** The job title of the user */
+    public var sUserJobtitle: String?
 
-    public init(sUserLastname: String, sUserFirstname: String) {
+    public init(sContacttitleNameX: String? = nil, sUserLastname: String, sUserFirstname: String, sUserJobtitle: String? = nil) {
+        self.sContacttitleNameX = sContacttitleNameX
         self.sUserLastname = sUserLastname
         self.sUserFirstname = sUserFirstname
+        self.sUserJobtitle = sUserJobtitle
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case sContacttitleNameX
         case sUserLastname
         case sUserFirstname
+        case sUserJobtitle
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(sContacttitleNameX, forKey: .sContacttitleNameX)
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encode(sUserFirstname, forKey: .sUserFirstname)
+        try container.encodeIfPresent(sUserJobtitle, forKey: .sUserJobtitle)
     }
 }
 

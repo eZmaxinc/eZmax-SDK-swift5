@@ -26,18 +26,15 @@ public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, 
     public var bEzsigntsarequirementBillable: Bool
     /** Whether the MFA was used or not for the Ezsignfolder */
     public var bEzsignfolderMfaused: Bool
-    /** Whether there was a signature is of type payment */
-    public var bEzsignfolderPaymentused: Bool
     /** Whether you have access to the Ezsignfolder or not */
     public var bEzsignfolderAllowed: Bool
 
-    public init(fkiEzsignfolderID: Int, fkiBillingentityinternalID: Int? = nil, sEzsignfolderDescription: String, bEzsigntsarequirementBillable: Bool, bEzsignfolderMfaused: Bool, bEzsignfolderPaymentused: Bool, bEzsignfolderAllowed: Bool) {
+    public init(fkiEzsignfolderID: Int, fkiBillingentityinternalID: Int? = nil, sEzsignfolderDescription: String, bEzsigntsarequirementBillable: Bool, bEzsignfolderMfaused: Bool, bEzsignfolderAllowed: Bool) {
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiBillingentityinternalID = fkiBillingentityinternalID
         self.sEzsignfolderDescription = sEzsignfolderDescription
         self.bEzsigntsarequirementBillable = bEzsigntsarequirementBillable
         self.bEzsignfolderMfaused = bEzsignfolderMfaused
-        self.bEzsignfolderPaymentused = bEzsignfolderPaymentused
         self.bEzsignfolderAllowed = bEzsignfolderAllowed
     }
 
@@ -47,7 +44,6 @@ public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, 
         case sEzsignfolderDescription
         case bEzsigntsarequirementBillable
         case bEzsignfolderMfaused
-        case bEzsignfolderPaymentused
         case bEzsignfolderAllowed
     }
 
@@ -60,7 +56,6 @@ public struct CustomEzmaxinvoicingEzsignfolderResponse: Codable, JSONEncodable, 
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(bEzsigntsarequirementBillable, forKey: .bEzsigntsarequirementBillable)
         try container.encode(bEzsignfolderMfaused, forKey: .bEzsignfolderMfaused)
-        try container.encode(bEzsignfolderPaymentused, forKey: .bEzsignfolderPaymentused)
         try container.encode(bEzsignfolderAllowed, forKey: .bEzsignfolderAllowed)
     }
 }

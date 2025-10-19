@@ -22,13 +22,16 @@ public struct EzsignbulksendsignermappingResponseCompound: Codable, JSONEncodabl
     public var fkiEzsignbulksendID: Int
     /** The unique ID of the User */
     public var fkiUserID: Int?
+    /** Whether the Ezsignbulksendsigner will receive a copy or not */
+    public var bEzsignbulksendsignermappingReceivecopy: Bool?
     /** The description of the Ezsignbulksendsignermapping */
     public var sEzsignbulksendsignermappingDescription: String
 
-    public init(pkiEzsignbulksendsignermappingID: Int, fkiEzsignbulksendID: Int, fkiUserID: Int? = nil, sEzsignbulksendsignermappingDescription: String) {
+    public init(pkiEzsignbulksendsignermappingID: Int, fkiEzsignbulksendID: Int, fkiUserID: Int? = nil, bEzsignbulksendsignermappingReceivecopy: Bool? = nil, sEzsignbulksendsignermappingDescription: String) {
         self.pkiEzsignbulksendsignermappingID = pkiEzsignbulksendsignermappingID
         self.fkiEzsignbulksendID = fkiEzsignbulksendID
         self.fkiUserID = fkiUserID
+        self.bEzsignbulksendsignermappingReceivecopy = bEzsignbulksendsignermappingReceivecopy
         self.sEzsignbulksendsignermappingDescription = sEzsignbulksendsignermappingDescription
     }
 
@@ -36,6 +39,7 @@ public struct EzsignbulksendsignermappingResponseCompound: Codable, JSONEncodabl
         case pkiEzsignbulksendsignermappingID
         case fkiEzsignbulksendID
         case fkiUserID
+        case bEzsignbulksendsignermappingReceivecopy
         case sEzsignbulksendsignermappingDescription
     }
 
@@ -46,6 +50,7 @@ public struct EzsignbulksendsignermappingResponseCompound: Codable, JSONEncodabl
         try container.encode(pkiEzsignbulksendsignermappingID, forKey: .pkiEzsignbulksendsignermappingID)
         try container.encode(fkiEzsignbulksendID, forKey: .fkiEzsignbulksendID)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(bEzsignbulksendsignermappingReceivecopy, forKey: .bEzsignbulksendsignermappingReceivecopy)
         try container.encode(sEzsignbulksendsignermappingDescription, forKey: .sEzsignbulksendsignermappingDescription)
     }
 }

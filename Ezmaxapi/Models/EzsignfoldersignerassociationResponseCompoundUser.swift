@@ -26,13 +26,15 @@ public struct EzsignfoldersignerassociationResponseCompoundUser: Codable, JSONEn
     public var sUserLastname: String
     /** The email address. */
     public var sEmailAddress: String
+    public var eUserType: FieldEUserType
 
-    public init(pkiUserID: Int, fkiLanguageID: Int, sUserFirstname: String, sUserLastname: String, sEmailAddress: String) {
+    public init(pkiUserID: Int, fkiLanguageID: Int, sUserFirstname: String, sUserLastname: String, sEmailAddress: String, eUserType: FieldEUserType) {
         self.pkiUserID = pkiUserID
         self.fkiLanguageID = fkiLanguageID
         self.sUserFirstname = sUserFirstname
         self.sUserLastname = sUserLastname
         self.sEmailAddress = sEmailAddress
+        self.eUserType = eUserType
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -41,6 +43,7 @@ public struct EzsignfoldersignerassociationResponseCompoundUser: Codable, JSONEn
         case sUserFirstname
         case sUserLastname
         case sEmailAddress
+        case eUserType
     }
 
     // Encodable protocol methods
@@ -52,6 +55,7 @@ public struct EzsignfoldersignerassociationResponseCompoundUser: Codable, JSONEn
         try container.encode(sUserFirstname, forKey: .sUserFirstname)
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encode(sEmailAddress, forKey: .sEmailAddress)
+        try container.encode(eUserType, forKey: .eUserType)
     }
 }
 

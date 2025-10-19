@@ -55,6 +55,8 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     public var objAudit: CommonAudit
     /** The concatenated string to describe the Webhook event */
     public var sWebhookEvent: String?
+    /** Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. */
+    public var sWebhookAuthentificationexternalerror: String?
     public var aObjWebhookheader: [WebhookheaderResponseCompound]?
     /** The customer code assigned to your account */
     public var pksCustomerCode: String
@@ -64,7 +66,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     /** Wheter the webhook received is a manual test or a real event */
     public var eWebhookEmittype: EWebhookEmittype?
 
-    public init(pkiWebhookID: Int, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit, sWebhookEvent: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil, pksCustomerCode: String, bWebhookTest: Bool, eWebhookEmittype: EWebhookEmittype? = nil) {
+    public init(pkiWebhookID: Int, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit, sWebhookEvent: String? = nil, sWebhookAuthentificationexternalerror: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil, pksCustomerCode: String, bWebhookTest: Bool, eWebhookEmittype: EWebhookEmittype? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.fkiAuthenticationexternalID = fkiAuthenticationexternalID
         self.sWebhookDescription = sWebhookDescription
@@ -83,6 +85,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         self.sAuthenticationexternalDescription = sAuthenticationexternalDescription
         self.objAudit = objAudit
         self.sWebhookEvent = sWebhookEvent
+        self.sWebhookAuthentificationexternalerror = sWebhookAuthentificationexternalerror
         self.aObjWebhookheader = aObjWebhookheader
         self.pksCustomerCode = pksCustomerCode
         self.bWebhookTest = bWebhookTest
@@ -108,6 +111,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         case sAuthenticationexternalDescription
         case objAudit
         case sWebhookEvent
+        case sWebhookAuthentificationexternalerror
         case aObjWebhookheader = "a_objWebhookheader"
         case pksCustomerCode
         case bWebhookTest
@@ -136,6 +140,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sAuthenticationexternalDescription, forKey: .sAuthenticationexternalDescription)
         try container.encode(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sWebhookEvent, forKey: .sWebhookEvent)
+        try container.encodeIfPresent(sWebhookAuthentificationexternalerror, forKey: .sWebhookAuthentificationexternalerror)
         try container.encodeIfPresent(aObjWebhookheader, forKey: .aObjWebhookheader)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(bWebhookTest, forKey: .bWebhookTest)

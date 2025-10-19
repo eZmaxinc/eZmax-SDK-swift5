@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**tranqcontractGetCommunicationListV1**](ObjectTranqcontractAPI.md#tranqcontractgetcommunicationlistv1) | **GET** /1/object/tranqcontract/{pkiTranqcontractID}/getCommunicationList | Retrieve Communication list
 [**tranqcontractGetCommunicationrecipientsV1**](ObjectTranqcontractAPI.md#tranqcontractgetcommunicationrecipientsv1) | **GET** /1/object/tranqcontract/{pkiTranqcontractID}/getCommunicationrecipients | Retrieve Tranqcontract&#39;s Communicationrecipient
 [**tranqcontractGetCommunicationsendersV1**](ObjectTranqcontractAPI.md#tranqcontractgetcommunicationsendersv1) | **GET** /1/object/tranqcontract/{pkiTranqcontractID}/getCommunicationsenders | Retrieve Tranqcontract&#39;s Communicationsender
+[**tranqcontractImportIntoEDMV1**](ObjectTranqcontractAPI.md#tranqcontractimportintoedmv1) | **POST** /1/object/tranqcontract/{pkiTranqcontractID}/importIntoEDM | Import attachments into the Tranqcontract
 
 
 # **tranqcontractGetCommunicationCountV1**
@@ -206,6 +207,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **tranqcontractImportIntoEDMV1**
+```swift
+    open class func tranqcontractImportIntoEDMV1(pkiTranqcontractID: Int, tranqcontractImportIntoEDMV1Request: TranqcontractImportIntoEDMV1Request, completion: @escaping (_ data: TranqcontractImportIntoEDMV1Response?, _ error: Error?) -> Void)
+```
+
+Import attachments into the Tranqcontract
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiTranqcontractID = 987 // Int | 
+let tranqcontractImportIntoEDMV1Request = tranqcontract-importIntoEDM-v1-Request(aObjAttachment: [Custom-AttachmentImportIntoEDM-Request(eAttachmentSource: "eAttachmentSource_example", fkiAttachmentID: 123, fkiInscriptionchecklistID: 123, sAttachmentUrl: "sAttachmentUrl_example", sAttachmentBase64: 123, sAttachmentName: "sAttachmentName_example", sAttachmentCategory: "sAttachmentCategory_example", eAttachmentPrivacy: Field-eAttachmentPrivacy(), fkiUserIDSpecific: 123, sAttachmentMD5: "sAttachmentMD5_example", bAttachmentForceoverwrite: false, bAttachmentForcerestore: false)]) // TranqcontractImportIntoEDMV1Request | 
+
+// Import attachments into the Tranqcontract
+ObjectTranqcontractAPI.tranqcontractImportIntoEDMV1(pkiTranqcontractID: pkiTranqcontractID, tranqcontractImportIntoEDMV1Request: tranqcontractImportIntoEDMV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiTranqcontractID** | **Int** |  | 
+ **tranqcontractImportIntoEDMV1Request** | [**TranqcontractImportIntoEDMV1Request**](TranqcontractImportIntoEDMV1Request.md) |  | 
+
+### Return type
+
+[**TranqcontractImportIntoEDMV1Response**](TranqcontractImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

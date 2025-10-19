@@ -54,8 +54,9 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
     public var iEzsignfoldertypeFontsizeannotation: Int?
     /** Font size for form fields */
     public var iEzsignfoldertypeFontsizeformfield: Int?
+    public var eEzsignfoldertypeDocumentmerge: FieldEEzsignfoldertypeDocumentmerge?
 
-    public init(pkiEzsignfoldertypeID: Int, fkiFontIDAnnotation: Int? = nil, fkiFontIDFormfield: Int? = nil, fkiFontIDSignature: Int? = nil, sEzsignfoldertypeNameX: String? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeAutomaticsignature: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeDiscussion: Bool? = nil, bEzsignfoldertypeReassignezsignsigner: Bool? = nil, bEzsignfoldertypeReassignuser: Bool? = nil, bEzsignfoldertypeReassigngroup: Bool? = nil, iEzsignfoldertypeDeadlinedays: Int? = nil, iEzsignfoldertypeFontsizeannotation: Int? = nil, iEzsignfoldertypeFontsizeformfield: Int? = nil) {
+    public init(pkiEzsignfoldertypeID: Int, fkiFontIDAnnotation: Int? = nil, fkiFontIDFormfield: Int? = nil, fkiFontIDSignature: Int? = nil, sEzsignfoldertypeNameX: String? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeAutomaticsignature: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeDiscussion: Bool? = nil, bEzsignfoldertypeReassignezsignsigner: Bool? = nil, bEzsignfoldertypeReassignuser: Bool? = nil, bEzsignfoldertypeReassigngroup: Bool? = nil, iEzsignfoldertypeDeadlinedays: Int? = nil, iEzsignfoldertypeFontsizeannotation: Int? = nil, iEzsignfoldertypeFontsizeformfield: Int? = nil, eEzsignfoldertypeDocumentmerge: FieldEEzsignfoldertypeDocumentmerge? = nil) {
         self.pkiEzsignfoldertypeID = pkiEzsignfoldertypeID
         self.fkiFontIDAnnotation = fkiFontIDAnnotation
         self.fkiFontIDFormfield = fkiFontIDFormfield
@@ -73,6 +74,7 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
         self.iEzsignfoldertypeDeadlinedays = iEzsignfoldertypeDeadlinedays
         self.iEzsignfoldertypeFontsizeannotation = iEzsignfoldertypeFontsizeannotation
         self.iEzsignfoldertypeFontsizeformfield = iEzsignfoldertypeFontsizeformfield
+        self.eEzsignfoldertypeDocumentmerge = eEzsignfoldertypeDocumentmerge
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -93,6 +95,7 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
         case iEzsignfoldertypeDeadlinedays
         case iEzsignfoldertypeFontsizeannotation
         case iEzsignfoldertypeFontsizeformfield
+        case eEzsignfoldertypeDocumentmerge
     }
 
     // Encodable protocol methods
@@ -116,6 +119,7 @@ public struct CustomEzsignfoldertypeResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(iEzsignfoldertypeDeadlinedays, forKey: .iEzsignfoldertypeDeadlinedays)
         try container.encodeIfPresent(iEzsignfoldertypeFontsizeannotation, forKey: .iEzsignfoldertypeFontsizeannotation)
         try container.encodeIfPresent(iEzsignfoldertypeFontsizeformfield, forKey: .iEzsignfoldertypeFontsizeformfield)
+        try container.encodeIfPresent(eEzsignfoldertypeDocumentmerge, forKey: .eEzsignfoldertypeDocumentmerge)
     }
 }
 

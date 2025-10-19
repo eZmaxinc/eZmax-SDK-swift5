@@ -23,12 +23,15 @@ public struct PaymentgatewayListElement: Codable, JSONEncodable, Hashable {
     public var ePaymentgatewayProcessor: FieldEPaymentgatewayProcessor
     /** The description of the Paymentgateway in the language of the requester */
     public var sPaymentgatewayDescriptionX: String
+    /** Whether the Paymentgateway is active or not */
+    public var bPaymentgatewayIsactive: Bool
 
-    public init(pkiPaymentgatewayID: Int, fkiCreditcardmerchantID: Int, ePaymentgatewayProcessor: FieldEPaymentgatewayProcessor, sPaymentgatewayDescriptionX: String) {
+    public init(pkiPaymentgatewayID: Int, fkiCreditcardmerchantID: Int, ePaymentgatewayProcessor: FieldEPaymentgatewayProcessor, sPaymentgatewayDescriptionX: String, bPaymentgatewayIsactive: Bool) {
         self.pkiPaymentgatewayID = pkiPaymentgatewayID
         self.fkiCreditcardmerchantID = fkiCreditcardmerchantID
         self.ePaymentgatewayProcessor = ePaymentgatewayProcessor
         self.sPaymentgatewayDescriptionX = sPaymentgatewayDescriptionX
+        self.bPaymentgatewayIsactive = bPaymentgatewayIsactive
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -36,6 +39,7 @@ public struct PaymentgatewayListElement: Codable, JSONEncodable, Hashable {
         case fkiCreditcardmerchantID
         case ePaymentgatewayProcessor
         case sPaymentgatewayDescriptionX
+        case bPaymentgatewayIsactive
     }
 
     // Encodable protocol methods
@@ -46,6 +50,7 @@ public struct PaymentgatewayListElement: Codable, JSONEncodable, Hashable {
         try container.encode(fkiCreditcardmerchantID, forKey: .fkiCreditcardmerchantID)
         try container.encode(ePaymentgatewayProcessor, forKey: .ePaymentgatewayProcessor)
         try container.encode(sPaymentgatewayDescriptionX, forKey: .sPaymentgatewayDescriptionX)
+        try container.encode(bPaymentgatewayIsactive, forKey: .bPaymentgatewayIsactive)
     }
 }
 

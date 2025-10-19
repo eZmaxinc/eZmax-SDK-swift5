@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **fkiEzsigntemplatedocumentID** | **Int** | The unique ID of the Ezsigntemplatedocument | 
 **fkiEzsigntemplatesignerID** | **Int** | The unique ID of the Ezsigntemplatesigner | 
 **fkiEzsigntemplatesignerIDValidation** | **Int** | The unique ID of the Ezsigntemplatesigner | [optional] 
+**fkiPaymentgatewayID** | **Int** | The unique ID of the Paymentgateway | [optional] 
 **bEzsigntemplatesignatureHandwritten** | **Bool** | Whether the Ezsigntemplatesignature must be handwritten or not when eEzsigntemplatesignatureType &#x3D; Signature. | [optional] 
 **bEzsigntemplatesignatureReason** | **Bool** | Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType &#x3D; Signature. | [optional] 
 **eEzsigntemplatesignaturePositioning** | [**FieldEEzsigntemplatesignaturePositioning**](FieldEEzsigntemplatesignaturePositioning.md) |  | [optional] 
@@ -35,6 +36,8 @@ Name | Type | Description | Notes
 **iEzsigntemplatesignaturePositioningoffsetx** | **Int** | The offset X  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** | [optional] 
 **iEzsigntemplatesignaturePositioningoffsety** | **Int** | The offset Y  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates** | [optional] 
 **eEzsigntemplatesignaturePositioningoccurence** | [**FieldEEzsigntemplatesignaturePositioningoccurence**](FieldEEzsigntemplatesignaturePositioningoccurence.md) |  | [optional] 
+**sEzsigntemplatesignatureCreditcardamountdescription** | **String** | The description of the Creditcard signature | [optional] 
+**dEzsigntemplatesignatureCreditcardamount** | **String** | The amount of the Creditcard signature | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

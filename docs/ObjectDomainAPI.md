@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCreateObjectV1**](ObjectDomainAPI.md#domaincreateobjectv1) | **POST** /1/object/domain | Create a new Domain
 [**domainDeleteObjectV1**](ObjectDomainAPI.md#domaindeleteobjectv1) | **DELETE** /1/object/domain/{pkiDomainID} | Delete an existing Domain
+[**domainGetAutocompleteV2**](ObjectDomainAPI.md#domaingetautocompletev2) | **GET** /2/object/domain/getAutocomplete/{sSelector} | Retrieve Domain and IDs
 [**domainGetListV1**](ObjectDomainAPI.md#domaingetlistv1) | **GET** /1/object/domain/getList | Retrieve Domain list
 [**domainGetObjectV2**](ObjectDomainAPI.md#domaingetobjectv2) | **GET** /2/object/domain/{pkiDomainID} | Retrieve an existing Domain
 
@@ -98,6 +99,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DomainDeleteObjectV1Response**](DomainDeleteObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **domainGetAutocompleteV2**
+```swift
+    open class func domainGetAutocompleteV2(sSelector: SSelector_domainGetAutocompleteV2, eFilterActive: EFilterActive_domainGetAutocompleteV2? = nil, sQuery: String? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, completion: @escaping (_ data: DomainGetAutocompleteV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Domain and IDs
+
+Get the list of Domains to be used in a dropdown or autocomplete control.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let sSelector = "sSelector_example" // String | The type of Domain to return
+let eFilterActive = "eFilterActive_example" // String | Specify which results we want to display. (optional) (default to .active)
+let sQuery = "sQuery_example" // String | Allow to filter the returned results (optional)
+let acceptLanguage = Header-Accept-Language() // HeaderAcceptLanguage |  (optional)
+
+// Retrieve Domain and IDs
+ObjectDomainAPI.domainGetAutocompleteV2(sSelector: sSelector, eFilterActive: eFilterActive, sQuery: sQuery, acceptLanguage: acceptLanguage) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sSelector** | **String** | The type of Domain to return | 
+ **eFilterActive** | **String** | Specify which results we want to display. | [optional] [default to .active]
+ **sQuery** | **String** | Allow to filter the returned results | [optional] 
+ **acceptLanguage** | [**HeaderAcceptLanguage**](.md) |  | [optional] 
+
+### Return type
+
+[**DomainGetAutocompleteV2Response**](DomainGetAutocompleteV2Response.md)
 
 ### Authorization
 

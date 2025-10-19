@@ -18,17 +18,20 @@ public struct CommonReportrow: Codable, JSONEncodable, Hashable {
     public var objVariableobject: [String: AnyCodable]
     /** The reportrow height in pixels */
     public var iReportrowHeight: Int
+    public var objReportcellstyleCustom: CommonReportcellstylecustom?
 
-    public init(aObjReportcell: [CommonReportcell], objVariableobject: [String: AnyCodable], iReportrowHeight: Int) {
+    public init(aObjReportcell: [CommonReportcell], objVariableobject: [String: AnyCodable], iReportrowHeight: Int, objReportcellstyleCustom: CommonReportcellstylecustom? = nil) {
         self.aObjReportcell = aObjReportcell
         self.objVariableobject = objVariableobject
         self.iReportrowHeight = iReportrowHeight
+        self.objReportcellstyleCustom = objReportcellstyleCustom
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjReportcell = "a_objReportcell"
         case objVariableobject
         case iReportrowHeight
+        case objReportcellstyleCustom
     }
 
     // Encodable protocol methods
@@ -38,6 +41,7 @@ public struct CommonReportrow: Codable, JSONEncodable, Hashable {
         try container.encode(aObjReportcell, forKey: .aObjReportcell)
         try container.encode(objVariableobject, forKey: .objVariableobject)
         try container.encode(iReportrowHeight, forKey: .iReportrowHeight)
+        try container.encodeIfPresent(objReportcellstyleCustom, forKey: .objReportcellstyleCustom)
     }
 }
 

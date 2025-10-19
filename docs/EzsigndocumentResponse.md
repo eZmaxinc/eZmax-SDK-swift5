@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **sEzsigndocumentMD5signed** | **String** | MD5 Hash of the final PDF Document after all signatures were applied to it. | [optional] 
 **bEzsigndocumentEzsignform** | **Bool** | If the Ezsigndocument contains an Ezsignform or not | [optional] 
 **bEzsigndocumentHassignedsignatures** | **Bool** | If the Ezsigndocument contains signed signatures (From internal or external sources) | [optional] 
+**bEzsigndocumentSendtoged** | **Bool** | Whether the Ezsigndocument was copied to EDM | [optional] 
 **objAudit** | [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **sEzsigndocumentExternalid** | **String** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 **iEzsigndocumentEzsignsignatureattachmenttotal** | **Int** | The number of Ezsigndocumentattachment total | 

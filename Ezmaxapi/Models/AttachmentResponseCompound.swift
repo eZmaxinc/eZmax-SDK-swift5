@@ -63,7 +63,7 @@ public struct AttachmentResponseCompound: Codable, JSONEncodable, Hashable {
     public static let fkiUserIDSpecificRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iAttachmentSizeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 4294967295, exclusiveMaximum: false, multipleOf: nil)
     public static let iAttachmentEDMmoduleflagRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,32}$/")
+    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{32}$/")
     public static let tAttachmentRejectioncommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
     public static let fkiUserIDOwnerRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Attachment. */
@@ -171,7 +171,7 @@ public struct AttachmentResponseCompound: Codable, JSONEncodable, Hashable {
     public var iAttachmentSize: Int
     /** The edmmoduleflag of the Attachment */
     public var iAttachmentEDMmoduleflag: Int?
-    /** The md5 of the Attachment */
+    /** The MD5 of the Attachment */
     public var sAttachmentMD5: String
     /** Whether if it's deleted */
     public var bAttachmentDeleted: Bool

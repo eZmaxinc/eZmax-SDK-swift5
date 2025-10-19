@@ -5,6 +5,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsignfoldersignerassociationCreateEmbeddedUrlV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateembeddedurlv1) | **POST** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl | Creates an Url to allow embedded signing
+[**ezsignfoldersignerassociationCreateEmbeddedUrlV2**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateembeddedurlv2) | **POST** /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl | Creates an Url to allow embedded signing
 [**ezsignfoldersignerassociationCreateObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateobjectv1) | **POST** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**ezsignfoldersignerassociationCreateObjectV2**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationcreateobjectv2) | **POST** /2/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
 [**ezsignfoldersignerassociationDeleteObjectV1**](ObjectEzsignfoldersignerassociationAPI.md#ezsignfoldersignerassociationdeleteobjectv1) | **DELETE** /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID} | Delete an existing Ezsignfoldersignerassociation
@@ -57,6 +58,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfoldersignerassociationCreateEmbeddedUrlV1Response**](EzsignfoldersignerassociationCreateEmbeddedUrlV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfoldersignerassociationCreateEmbeddedUrlV2**
+```swift
+    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: EzsignfoldersignerassociationCreateEmbeddedUrlV2Request, completion: @escaping (_ data: EzsignfoldersignerassociationCreateEmbeddedUrlV2Response?, _ error: Error?) -> Void)
+```
+
+Creates an Url to allow embedded signing
+
+This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfoldersignerassociationID = 987 // Int | 
+let ezsignfoldersignerassociationCreateEmbeddedUrlV2Request = ezsignfoldersignerassociation-createEmbeddedUrl-v2-Request(sReturnUrl: "sReturnUrl_example", sIframeOrigin: "sIframeOrigin_example") // EzsignfoldersignerassociationCreateEmbeddedUrlV2Request | 
+
+// Creates an Url to allow embedded signing
+ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: ezsignfoldersignerassociationCreateEmbeddedUrlV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfoldersignerassociationID** | **Int** |  | 
+ **ezsignfoldersignerassociationCreateEmbeddedUrlV2Request** | [**EzsignfoldersignerassociationCreateEmbeddedUrlV2Request**](EzsignfoldersignerassociationCreateEmbeddedUrlV2Request.md) |  | 
+
+### Return type
+
+[**EzsignfoldersignerassociationCreateEmbeddedUrlV2Response**](EzsignfoldersignerassociationCreateEmbeddedUrlV2Response.md)
 
 ### Authorization
 

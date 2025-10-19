@@ -211,4 +211,143 @@ open class ObjectBuyercontractAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_buyercontractGetListV1: String, CaseIterable {
+        case pkibuyercontractidAsc = "pkiBuyercontractID_ASC"
+        case pkibuyercontractidDesc = "pkiBuyercontractID_DESC"
+        case fkiinscriptiontypeidAsc = "fkiInscriptiontypeID_ASC"
+        case fkiinscriptiontypeidDesc = "fkiInscriptiontypeID_DESC"
+        case sinscriptiontypenamexAsc = "sInscriptiontypeNameX_ASC"
+        case sinscriptiontypenamexDesc = "sInscriptiontypeNameX_DESC"
+        case ebuyercontractstepAsc = "eBuyercontractStep_ASC"
+        case ebuyercontractstepDesc = "eBuyercontractStep_DESC"
+        case dbuyercontractminimumpriceAsc = "dBuyercontractMinimumprice_ASC"
+        case dbuyercontractminimumpriceDesc = "dBuyercontractMinimumprice_DESC"
+        case dbuyercontractmaximumpriceAsc = "dBuyercontractMaximumprice_ASC"
+        case dbuyercontractmaximumpriceDesc = "dBuyercontractMaximumprice_DESC"
+        case ebuyercontracttypeAsc = "eBuyercontractType_ASC"
+        case ebuyercontracttypeDesc = "eBuyercontractType_DESC"
+        case dtbuyercontractdateAsc = "dtBuyercontractDate_ASC"
+        case dtbuyercontractdateDesc = "dtBuyercontractDate_DESC"
+        case dtbuyercontractexpirationdateAsc = "dtBuyercontractExpirationdate_ASC"
+        case dtbuyercontractexpirationdateDesc = "dtBuyercontractExpirationdate_DESC"
+        case bbuyercontractisactiveAsc = "bBuyercontractIsactive_ASC"
+        case bbuyercontractisactiveDesc = "bBuyercontractIsactive_DESC"
+    }
+
+    /**
+     Retrieve Buyercontract list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func buyercontractGetListV1(eOrderBy: EOrderBy_buyercontractGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BuyercontractGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return buyercontractGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Buyercontract list
+     - GET /1/object/buyercontract/getList
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eBuyercontractStep | Imported<br>Active<br>Modified<br>ContractEnded<br>ExpiredContract<br>Bought | | eBuyercontractType | Rent<br>Sale<br>RentOrSale |
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - returns: RequestBuilder<BuyercontractGetListV1Response> 
+     */
+    open class func buyercontractGetListV1WithRequestBuilder(eOrderBy: EOrderBy_buyercontractGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<BuyercontractGetListV1Response> {
+        let localVariablePath = "/1/object/buyercontract/getList"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BuyercontractGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Import attachments into the Buyercontract
+     
+     - parameter pkiBuyercontractID: (path)  
+     - parameter buyercontractImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func buyercontractImportIntoEDMV1(pkiBuyercontractID: Int, buyercontractImportIntoEDMV1Request: BuyercontractImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BuyercontractImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return buyercontractImportIntoEDMV1WithRequestBuilder(pkiBuyercontractID: pkiBuyercontractID, buyercontractImportIntoEDMV1Request: buyercontractImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Buyercontract
+     - POST /1/object/buyercontract/{pkiBuyercontractID}/importIntoEDM
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBuyercontractID: (path)  
+     - parameter buyercontractImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<BuyercontractImportIntoEDMV1Response> 
+     */
+    open class func buyercontractImportIntoEDMV1WithRequestBuilder(pkiBuyercontractID: Int, buyercontractImportIntoEDMV1Request: BuyercontractImportIntoEDMV1Request) -> RequestBuilder<BuyercontractImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/buyercontract/{pkiBuyercontractID}/importIntoEDM"
+        let pkiBuyercontractIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBuyercontractID))"
+        let pkiBuyercontractIDPostEscape = pkiBuyercontractIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBuyercontractID}", with: pkiBuyercontractIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: buyercontractImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BuyercontractImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

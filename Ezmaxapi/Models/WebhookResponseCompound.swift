@@ -49,9 +49,11 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
     public var objAudit: CommonAudit
     /** The concatenated string to describe the Webhook event */
     public var sWebhookEvent: String?
+    /** Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. */
+    public var sWebhookAuthentificationexternalerror: String?
     public var aObjWebhookheader: [WebhookheaderResponseCompound]?
 
-    public init(pkiWebhookID: Int, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit, sWebhookEvent: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil) {
+    public init(pkiWebhookID: Int, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit, sWebhookEvent: String? = nil, sWebhookAuthentificationexternalerror: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.fkiAuthenticationexternalID = fkiAuthenticationexternalID
         self.sWebhookDescription = sWebhookDescription
@@ -70,6 +72,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         self.sAuthenticationexternalDescription = sAuthenticationexternalDescription
         self.objAudit = objAudit
         self.sWebhookEvent = sWebhookEvent
+        self.sWebhookAuthentificationexternalerror = sWebhookAuthentificationexternalerror
         self.aObjWebhookheader = aObjWebhookheader
     }
 
@@ -92,6 +95,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         case sAuthenticationexternalDescription
         case objAudit
         case sWebhookEvent
+        case sWebhookAuthentificationexternalerror
         case aObjWebhookheader = "a_objWebhookheader"
     }
 
@@ -117,6 +121,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sAuthenticationexternalDescription, forKey: .sAuthenticationexternalDescription)
         try container.encode(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sWebhookEvent, forKey: .sWebhookEvent)
+        try container.encodeIfPresent(sWebhookAuthentificationexternalerror, forKey: .sWebhookAuthentificationexternalerror)
         try container.encodeIfPresent(aObjWebhookheader, forKey: .aObjWebhookheader)
     }
 }

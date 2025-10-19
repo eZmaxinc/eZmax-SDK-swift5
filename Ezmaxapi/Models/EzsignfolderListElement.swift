@@ -29,6 +29,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String
     public var eEzsignfolderStep: FieldEEzsignfolderStep
+    public var eEzsignfolderCompletion: FieldEEzsignfolderCompletion
     /** The date and time at which the object was created */
     public var dtCreatedDate: String
     /** The date and time at which the Ezsignfolder will be sent in the future. */
@@ -66,13 +67,14 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     /** Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user */
     public var bEzsignfolderSigner: Bool?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, dtCreatedDate: String, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int, iEzsignformfieldgroup: Int, iEzsignformfieldgroupCompleted: Int, bEzsignformHasdependencies: Bool? = nil, dEzsignfolderCompletedpercentage: String, dEzsignfolderFormcompletedpercentage: String, dEzsignfolderSignaturecompletedpercentage: String, dtEzsignfolderClose: String? = nil, dtEzsignfolderArchive: String? = nil, dtEzsignfolderDispose: String? = nil, bEzsignfolderSigner: Bool? = nil) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, dtCreatedDate: String, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int, iEzsignformfieldgroup: Int, iEzsignformfieldgroupCompleted: Int, bEzsignformHasdependencies: Bool? = nil, dEzsignfolderCompletedpercentage: String, dEzsignfolderFormcompletedpercentage: String, dEzsignfolderSignaturecompletedpercentage: String, dtEzsignfolderClose: String? = nil, dtEzsignfolderArchive: String? = nil, dtEzsignfolderDispose: String? = nil, bEzsignfolderSigner: Bool? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.eEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.sEzsignfolderDescription = sEzsignfolderDescription
         self.eEzsignfolderStep = eEzsignfolderStep
+        self.eEzsignfolderCompletion = eEzsignfolderCompletion
         self.dtCreatedDate = dtCreatedDate
         self.dtEzsignfolderDelayedsenddate = dtEzsignfolderDelayedsenddate
         self.dtEzsignfolderSentdate = dtEzsignfolderSentdate
@@ -100,6 +102,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         case sEzsignfoldertypeNameX
         case sEzsignfolderDescription
         case eEzsignfolderStep
+        case eEzsignfolderCompletion
         case dtCreatedDate
         case dtEzsignfolderDelayedsenddate
         case dtEzsignfolderSentdate
@@ -130,6 +133,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
         try container.encode(eEzsignfolderStep, forKey: .eEzsignfolderStep)
+        try container.encode(eEzsignfolderCompletion, forKey: .eEzsignfolderCompletion)
         try container.encode(dtCreatedDate, forKey: .dtCreatedDate)
         try container.encodeIfPresent(dtEzsignfolderDelayedsenddate, forKey: .dtEzsignfolderDelayedsenddate)
         try container.encodeIfPresent(dtEzsignfolderSentdate, forKey: .dtEzsignfolderSentdate)

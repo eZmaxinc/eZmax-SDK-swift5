@@ -4,6 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiBrandingID** | **Int** | The unique ID of the Branding | 
+**fkiDomainID** | **Int** | The unique ID of the Domain | [optional] 
+**sDomainName** | **String** | The name of the Domain | [optional] 
 **fkiEmailID** | **Int** | The unique ID of the Email | [optional] 
 **objBrandingDescription** | [**MultilingualBrandingDescription**](MultilingualBrandingDescription.md) |  | 
 **sBrandingDescriptionX** | **String** | The Description of the Branding in the language of the requester | 

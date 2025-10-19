@@ -19,20 +19,24 @@ public struct CustomEzsignfoldertransmissionSignerResponse: Codable, JSONEncodab
     /** The unique ID of the User */
     public var fkiUserID: Int?
     /** The First name of the contact */
-    public var sContactFirstname: String
+    public var sContactFirstname: String?
     /** The Last name of the contact */
-    public var sContactLastname: String
+    public var sContactLastname: String?
+    /** The Description of the Ezsignsignergroup in the language of the requester */
+    public var sEzsignsignergroupDescriptionX: String?
 
-    public init(fkiUserID: Int? = nil, sContactFirstname: String, sContactLastname: String) {
+    public init(fkiUserID: Int? = nil, sContactFirstname: String? = nil, sContactLastname: String? = nil, sEzsignsignergroupDescriptionX: String? = nil) {
         self.fkiUserID = fkiUserID
         self.sContactFirstname = sContactFirstname
         self.sContactLastname = sContactLastname
+        self.sEzsignsignergroupDescriptionX = sEzsignsignergroupDescriptionX
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case fkiUserID
         case sContactFirstname
         case sContactLastname
+        case sEzsignsignergroupDescriptionX
     }
 
     // Encodable protocol methods
@@ -40,8 +44,9 @@ public struct CustomEzsignfoldertransmissionSignerResponse: Codable, JSONEncodab
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
-        try container.encode(sContactFirstname, forKey: .sContactFirstname)
-        try container.encode(sContactLastname, forKey: .sContactLastname)
+        try container.encodeIfPresent(sContactFirstname, forKey: .sContactFirstname)
+        try container.encodeIfPresent(sContactLastname, forKey: .sContactLastname)
+        try container.encodeIfPresent(sEzsignsignergroupDescriptionX, forKey: .sEzsignsignergroupDescriptionX)
     }
 }
 

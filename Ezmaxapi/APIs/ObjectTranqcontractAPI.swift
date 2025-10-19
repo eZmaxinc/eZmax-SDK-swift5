@@ -211,4 +211,56 @@ open class ObjectTranqcontractAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     Import attachments into the Tranqcontract
+     
+     - parameter pkiTranqcontractID: (path)  
+     - parameter tranqcontractImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func tranqcontractImportIntoEDMV1(pkiTranqcontractID: Int, tranqcontractImportIntoEDMV1Request: TranqcontractImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: TranqcontractImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return tranqcontractImportIntoEDMV1WithRequestBuilder(pkiTranqcontractID: pkiTranqcontractID, tranqcontractImportIntoEDMV1Request: tranqcontractImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Tranqcontract
+     - POST /1/object/tranqcontract/{pkiTranqcontractID}/importIntoEDM
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiTranqcontractID: (path)  
+     - parameter tranqcontractImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<TranqcontractImportIntoEDMV1Response> 
+     */
+    open class func tranqcontractImportIntoEDMV1WithRequestBuilder(pkiTranqcontractID: Int, tranqcontractImportIntoEDMV1Request: TranqcontractImportIntoEDMV1Request) -> RequestBuilder<TranqcontractImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/tranqcontract/{pkiTranqcontractID}/importIntoEDM"
+        let pkiTranqcontractIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiTranqcontractID))"
+        let pkiTranqcontractIDPostEscape = pkiTranqcontractIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiTranqcontractID}", with: pkiTranqcontractIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tranqcontractImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<TranqcontractImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

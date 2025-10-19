@@ -15,20 +15,27 @@ public struct CustomEzsignimportdocumentResponse: Codable, JSONEncodable, Hashab
 
     public static let pkiEzsignimportdocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let sEzsignimportdocumentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,150}$/")
+    public static let fkiEzsigntemplateglobalIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
     /** The unique ID of the Ezsignimportdocument */
     public var pkiEzsignimportdocumentID: Int
     /** The name of the Ezsignimportdocument */
     public var sEzsignimportdocumentName: String
+    /** The unique ID of the Ezsigntemplateglobal */
+    public var fkiEzsigntemplateglobalID: Int?
+    /** The description of the Ezsigntemplate */
+    public var sEzsigntemplateglobalDescription: String?
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int?
     /** The description of the Ezsignfolder */
     public var sEzsignfolderDescription: String?
 
-    public init(pkiEzsignimportdocumentID: Int, sEzsignimportdocumentName: String, fkiEzsignfolderID: Int? = nil, sEzsignfolderDescription: String? = nil) {
+    public init(pkiEzsignimportdocumentID: Int, sEzsignimportdocumentName: String, fkiEzsigntemplateglobalID: Int? = nil, sEzsigntemplateglobalDescription: String? = nil, fkiEzsignfolderID: Int? = nil, sEzsignfolderDescription: String? = nil) {
         self.pkiEzsignimportdocumentID = pkiEzsignimportdocumentID
         self.sEzsignimportdocumentName = sEzsignimportdocumentName
+        self.fkiEzsigntemplateglobalID = fkiEzsigntemplateglobalID
+        self.sEzsigntemplateglobalDescription = sEzsigntemplateglobalDescription
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.sEzsignfolderDescription = sEzsignfolderDescription
     }
@@ -36,6 +43,8 @@ public struct CustomEzsignimportdocumentResponse: Codable, JSONEncodable, Hashab
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignimportdocumentID
         case sEzsignimportdocumentName
+        case fkiEzsigntemplateglobalID
+        case sEzsigntemplateglobalDescription
         case fkiEzsignfolderID
         case sEzsignfolderDescription
     }
@@ -46,6 +55,8 @@ public struct CustomEzsignimportdocumentResponse: Codable, JSONEncodable, Hashab
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignimportdocumentID, forKey: .pkiEzsignimportdocumentID)
         try container.encode(sEzsignimportdocumentName, forKey: .sEzsignimportdocumentName)
+        try container.encodeIfPresent(fkiEzsigntemplateglobalID, forKey: .fkiEzsigntemplateglobalID)
+        try container.encodeIfPresent(sEzsigntemplateglobalDescription, forKey: .sEzsigntemplateglobalDescription)
         try container.encodeIfPresent(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encodeIfPresent(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
     }

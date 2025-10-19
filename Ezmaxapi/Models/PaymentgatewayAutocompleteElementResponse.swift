@@ -19,7 +19,7 @@ public struct PaymentgatewayAutocompleteElementResponse: Codable, JSONEncodable,
     public var pkiPaymentgatewayID: Int
     /** The description of the Paymentgateway in the language of the requester */
     public var sPaymentgatewayDescriptionX: String
-    /** Whether the Currency is active or not */
+    /** Whether the Paymentgateway is active or not */
     public var bPaymentgatewayIsactive: Bool
 
     public init(pkiPaymentgatewayID: Int, sPaymentgatewayDescriptionX: String, bPaymentgatewayIsactive: Bool) {

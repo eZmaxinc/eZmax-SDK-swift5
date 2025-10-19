@@ -211,4 +211,143 @@ open class ObjectOtherincomeAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_otherincomeGetListV1: String, CaseIterable {
+        case pkiotherincomeidAsc = "pkiOtherincomeID_ASC"
+        case pkiotherincomeidDesc = "pkiOtherincomeID_DESC"
+        case fkiotherincometypeidAsc = "fkiOtherincometypeID_ASC"
+        case fkiotherincometypeidDesc = "fkiOtherincometypeID_DESC"
+        case sotherincometypedescriptionxAsc = "sOtherincometypeDescriptionX_ASC"
+        case sotherincometypedescriptionxDesc = "sOtherincometypeDescriptionX_DESC"
+        case sotherincomedescriptionAsc = "sOtherincomeDescription_ASC"
+        case sotherincomedescriptionDesc = "sOtherincomeDescription_DESC"
+        case eotherincomeremunerationtypeAsc = "eOtherincomeRemunerationtype_ASC"
+        case eotherincomeremunerationtypeDesc = "eOtherincomeRemunerationtype_DESC"
+        case dotherincomeremunerationsubtotalAsc = "dOtherincomeRemunerationsubtotal_ASC"
+        case dotherincomeremunerationsubtotalDesc = "dOtherincomeRemunerationsubtotal_DESC"
+        case dotherincomeremunerationtaxesAsc = "dOtherincomeRemunerationtaxes_ASC"
+        case dotherincomeremunerationtaxesDesc = "dOtherincomeRemunerationtaxes_DESC"
+        case dotherincomeremunerationtotalAsc = "dOtherincomeRemunerationtotal_ASC"
+        case dotherincomeremunerationtotalDesc = "dOtherincomeRemunerationtotal_DESC"
+        case dtotherincomepaidAsc = "dtOtherincomePaid_ASC"
+        case dtotherincomepaidDesc = "dtOtherincomePaid_DESC"
+        case botherincomeisactiveAsc = "bOtherincomeIsactive_ASC"
+        case botherincomeisactiveDesc = "bOtherincomeIsactive_DESC"
+    }
+
+    /**
+     Retrieve Otherincome list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func otherincomeGetListV1(eOrderBy: EOrderBy_otherincomeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: OtherincomeGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return otherincomeGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Otherincome list
+     - GET /1/object/otherincome/getList
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eOtherincomeRemunerationtype | Dollars<br>DollarsTaxesIncluded |
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - returns: RequestBuilder<OtherincomeGetListV1Response> 
+     */
+    open class func otherincomeGetListV1WithRequestBuilder(eOrderBy: EOrderBy_otherincomeGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<OtherincomeGetListV1Response> {
+        let localVariablePath = "/1/object/otherincome/getList"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<OtherincomeGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Import attachments into the Otherincome
+     
+     - parameter pkiOtherincomeID: (path)  
+     - parameter otherincomeImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func otherincomeImportIntoEDMV1(pkiOtherincomeID: Int, otherincomeImportIntoEDMV1Request: OtherincomeImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: OtherincomeImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return otherincomeImportIntoEDMV1WithRequestBuilder(pkiOtherincomeID: pkiOtherincomeID, otherincomeImportIntoEDMV1Request: otherincomeImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Otherincome
+     - POST /1/object/otherincome/{pkiOtherincomeID}/importIntoEDM
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiOtherincomeID: (path)  
+     - parameter otherincomeImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<OtherincomeImportIntoEDMV1Response> 
+     */
+    open class func otherincomeImportIntoEDMV1WithRequestBuilder(pkiOtherincomeID: Int, otherincomeImportIntoEDMV1Request: OtherincomeImportIntoEDMV1Request) -> RequestBuilder<OtherincomeImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/otherincome/{pkiOtherincomeID}/importIntoEDM"
+        let pkiOtherincomeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiOtherincomeID))"
+        let pkiOtherincomeIDPostEscape = pkiOtherincomeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiOtherincomeID}", with: pkiOtherincomeIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: otherincomeImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<OtherincomeImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

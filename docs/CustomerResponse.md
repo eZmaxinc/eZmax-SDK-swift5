@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **fkiCompanyID** | **Int** | The unique ID of the Company | 
 **fkiCustomergroupID** | **Int** | The unique ID of the Customergroup | 
 **sCustomerName** | **String** | The name of the Customer | 
+**sCustomerNote** | **String** | A note for the Customer | [optional] 
 **fkiContactinformationsID** | **Int** | The unique ID of the Contactinformations | 
 **fkiContactcontainerID** | **Int** | The unique ID of the Contactcontainer | 
 **fkiImageID** | **Int** | The unique ID of the Image | 

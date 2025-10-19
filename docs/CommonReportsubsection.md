@@ -3,6 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**aObjReportcolumn** | [CommonReportcolumn] |  | 
+**iReportsubsectionColumncount** | **Int** | The number of Reportcolumns in the Reportsection | 
+**iReportsubsectionWidth** | **Int** | The combined width of all the Reportcolumns in the Reportsection | 
 **objReportsubsectionpartHeader** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 
 **objReportsubsectionpartBody** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 
 **objReportsubsectionpartFooter** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 

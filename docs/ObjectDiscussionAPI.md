@@ -4,12 +4,63 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**discussionChatV1**](ObjectDiscussionAPI.md#discussionchatv1) | **POST** /1/object/discussion/chat | Have a Discussion with the AI Chatbot
 [**discussionCreateObjectV1**](ObjectDiscussionAPI.md#discussioncreateobjectv1) | **POST** /1/object/discussion | Create a new Discussion
 [**discussionDeleteObjectV1**](ObjectDiscussionAPI.md#discussiondeleteobjectv1) | **DELETE** /1/object/discussion/{pkiDiscussionID} | Delete an existing Discussion
 [**discussionGetObjectV2**](ObjectDiscussionAPI.md#discussiongetobjectv2) | **GET** /2/object/discussion/{pkiDiscussionID} | Retrieve an existing Discussion
 [**discussionPatchObjectV1**](ObjectDiscussionAPI.md#discussionpatchobjectv1) | **PATCH** /1/object/discussion/{pkiDiscussionID} | Patch an existing Discussion
 [**discussionUpdateDiscussionreadstatusV1**](ObjectDiscussionAPI.md#discussionupdatediscussionreadstatusv1) | **POST** /1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus | Update the read status of the discussion
 
+
+# **discussionChatV1**
+```swift
+    open class func discussionChatV1(discussionChatV1Request: DiscussionChatV1Request, completion: @escaping (_ data: DiscussionChatV1200Response?, _ error: Error?) -> Void)
+```
+
+Have a Discussion with the AI Chatbot
+
+The endpoint allows to create one or many elements at once.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let discussionChatV1Request = discussion-chat-v1-Request(fkiDiscussionID: 123, eDiscussionRobot: Field-eDiscussionRobot(), tDiscussionMessage: "tDiscussionMessage_example") // DiscussionChatV1Request | 
+
+// Have a Discussion with the AI Chatbot
+ObjectDiscussionAPI.discussionChatV1(discussionChatV1Request: discussionChatV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **discussionChatV1Request** | [**DiscussionChatV1Request**](DiscussionChatV1Request.md) |  | 
+
+### Return type
+
+[**DiscussionChatV1200Response**](DiscussionChatV1200Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/event-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discussionCreateObjectV1**
 ```swift

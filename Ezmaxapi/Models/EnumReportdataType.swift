@@ -13,9 +13,12 @@ import AnyCodable
 /** Type of data in column */
 public enum EnumReportdataType: String, Codable, CaseIterable {
     case date = "Date"
+    case fileSize = "FileSize"
+    case integer = "Integer"
     case money = "Money"
     case number = "Number"
     case percentage = "Percentage"
+    case percentageInt = "PercentageInt"
     case period = "Period"
     case string = "String"
 }

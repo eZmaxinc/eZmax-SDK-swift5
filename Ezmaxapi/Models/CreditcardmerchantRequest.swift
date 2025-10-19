@@ -16,15 +16,18 @@ public struct CreditcardmerchantRequest: Codable, JSONEncodable, Hashable {
     public static let pkiCreditcardmerchantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiBankaccountIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiCurrencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sCreditcardmerchantApitokenRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
     public static let sCreditcardmerchantDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
     public static let sCreditcardmerchantStoreidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
     /** The unique ID of the Creditcardmerchant */
     public var pkiCreditcardmerchantID: Int?
     /** The unique ID of the Bankaccount */
-    public var fkiBankaccountID: Int
+    public var fkiBankaccountID: Int?
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
-    public var fkiLanguageID: Int?
+    public var fkiLanguageID: Int
+    /** The unique ID of the Currency. */
+    public var fkiCurrencyID: Int
     /** Whether if visa are denied */
     public var bCreditcardmerchantDenyvisa: Bool
     /** Whether if mastercard are denied */
@@ -40,10 +43,11 @@ public struct CreditcardmerchantRequest: Codable, JSONEncodable, Hashable {
     /** The storeid of the Creditcardmerchant */
     public var sCreditcardmerchantStoreid: String
 
-    public init(pkiCreditcardmerchantID: Int? = nil, fkiBankaccountID: Int, fkiLanguageID: Int? = nil, bCreditcardmerchantDenyvisa: Bool, bCreditcardmerchantDenymastercard: Bool, bCreditcardmerchantDenyamex: Bool, bCreditcardmerchantIsactive: Bool, sCreditcardmerchantApitoken: String? = nil, sCreditcardmerchantDescription: String, sCreditcardmerchantStoreid: String) {
+    public init(pkiCreditcardmerchantID: Int? = nil, fkiBankaccountID: Int? = nil, fkiLanguageID: Int, fkiCurrencyID: Int, bCreditcardmerchantDenyvisa: Bool, bCreditcardmerchantDenymastercard: Bool, bCreditcardmerchantDenyamex: Bool, bCreditcardmerchantIsactive: Bool, sCreditcardmerchantApitoken: String? = nil, sCreditcardmerchantDescription: String, sCreditcardmerchantStoreid: String) {
         self.pkiCreditcardmerchantID = pkiCreditcardmerchantID
         self.fkiBankaccountID = fkiBankaccountID
         self.fkiLanguageID = fkiLanguageID
+        self.fkiCurrencyID = fkiCurrencyID
         self.bCreditcardmerchantDenyvisa = bCreditcardmerchantDenyvisa
         self.bCreditcardmerchantDenymastercard = bCreditcardmerchantDenymastercard
         self.bCreditcardmerchantDenyamex = bCreditcardmerchantDenyamex
@@ -57,6 +61,7 @@ public struct CreditcardmerchantRequest: Codable, JSONEncodable, Hashable {
         case pkiCreditcardmerchantID
         case fkiBankaccountID
         case fkiLanguageID
+        case fkiCurrencyID
         case bCreditcardmerchantDenyvisa
         case bCreditcardmerchantDenymastercard
         case bCreditcardmerchantDenyamex
@@ -71,8 +76,9 @@ public struct CreditcardmerchantRequest: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiCreditcardmerchantID, forKey: .pkiCreditcardmerchantID)
-        try container.encode(fkiBankaccountID, forKey: .fkiBankaccountID)
-        try container.encodeIfPresent(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encodeIfPresent(fkiBankaccountID, forKey: .fkiBankaccountID)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(fkiCurrencyID, forKey: .fkiCurrencyID)
         try container.encode(bCreditcardmerchantDenyvisa, forKey: .bCreditcardmerchantDenyvisa)
         try container.encode(bCreditcardmerchantDenymastercard, forKey: .bCreditcardmerchantDenymastercard)
         try container.encode(bCreditcardmerchantDenyamex, forKey: .bCreditcardmerchantDenyamex)

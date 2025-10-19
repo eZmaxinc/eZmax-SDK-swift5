@@ -12,7 +12,6 @@ import AnyCodable
 
 /** The occurence of the pattern to add the Ezsigntemplateformfield  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates** */
 public enum FieldEEzsigntemplateformfieldPositioningoccurence: String, Codable, CaseIterable {
-    case all = "All"
     case first = "First"
     case last = "Last"
 }

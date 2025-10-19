@@ -19,6 +19,7 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
     public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     public static let iUserInterfacecolorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iUserListresultRule = NumericRule<Int>(minimum: 5, exclusiveMinimum: false, maximum: 500, exclusiveMaximum: false, multipleOf: nil)
+    public static let iUserFrontendgoalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the User */
     public var pkiUserID: Int
     /** The unique ID of the Timezone */
@@ -31,6 +32,8 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
     public var sUserLastname: String
     /** The email address. */
     public var sEmailAddress: String?
+    /** Whether if I want to automatically add myself during the creation of Ezsignfolder of which I am the owner */
+    public var bUserAddmeinezsignfolder: Bool
     public var eUserEzsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency
     /** The int32 representation of the interface color. For example, RGB color #39435B would be 3752795 */
     public var iUserInterfacecolor: Int
@@ -38,18 +41,22 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
     public var bUserInterfacedark: Bool
     /** The number of rows to return by default in lists */
     public var iUserListresult: Int
+    /** Goals save as bit wise (one bit per goal) */
+    public var iUserFrontendgoal: Int
 
-    public init(pkiUserID: Int, fkiTimezoneID: Int, sAvatarUrl: String? = nil, sUserFirstname: String, sUserLastname: String, sEmailAddress: String? = nil, eUserEzsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor: Int, bUserInterfacedark: Bool, iUserListresult: Int) {
+    public init(pkiUserID: Int, fkiTimezoneID: Int, sAvatarUrl: String? = nil, sUserFirstname: String, sUserLastname: String, sEmailAddress: String? = nil, bUserAddmeinezsignfolder: Bool, eUserEzsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency, iUserInterfacecolor: Int, bUserInterfacedark: Bool, iUserListresult: Int, iUserFrontendgoal: Int) {
         self.pkiUserID = pkiUserID
         self.fkiTimezoneID = fkiTimezoneID
         self.sAvatarUrl = sAvatarUrl
         self.sUserFirstname = sUserFirstname
         self.sUserLastname = sUserLastname
         self.sEmailAddress = sEmailAddress
+        self.bUserAddmeinezsignfolder = bUserAddmeinezsignfolder
         self.eUserEzsignsendreminderfrequency = eUserEzsignsendreminderfrequency
         self.iUserInterfacecolor = iUserInterfacecolor
         self.bUserInterfacedark = bUserInterfacedark
         self.iUserListresult = iUserListresult
+        self.iUserFrontendgoal = iUserFrontendgoal
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -59,10 +66,12 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
         case sUserFirstname
         case sUserLastname
         case sEmailAddress
+        case bUserAddmeinezsignfolder
         case eUserEzsignsendreminderfrequency
         case iUserInterfacecolor
         case bUserInterfacedark
         case iUserListresult
+        case iUserFrontendgoal
     }
 
     // Encodable protocol methods
@@ -75,10 +84,12 @@ public struct ActivesessionResponseCompoundUser: Codable, JSONEncodable, Hashabl
         try container.encode(sUserFirstname, forKey: .sUserFirstname)
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
+        try container.encode(bUserAddmeinezsignfolder, forKey: .bUserAddmeinezsignfolder)
         try container.encode(eUserEzsignsendreminderfrequency, forKey: .eUserEzsignsendreminderfrequency)
         try container.encode(iUserInterfacecolor, forKey: .iUserInterfacecolor)
         try container.encode(bUserInterfacedark, forKey: .bUserInterfacedark)
         try container.encode(iUserListresult, forKey: .iUserListresult)
+        try container.encode(iUserFrontendgoal, forKey: .iUserFrontendgoal)
     }
 }
 

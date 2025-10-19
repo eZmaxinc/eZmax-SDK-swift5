@@ -63,6 +63,7 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
     /** The scheduled date at which the Ezsignfolder should be Disposed. */
     public var dtEzsignfolderScheduleddispose: String?
     public var eEzsignfolderStep: FieldEEzsignfolderStep?
+    public var eEzsignfolderMessageorder: FieldEEzsignfolderMessageorder?
     /** The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. */
     public var dtEzsignfolderClose: String?
     /** A custom text message that will be added to the email sent. */
@@ -72,7 +73,7 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
     public var sEzsignfolderExternalid: String?
     public var objTimezone: CustomTimezoneWithCodeResponse?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, fkiTimezoneID: Int? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency? = nil, iEzsignfolderSendreminderfirstdays: Int? = nil, iEzsignfolderSendreminderotherdays: Int? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil, objTimezone: CustomTimezoneWithCodeResponse? = nil) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, fkiTimezoneID: Int? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency? = nil, iEzsignfolderSendreminderfirstdays: Int? = nil, iEzsignfolderSendreminderotherdays: Int? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, eEzsignfolderMessageorder: FieldEEzsignfolderMessageorder? = nil, dtEzsignfolderClose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil, objTimezone: CustomTimezoneWithCodeResponse? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.objEzsignfoldertype = objEzsignfoldertype
@@ -95,6 +96,7 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
         self.dtEzsignfolderScheduledarchive = dtEzsignfolderScheduledarchive
         self.dtEzsignfolderScheduleddispose = dtEzsignfolderScheduleddispose
         self.eEzsignfolderStep = eEzsignfolderStep
+        self.eEzsignfolderMessageorder = eEzsignfolderMessageorder
         self.dtEzsignfolderClose = dtEzsignfolderClose
         self.tEzsignfolderMessage = tEzsignfolderMessage
         self.objAudit = objAudit
@@ -125,6 +127,7 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
         case dtEzsignfolderScheduledarchive
         case dtEzsignfolderScheduleddispose
         case eEzsignfolderStep
+        case eEzsignfolderMessageorder
         case dtEzsignfolderClose
         case tEzsignfolderMessage
         case objAudit
@@ -158,6 +161,7 @@ public struct EzsignfolderResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(dtEzsignfolderScheduledarchive, forKey: .dtEzsignfolderScheduledarchive)
         try container.encodeIfPresent(dtEzsignfolderScheduleddispose, forKey: .dtEzsignfolderScheduleddispose)
         try container.encodeIfPresent(eEzsignfolderStep, forKey: .eEzsignfolderStep)
+        try container.encodeIfPresent(eEzsignfolderMessageorder, forKey: .eEzsignfolderMessageorder)
         try container.encodeIfPresent(dtEzsignfolderClose, forKey: .dtEzsignfolderClose)
         try container.encodeIfPresent(tEzsignfolderMessage, forKey: .tEzsignfolderMessage)
         try container.encodeIfPresent(objAudit, forKey: .objAudit)

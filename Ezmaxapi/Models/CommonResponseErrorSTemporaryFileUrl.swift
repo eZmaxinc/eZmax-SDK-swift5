@@ -14,7 +14,7 @@ import AnyCodable
 public struct CommonResponseErrorSTemporaryFileUrl: Codable, JSONEncodable, Hashable {
 
     public static let sErrorMessageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,500}$/")
-    public static let sTemporaryFileUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
+    public static let sTemporaryFileUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^https:\/\/[^\\s\/$.?#].[^\\s]*$/")
     /** The message giving details about the error */
     public var sErrorMessage: String
     public var eErrorCode: FieldEErrorCode

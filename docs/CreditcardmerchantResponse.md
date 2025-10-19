@@ -4,10 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiCreditcardmerchantID** | **Int** | The unique ID of the Creditcardmerchant | 
-**fkiBankaccountID** | **Int** | The unique ID of the Bankaccount | 
+**fkiBankaccountID** | **Int** | The unique ID of the Bankaccount | [optional] 
+**fkiLanguageID** | **Int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**sLanguageNameX** | **String** | The Name of the Language in the language of the requester | 
+**fkiCurrencyID** | **Int** | The unique ID of the Currency. | 
+**sCurrencyDescriptionX** | **String** | The description of the Currency in the language of the requester | 
 **sBankaccountBankname** | **String** | The name of the bank | [optional] 
-**fkiLanguageID** | **Int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | [optional] 
-**sLanguageNameX** | **String** | The Name of the Language in the language of the requester | [optional] 
 **bCreditcardmerchantDenyvisa** | **Bool** | Whether if visa are denied | 
 **bCreditcardmerchantDenymastercard** | **Bool** | Whether if mastercard are denied | 
 **bCreditcardmerchantDenyamex** | **Bool** | Whether if amex are denied | 

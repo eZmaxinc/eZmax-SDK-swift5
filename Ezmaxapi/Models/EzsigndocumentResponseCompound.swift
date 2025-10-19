@@ -22,6 +22,8 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     public static let iEzsigndocumentSignaturesignedRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigndocumentSignaturetotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigndocumentFormfieldtotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsigndocumentMD5initialRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{32}$/")
+    public static let sEzsigndocumentMD5signedRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{32}$/")
     public static let sEzsigndocumentExternalidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,128}$/")
     public static let iEzsigndocumentEzsignsignatureattachmenttotalRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Ezsigndocument */
@@ -63,6 +65,8 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     public var bEzsigndocumentEzsignform: Bool?
     /** If the Ezsigndocument contains signed signatures (From internal or external sources) */
     public var bEzsigndocumentHassignedsignatures: Bool?
+    /** Whether the Ezsigndocument was copied to EDM */
+    public var bEzsigndocumentSendtoged: Bool?
     public var objAudit: CommonAudit?
     /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
     public var sEzsigndocumentExternalid: String?
@@ -82,7 +86,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
     public var aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse]
     public var aObjEzsigndocumentdependency: [EzsigndocumentdependencyResponse]?
 
-    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, iEzsigndocumentFormfieldtotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int, iEzsigndocumentEzsigndiscussiontotal: Int, eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse], aObjEzsigndocumentdependency: [EzsigndocumentdependencyResponse]? = nil) {
+    public init(pkiEzsigndocumentID: Int, fkiEzsignfolderID: Int, fkiEzsignfoldersignerassociationIDDeclinedtosign: Int? = nil, dtEzsigndocumentDuedate: String, dtEzsignformCompleted: String? = nil, fkiLanguageID: Int? = nil, sEzsigndocumentName: String, eEzsigndocumentStep: FieldEEzsigndocumentStep, dtEzsigndocumentFirstsend: String? = nil, dtEzsigndocumentLastsend: String? = nil, iEzsigndocumentOrder: Int, iEzsigndocumentPagetotal: Int, iEzsigndocumentSignaturesigned: Int, iEzsigndocumentSignaturetotal: Int, iEzsigndocumentFormfieldtotal: Int, sEzsigndocumentMD5initial: String? = nil, tEzsigndocumentDeclinedtosignreason: String? = nil, sEzsigndocumentMD5signed: String? = nil, bEzsigndocumentEzsignform: Bool? = nil, bEzsigndocumentHassignedsignatures: Bool? = nil, bEzsigndocumentSendtoged: Bool? = nil, objAudit: CommonAudit? = nil, sEzsigndocumentExternalid: String? = nil, iEzsigndocumentEzsignsignatureattachmenttotal: Int, iEzsigndocumentEzsigndiscussiontotal: Int, eEzsigndocumentSteptype: ComputedEEzsigndocumentSteptype, iEzsigndocumentStepformtotal: Int, iEzsigndocumentStepformcurrent: Int, iEzsigndocumentStepsignaturetotal: Int, iEzsigndocumentStepsignatureCurrent: Int, aObjEzsignfoldersignerassociationstatus: [CustomEzsignfoldersignerassociationstatusResponse], aObjEzsigndocumentdependency: [EzsigndocumentdependencyResponse]? = nil) {
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsignfoldersignerassociationIDDeclinedtosign = fkiEzsignfoldersignerassociationIDDeclinedtosign
@@ -103,6 +107,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         self.sEzsigndocumentMD5signed = sEzsigndocumentMD5signed
         self.bEzsigndocumentEzsignform = bEzsigndocumentEzsignform
         self.bEzsigndocumentHassignedsignatures = bEzsigndocumentHassignedsignatures
+        self.bEzsigndocumentSendtoged = bEzsigndocumentSendtoged
         self.objAudit = objAudit
         self.sEzsigndocumentExternalid = sEzsigndocumentExternalid
         self.iEzsigndocumentEzsignsignatureattachmenttotal = iEzsigndocumentEzsignsignatureattachmenttotal
@@ -137,6 +142,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         case sEzsigndocumentMD5signed
         case bEzsigndocumentEzsignform
         case bEzsigndocumentHassignedsignatures
+        case bEzsigndocumentSendtoged
         case objAudit
         case sEzsigndocumentExternalid
         case iEzsigndocumentEzsignsignatureattachmenttotal
@@ -174,6 +180,7 @@ public struct EzsigndocumentResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sEzsigndocumentMD5signed, forKey: .sEzsigndocumentMD5signed)
         try container.encodeIfPresent(bEzsigndocumentEzsignform, forKey: .bEzsigndocumentEzsignform)
         try container.encodeIfPresent(bEzsigndocumentHassignedsignatures, forKey: .bEzsigndocumentHassignedsignatures)
+        try container.encodeIfPresent(bEzsigndocumentSendtoged, forKey: .bEzsigndocumentSendtoged)
         try container.encodeIfPresent(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sEzsigndocumentExternalid, forKey: .sEzsigndocumentExternalid)
         try container.encode(iEzsigndocumentEzsignsignatureattachmenttotal, forKey: .iEzsigndocumentEzsignsignatureattachmenttotal)

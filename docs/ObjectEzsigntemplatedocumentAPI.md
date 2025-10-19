@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ezsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumenteditezsigntemplatedocumentpagerecognitionsv1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatedocumentpagerecognitions | Edit multiple Ezsigntemplatedocumentpagerecognitions
 [**ezsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumenteditezsigntemplateformfieldgroupsv1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateformfieldgroups | Edit multiple Ezsigntemplateformfieldgroups
 [**ezsigntemplatedocumentEditEzsigntemplatesignaturesV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumenteditezsigntemplatesignaturesv1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures | Edit multiple Ezsigntemplatesignatures
+[**ezsigntemplatedocumentEditEzsigntemplatesignaturesV2**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumenteditezsigntemplatesignaturesv2) | **PUT** /2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures | Edit multiple Ezsigntemplatesignatures
 [**ezsigntemplatedocumentEditObjectV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumenteditobjectv1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID} | Edit an existing Ezsigntemplatedocument
 [**ezsigntemplatedocumentExtractTextV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentextracttextv1) | **POST** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/extractText | Extract text from Ezsigntemplatedocument area
 [**ezsigntemplatedocumentFlattenV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentflattenv1) | **POST** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten | Flatten
@@ -15,6 +16,7 @@ Method | HTTP request | Description
 [**ezsigntemplatedocumentGetEzsigntemplatedocumentpagesV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentgetezsigntemplatedocumentpagesv1) | **GET** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpages
 [**ezsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentgetezsigntemplateformfieldgroupsv1) | **GET** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateformfieldgroups | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplateformfieldgroups
 [**ezsigntemplatedocumentGetEzsigntemplatesignaturesV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentgetezsigntemplatesignaturesv1) | **GET** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatesignatures
+[**ezsigntemplatedocumentGetEzsigntemplatesignaturesV2**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentgetezsigntemplatesignaturesv2) | **GET** /2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatesignatures
 [**ezsigntemplatedocumentGetObjectV2**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentgetobjectv2) | **GET** /2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID} | Retrieve an existing Ezsigntemplatedocument
 [**ezsigntemplatedocumentGetWordsPositionsV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentgetwordspositionsv1) | **POST** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigntemplatedocument
 [**ezsigntemplatedocumentPatchObjectV1**](ObjectEzsigntemplatedocumentAPI.md#ezsigntemplatedocumentpatchobjectv1) | **PATCH** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID} | Patch an existing Ezsigntemplatedocument
@@ -181,7 +183,7 @@ Name | Type | Description  | Notes
 
 Edit multiple Ezsigntemplatesignatures
 
-Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.
+Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.  Major step overhaul.  Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
 
 ### Example
 ```swift
@@ -189,7 +191,7 @@ Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same 
 import OpenAPIClient
 
 let pkiEzsigntemplatedocumentID = 987 // Int | 
-let ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Request = ezsigntemplatedocument-editEzsigntemplatesignatures-v1-Request(aObjEzsigntemplatesignature: [ezsigntemplatesignature-RequestCompound(pkiEzsigntemplatesignatureID: 123, fkiEzsigntemplatedocumentID: 123, fkiEzsigntemplatesignerID: 123, fkiEzsigntemplatesignerIDValidation: 123, bEzsigntemplatesignatureHandwritten: false, bEzsigntemplatesignatureReason: false, eEzsigntemplatesignaturePositioning: Field-eEzsigntemplatesignaturePositioning(), iEzsigntemplatedocumentpagePagenumber: 123, iEzsigntemplatesignatureX: 123, iEzsigntemplatesignatureY: 123, iEzsigntemplatesignatureWidth: 123, iEzsigntemplatesignatureHeight: 123, iEzsigntemplatesignatureStep: 123, eEzsigntemplatesignatureType: Field-eEzsigntemplatesignatureType(), eEzsigntemplatesignatureConsultationtrigger: Field-eEzsigntemplatesignatureConsultationtrigger(), tEzsigntemplatesignatureTooltip: "tEzsigntemplatesignatureTooltip_example", eEzsigntemplatesignatureTooltipposition: Field-eEzsigntemplatesignatureTooltipposition(), eEzsigntemplatesignatureFont: Field-eEzsigntemplatesignatureFont(), bEzsigntemplatesignatureRequired: false, eEzsigntemplatesignatureAttachmentnamesource: Field-eEzsigntemplatesignatureAttachmentnamesource(), sEzsigntemplatesignatureAttachmentdescription: "sEzsigntemplatesignatureAttachmentdescription_example", iEzsigntemplatesignatureValidationstep: 123, iEzsigntemplatesignatureMaxlength: 123, sEzsigntemplatesignatureDefaultvalue: "sEzsigntemplatesignatureDefaultvalue_example", sEzsigntemplatesignatureRegexp: "sEzsigntemplatesignatureRegexp_example", eEzsigntemplatesignatureTextvalidation: Enum-Textvalidation(), sEzsigntemplatesignatureTextvalidationcustommessage: "sEzsigntemplatesignatureTextvalidationcustommessage_example", eEzsigntemplatesignatureDependencyrequirement: Field-eEzsigntemplatesignatureDependencyrequirement(), sEzsigntemplatesignaturePositioningpattern: "sEzsigntemplatesignaturePositioningpattern_example", iEzsigntemplatesignaturePositioningoffsetx: 123, iEzsigntemplatesignaturePositioningoffsety: 123, eEzsigntemplatesignaturePositioningoccurence: Field-eEzsigntemplatesignaturePositioningoccurence(), bEzsigntemplatesignatureCustomdate: false, aObjEzsigntemplatesignaturecustomdate: [ezsigntemplatesignaturecustomdate-RequestCompound(pkiEzsigntemplatesignaturecustomdateID: 123, iEzsigntemplatesignaturecustomdateX: 123, iEzsigntemplatesignaturecustomdateY: 123, iEzsigntemplatesignaturecustomdateOffsetx: 123, iEzsigntemplatesignaturecustomdateOffsety: 123, sEzsigntemplatesignaturecustomdateFormat: "sEzsigntemplatesignaturecustomdateFormat_example")], aObjEzsigntemplateelementdependency: [ezsigntemplateelementdependency-RequestCompound(pkiEzsigntemplateelementdependencyID: 123, fkiEzsigntemplateformfieldIDValidation: 123, fkiEzsigntemplateformfieldgroupIDValidation: 123, sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel_example", sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel_example", eEzsigntemplateelementdependencyValidation: Field-eEzsigntemplateelementdependencyValidation(), bEzsigntemplateelementdependencySelected: false, eEzsigntemplateelementdependencyOperator: Field-eEzsigntemplateelementdependencyOperator(), sEzsigntemplateelementdependencyValue: "sEzsigntemplateelementdependencyValue_example")])]) // EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request | 
+let ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Request = ezsigntemplatedocument-editEzsigntemplatesignatures-v1-Request(aObjEzsigntemplatesignature: [ezsigntemplatesignature-RequestCompound(pkiEzsigntemplatesignatureID: 123, fkiEzsigntemplatedocumentID: 123, fkiEzsigntemplatesignerID: 123, fkiEzsigntemplatesignerIDValidation: 123, fkiPaymentgatewayID: 123, bEzsigntemplatesignatureHandwritten: false, bEzsigntemplatesignatureReason: false, eEzsigntemplatesignaturePositioning: Field-eEzsigntemplatesignaturePositioning(), iEzsigntemplatedocumentpagePagenumber: 123, iEzsigntemplatesignatureX: 123, iEzsigntemplatesignatureY: 123, iEzsigntemplatesignatureWidth: 123, iEzsigntemplatesignatureHeight: 123, iEzsigntemplatesignatureStep: 123, eEzsigntemplatesignatureType: Field-eEzsigntemplatesignatureType(), eEzsigntemplatesignatureConsultationtrigger: Field-eEzsigntemplatesignatureConsultationtrigger(), tEzsigntemplatesignatureTooltip: "tEzsigntemplatesignatureTooltip_example", eEzsigntemplatesignatureTooltipposition: Field-eEzsigntemplatesignatureTooltipposition(), eEzsigntemplatesignatureFont: Field-eEzsigntemplatesignatureFont(), bEzsigntemplatesignatureRequired: false, eEzsigntemplatesignatureAttachmentnamesource: Field-eEzsigntemplatesignatureAttachmentnamesource(), sEzsigntemplatesignatureAttachmentdescription: "sEzsigntemplatesignatureAttachmentdescription_example", iEzsigntemplatesignatureValidationstep: 123, iEzsigntemplatesignatureMaxlength: 123, sEzsigntemplatesignatureDefaultvalue: "sEzsigntemplatesignatureDefaultvalue_example", sEzsigntemplatesignatureRegexp: "sEzsigntemplatesignatureRegexp_example", eEzsigntemplatesignatureTextvalidation: Enum-Textvalidation(), sEzsigntemplatesignatureTextvalidationcustommessage: "sEzsigntemplatesignatureTextvalidationcustommessage_example", eEzsigntemplatesignatureDependencyrequirement: Field-eEzsigntemplatesignatureDependencyrequirement(), sEzsigntemplatesignaturePositioningpattern: "sEzsigntemplatesignaturePositioningpattern_example", iEzsigntemplatesignaturePositioningoffsetx: 123, iEzsigntemplatesignaturePositioningoffsety: 123, eEzsigntemplatesignaturePositioningoccurence: Field-eEzsigntemplatesignaturePositioningoccurence(), sEzsigntemplatesignatureCreditcardamountdescription: "sEzsigntemplatesignatureCreditcardamountdescription_example", dEzsigntemplatesignatureCreditcardamount: "dEzsigntemplatesignatureCreditcardamount_example", bEzsigntemplatesignatureCustomdate: false, aObjEzsigntemplatesignaturecustomdate: [ezsigntemplatesignaturecustomdate-RequestCompound(pkiEzsigntemplatesignaturecustomdateID: 123, iEzsigntemplatesignaturecustomdateX: 123, iEzsigntemplatesignaturecustomdateY: 123, iEzsigntemplatesignaturecustomdateOffsetx: 123, iEzsigntemplatesignaturecustomdateOffsety: 123, sEzsigntemplatesignaturecustomdateFormat: "sEzsigntemplatesignaturecustomdateFormat_example")], aObjEzsigntemplateelementdependency: [ezsigntemplateelementdependency-RequestCompound(pkiEzsigntemplateelementdependencyID: 123, fkiEzsigntemplateformfieldIDValidation: 123, fkiEzsigntemplateformfieldgroupIDValidation: 123, sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel_example", sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel_example", eEzsigntemplateelementdependencyValidation: Field-eEzsigntemplateelementdependencyValidation(), bEzsigntemplateelementdependencySelected: false, eEzsigntemplateelementdependencyOperator: Field-eEzsigntemplateelementdependencyOperator(), sEzsigntemplateelementdependencyValue: "sEzsigntemplateelementdependencyValue_example")], aObjEzsigntemplatesignaturepaymentdetail: [ezsigntemplatesignaturepaymentdetail-RequestCompound(pkiEzsigntemplatesignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsigntemplatesignaturepaymentdetailDescription: "tEzsigntemplatesignaturepaymentdetailDescription_example", dEzsigntemplatesignaturepaymentdetailAmount: "dEzsigntemplatesignaturepaymentdetailAmount_example", eEzsigntemplatesignaturepaymentdetailTaxable: Field-eEzsigntemplatesignaturepaymentdetailTaxable())])]) // EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request | 
 
 // Edit multiple Ezsigntemplatesignatures
 ObjectEzsigntemplatedocumentAPI.ezsigntemplatedocumentEditEzsigntemplatesignaturesV1(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID, ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Request: ezsigntemplatedocumentEditEzsigntemplatesignaturesV1Request) { (response, error) in
@@ -214,6 +216,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response**](EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatedocumentEditEzsigntemplatesignaturesV2**
+```swift
+    open class func ezsigntemplatedocumentEditEzsigntemplatesignaturesV2(pkiEzsigntemplatedocumentID: Int, ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request, completion: @escaping (_ data: EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Response?, _ error: Error?) -> Void)
+```
+
+Edit multiple Ezsigntemplatesignatures
+
+Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplatedocumentID = 987 // Int | 
+let ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request = ezsigntemplatedocument-editEzsigntemplatesignatures-v2-Request(aObjEzsigntemplatesignature: [ezsigntemplatesignature-RequestCompound(pkiEzsigntemplatesignatureID: 123, fkiEzsigntemplatedocumentID: 123, fkiEzsigntemplatesignerID: 123, fkiEzsigntemplatesignerIDValidation: 123, fkiPaymentgatewayID: 123, bEzsigntemplatesignatureHandwritten: false, bEzsigntemplatesignatureReason: false, eEzsigntemplatesignaturePositioning: Field-eEzsigntemplatesignaturePositioning(), iEzsigntemplatedocumentpagePagenumber: 123, iEzsigntemplatesignatureX: 123, iEzsigntemplatesignatureY: 123, iEzsigntemplatesignatureWidth: 123, iEzsigntemplatesignatureHeight: 123, iEzsigntemplatesignatureStep: 123, eEzsigntemplatesignatureType: Field-eEzsigntemplatesignatureType(), eEzsigntemplatesignatureConsultationtrigger: Field-eEzsigntemplatesignatureConsultationtrigger(), tEzsigntemplatesignatureTooltip: "tEzsigntemplatesignatureTooltip_example", eEzsigntemplatesignatureTooltipposition: Field-eEzsigntemplatesignatureTooltipposition(), eEzsigntemplatesignatureFont: Field-eEzsigntemplatesignatureFont(), bEzsigntemplatesignatureRequired: false, eEzsigntemplatesignatureAttachmentnamesource: Field-eEzsigntemplatesignatureAttachmentnamesource(), sEzsigntemplatesignatureAttachmentdescription: "sEzsigntemplatesignatureAttachmentdescription_example", iEzsigntemplatesignatureValidationstep: 123, iEzsigntemplatesignatureMaxlength: 123, sEzsigntemplatesignatureDefaultvalue: "sEzsigntemplatesignatureDefaultvalue_example", sEzsigntemplatesignatureRegexp: "sEzsigntemplatesignatureRegexp_example", eEzsigntemplatesignatureTextvalidation: Enum-Textvalidation(), sEzsigntemplatesignatureTextvalidationcustommessage: "sEzsigntemplatesignatureTextvalidationcustommessage_example", eEzsigntemplatesignatureDependencyrequirement: Field-eEzsigntemplatesignatureDependencyrequirement(), sEzsigntemplatesignaturePositioningpattern: "sEzsigntemplatesignaturePositioningpattern_example", iEzsigntemplatesignaturePositioningoffsetx: 123, iEzsigntemplatesignaturePositioningoffsety: 123, eEzsigntemplatesignaturePositioningoccurence: Field-eEzsigntemplatesignaturePositioningoccurence(), sEzsigntemplatesignatureCreditcardamountdescription: "sEzsigntemplatesignatureCreditcardamountdescription_example", dEzsigntemplatesignatureCreditcardamount: "dEzsigntemplatesignatureCreditcardamount_example", bEzsigntemplatesignatureCustomdate: false, aObjEzsigntemplatesignaturecustomdate: [ezsigntemplatesignaturecustomdate-RequestCompound(pkiEzsigntemplatesignaturecustomdateID: 123, iEzsigntemplatesignaturecustomdateX: 123, iEzsigntemplatesignaturecustomdateY: 123, iEzsigntemplatesignaturecustomdateOffsetx: 123, iEzsigntemplatesignaturecustomdateOffsety: 123, sEzsigntemplatesignaturecustomdateFormat: "sEzsigntemplatesignaturecustomdateFormat_example")], aObjEzsigntemplateelementdependency: [ezsigntemplateelementdependency-RequestCompound(pkiEzsigntemplateelementdependencyID: 123, fkiEzsigntemplateformfieldIDValidation: 123, fkiEzsigntemplateformfieldgroupIDValidation: 123, sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldgrouplabel_example", sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel: "sEzsigntemplateelementdependencyEzsigntemplateformfieldlabel_example", eEzsigntemplateelementdependencyValidation: Field-eEzsigntemplateelementdependencyValidation(), bEzsigntemplateelementdependencySelected: false, eEzsigntemplateelementdependencyOperator: Field-eEzsigntemplateelementdependencyOperator(), sEzsigntemplateelementdependencyValue: "sEzsigntemplateelementdependencyValue_example")], aObjEzsigntemplatesignaturepaymentdetail: [ezsigntemplatesignaturepaymentdetail-RequestCompound(pkiEzsigntemplatesignaturepaymentdetailID: 123, fkiGlaccountcontainerID: 123, tEzsigntemplatesignaturepaymentdetailDescription: "tEzsigntemplatesignaturepaymentdetailDescription_example", dEzsigntemplatesignaturepaymentdetailAmount: "dEzsigntemplatesignaturepaymentdetailAmount_example", eEzsigntemplatesignaturepaymentdetailTaxable: Field-eEzsigntemplatesignaturepaymentdetailTaxable())])]) // EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request | 
+
+// Edit multiple Ezsigntemplatesignatures
+ObjectEzsigntemplatedocumentAPI.ezsigntemplatedocumentEditEzsigntemplatesignaturesV2(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID, ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request: ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplatedocumentID** | **Int** |  | 
+ **ezsigntemplatedocumentEditEzsigntemplatesignaturesV2Request** | [**EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request**](EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Response**](EzsigntemplatedocumentEditEzsigntemplatesignaturesV2Response.md)
 
 ### Authorization
 
@@ -539,7 +593,7 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
 
-
+Major step overhaul.  Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
 
 ### Example
 ```swift
@@ -570,6 +624,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response**](EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatedocumentGetEzsigntemplatesignaturesV2**
+```swift
+    open class func ezsigntemplatedocumentGetEzsigntemplatesignaturesV2(pkiEzsigntemplatedocumentID: Int, completion: @escaping (_ data: EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplatedocumentID = 987 // Int | 
+
+// Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
+ObjectEzsigntemplatedocumentAPI.ezsigntemplatedocumentGetEzsigntemplatesignaturesV2(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplatedocumentID** | **Int** |  | 
+
+### Return type
+
+[**EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response**](EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response.md)
 
 ### Authorization
 

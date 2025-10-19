@@ -16,18 +16,24 @@ public struct CreditcardmerchantResponseCompound: Codable, JSONEncodable, Hashab
     public static let pkiCreditcardmerchantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiBankaccountIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiCurrencyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let sCurrencyDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
     public static let sCreditcardmerchantDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
     public static let sCreditcardmerchantStoreidRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
     /** The unique ID of the Creditcardmerchant */
     public var pkiCreditcardmerchantID: Int
     /** The unique ID of the Bankaccount */
-    public var fkiBankaccountID: Int
+    public var fkiBankaccountID: Int?
+    /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
+    public var fkiLanguageID: Int
+    /** The Name of the Language in the language of the requester */
+    public var sLanguageNameX: String
+    /** The unique ID of the Currency. */
+    public var fkiCurrencyID: Int
+    /** The description of the Currency in the language of the requester */
+    public var sCurrencyDescriptionX: String
     /** The name of the bank */
     public var sBankaccountBankname: String?
-    /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
-    public var fkiLanguageID: Int?
-    /** The Name of the Language in the language of the requester */
-    public var sLanguageNameX: String?
     /** Whether if visa are denied */
     public var bCreditcardmerchantDenyvisa: Bool
     /** Whether if mastercard are denied */
@@ -41,12 +47,14 @@ public struct CreditcardmerchantResponseCompound: Codable, JSONEncodable, Hashab
     /** The storeid of the Creditcardmerchant */
     public var sCreditcardmerchantStoreid: String
 
-    public init(pkiCreditcardmerchantID: Int, fkiBankaccountID: Int, sBankaccountBankname: String? = nil, fkiLanguageID: Int? = nil, sLanguageNameX: String? = nil, bCreditcardmerchantDenyvisa: Bool, bCreditcardmerchantDenymastercard: Bool, bCreditcardmerchantDenyamex: Bool, bCreditcardmerchantIsactive: Bool, sCreditcardmerchantDescription: String, sCreditcardmerchantStoreid: String) {
+    public init(pkiCreditcardmerchantID: Int, fkiBankaccountID: Int? = nil, fkiLanguageID: Int, sLanguageNameX: String, fkiCurrencyID: Int, sCurrencyDescriptionX: String, sBankaccountBankname: String? = nil, bCreditcardmerchantDenyvisa: Bool, bCreditcardmerchantDenymastercard: Bool, bCreditcardmerchantDenyamex: Bool, bCreditcardmerchantIsactive: Bool, sCreditcardmerchantDescription: String, sCreditcardmerchantStoreid: String) {
         self.pkiCreditcardmerchantID = pkiCreditcardmerchantID
         self.fkiBankaccountID = fkiBankaccountID
-        self.sBankaccountBankname = sBankaccountBankname
         self.fkiLanguageID = fkiLanguageID
         self.sLanguageNameX = sLanguageNameX
+        self.fkiCurrencyID = fkiCurrencyID
+        self.sCurrencyDescriptionX = sCurrencyDescriptionX
+        self.sBankaccountBankname = sBankaccountBankname
         self.bCreditcardmerchantDenyvisa = bCreditcardmerchantDenyvisa
         self.bCreditcardmerchantDenymastercard = bCreditcardmerchantDenymastercard
         self.bCreditcardmerchantDenyamex = bCreditcardmerchantDenyamex
@@ -58,9 +66,11 @@ public struct CreditcardmerchantResponseCompound: Codable, JSONEncodable, Hashab
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCreditcardmerchantID
         case fkiBankaccountID
-        case sBankaccountBankname
         case fkiLanguageID
         case sLanguageNameX
+        case fkiCurrencyID
+        case sCurrencyDescriptionX
+        case sBankaccountBankname
         case bCreditcardmerchantDenyvisa
         case bCreditcardmerchantDenymastercard
         case bCreditcardmerchantDenyamex
@@ -74,10 +84,12 @@ public struct CreditcardmerchantResponseCompound: Codable, JSONEncodable, Hashab
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCreditcardmerchantID, forKey: .pkiCreditcardmerchantID)
-        try container.encode(fkiBankaccountID, forKey: .fkiBankaccountID)
+        try container.encodeIfPresent(fkiBankaccountID, forKey: .fkiBankaccountID)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(sLanguageNameX, forKey: .sLanguageNameX)
+        try container.encode(fkiCurrencyID, forKey: .fkiCurrencyID)
+        try container.encode(sCurrencyDescriptionX, forKey: .sCurrencyDescriptionX)
         try container.encodeIfPresent(sBankaccountBankname, forKey: .sBankaccountBankname)
-        try container.encodeIfPresent(fkiLanguageID, forKey: .fkiLanguageID)
-        try container.encodeIfPresent(sLanguageNameX, forKey: .sLanguageNameX)
         try container.encode(bCreditcardmerchantDenyvisa, forKey: .bCreditcardmerchantDenyvisa)
         try container.encode(bCreditcardmerchantDenymastercard, forKey: .bCreditcardmerchantDenymastercard)
         try container.encode(bCreditcardmerchantDenyamex, forKey: .bCreditcardmerchantDenyamex)

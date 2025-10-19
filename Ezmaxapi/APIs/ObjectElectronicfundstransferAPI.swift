@@ -211,4 +211,56 @@ open class ObjectElectronicfundstransferAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     Import attachments into the Electronicfundstransfer
+     
+     - parameter pkiElectronicfundstransferID: (path)  
+     - parameter electronicfundstransferImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func electronicfundstransferImportIntoEDMV1(pkiElectronicfundstransferID: Int, electronicfundstransferImportIntoEDMV1Request: ElectronicfundstransferImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ElectronicfundstransferImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return electronicfundstransferImportIntoEDMV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID, electronicfundstransferImportIntoEDMV1Request: electronicfundstransferImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Electronicfundstransfer
+     - POST /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/importIntoEDM
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiElectronicfundstransferID: (path)  
+     - parameter electronicfundstransferImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<ElectronicfundstransferImportIntoEDMV1Response> 
+     */
+    open class func electronicfundstransferImportIntoEDMV1WithRequestBuilder(pkiElectronicfundstransferID: Int, electronicfundstransferImportIntoEDMV1Request: ElectronicfundstransferImportIntoEDMV1Request) -> RequestBuilder<ElectronicfundstransferImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/importIntoEDM"
+        let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
+        let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiElectronicfundstransferID}", with: pkiElectronicfundstransferIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: electronicfundstransferImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

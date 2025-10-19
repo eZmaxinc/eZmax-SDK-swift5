@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiBrandingID** | **Int** | The unique ID of the Branding | [optional] 
+**fkiDomainID** | **Int** | The unique ID of the Domain | [optional] 
 **objBrandingDescription** | [**MultilingualBrandingDescription**](MultilingualBrandingDescription.md) |  | 
 **eBrandingLogo** | [**FieldEBrandingLogo**](FieldEBrandingLogo.md) |  | 
 **eBrandingAlignlogo** | [**FieldEBrandingAlignlogo**](FieldEBrandingAlignlogo.md) |  | [optional] 

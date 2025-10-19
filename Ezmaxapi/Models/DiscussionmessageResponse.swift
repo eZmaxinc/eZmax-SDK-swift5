@@ -17,7 +17,7 @@ public struct DiscussionmessageResponse: Codable, JSONEncodable, Hashable {
     public static let fkiDiscussionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDiscussionmembershipIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDiscussionmembershipIDActionrequiredRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let tDiscussionmessageContentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let tDiscussionmessageContentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\s\\S]{0,65535}$/")
     public static let sDiscussionmessageCreatornameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
     public static let sDiscussionmessageActionrequirednameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
     /** The unique ID of the Discussionmessage */

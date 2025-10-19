@@ -17,15 +17,18 @@ public struct EzsignsignatureSignV1ResponseMPayload: Codable, JSONEncodable, Has
     /** The date the Ezsignsignature was signed in folder's timezone */
     public var dtEzsignsignatureDateInFolderTimezone: String
     public var objTimezone: CustomTimezoneWithCodeResponse?
+    public var objCreditcardtransaction: CustomCreditcardtransactionResponse?
 
-    public init(dtEzsignsignatureDateInFolderTimezone: String, objTimezone: CustomTimezoneWithCodeResponse? = nil) {
+    public init(dtEzsignsignatureDateInFolderTimezone: String, objTimezone: CustomTimezoneWithCodeResponse? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil) {
         self.dtEzsignsignatureDateInFolderTimezone = dtEzsignsignatureDateInFolderTimezone
         self.objTimezone = objTimezone
+        self.objCreditcardtransaction = objCreditcardtransaction
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case dtEzsignsignatureDateInFolderTimezone
         case objTimezone
+        case objCreditcardtransaction
     }
 
     // Encodable protocol methods
@@ -34,6 +37,7 @@ public struct EzsignsignatureSignV1ResponseMPayload: Codable, JSONEncodable, Has
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(dtEzsignsignatureDateInFolderTimezone, forKey: .dtEzsignsignatureDateInFolderTimezone)
         try container.encodeIfPresent(objTimezone, forKey: .objTimezone)
+        try container.encodeIfPresent(objCreditcardtransaction, forKey: .objCreditcardtransaction)
     }
 }
 

@@ -13,7 +13,7 @@ import AnyCodable
 open class ObjectCommunicationAPI {
 
     /**
-     Retrieve the communication body.
+     Retrieve the communication body
      
      - parameter pkiCommunicationID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -32,7 +32,7 @@ open class ObjectCommunicationAPI {
     }
 
     /**
-     Retrieve the communication body.
+     Retrieve the communication body
      - GET /1/object/communication/{pkiCommunicationID}/getCommunicationBody
      - This endpoint returns the communication body.
      - API Key:

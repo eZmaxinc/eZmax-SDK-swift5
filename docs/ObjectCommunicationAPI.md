@@ -4,7 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**communicationGetCommunicationBodyV1**](ObjectCommunicationAPI.md#communicationgetcommunicationbodyv1) | **GET** /1/object/communication/{pkiCommunicationID}/getCommunicationBody | Retrieve the communication body.
+[**communicationGetCommunicationBodyV1**](ObjectCommunicationAPI.md#communicationgetcommunicationbodyv1) | **GET** /1/object/communication/{pkiCommunicationID}/getCommunicationBody | Retrieve the communication body
 [**communicationSendV1**](ObjectCommunicationAPI.md#communicationsendv1) | **POST** /1/object/communication/send | Send a new Communication
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
     open class func communicationGetCommunicationBodyV1(pkiCommunicationID: Int, completion: @escaping (_ data: Void?, _ error: Error?) -> Void)
 ```
 
-Retrieve the communication body.
+Retrieve the communication body
 
 This endpoint returns the communication body.
 
@@ -24,7 +24,7 @@ import OpenAPIClient
 
 let pkiCommunicationID = 987 // Int | 
 
-// Retrieve the communication body.
+// Retrieve the communication body
 ObjectCommunicationAPI.communicationGetCommunicationBodyV1(pkiCommunicationID: pkiCommunicationID) { (response, error) in
     guard error == nil else {
         print(error)

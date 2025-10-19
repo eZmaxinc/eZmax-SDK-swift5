@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **sAuthenticationexternalDescription** | **String** | The description of the Authenticationexternal | [optional] 
 **objAudit** | [**CommonAudit**](CommonAudit.md) |  | 
 **sWebhookEvent** | **String** | The concatenated string to describe the Webhook event | [optional] 
+**sWebhookAuthentificationexternalerror** | **String** | Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. | [optional] 
 **aObjWebhookheader** | [WebhookheaderResponseCompound] |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

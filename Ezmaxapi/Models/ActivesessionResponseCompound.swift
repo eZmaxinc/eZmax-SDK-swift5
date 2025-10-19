@@ -19,6 +19,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     public static let fkiSignatureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignuserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let dtUserEzsignprepaidexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    public static let dtUserNpsrequestRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public var eActivesessionUsertype: FieldEActivesessionUsertype
     public var eActivesessionOrigin: FieldEActivesessionOrigin
     public var eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart
@@ -61,6 +62,8 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     public var bUserEzsigntrial: Bool?
     /** The eZsign prepaid expiration date */
     public var dtUserEzsignprepaidexpiration: String?
+    /** The date at which the NPS questionnaire will be show */
+    public var dtUserNpsrequest: String?
     /** An array of permissions granted to the user or api key */
     public var aPkiPermissionID: [Int]
     public var objUserReal: ActivesessionResponseCompoundUser
@@ -69,7 +72,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, fkiEzsignuserID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, bUserEzsigntrial: Bool? = nil, dtUserEzsignprepaidexpiration: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, fkiEzsignuserID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, bUserEzsigntrial: Bool? = nil, dtUserEzsignprepaidexpiration: String? = nil, dtUserNpsrequest: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -96,6 +99,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         self.eUserEzsignprepaid = eUserEzsignprepaid
         self.bUserEzsigntrial = bUserEzsigntrial
         self.dtUserEzsignprepaidexpiration = dtUserEzsignprepaidexpiration
+        self.dtUserNpsrequest = dtUserNpsrequest
         self.aPkiPermissionID = aPkiPermissionID
         self.objUserReal = objUserReal
         self.objUserCloned = objUserCloned
@@ -130,6 +134,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         case eUserEzsignprepaid
         case bUserEzsigntrial
         case dtUserEzsignprepaidexpiration
+        case dtUserNpsrequest
         case aPkiPermissionID = "a_pkiPermissionID"
         case objUserReal
         case objUserCloned
@@ -167,6 +172,7 @@ public struct ActivesessionResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eUserEzsignprepaid, forKey: .eUserEzsignprepaid)
         try container.encodeIfPresent(bUserEzsigntrial, forKey: .bUserEzsigntrial)
         try container.encodeIfPresent(dtUserEzsignprepaidexpiration, forKey: .dtUserEzsignprepaidexpiration)
+        try container.encodeIfPresent(dtUserNpsrequest, forKey: .dtUserNpsrequest)
         try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)
         try container.encode(objUserReal, forKey: .objUserReal)
         try container.encodeIfPresent(objUserCloned, forKey: .objUserCloned)

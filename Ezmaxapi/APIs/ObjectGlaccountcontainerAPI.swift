@@ -17,6 +17,7 @@ open class ObjectGlaccountcontainerAPI {
      */
     public enum SSelector_glaccountcontainerGetAutocompleteV2: String, CaseIterable {
         case all = "All"
+        case allWithoutSubsidiary = "AllWithoutSubsidiary"
         case supply = "Supply"
     }
 

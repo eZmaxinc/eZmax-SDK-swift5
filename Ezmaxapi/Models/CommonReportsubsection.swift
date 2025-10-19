@@ -13,13 +13,21 @@ import AnyCodable
 /** A Subsection in a Reportsection. It contains 3 Reportsubsectionparts (Header, Body and Footer)  */
 public struct CommonReportsubsection: Codable, JSONEncodable, Hashable {
 
+    public var aObjReportcolumn: [CommonReportcolumn]
+    /** The number of Reportcolumns in the Reportsection */
+    public var iReportsubsectionColumncount: Int
+    /** The combined width of all the Reportcolumns in the Reportsection */
+    public var iReportsubsectionWidth: Int
     public var objReportsubsectionpartHeader: CommonReportsubsectionpart
     public var objReportsubsectionpartBody: CommonReportsubsectionpart
     public var objReportsubsectionpartFooter: CommonReportsubsectionpart
     /** The title of this Reportsubsection */
     public var sReportsubsectionTitle: String?
 
-    public init(objReportsubsectionpartHeader: CommonReportsubsectionpart, objReportsubsectionpartBody: CommonReportsubsectionpart, objReportsubsectionpartFooter: CommonReportsubsectionpart, sReportsubsectionTitle: String? = nil) {
+    public init(aObjReportcolumn: [CommonReportcolumn], iReportsubsectionColumncount: Int, iReportsubsectionWidth: Int, objReportsubsectionpartHeader: CommonReportsubsectionpart, objReportsubsectionpartBody: CommonReportsubsectionpart, objReportsubsectionpartFooter: CommonReportsubsectionpart, sReportsubsectionTitle: String? = nil) {
+        self.aObjReportcolumn = aObjReportcolumn
+        self.iReportsubsectionColumncount = iReportsubsectionColumncount
+        self.iReportsubsectionWidth = iReportsubsectionWidth
         self.objReportsubsectionpartHeader = objReportsubsectionpartHeader
         self.objReportsubsectionpartBody = objReportsubsectionpartBody
         self.objReportsubsectionpartFooter = objReportsubsectionpartFooter
@@ -27,6 +35,9 @@ public struct CommonReportsubsection: Codable, JSONEncodable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case aObjReportcolumn = "a_objReportcolumn"
+        case iReportsubsectionColumncount
+        case iReportsubsectionWidth
         case objReportsubsectionpartHeader
         case objReportsubsectionpartBody
         case objReportsubsectionpartFooter
@@ -37,6 +48,9 @@ public struct CommonReportsubsection: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(aObjReportcolumn, forKey: .aObjReportcolumn)
+        try container.encode(iReportsubsectionColumncount, forKey: .iReportsubsectionColumncount)
+        try container.encode(iReportsubsectionWidth, forKey: .iReportsubsectionWidth)
         try container.encode(objReportsubsectionpartHeader, forKey: .objReportsubsectionpartHeader)
         try container.encode(objReportsubsectionpartBody, forKey: .objReportsubsectionpartBody)
         try container.encode(objReportsubsectionpartFooter, forKey: .objReportsubsectionpartFooter)

@@ -10,8 +10,9 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Indicates if the Ezsigndocument is completed when all signatures of this Ezsigndocument were applied or when all signatures of all Ezsigndocument  were applied */
+/** Indicates if the Ezsigndocument is completed when all signatures of this Ezsigndocument were applied or when all signatures of all Ezsigndocument were applied. When eEzsignfolderCompletion equals PerEzsignfolderStepSync, the document steps are synchronized. All documents move to a new step when all forms or signatures from the previous step have been completed for all documents. */
 public enum FieldEEzsignfolderCompletion: String, Codable, CaseIterable {
     case perEzsigndocument = "PerEzsigndocument"
     case perEzsignfolder = "PerEzsignfolder"
+    case perEzsignfolderStepSync = "PerEzsignfolderStepSync"
 }

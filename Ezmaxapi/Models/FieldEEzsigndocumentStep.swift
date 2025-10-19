@@ -16,6 +16,7 @@ public enum FieldEEzsigndocumentStep: String, Codable, CaseIterable {
     case unsigned = "Unsigned"
     case partiallySigned = "PartiallySigned"
     case declinedToSign = "DeclinedToSign"
+    case pendingPrematurelyEnded = "PendingPrematurelyEnded"
     case prematurelyEnded = "PrematurelyEnded"
     case pendingCompletion = "PendingCompletion"
     case completed = "Completed"

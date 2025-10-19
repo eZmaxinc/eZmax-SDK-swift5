@@ -28,9 +28,9 @@ public struct VersionhistoryResponseCompound: Codable, JSONEncodable, Hashable {
     public var sModulesectionNameX: String?
     public var eVersionhistoryUsertype: FieldEVersionhistoryUsertype?
     public var objVersionhistoryDetail: MultilingualVersionhistoryDetail
-    /** The date  at which the Versionhistory was published or should be published */
+    /** The date at which the Versionhistory was published or should be published */
     public var dtVersionhistoryDate: String
-    /** The date  at which the Versionhistory will no longer be visible */
+    /** The date at which the Versionhistory will no longer be visible */
     public var dtVersionhistoryDateend: String?
     public var eVersionhistoryType: FieldEVersionhistoryType
     /** Whether the Versionhistory is published or still a draft */

@@ -13,6 +13,69 @@ import AnyCodable
 open class ObjectEzsignbulksendtransmissionAPI {
 
     /**
+     Retrieve file to download documents in batch
+     
+     - parameter pkiEzsignbulksendtransmissionID: (path)  
+     - parameter bIncludeSigned: (query) Include final document once all signatures were applied (optional)
+     - parameter bIncludeAttachment: (query) Include attached files in signatures (optional)
+     - parameter bIncludeProofdocument: (query) Include the evidence report (optional)
+     - parameter bIncludeProof: (query) include the complete evidence archive including all of the above and more (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignbulksendtransmissionGetBatchFileV1(pkiEzsignbulksendtransmissionID: Int, bIncludeSigned: Bool? = nil, bIncludeAttachment: Bool? = nil, bIncludeProofdocument: Bool? = nil, bIncludeProof: Bool? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignbulksendtransmissionGetBatchFileV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: pkiEzsignbulksendtransmissionID, bIncludeSigned: bIncludeSigned, bIncludeAttachment: bIncludeAttachment, bIncludeProofdocument: bIncludeProofdocument, bIncludeProof: bIncludeProof).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve file to download documents in batch
+     - GET /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getBatchFile
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignbulksendtransmissionID: (path)  
+     - parameter bIncludeSigned: (query) Include final document once all signatures were applied (optional)
+     - parameter bIncludeAttachment: (query) Include attached files in signatures (optional)
+     - parameter bIncludeProofdocument: (query) Include the evidence report (optional)
+     - parameter bIncludeProof: (query) include the complete evidence archive including all of the above and more (optional)
+     - returns: RequestBuilder<URL> 
+     */
+    open class func ezsignbulksendtransmissionGetBatchFileV1WithRequestBuilder(pkiEzsignbulksendtransmissionID: Int, bIncludeSigned: Bool? = nil, bIncludeAttachment: Bool? = nil, bIncludeProofdocument: Bool? = nil, bIncludeProof: Bool? = nil) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getBatchFile"
+        let pkiEzsignbulksendtransmissionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendtransmissionID))"
+        let pkiEzsignbulksendtransmissionIDPostEscape = pkiEzsignbulksendtransmissionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendtransmissionID}", with: pkiEzsignbulksendtransmissionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "bIncludeSigned": (wrappedValue: bIncludeSigned?.encodeToJSON(), isExplode: true),
+            "bIncludeAttachment": (wrappedValue: bIncludeAttachment?.encodeToJSON(), isExplode: true),
+            "bIncludeProofdocument": (wrappedValue: bIncludeProofdocument?.encodeToJSON(), isExplode: true),
+            "bIncludeProof": (wrappedValue: bIncludeProof?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve an existing Ezsignbulksendtransmission's Csv containing errors
      
      - parameter pkiEzsignbulksendtransmissionID: (path)  

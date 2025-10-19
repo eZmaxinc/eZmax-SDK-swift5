@@ -14,11 +14,14 @@ import AnyCodable
 public struct EzsignbulksendCreateEzsignbulksendtransmissionV2Request: Codable, JSONEncodable, Hashable {
 
     public static let fkiUserlogintypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiSecretquestionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsigntsarequirementIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 3, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsignfolderSendreminderfirstdaysRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsignfolderSendreminderotherdaysRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**| |6|**Embedded**|The Ezsignsigner will only be able to sign in the embedded solution. No email will be sent for invitation to sign. **Additional fee applies**|   |7|**Embedded with phone or SMS**|The Ezsignsigner will only be able to sign in the embedded solution and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|   |8|**No validation**|The Ezsignsigner will not receive an email and won't have to validate his connection using 2 factor. **Additional fee applies**|      |9|**Sms only**|The Ezsignsigner will not receive an email but will will need to authenticate using SMS. **Additional fee applies**|      */
     public var fkiUserlogintypeID: Int
+    /** The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code| */
+    public var fkiSecretquestionID: Int?
     /** The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**| */
     public var fkiEzsigntsarequirementID: Int?
     /** The description of the Ezsignbulksendtransmission */
@@ -34,8 +37,9 @@ public struct EzsignbulksendCreateEzsignbulksendtransmissionV2Request: Codable, 
     /** The Base64 encoded binary content of the CSV file. */
     public var sCsvBase64: Data
 
-    public init(fkiUserlogintypeID: Int, fkiEzsigntsarequirementID: Int? = nil, sEzsignbulksendtransmissionDescription: String, dtEzsigndocumentDuedate: String, iEzsignfolderSendreminderfirstdays: Int, iEzsignfolderSendreminderotherdays: Int, tExtraMessage: String, sCsvBase64: Data) {
+    public init(fkiUserlogintypeID: Int, fkiSecretquestionID: Int? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsignbulksendtransmissionDescription: String, dtEzsigndocumentDuedate: String, iEzsignfolderSendreminderfirstdays: Int, iEzsignfolderSendreminderotherdays: Int, tExtraMessage: String, sCsvBase64: Data) {
         self.fkiUserlogintypeID = fkiUserlogintypeID
+        self.fkiSecretquestionID = fkiSecretquestionID
         self.fkiEzsigntsarequirementID = fkiEzsigntsarequirementID
         self.sEzsignbulksendtransmissionDescription = sEzsignbulksendtransmissionDescription
         self.dtEzsigndocumentDuedate = dtEzsigndocumentDuedate
@@ -47,6 +51,7 @@ public struct EzsignbulksendCreateEzsignbulksendtransmissionV2Request: Codable, 
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case fkiUserlogintypeID
+        case fkiSecretquestionID
         case fkiEzsigntsarequirementID
         case sEzsignbulksendtransmissionDescription
         case dtEzsigndocumentDuedate
@@ -61,6 +66,7 @@ public struct EzsignbulksendCreateEzsignbulksendtransmissionV2Request: Codable, 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(fkiUserlogintypeID, forKey: .fkiUserlogintypeID)
+        try container.encodeIfPresent(fkiSecretquestionID, forKey: .fkiSecretquestionID)
         try container.encodeIfPresent(fkiEzsigntsarequirementID, forKey: .fkiEzsigntsarequirementID)
         try container.encode(sEzsignbulksendtransmissionDescription, forKey: .sEzsignbulksendtransmissionDescription)
         try container.encode(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)

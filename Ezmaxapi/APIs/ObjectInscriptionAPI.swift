@@ -261,4 +261,231 @@ open class ObjectInscriptionAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_inscriptionGetListV1: String, CaseIterable {
+        case pkiinscriptionidAsc = "pkiInscriptionID_ASC"
+        case pkiinscriptionidDesc = "pkiInscriptionID_DESC"
+        case pkiinscriptionnotauthenticatedidAsc = "pkiInscriptionnotauthenticatedID_ASC"
+        case pkiinscriptionnotauthenticatedidDesc = "pkiInscriptionnotauthenticatedID_DESC"
+        case fkiinscriptiontypeidAsc = "fkiInscriptiontypeID_ASC"
+        case fkiinscriptiontypeidDesc = "fkiInscriptiontypeID_DESC"
+        case sinscriptiontypenamexAsc = "sInscriptiontypeNameX_ASC"
+        case sinscriptiontypenamexDesc = "sInscriptiontypeNameX_DESC"
+        case einscriptionstepAsc = "eInscriptionStep_ASC"
+        case einscriptionstepDesc = "eInscriptionStep_DESC"
+        case sinscriptioncivicendAsc = "sInscriptionCivicend_ASC"
+        case sinscriptioncivicendDesc = "sInscriptionCivicend_DESC"
+        case sinscriptionmlsAsc = "sInscriptionMLS_ASC"
+        case sinscriptionmlsDesc = "sInscriptionMLS_DESC"
+        case dinscriptionsalepriceAsc = "dInscriptionSaleprice_ASC"
+        case dinscriptionsalepriceDesc = "dInscriptionSaleprice_DESC"
+        case dinscriptionrentpriceAsc = "dInscriptionRentprice_ASC"
+        case dinscriptionrentpriceDesc = "dInscriptionRentprice_DESC"
+        case dtinscriptiondateAsc = "dtInscriptionDate_ASC"
+        case dtinscriptiondateDesc = "dtInscriptionDate_DESC"
+        case dtinscriptionexpirationdateAsc = "dtInscriptionExpirationdate_ASC"
+        case dtinscriptionexpirationdateDesc = "dtInscriptionExpirationdate_DESC"
+        case dtinscriptionnotarydateAsc = "dtInscriptionNotarydate_ASC"
+        case dtinscriptionnotarydateDesc = "dtInscriptionNotarydate_DESC"
+        case binscriptioninspectionAsc = "bInscriptionInspection_ASC"
+        case binscriptioninspectionDesc = "bInscriptionInspection_DESC"
+        case binscriptionisactiveAsc = "bInscriptionIsactive_ASC"
+        case binscriptionisactiveDesc = "bInscriptionIsactive_DESC"
+        case dtinscriptionnotauthenticatednotaryscheduledateAsc = "dtInscriptionnotauthenticatedNotaryscheduledate_ASC"
+        case dtinscriptionnotauthenticatednotaryscheduledateDesc = "dtInscriptionnotauthenticatedNotaryscheduledate_DESC"
+        case dtinscriptionnotauthenticatedtransactiondateAsc = "dtInscriptionnotauthenticatedTransactiondate_ASC"
+        case dtinscriptionnotauthenticatedtransactiondateDesc = "dtInscriptionnotauthenticatedTransactiondate_DESC"
+        case dtinscriptionnotauthenticatedtransactiondaterealAsc = "dtInscriptionnotauthenticatedTransactiondateReal_ASC"
+        case dtinscriptionnotauthenticatedtransactiondaterealDesc = "dtInscriptionnotauthenticatedTransactiondateReal_DESC"
+        case binscriptionnotauthenticatedconditionalAsc = "bInscriptionnotauthenticatedConditional_ASC"
+        case binscriptionnotauthenticatedconditionalDesc = "bInscriptionnotauthenticatedConditional_DESC"
+        case binscriptionnotauthenticatedisactiveAsc = "bInscriptionnotauthenticatedIsactive_ASC"
+        case binscriptionnotauthenticatedisactiveDesc = "bInscriptionnotauthenticatedIsactive_DESC"
+        case saddresscivicAsc = "sAddressCivic_ASC"
+        case saddresscivicDesc = "sAddressCivic_DESC"
+        case saddressstreetAsc = "sAddressStreet_ASC"
+        case saddressstreetDesc = "sAddressStreet_DESC"
+        case saddresssuiteAsc = "sAddressSuite_ASC"
+        case saddresssuiteDesc = "sAddressSuite_DESC"
+        case saddresscityAsc = "sAddressCity_ASC"
+        case saddresscityDesc = "sAddressCity_DESC"
+        case saddresszipAsc = "sAddressZip_ASC"
+        case saddresszipDesc = "sAddressZip_DESC"
+        case sprovincenamexAsc = "sProvinceNameX_ASC"
+        case sprovincenamexDesc = "sProvinceNameX_DESC"
+        case scountrynamexAsc = "sCountryNameX_ASC"
+        case scountrynamexDesc = "sCountryNameX_DESC"
+        case iinscriptionnotauthenticatedcanceledAsc = "iInscriptionnotauthenticatedCanceled_ASC"
+        case iinscriptionnotauthenticatedcanceledDesc = "iInscriptionnotauthenticatedCanceled_DESC"
+        case ballowedcopyintoinscriptionedmAsc = "bAllowedCopyintoinscriptionedm_ASC"
+        case ballowedcopyintoinscriptionedmDesc = "bAllowedCopyintoinscriptionedm_DESC"
+    }
+
+    /**
+     Retrieve Inscription list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionGetListV1(eOrderBy: EOrderBy_inscriptionGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptionGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Inscription list
+     - GET /1/object/inscription/getList
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eInscriptionStep | TemporaryNotAuthenticated<br>ImportedInscription<br>Inscription<br>ModifiedInscription<br>ContractEnded<br>ExpiredInscription<br>Out-market<br>ImportedNotauthenticated<br>NotAuthenticated<br>ModifiedNotauthenticated<br>Authenticated |
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - returns: RequestBuilder<InscriptionGetListV1Response> 
+     */
+    open class func inscriptionGetListV1WithRequestBuilder(eOrderBy: EOrderBy_inscriptionGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<InscriptionGetListV1Response> {
+        let localVariablePath = "/1/object/inscription/getList"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Import attachments into the Inscription
+     
+     - parameter pkiInscriptionID: (path)  
+     - parameter inscriptionImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionImportIntoEDMV1(pkiInscriptionID: Int, inscriptionImportIntoEDMV1Request: InscriptionImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptionImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionImportIntoEDMV1WithRequestBuilder(pkiInscriptionID: pkiInscriptionID, inscriptionImportIntoEDMV1Request: inscriptionImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Inscription
+     - POST /1/object/inscription/{pkiInscriptionID}/importIntoEDM
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionID: (path)  
+     - parameter inscriptionImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<InscriptionImportIntoEDMV1Response> 
+     */
+    open class func inscriptionImportIntoEDMV1WithRequestBuilder(pkiInscriptionID: Int, inscriptionImportIntoEDMV1Request: InscriptionImportIntoEDMV1Request) -> RequestBuilder<InscriptionImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/inscription/{pkiInscriptionID}/importIntoEDM"
+        let pkiInscriptionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionID))"
+        let pkiInscriptionIDPostEscape = pkiInscriptionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionID}", with: pkiInscriptionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: inscriptionImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Prepares file transfer into EDM
+     
+     - parameter pkiInscriptionID: (path)  
+     - parameter inscriptionPrepareFilesTransferV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionPrepareFilesTransferV1(pkiInscriptionID: Int, inscriptionPrepareFilesTransferV1Request: InscriptionPrepareFilesTransferV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptionPrepareFilesTransferV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionPrepareFilesTransferV1WithRequestBuilder(pkiInscriptionID: pkiInscriptionID, inscriptionPrepareFilesTransferV1Request: inscriptionPrepareFilesTransferV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Prepares file transfer into EDM
+     - POST /1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionID: (path)  
+     - parameter inscriptionPrepareFilesTransferV1Request: (body)  
+     - returns: RequestBuilder<InscriptionPrepareFilesTransferV1Response> 
+     */
+    open class func inscriptionPrepareFilesTransferV1WithRequestBuilder(pkiInscriptionID: Int, inscriptionPrepareFilesTransferV1Request: InscriptionPrepareFilesTransferV1Request) -> RequestBuilder<InscriptionPrepareFilesTransferV1Response> {
+        var localVariablePath = "/1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer"
+        let pkiInscriptionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionID))"
+        let pkiInscriptionIDPostEscape = pkiInscriptionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionID}", with: pkiInscriptionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: inscriptionPrepareFilesTransferV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionPrepareFilesTransferV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

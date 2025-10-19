@@ -14,22 +14,27 @@ import AnyCodable
 public struct CustomerAutocompleteElementResponse: Codable, JSONEncodable, Hashable {
 
     public static let pkiCustomerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sCustomerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Customer. */
     public var pkiCustomerID: Int
+    /** The unique ID of the Department */
+    public var fkiDepartmentID: Int
     /** The name of the Customer */
     public var sCustomerName: String
     /** Whether the customer is active or not */
     public var bCustomerIsactive: Bool
 
-    public init(pkiCustomerID: Int, sCustomerName: String, bCustomerIsactive: Bool) {
+    public init(pkiCustomerID: Int, fkiDepartmentID: Int, sCustomerName: String, bCustomerIsactive: Bool) {
         self.pkiCustomerID = pkiCustomerID
+        self.fkiDepartmentID = fkiDepartmentID
         self.sCustomerName = sCustomerName
         self.bCustomerIsactive = bCustomerIsactive
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiCustomerID
+        case fkiDepartmentID
         case sCustomerName
         case bCustomerIsactive
     }
@@ -39,6 +44,7 @@ public struct CustomerAutocompleteElementResponse: Codable, JSONEncodable, Hasha
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCustomerID, forKey: .pkiCustomerID)
+        try container.encode(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encode(sCustomerName, forKey: .sCustomerName)
         try container.encode(bCustomerIsactive, forKey: .bCustomerIsactive)
     }

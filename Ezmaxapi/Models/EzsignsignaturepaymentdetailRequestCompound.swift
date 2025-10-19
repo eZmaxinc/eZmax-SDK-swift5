@@ -19,14 +19,14 @@ public struct EzsignsignaturepaymentdetailRequestCompound: Codable, JSONEncodabl
     /** The unique ID of the Ezsignsignaturepaymentdetail */
     public var pkiEzsignsignaturepaymentdetailID: Int?
     /** The unique ID of the Glaccountcontainer */
-    public var fkiGlaccountcontainerID: Int?
+    public var fkiGlaccountcontainerID: Int
     /** A description for the Ezsignsignaturepaymentdetail. */
     public var tEzsignsignaturepaymentdetailDescription: String
     /** The amount of the for the Ezsignsignaturepaymentdetail */
     public var dEzsignsignaturepaymentdetailAmount: String
     public var eEzsignsignaturepaymentdetailTaxable: FieldEEzsignsignaturepaymentdetailTaxable
 
-    public init(pkiEzsignsignaturepaymentdetailID: Int? = nil, fkiGlaccountcontainerID: Int? = nil, tEzsignsignaturepaymentdetailDescription: String, dEzsignsignaturepaymentdetailAmount: String, eEzsignsignaturepaymentdetailTaxable: FieldEEzsignsignaturepaymentdetailTaxable) {
+    public init(pkiEzsignsignaturepaymentdetailID: Int? = nil, fkiGlaccountcontainerID: Int, tEzsignsignaturepaymentdetailDescription: String, dEzsignsignaturepaymentdetailAmount: String, eEzsignsignaturepaymentdetailTaxable: FieldEEzsignsignaturepaymentdetailTaxable) {
         self.pkiEzsignsignaturepaymentdetailID = pkiEzsignsignaturepaymentdetailID
         self.fkiGlaccountcontainerID = fkiGlaccountcontainerID
         self.tEzsignsignaturepaymentdetailDescription = tEzsignsignaturepaymentdetailDescription
@@ -47,7 +47,7 @@ public struct EzsignsignaturepaymentdetailRequestCompound: Codable, JSONEncodabl
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiEzsignsignaturepaymentdetailID, forKey: .pkiEzsignsignaturepaymentdetailID)
-        try container.encodeIfPresent(fkiGlaccountcontainerID, forKey: .fkiGlaccountcontainerID)
+        try container.encode(fkiGlaccountcontainerID, forKey: .fkiGlaccountcontainerID)
         try container.encode(tEzsignsignaturepaymentdetailDescription, forKey: .tEzsignsignaturepaymentdetailDescription)
         try container.encode(dEzsignsignaturepaymentdetailAmount, forKey: .dEzsignsignaturepaymentdetailAmount)
         try container.encode(eEzsignsignaturepaymentdetailTaxable, forKey: .eEzsignsignaturepaymentdetailTaxable)

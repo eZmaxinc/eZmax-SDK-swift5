@@ -211,4 +211,137 @@ open class ObjectInscriptiontempAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     * enum for parameter eOrderBy
+     */
+    public enum EOrderBy_inscriptiontempGetListV1: String, CaseIterable {
+        case pkiinscriptiontempidAsc = "pkiInscriptiontempID_ASC"
+        case pkiinscriptiontempidDesc = "pkiInscriptiontempID_DESC"
+        case einscriptiontempstatusAsc = "eInscriptiontempStatus_ASC"
+        case einscriptiontempstatusDesc = "eInscriptiontempStatus_DESC"
+        case sinscriptiontempmlsAsc = "sInscriptiontempMLS_ASC"
+        case sinscriptiontempmlsDesc = "sInscriptiontempMLS_DESC"
+        case sinscriptiontempdescriptionAsc = "sInscriptiontempDescription_ASC"
+        case sinscriptiontempdescriptionDesc = "sInscriptiontempDescription_DESC"
+        case binscriptiontempisactiveAsc = "bInscriptiontempIsactive_ASC"
+        case binscriptiontempisactiveDesc = "bInscriptiontempIsactive_DESC"
+        case dtcreateddateAsc = "dtCreatedDate_ASC"
+        case dtcreateddateDesc = "dtCreatedDate_DESC"
+        case dtmodifieddateAsc = "dtModifiedDate_ASC"
+        case dtmodifieddateDesc = "dtModifiedDate_DESC"
+    }
+
+    /**
+     Retrieve Inscriptiontemp list
+     
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptiontempGetListV1(eOrderBy: EOrderBy_inscriptiontempGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptiontempGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptiontempGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Inscriptiontemp list
+     - GET /1/object/inscriptiontemp/getList
+     - Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eInscriptiontempStatus | Imported<br>Processed<br>Modified |
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
+     - parameter iRowMax: (query)  (optional)
+     - parameter iRowOffset: (query)  (optional, default to 0)
+     - parameter acceptLanguage: (header)  (optional)
+     - parameter sFilter: (query)  (optional)
+     - returns: RequestBuilder<InscriptiontempGetListV1Response> 
+     */
+    open class func inscriptiontempGetListV1WithRequestBuilder(eOrderBy: EOrderBy_inscriptiontempGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<InscriptiontempGetListV1Response> {
+        let localVariablePath = "/1/object/inscriptiontemp/getList"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
+            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
+            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
+            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Accept-Language": acceptLanguage?.encodeToJSON(),
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptiontempGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Import attachments into the Inscriptiontemp
+     
+     - parameter pkiInscriptiontempID: (path)  
+     - parameter inscriptiontempImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptiontempImportIntoEDMV1(pkiInscriptiontempID: Int, inscriptiontempImportIntoEDMV1Request: InscriptiontempImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptiontempImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptiontempImportIntoEDMV1WithRequestBuilder(pkiInscriptiontempID: pkiInscriptiontempID, inscriptiontempImportIntoEDMV1Request: inscriptiontempImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Inscriptiontemp
+     - POST /1/object/inscriptiontemp/{pkiInscriptiontempID}/importIntoEDM
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptiontempID: (path)  
+     - parameter inscriptiontempImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<InscriptiontempImportIntoEDMV1Response> 
+     */
+    open class func inscriptiontempImportIntoEDMV1WithRequestBuilder(pkiInscriptiontempID: Int, inscriptiontempImportIntoEDMV1Request: InscriptiontempImportIntoEDMV1Request) -> RequestBuilder<InscriptiontempImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/inscriptiontemp/{pkiInscriptiontempID}/importIntoEDM"
+        let pkiInscriptiontempIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptiontempID))"
+        let pkiInscriptiontempIDPostEscape = pkiInscriptiontempIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptiontempID}", with: pkiInscriptiontempIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: inscriptiontempImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptiontempImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

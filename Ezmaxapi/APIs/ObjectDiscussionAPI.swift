@@ -13,6 +13,53 @@ import AnyCodable
 open class ObjectDiscussionAPI {
 
     /**
+     Have a Discussion with the AI Chatbot
+     
+     - parameter discussionChatV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func discussionChatV1(discussionChatV1Request: DiscussionChatV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: DiscussionChatV1200Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return discussionChatV1WithRequestBuilder(discussionChatV1Request: discussionChatV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Have a Discussion with the AI Chatbot
+     - POST /1/object/discussion/chat
+     - The endpoint allows to create one or many elements at once.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter discussionChatV1Request: (body)  
+     - returns: RequestBuilder<DiscussionChatV1200Response> 
+     */
+    open class func discussionChatV1WithRequestBuilder(discussionChatV1Request: DiscussionChatV1Request) -> RequestBuilder<DiscussionChatV1200Response> {
+        let localVariablePath = "/1/object/discussion/chat"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: discussionChatV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<DiscussionChatV1200Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Create a new Discussion
      
      - parameter discussionCreateObjectV1Request: (body)  

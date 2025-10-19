@@ -35,7 +35,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Create a new Ezsignsignature
      - POST /1/object/ezsignsignature
-     - The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
+     - The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.  Major step overhaul.  Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
@@ -84,7 +84,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Create a new Ezsignsignature
      - POST /2/object/ezsignsignature
-     - The endpoint allows to create one or many elements at once.
+     - The endpoint allows to create one or many elements at once.  Major step overhaul.  Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
@@ -117,6 +117,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignsignatureCreateObjectV3(ezsignsignatureCreateObjectV3Request: EzsignsignatureCreateObjectV3Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureCreateObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureCreateObjectV3WithRequestBuilder(ezsignsignatureCreateObjectV3Request: ezsignsignatureCreateObjectV3Request).execute(apiResponseQueue) { result in
@@ -132,13 +133,14 @@ open class ObjectEzsignsignatureAPI {
     /**
      Create a new Ezsignsignature
      - POST /3/object/ezsignsignature
-     - The endpoint allows to create one or many elements at once.
+     - The endpoint allows to create one or many elements at once.  Major step overhaul.  Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter ezsignsignatureCreateObjectV3Request: (body)  
      - returns: RequestBuilder<EzsignsignatureCreateObjectV3Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignsignatureCreateObjectV3WithRequestBuilder(ezsignsignatureCreateObjectV3Request: EzsignsignatureCreateObjectV3Request) -> RequestBuilder<EzsignsignatureCreateObjectV3Response> {
         let localVariablePath = "/3/object/ezsignsignature"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
@@ -153,6 +155,53 @@ open class ObjectEzsignsignatureAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignsignatureCreateObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Create a new Ezsignsignature
+     
+     - parameter ezsignsignatureCreateObjectV4Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignsignatureCreateObjectV4(ezsignsignatureCreateObjectV4Request: EzsignsignatureCreateObjectV4Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureCreateObjectV4Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignsignatureCreateObjectV4WithRequestBuilder(ezsignsignatureCreateObjectV4Request: ezsignsignatureCreateObjectV4Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Create a new Ezsignsignature
+     - POST /4/object/ezsignsignature
+     - The endpoint allows to create one or many elements at once.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter ezsignsignatureCreateObjectV4Request: (body)  
+     - returns: RequestBuilder<EzsignsignatureCreateObjectV4Response> 
+     */
+    open class func ezsignsignatureCreateObjectV4WithRequestBuilder(ezsignsignatureCreateObjectV4Request: EzsignsignatureCreateObjectV4Request) -> RequestBuilder<EzsignsignatureCreateObjectV4Response> {
+        let localVariablePath = "/4/object/ezsignsignature"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignsignatureCreateObjectV4Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureCreateObjectV4Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -215,6 +264,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignsignatureEditObjectV2(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV2Request: EzsignsignatureEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureEditObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureEditObjectV2WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureEditObjectV2Request: ezsignsignatureEditObjectV2Request).execute(apiResponseQueue) { result in
@@ -230,7 +280,7 @@ open class ObjectEzsignsignatureAPI {
     /**
      Edit an existing Ezsignsignature
      - PUT /2/object/ezsignsignature/{pkiEzsignsignatureID}
-     - 
+     - Major step overhaul.  Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
@@ -238,6 +288,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter ezsignsignatureEditObjectV2Request: (body)  
      - returns: RequestBuilder<EzsignsignatureEditObjectV2Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignsignatureEditObjectV2WithRequestBuilder(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV2Request: EzsignsignatureEditObjectV2Request) -> RequestBuilder<EzsignsignatureEditObjectV2Response> {
         var localVariablePath = "/2/object/ezsignsignature/{pkiEzsignsignatureID}"
         let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
@@ -255,6 +306,58 @@ open class ObjectEzsignsignatureAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignsignatureEditObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Edit an existing Ezsignsignature
+     
+     - parameter pkiEzsignsignatureID: (path)  
+     - parameter ezsignsignatureEditObjectV3Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignsignatureEditObjectV3(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV3Request: EzsignsignatureEditObjectV3Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureEditObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignsignatureEditObjectV3WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID, ezsignsignatureEditObjectV3Request: ezsignsignatureEditObjectV3Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit an existing Ezsignsignature
+     - PUT /3/object/ezsignsignature/{pkiEzsignsignatureID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignsignatureID: (path)  
+     - parameter ezsignsignatureEditObjectV3Request: (body)  
+     - returns: RequestBuilder<EzsignsignatureEditObjectV3Response> 
+     */
+    open class func ezsignsignatureEditObjectV3WithRequestBuilder(pkiEzsignsignatureID: Int, ezsignsignatureEditObjectV3Request: EzsignsignatureEditObjectV3Request) -> RequestBuilder<EzsignsignatureEditObjectV3Response> {
+        var localVariablePath = "/3/object/ezsignsignature/{pkiEzsignsignatureID}"
+        let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
+        let pkiEzsignsignatureIDPostEscape = pkiEzsignsignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignsignatureID}", with: pkiEzsignsignatureIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignsignatureEditObjectV3Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureEditObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -360,6 +463,7 @@ open class ObjectEzsignsignatureAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignsignatureGetObjectV3(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureGetObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignsignatureGetObjectV3WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result in
@@ -375,13 +479,14 @@ open class ObjectEzsignsignatureAPI {
     /**
      Retrieve an existing Ezsignsignature
      - GET /3/object/ezsignsignature/{pkiEzsignsignatureID}
-     - 
+     - Major step overhaul.  Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiEzsignsignatureID: (path)  
      - returns: RequestBuilder<EzsignsignatureGetObjectV3Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignsignatureGetObjectV3WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<EzsignsignatureGetObjectV3Response> {
         var localVariablePath = "/3/object/ezsignsignature/{pkiEzsignsignatureID}"
         let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
@@ -399,6 +504,56 @@ open class ObjectEzsignsignatureAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignsignatureGetObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Ezsignsignature
+     
+     - parameter pkiEzsignsignatureID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignsignatureGetObjectV4(pkiEzsignsignatureID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignsignatureGetObjectV4Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignsignatureGetObjectV4WithRequestBuilder(pkiEzsignsignatureID: pkiEzsignsignatureID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignsignature
+     - GET /4/object/ezsignsignature/{pkiEzsignsignatureID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignsignatureID: (path)  
+     - returns: RequestBuilder<EzsignsignatureGetObjectV4Response> 
+     */
+    open class func ezsignsignatureGetObjectV4WithRequestBuilder(pkiEzsignsignatureID: Int) -> RequestBuilder<EzsignsignatureGetObjectV4Response> {
+        var localVariablePath = "/4/object/ezsignsignature/{pkiEzsignsignatureID}"
+        let pkiEzsignsignatureIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignsignatureID))"
+        let pkiEzsignsignatureIDPostEscape = pkiEzsignsignatureIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignsignatureID}", with: pkiEzsignsignatureIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignsignatureGetObjectV4Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

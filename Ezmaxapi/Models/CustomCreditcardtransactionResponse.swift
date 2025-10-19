@@ -14,7 +14,7 @@ import AnyCodable
 public struct CustomCreditcardtransactionResponse: Codable, JSONEncodable, Hashable {
 
     public static let dCreditcardtransactionAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
-    public static let sCreditcardtransactionPartiallydecryptednumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^([X]{4}[ ]){3}(\\d){4}$/")
+    public static let sCreditcardtransactionPartiallydecryptednumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(([X]{4}[ ]){3}(\\d){4})|([X]{4}[ ][X]{6}[ ][X][\\d]{4})$/")
     public static let sCreditcardtransactionReferencenumberRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{18}$/")
     public var eCreditcardtypeCodename: FieldECreditcardtypeCodename
     /** The amount of the Creditcardtransaction */

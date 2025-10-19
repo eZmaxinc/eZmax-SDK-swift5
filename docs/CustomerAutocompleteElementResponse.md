@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiCustomerID** | **Int** | The unique ID of the Customer. | 
+**fkiDepartmentID** | **Int** | The unique ID of the Department | 
 **sCustomerName** | **String** | The name of the Customer | 
 **bCustomerIsactive** | **Bool** | Whether the customer is active or not | 
 

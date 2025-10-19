@@ -18,7 +18,10 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
     public static let fkiEzsignfoldersignerassociationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignsigningreasonIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiPaymentgatewayIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let sCurrencyDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
+    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let sEzsignsignatureCreditcardamountdescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
     public static let sEzsignsigningreasonDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     public static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsignsignatureXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -40,8 +43,14 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
     public var fkiEzsignsigningreasonID: Int?
     /** The unique ID of the Font */
     public var fkiFontID: Int?
+    /** The unique ID of the Paymentgateway */
+    public var fkiPaymentgatewayID: Int?
     /** The description of the Currency in the language of the requester */
     public var sCurrencyDescriptionX: String?
+    /** The amount of the Creditcard signature */
+    public var dEzsignsignatureCreditcardamount: String?
+    /** The description of the Creditcard signature */
+    public var sEzsignsignatureCreditcardamountdescription: String?
     /** The description of the Ezsignsigningreason in the language of the requester */
     public var sEzsignsigningreasonDescriptionX: String?
     /** The page number in the Ezsigndocument */
@@ -106,13 +115,16 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
     public var aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]?
     public var aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailResponseCompound]?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, sCurrencyDescriptionX: String? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil, sEzsignsignergroupDescriptionX: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompoundV2]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil, aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailResponseCompound]? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, fkiPaymentgatewayID: Int? = nil, sCurrencyDescriptionX: String? = nil, dEzsignsignatureCreditcardamount: String? = nil, sEzsignsignatureCreditcardamountdescription: String? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil, sEzsignsignergroupDescriptionX: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateResponseCompoundV2]? = nil, objCreditcardtransaction: CustomCreditcardtransactionResponse? = nil, aObjEzsignelementdependency: [EzsignelementdependencyResponseCompound]? = nil, aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailResponseCompound]? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.fkiEzsignsigningreasonID = fkiEzsignsigningreasonID
         self.fkiFontID = fkiFontID
+        self.fkiPaymentgatewayID = fkiPaymentgatewayID
         self.sCurrencyDescriptionX = sCurrencyDescriptionX
+        self.dEzsignsignatureCreditcardamount = dEzsignsignatureCreditcardamount
+        self.sEzsignsignatureCreditcardamountdescription = sEzsignsignatureCreditcardamountdescription
         self.sEzsignsigningreasonDescriptionX = sEzsignsigningreasonDescriptionX
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.iEzsignsignatureX = iEzsignsignatureX
@@ -159,7 +171,10 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
         case fkiEzsignfoldersignerassociationID
         case fkiEzsignsigningreasonID
         case fkiFontID
+        case fkiPaymentgatewayID
         case sCurrencyDescriptionX
+        case dEzsignsignatureCreditcardamount
+        case sEzsignsignatureCreditcardamountdescription
         case sEzsignsigningreasonDescriptionX
         case iEzsignpagePagenumber
         case iEzsignsignatureX
@@ -209,7 +224,10 @@ public struct EzsignsignatureResponseCompoundV3: Codable, JSONEncodable, Hashabl
         try container.encode(fkiEzsignfoldersignerassociationID, forKey: .fkiEzsignfoldersignerassociationID)
         try container.encodeIfPresent(fkiEzsignsigningreasonID, forKey: .fkiEzsignsigningreasonID)
         try container.encodeIfPresent(fkiFontID, forKey: .fkiFontID)
+        try container.encodeIfPresent(fkiPaymentgatewayID, forKey: .fkiPaymentgatewayID)
         try container.encodeIfPresent(sCurrencyDescriptionX, forKey: .sCurrencyDescriptionX)
+        try container.encodeIfPresent(dEzsignsignatureCreditcardamount, forKey: .dEzsignsignatureCreditcardamount)
+        try container.encodeIfPresent(sEzsignsignatureCreditcardamountdescription, forKey: .sEzsignsignatureCreditcardamountdescription)
         try container.encodeIfPresent(sEzsignsigningreasonDescriptionX, forKey: .sEzsignsigningreasonDescriptionX)
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
         try container.encode(iEzsignsignatureX, forKey: .iEzsignsignatureX)

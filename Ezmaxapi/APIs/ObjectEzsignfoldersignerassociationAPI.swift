@@ -65,6 +65,58 @@ open class ObjectEzsignfoldersignerassociationAPI {
     }
 
     /**
+     Creates an Url to allow embedded signing
+     
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
+     - parameter ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV2(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: EzsignfoldersignerassociationCreateEmbeddedUrlV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfoldersignerassociationCreateEmbeddedUrlV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfoldersignerassociationCreateEmbeddedUrlV2WithRequestBuilder(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: ezsignfoldersignerassociationCreateEmbeddedUrlV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Creates an Url to allow embedded signing
+     - POST /2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl
+     - This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignfoldersignerassociationID: (path)  
+     - parameter ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: (body)  
+     - returns: RequestBuilder<EzsignfoldersignerassociationCreateEmbeddedUrlV2Response> 
+     */
+    open class func ezsignfoldersignerassociationCreateEmbeddedUrlV2WithRequestBuilder(pkiEzsignfoldersignerassociationID: Int, ezsignfoldersignerassociationCreateEmbeddedUrlV2Request: EzsignfoldersignerassociationCreateEmbeddedUrlV2Request) -> RequestBuilder<EzsignfoldersignerassociationCreateEmbeddedUrlV2Response> {
+        var localVariablePath = "/2/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/createEmbeddedUrl"
+        let pkiEzsignfoldersignerassociationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfoldersignerassociationID))"
+        let pkiEzsignfoldersignerassociationIDPostEscape = pkiEzsignfoldersignerassociationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfoldersignerassociationID}", with: pkiEzsignfoldersignerassociationIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignfoldersignerassociationCreateEmbeddedUrlV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfoldersignerassociationCreateEmbeddedUrlV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Create a new Ezsignfoldersignerassociation
      
      - parameter ezsignfoldersignerassociationCreateObjectV1Request: (body)  

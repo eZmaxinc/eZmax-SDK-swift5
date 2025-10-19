@@ -14,11 +14,14 @@ import AnyCodable
 public struct BrandingRequestV2: Codable, JSONEncodable, Hashable {
 
     public static let pkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiDomainIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let iBrandingColorRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let sBrandingNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,55}$/")
     public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     /** The unique ID of the Branding */
     public var pkiBrandingID: Int?
+    /** The unique ID of the Domain */
+    public var fkiDomainID: Int?
     public var objBrandingDescription: MultilingualBrandingDescription
     public var eBrandingLogo: FieldEBrandingLogo
     public var eBrandingAlignlogo: FieldEBrandingAlignlogo?
@@ -33,8 +36,9 @@ public struct BrandingRequestV2: Codable, JSONEncodable, Hashable {
     /** Whether the Branding is active or not */
     public var bBrandingIsactive: Bool
 
-    public init(pkiBrandingID: Int? = nil, objBrandingDescription: MultilingualBrandingDescription, eBrandingLogo: FieldEBrandingLogo, eBrandingAlignlogo: FieldEBrandingAlignlogo? = nil, sBrandingBase64: Data? = nil, iBrandingColor: Int, sBrandingName: String? = nil, sEmailAddress: String? = nil, bBrandingIsactive: Bool) {
+    public init(pkiBrandingID: Int? = nil, fkiDomainID: Int? = nil, objBrandingDescription: MultilingualBrandingDescription, eBrandingLogo: FieldEBrandingLogo, eBrandingAlignlogo: FieldEBrandingAlignlogo? = nil, sBrandingBase64: Data? = nil, iBrandingColor: Int, sBrandingName: String? = nil, sEmailAddress: String? = nil, bBrandingIsactive: Bool) {
         self.pkiBrandingID = pkiBrandingID
+        self.fkiDomainID = fkiDomainID
         self.objBrandingDescription = objBrandingDescription
         self.eBrandingLogo = eBrandingLogo
         self.eBrandingAlignlogo = eBrandingAlignlogo
@@ -47,6 +51,7 @@ public struct BrandingRequestV2: Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiBrandingID
+        case fkiDomainID
         case objBrandingDescription
         case eBrandingLogo
         case eBrandingAlignlogo
@@ -62,6 +67,7 @@ public struct BrandingRequestV2: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiBrandingID, forKey: .pkiBrandingID)
+        try container.encodeIfPresent(fkiDomainID, forKey: .fkiDomainID)
         try container.encode(objBrandingDescription, forKey: .objBrandingDescription)
         try container.encode(eBrandingLogo, forKey: .eBrandingLogo)
         try container.encodeIfPresent(eBrandingAlignlogo, forKey: .eBrandingAlignlogo)
