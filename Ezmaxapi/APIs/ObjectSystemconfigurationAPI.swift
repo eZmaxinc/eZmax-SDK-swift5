@@ -16,13 +16,13 @@ open class ObjectSystemconfigurationAPI {
      Edit an existing Systemconfiguration
      
      - parameter pkiSystemconfigurationID: (path) The unique ID of the Systemconfiguration 
-     - parameter systemconfigurationEditObjectV1Request: (body)  
+     - parameter systemconfigurationEditObjectV2Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func systemconfigurationEditObjectV1(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SystemconfigurationEditObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return systemconfigurationEditObjectV1WithRequestBuilder(pkiSystemconfigurationID: pkiSystemconfigurationID, systemconfigurationEditObjectV1Request: systemconfigurationEditObjectV1Request).execute(apiResponseQueue) { result in
+    open class func systemconfigurationEditObjectV2(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV2Request: SystemconfigurationEditObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SystemconfigurationEditObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return systemconfigurationEditObjectV2WithRequestBuilder(pkiSystemconfigurationID: pkiSystemconfigurationID, systemconfigurationEditObjectV2Request: systemconfigurationEditObjectV2Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -34,22 +34,22 @@ open class ObjectSystemconfigurationAPI {
 
     /**
      Edit an existing Systemconfiguration
-     - PUT /1/object/systemconfiguration/{pkiSystemconfigurationID}
+     - PUT /2/object/systemconfiguration/{pkiSystemconfigurationID}
      - 
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
      - parameter pkiSystemconfigurationID: (path) The unique ID of the Systemconfiguration 
-     - parameter systemconfigurationEditObjectV1Request: (body)  
-     - returns: RequestBuilder<SystemconfigurationEditObjectV1Response> 
+     - parameter systemconfigurationEditObjectV2Request: (body)  
+     - returns: RequestBuilder<SystemconfigurationEditObjectV2Response> 
      */
-    open class func systemconfigurationEditObjectV1WithRequestBuilder(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request) -> RequestBuilder<SystemconfigurationEditObjectV1Response> {
-        var localVariablePath = "/1/object/systemconfiguration/{pkiSystemconfigurationID}"
+    open class func systemconfigurationEditObjectV2WithRequestBuilder(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV2Request: SystemconfigurationEditObjectV2Request) -> RequestBuilder<SystemconfigurationEditObjectV2Response> {
+        var localVariablePath = "/2/object/systemconfiguration/{pkiSystemconfigurationID}"
         let pkiSystemconfigurationIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSystemconfigurationID))"
         let pkiSystemconfigurationIDPostEscape = pkiSystemconfigurationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSystemconfigurationID}", with: pkiSystemconfigurationIDPostEscape, options: .literal, range: nil)
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: systemconfigurationEditObjectV1Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: systemconfigurationEditObjectV2Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -59,7 +59,7 @@ open class ObjectSystemconfigurationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<SystemconfigurationEditObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<SystemconfigurationEditObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

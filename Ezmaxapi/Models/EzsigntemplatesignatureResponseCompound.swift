@@ -58,6 +58,8 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
     /** The step when the Ezsigntemplatesigner will be invited to sign */
     public var iEzsigntemplatesignatureStep: Int
     public var eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType
+    public var eEzsigntemplatesignatureSignaturepad: FieldEEzsigntemplatesignatureSignaturepad?
+    public var eEzsigntemplatesignatureSignaturepadrequired: FieldEEzsigntemplatesignatureSignaturepadrequired?
     public var eEzsigntemplatesignatureConsultationtrigger: FieldEEzsigntemplatesignatureConsultationtrigger?
     /** A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplatesignature */
     public var tEzsigntemplatesignatureTooltip: String?
@@ -98,7 +100,7 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
     public var aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyResponseCompound]?
     public var aObjEzsigntemplatesignaturepaymentdetail: [EzsigntemplatesignaturepaymentdetailResponseCompound]?
 
-    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, fkiPaymentgatewayID: Int? = nil, bEzsigntemplatesignatureHandwritten: Bool? = nil, bEzsigntemplatesignatureReason: Bool? = nil, eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int? = nil, iEzsigntemplatesignatureY: Int? = nil, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, eEzsigntemplatesignatureConsultationtrigger: FieldEEzsigntemplatesignatureConsultationtrigger? = nil, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureDefaultvalue: String? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, sEzsigntemplatesignatureTextvalidationcustommessage: String? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, sEzsigntemplatesignaturePositioningpattern: String? = nil, iEzsigntemplatesignaturePositioningoffsetx: Int? = nil, iEzsigntemplatesignaturePositioningoffsety: Int? = nil, eEzsigntemplatesignaturePositioningoccurence: FieldEEzsigntemplatesignaturePositioningoccurence? = nil, sEzsigntemplatesignatureCreditcardamountdescription: String? = nil, dEzsigntemplatesignatureCreditcardamount: String? = nil, bEzsigntemplatesignatureCustomdate: Bool? = nil, aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateResponseCompound]? = nil, aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyResponseCompound]? = nil, aObjEzsigntemplatesignaturepaymentdetail: [EzsigntemplatesignaturepaymentdetailResponseCompound]? = nil) {
+    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, fkiPaymentgatewayID: Int? = nil, bEzsigntemplatesignatureHandwritten: Bool? = nil, bEzsigntemplatesignatureReason: Bool? = nil, eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int? = nil, iEzsigntemplatesignatureY: Int? = nil, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, eEzsigntemplatesignatureSignaturepad: FieldEEzsigntemplatesignatureSignaturepad? = nil, eEzsigntemplatesignatureSignaturepadrequired: FieldEEzsigntemplatesignatureSignaturepadrequired? = nil, eEzsigntemplatesignatureConsultationtrigger: FieldEEzsigntemplatesignatureConsultationtrigger? = nil, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureDefaultvalue: String? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, sEzsigntemplatesignatureTextvalidationcustommessage: String? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, sEzsigntemplatesignaturePositioningpattern: String? = nil, iEzsigntemplatesignaturePositioningoffsetx: Int? = nil, iEzsigntemplatesignaturePositioningoffsety: Int? = nil, eEzsigntemplatesignaturePositioningoccurence: FieldEEzsigntemplatesignaturePositioningoccurence? = nil, sEzsigntemplatesignatureCreditcardamountdescription: String? = nil, dEzsigntemplatesignatureCreditcardamount: String? = nil, bEzsigntemplatesignatureCustomdate: Bool? = nil, aObjEzsigntemplatesignaturecustomdate: [EzsigntemplatesignaturecustomdateResponseCompound]? = nil, aObjEzsigntemplateelementdependency: [EzsigntemplateelementdependencyResponseCompound]? = nil, aObjEzsigntemplatesignaturepaymentdetail: [EzsigntemplatesignaturepaymentdetailResponseCompound]? = nil) {
         self.pkiEzsigntemplatesignatureID = pkiEzsigntemplatesignatureID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsigntemplatesignerID = fkiEzsigntemplatesignerID
@@ -114,6 +116,8 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
         self.iEzsigntemplatesignatureHeight = iEzsigntemplatesignatureHeight
         self.iEzsigntemplatesignatureStep = iEzsigntemplatesignatureStep
         self.eEzsigntemplatesignatureType = eEzsigntemplatesignatureType
+        self.eEzsigntemplatesignatureSignaturepad = eEzsigntemplatesignatureSignaturepad
+        self.eEzsigntemplatesignatureSignaturepadrequired = eEzsigntemplatesignatureSignaturepadrequired
         self.eEzsigntemplatesignatureConsultationtrigger = eEzsigntemplatesignatureConsultationtrigger
         self.tEzsigntemplatesignatureTooltip = tEzsigntemplatesignatureTooltip
         self.eEzsigntemplatesignatureTooltipposition = eEzsigntemplatesignatureTooltipposition
@@ -156,6 +160,8 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
         case iEzsigntemplatesignatureHeight
         case iEzsigntemplatesignatureStep
         case eEzsigntemplatesignatureType
+        case eEzsigntemplatesignatureSignaturepad
+        case eEzsigntemplatesignatureSignaturepadrequired
         case eEzsigntemplatesignatureConsultationtrigger
         case tEzsigntemplatesignatureTooltip
         case eEzsigntemplatesignatureTooltipposition
@@ -201,6 +207,8 @@ public struct EzsigntemplatesignatureResponseCompound: Codable, JSONEncodable, H
         try container.encodeIfPresent(iEzsigntemplatesignatureHeight, forKey: .iEzsigntemplatesignatureHeight)
         try container.encode(iEzsigntemplatesignatureStep, forKey: .iEzsigntemplatesignatureStep)
         try container.encode(eEzsigntemplatesignatureType, forKey: .eEzsigntemplatesignatureType)
+        try container.encodeIfPresent(eEzsigntemplatesignatureSignaturepad, forKey: .eEzsigntemplatesignatureSignaturepad)
+        try container.encodeIfPresent(eEzsigntemplatesignatureSignaturepadrequired, forKey: .eEzsigntemplatesignatureSignaturepadrequired)
         try container.encodeIfPresent(eEzsigntemplatesignatureConsultationtrigger, forKey: .eEzsigntemplatesignatureConsultationtrigger)
         try container.encodeIfPresent(tEzsigntemplatesignatureTooltip, forKey: .tEzsigntemplatesignatureTooltip)
         try container.encodeIfPresent(eEzsigntemplatesignatureTooltipposition, forKey: .eEzsigntemplatesignatureTooltipposition)

@@ -28,6 +28,8 @@ public struct CreditcardclientListElement: Codable, JSONEncodable, Hashable {
     public var fkiCreditcardtypeID: Int
     /** Whether if it's the creditcardclient is the default one */
     public var bCreditcardclientrelationIsdefault: Bool
+    /** Whether the Creditcardclient is legacy or not */
+    public var bCreditcardclientLegacy: Bool
     /** The description of the Creditcardclient */
     public var sCreditcardclientDescription: String
     /** Whether if it's an allowedagencypayment */
@@ -41,11 +43,12 @@ public struct CreditcardclientListElement: Codable, JSONEncodable, Hashable {
     /** The last digits of the Creditcarddetail */
     public var iCreditcarddetailLastdigits: Int
 
-    public init(pkiCreditcardclientID: Int, fkiCreditcarddetailID: Int, fkiCreditcardtypeID: Int, bCreditcardclientrelationIsdefault: Bool, sCreditcardclientDescription: String, bCreditcardclientAllowedcompanypayment: Bool, bCreditcardclientAllowedtranquillit: Bool, iCreditcarddetailExpirationmonth: Int, iCreditcarddetailExpirationyear: Int, iCreditcarddetailLastdigits: Int) {
+    public init(pkiCreditcardclientID: Int, fkiCreditcarddetailID: Int, fkiCreditcardtypeID: Int, bCreditcardclientrelationIsdefault: Bool, bCreditcardclientLegacy: Bool, sCreditcardclientDescription: String, bCreditcardclientAllowedcompanypayment: Bool, bCreditcardclientAllowedtranquillit: Bool, iCreditcarddetailExpirationmonth: Int, iCreditcarddetailExpirationyear: Int, iCreditcarddetailLastdigits: Int) {
         self.pkiCreditcardclientID = pkiCreditcardclientID
         self.fkiCreditcarddetailID = fkiCreditcarddetailID
         self.fkiCreditcardtypeID = fkiCreditcardtypeID
         self.bCreditcardclientrelationIsdefault = bCreditcardclientrelationIsdefault
+        self.bCreditcardclientLegacy = bCreditcardclientLegacy
         self.sCreditcardclientDescription = sCreditcardclientDescription
         self.bCreditcardclientAllowedcompanypayment = bCreditcardclientAllowedcompanypayment
         self.bCreditcardclientAllowedtranquillit = bCreditcardclientAllowedtranquillit
@@ -59,6 +62,7 @@ public struct CreditcardclientListElement: Codable, JSONEncodable, Hashable {
         case fkiCreditcarddetailID
         case fkiCreditcardtypeID
         case bCreditcardclientrelationIsdefault
+        case bCreditcardclientLegacy
         case sCreditcardclientDescription
         case bCreditcardclientAllowedcompanypayment
         case bCreditcardclientAllowedtranquillit
@@ -75,6 +79,7 @@ public struct CreditcardclientListElement: Codable, JSONEncodable, Hashable {
         try container.encode(fkiCreditcarddetailID, forKey: .fkiCreditcarddetailID)
         try container.encode(fkiCreditcardtypeID, forKey: .fkiCreditcardtypeID)
         try container.encode(bCreditcardclientrelationIsdefault, forKey: .bCreditcardclientrelationIsdefault)
+        try container.encode(bCreditcardclientLegacy, forKey: .bCreditcardclientLegacy)
         try container.encode(sCreditcardclientDescription, forKey: .sCreditcardclientDescription)
         try container.encode(bCreditcardclientAllowedcompanypayment, forKey: .bCreditcardclientAllowedcompanypayment)
         try container.encode(bCreditcardclientAllowedtranquillit, forKey: .bCreditcardclientAllowedtranquillit)

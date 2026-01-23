@@ -4,13 +4,13 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**systemconfigurationEditObjectV1**](ObjectSystemconfigurationAPI.md#systemconfigurationeditobjectv1) | **PUT** /1/object/systemconfiguration/{pkiSystemconfigurationID} | Edit an existing Systemconfiguration
+[**systemconfigurationEditObjectV2**](ObjectSystemconfigurationAPI.md#systemconfigurationeditobjectv2) | **PUT** /2/object/systemconfiguration/{pkiSystemconfigurationID} | Edit an existing Systemconfiguration
 [**systemconfigurationGetObjectV2**](ObjectSystemconfigurationAPI.md#systemconfigurationgetobjectv2) | **GET** /2/object/systemconfiguration/{pkiSystemconfigurationID} | Retrieve an existing Systemconfiguration
 
 
-# **systemconfigurationEditObjectV1**
+# **systemconfigurationEditObjectV2**
 ```swift
-    open class func systemconfigurationEditObjectV1(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV1Request: SystemconfigurationEditObjectV1Request, completion: @escaping (_ data: SystemconfigurationEditObjectV1Response?, _ error: Error?) -> Void)
+    open class func systemconfigurationEditObjectV2(pkiSystemconfigurationID: Int, systemconfigurationEditObjectV2Request: SystemconfigurationEditObjectV2Request, completion: @escaping (_ data: SystemconfigurationEditObjectV2Response?, _ error: Error?) -> Void)
 ```
 
 Edit an existing Systemconfiguration
@@ -23,10 +23,10 @@ Edit an existing Systemconfiguration
 import OpenAPIClient
 
 let pkiSystemconfigurationID = 987 // Int | The unique ID of the Systemconfiguration
-let systemconfigurationEditObjectV1Request = systemconfiguration-editObject-v1-Request(objSystemconfiguration: systemconfiguration-RequestCompound(pkiSystemconfigurationID: 123, fkiBrandingID: 123, eSystemconfigurationNewexternaluseraction: Field-eSystemconfigurationNewexternaluseraction(), eSystemconfigurationLanguage1: Field-eSystemconfigurationLanguage1(), eSystemconfigurationLanguage2: Field-eSystemconfigurationLanguage2(), eSystemconfigurationEzsign: Field-eSystemconfigurationEzsign(), eSystemconfigurationEzsignofficeplan: Field-eSystemconfigurationEzsignofficeplan(), bSystemconfigurationEzsignpaidbyoffice: true, bSystemconfigurationEzsignpersonnal: true, bSystemconfigurationSspr: true, dtSystemconfigurationReadonlyexpirationstart: "dtSystemconfigurationReadonlyexpirationstart_example", dtSystemconfigurationReadonlyexpirationend: "dtSystemconfigurationReadonlyexpirationend_example")) // SystemconfigurationEditObjectV1Request | 
+let systemconfigurationEditObjectV2Request = systemconfiguration-editObject-v2-Request(objSystemconfiguration: systemconfiguration-RequestCompoundV2(pkiSystemconfigurationID: 123, fkiBrandingID: 123, eSystemconfigurationNewexternaluseraction: Field-eSystemconfigurationNewexternaluseraction(), eSystemconfigurationLanguage1: Field-eSystemconfigurationLanguage1(), eSystemconfigurationLanguage2: Field-eSystemconfigurationLanguage2(), eSystemconfigurationEzsignofficeplan: Field-eSystemconfigurationEzsignofficeplan(), bSystemconfigurationEzsignpaidbyoffice: true, bSystemconfigurationEzsignpersonnal: true, bSystemconfigurationSspr: true, dtSystemconfigurationReadonlyexpirationstart: "dtSystemconfigurationReadonlyexpirationstart_example", dtSystemconfigurationReadonlyexpirationend: "dtSystemconfigurationReadonlyexpirationend_example", iSystemconfigurationEzsignreminderhoursend: 123)) // SystemconfigurationEditObjectV2Request | 
 
 // Edit an existing Systemconfiguration
-ObjectSystemconfigurationAPI.systemconfigurationEditObjectV1(pkiSystemconfigurationID: pkiSystemconfigurationID, systemconfigurationEditObjectV1Request: systemconfigurationEditObjectV1Request) { (response, error) in
+ObjectSystemconfigurationAPI.systemconfigurationEditObjectV2(pkiSystemconfigurationID: pkiSystemconfigurationID, systemconfigurationEditObjectV2Request: systemconfigurationEditObjectV2Request) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -43,11 +43,11 @@ ObjectSystemconfigurationAPI.systemconfigurationEditObjectV1(pkiSystemconfigurat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiSystemconfigurationID** | **Int** | The unique ID of the Systemconfiguration | 
- **systemconfigurationEditObjectV1Request** | [**SystemconfigurationEditObjectV1Request**](SystemconfigurationEditObjectV1Request.md) |  | 
+ **systemconfigurationEditObjectV2Request** | [**SystemconfigurationEditObjectV2Request**](SystemconfigurationEditObjectV2Request.md) |  | 
 
 ### Return type
 
-[**SystemconfigurationEditObjectV1Response**](SystemconfigurationEditObjectV1Response.md)
+[**SystemconfigurationEditObjectV2Response**](SystemconfigurationEditObjectV2Response.md)
 
 ### Authorization
 

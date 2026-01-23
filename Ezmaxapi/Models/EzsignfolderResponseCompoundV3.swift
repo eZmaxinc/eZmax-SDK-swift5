@@ -70,13 +70,14 @@ public struct EzsignfolderResponseCompoundV3: Codable, JSONEncodable, Hashable {
     public var dtEzsignfolderDispose: String?
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfolderMessage: String?
+    public var eEzsignfolderMessageorder: FieldEEzsignfolderMessageorder?
     public var objAudit: CommonAudit?
     /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
     public var sEzsignfolderExternalid: String?
     public var eEzsignfolderAccess: ComputedEEzsignfolderAccess?
     public var objTimezone: CustomTimezoneWithCodeResponse?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, fkiTimezoneID: Int? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, eEzsignfolderDocumentdependency: FieldEEzsignfolderDocumentdependency? = nil, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, iEzsignfolderSendreminderfirstdays: Int? = nil, iEzsignfolderSendreminderotherdays: Int? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, dtEzsignfolderArchive: String? = nil, dtEzsignfolderDispose: String? = nil, tEzsignfolderMessage: String? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil, eEzsignfolderAccess: ComputedEEzsignfolderAccess? = nil, objTimezone: CustomTimezoneWithCodeResponse? = nil) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertype: CustomEzsignfoldertypeResponse? = nil, fkiTimezoneID: Int? = nil, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, eEzsignfolderDocumentdependency: FieldEEzsignfolderDocumentdependency? = nil, sEzsignfoldertypeNameX: String? = nil, fkiBillingentityinternalID: Int? = nil, sBillingentityinternalDescriptionX: String? = nil, fkiEzsigntsarequirementID: Int? = nil, sEzsigntsarequirementDescriptionX: String? = nil, sEzsignfolderDescription: String, tEzsignfolderNote: String? = nil, bEzsignfolderIsdisposable: Bool? = nil, iEzsignfolderSendreminderfirstdays: Int? = nil, iEzsignfolderSendreminderotherdays: Int? = nil, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderDuedate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderScheduledarchive: String? = nil, dtEzsignfolderScheduleddispose: String? = nil, eEzsignfolderStep: FieldEEzsignfolderStep? = nil, dtEzsignfolderClose: String? = nil, dtEzsignfolderArchive: String? = nil, dtEzsignfolderDispose: String? = nil, tEzsignfolderMessage: String? = nil, eEzsignfolderMessageorder: FieldEEzsignfolderMessageorder? = nil, objAudit: CommonAudit? = nil, sEzsignfolderExternalid: String? = nil, eEzsignfolderAccess: ComputedEEzsignfolderAccess? = nil, objTimezone: CustomTimezoneWithCodeResponse? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
         self.objEzsignfoldertype = objEzsignfoldertype
@@ -103,6 +104,7 @@ public struct EzsignfolderResponseCompoundV3: Codable, JSONEncodable, Hashable {
         self.dtEzsignfolderArchive = dtEzsignfolderArchive
         self.dtEzsignfolderDispose = dtEzsignfolderDispose
         self.tEzsignfolderMessage = tEzsignfolderMessage
+        self.eEzsignfolderMessageorder = eEzsignfolderMessageorder
         self.objAudit = objAudit
         self.sEzsignfolderExternalid = sEzsignfolderExternalid
         self.eEzsignfolderAccess = eEzsignfolderAccess
@@ -136,6 +138,7 @@ public struct EzsignfolderResponseCompoundV3: Codable, JSONEncodable, Hashable {
         case dtEzsignfolderArchive
         case dtEzsignfolderDispose
         case tEzsignfolderMessage
+        case eEzsignfolderMessageorder
         case objAudit
         case sEzsignfolderExternalid
         case eEzsignfolderAccess
@@ -172,6 +175,7 @@ public struct EzsignfolderResponseCompoundV3: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(dtEzsignfolderArchive, forKey: .dtEzsignfolderArchive)
         try container.encodeIfPresent(dtEzsignfolderDispose, forKey: .dtEzsignfolderDispose)
         try container.encodeIfPresent(tEzsignfolderMessage, forKey: .tEzsignfolderMessage)
+        try container.encodeIfPresent(eEzsignfolderMessageorder, forKey: .eEzsignfolderMessageorder)
         try container.encodeIfPresent(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sEzsignfolderExternalid, forKey: .sEzsignfolderExternalid)
         try container.encodeIfPresent(eEzsignfolderAccess, forKey: .eEzsignfolderAccess)

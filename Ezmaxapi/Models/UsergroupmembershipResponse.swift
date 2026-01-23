@@ -39,10 +39,12 @@ public struct UsergroupmembershipResponse: Codable, JSONEncodable, Hashable {
     public var sEmailAddress: String?
     /** The Name of the Usergroup in the language of the requester */
     public var sUsergroupNameX: String
+    /** Whether the User is active or not */
+    public var bUserIsactive: Bool?
     /** The name of the Usergroupexternal */
     public var sUsergroupexternalName: String?
 
-    public init(pkiUsergroupmembershipID: Int, fkiUsergroupID: Int, fkiUserID: Int? = nil, fkiUsergroupexternalID: Int? = nil, sUserFirstname: String? = nil, sUserLastname: String? = nil, sUserLoginname: String? = nil, sEmailAddress: String? = nil, sUsergroupNameX: String, sUsergroupexternalName: String? = nil) {
+    public init(pkiUsergroupmembershipID: Int, fkiUsergroupID: Int, fkiUserID: Int? = nil, fkiUsergroupexternalID: Int? = nil, sUserFirstname: String? = nil, sUserLastname: String? = nil, sUserLoginname: String? = nil, sEmailAddress: String? = nil, sUsergroupNameX: String, bUserIsactive: Bool? = nil, sUsergroupexternalName: String? = nil) {
         self.pkiUsergroupmembershipID = pkiUsergroupmembershipID
         self.fkiUsergroupID = fkiUsergroupID
         self.fkiUserID = fkiUserID
@@ -52,6 +54,7 @@ public struct UsergroupmembershipResponse: Codable, JSONEncodable, Hashable {
         self.sUserLoginname = sUserLoginname
         self.sEmailAddress = sEmailAddress
         self.sUsergroupNameX = sUsergroupNameX
+        self.bUserIsactive = bUserIsactive
         self.sUsergroupexternalName = sUsergroupexternalName
     }
 
@@ -65,6 +68,7 @@ public struct UsergroupmembershipResponse: Codable, JSONEncodable, Hashable {
         case sUserLoginname
         case sEmailAddress
         case sUsergroupNameX
+        case bUserIsactive
         case sUsergroupexternalName
     }
 
@@ -81,6 +85,7 @@ public struct UsergroupmembershipResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sUserLoginname, forKey: .sUserLoginname)
         try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
         try container.encode(sUsergroupNameX, forKey: .sUsergroupNameX)
+        try container.encodeIfPresent(bUserIsactive, forKey: .bUserIsactive)
         try container.encodeIfPresent(sUsergroupexternalName, forKey: .sUsergroupexternalName)
     }
 }

@@ -68,13 +68,13 @@ public struct EzsigndocumentRequestCompound: Codable, JSONEncodable, Hashable {
     /** If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**  **Discard** removes the form from the document.  **Flatten** prints the form values in the document. */
     public var eEzsigndocumentForm: EEzsigndocumentForm?
     /** The maximum date and time at which the Ezsigndocument can be signed. */
-    public var dtEzsigndocumentDuedate: String
+    public var dtEzsigndocumentDuedate: String?
     /** The name of the document that will be presented to Ezsignfoldersignerassociations */
     public var sEzsigndocumentName: String
     /** This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  */
     public var sEzsigndocumentExternalid: String?
 
-    public init(pkiEzsigndocumentID: Int? = nil, fkiEzsignfolderID: Int, fkiEzsigntemplateID: Int? = nil, fkiEzsignfoldersignerassociationID: Int? = nil, fkiEzsignimportdocumentID: Int? = nil, fkiLanguageID: Int, eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat? = nil, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = nil, eEzsigndocumentForm: EEzsigndocumentForm? = nil, dtEzsigndocumentDuedate: String, sEzsigndocumentName: String, sEzsigndocumentExternalid: String? = nil) {
+    public init(pkiEzsigndocumentID: Int? = nil, fkiEzsignfolderID: Int, fkiEzsigntemplateID: Int? = nil, fkiEzsignfoldersignerassociationID: Int? = nil, fkiEzsignimportdocumentID: Int? = nil, fkiLanguageID: Int, eEzsigndocumentSource: EEzsigndocumentSource, eEzsigndocumentFormat: EEzsigndocumentFormat? = nil, sEzsigndocumentBase64: Data? = nil, sEzsigndocumentUrl: String? = nil, bEzsigndocumentForcerepair: Bool? = true, sEzsigndocumentPassword: String? = nil, eEzsigndocumentForm: EEzsigndocumentForm? = nil, dtEzsigndocumentDuedate: String? = nil, sEzsigndocumentName: String, sEzsigndocumentExternalid: String? = nil) {
         self.pkiEzsigndocumentID = pkiEzsigndocumentID
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsigntemplateID = fkiEzsigntemplateID
@@ -129,7 +129,7 @@ public struct EzsigndocumentRequestCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(bEzsigndocumentForcerepair, forKey: .bEzsigndocumentForcerepair)
         try container.encodeIfPresent(sEzsigndocumentPassword, forKey: .sEzsigndocumentPassword)
         try container.encodeIfPresent(eEzsigndocumentForm, forKey: .eEzsigndocumentForm)
-        try container.encode(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)
+        try container.encodeIfPresent(dtEzsigndocumentDuedate, forKey: .dtEzsigndocumentDuedate)
         try container.encode(sEzsigndocumentName, forKey: .sEzsigndocumentName)
         try container.encodeIfPresent(sEzsigndocumentExternalid, forKey: .sEzsigndocumentExternalid)
     }

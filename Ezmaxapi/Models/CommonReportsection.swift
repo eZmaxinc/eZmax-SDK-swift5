@@ -17,17 +17,21 @@ public struct CommonReportsection: Codable, JSONEncodable, Hashable {
     public var eReportsectionHorizontalalignment: EnumHorizontalalignment
     /** The title of this Reportsection */
     public var sReportsectionTitle: String?
+    /** The name of tab in excel version */
+    public var sReportsectionTabname: String?
 
-    public init(aObjReportsubsection: [CommonReportsubsection], eReportsectionHorizontalalignment: EnumHorizontalalignment, sReportsectionTitle: String? = nil) {
+    public init(aObjReportsubsection: [CommonReportsubsection], eReportsectionHorizontalalignment: EnumHorizontalalignment, sReportsectionTitle: String? = nil, sReportsectionTabname: String? = nil) {
         self.aObjReportsubsection = aObjReportsubsection
         self.eReportsectionHorizontalalignment = eReportsectionHorizontalalignment
         self.sReportsectionTitle = sReportsectionTitle
+        self.sReportsectionTabname = sReportsectionTabname
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case aObjReportsubsection = "a_objReportsubsection"
         case eReportsectionHorizontalalignment
         case sReportsectionTitle
+        case sReportsectionTabname
     }
 
     // Encodable protocol methods
@@ -37,6 +41,7 @@ public struct CommonReportsection: Codable, JSONEncodable, Hashable {
         try container.encode(aObjReportsubsection, forKey: .aObjReportsubsection)
         try container.encode(eReportsectionHorizontalalignment, forKey: .eReportsectionHorizontalalignment)
         try container.encodeIfPresent(sReportsectionTitle, forKey: .sReportsectionTitle)
+        try container.encodeIfPresent(sReportsectionTabname, forKey: .sReportsectionTabname)
     }
 }
 

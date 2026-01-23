@@ -60,6 +60,56 @@ open class ObjectEzsigntemplatedocumentAPI {
     }
 
     /**
+     Retrieve an existing Ezsigntemplatedocument's original file
+     
+     - parameter pkiEzsigntemplatedocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigntemplatedocumentDownloadV1(pkiEzsigntemplatedocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Void?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplatedocumentDownloadV1WithRequestBuilder(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case .success:
+                completion((), nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigntemplatedocument's original file
+     - GET /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/download
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigntemplatedocumentID: (path)  
+     - returns: RequestBuilder<Void> 
+     */
+    open class func ezsigntemplatedocumentDownloadV1WithRequestBuilder(pkiEzsigntemplatedocumentID: Int) -> RequestBuilder<Void> {
+        var localVariablePath = "/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/download"
+        let pkiEzsigntemplatedocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatedocumentID))"
+        let pkiEzsigntemplatedocumentIDPostEscape = pkiEzsigntemplatedocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplatedocumentID}", with: pkiEzsigntemplatedocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<Void>.Type = OpenAPIClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Edit multiple Ezsigntemplatedocumentpagerecognitions
      
      - parameter pkiEzsigntemplatedocumentID: (path)  
@@ -571,58 +621,6 @@ open class ObjectEzsigntemplatedocumentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
-     
-     - parameter pkiEzsigntemplatedocumentID: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    @discardableResult
-    open class func ezsigntemplatedocumentGetEzsigntemplatesignaturesV1(pkiEzsigntemplatedocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsigntemplatedocumentGetEzsigntemplatesignaturesV1WithRequestBuilder(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
-     - GET /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures
-     - Major step overhaul.  Endpoints that existed before version 1.3 do not allow you to combine forms and signatures in the same step. The step numbers are different from those indicated by endpoints added since version 1.3. This endpoint is compatible with endpoints that existed before 1.3 but are not compatible with those added since 1.3.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter pkiEzsigntemplatedocumentID: (path)  
-     - returns: RequestBuilder<EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response> 
-     */
-    @available(*, deprecated, message: "This operation is deprecated.")
-    open class func ezsigntemplatedocumentGetEzsigntemplatesignaturesV1WithRequestBuilder(pkiEzsigntemplatedocumentID: Int) -> RequestBuilder<EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response> {
-        var localVariablePath = "/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures"
-        let pkiEzsigntemplatedocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatedocumentID))"
-        let pkiEzsigntemplatedocumentIDPostEscape = pkiEzsigntemplatedocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplatedocumentID}", with: pkiEzsigntemplatedocumentIDPostEscape, options: .literal, range: nil)
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

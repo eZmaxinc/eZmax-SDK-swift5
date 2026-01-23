@@ -17,7 +17,7 @@ public struct LeadListElement: Codable, JSONEncodable, Hashable {
     public static let fkiLeadsourceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let sLeadsourceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
     public static let dtLeadExpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let sLeadCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,10}$/")
+    public static let sLeadCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,25}$/")
     /** The unique ID of the Lead */
     public var pkiLeadID: Int
     /** The unique ID of the Leadsource */
@@ -31,8 +31,10 @@ public struct LeadListElement: Codable, JSONEncodable, Hashable {
     public var bLeadIsactive: Bool
     /** The code of the Lead */
     public var sLeadCode: String
+    /** The contacts' name of the Lead */
+    public var sLeadContacts: String?
 
-    public init(pkiLeadID: Int, fkiLeadsourceID: Int, sLeadsourceNameX: String, eLeadStatus: FieldELeadStatus, dtLeadExpiration: String, bLeadIsactive: Bool, sLeadCode: String) {
+    public init(pkiLeadID: Int, fkiLeadsourceID: Int, sLeadsourceNameX: String, eLeadStatus: FieldELeadStatus, dtLeadExpiration: String, bLeadIsactive: Bool, sLeadCode: String, sLeadContacts: String? = nil) {
         self.pkiLeadID = pkiLeadID
         self.fkiLeadsourceID = fkiLeadsourceID
         self.sLeadsourceNameX = sLeadsourceNameX
@@ -40,6 +42,7 @@ public struct LeadListElement: Codable, JSONEncodable, Hashable {
         self.dtLeadExpiration = dtLeadExpiration
         self.bLeadIsactive = bLeadIsactive
         self.sLeadCode = sLeadCode
+        self.sLeadContacts = sLeadContacts
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -50,6 +53,7 @@ public struct LeadListElement: Codable, JSONEncodable, Hashable {
         case dtLeadExpiration
         case bLeadIsactive
         case sLeadCode
+        case sLeadContacts
     }
 
     // Encodable protocol methods
@@ -63,6 +67,7 @@ public struct LeadListElement: Codable, JSONEncodable, Hashable {
         try container.encode(dtLeadExpiration, forKey: .dtLeadExpiration)
         try container.encode(bLeadIsactive, forKey: .bLeadIsactive)
         try container.encode(sLeadCode, forKey: .sLeadCode)
+        try container.encodeIfPresent(sLeadContacts, forKey: .sLeadContacts)
     }
 }
 

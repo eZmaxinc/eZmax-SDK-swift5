@@ -33,10 +33,12 @@ public struct UsergroupdelegationResponseCompound: Codable, JSONEncodable, Hasha
     public var sUserLoginname: String
     /** The email address. */
     public var sEmailAddress: String?
+    /** Whether the User is active or not */
+    public var bUserIsactive: Bool
     /** The Name of the Usergroup in the language of the requester */
     public var sUsergroupNameX: String
 
-    public init(pkiUsergroupdelegationID: Int, fkiUsergroupID: Int, fkiUserID: Int, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, sEmailAddress: String? = nil, sUsergroupNameX: String) {
+    public init(pkiUsergroupdelegationID: Int, fkiUsergroupID: Int, fkiUserID: Int, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, sEmailAddress: String? = nil, bUserIsactive: Bool, sUsergroupNameX: String) {
         self.pkiUsergroupdelegationID = pkiUsergroupdelegationID
         self.fkiUsergroupID = fkiUsergroupID
         self.fkiUserID = fkiUserID
@@ -44,6 +46,7 @@ public struct UsergroupdelegationResponseCompound: Codable, JSONEncodable, Hasha
         self.sUserLastname = sUserLastname
         self.sUserLoginname = sUserLoginname
         self.sEmailAddress = sEmailAddress
+        self.bUserIsactive = bUserIsactive
         self.sUsergroupNameX = sUsergroupNameX
     }
 
@@ -55,6 +58,7 @@ public struct UsergroupdelegationResponseCompound: Codable, JSONEncodable, Hasha
         case sUserLastname
         case sUserLoginname
         case sEmailAddress
+        case bUserIsactive
         case sUsergroupNameX
     }
 
@@ -69,6 +73,7 @@ public struct UsergroupdelegationResponseCompound: Codable, JSONEncodable, Hasha
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encode(sUserLoginname, forKey: .sUserLoginname)
         try container.encodeIfPresent(sEmailAddress, forKey: .sEmailAddress)
+        try container.encode(bUserIsactive, forKey: .bUserIsactive)
         try container.encode(sUsergroupNameX, forKey: .sUsergroupNameX)
     }
 }

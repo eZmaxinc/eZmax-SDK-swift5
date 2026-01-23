@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**ezsignbulksendCreateObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendcreateobjectv1) | **POST** /1/object/ezsignbulksend | Create a new Ezsignbulksend
 [**ezsignbulksendCreateObjectV2**](ObjectEzsignbulksendAPI.md#ezsignbulksendcreateobjectv2) | **POST** /2/object/ezsignbulksend | Create a new Ezsignbulksend
 [**ezsignbulksendDeleteObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksenddeleteobjectv1) | **DELETE** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Delete an existing Ezsignbulksend
-[**ezsignbulksendEditObjectV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendeditobjectv1) | **PUT** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
 [**ezsignbulksendEditObjectV2**](ObjectEzsignbulksendAPI.md#ezsignbulksendeditobjectv2) | **PUT** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
 [**ezsignbulksendGetBatchFileV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetbatchfilev1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getBatchFile | Retrieve file to download documents in batch
 [**ezsignbulksendGetCsvTemplateV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetcsvtemplatev1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getCsvTemplate | Retrieve an existing Ezsignbulksend&#39;s empty Csv template
@@ -217,58 +216,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ezsignbulksendEditObjectV1**
-```swift
-    open class func ezsignbulksendEditObjectV1(pkiEzsignbulksendID: Int, ezsignbulksendEditObjectV1Request: EzsignbulksendEditObjectV1Request, completion: @escaping (_ data: EzsignbulksendEditObjectV1Response?, _ error: Error?) -> Void)
-```
-
-Edit an existing Ezsignbulksend
-
-
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pkiEzsignbulksendID = 987 // Int | 
-let ezsignbulksendEditObjectV1Request = ezsignbulksend-editObject-v1-Request(objEzsignbulksend: ezsignbulksend-RequestCompound(pkiEzsignbulksendID: 123, fkiEzsignfoldertypeID: 123, fkiLanguageID: 123, sEzsignbulksendDescription: "sEzsignbulksendDescription_example", tEzsignbulksendNote: "tEzsignbulksendNote_example", bEzsignbulksendNeedvalidation: false, bEzsignbulksendIsactive: true)) // EzsignbulksendEditObjectV1Request | 
-
-// Edit an existing Ezsignbulksend
-ObjectEzsignbulksendAPI.ezsignbulksendEditObjectV1(pkiEzsignbulksendID: pkiEzsignbulksendID, ezsignbulksendEditObjectV1Request: ezsignbulksendEditObjectV1Request) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pkiEzsignbulksendID** | **Int** |  | 
- **ezsignbulksendEditObjectV1Request** | [**EzsignbulksendEditObjectV1Request**](EzsignbulksendEditObjectV1Request.md) |  | 
-
-### Return type
-
-[**EzsignbulksendEditObjectV1Response**](EzsignbulksendEditObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -249,6 +249,8 @@ open class ObjectCreditcardclientAPI {
         case fkicreditcardtypeidDesc = "fkiCreditcardtypeID_DESC"
         case bcreditcardclientrelationisdefaultAsc = "bCreditcardclientrelationIsdefault_ASC"
         case bcreditcardclientrelationisdefaultDesc = "bCreditcardclientrelationIsdefault_DESC"
+        case bcreditcardclientlegacyAsc = "bCreditcardclientLegacy_ASC"
+        case bcreditcardclientlegacyDesc = "bCreditcardclientLegacy_DESC"
         case screditcardclientdescriptionAsc = "sCreditcardclientDescription_ASC"
         case screditcardclientdescriptionDesc = "sCreditcardclientDescription_DESC"
         case bcreditcardclientisactiveAsc = "bCreditcardclientIsactive_ASC"

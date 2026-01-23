@@ -628,6 +628,60 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Edit multiple Ezsignformfieldgroups
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentEditEzsignformfieldgroupsV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @available(*, deprecated, message: "This operation is deprecated.")
+    @discardableResult
+    open class func ezsigndocumentEditEzsignformfieldgroupsV2(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV2Request: EzsigndocumentEditEzsignformfieldgroupsV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEditEzsignformfieldgroupsV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentEditEzsignformfieldgroupsV2WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV2Request: ezsigndocumentEditEzsignformfieldgroupsV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit multiple Ezsignformfieldgroups
+     - PUT /2/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups
+     - Using this endpoint, you can edit multiple Ezsignformfieldgroups at the same time.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentEditEzsignformfieldgroupsV2Request: (body)  
+     - returns: RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV2Response> 
+     */
+    @available(*, deprecated, message: "This operation is deprecated.")
+    open class func ezsigndocumentEditEzsignformfieldgroupsV2WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV2Request: EzsigndocumentEditEzsignformfieldgroupsV2Request) -> RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV2Response> {
+        var localVariablePath = "/2/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigndocumentEditEzsignformfieldgroupsV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Edit multiple Ezsignsignatures
      
      - parameter pkiEzsigndocumentID: (path)  
@@ -1000,6 +1054,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsigndocumentGetActionableElementsV2(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetActionableElementsV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentGetActionableElementsV2WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
@@ -1022,6 +1077,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter pkiEzsigndocumentID: (path)  
      - returns: RequestBuilder<EzsigndocumentGetActionableElementsV2Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsigndocumentGetActionableElementsV2WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetActionableElementsV2Response> {
         var localVariablePath = "/2/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements"
         let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
@@ -1039,6 +1095,56 @@ open class ObjectEzsigndocumentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetActionableElementsV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve actionable elements for the Ezsigndocument
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentGetActionableElementsV3(pkiEzsigndocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentGetActionableElementsV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentGetActionableElementsV3WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve actionable elements for the Ezsigndocument
+     - GET /3/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements
+     - Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that can be filled by the current user at the current step in the process
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - returns: RequestBuilder<EzsigndocumentGetActionableElementsV3Response> 
+     */
+    open class func ezsigndocumentGetActionableElementsV3WithRequestBuilder(pkiEzsigndocumentID: Int) -> RequestBuilder<EzsigndocumentGetActionableElementsV3Response> {
+        var localVariablePath = "/3/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentGetActionableElementsV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

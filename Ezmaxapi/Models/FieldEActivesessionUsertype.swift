@@ -14,6 +14,7 @@ import AnyCodable
 public enum FieldEActivesessionUsertype: String, Codable, CaseIterable {
     case agentBroker = "AgentBroker"
     case assistant = "Assistant"
+    case employee = "Employee"
     case ezsignSigner = "EzsignSigner"
     case ezsignUser = "EzsignUser"
     case normal = "Normal"

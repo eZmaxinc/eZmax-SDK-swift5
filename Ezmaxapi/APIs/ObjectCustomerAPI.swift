@@ -13,53 +13,6 @@ import AnyCodable
 open class ObjectCustomerAPI {
 
     /**
-     Create a new Customer
-     
-     - parameter customerCreateObjectV1Request: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func customerCreateObjectV1(customerCreateObjectV1Request: CustomerCreateObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CustomerCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return customerCreateObjectV1WithRequestBuilder(customerCreateObjectV1Request: customerCreateObjectV1Request).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Create a new Customer
-     - POST /1/object/customer
-     - The endpoint allows to create one or many elements at once.
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter customerCreateObjectV1Request: (body)  
-     - returns: RequestBuilder<CustomerCreateObjectV1Response> 
-     */
-    open class func customerCreateObjectV1WithRequestBuilder(customerCreateObjectV1Request: CustomerCreateObjectV1Request) -> RequestBuilder<CustomerCreateObjectV1Response> {
-        let localVariablePath = "/1/object/customer"
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: customerCreateObjectV1Request)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<CustomerCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
      * enum for parameter sSelector
      */
     public enum SSelector_customerGetAutocompleteV2: String, CaseIterable {
@@ -136,101 +89,6 @@ open class ObjectCustomerAPI {
     }
 
     /**
-     * enum for parameter eOrderBy
-     */
-    public enum EOrderBy_customerGetListV1: String, CaseIterable {
-        case pkicustomeridAsc = "pkiCustomerID_ASC"
-        case pkicustomeridDesc = "pkiCustomerID_DESC"
-        case scustomernameAsc = "sCustomerName_ASC"
-        case scustomernameDesc = "sCustomerName_DESC"
-        case scustomernoteAsc = "sCustomerNote_ASC"
-        case scustomernoteDesc = "sCustomerNote_DESC"
-        case scustomercodeAsc = "sCustomerCode_ASC"
-        case scustomercodeDesc = "sCustomerCode_DESC"
-        case bcustomerisactiveAsc = "bCustomerIsactive_ASC"
-        case bcustomerisactiveDesc = "bCustomerIsactive_DESC"
-        case sphonee164Asc = "sPhoneE164_ASC"
-        case sphonee164Desc = "sPhoneE164_DESC"
-        case semailaddressAsc = "sEmailAddress_ASC"
-        case semailaddressDesc = "sEmailAddress_DESC"
-        case saddresscivicAsc = "sAddressCivic_ASC"
-        case saddresscivicDesc = "sAddressCivic_DESC"
-        case saddressstreetAsc = "sAddressStreet_ASC"
-        case saddressstreetDesc = "sAddressStreet_DESC"
-        case saddresssuiteAsc = "sAddressSuite_ASC"
-        case saddresssuiteDesc = "sAddressSuite_DESC"
-        case saddresscityAsc = "sAddressCity_ASC"
-        case saddresscityDesc = "sAddressCity_DESC"
-        case saddresszipAsc = "sAddressZip_ASC"
-        case saddresszipDesc = "sAddressZip_DESC"
-        case sprovincenamexAsc = "sProvinceNameX_ASC"
-        case sprovincenamexDesc = "sProvinceNameX_DESC"
-        case scountrynamexAsc = "sCountryNameX_ASC"
-        case scountrynamexDesc = "sCountryNameX_DESC"
-    }
-
-    /**
-     Retrieve Customer list
-     
-     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional)
-     - parameter iRowOffset: (query)  (optional, default to 0)
-     - parameter acceptLanguage: (header)  (optional)
-     - parameter sFilter: (query)  (optional)
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func customerGetListV1(eOrderBy: EOrderBy_customerGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CustomerGetListV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return customerGetListV1WithRequestBuilder(eOrderBy: eOrderBy, iRowMax: iRowMax, iRowOffset: iRowOffset, acceptLanguage: acceptLanguage, sFilter: sFilter).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Retrieve Customer list
-     - GET /1/object/customer/getList
-     - 
-     - API Key:
-       - type: apiKey Authorization (HEADER)
-       - name: Authorization
-     - parameter eOrderBy: (query) Specify how you want the results to be sorted (optional)
-     - parameter iRowMax: (query)  (optional)
-     - parameter iRowOffset: (query)  (optional, default to 0)
-     - parameter acceptLanguage: (header)  (optional)
-     - parameter sFilter: (query)  (optional)
-     - returns: RequestBuilder<CustomerGetListV1Response> 
-     */
-    open class func customerGetListV1WithRequestBuilder(eOrderBy: EOrderBy_customerGetListV1? = nil, iRowMax: Int? = nil, iRowOffset: Int? = nil, acceptLanguage: HeaderAcceptLanguage? = nil, sFilter: String? = nil) -> RequestBuilder<CustomerGetListV1Response> {
-        let localVariablePath = "/1/object/customer/getList"
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters: [String: Any]? = nil
-
-        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
-        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
-            "eOrderBy": (wrappedValue: eOrderBy?.encodeToJSON(), isExplode: true),
-            "iRowMax": (wrappedValue: iRowMax?.encodeToJSON(), isExplode: true),
-            "iRowOffset": (wrappedValue: iRowOffset?.encodeToJSON(), isExplode: true),
-            "sFilter": (wrappedValue: sFilter?.encodeToJSON(), isExplode: true),
-        ])
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Accept-Language": acceptLanguage?.encodeToJSON(),
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<CustomerGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
      Retrieve an existing Customer
      
      - parameter pkiCustomerID: (path) The unique ID of the Customer 
@@ -281,7 +139,7 @@ open class ObjectCustomerAPI {
     }
 
     /**
-     Import attachments into the Buyercontract
+     Import attachments into the Customer
      
      - parameter pkiCustomerID: (path)  
      - parameter customerImportIntoEDMV1Request: (body)  
@@ -301,7 +159,7 @@ open class ObjectCustomerAPI {
     }
 
     /**
-     Import attachments into the Buyercontract
+     Import attachments into the Customer
      - POST /1/object/customer/{pkiCustomerID}/importIntoEDM
      - 
      - API Key:

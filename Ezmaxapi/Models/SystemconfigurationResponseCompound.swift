@@ -16,14 +16,20 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
     public static let pkiSystemconfigurationIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 1, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiSystemconfigurationtypeIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiBrandingIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiTimezoneIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let dtSystemconfigurationReadonlyexpirationstartRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let dtSystemconfigurationReadonlyexpirationendRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    public static let iSystemconfigurationEzsignreminderhoursendRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 23, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Systemconfiguration */
     public var pkiSystemconfigurationID: Int
     /** The unique ID of the Systemconfigurationtype */
     public var fkiSystemconfigurationtypeID: Int
     /** The unique ID of the Branding */
     public var fkiBrandingID: Int?
+    /** The unique ID of the Timezone */
+    public var fkiTimezoneIDDefault: Int
+    /** The description of the Timezone */
+    public var sTimezoneNameDefault: String
     /** The description of the Systemconfigurationtype in the language of the requester */
     public var sSystemconfigurationtypeDescriptionX: String
     public var eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction
@@ -47,11 +53,15 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
     /** The end date where the system will be in read only */
     public var dtSystemconfigurationReadonlyexpirationend: String?
     public var objBranding: CustomBrandingResponse?
+    /** The hour we will send the eZsign reminders */
+    public var iSystemconfigurationEzsignreminderhoursend: Int?
 
-    public init(pkiSystemconfigurationID: Int, fkiSystemconfigurationtypeID: Int, fkiBrandingID: Int? = nil, sSystemconfigurationtypeDescriptionX: String, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationHascreditcardmerchant: Bool? = nil, bSystemconfigurationIsdisposalactive: Bool? = nil, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil, objBranding: CustomBrandingResponse? = nil) {
+    public init(pkiSystemconfigurationID: Int, fkiSystemconfigurationtypeID: Int, fkiBrandingID: Int? = nil, fkiTimezoneIDDefault: Int, sTimezoneNameDefault: String, sSystemconfigurationtypeDescriptionX: String, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationHascreditcardmerchant: Bool? = nil, bSystemconfigurationIsdisposalactive: Bool? = nil, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil, objBranding: CustomBrandingResponse? = nil, iSystemconfigurationEzsignreminderhoursend: Int? = nil) {
         self.pkiSystemconfigurationID = pkiSystemconfigurationID
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.fkiBrandingID = fkiBrandingID
+        self.fkiTimezoneIDDefault = fkiTimezoneIDDefault
+        self.sTimezoneNameDefault = sTimezoneNameDefault
         self.sSystemconfigurationtypeDescriptionX = sSystemconfigurationtypeDescriptionX
         self.eSystemconfigurationNewexternaluseraction = eSystemconfigurationNewexternaluseraction
         self.eSystemconfigurationLanguage1 = eSystemconfigurationLanguage1
@@ -66,12 +76,15 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
         self.dtSystemconfigurationReadonlyexpirationstart = dtSystemconfigurationReadonlyexpirationstart
         self.dtSystemconfigurationReadonlyexpirationend = dtSystemconfigurationReadonlyexpirationend
         self.objBranding = objBranding
+        self.iSystemconfigurationEzsignreminderhoursend = iSystemconfigurationEzsignreminderhoursend
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiSystemconfigurationID
         case fkiSystemconfigurationtypeID
         case fkiBrandingID
+        case fkiTimezoneIDDefault
+        case sTimezoneNameDefault
         case sSystemconfigurationtypeDescriptionX
         case eSystemconfigurationNewexternaluseraction
         case eSystemconfigurationLanguage1
@@ -86,6 +99,7 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
         case dtSystemconfigurationReadonlyexpirationstart
         case dtSystemconfigurationReadonlyexpirationend
         case objBranding
+        case iSystemconfigurationEzsignreminderhoursend
     }
 
     // Encodable protocol methods
@@ -95,6 +109,8 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
         try container.encode(pkiSystemconfigurationID, forKey: .pkiSystemconfigurationID)
         try container.encode(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
         try container.encodeIfPresent(fkiBrandingID, forKey: .fkiBrandingID)
+        try container.encode(fkiTimezoneIDDefault, forKey: .fkiTimezoneIDDefault)
+        try container.encode(sTimezoneNameDefault, forKey: .sTimezoneNameDefault)
         try container.encode(sSystemconfigurationtypeDescriptionX, forKey: .sSystemconfigurationtypeDescriptionX)
         try container.encode(eSystemconfigurationNewexternaluseraction, forKey: .eSystemconfigurationNewexternaluseraction)
         try container.encode(eSystemconfigurationLanguage1, forKey: .eSystemconfigurationLanguage1)
@@ -109,6 +125,7 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
         try container.encodeIfPresent(dtSystemconfigurationReadonlyexpirationstart, forKey: .dtSystemconfigurationReadonlyexpirationstart)
         try container.encodeIfPresent(dtSystemconfigurationReadonlyexpirationend, forKey: .dtSystemconfigurationReadonlyexpirationend)
         try container.encodeIfPresent(objBranding, forKey: .objBranding)
+        try container.encodeIfPresent(iSystemconfigurationEzsignreminderhoursend, forKey: .iSystemconfigurationEzsignreminderhoursend)
     }
 }
 

@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **iEzsignsignatureHeight** | **Int** | The height of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have an height of 2 inches, you would use \&quot;200\&quot; for the iEzsignsignatureHeight. | [optional] 
 **iEzsignsignatureStep** | **Int** | The step when the Ezsignsigner will be invited to sign | 
 **eEzsignsignatureType** | [**FieldEEzsignsignatureType**](FieldEEzsignsignatureType.md) |  | 
+**eEzsignsignatureSignaturepad** | [**FieldEEzsignsignatureSignaturepad**](FieldEEzsignsignatureSignaturepad.md) |  | [optional] 
+**eEzsignsignatureSignaturepadrequired** | [**FieldEEzsignsignatureSignaturepadrequired**](FieldEEzsignsignatureSignaturepadrequired.md) |  | [optional] 
 **fkiEzsigndocumentID** | **Int** | The unique ID of the Ezsigndocument | 
 **tEzsignsignatureTooltip** | **String** | A tooltip that will be presented to Ezsignsigner about the Ezsignsignature | [optional] 
 **eEzsignsignatureTooltipposition** | [**FieldEEzsignsignatureTooltipposition**](FieldEEzsignsignatureTooltipposition.md) |  | [optional] 
@@ -33,6 +35,7 @@ Name | Type | Description | Notes
 **eEzsignsignatureDependencyrequirement** | [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
 **sEzsignsignatureCreditcardamountdescription** | **String** | The description of the Creditcard signature | [optional] 
 **dEzsignsignatureCreditcardamount** | **String** | The amount of the Creditcard signature | [optional] 
+**bEzsignsignatureCreditcardcustomamount** | **Bool** | Whether we can enter a custom amount while signing an Ezsignsignature &#39;Creditcard&#39; or not | [optional] 
 **bEzsignsignatureCustomdate** | **Bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
 **aObjEzsignsignaturecustomdate** | [EzsignsignaturecustomdateRequestCompound] | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **aObjEzsignelementdependency** | [EzsignelementdependencyRequestCompound] |  | [optional] 

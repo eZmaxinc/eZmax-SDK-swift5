@@ -26,7 +26,7 @@ public struct ActivesessionListElement: Codable, JSONEncodable, Hashable {
     /** The unique ID of the User */
     public var fkiUserID: Int
     /** The unique ID of the Computer */
-    public var fkiComputerID: Int
+    public var fkiComputerID: Int?
     /** The unique ID of the Company */
     public var fkiCompanyID: Int
     /** The unique ID of the Department */
@@ -38,7 +38,7 @@ public struct ActivesessionListElement: Codable, JSONEncodable, Hashable {
     /** The loginname of the Activesession */
     public var sActivesessionLoginname: String
     /** The description of the Computer */
-    public var sComputerDescription: String
+    public var sComputerDescription: String?
     /** The first hit of the Activesession */
     public var dtActivesessionFirsthit: String
     /** The last hit of the Activesession */
@@ -46,7 +46,7 @@ public struct ActivesessionListElement: Codable, JSONEncodable, Hashable {
     /** Represent an IP address. */
     public var sActivesessionIP: String
 
-    public init(pkiActivesessionID: Int, fkiUserID: Int, fkiComputerID: Int, fkiCompanyID: Int, fkiDepartmentID: Int, sCompanyNameX: String, sDepartmentNameX: String, sActivesessionLoginname: String, sComputerDescription: String, dtActivesessionFirsthit: String, dtActivesessionLasthit: String, sActivesessionIP: String) {
+    public init(pkiActivesessionID: Int, fkiUserID: Int, fkiComputerID: Int? = nil, fkiCompanyID: Int, fkiDepartmentID: Int, sCompanyNameX: String, sDepartmentNameX: String, sActivesessionLoginname: String, sComputerDescription: String? = nil, dtActivesessionFirsthit: String, dtActivesessionLasthit: String, sActivesessionIP: String) {
         self.pkiActivesessionID = pkiActivesessionID
         self.fkiUserID = fkiUserID
         self.fkiComputerID = fkiComputerID
@@ -82,13 +82,13 @@ public struct ActivesessionListElement: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiActivesessionID, forKey: .pkiActivesessionID)
         try container.encode(fkiUserID, forKey: .fkiUserID)
-        try container.encode(fkiComputerID, forKey: .fkiComputerID)
+        try container.encodeIfPresent(fkiComputerID, forKey: .fkiComputerID)
         try container.encode(fkiCompanyID, forKey: .fkiCompanyID)
         try container.encode(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)
         try container.encode(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(sActivesessionLoginname, forKey: .sActivesessionLoginname)
-        try container.encode(sComputerDescription, forKey: .sComputerDescription)
+        try container.encodeIfPresent(sComputerDescription, forKey: .sComputerDescription)
         try container.encode(dtActivesessionFirsthit, forKey: .dtActivesessionFirsthit)
         try container.encode(dtActivesessionLasthit, forKey: .dtActivesessionLasthit)
         try container.encode(sActivesessionIP, forKey: .sActivesessionIP)

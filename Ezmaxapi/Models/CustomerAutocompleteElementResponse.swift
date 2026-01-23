@@ -16,19 +16,23 @@ public struct CustomerAutocompleteElementResponse: Codable, JSONEncodable, Hasha
     public static let pkiCustomerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sCustomerNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let sCustomerCodeRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,6}$/")
     /** The unique ID of the Customer. */
     public var pkiCustomerID: Int
     /** The unique ID of the Department */
     public var fkiDepartmentID: Int
     /** The name of the Customer */
     public var sCustomerName: String
+    /** The code of the Customer */
+    public var sCustomerCode: String
     /** Whether the customer is active or not */
     public var bCustomerIsactive: Bool
 
-    public init(pkiCustomerID: Int, fkiDepartmentID: Int, sCustomerName: String, bCustomerIsactive: Bool) {
+    public init(pkiCustomerID: Int, fkiDepartmentID: Int, sCustomerName: String, sCustomerCode: String, bCustomerIsactive: Bool) {
         self.pkiCustomerID = pkiCustomerID
         self.fkiDepartmentID = fkiDepartmentID
         self.sCustomerName = sCustomerName
+        self.sCustomerCode = sCustomerCode
         self.bCustomerIsactive = bCustomerIsactive
     }
 
@@ -36,6 +40,7 @@ public struct CustomerAutocompleteElementResponse: Codable, JSONEncodable, Hasha
         case pkiCustomerID
         case fkiDepartmentID
         case sCustomerName
+        case sCustomerCode
         case bCustomerIsactive
     }
 
@@ -46,6 +51,7 @@ public struct CustomerAutocompleteElementResponse: Codable, JSONEncodable, Hasha
         try container.encode(pkiCustomerID, forKey: .pkiCustomerID)
         try container.encode(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encode(sCustomerName, forKey: .sCustomerName)
+        try container.encode(sCustomerCode, forKey: .sCustomerCode)
         try container.encode(bCustomerIsactive, forKey: .bCustomerIsactive)
     }
 }

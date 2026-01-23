@@ -27,7 +27,7 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
     public static let sEzsignsignatureTextvalidationcustommessageRule = StringRule(minLength: 0, maxLength: 50, pattern: nil)
     public static let sEzsignsignatureRegexpRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^\\^.*\\$$|^$/")
     public static let sEzsignsignatureCreditcardamountdescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
-    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,9}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezsignsignature */
     public var pkiEzsignsignatureID: Int?
     /** The unique ID of the Ezsignfoldersignerassociation */
@@ -47,6 +47,8 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
     /** The step when the Ezsignsigner will be invited to sign */
     public var iEzsignsignatureStep: Int
     public var eEzsignsignatureType: FieldEEzsignsignatureType
+    public var eEzsignsignatureSignaturepad: FieldEEzsignsignatureSignaturepad?
+    public var eEzsignsignatureSignaturepadrequired: FieldEEzsignsignatureSignaturepadrequired?
     /** The unique ID of the Ezsigndocument */
     public var fkiEzsigndocumentID: Int
     /** A tooltip that will be presented to Ezsignsigner about the Ezsignsignature */
@@ -81,6 +83,8 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
     public var sEzsignsignatureCreditcardamountdescription: String?
     /** The amount of the Creditcard signature */
     public var dEzsignsignatureCreditcardamount: String?
+    /** Whether we can enter a custom amount while signing an Ezsignsignature 'Creditcard' or not */
+    public var bEzsignsignatureCreditcardcustomamount: Bool?
     /** Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) */
     public var bEzsignsignatureCustomdate: Bool?
     /** An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all. */
@@ -89,7 +93,7 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
     public var aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailRequestCompound]?
     public var objCreateezsignelementspositionedbyword: CustomCreateEzsignelementsPositionedByWordRequest
 
-    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, fkiPaymentgatewayID: Int? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, iEzsignsignatureValidationstep: Int? = nil, iEzsignsignatureMaxlength: Int? = nil, sEzsignsignatureDefaultvalue: String? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, sEzsignsignatureRegexp: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureCreditcardamountdescription: String? = nil, dEzsignsignatureCreditcardamount: String? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]? = nil, aObjEzsignelementdependency: [EzsignelementdependencyRequestCompound]? = nil, aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailRequestCompound]? = nil, objCreateezsignelementspositionedbyword: CustomCreateEzsignelementsPositionedByWordRequest) {
+    public init(pkiEzsignsignatureID: Int? = nil, fkiEzsignfoldersignerassociationID: Int, fkiPaymentgatewayID: Int? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureStep: Int, eEzsignsignatureType: FieldEEzsignsignatureType, eEzsignsignatureSignaturepad: FieldEEzsignsignatureSignaturepad? = nil, eEzsignsignatureSignaturepadrequired: FieldEEzsignsignatureSignaturepadrequired? = nil, fkiEzsigndocumentID: Int, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, iEzsignsignatureValidationstep: Int? = nil, iEzsignsignatureMaxlength: Int? = nil, sEzsignsignatureDefaultvalue: String? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, sEzsignsignatureRegexp: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureCreditcardamountdescription: String? = nil, dEzsignsignatureCreditcardamount: String? = nil, bEzsignsignatureCreditcardcustomamount: Bool? = nil, bEzsignsignatureCustomdate: Bool? = nil, aObjEzsignsignaturecustomdate: [EzsignsignaturecustomdateRequestCompound]? = nil, aObjEzsignelementdependency: [EzsignelementdependencyRequestCompound]? = nil, aObjEzsignsignaturepaymentdetail: [EzsignsignaturepaymentdetailRequestCompound]? = nil, objCreateezsignelementspositionedbyword: CustomCreateEzsignelementsPositionedByWordRequest) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
         self.fkiPaymentgatewayID = fkiPaymentgatewayID
@@ -100,6 +104,8 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
         self.iEzsignsignatureHeight = iEzsignsignatureHeight
         self.iEzsignsignatureStep = iEzsignsignatureStep
         self.eEzsignsignatureType = eEzsignsignatureType
+        self.eEzsignsignatureSignaturepad = eEzsignsignatureSignaturepad
+        self.eEzsignsignatureSignaturepadrequired = eEzsignsignatureSignaturepadrequired
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.tEzsignsignatureTooltip = tEzsignsignatureTooltip
         self.eEzsignsignatureTooltipposition = eEzsignsignatureTooltipposition
@@ -120,6 +126,7 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
         self.eEzsignsignatureDependencyrequirement = eEzsignsignatureDependencyrequirement
         self.sEzsignsignatureCreditcardamountdescription = sEzsignsignatureCreditcardamountdescription
         self.dEzsignsignatureCreditcardamount = dEzsignsignatureCreditcardamount
+        self.bEzsignsignatureCreditcardcustomamount = bEzsignsignatureCreditcardcustomamount
         self.bEzsignsignatureCustomdate = bEzsignsignatureCustomdate
         self.aObjEzsignsignaturecustomdate = aObjEzsignsignaturecustomdate
         self.aObjEzsignelementdependency = aObjEzsignelementdependency
@@ -138,6 +145,8 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
         case iEzsignsignatureHeight
         case iEzsignsignatureStep
         case eEzsignsignatureType
+        case eEzsignsignatureSignaturepad
+        case eEzsignsignatureSignaturepadrequired
         case fkiEzsigndocumentID
         case tEzsignsignatureTooltip
         case eEzsignsignatureTooltipposition
@@ -158,6 +167,7 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
         case eEzsignsignatureDependencyrequirement
         case sEzsignsignatureCreditcardamountdescription
         case dEzsignsignatureCreditcardamount
+        case bEzsignsignatureCreditcardcustomamount
         case bEzsignsignatureCustomdate
         case aObjEzsignsignaturecustomdate = "a_objEzsignsignaturecustomdate"
         case aObjEzsignelementdependency = "a_objEzsignelementdependency"
@@ -179,6 +189,8 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
         try container.encodeIfPresent(iEzsignsignatureHeight, forKey: .iEzsignsignatureHeight)
         try container.encode(iEzsignsignatureStep, forKey: .iEzsignsignatureStep)
         try container.encode(eEzsignsignatureType, forKey: .eEzsignsignatureType)
+        try container.encodeIfPresent(eEzsignsignatureSignaturepad, forKey: .eEzsignsignatureSignaturepad)
+        try container.encodeIfPresent(eEzsignsignatureSignaturepadrequired, forKey: .eEzsignsignatureSignaturepadrequired)
         try container.encode(fkiEzsigndocumentID, forKey: .fkiEzsigndocumentID)
         try container.encodeIfPresent(tEzsignsignatureTooltip, forKey: .tEzsignsignatureTooltip)
         try container.encodeIfPresent(eEzsignsignatureTooltipposition, forKey: .eEzsignsignatureTooltipposition)
@@ -199,6 +211,7 @@ public struct CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest: 
         try container.encodeIfPresent(eEzsignsignatureDependencyrequirement, forKey: .eEzsignsignatureDependencyrequirement)
         try container.encodeIfPresent(sEzsignsignatureCreditcardamountdescription, forKey: .sEzsignsignatureCreditcardamountdescription)
         try container.encodeIfPresent(dEzsignsignatureCreditcardamount, forKey: .dEzsignsignatureCreditcardamount)
+        try container.encodeIfPresent(bEzsignsignatureCreditcardcustomamount, forKey: .bEzsignsignatureCreditcardcustomamount)
         try container.encodeIfPresent(bEzsignsignatureCustomdate, forKey: .bEzsignsignatureCustomdate)
         try container.encodeIfPresent(aObjEzsignsignaturecustomdate, forKey: .aObjEzsignsignaturecustomdate)
         try container.encodeIfPresent(aObjEzsignelementdependency, forKey: .aObjEzsignelementdependency)

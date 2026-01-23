@@ -20,7 +20,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     public static let fkiFontIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiPaymentgatewayIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let sCurrencyDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,20}$/")
-    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let dEzsignsignatureCreditcardamountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,9}?\\.[\\d]{2}$/")
     public static let sEzsignsignatureCreditcardamountdescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,50}$/")
     public static let sEzsignsigningreasonDescriptionXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     public static let iEzsignpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -51,6 +51,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     public var dEzsignsignatureCreditcardamount: String?
     /** The description of the Creditcard signature */
     public var sEzsignsignatureCreditcardamountdescription: String?
+    /** Whether we can enter a custom amount while signing an Ezsignsignature 'Creditcard' or not */
+    public var bEzsignsignatureCreditcardcustomamount: Bool?
     /** The description of the Ezsignsigningreason in the language of the requester */
     public var sEzsignsigningreasonDescriptionX: String?
     /** The page number in the Ezsigndocument */
@@ -68,6 +70,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     /** The step when the Ezsignsigner will be invited to sign */
     public var iEzsignsignatureStepadjusted: Int?
     public var eEzsignsignatureType: FieldEEzsignsignatureType
+    public var eEzsignsignatureSignaturepad: FieldEEzsignsignatureSignaturepad?
+    public var eEzsignsignatureSignaturepadrequired: FieldEEzsignsignatureSignaturepadrequired?
     /** A tooltip that will be presented to Ezsignsigner about the Ezsignsignature */
     public var tEzsignsignatureTooltip: String?
     public var eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition?
@@ -106,7 +110,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
     public var objContactNameDelegation: CustomContactNameResponse?
     public var objSignature: SignatureResponseCompound?
 
-    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, fkiPaymentgatewayID: Int? = nil, sCurrencyDescriptionX: String? = nil, dEzsignsignatureCreditcardamount: String? = nil, sEzsignsignatureCreditcardamountdescription: String? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil) {
+    public init(pkiEzsignsignatureID: Int, fkiEzsigndocumentID: Int, fkiEzsignfoldersignerassociationID: Int, fkiEzsignsigningreasonID: Int? = nil, fkiFontID: Int? = nil, fkiPaymentgatewayID: Int? = nil, sCurrencyDescriptionX: String? = nil, dEzsignsignatureCreditcardamount: String? = nil, sEzsignsignatureCreditcardamountdescription: String? = nil, bEzsignsignatureCreditcardcustomamount: Bool? = nil, sEzsignsigningreasonDescriptionX: String? = nil, iEzsignpagePagenumber: Int, iEzsignsignatureX: Int, iEzsignsignatureY: Int, iEzsignsignatureHeight: Int? = nil, iEzsignsignatureWidth: Int? = nil, iEzsignsignatureStep: Int, iEzsignsignatureStepadjusted: Int? = nil, eEzsignsignatureType: FieldEEzsignsignatureType, eEzsignsignatureSignaturepad: FieldEEzsignsignatureSignaturepad? = nil, eEzsignsignatureSignaturepadrequired: FieldEEzsignsignatureSignaturepadrequired? = nil, tEzsignsignatureTooltip: String? = nil, eEzsignsignatureTooltipposition: FieldEEzsignsignatureTooltipposition? = nil, eEzsignsignatureFont: FieldEEzsignsignatureFont? = nil, iEzsignsignatureValidationstep: Int? = nil, sEzsignsignatureAttachmentdescription: String? = nil, eEzsignsignatureAttachmentnamesource: FieldEEzsignsignatureAttachmentnamesource? = nil, eEzsignsignatureConsultationtrigger: FieldEEzsignsignatureConsultationtrigger? = nil, bEzsignsignatureHandwritten: Bool? = nil, bEzsignsignatureReason: Bool? = nil, bEzsignsignatureRequired: Bool? = nil, fkiEzsignfoldersignerassociationIDValidation: Int? = nil, dtEzsignsignatureDate: String? = nil, iEzsignsignatureattachmentCount: Int? = nil, sEzsignsignatureDescription: String? = nil, iEzsignsignatureMaxlength: Int? = nil, eEzsignsignatureTextvalidation: EnumTextvalidation? = nil, sEzsignsignatureTextvalidationcustommessage: String? = nil, eEzsignsignatureDependencyrequirement: FieldEEzsignsignatureDependencyrequirement? = nil, sEzsignsignatureDefaultvalue: String? = nil, sEzsignsignatureRegexp: String? = nil, objContactName: CustomContactNameResponse, objContactNameDelegation: CustomContactNameResponse? = nil, objSignature: SignatureResponseCompound? = nil) {
         self.pkiEzsignsignatureID = pkiEzsignsignatureID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignfoldersignerassociationID = fkiEzsignfoldersignerassociationID
@@ -116,6 +120,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         self.sCurrencyDescriptionX = sCurrencyDescriptionX
         self.dEzsignsignatureCreditcardamount = dEzsignsignatureCreditcardamount
         self.sEzsignsignatureCreditcardamountdescription = sEzsignsignatureCreditcardamountdescription
+        self.bEzsignsignatureCreditcardcustomamount = bEzsignsignatureCreditcardcustomamount
         self.sEzsignsigningreasonDescriptionX = sEzsignsigningreasonDescriptionX
         self.iEzsignpagePagenumber = iEzsignpagePagenumber
         self.iEzsignsignatureX = iEzsignsignatureX
@@ -125,6 +130,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         self.iEzsignsignatureStep = iEzsignsignatureStep
         self.iEzsignsignatureStepadjusted = iEzsignsignatureStepadjusted
         self.eEzsignsignatureType = eEzsignsignatureType
+        self.eEzsignsignatureSignaturepad = eEzsignsignatureSignaturepad
+        self.eEzsignsignatureSignaturepadrequired = eEzsignsignatureSignaturepadrequired
         self.tEzsignsignatureTooltip = tEzsignsignatureTooltip
         self.eEzsignsignatureTooltipposition = eEzsignsignatureTooltipposition
         self.eEzsignsignatureFont = eEzsignsignatureFont
@@ -160,6 +167,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         case sCurrencyDescriptionX
         case dEzsignsignatureCreditcardamount
         case sEzsignsignatureCreditcardamountdescription
+        case bEzsignsignatureCreditcardcustomamount
         case sEzsignsigningreasonDescriptionX
         case iEzsignpagePagenumber
         case iEzsignsignatureX
@@ -169,6 +177,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         case iEzsignsignatureStep
         case iEzsignsignatureStepadjusted
         case eEzsignsignatureType
+        case eEzsignsignatureSignaturepad
+        case eEzsignsignatureSignaturepadrequired
         case tEzsignsignatureTooltip
         case eEzsignsignatureTooltipposition
         case eEzsignsignatureFont
@@ -207,6 +217,7 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sCurrencyDescriptionX, forKey: .sCurrencyDescriptionX)
         try container.encodeIfPresent(dEzsignsignatureCreditcardamount, forKey: .dEzsignsignatureCreditcardamount)
         try container.encodeIfPresent(sEzsignsignatureCreditcardamountdescription, forKey: .sEzsignsignatureCreditcardamountdescription)
+        try container.encodeIfPresent(bEzsignsignatureCreditcardcustomamount, forKey: .bEzsignsignatureCreditcardcustomamount)
         try container.encodeIfPresent(sEzsignsigningreasonDescriptionX, forKey: .sEzsignsigningreasonDescriptionX)
         try container.encode(iEzsignpagePagenumber, forKey: .iEzsignpagePagenumber)
         try container.encode(iEzsignsignatureX, forKey: .iEzsignsignatureX)
@@ -216,6 +227,8 @@ public struct EzsignsignatureResponse: Codable, JSONEncodable, Hashable {
         try container.encode(iEzsignsignatureStep, forKey: .iEzsignsignatureStep)
         try container.encodeIfPresent(iEzsignsignatureStepadjusted, forKey: .iEzsignsignatureStepadjusted)
         try container.encode(eEzsignsignatureType, forKey: .eEzsignsignatureType)
+        try container.encodeIfPresent(eEzsignsignatureSignaturepad, forKey: .eEzsignsignatureSignaturepad)
+        try container.encodeIfPresent(eEzsignsignatureSignaturepadrequired, forKey: .eEzsignsignatureSignaturepadrequired)
         try container.encodeIfPresent(tEzsignsignatureTooltip, forKey: .tEzsignsignatureTooltip)
         try container.encodeIfPresent(eEzsignsignatureTooltipposition, forKey: .eEzsignsignatureTooltipposition)
         try container.encodeIfPresent(eEzsignsignatureFont, forKey: .eEzsignsignatureFont)
