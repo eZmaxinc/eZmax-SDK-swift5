@@ -46,6 +46,8 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
     public var bSystemconfigurationHascreditcardmerchant: Bool?
     /** Whether is Disposal processus is active or not */
     public var bSystemconfigurationIsdisposalactive: Bool?
+    /** Whether is the system allows to have a complex creditcard signature */
+    public var bSystemconfigurationAllowcomplexcreditcardsignature: Bool?
     /** Whether if we allow SSPR */
     public var bSystemconfigurationSspr: Bool
     /** The start date where the system will be in read only */
@@ -56,7 +58,7 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
     /** The hour we will send the eZsign reminders */
     public var iSystemconfigurationEzsignreminderhoursend: Int?
 
-    public init(pkiSystemconfigurationID: Int, fkiSystemconfigurationtypeID: Int, fkiBrandingID: Int? = nil, fkiTimezoneIDDefault: Int, sTimezoneNameDefault: String, sSystemconfigurationtypeDescriptionX: String, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationHascreditcardmerchant: Bool? = nil, bSystemconfigurationIsdisposalactive: Bool? = nil, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil, objBranding: CustomBrandingResponse? = nil, iSystemconfigurationEzsignreminderhoursend: Int? = nil) {
+    public init(pkiSystemconfigurationID: Int, fkiSystemconfigurationtypeID: Int, fkiBrandingID: Int? = nil, fkiTimezoneIDDefault: Int, sTimezoneNameDefault: String, sSystemconfigurationtypeDescriptionX: String, eSystemconfigurationNewexternaluseraction: FieldESystemconfigurationNewexternaluseraction, eSystemconfigurationLanguage1: FieldESystemconfigurationLanguage1, eSystemconfigurationLanguage2: FieldESystemconfigurationLanguage2, eSystemconfigurationEzsign: FieldESystemconfigurationEzsign? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, bSystemconfigurationEzsignpersonnal: Bool, bSystemconfigurationHascreditcardmerchant: Bool? = nil, bSystemconfigurationIsdisposalactive: Bool? = nil, bSystemconfigurationAllowcomplexcreditcardsignature: Bool? = nil, bSystemconfigurationSspr: Bool, dtSystemconfigurationReadonlyexpirationstart: String? = nil, dtSystemconfigurationReadonlyexpirationend: String? = nil, objBranding: CustomBrandingResponse? = nil, iSystemconfigurationEzsignreminderhoursend: Int? = nil) {
         self.pkiSystemconfigurationID = pkiSystemconfigurationID
         self.fkiSystemconfigurationtypeID = fkiSystemconfigurationtypeID
         self.fkiBrandingID = fkiBrandingID
@@ -72,6 +74,7 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
         self.bSystemconfigurationEzsignpersonnal = bSystemconfigurationEzsignpersonnal
         self.bSystemconfigurationHascreditcardmerchant = bSystemconfigurationHascreditcardmerchant
         self.bSystemconfigurationIsdisposalactive = bSystemconfigurationIsdisposalactive
+        self.bSystemconfigurationAllowcomplexcreditcardsignature = bSystemconfigurationAllowcomplexcreditcardsignature
         self.bSystemconfigurationSspr = bSystemconfigurationSspr
         self.dtSystemconfigurationReadonlyexpirationstart = dtSystemconfigurationReadonlyexpirationstart
         self.dtSystemconfigurationReadonlyexpirationend = dtSystemconfigurationReadonlyexpirationend
@@ -95,6 +98,7 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
         case bSystemconfigurationEzsignpersonnal
         case bSystemconfigurationHascreditcardmerchant
         case bSystemconfigurationIsdisposalactive
+        case bSystemconfigurationAllowcomplexcreditcardsignature
         case bSystemconfigurationSspr
         case dtSystemconfigurationReadonlyexpirationstart
         case dtSystemconfigurationReadonlyexpirationend
@@ -121,6 +125,7 @@ public struct SystemconfigurationResponseCompound: Codable, JSONEncodable, Hasha
         try container.encode(bSystemconfigurationEzsignpersonnal, forKey: .bSystemconfigurationEzsignpersonnal)
         try container.encodeIfPresent(bSystemconfigurationHascreditcardmerchant, forKey: .bSystemconfigurationHascreditcardmerchant)
         try container.encodeIfPresent(bSystemconfigurationIsdisposalactive, forKey: .bSystemconfigurationIsdisposalactive)
+        try container.encodeIfPresent(bSystemconfigurationAllowcomplexcreditcardsignature, forKey: .bSystemconfigurationAllowcomplexcreditcardsignature)
         try container.encode(bSystemconfigurationSspr, forKey: .bSystemconfigurationSspr)
         try container.encodeIfPresent(dtSystemconfigurationReadonlyexpirationstart, forKey: .dtSystemconfigurationReadonlyexpirationstart)
         try container.encodeIfPresent(dtSystemconfigurationReadonlyexpirationend, forKey: .dtSystemconfigurationReadonlyexpirationend)

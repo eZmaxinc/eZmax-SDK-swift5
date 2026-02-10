@@ -583,6 +583,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsigndocumentEditEzsignformfieldgroupsV1(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV1Request: EzsigndocumentEditEzsignformfieldgroupsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEditEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentEditEzsignformfieldgroupsV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV1Request: ezsigndocumentEditEzsignformfieldgroupsV1Request).execute(apiResponseQueue) { result in
@@ -606,6 +607,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter ezsigndocumentEditEzsignformfieldgroupsV1Request: (body)  
      - returns: RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsigndocumentEditEzsignformfieldgroupsV1WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV1Request: EzsigndocumentEditEzsignformfieldgroupsV1Request) -> RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV1Response> {
         var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups"
         let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
@@ -635,7 +637,6 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsigndocumentEditEzsignformfieldgroupsV2(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV2Request: EzsigndocumentEditEzsignformfieldgroupsV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentEditEzsignformfieldgroupsV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentEditEzsignformfieldgroupsV2WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentEditEzsignformfieldgroupsV2Request: ezsigndocumentEditEzsignformfieldgroupsV2Request).execute(apiResponseQueue) { result in
@@ -659,7 +660,6 @@ open class ObjectEzsigndocumentAPI {
      - parameter ezsigndocumentEditEzsignformfieldgroupsV2Request: (body)  
      - returns: RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV2Response> 
      */
-    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsigndocumentEditEzsignformfieldgroupsV2WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentEditEzsignformfieldgroupsV2Request: EzsigndocumentEditEzsignformfieldgroupsV2Request) -> RequestBuilder<EzsigndocumentEditEzsignformfieldgroupsV2Response> {
         var localVariablePath = "/2/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups"
         let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"

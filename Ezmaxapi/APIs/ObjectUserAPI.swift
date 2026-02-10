@@ -19,6 +19,7 @@ open class ObjectUserAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func userCreateObjectV1(userCreateObjectV1Request: UserCreateObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return userCreateObjectV1WithRequestBuilder(userCreateObjectV1Request: userCreateObjectV1Request).execute(apiResponseQueue) { result in
@@ -41,6 +42,7 @@ open class ObjectUserAPI {
      - parameter userCreateObjectV1Request: (body)  
      - returns: RequestBuilder<UserCreateObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func userCreateObjectV1WithRequestBuilder(userCreateObjectV1Request: UserCreateObjectV1Request) -> RequestBuilder<UserCreateObjectV1Response> {
         let localVariablePath = "/1/object/user"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath

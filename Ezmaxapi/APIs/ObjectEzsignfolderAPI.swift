@@ -65,16 +65,26 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
+     * enum for parameter accept
+     */
+    public enum Accept_ezsignfolderBatchDownloadV1: String, CaseIterable {
+        case applicationSlashJson = "application/json"
+        case applicationSlashZip = "application/zip"
+        case applicationSlashPdf = "application/pdf"
+    }
+
+    /**
      Download multiples files from an Ezsignfolder
      
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderBatchDownloadV1Request: (body)  
+     - parameter accept: (header) Test csharp (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func ezsignfolderBatchDownloadV1(pkiEzsignfolderID: Int, ezsignfolderBatchDownloadV1Request: EzsignfolderBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
-        return ezsignfolderBatchDownloadV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderBatchDownloadV1Request: ezsignfolderBatchDownloadV1Request).execute(apiResponseQueue) { result in
+    open class func ezsignfolderBatchDownloadV1(pkiEzsignfolderID: Int, ezsignfolderBatchDownloadV1Request: EzsignfolderBatchDownloadV1Request, accept: Accept_ezsignfolderBatchDownloadV1? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderBatchDownloadV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderBatchDownloadV1Request: ezsignfolderBatchDownloadV1Request, accept: accept).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -92,9 +102,10 @@ open class ObjectEzsignfolderAPI {
        - name: Authorization
      - parameter pkiEzsignfolderID: (path)  
      - parameter ezsignfolderBatchDownloadV1Request: (body)  
+     - parameter accept: (header) Test csharp (optional)
      - returns: RequestBuilder<URL> 
      */
-    open class func ezsignfolderBatchDownloadV1WithRequestBuilder(pkiEzsignfolderID: Int, ezsignfolderBatchDownloadV1Request: EzsignfolderBatchDownloadV1Request) -> RequestBuilder<URL> {
+    open class func ezsignfolderBatchDownloadV1WithRequestBuilder(pkiEzsignfolderID: Int, ezsignfolderBatchDownloadV1Request: EzsignfolderBatchDownloadV1Request, accept: Accept_ezsignfolderBatchDownloadV1? = nil) -> RequestBuilder<URL> {
         var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/batchDownload"
         let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
         let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -106,6 +117,7 @@ open class ObjectEzsignfolderAPI {
 
         let localVariableNillableHeaders: [String: Any?] = [
             "Content-Type": "application/json",
+            "Accept": accept?.encodeToJSON(),
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)

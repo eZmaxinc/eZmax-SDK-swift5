@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 # **ezsignfolderBatchDownloadV1**
 ```swift
-    open class func ezsignfolderBatchDownloadV1(pkiEzsignfolderID: Int, ezsignfolderBatchDownloadV1Request: EzsignfolderBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func ezsignfolderBatchDownloadV1(pkiEzsignfolderID: Int, ezsignfolderBatchDownloadV1Request: EzsignfolderBatchDownloadV1Request, accept: Accept_ezsignfolderBatchDownloadV1? = nil, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
 ```
 
 Download multiples files from an Ezsignfolder
@@ -107,9 +107,10 @@ import OpenAPIClient
 
 let pkiEzsignfolderID = 987 // Int | 
 let ezsignfolderBatchDownloadV1Request = ezsignfolder-batchDownload-v1-Request(aPkiEzsigndocumentID: [123], aEDocumentType: ["aEDocumentType_example"]) // EzsignfolderBatchDownloadV1Request | 
+let accept = "accept_example" // String | Test csharp (optional)
 
 // Download multiples files from an Ezsignfolder
-ObjectEzsignfolderAPI.ezsignfolderBatchDownloadV1(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderBatchDownloadV1Request: ezsignfolderBatchDownloadV1Request) { (response, error) in
+ObjectEzsignfolderAPI.ezsignfolderBatchDownloadV1(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderBatchDownloadV1Request: ezsignfolderBatchDownloadV1Request, accept: accept) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -127,6 +128,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pkiEzsignfolderID** | **Int** |  | 
  **ezsignfolderBatchDownloadV1Request** | [**EzsignfolderBatchDownloadV1Request**](EzsignfolderBatchDownloadV1Request.md) |  | 
+ **accept** | **String** | Test csharp | [optional] 
 
 ### Return type
 
