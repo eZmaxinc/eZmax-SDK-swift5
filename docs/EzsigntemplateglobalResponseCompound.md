@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **sEzsigntemplateglobalDescription** | **String** | The description of the Ezsigntemplate | 
 **objEzsigntemplateglobaldocument** | [**EzsigntemplateglobaldocumentResponse**](EzsigntemplateglobaldocumentResponse.md) |  | [optional] 
 **aObjEzsigntemplateglobalsigner** | [EzsigntemplateglobalsignerResponseCompound] |  | 
+**aObjEzsigntemplateglobalannotation** | [EzsigntemplateglobalannotationResponseCompound] |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

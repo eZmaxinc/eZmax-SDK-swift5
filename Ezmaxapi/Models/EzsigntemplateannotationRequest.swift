@@ -14,21 +14,19 @@ import AnyCodable
 public struct EzsigntemplateannotationRequest: Codable, JSONEncodable, Hashable {
 
     public static let pkiEzsigntemplateannotationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
-    public static let fkiEzsigntemplatedocumentpageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let fkiTextstylestaticIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplatedocumentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplateannotationXRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplateannotationYRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplateannotationWidthRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let iEzsigntemplateannotationHeightRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let iEzsigntemplatedocumentpagePagenumberRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sEzsigntemplateannotationDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
     public static let sEzsigntemplateannotationDefaulttextRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
-    public static let sEzsigntemplateannotationnDropdownvaluesRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let sEzsigntemplateannotationDropdownvaluesRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
     /** The unique ID of the Ezsigntemplateannotation */
     public var pkiEzsigntemplateannotationID: Int?
-    /** The unique ID of the Ezsigntemplatedocumentpage */
-    public var fkiEzsigntemplatedocumentpageID: Int
-    /** The unique ID of the Textstylestatic */
-    public var fkiTextstylestaticID: Int
+    /** The unique ID of the Ezsigntemplatedocument */
+    public var fkiEzsigntemplatedocumentID: Int
     public var eEzsigntemplateannotationHorizontalalignment: FieldEEzsigntemplateannotationHorizontalalignment
     public var eEzsigntemplateannotationVerticalalignment: FieldEEzsigntemplateannotationVerticalalignment
     public var eEzsigntemplateannotationType: FieldEEzsigntemplateannotationType
@@ -40,17 +38,19 @@ public struct EzsigntemplateannotationRequest: Codable, JSONEncodable, Hashable 
     public var iEzsigntemplateannotationWidth: Int
     /** The height of the Ezsigntemplateannotation */
     public var iEzsigntemplateannotationHeight: Int
+    /** The page number in the Ezsigntemplatedocument */
+    public var iEzsigntemplatedocumentpagePagenumber: Int
     /** The description of the Ezsigntemplateannotation */
     public var sEzsigntemplateannotationDescription: String
     /** The defaulttext of the Ezsigntemplateannotation */
     public var sEzsigntemplateannotationDefaulttext: String
     /** The ndropdownvalues of the Ezsigntemplateannotation */
-    public var sEzsigntemplateannotationnDropdownvalues: String
+    public var sEzsigntemplateannotationDropdownvalues: String
+    public var objTextstylestatic: TextstylestaticRequestCompound?
 
-    public init(pkiEzsigntemplateannotationID: Int? = nil, fkiEzsigntemplatedocumentpageID: Int, fkiTextstylestaticID: Int, eEzsigntemplateannotationHorizontalalignment: FieldEEzsigntemplateannotationHorizontalalignment, eEzsigntemplateannotationVerticalalignment: FieldEEzsigntemplateannotationVerticalalignment, eEzsigntemplateannotationType: FieldEEzsigntemplateannotationType, iEzsigntemplateannotationX: Int, iEzsigntemplateannotationY: Int, iEzsigntemplateannotationWidth: Int, iEzsigntemplateannotationHeight: Int, sEzsigntemplateannotationDescription: String, sEzsigntemplateannotationDefaulttext: String, sEzsigntemplateannotationnDropdownvalues: String) {
+    public init(pkiEzsigntemplateannotationID: Int? = nil, fkiEzsigntemplatedocumentID: Int, eEzsigntemplateannotationHorizontalalignment: FieldEEzsigntemplateannotationHorizontalalignment, eEzsigntemplateannotationVerticalalignment: FieldEEzsigntemplateannotationVerticalalignment, eEzsigntemplateannotationType: FieldEEzsigntemplateannotationType, iEzsigntemplateannotationX: Int, iEzsigntemplateannotationY: Int, iEzsigntemplateannotationWidth: Int, iEzsigntemplateannotationHeight: Int, iEzsigntemplatedocumentpagePagenumber: Int, sEzsigntemplateannotationDescription: String, sEzsigntemplateannotationDefaulttext: String, sEzsigntemplateannotationDropdownvalues: String, objTextstylestatic: TextstylestaticRequestCompound? = nil) {
         self.pkiEzsigntemplateannotationID = pkiEzsigntemplateannotationID
-        self.fkiEzsigntemplatedocumentpageID = fkiEzsigntemplatedocumentpageID
-        self.fkiTextstylestaticID = fkiTextstylestaticID
+        self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.eEzsigntemplateannotationHorizontalalignment = eEzsigntemplateannotationHorizontalalignment
         self.eEzsigntemplateannotationVerticalalignment = eEzsigntemplateannotationVerticalalignment
         self.eEzsigntemplateannotationType = eEzsigntemplateannotationType
@@ -58,15 +58,16 @@ public struct EzsigntemplateannotationRequest: Codable, JSONEncodable, Hashable 
         self.iEzsigntemplateannotationY = iEzsigntemplateannotationY
         self.iEzsigntemplateannotationWidth = iEzsigntemplateannotationWidth
         self.iEzsigntemplateannotationHeight = iEzsigntemplateannotationHeight
+        self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.sEzsigntemplateannotationDescription = sEzsigntemplateannotationDescription
         self.sEzsigntemplateannotationDefaulttext = sEzsigntemplateannotationDefaulttext
-        self.sEzsigntemplateannotationnDropdownvalues = sEzsigntemplateannotationnDropdownvalues
+        self.sEzsigntemplateannotationDropdownvalues = sEzsigntemplateannotationDropdownvalues
+        self.objTextstylestatic = objTextstylestatic
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsigntemplateannotationID
-        case fkiEzsigntemplatedocumentpageID
-        case fkiTextstylestaticID
+        case fkiEzsigntemplatedocumentID
         case eEzsigntemplateannotationHorizontalalignment
         case eEzsigntemplateannotationVerticalalignment
         case eEzsigntemplateannotationType
@@ -74,9 +75,11 @@ public struct EzsigntemplateannotationRequest: Codable, JSONEncodable, Hashable 
         case iEzsigntemplateannotationY
         case iEzsigntemplateannotationWidth
         case iEzsigntemplateannotationHeight
+        case iEzsigntemplatedocumentpagePagenumber
         case sEzsigntemplateannotationDescription
         case sEzsigntemplateannotationDefaulttext
-        case sEzsigntemplateannotationnDropdownvalues
+        case sEzsigntemplateannotationDropdownvalues
+        case objTextstylestatic
     }
 
     // Encodable protocol methods
@@ -84,8 +87,7 @@ public struct EzsigntemplateannotationRequest: Codable, JSONEncodable, Hashable 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(pkiEzsigntemplateannotationID, forKey: .pkiEzsigntemplateannotationID)
-        try container.encode(fkiEzsigntemplatedocumentpageID, forKey: .fkiEzsigntemplatedocumentpageID)
-        try container.encode(fkiTextstylestaticID, forKey: .fkiTextstylestaticID)
+        try container.encode(fkiEzsigntemplatedocumentID, forKey: .fkiEzsigntemplatedocumentID)
         try container.encode(eEzsigntemplateannotationHorizontalalignment, forKey: .eEzsigntemplateannotationHorizontalalignment)
         try container.encode(eEzsigntemplateannotationVerticalalignment, forKey: .eEzsigntemplateannotationVerticalalignment)
         try container.encode(eEzsigntemplateannotationType, forKey: .eEzsigntemplateannotationType)
@@ -93,9 +95,11 @@ public struct EzsigntemplateannotationRequest: Codable, JSONEncodable, Hashable 
         try container.encode(iEzsigntemplateannotationY, forKey: .iEzsigntemplateannotationY)
         try container.encode(iEzsigntemplateannotationWidth, forKey: .iEzsigntemplateannotationWidth)
         try container.encode(iEzsigntemplateannotationHeight, forKey: .iEzsigntemplateannotationHeight)
+        try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
         try container.encode(sEzsigntemplateannotationDescription, forKey: .sEzsigntemplateannotationDescription)
         try container.encode(sEzsigntemplateannotationDefaulttext, forKey: .sEzsigntemplateannotationDefaulttext)
-        try container.encode(sEzsigntemplateannotationnDropdownvalues, forKey: .sEzsigntemplateannotationnDropdownvalues)
+        try container.encode(sEzsigntemplateannotationDropdownvalues, forKey: .sEzsigntemplateannotationDropdownvalues)
+        try container.encodeIfPresent(objTextstylestatic, forKey: .objTextstylestatic)
     }
 }
 

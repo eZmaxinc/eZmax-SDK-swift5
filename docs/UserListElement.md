@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **sUserLastname** | **String** | The last name of the user | 
 **sUserLoginname** | **String** | The login name of the User. | 
 **bUserIsactive** | **Bool** | Whether the User is active or not | 
+**bUserSuspended** | **Bool** | Whether the User is suspended or not | [optional] 
 **eUserType** | [**FieldEUserType**](FieldEUserType.md) |  | 
 **eUserOrigin** | [**FieldEUserOrigin**](FieldEUserOrigin.md) |  | 
 **eUserEzsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 

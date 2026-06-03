@@ -38,8 +38,9 @@ public struct EzsigntemplateglobalResponseCompound: Codable, JSONEncodable, Hash
     public var sEzsigntemplateglobalDescription: String
     public var objEzsigntemplateglobaldocument: EzsigntemplateglobaldocumentResponse?
     public var aObjEzsigntemplateglobalsigner: [EzsigntemplateglobalsignerResponseCompound]
+    public var aObjEzsigntemplateglobalannotation: [EzsigntemplateglobalannotationResponseCompound]?
 
-    public init(pkiEzsigntemplateglobalID: Int, fkiEzsigntemplateglobaldocumentID: Int, fkiModuleID: Int, sModuleNameX: String? = nil, fkiLanguageID: Int, sLanguageNameX: String, eEzsigntemplateglobalModule: FieldEEzsigntemplateglobalModule, eEzsigntemplateglobalSupplier: FieldEEzsigntemplateglobalSupplier, sEzsigntemplateglobalCode: String, sEzsigntemplateglobalDescription: String, objEzsigntemplateglobaldocument: EzsigntemplateglobaldocumentResponse? = nil, aObjEzsigntemplateglobalsigner: [EzsigntemplateglobalsignerResponseCompound]) {
+    public init(pkiEzsigntemplateglobalID: Int, fkiEzsigntemplateglobaldocumentID: Int, fkiModuleID: Int, sModuleNameX: String? = nil, fkiLanguageID: Int, sLanguageNameX: String, eEzsigntemplateglobalModule: FieldEEzsigntemplateglobalModule, eEzsigntemplateglobalSupplier: FieldEEzsigntemplateglobalSupplier, sEzsigntemplateglobalCode: String, sEzsigntemplateglobalDescription: String, objEzsigntemplateglobaldocument: EzsigntemplateglobaldocumentResponse? = nil, aObjEzsigntemplateglobalsigner: [EzsigntemplateglobalsignerResponseCompound], aObjEzsigntemplateglobalannotation: [EzsigntemplateglobalannotationResponseCompound]? = nil) {
         self.pkiEzsigntemplateglobalID = pkiEzsigntemplateglobalID
         self.fkiEzsigntemplateglobaldocumentID = fkiEzsigntemplateglobaldocumentID
         self.fkiModuleID = fkiModuleID
@@ -52,6 +53,7 @@ public struct EzsigntemplateglobalResponseCompound: Codable, JSONEncodable, Hash
         self.sEzsigntemplateglobalDescription = sEzsigntemplateglobalDescription
         self.objEzsigntemplateglobaldocument = objEzsigntemplateglobaldocument
         self.aObjEzsigntemplateglobalsigner = aObjEzsigntemplateglobalsigner
+        self.aObjEzsigntemplateglobalannotation = aObjEzsigntemplateglobalannotation
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -67,6 +69,7 @@ public struct EzsigntemplateglobalResponseCompound: Codable, JSONEncodable, Hash
         case sEzsigntemplateglobalDescription
         case objEzsigntemplateglobaldocument
         case aObjEzsigntemplateglobalsigner = "a_objEzsigntemplateglobalsigner"
+        case aObjEzsigntemplateglobalannotation = "a_objEzsigntemplateglobalannotation"
     }
 
     // Encodable protocol methods
@@ -85,6 +88,7 @@ public struct EzsigntemplateglobalResponseCompound: Codable, JSONEncodable, Hash
         try container.encode(sEzsigntemplateglobalDescription, forKey: .sEzsigntemplateglobalDescription)
         try container.encodeIfPresent(objEzsigntemplateglobaldocument, forKey: .objEzsigntemplateglobaldocument)
         try container.encode(aObjEzsigntemplateglobalsigner, forKey: .aObjEzsigntemplateglobalsigner)
+        try container.encodeIfPresent(aObjEzsigntemplateglobalannotation, forKey: .aObjEzsigntemplateglobalannotation)
     }
 }
 

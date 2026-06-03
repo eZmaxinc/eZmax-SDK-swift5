@@ -27,13 +27,13 @@ public struct EzdoctemplatedocumentRequestCompound: Codable, JSONEncodable, Hash
     /** The unique ID of the Ezdoctemplatetype */
     public var fkiEzdoctemplatetypeID: Int
     /** The unique ID of the Ezdoctemplatefieldtypecategory */
-    public var fkiEzdoctemplatefieldtypecategoryID: Int
+    public var fkiEzdoctemplatefieldtypecategoryID: Int?
     public var eEzdoctemplatedocumentPrivacylevel: FieldEEzdoctemplatedocumentPrivacylevel?
     /** Whether the ezdoctemplatedocument is active or not */
     public var bEzdoctemplatedocumentIsactive: Bool
     public var objEzdoctemplatedocumentName: MultilingualEzdoctemplatedocumentName
 
-    public init(pkiEzdoctemplatedocumentID: Int? = nil, fkiLanguageID: Int, fkiEzsignfoldertypeID: Int? = nil, fkiEzdoctemplatetypeID: Int, fkiEzdoctemplatefieldtypecategoryID: Int, eEzdoctemplatedocumentPrivacylevel: FieldEEzdoctemplatedocumentPrivacylevel? = nil, bEzdoctemplatedocumentIsactive: Bool, objEzdoctemplatedocumentName: MultilingualEzdoctemplatedocumentName) {
+    public init(pkiEzdoctemplatedocumentID: Int? = nil, fkiLanguageID: Int, fkiEzsignfoldertypeID: Int? = nil, fkiEzdoctemplatetypeID: Int, fkiEzdoctemplatefieldtypecategoryID: Int? = nil, eEzdoctemplatedocumentPrivacylevel: FieldEEzdoctemplatedocumentPrivacylevel? = nil, bEzdoctemplatedocumentIsactive: Bool, objEzdoctemplatedocumentName: MultilingualEzdoctemplatedocumentName) {
         self.pkiEzdoctemplatedocumentID = pkiEzdoctemplatedocumentID
         self.fkiLanguageID = fkiLanguageID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -63,7 +63,7 @@ public struct EzdoctemplatedocumentRequestCompound: Codable, JSONEncodable, Hash
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encode(fkiEzdoctemplatetypeID, forKey: .fkiEzdoctemplatetypeID)
-        try container.encode(fkiEzdoctemplatefieldtypecategoryID, forKey: .fkiEzdoctemplatefieldtypecategoryID)
+        try container.encodeIfPresent(fkiEzdoctemplatefieldtypecategoryID, forKey: .fkiEzdoctemplatefieldtypecategoryID)
         try container.encodeIfPresent(eEzdoctemplatedocumentPrivacylevel, forKey: .eEzdoctemplatedocumentPrivacylevel)
         try container.encode(bEzdoctemplatedocumentIsactive, forKey: .bEzdoctemplatedocumentIsactive)
         try container.encode(objEzdoctemplatedocumentName, forKey: .objEzdoctemplatedocumentName)

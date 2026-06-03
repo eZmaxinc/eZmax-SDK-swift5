@@ -23,8 +23,9 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     public static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     public static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     public static let pksCustomerCodeRule = StringRule(minLength: 2, maxLength: 6, pattern: nil)
+    public static let fkiEzmaxpartnerproductstagewebhookIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Webhook */
-    public var pkiWebhookID: Int
+    public var pkiWebhookID: Int?
     /** The unique ID of the Authenticationexternal */
     public var fkiAuthenticationexternalID: Int?
     /** The description of the Webhook */
@@ -52,7 +53,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     public var bWebhookSkipsslvalidation: Bool
     /** The description of the Authenticationexternal */
     public var sAuthenticationexternalDescription: String?
-    public var objAudit: CommonAudit
+    public var objAudit: CommonAudit?
     /** The concatenated string to describe the Webhook event */
     public var sWebhookEvent: String?
     /** Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. */
@@ -65,8 +66,10 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
     public var bWebhookTest: Bool
     /** Wheter the webhook received is a manual test or a real event */
     public var eWebhookEmittype: EWebhookEmittype?
+    /** The unique ID of the Ezmaxpartnerproductstagewebhook */
+    public var fkiEzmaxpartnerproductstagewebhookID: Int?
 
-    public init(pkiWebhookID: Int, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit, sWebhookEvent: String? = nil, sWebhookAuthentificationexternalerror: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil, pksCustomerCode: String, bWebhookTest: Bool, eWebhookEmittype: EWebhookEmittype? = nil) {
+    public init(pkiWebhookID: Int? = nil, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit? = nil, sWebhookEvent: String? = nil, sWebhookAuthentificationexternalerror: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil, pksCustomerCode: String, bWebhookTest: Bool, eWebhookEmittype: EWebhookEmittype? = nil, fkiEzmaxpartnerproductstagewebhookID: Int? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.fkiAuthenticationexternalID = fkiAuthenticationexternalID
         self.sWebhookDescription = sWebhookDescription
@@ -90,6 +93,7 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         self.pksCustomerCode = pksCustomerCode
         self.bWebhookTest = bWebhookTest
         self.eWebhookEmittype = eWebhookEmittype
+        self.fkiEzmaxpartnerproductstagewebhookID = fkiEzmaxpartnerproductstagewebhookID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -116,13 +120,14 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         case pksCustomerCode
         case bWebhookTest
         case eWebhookEmittype
+        case fkiEzmaxpartnerproductstagewebhookID
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(pkiWebhookID, forKey: .pkiWebhookID)
+        try container.encodeIfPresent(pkiWebhookID, forKey: .pkiWebhookID)
         try container.encodeIfPresent(fkiAuthenticationexternalID, forKey: .fkiAuthenticationexternalID)
         try container.encode(sWebhookDescription, forKey: .sWebhookDescription)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
@@ -138,13 +143,14 @@ public struct CustomWebhookResponse: Codable, JSONEncodable, Hashable {
         try container.encode(bWebhookIssigned, forKey: .bWebhookIssigned)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
         try container.encodeIfPresent(sAuthenticationexternalDescription, forKey: .sAuthenticationexternalDescription)
-        try container.encode(objAudit, forKey: .objAudit)
+        try container.encodeIfPresent(objAudit, forKey: .objAudit)
         try container.encodeIfPresent(sWebhookEvent, forKey: .sWebhookEvent)
         try container.encodeIfPresent(sWebhookAuthentificationexternalerror, forKey: .sWebhookAuthentificationexternalerror)
         try container.encodeIfPresent(aObjWebhookheader, forKey: .aObjWebhookheader)
         try container.encode(pksCustomerCode, forKey: .pksCustomerCode)
         try container.encode(bWebhookTest, forKey: .bWebhookTest)
         try container.encodeIfPresent(eWebhookEmittype, forKey: .eWebhookEmittype)
+        try container.encodeIfPresent(fkiEzmaxpartnerproductstagewebhookID, forKey: .fkiEzmaxpartnerproductstagewebhookID)
     }
 }
 

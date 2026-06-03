@@ -66,7 +66,7 @@ public struct EzsignfoldertypeRequestCompoundV3: Codable, JSONEncodable, Hashabl
     public var iEzsignfoldertypeFontsizeannotation: Int?
     /** Font size for form fields */
     public var iEzsignfoldertypeFontsizeformfield: Int?
-    /** The number of days before the the first reminder sending */
+    /** The number of days before the first reminder sending */
     public var iEzsignfoldertypeSendreminderfirstdays: Int?
     /** The number of days after the first reminder sending */
     public var iEzsignfoldertypeSendreminderotherdays: Int?
@@ -96,6 +96,14 @@ public struct EzsignfoldertypeRequestCompoundV3: Codable, JSONEncodable, Hashabl
     public var bEzsignfoldertypeReassignuser: Bool?
     /** Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself */
     public var bEzsignfoldertypeReassigngroup: Bool?
+    /** Whether we send the merged documents in the email to external recipient */
+    public var bEzsignfoldertypeSenddocumentmergetoemail: Bool?
+    /** Whether we send the merged documents in the email to Ezsignsigner */
+    public var bEzsignfoldertypeSenddocumentmergetoezsignsigner: Bool?
+    /** Whether we send the merged documents in the email to user and Ezsignsigner who receive all documents. */
+    public var bEzsignfoldertypeSenddocumentmergetoreceivealldocument: Bool?
+    /** Whether we send the merged documents in the email to User */
+    public var bEzsignfoldertypeSenddocumentmergetouser: Bool?
     /** Whether we send an email to Ezsignsigner  when document is completed */
     public var bEzsignfoldertypeSendsignedtoezsignsigner: Bool?
     /** Whether we send an email to User who signed when document is completed */
@@ -152,7 +160,7 @@ public struct EzsignfoldertypeRequestCompoundV3: Codable, JSONEncodable, Hashabl
     public var aFkiUserIDSigned: [Int]?
     public var aFkiUserIDSummary: [Int]?
 
-    public init(pkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertypeName: MultilingualEzsignfoldertypeName, fkiBrandingID: Int, fkiBillingentityinternalID: Int? = nil, fkiEzsigntsarequirementID: Int? = nil, fkiFontIDAnnotation: Int? = nil, fkiFontIDFormfield: Int? = nil, fkiFontIDSignature: Int? = nil, fkiPdfalevelIDConvert: Int? = nil, aFkiPdfalevelID: [Int]? = nil, aFkiUserlogintypeID: [Int], aFkiUsergroupIDAll: [Int]? = nil, aFkiUsergroupIDRestricted: [Int]? = nil, aFkiUsergroupIDTemplate: [Int]? = nil, eEzsignfoldertypeDocumentdependency: FieldEEzsignfoldertypeDocumentdependency? = nil, eEzsignfoldertypeDocumentmerge: FieldEEzsignfoldertypeDocumentmerge? = nil, sEmailAddressSigned: String? = nil, sEmailAddressSummary: String? = nil, eEzsignfoldertypePdfarequirement: FieldEEzsignfoldertypePdfarequirement? = nil, eEzsignfoldertypePdfanoncompliantaction: FieldEEzsignfoldertypePdfanoncompliantaction? = nil, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, iEzsignfoldertypeFontsizeannotation: Int? = nil, iEzsignfoldertypeFontsizeformfield: Int? = nil, iEzsignfoldertypeSendreminderfirstdays: Int? = nil, iEzsignfoldertypeSendreminderotherdays: Int? = nil, iEzsignfoldertypeArchivaldays: Int, eEzsignfoldertypeDisposal: FieldEEzsignfoldertypeDisposal, eEzsignfoldertypeCompletion: FieldEEzsignfoldertypeCompletion, iEzsignfoldertypeDisposaldays: Int? = nil, iEzsignfoldertypeDeadlinedays: Int, bEzsignfoldertypePrematurelyendautomatically: Bool? = nil, iEzsignfoldertypePrematurelyendautomaticallydays: Int? = nil, bEzsignfoldertypeAutomaticsignature: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeDiscussion: Bool? = nil, bEzsignfoldertypeLogrecipientinproof: Bool? = nil, bEzsignfoldertypeReassignezsignsigner: Bool? = nil, bEzsignfoldertypeReassignuser: Bool? = nil, bEzsignfoldertypeReassigngroup: Bool? = nil, bEzsignfoldertypeSendsignedtoezsignsigner: Bool? = nil, bEzsignfoldertypeSendsignedtouser: Bool? = nil, bEzsignfoldertypeSendattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeSendsignatureattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeSendsignatureattachment: Bool? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeSendattachmentuser: Bool? = nil, bEzsignfoldertypeSendsignatureattachmentuser: Bool? = nil, bEzsignfoldertypeSendproofuser: Bool? = nil, bEzsignfoldertypeSendproofemail: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeSendproofreceivealldocument: Bool? = nil, bEzsignfoldertypeSendsignatureattachmentreceivealldocument: Bool? = nil, bEzsignfoldertypeSendsignedtodocumentowner: Bool, bEzsignfoldertypeSendsignedtofolderowner: Bool, bEzsignfoldertypeSendsignedtofullgroup: Bool? = nil, bEzsignfoldertypeSendsignedtolimitedgroup: Bool? = nil, bEzsignfoldertypeSendsignedtocolleague: Bool, bEzsignfoldertypeSendsummarytodocumentowner: Bool, bEzsignfoldertypeSendsummarytofolderowner: Bool, bEzsignfoldertypeSendsummarytofullgroup: Bool? = nil, bEzsignfoldertypeSendsummarytolimitedgroup: Bool? = nil, bEzsignfoldertypeSendsummarytocolleague: Bool, eEzsignfoldertypeSigneraccess: FieldEEzsignfoldertypeSigneraccess? = nil, bEzsignfoldertypeIsactive: Bool, aFkiUserIDSigned: [Int]? = nil, aFkiUserIDSummary: [Int]? = nil) {
+    public init(pkiEzsignfoldertypeID: Int? = nil, objEzsignfoldertypeName: MultilingualEzsignfoldertypeName, fkiBrandingID: Int, fkiBillingentityinternalID: Int? = nil, fkiEzsigntsarequirementID: Int? = nil, fkiFontIDAnnotation: Int? = nil, fkiFontIDFormfield: Int? = nil, fkiFontIDSignature: Int? = nil, fkiPdfalevelIDConvert: Int? = nil, aFkiPdfalevelID: [Int]? = nil, aFkiUserlogintypeID: [Int], aFkiUsergroupIDAll: [Int]? = nil, aFkiUsergroupIDRestricted: [Int]? = nil, aFkiUsergroupIDTemplate: [Int]? = nil, eEzsignfoldertypeDocumentdependency: FieldEEzsignfoldertypeDocumentdependency? = nil, eEzsignfoldertypeDocumentmerge: FieldEEzsignfoldertypeDocumentmerge? = nil, sEmailAddressSigned: String? = nil, sEmailAddressSummary: String? = nil, eEzsignfoldertypePdfarequirement: FieldEEzsignfoldertypePdfarequirement? = nil, eEzsignfoldertypePdfanoncompliantaction: FieldEEzsignfoldertypePdfanoncompliantaction? = nil, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, iEzsignfoldertypeFontsizeannotation: Int? = nil, iEzsignfoldertypeFontsizeformfield: Int? = nil, iEzsignfoldertypeSendreminderfirstdays: Int? = nil, iEzsignfoldertypeSendreminderotherdays: Int? = nil, iEzsignfoldertypeArchivaldays: Int, eEzsignfoldertypeDisposal: FieldEEzsignfoldertypeDisposal, eEzsignfoldertypeCompletion: FieldEEzsignfoldertypeCompletion, iEzsignfoldertypeDisposaldays: Int? = nil, iEzsignfoldertypeDeadlinedays: Int, bEzsignfoldertypePrematurelyendautomatically: Bool? = nil, iEzsignfoldertypePrematurelyendautomaticallydays: Int? = nil, bEzsignfoldertypeAutomaticsignature: Bool? = nil, bEzsignfoldertypeDelegate: Bool? = nil, bEzsignfoldertypeDiscussion: Bool? = nil, bEzsignfoldertypeLogrecipientinproof: Bool? = nil, bEzsignfoldertypeReassignezsignsigner: Bool? = nil, bEzsignfoldertypeReassignuser: Bool? = nil, bEzsignfoldertypeReassigngroup: Bool? = nil, bEzsignfoldertypeSenddocumentmergetoemail: Bool? = nil, bEzsignfoldertypeSenddocumentmergetoezsignsigner: Bool? = nil, bEzsignfoldertypeSenddocumentmergetoreceivealldocument: Bool? = nil, bEzsignfoldertypeSenddocumentmergetouser: Bool? = nil, bEzsignfoldertypeSendsignedtoezsignsigner: Bool? = nil, bEzsignfoldertypeSendsignedtouser: Bool? = nil, bEzsignfoldertypeSendattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeSendsignatureattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeSendsignatureattachment: Bool? = nil, bEzsignfoldertypeSendproofezsignsigner: Bool? = nil, bEzsignfoldertypeSendattachmentuser: Bool? = nil, bEzsignfoldertypeSendsignatureattachmentuser: Bool? = nil, bEzsignfoldertypeSendproofuser: Bool? = nil, bEzsignfoldertypeSendproofemail: Bool? = nil, bEzsignfoldertypeAllowdownloadattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner: Bool? = nil, bEzsignfoldertypeAllowdownloadproofezsignsigner: Bool? = nil, bEzsignfoldertypeSendproofreceivealldocument: Bool? = nil, bEzsignfoldertypeSendsignatureattachmentreceivealldocument: Bool? = nil, bEzsignfoldertypeSendsignedtodocumentowner: Bool, bEzsignfoldertypeSendsignedtofolderowner: Bool, bEzsignfoldertypeSendsignedtofullgroup: Bool? = nil, bEzsignfoldertypeSendsignedtolimitedgroup: Bool? = nil, bEzsignfoldertypeSendsignedtocolleague: Bool, bEzsignfoldertypeSendsummarytodocumentowner: Bool, bEzsignfoldertypeSendsummarytofolderowner: Bool, bEzsignfoldertypeSendsummarytofullgroup: Bool? = nil, bEzsignfoldertypeSendsummarytolimitedgroup: Bool? = nil, bEzsignfoldertypeSendsummarytocolleague: Bool, eEzsignfoldertypeSigneraccess: FieldEEzsignfoldertypeSigneraccess? = nil, bEzsignfoldertypeIsactive: Bool, aFkiUserIDSigned: [Int]? = nil, aFkiUserIDSummary: [Int]? = nil) {
         self.pkiEzsignfoldertypeID = pkiEzsignfoldertypeID
         self.objEzsignfoldertypeName = objEzsignfoldertypeName
         self.fkiBrandingID = fkiBrandingID
@@ -192,6 +200,10 @@ public struct EzsignfoldertypeRequestCompoundV3: Codable, JSONEncodable, Hashabl
         self.bEzsignfoldertypeReassignezsignsigner = bEzsignfoldertypeReassignezsignsigner
         self.bEzsignfoldertypeReassignuser = bEzsignfoldertypeReassignuser
         self.bEzsignfoldertypeReassigngroup = bEzsignfoldertypeReassigngroup
+        self.bEzsignfoldertypeSenddocumentmergetoemail = bEzsignfoldertypeSenddocumentmergetoemail
+        self.bEzsignfoldertypeSenddocumentmergetoezsignsigner = bEzsignfoldertypeSenddocumentmergetoezsignsigner
+        self.bEzsignfoldertypeSenddocumentmergetoreceivealldocument = bEzsignfoldertypeSenddocumentmergetoreceivealldocument
+        self.bEzsignfoldertypeSenddocumentmergetouser = bEzsignfoldertypeSenddocumentmergetouser
         self.bEzsignfoldertypeSendsignedtoezsignsigner = bEzsignfoldertypeSendsignedtoezsignsigner
         self.bEzsignfoldertypeSendsignedtouser = bEzsignfoldertypeSendsignedtouser
         self.bEzsignfoldertypeSendattachmentezsignsigner = bEzsignfoldertypeSendattachmentezsignsigner
@@ -263,6 +275,10 @@ public struct EzsignfoldertypeRequestCompoundV3: Codable, JSONEncodable, Hashabl
         case bEzsignfoldertypeReassignezsignsigner
         case bEzsignfoldertypeReassignuser
         case bEzsignfoldertypeReassigngroup
+        case bEzsignfoldertypeSenddocumentmergetoemail
+        case bEzsignfoldertypeSenddocumentmergetoezsignsigner
+        case bEzsignfoldertypeSenddocumentmergetoreceivealldocument
+        case bEzsignfoldertypeSenddocumentmergetouser
         case bEzsignfoldertypeSendsignedtoezsignsigner
         case bEzsignfoldertypeSendsignedtouser
         case bEzsignfoldertypeSendattachmentezsignsigner
@@ -337,6 +353,10 @@ public struct EzsignfoldertypeRequestCompoundV3: Codable, JSONEncodable, Hashabl
         try container.encodeIfPresent(bEzsignfoldertypeReassignezsignsigner, forKey: .bEzsignfoldertypeReassignezsignsigner)
         try container.encodeIfPresent(bEzsignfoldertypeReassignuser, forKey: .bEzsignfoldertypeReassignuser)
         try container.encodeIfPresent(bEzsignfoldertypeReassigngroup, forKey: .bEzsignfoldertypeReassigngroup)
+        try container.encodeIfPresent(bEzsignfoldertypeSenddocumentmergetoemail, forKey: .bEzsignfoldertypeSenddocumentmergetoemail)
+        try container.encodeIfPresent(bEzsignfoldertypeSenddocumentmergetoezsignsigner, forKey: .bEzsignfoldertypeSenddocumentmergetoezsignsigner)
+        try container.encodeIfPresent(bEzsignfoldertypeSenddocumentmergetoreceivealldocument, forKey: .bEzsignfoldertypeSenddocumentmergetoreceivealldocument)
+        try container.encodeIfPresent(bEzsignfoldertypeSenddocumentmergetouser, forKey: .bEzsignfoldertypeSenddocumentmergetouser)
         try container.encodeIfPresent(bEzsignfoldertypeSendsignedtoezsignsigner, forKey: .bEzsignfoldertypeSendsignedtoezsignsigner)
         try container.encodeIfPresent(bEzsignfoldertypeSendsignedtouser, forKey: .bEzsignfoldertypeSendsignedtouser)
         try container.encodeIfPresent(bEzsignfoldertypeSendattachmentezsignsigner, forKey: .bEzsignfoldertypeSendattachmentezsignsigner)

@@ -27,7 +27,9 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public static let dtInscriptionnotauthenticatedNotaryscheduledateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let dtInscriptionnotauthenticatedTransactiondateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let dtInscriptionnotauthenticatedTransactiondateRealRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+    public static let fkiProvinceIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
+    public static let fkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
     /** The unique ID of the Inscription. */
     public var pkiInscriptionID: Int
@@ -78,8 +80,12 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public var sAddressCity: String?
     /** The Postal/Zip Code  The value must be entered without spaces */
     public var sAddressZip: String?
+    /** The unique ID of the Province.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|(Canada) Alberta |2|(Canada) British Columbia| |3|(Canada) Manitoba| |3|(Canada) Manitoba| |4|(Canada) New Brunswick| |5|(Canada) Newfoundland| |6|(Canada) Northwest Territories| |7|(Canada) Nova Scotia| |8|(Canada) Nunavut| |9|(Canada) Ontario| |10|(Canada) Prince Edward Island| |11|(Canada) Quebec| |12|(Canada) Saskatchewan| |13|(Canada) Yukon| |14|(United-States) Alabama| |15|(United-States) Alaska| |16|(United-States) Arizona| |17|(United-States) Arkansas| |18|(United-States) California| |19|(United-States) Colorado| |20|(United-States) Connecticut| |21|(United-States) Delaware| |22|(United-States) District of Columbia| |23|(United-States) Florida| |24|(United-States) Georgia| |25|(United-States) Hawaii| |26|(United-States) Idaho| |27|(United-States) Illinois| |28|(United-States) Indiana| |29|(United-States) Iowa| |30|(United-States) Kansas| |31|(United-States) Kentucky| |32|(United-States) Louisiane| |33|(United-States) Maine| |34|(United-States) Maryland| |35|(United-States) Massachusetts| |36|(United-States) Michigan| |37|(United-States) Minnesota| |38|(United-States) Mississippi| |39|(United-States) Missouri| |40|(United-States) Montana| |41|(United-States) Nebraska| |42|(United-States) Nevada| |43|(United-States) New Hampshire| |44|(United-States) New Jersey| |45|(United-States) New Mexico| |46|(United-States) New York| |47|(United-States) North Carolina| |48|(United-States) North Dakota| |49|(United-States) Ohio| |50|(United-States) Oklahoma| |51|(United-States) Oregon| |52|(United-States) Pennsylvania| |53|(United-States) Rhode Island| |54|(United-States) South Carolina| |55|(United-States) South Dakota| |56|(United-States) Tennessee| |57|(United-States) Texas| |58|(United-States) Utah| |60|(United-States) Vermont| |59|(United-States) Virginia| |61|(United-States) Washington| |62|(United-States) West Virginia| |63|(United-States) Wisconsin| |64|(United-States) Wyoming| */
+    public var fkiProvinceID: Int?
     /** The name of the Province in the language of the requester */
     public var sProvinceNameX: String?
+    /** The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States| */
+    public var fkiCountryID: Int?
     /** The name of the Country in the language of the requester */
     public var sCountryNameX: String?
     /** The numbre of inscriptionnotauthenticated was canceled in this Inscription */
@@ -87,7 +93,7 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     /** Whether we are allowed to copy into the Inscription EDM */
     public var bAllowedCopyintoinscriptionedm: Bool
 
-    public init(pkiInscriptionID: Int, pkiInscriptionnotauthenticatedID: Int? = nil, fkiInscriptiontypeID: Int, sInscriptiontypeNameX: String, eInscriptionStep: FieldEInscriptionStep, sInscriptionCivicend: String, sInscriptionMLS: String? = nil, dInscriptionSaleprice: String, dInscriptionRentprice: String, dtInscriptionDate: String? = nil, dtInscriptionExpirationdate: String? = nil, dtInscriptionNotarydate: String? = nil, bInscriptionIsactive: Bool, bInscriptionArchived: Bool, bInscriptionInspection: Bool? = nil, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, bInscriptionnotauthenticatedConditional: Bool? = nil, bInscriptionnotauthenticatedIsactive: Bool? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, sProvinceNameX: String? = nil, sCountryNameX: String? = nil, iInscriptionnotauthenticatedCanceled: Int, bAllowedCopyintoinscriptionedm: Bool) {
+    public init(pkiInscriptionID: Int, pkiInscriptionnotauthenticatedID: Int? = nil, fkiInscriptiontypeID: Int, sInscriptiontypeNameX: String, eInscriptionStep: FieldEInscriptionStep, sInscriptionCivicend: String, sInscriptionMLS: String? = nil, dInscriptionSaleprice: String, dInscriptionRentprice: String, dtInscriptionDate: String? = nil, dtInscriptionExpirationdate: String? = nil, dtInscriptionNotarydate: String? = nil, bInscriptionIsactive: Bool, bInscriptionArchived: Bool, bInscriptionInspection: Bool? = nil, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, bInscriptionnotauthenticatedConditional: Bool? = nil, bInscriptionnotauthenticatedIsactive: Bool? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil, iInscriptionnotauthenticatedCanceled: Int, bAllowedCopyintoinscriptionedm: Bool) {
         self.pkiInscriptionID = pkiInscriptionID
         self.pkiInscriptionnotauthenticatedID = pkiInscriptionnotauthenticatedID
         self.fkiInscriptiontypeID = fkiInscriptiontypeID
@@ -113,7 +119,9 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
         self.sAddressSuite = sAddressSuite
         self.sAddressCity = sAddressCity
         self.sAddressZip = sAddressZip
+        self.fkiProvinceID = fkiProvinceID
         self.sProvinceNameX = sProvinceNameX
+        self.fkiCountryID = fkiCountryID
         self.sCountryNameX = sCountryNameX
         self.iInscriptionnotauthenticatedCanceled = iInscriptionnotauthenticatedCanceled
         self.bAllowedCopyintoinscriptionedm = bAllowedCopyintoinscriptionedm
@@ -145,7 +153,9 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
         case sAddressSuite
         case sAddressCity
         case sAddressZip
+        case fkiProvinceID
         case sProvinceNameX
+        case fkiCountryID
         case sCountryNameX
         case iInscriptionnotauthenticatedCanceled
         case bAllowedCopyintoinscriptionedm
@@ -180,7 +190,9 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sAddressSuite, forKey: .sAddressSuite)
         try container.encodeIfPresent(sAddressCity, forKey: .sAddressCity)
         try container.encodeIfPresent(sAddressZip, forKey: .sAddressZip)
+        try container.encodeIfPresent(fkiProvinceID, forKey: .fkiProvinceID)
         try container.encodeIfPresent(sProvinceNameX, forKey: .sProvinceNameX)
+        try container.encodeIfPresent(fkiCountryID, forKey: .fkiCountryID)
         try container.encodeIfPresent(sCountryNameX, forKey: .sCountryNameX)
         try container.encode(iInscriptionnotauthenticatedCanceled, forKey: .iInscriptionnotauthenticatedCanceled)
         try container.encode(bAllowedCopyintoinscriptionedm, forKey: .bAllowedCopyintoinscriptionedm)

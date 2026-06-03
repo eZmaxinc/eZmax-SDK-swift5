@@ -110,6 +110,58 @@ open class ObjectEzsigntemplatedocumentAPI {
     }
 
     /**
+     Edit multiple Ezsigntemplateannotations
+     
+     - parameter pkiEzsigntemplatedocumentID: (path)  
+     - parameter ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigntemplatedocumentEditEzsigntemplateannotationsV1(pkiEzsigntemplatedocumentID: Int, ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request: EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplatedocumentEditEzsigntemplateannotationsV1WithRequestBuilder(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID, ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request: ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Edit multiple Ezsigntemplateannotations
+     - PUT /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateannotations
+     - Using this endpoint, you can edit multiple Ezsigntemplateannotations at the same time.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigntemplatedocumentID: (path)  
+     - parameter ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request: (body)  
+     - returns: RequestBuilder<EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response> 
+     */
+    open class func ezsigntemplatedocumentEditEzsigntemplateannotationsV1WithRequestBuilder(pkiEzsigntemplatedocumentID: Int, ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request: EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request) -> RequestBuilder<EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response> {
+        var localVariablePath = "/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateannotations"
+        let pkiEzsigntemplatedocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatedocumentID))"
+        let pkiEzsigntemplatedocumentIDPostEscape = pkiEzsigntemplatedocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplatedocumentID}", with: pkiEzsigntemplatedocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigntemplatedocumentEditEzsigntemplateannotationsV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Edit multiple Ezsigntemplatedocumentpagerecognitions
      
      - parameter pkiEzsigntemplatedocumentID: (path)  
@@ -473,6 +525,56 @@ open class ObjectEzsigntemplatedocumentAPI {
         let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentFlattenV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateannotations
+     
+     - parameter pkiEzsigntemplatedocumentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigntemplatedocumentGetEzsigntemplateannotationsV1(pkiEzsigntemplatedocumentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigntemplatedocumentGetEzsigntemplateannotationsV1WithRequestBuilder(pkiEzsigntemplatedocumentID: pkiEzsigntemplatedocumentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateannotations
+     - GET /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateannotations
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigntemplatedocumentID: (path)  
+     - returns: RequestBuilder<EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response> 
+     */
+    open class func ezsigntemplatedocumentGetEzsigntemplateannotationsV1WithRequestBuilder(pkiEzsigntemplatedocumentID: Int) -> RequestBuilder<EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response> {
+        var localVariablePath = "/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateannotations"
+        let pkiEzsigntemplatedocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigntemplatedocumentID))"
+        let pkiEzsigntemplatedocumentIDPostEscape = pkiEzsigntemplatedocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigntemplatedocumentID}", with: pkiEzsigntemplatedocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**

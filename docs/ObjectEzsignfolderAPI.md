@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**ezsignfolderDeleteObjectV1**](ObjectEzsignfolderAPI.md#ezsignfolderdeleteobjectv1) | **DELETE** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 [**ezsignfolderDisposeEzsignfoldersV1**](ObjectEzsignfolderAPI.md#ezsignfolderdisposeezsignfoldersv1) | **POST** /1/object/ezsignfolder/disposeEzsignfolders | Dispose Ezsignfolders
 [**ezsignfolderDisposeV1**](ObjectEzsignfolderAPI.md#ezsignfolderdisposev1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose | Dispose the Ezsignfolder
+[**ezsignfolderDuplicateV1**](ObjectEzsignfolderAPI.md#ezsignfolderduplicatev1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/duplicate | Duplicate the Ezsignfolder
 [**ezsignfolderEditObjectV3**](ObjectEzsignfolderAPI.md#ezsignfoldereditobjectv3) | **PUT** /3/object/ezsignfolder/{pkiEzsignfolderID} | Edit an existing Ezsignfolder
 [**ezsignfolderEndPrematurelyV1**](ObjectEzsignfolderAPI.md#ezsignfolderendprematurelyv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/endPrematurely | End prematurely
 [**ezsignfolderGetActionableElementsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetactionableelementsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
@@ -23,10 +24,13 @@ Method | HTTP request | Description
 [**ezsignfolderGetCommunicationListV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationlistv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList | Retrieve Communication list
 [**ezsignfolderGetCommunicationrecipientsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationrecipientsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationrecipients | Retrieve Ezsignfolder&#39;s Communicationrecipient
 [**ezsignfolderGetCommunicationsendersV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetcommunicationsendersv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationsenders | Retrieve Ezsignfolder&#39;s Communicationsender
+[**ezsignfolderGetEzsignannotationsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsignannotationsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignannotations | Retrieve an existing Ezsignfolder&#39;s Ezsignannotations
 [**ezsignfolderGetEzsigndocumentsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsigndocumentsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
 [**ezsignfolderGetEzsigndocumentsV2**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsigndocumentsv2) | **GET** /2/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
 [**ezsignfolderGetEzsignfoldersignerassociationsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsignfoldersignerassociationsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignfoldersignerassociations | Retrieve an existing Ezsignfolder&#39;s Ezsignfoldersignerassociations
+[**ezsignfolderGetEzsignformfieldgroupsV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsignformfieldgroupsv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignformfieldgroups | Retrieve an existing Ezsignfolder&#39;s Ezsignformfieldgroups
 [**ezsignfolderGetEzsignsignaturesAutomaticV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsignsignaturesautomaticv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsignfolder&#39;s automatic Ezsignsignatures
+[**ezsignfolderGetEzsignsignaturesV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetezsignsignaturesv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignatures | Retrieve an existing Ezsignfolder&#39;s Ezsignsignatures
 [**ezsignfolderGetFormsDataV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetformsdatav1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData | Retrieve an existing Ezsignfolder&#39;s forms data
 [**ezsignfolderGetListV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetlistv1) | **GET** /1/object/ezsignfolder/getList | Retrieve Ezsignfolder list
 [**ezsignfolderGetObjectV1**](ObjectEzsignfolderAPI.md#ezsignfoldergetobjectv1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
@@ -35,6 +39,7 @@ Method | HTTP request | Description
 [**ezsignfolderImportEzsignfoldersignerassociationsV1**](ObjectEzsignfolderAPI.md#ezsignfolderimportezsignfoldersignerassociationsv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsignfoldersignerassociations | Import an existing Ezsignfoldersignerassociation into this Ezsignfolder
 [**ezsignfolderImportEzsigntemplatepackageV1**](ObjectEzsignfolderAPI.md#ezsignfolderimportezsigntemplatepackagev1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage | Import an Ezsigntemplatepackage in the Ezsignfolder
 [**ezsignfolderImportEzsigntemplatepackageV2**](ObjectEzsignfolderAPI.md#ezsignfolderimportezsigntemplatepackagev2) | **POST** /2/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage | Import an Ezsigntemplatepackage in the Ezsignfolder
+[**ezsignfolderImportEzsigntemplatepackageV3**](ObjectEzsignfolderAPI.md#ezsignfolderimportezsigntemplatepackagev3) | **POST** /3/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage | Import an Ezsigntemplatepackage in the Ezsignfolder
 [**ezsignfolderReorderV2**](ObjectEzsignfolderAPI.md#ezsignfolderreorderv2) | **POST** /2/object/ezsignfolder/{pkiEzsignfolderID}/reorder | Reorder Ezsigndocuments in the Ezsignfolder
 [**ezsignfolderSendV1**](ObjectEzsignfolderAPI.md#ezsignfoldersendv1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 [**ezsignfolderSendV3**](ObjectEzsignfolderAPI.md#ezsignfoldersendv3) | **POST** /3/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
@@ -431,6 +436,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderDisposeV1Response**](EzsignfolderDisposeV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderDuplicateV1**
+```swift
+    open class func ezsignfolderDuplicateV1(pkiEzsignfolderID: Int, ezsignfolderDuplicateV1Request: EzsignfolderDuplicateV1Request, completion: @escaping (_ data: EzsignfolderDuplicateV1Response?, _ error: Error?) -> Void)
+```
+
+Duplicate the Ezsignfolder
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+let ezsignfolderDuplicateV1Request = ezsignfolder-duplicate-v1-Request(sEzsignfolderDescription: "sEzsignfolderDescription_example", aFkiEzsignfoldersignerassociationID: [123], aObjEzsigndocument: [Custom-EzsigndocumentDuplicate-Request(pkiEzsigndocumentID: 123, eEzsigndocumentVersion: "eEzsigndocumentVersion_example")], tEzsignfolderNote: "tEzsignfolderNote_example") // EzsignfolderDuplicateV1Request | 
+
+// Duplicate the Ezsignfolder
+ObjectEzsignfolderAPI.ezsignfolderDuplicateV1(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderDuplicateV1Request: ezsignfolderDuplicateV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+ **ezsignfolderDuplicateV1Request** | [**EzsignfolderDuplicateV1Request**](EzsignfolderDuplicateV1Request.md) |  | 
+
+### Return type
+
+[**EzsignfolderDuplicateV1Response**](EzsignfolderDuplicateV1Response.md)
 
 ### Authorization
 
@@ -997,6 +1054,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsignfolderGetEzsignannotationsV1**
+```swift
+    open class func ezsignfolderGetEzsignannotationsV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetEzsignannotationsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignfolder's Ezsignannotations
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+
+// Retrieve an existing Ezsignfolder's Ezsignannotations
+ObjectEzsignfolderAPI.ezsignfolderGetEzsignannotationsV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfolderGetEzsignannotationsV1Response**](EzsignfolderGetEzsignannotationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsignfolderGetEzsigndocumentsV1**
 ```swift
     open class func ezsignfolderGetEzsigndocumentsV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetEzsigndocumentsV1Response?, _ error: Error?) -> Void)
@@ -1147,6 +1254,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsignfolderGetEzsignformfieldgroupsV1**
+```swift
+    open class func ezsignfolderGetEzsignformfieldgroupsV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetEzsignformfieldgroupsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignfolder's Ezsignformfieldgroups
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+
+// Retrieve an existing Ezsignfolder's Ezsignformfieldgroups
+ObjectEzsignfolderAPI.ezsignfolderGetEzsignformfieldgroupsV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfolderGetEzsignformfieldgroupsV1Response**](EzsignfolderGetEzsignformfieldgroupsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsignfolderGetEzsignsignaturesAutomaticV1**
 ```swift
     open class func ezsignfolderGetEzsignsignaturesAutomaticV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetEzsignsignaturesAutomaticV1Response?, _ error: Error?) -> Void)
@@ -1185,6 +1342,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderGetEzsignsignaturesAutomaticV1Response**](EzsignfolderGetEzsignsignaturesAutomaticV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderGetEzsignsignaturesV1**
+```swift
+    open class func ezsignfolderGetEzsignsignaturesV1(pkiEzsignfolderID: Int, completion: @escaping (_ data: EzsignfolderGetEzsignsignaturesV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignfolder's Ezsignsignatures
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+
+// Retrieve an existing Ezsignfolder's Ezsignsignatures
+ObjectEzsignfolderAPI.ezsignfolderGetEzsignsignaturesV1(pkiEzsignfolderID: pkiEzsignfolderID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+
+### Return type
+
+[**EzsignfolderGetEzsignsignaturesV1Response**](EzsignfolderGetEzsignsignaturesV1Response.md)
 
 ### Authorization
 
@@ -1254,7 +1461,7 @@ Name | Type | Description  | Notes
 
 Retrieve Ezsignfolder list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  Advanced filters that can be used in query parameter *sFilter*:  | Variable | |---| | fkiUserID | | sContactFirstname | | sContactLastname | | sUserFirstname | | sUserLastname | | sEzsigndocumentName |
+Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup | | eEzsignfolderSource | Normal<br>Ezsignbulksend<br>Ezsigntemplatepublic |  Advanced filters that can be used in query parameter *sFilter*:  | Variable | |---| | fkiUserID | | sContactFirstname | | sContactLastname | | sUserFirstname | | sUserLastname | | sEzsigndocumentName |
 
 ### Example
 ```swift
@@ -1597,6 +1804,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignfolderImportEzsigntemplatepackageV2Response**](EzsignfolderImportEzsigntemplatepackageV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolderImportEzsigntemplatepackageV3**
+```swift
+    open class func ezsignfolderImportEzsigntemplatepackageV3(pkiEzsignfolderID: Int, ezsignfolderImportEzsigntemplatepackageV3Request: EzsignfolderImportEzsigntemplatepackageV3Request, completion: @escaping (_ data: EzsignfolderImportEzsigntemplatepackageV3Response?, _ error: Error?) -> Void)
+```
+
+Import an Ezsigntemplatepackage in the Ezsignfolder
+
+This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignfolderID = 987 // Int | 
+let ezsignfolderImportEzsigntemplatepackageV3Request = ezsignfolder-importEzsigntemplatepackage-v3-Request(fkiEzsigntemplatepackageID: 123, dtEzsigndocumentDuedate: "dtEzsigndocumentDuedate_example", aObjImportEzsigntemplatepackageRelation: [Custom-ImportEzsigntemplatepackageRelation-Request(fkiEzsigntemplatepackagesignerID: 123, fkiEzsignfoldersignerassociationID: 123, sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")], aSEzsigntemplateannotationDescription: ["aSEzsigntemplateannotationDescription_example"], aSEzsigntemplateannotationDefaulttext: ["aSEzsigntemplateannotationDefaulttext_example"]) // EzsignfolderImportEzsigntemplatepackageV3Request | 
+
+// Import an Ezsigntemplatepackage in the Ezsignfolder
+ObjectEzsignfolderAPI.ezsignfolderImportEzsigntemplatepackageV3(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderImportEzsigntemplatepackageV3Request: ezsignfolderImportEzsigntemplatepackageV3Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignfolderID** | **Int** |  | 
+ **ezsignfolderImportEzsigntemplatepackageV3Request** | [**EzsignfolderImportEzsigntemplatepackageV3Request**](EzsignfolderImportEzsigntemplatepackageV3Request.md) |  | 
+
+### Return type
+
+[**EzsignfolderImportEzsigntemplatepackageV3Response**](EzsignfolderImportEzsigntemplatepackageV3Response.md)
 
 ### Authorization
 

@@ -13,12 +13,14 @@ Method | HTTP request | Description
 [**userGetAutocompleteV2**](ObjectUserAPI.md#usergetautocompletev2) | **GET** /2/object/user/getAutocomplete/{sSelector} | Retrieve Users and IDs
 [**userGetColleaguesV2**](ObjectUserAPI.md#usergetcolleaguesv2) | **GET** /2/object/user/{pkiUserID}/getColleagues | Retrieve an existing User&#39;s Colleagues
 [**userGetEffectivePermissionsV1**](ObjectUserAPI.md#usergeteffectivepermissionsv1) | **GET** /1/object/user/{pkiUserID}/getEffectivePermissions | Retrieve an existing User&#39;s Effective Permissions
+[**userGetEzmaxcustomeruserV1**](ObjectUserAPI.md#usergetezmaxcustomeruserv1) | **GET** /1/object/user/{pkiUserID}/getEzmaxcustomeruser | Returns the Ezmaxcustomeruser for the User
 [**userGetListV1**](ObjectUserAPI.md#usergetlistv1) | **GET** /1/object/user/getList | Retrieve User list
 [**userGetObjectV2**](ObjectUserAPI.md#usergetobjectv2) | **GET** /2/object/user/{pkiUserID} | Retrieve an existing User
 [**userGetPermissionsV1**](ObjectUserAPI.md#usergetpermissionsv1) | **GET** /1/object/user/{pkiUserID}/getPermissions | Retrieve an existing User&#39;s Permissions
 [**userGetSubnetsV1**](ObjectUserAPI.md#usergetsubnetsv1) | **GET** /1/object/user/{pkiUserID}/getSubnets | Retrieve an existing User&#39;s Subnets
 [**userGetUsergroupexternalsV1**](ObjectUserAPI.md#usergetusergroupexternalsv1) | **GET** /1/object/user/{pkiUserID}/getUsergroupexternals | Get User&#39;s Usergroupexternals
 [**userGetUsergroupsV1**](ObjectUserAPI.md#usergetusergroupsv1) | **GET** /1/object/user/{pkiUserID}/getUsergroups | Get User&#39;s Usergroups
+[**userImpersonateV1**](ObjectUserAPI.md#userimpersonatev1) | **POST** /1/object/user/{pkiUserID}/impersonate | Impersonate the user
 [**userSendPasswordResetV1**](ObjectUserAPI.md#usersendpasswordresetv1) | **POST** /1/object/user/{pkiUserID}/sendPasswordReset | Send password reset
 
 
@@ -36,7 +38,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let userCreateObjectV1Request = user-createObject-v1-Request(aObjUser: [user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV1Request | 
+let userCreateObjectV1Request = user-createObject-v1-Request(aObjUser: [user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true, bUserEzsigntemplaterolegrouping: true)]) // UserCreateObjectV1Request | 
 
 // Create a new User
 ObjectUserAPI.userCreateObjectV1(userCreateObjectV1Request: userCreateObjectV1Request) { (response, error) in
@@ -86,7 +88,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let userCreateObjectV2Request = user-createObject-v2-Request(aObjUser: [user-RequestCompoundV2(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompoundV2(pkiPhoneID: 123, fkiPhonetypeID: 123, sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)]) // UserCreateObjectV2Request | 
+let userCreateObjectV2Request = user-createObject-v2-Request(aObjUser: [user-RequestCompoundV2(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompoundV2(pkiPhoneID: 123, fkiPhonetypeID: 123, sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true, bUserEzsigntemplaterolegrouping: true)]) // UserCreateObjectV2Request | 
 
 // Create a new User
 ObjectUserAPI.userCreateObjectV2(userCreateObjectV2Request: userCreateObjectV2Request) { (response, error) in
@@ -189,7 +191,7 @@ Edit an existing User
 import OpenAPIClient
 
 let pkiUserID = 987 // Int | The unique ID of the User
-let userEditObjectV1Request = user-editObject-v1-Request(objUser: user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true)) // UserEditObjectV1Request | 
+let userEditObjectV1Request = user-editObject-v1-Request(objUser: user-RequestCompound(pkiUserID: 123, fkiAgentID: 123, fkiBrokerID: 123, fkiAssistantID: 123, fkiEmployeeID: 123, fkiCompanyIDDefault: 123, fkiDepartmentIDDefault: 123, fkiTimezoneID: 123, fkiLanguageID: 123, objEmail: email-RequestCompound(pkiEmailID: 123, fkiEmailtypeID: 123, sEmailAddress: "sEmailAddress_example"), fkiBillingentityinternalID: 123, objPhoneHome: phone-RequestCompound(pkiPhoneID: 123, fkiPhonetypeID: 123, ePhoneType: Field-ePhoneType(), sPhoneRegion: "sPhoneRegion_example", sPhoneExchange: "sPhoneExchange_example", sPhoneNumber: "sPhoneNumber_example", sPhoneInternational: "sPhoneInternational_example", sPhoneExtension: "sPhoneExtension_example", sPhoneE164: "sPhoneE164_example"), objPhoneSMS: nil, fkiSecretquestionID: 123, sUserSecretresponse: "sUserSecretresponse_example", fkiModuleIDForm: 123, eUserType: Field-eUserType(), eUserLogintype: Field-eUserLogintype(), sUserFirstname: "sUserFirstname_example", sUserLastname: "sUserLastname_example", sUserLoginname: "sUserLoginname_example", sUserJobtitle: "sUserJobtitle_example", eUserEzsignaccess: Field-eUserEzsignaccess(), bUserIsactive: true, bUserValidatebyadministration: false, bUserValidatebydirector: false, bUserAttachmentautoverified: true, bUserChangepassword: true, bUserEzsigntemplaterolegrouping: true)) // UserEditObjectV1Request | 
 
 // Edit an existing User
 ObjectUserAPI.userEditObjectV1(pkiUserID: pkiUserID, userEditObjectV1Request: userEditObjectV1Request) { (response, error) in
@@ -468,6 +470,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserGetEffectivePermissionsV1Response**](UserGetEffectivePermissionsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userGetEzmaxcustomeruserV1**
+```swift
+    open class func userGetEzmaxcustomeruserV1(pkiUserID: Int, completion: @escaping (_ data: UserGetEzmaxcustomeruserV1Response?, _ error: Error?) -> Void)
+```
+
+Returns the Ezmaxcustomeruser for the User
+
+Returns the Ezmaxcustomeruser for the User
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUserID = 987 // Int | 
+
+// Returns the Ezmaxcustomeruser for the User
+ObjectUserAPI.userGetEzmaxcustomeruserV1(pkiUserID: pkiUserID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUserID** | **Int** |  | 
+
+### Return type
+
+[**UserGetEzmaxcustomeruserV1Response**](UserGetEzmaxcustomeruserV1Response.md)
 
 ### Authorization
 
@@ -776,6 +828,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userImpersonateV1**
+```swift
+    open class func userImpersonateV1(pkiUserID: Int, userImpersonateV1Request: UserImpersonateV1Request, completion: @escaping (_ data: UserImpersonateV1Response?, _ error: Error?) -> Void)
+```
+
+Impersonate the user
+
+Using this endpoint, you can impersonate the user.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiUserID = 987 // Int | 
+let userImpersonateV1Request = user-impersonate-v1-Request(fkiUserID: 123, iExpirationMinutes: 123) // UserImpersonateV1Request | 
+
+// Impersonate the user
+ObjectUserAPI.userImpersonateV1(pkiUserID: pkiUserID, userImpersonateV1Request: userImpersonateV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiUserID** | **Int** |  | 
+ **userImpersonateV1Request** | [**UserImpersonateV1Request**](UserImpersonateV1Request.md) |  | 
+
+### Return type
+
+[**UserImpersonateV1Response**](UserImpersonateV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

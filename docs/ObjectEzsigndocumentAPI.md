@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsigndocumentApplyEzsigntemplateV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplatev1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
 [**ezsigndocumentApplyEzsigntemplateV2**](ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplatev2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
+[**ezsigndocumentApplyEzsigntemplateV3**](ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplatev3) | **POST** /3/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
 [**ezsigndocumentApplyEzsigntemplateglobalV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplateglobalv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal | Apply an Ezsigntemplateglobal to the Ezsigndocument
+[**ezsigndocumentApplyEzsigntemplateglobalV2**](ObjectEzsigndocumentAPI.md#ezsigndocumentapplyezsigntemplateglobalv2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal | Apply an Ezsigntemplateglobal to the Ezsigndocument
 [**ezsigndocumentCreateEzsignelementsPositionedByWordV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateezsignelementspositionedbywordv1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**ezsigndocumentCreateEzsignelementsPositionedByWordV2**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateezsignelementspositionedbywordv2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**ezsigndocumentCreateObjectV1**](ObjectEzsigndocumentAPI.md#ezsigndocumentcreateobjectv1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
@@ -153,6 +155,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocumentApplyEzsigntemplateV3**
+```swift
+    open class func ezsigndocumentApplyEzsigntemplateV3(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV3Request: EzsigndocumentApplyEzsigntemplateV3Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateV3Response?, _ error: Error?) -> Void)
+```
+
+Apply an Ezsigntemplate to the Ezsigndocument
+
+This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+let ezsigndocumentApplyEzsigntemplateV3Request = ezsigndocument-applyEzsigntemplate-v3-Request(fkiEzsigntemplateID: 123, aSEzsigntemplatesigner: ["aSEzsigntemplatesigner_example"], aFkiEzsignfoldersignerassociationID: [123], aSEzsigntemplateannotationDescription: ["aSEzsigntemplateannotationDescription_example"], aSEzsigntemplateannotationDefaulttext: ["aSEzsigntemplateannotationDefaulttext_example"]) // EzsigndocumentApplyEzsigntemplateV3Request | 
+
+// Apply an Ezsigntemplate to the Ezsigndocument
+ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateV3(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV3Request: ezsigndocumentApplyEzsigntemplateV3Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+ **ezsigndocumentApplyEzsigntemplateV3Request** | [**EzsigndocumentApplyEzsigntemplateV3Request**](EzsigndocumentApplyEzsigntemplateV3Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentApplyEzsigntemplateV3Response**](EzsigndocumentApplyEzsigntemplateV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocumentApplyEzsigntemplateglobalV1**
 ```swift
     open class func ezsigndocumentApplyEzsigntemplateglobalV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV1Request: EzsigndocumentApplyEzsigntemplateglobalV1Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateglobalV1Response?, _ error: Error?) -> Void)
@@ -193,6 +247,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentApplyEzsigntemplateglobalV1Response**](EzsigndocumentApplyEzsigntemplateglobalV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocumentApplyEzsigntemplateglobalV2**
+```swift
+    open class func ezsigndocumentApplyEzsigntemplateglobalV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV2Request: EzsigndocumentApplyEzsigntemplateglobalV2Request, completion: @escaping (_ data: EzsigndocumentApplyEzsigntemplateglobalV2Response?, _ error: Error?) -> Void)
+```
+
+Apply an Ezsigntemplateglobal to the Ezsigndocument
+
+This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigndocumentID = 987 // Int | 
+let ezsigndocumentApplyEzsigntemplateglobalV2Request = ezsigndocument-applyEzsigntemplateglobal-v2-Request(fkiEzsigntemplateglobalID: 123, aSEzsigntemplateglobalsigner: ["aSEzsigntemplateglobalsigner_example"], aFkiEzsignfoldersignerassociationID: [123], aSEzsigntemplateglobalannotationDescription: ["aSEzsigntemplateglobalannotationDescription_example"], aSEzsigntemplateglobalannotationDefaulttext: ["aSEzsigntemplateglobalannotationDefaulttext_example"]) // EzsigndocumentApplyEzsigntemplateglobalV2Request | 
+
+// Apply an Ezsigntemplateglobal to the Ezsigndocument
+ObjectEzsigndocumentAPI.ezsigndocumentApplyEzsigntemplateglobalV2(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateglobalV2Request: ezsigndocumentApplyEzsigntemplateglobalV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigndocumentID** | **Int** |  | 
+ **ezsigndocumentApplyEzsigntemplateglobalV2Request** | [**EzsigndocumentApplyEzsigntemplateglobalV2Request**](EzsigndocumentApplyEzsigntemplateglobalV2Request.md) |  | 
+
+### Return type
+
+[**EzsigndocumentApplyEzsigntemplateglobalV2Response**](EzsigndocumentApplyEzsigntemplateglobalV2Response.md)
 
 ### Authorization
 

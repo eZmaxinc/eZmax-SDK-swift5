@@ -32,6 +32,8 @@ public struct BuyercontractListElement: Codable, JSONEncodable, Hashable {
     /** The maximumprice of the Buyercontract */
     public var dBuyercontractMaximumprice: String
     public var eBuyercontractType: FieldEBuyercontractType
+    /** The number of the Buyercontract */
+    public var sBuyercontractContract: String?
     /** The date of the Buyercontract */
     public var dtBuyercontractDate: String
     /** The expirationdate of the Buyercontract */
@@ -43,7 +45,7 @@ public struct BuyercontractListElement: Codable, JSONEncodable, Hashable {
     /** The buyers' name of the Buyercontract */
     public var sBuyercontractBuyers: String
 
-    public init(pkiBuyercontractID: Int, fkiInscriptiontypeID: Int, sInscriptiontypeNameX: String, eBuyercontractStep: FieldEBuyercontractStep, dBuyercontractMinimumprice: String, dBuyercontractMaximumprice: String, eBuyercontractType: FieldEBuyercontractType, dtBuyercontractDate: String, dtBuyercontractExpirationdate: String? = nil, bBuyercontractIsactive: Bool, sBuyercontractBrokers: String, sBuyercontractBuyers: String) {
+    public init(pkiBuyercontractID: Int, fkiInscriptiontypeID: Int, sInscriptiontypeNameX: String, eBuyercontractStep: FieldEBuyercontractStep, dBuyercontractMinimumprice: String, dBuyercontractMaximumprice: String, eBuyercontractType: FieldEBuyercontractType, sBuyercontractContract: String? = nil, dtBuyercontractDate: String, dtBuyercontractExpirationdate: String? = nil, bBuyercontractIsactive: Bool, sBuyercontractBrokers: String, sBuyercontractBuyers: String) {
         self.pkiBuyercontractID = pkiBuyercontractID
         self.fkiInscriptiontypeID = fkiInscriptiontypeID
         self.sInscriptiontypeNameX = sInscriptiontypeNameX
@@ -51,6 +53,7 @@ public struct BuyercontractListElement: Codable, JSONEncodable, Hashable {
         self.dBuyercontractMinimumprice = dBuyercontractMinimumprice
         self.dBuyercontractMaximumprice = dBuyercontractMaximumprice
         self.eBuyercontractType = eBuyercontractType
+        self.sBuyercontractContract = sBuyercontractContract
         self.dtBuyercontractDate = dtBuyercontractDate
         self.dtBuyercontractExpirationdate = dtBuyercontractExpirationdate
         self.bBuyercontractIsactive = bBuyercontractIsactive
@@ -66,6 +69,7 @@ public struct BuyercontractListElement: Codable, JSONEncodable, Hashable {
         case dBuyercontractMinimumprice
         case dBuyercontractMaximumprice
         case eBuyercontractType
+        case sBuyercontractContract
         case dtBuyercontractDate
         case dtBuyercontractExpirationdate
         case bBuyercontractIsactive
@@ -84,6 +88,7 @@ public struct BuyercontractListElement: Codable, JSONEncodable, Hashable {
         try container.encode(dBuyercontractMinimumprice, forKey: .dBuyercontractMinimumprice)
         try container.encode(dBuyercontractMaximumprice, forKey: .dBuyercontractMaximumprice)
         try container.encode(eBuyercontractType, forKey: .eBuyercontractType)
+        try container.encodeIfPresent(sBuyercontractContract, forKey: .sBuyercontractContract)
         try container.encode(dtBuyercontractDate, forKey: .dtBuyercontractDate)
         try container.encodeIfPresent(dtBuyercontractExpirationdate, forKey: .dtBuyercontractExpirationdate)
         try container.encode(bBuyercontractIsactive, forKey: .bBuyercontractIsactive)

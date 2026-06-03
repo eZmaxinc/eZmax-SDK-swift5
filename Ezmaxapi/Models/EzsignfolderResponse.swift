@@ -48,7 +48,7 @@ public struct EzsignfolderResponse: Codable, JSONEncodable, Hashable {
     public var bEzsignfolderIsdisposable: Bool?
     @available(*, deprecated, message: "This property is deprecated.")
     public var eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency?
-    /** The number of days before the the first reminder sending */
+    /** The number of days before the first reminder sending */
     public var iEzsignfolderSendreminderfirstdays: Int?
     /** The number of days after the first reminder sending */
     public var iEzsignfolderSendreminderotherdays: Int?

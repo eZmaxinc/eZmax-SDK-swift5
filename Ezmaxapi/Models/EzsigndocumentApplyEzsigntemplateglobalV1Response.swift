@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for POST /2/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplate */
+/** Response for POST /1/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplateglobal */
 public struct EzsigndocumentApplyEzsigntemplateglobalV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload

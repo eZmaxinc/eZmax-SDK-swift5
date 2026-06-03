@@ -318,6 +318,7 @@ open class ObjectUserAPI {
      */
     public enum SSelector_userGetAutocompleteV2: String, CaseIterable {
         case agentBrokerAssistant = "AgentBrokerAssistant"
+        case agentBrokerEmployeeEzsignUserNormalWithoutEzmaxpartner = "AgentBrokerEmployeeEzsignUserNormalWithoutEzmaxpartner"
         case agentBrokerEmployeeEzsignUserNormal = "AgentBrokerEmployeeEzsignUserNormal"
         case agentBrokerEmployeeNormalBuiltIn = "AgentBrokerEmployeeNormalBuiltIn"
         case agentBrokerEzsignuserNormal = "AgentBrokerEzsignuserNormal"
@@ -497,6 +498,56 @@ open class ObjectUserAPI {
     }
 
     /**
+     Returns the Ezmaxcustomeruser for the User
+     
+     - parameter pkiUserID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userGetEzmaxcustomeruserV1(pkiUserID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserGetEzmaxcustomeruserV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userGetEzmaxcustomeruserV1WithRequestBuilder(pkiUserID: pkiUserID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Returns the Ezmaxcustomeruser for the User
+     - GET /1/object/user/{pkiUserID}/getEzmaxcustomeruser
+     - Returns the Ezmaxcustomeruser for the User
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserID: (path)  
+     - returns: RequestBuilder<UserGetEzmaxcustomeruserV1Response> 
+     */
+    open class func userGetEzmaxcustomeruserV1WithRequestBuilder(pkiUserID: Int) -> RequestBuilder<UserGetEzmaxcustomeruserV1Response> {
+        var localVariablePath = "/1/object/user/{pkiUserID}/getEzmaxcustomeruser"
+        let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
+        let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserID}", with: pkiUserIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserGetEzmaxcustomeruserV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_userGetListV1: String, CaseIterable {
@@ -520,6 +571,8 @@ open class ObjectUserAPI {
         case dtuserezsignprepaidexpirationDesc = "dtUserEzsignprepaidexpiration_DESC"
         case semailaddressAsc = "sEmailAddress_ASC"
         case semailaddressDesc = "sEmailAddress_DESC"
+        case busersuspendedAsc = "bUserSuspended_ASC"
+        case busersuspendedDesc = "bUserSuspended_DESC"
     }
 
     /**
@@ -827,6 +880,58 @@ open class ObjectUserAPI {
         let localVariableRequestBuilder: RequestBuilder<UserGetUsergroupsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Impersonate the user
+     
+     - parameter pkiUserID: (path)  
+     - parameter userImpersonateV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func userImpersonateV1(pkiUserID: Int, userImpersonateV1Request: UserImpersonateV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: UserImpersonateV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return userImpersonateV1WithRequestBuilder(pkiUserID: pkiUserID, userImpersonateV1Request: userImpersonateV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Impersonate the user
+     - POST /1/object/user/{pkiUserID}/impersonate
+     - Using this endpoint, you can impersonate the user.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiUserID: (path)  
+     - parameter userImpersonateV1Request: (body)  
+     - returns: RequestBuilder<UserImpersonateV1Response> 
+     */
+    open class func userImpersonateV1WithRequestBuilder(pkiUserID: Int, userImpersonateV1Request: UserImpersonateV1Request) -> RequestBuilder<UserImpersonateV1Response> {
+        var localVariablePath = "/1/object/user/{pkiUserID}/impersonate"
+        let pkiUserIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiUserID))"
+        let pkiUserIDPostEscape = pkiUserIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiUserID}", with: pkiUserIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: userImpersonateV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<UserImpersonateV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**

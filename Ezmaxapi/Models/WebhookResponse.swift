@@ -18,7 +18,7 @@ public struct WebhookResponse: Codable, JSONEncodable, Hashable {
     public static let sWebhookUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(https|http):\/\/[^\\s\/$.?#].[^\\s]*$/")
     public static let sAuthenticationexternalDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the Webhook */
-    public var pkiWebhookID: Int
+    public var pkiWebhookID: Int?
     /** The unique ID of the Authenticationexternal */
     public var fkiAuthenticationexternalID: Int?
     /** The description of the Webhook */
@@ -46,9 +46,9 @@ public struct WebhookResponse: Codable, JSONEncodable, Hashable {
     public var bWebhookSkipsslvalidation: Bool
     /** The description of the Authenticationexternal */
     public var sAuthenticationexternalDescription: String?
-    public var objAudit: CommonAudit
+    public var objAudit: CommonAudit?
 
-    public init(pkiWebhookID: Int, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit) {
+    public init(pkiWebhookID: Int? = nil, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.fkiAuthenticationexternalID = fkiAuthenticationexternalID
         self.sWebhookDescription = sWebhookDescription
@@ -92,7 +92,7 @@ public struct WebhookResponse: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(pkiWebhookID, forKey: .pkiWebhookID)
+        try container.encodeIfPresent(pkiWebhookID, forKey: .pkiWebhookID)
         try container.encodeIfPresent(fkiAuthenticationexternalID, forKey: .fkiAuthenticationexternalID)
         try container.encode(sWebhookDescription, forKey: .sWebhookDescription)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
@@ -108,7 +108,7 @@ public struct WebhookResponse: Codable, JSONEncodable, Hashable {
         try container.encode(bWebhookIssigned, forKey: .bWebhookIssigned)
         try container.encode(bWebhookSkipsslvalidation, forKey: .bWebhookSkipsslvalidation)
         try container.encodeIfPresent(sAuthenticationexternalDescription, forKey: .sAuthenticationexternalDescription)
-        try container.encode(objAudit, forKey: .objAudit)
+        try container.encodeIfPresent(objAudit, forKey: .objAudit)
     }
 }
 

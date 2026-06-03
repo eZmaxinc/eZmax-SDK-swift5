@@ -15,6 +15,10 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
 
     public static let pkiEzsignfolderIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsignfoldertypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignbulksendIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsignbulksendtransmissionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzsigntemplatepublicIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
+    public static let sEzsigntemplatepublicDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,80}$/")
     public static let sEzsignfolderDescriptionRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
     public static let dEzsignfolderCompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
     public static let dEzsignfolderFormcompletedpercentageRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{2}$/")
@@ -23,6 +27,19 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     public var pkiEzsignfolderID: Int
     /** The unique ID of the Ezsignfoldertype. */
     public var fkiEzsignfoldertypeID: Int
+    /** The unique ID of the Ezsignbulksend */
+    public var fkiEzsignbulksendID: Int?
+    /** The description of the Ezsignbulksend */
+    public var sEzsignbulksendDescription: String?
+    /** The unique ID of the Ezsignbulksendtransmission */
+    public var fkiEzsignbulksendtransmissionID: Int?
+    /** The description of the Ezsignbulksendtransmission */
+    public var sEzsignbulksendtransmissionDescription: String?
+    /** The unique ID of the Ezsigntemplatepublic */
+    public var fkiEzsigntemplatepublicID: Int?
+    /** The description of the Ezsigntemplatepublic */
+    public var sEzsigntemplatepublicDescription: String?
+    public var eEzsignfolderSource: FieldEEzsignfolderSource
     public var eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String
@@ -66,10 +83,19 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
     public var dtEzsignfolderDispose: String?
     /** Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user */
     public var bEzsignfolderSigner: Bool?
+    /** Whether the Ezsignfolder is my own or not */
+    public var bEzsignfolderIsmyown: Bool?
 
-    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, dtCreatedDate: String, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int, iEzsignformfieldgroup: Int, iEzsignformfieldgroupCompleted: Int, bEzsignformHasdependencies: Bool? = nil, dEzsignfolderCompletedpercentage: String, dEzsignfolderFormcompletedpercentage: String, dEzsignfolderSignaturecompletedpercentage: String, dtEzsignfolderClose: String? = nil, dtEzsignfolderArchive: String? = nil, dtEzsignfolderDispose: String? = nil, bEzsignfolderSigner: Bool? = nil) {
+    public init(pkiEzsignfolderID: Int, fkiEzsignfoldertypeID: Int, fkiEzsignbulksendID: Int? = nil, sEzsignbulksendDescription: String? = nil, fkiEzsignbulksendtransmissionID: Int? = nil, sEzsignbulksendtransmissionDescription: String? = nil, fkiEzsigntemplatepublicID: Int? = nil, sEzsigntemplatepublicDescription: String? = nil, eEzsignfolderSource: FieldEEzsignfolderSource, eEzsignfoldertypePrivacylevel: FieldEEzsignfoldertypePrivacylevel, sEzsignfoldertypeNameX: String, sEzsignfolderDescription: String, eEzsignfolderStep: FieldEEzsignfolderStep, eEzsignfolderCompletion: FieldEEzsignfolderCompletion, dtCreatedDate: String, dtEzsignfolderDelayedsenddate: String? = nil, dtEzsignfolderSentdate: String? = nil, dtEzsignfolderDuedate: String? = nil, iEzsigndocument: Int, iEzsigndocumentEdm: Int, iEzsignsignature: Int, iEzsignsignatureSigned: Int, iEzsignformfieldgroup: Int, iEzsignformfieldgroupCompleted: Int, bEzsignformHasdependencies: Bool? = nil, dEzsignfolderCompletedpercentage: String, dEzsignfolderFormcompletedpercentage: String, dEzsignfolderSignaturecompletedpercentage: String, dtEzsignfolderClose: String? = nil, dtEzsignfolderArchive: String? = nil, dtEzsignfolderDispose: String? = nil, bEzsignfolderSigner: Bool? = nil, bEzsignfolderIsmyown: Bool? = nil) {
         self.pkiEzsignfolderID = pkiEzsignfolderID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
+        self.fkiEzsignbulksendID = fkiEzsignbulksendID
+        self.sEzsignbulksendDescription = sEzsignbulksendDescription
+        self.fkiEzsignbulksendtransmissionID = fkiEzsignbulksendtransmissionID
+        self.sEzsignbulksendtransmissionDescription = sEzsignbulksendtransmissionDescription
+        self.fkiEzsigntemplatepublicID = fkiEzsigntemplatepublicID
+        self.sEzsigntemplatepublicDescription = sEzsigntemplatepublicDescription
+        self.eEzsignfolderSource = eEzsignfolderSource
         self.eEzsignfoldertypePrivacylevel = eEzsignfoldertypePrivacylevel
         self.sEzsignfoldertypeNameX = sEzsignfoldertypeNameX
         self.sEzsignfolderDescription = sEzsignfolderDescription
@@ -93,11 +119,19 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         self.dtEzsignfolderArchive = dtEzsignfolderArchive
         self.dtEzsignfolderDispose = dtEzsignfolderDispose
         self.bEzsignfolderSigner = bEzsignfolderSigner
+        self.bEzsignfolderIsmyown = bEzsignfolderIsmyown
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsignfolderID
         case fkiEzsignfoldertypeID
+        case fkiEzsignbulksendID
+        case sEzsignbulksendDescription
+        case fkiEzsignbulksendtransmissionID
+        case sEzsignbulksendtransmissionDescription
+        case fkiEzsigntemplatepublicID
+        case sEzsigntemplatepublicDescription
+        case eEzsignfolderSource
         case eEzsignfoldertypePrivacylevel
         case sEzsignfoldertypeNameX
         case sEzsignfolderDescription
@@ -121,6 +155,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         case dtEzsignfolderArchive
         case dtEzsignfolderDispose
         case bEzsignfolderSigner
+        case bEzsignfolderIsmyown
     }
 
     // Encodable protocol methods
@@ -129,6 +164,13 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsignfolderID, forKey: .pkiEzsignfolderID)
         try container.encode(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
+        try container.encodeIfPresent(fkiEzsignbulksendID, forKey: .fkiEzsignbulksendID)
+        try container.encodeIfPresent(sEzsignbulksendDescription, forKey: .sEzsignbulksendDescription)
+        try container.encodeIfPresent(fkiEzsignbulksendtransmissionID, forKey: .fkiEzsignbulksendtransmissionID)
+        try container.encodeIfPresent(sEzsignbulksendtransmissionDescription, forKey: .sEzsignbulksendtransmissionDescription)
+        try container.encodeIfPresent(fkiEzsigntemplatepublicID, forKey: .fkiEzsigntemplatepublicID)
+        try container.encodeIfPresent(sEzsigntemplatepublicDescription, forKey: .sEzsigntemplatepublicDescription)
+        try container.encode(eEzsignfolderSource, forKey: .eEzsignfolderSource)
         try container.encode(eEzsignfoldertypePrivacylevel, forKey: .eEzsignfoldertypePrivacylevel)
         try container.encode(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
         try container.encode(sEzsignfolderDescription, forKey: .sEzsignfolderDescription)
@@ -152,6 +194,7 @@ public struct EzsignfolderListElement: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(dtEzsignfolderArchive, forKey: .dtEzsignfolderArchive)
         try container.encodeIfPresent(dtEzsignfolderDispose, forKey: .dtEzsignfolderDispose)
         try container.encodeIfPresent(bEzsignfolderSigner, forKey: .bEzsignfolderSigner)
+        try container.encodeIfPresent(bEzsignfolderIsmyown, forKey: .bEzsignfolderIsmyown)
     }
 }
 

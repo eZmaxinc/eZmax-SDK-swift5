@@ -28,6 +28,8 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
     public var sUserLoginname: String
     /** Whether the User is active or not */
     public var bUserIsactive: Bool
+    /** Whether the User is suspended or not */
+    public var bUserSuspended: Bool?
     public var eUserType: FieldEUserType
     public var eUserOrigin: FieldEUserOrigin
     public var eUserEzsignaccess: FieldEUserEzsignaccess
@@ -38,12 +40,13 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
     /** The job title of the user */
     public var sUserJobtitle: String?
 
-    public init(pkiUserID: Int, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, bUserIsactive: Bool, eUserType: FieldEUserType, eUserOrigin: FieldEUserOrigin, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserEzsignprepaidexpiration: String? = nil, sEmailAddress: String, sUserJobtitle: String? = nil) {
+    public init(pkiUserID: Int, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, bUserIsactive: Bool, bUserSuspended: Bool? = nil, eUserType: FieldEUserType, eUserOrigin: FieldEUserOrigin, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserEzsignprepaidexpiration: String? = nil, sEmailAddress: String, sUserJobtitle: String? = nil) {
         self.pkiUserID = pkiUserID
         self.sUserFirstname = sUserFirstname
         self.sUserLastname = sUserLastname
         self.sUserLoginname = sUserLoginname
         self.bUserIsactive = bUserIsactive
+        self.bUserSuspended = bUserSuspended
         self.eUserType = eUserType
         self.eUserOrigin = eUserOrigin
         self.eUserEzsignaccess = eUserEzsignaccess
@@ -58,6 +61,7 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
         case sUserLastname
         case sUserLoginname
         case bUserIsactive
+        case bUserSuspended
         case eUserType
         case eUserOrigin
         case eUserEzsignaccess
@@ -75,6 +79,7 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encode(sUserLoginname, forKey: .sUserLoginname)
         try container.encode(bUserIsactive, forKey: .bUserIsactive)
+        try container.encodeIfPresent(bUserSuspended, forKey: .bUserSuspended)
         try container.encode(eUserType, forKey: .eUserType)
         try container.encode(eUserOrigin, forKey: .eUserOrigin)
         try container.encode(eUserEzsignaccess, forKey: .eUserEzsignaccess)

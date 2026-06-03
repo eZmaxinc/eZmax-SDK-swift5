@@ -15,7 +15,7 @@ public struct EzsigntemplatesignaturepaymentdetailRequestCompound: Codable, JSON
 
     public static let pkiEzsigntemplatesignaturepaymentdetailIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiGlaccountcontainerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let dEzsigntemplatesignaturepaymentdetailAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^-{0,1}[\\d]{1,9}?\\.[\\d]{2}$/")
+    public static let dEzsigntemplatesignaturepaymentdetailAmountRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\d]{1,3}?\\.[\\d]{2}$/")
     /** The unique ID of the Ezsignsignaturepaymentdetail */
     public var pkiEzsigntemplatesignaturepaymentdetailID: Int?
     /** The unique ID of the Glaccountcontainer */

@@ -74,6 +74,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsigndocumentApplyEzsigntemplateV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV2Request: EzsigndocumentApplyEzsigntemplateV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentApplyEzsigntemplateV2WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV2Request: ezsigndocumentApplyEzsigntemplateV2Request).execute(apiResponseQueue) { result in
@@ -97,6 +98,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter ezsigndocumentApplyEzsigntemplateV2Request: (body)  
      - returns: RequestBuilder<EzsigndocumentApplyEzsigntemplateV2Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsigndocumentApplyEzsigntemplateV2WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV2Request: EzsigndocumentApplyEzsigntemplateV2Request) -> RequestBuilder<EzsigndocumentApplyEzsigntemplateV2Response> {
         var localVariablePath = "/2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate"
         let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
@@ -119,6 +121,58 @@ open class ObjectEzsigndocumentAPI {
     }
 
     /**
+     Apply an Ezsigntemplate to the Ezsigndocument
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentApplyEzsigntemplateV3Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentApplyEzsigntemplateV3(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV3Request: EzsigndocumentApplyEzsigntemplateV3Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentApplyEzsigntemplateV3WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateV3Request: ezsigndocumentApplyEzsigntemplateV3Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Apply an Ezsigntemplate to the Ezsigndocument
+     - POST /3/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate
+     - This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentApplyEzsigntemplateV3Request: (body)  
+     - returns: RequestBuilder<EzsigndocumentApplyEzsigntemplateV3Response> 
+     */
+    open class func ezsigndocumentApplyEzsigntemplateV3WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateV3Request: EzsigndocumentApplyEzsigntemplateV3Request) -> RequestBuilder<EzsigndocumentApplyEzsigntemplateV3Response> {
+        var localVariablePath = "/3/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigndocumentApplyEzsigntemplateV3Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentApplyEzsigntemplateV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Apply an Ezsigntemplateglobal to the Ezsigndocument
      
      - parameter pkiEzsigndocumentID: (path)  
@@ -126,6 +180,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsigndocumentApplyEzsigntemplateglobalV1(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV1Request: EzsigndocumentApplyEzsigntemplateglobalV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateglobalV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsigndocumentApplyEzsigntemplateglobalV1WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateglobalV1Request: ezsigndocumentApplyEzsigntemplateglobalV1Request).execute(apiResponseQueue) { result in
@@ -149,6 +204,7 @@ open class ObjectEzsigndocumentAPI {
      - parameter ezsigndocumentApplyEzsigntemplateglobalV1Request: (body)  
      - returns: RequestBuilder<EzsigndocumentApplyEzsigntemplateglobalV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsigndocumentApplyEzsigntemplateglobalV1WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV1Request: EzsigndocumentApplyEzsigntemplateglobalV1Request) -> RequestBuilder<EzsigndocumentApplyEzsigntemplateglobalV1Response> {
         var localVariablePath = "/1/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal"
         let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
@@ -166,6 +222,58 @@ open class ObjectEzsigndocumentAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsigndocumentApplyEzsigntemplateglobalV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Apply an Ezsigntemplateglobal to the Ezsigndocument
+     
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentApplyEzsigntemplateglobalV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsigndocumentApplyEzsigntemplateglobalV2(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV2Request: EzsigndocumentApplyEzsigntemplateglobalV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsigndocumentApplyEzsigntemplateglobalV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsigndocumentApplyEzsigntemplateglobalV2WithRequestBuilder(pkiEzsigndocumentID: pkiEzsigndocumentID, ezsigndocumentApplyEzsigntemplateglobalV2Request: ezsigndocumentApplyEzsigntemplateglobalV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Apply an Ezsigntemplateglobal to the Ezsigndocument
+     - POST /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal
+     - This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsigndocumentID: (path)  
+     - parameter ezsigndocumentApplyEzsigntemplateglobalV2Request: (body)  
+     - returns: RequestBuilder<EzsigndocumentApplyEzsigntemplateglobalV2Response> 
+     */
+    open class func ezsigndocumentApplyEzsigntemplateglobalV2WithRequestBuilder(pkiEzsigndocumentID: Int, ezsigndocumentApplyEzsigntemplateglobalV2Request: EzsigndocumentApplyEzsigntemplateglobalV2Request) -> RequestBuilder<EzsigndocumentApplyEzsigntemplateglobalV2Response> {
+        var localVariablePath = "/2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal"
+        let pkiEzsigndocumentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsigndocumentID))"
+        let pkiEzsigndocumentIDPostEscape = pkiEzsigndocumentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsigndocumentID}", with: pkiEzsigndocumentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsigndocumentApplyEzsigntemplateglobalV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsigndocumentApplyEzsigntemplateglobalV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

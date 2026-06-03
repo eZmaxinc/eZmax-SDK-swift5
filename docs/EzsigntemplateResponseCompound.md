@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **eEzsigntemplateType** | [**FieldEEzsigntemplateType**](FieldEEzsigntemplateType.md) |  | [optional] 
 **objEzsigntemplatedocument** | [**EzsigntemplatedocumentResponse**](EzsigntemplatedocumentResponse.md) |  | [optional] 
 **aObjEzsigntemplatesigner** | [EzsigntemplatesignerResponseCompound] |  | 
+**aObjEzsigntemplateannotation** | [EzsigntemplateannotationResponseCompound] |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

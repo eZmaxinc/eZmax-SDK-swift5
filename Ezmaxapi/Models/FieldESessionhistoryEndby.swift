@@ -26,4 +26,5 @@ public enum FieldESessionhistoryEndby: String, Codable, CaseIterable {
     case badUserType = "BadUserType"
     case badIP = "BadIP"
     case forcedLogoff = "ForcedLogoff"
+    case suspended = "Suspended"
 }

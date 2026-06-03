@@ -299,8 +299,6 @@ open class ObjectEzsigntemplateAPI {
     public enum EOrderBy_ezsigntemplateGetListV1: String, CaseIterable {
         case pkiezsigntemplateidAsc = "pkiEzsigntemplateID_ASC"
         case pkiezsigntemplateidDesc = "pkiEzsigntemplateID_DESC"
-        case fkiteamidAsc = "fkiTeamID_ASC"
-        case fkiteamidDesc = "fkiTeamID_DESC"
         case fkiezsignfoldertypeidAsc = "fkiEzsignfoldertypeID_ASC"
         case fkiezsignfoldertypeidDesc = "fkiEzsignfoldertypeID_DESC"
         case fkiuseridownerAsc = "fkiUserIDOwner_ASC"
@@ -311,8 +309,6 @@ open class ObjectEzsigntemplateAPI {
         case eezsigntemplatetypeDesc = "eEzsigntemplateType_DESC"
         case sezsigntemplatedescriptionAsc = "sEzsigntemplateDescription_ASC"
         case sezsigntemplatedescriptionDesc = "sEzsigntemplateDescription_DESC"
-        case sezsigntemplatedocumentdescriptionAsc = "sEzsigntemplatedocumentDescription_ASC"
-        case sezsigntemplatedocumentdescriptionDesc = "sEzsigntemplatedocumentDescription_DESC"
         case iezsigntemplatedocumentpagetotalAsc = "iEzsigntemplatedocumentPagetotal_ASC"
         case iezsigntemplatedocumentpagetotalDesc = "iEzsigntemplatedocumentPagetotal_DESC"
         case iezsigntemplatesignaturetotalAsc = "iEzsigntemplateSignaturetotal_ASC"

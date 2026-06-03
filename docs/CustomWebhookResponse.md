@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pkiWebhookID** | **Int** | The unique ID of the Webhook | 
+**pkiWebhookID** | **Int** | The unique ID of the Webhook | [optional] 
 **fkiAuthenticationexternalID** | **Int** | The unique ID of the Authenticationexternal | [optional] 
 **sWebhookDescription** | **String** | The description of the Webhook | 
 **fkiEzsignfoldertypeID** | **Int** | The unique ID of the Ezsignfoldertype. | [optional] 
@@ -19,13 +19,14 @@ Name | Type | Description | Notes
 **bWebhookIssigned** | **Bool** | Whether the requests will be signed or not | 
 **bWebhookSkipsslvalidation** | **Bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **sAuthenticationexternalDescription** | **String** | The description of the Authenticationexternal | [optional] 
-**objAudit** | [**CommonAudit**](CommonAudit.md) |  | 
+**objAudit** | [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **sWebhookEvent** | **String** | The concatenated string to describe the Webhook event | [optional] 
 **sWebhookAuthentificationexternalerror** | **String** | Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. | [optional] 
 **aObjWebhookheader** | [WebhookheaderResponseCompound] |  | [optional] 
 **pksCustomerCode** | **String** | The customer code assigned to your account | 
 **bWebhookTest** | **Bool** | Wheter the webhook received is a manual test or a real event | 
 **eWebhookEmittype** | **String** | Wheter the webhook received is a manual test or a real event | [optional] 
+**fkiEzmaxpartnerproductstagewebhookID** | **Int** | The unique ID of the Ezmaxpartnerproductstagewebhook | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

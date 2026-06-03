@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiCreditcardmerchantID** | **Int** | The unique ID of the Creditcardmerchant | 
-**fkiBankaccountID** | **Int** | The unique ID of the Bankaccount | 
+**fkiBankaccountID** | **Int** | The unique ID of the Bankaccount | [optional] 
 **fkiLanguageID** | **Int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | [optional] 
 **bCreditcardmerchantDenyvisa** | **Bool** | Whether if visa are denied | 
 **bCreditcardmerchantDenymastercard** | **Bool** | Whether if mastercard are denied | 

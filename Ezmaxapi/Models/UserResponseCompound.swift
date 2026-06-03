@@ -18,6 +18,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
     public static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiAssistantIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEmployeeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzmaxpartnerIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiCompanyIDDefaultRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepartmentIDDefaultRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiTimezoneIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
@@ -40,6 +41,8 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
     public var fkiAssistantID: Int?
     /** The unique ID of the Employee. */
     public var fkiEmployeeID: Int?
+    /** The unique ID of the Ezmaxpartner */
+    public var fkiEzmaxpartnerID: Int?
     /** The unique ID of the Company */
     public var fkiCompanyIDDefault: Int
     /** The Name of the Company in the language of the requester */
@@ -63,7 +66,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
     public var sBillingentityinternalDescriptionX: String
     public var objPhoneHome: PhoneResponseCompound?
     public var objPhoneSMS: PhoneResponseCompound?
-    /** The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code| */
+    /** The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |23|Secret Code| |24|Your reference code| |25|What are the last 4 digits of your SIN| |26|What is your postal code| |27|What is your employee number| |28|What is your manager’s first name| |29|What is your file number| |30|What is your client/member number| |31|What is your license number| |32|What are the last 4 digits of your phone number| |33|What is your student number| */
     public var fkiSecretquestionID: Int?
     /** The unique ID of the Module */
     public var fkiModuleIDForm: Int?
@@ -89,6 +92,8 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
     public var dtUserEzsignprepaidexpiration: String?
     /** Whether the User is active or not */
     public var bUserIsactive: Bool
+    /** Whether the User is suspended or not */
+    public var bUserSuspended: Bool?
     /** Whether if the transactions in which the User is implicated must be validated by administrative personnel or not */
     public var bUserValidatebyadministration: Bool?
     /** Whether if the transactions in which the User is implicated must be validated by a director or not */
@@ -97,14 +102,17 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
     public var bUserAttachmentautoverified: Bool?
     /** Whether if the User is forced to change its password */
     public var bUserChangepassword: Bool
+    /** Whether we group or not the Ezsigntemplate roles */
+    public var bUserEzsigntemplaterolegrouping: Bool?
     public var objAudit: CommonAudit
 
-    public init(pkiUserID: Int, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiAssistantID: Int? = nil, fkiEmployeeID: Int? = nil, fkiCompanyIDDefault: Int, sCompanyNameX: String, fkiDepartmentIDDefault: Int, sDepartmentNameX: String, fkiTimezoneID: Int, sTimezoneName: String, fkiLanguageID: Int, sLanguageNameX: String, objEmail: EmailResponseCompound, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, objPhoneHome: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil, fkiSecretquestionID: Int? = nil, fkiModuleIDForm: Int? = nil, sModuleNameX: String? = nil, eUserOrigin: FieldEUserOrigin, eUserType: FieldEUserType, eUserLogintype: FieldEUserLogintype, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, sUserJobtitle: String? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserLastlogondate: String? = nil, dtUserPasswordchanged: String? = nil, dtUserEzsignprepaidexpiration: String? = nil, bUserIsactive: Bool, bUserValidatebyadministration: Bool? = nil, bUserValidatebydirector: Bool? = nil, bUserAttachmentautoverified: Bool? = nil, bUserChangepassword: Bool, objAudit: CommonAudit) {
+    public init(pkiUserID: Int, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, fkiAssistantID: Int? = nil, fkiEmployeeID: Int? = nil, fkiEzmaxpartnerID: Int? = nil, fkiCompanyIDDefault: Int, sCompanyNameX: String, fkiDepartmentIDDefault: Int, sDepartmentNameX: String, fkiTimezoneID: Int, sTimezoneName: String, fkiLanguageID: Int, sLanguageNameX: String, objEmail: EmailResponseCompound, fkiBillingentityinternalID: Int, sBillingentityinternalDescriptionX: String, objPhoneHome: PhoneResponseCompound? = nil, objPhoneSMS: PhoneResponseCompound? = nil, fkiSecretquestionID: Int? = nil, fkiModuleIDForm: Int? = nil, sModuleNameX: String? = nil, eUserOrigin: FieldEUserOrigin, eUserType: FieldEUserType, eUserLogintype: FieldEUserLogintype, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, sUserJobtitle: String? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserLastlogondate: String? = nil, dtUserPasswordchanged: String? = nil, dtUserEzsignprepaidexpiration: String? = nil, bUserIsactive: Bool, bUserSuspended: Bool? = nil, bUserValidatebyadministration: Bool? = nil, bUserValidatebydirector: Bool? = nil, bUserAttachmentautoverified: Bool? = nil, bUserChangepassword: Bool, bUserEzsigntemplaterolegrouping: Bool? = nil, objAudit: CommonAudit) {
         self.pkiUserID = pkiUserID
         self.fkiAgentID = fkiAgentID
         self.fkiBrokerID = fkiBrokerID
         self.fkiAssistantID = fkiAssistantID
         self.fkiEmployeeID = fkiEmployeeID
+        self.fkiEzmaxpartnerID = fkiEzmaxpartnerID
         self.fkiCompanyIDDefault = fkiCompanyIDDefault
         self.sCompanyNameX = sCompanyNameX
         self.fkiDepartmentIDDefault = fkiDepartmentIDDefault
@@ -133,10 +141,12 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
         self.dtUserPasswordchanged = dtUserPasswordchanged
         self.dtUserEzsignprepaidexpiration = dtUserEzsignprepaidexpiration
         self.bUserIsactive = bUserIsactive
+        self.bUserSuspended = bUserSuspended
         self.bUserValidatebyadministration = bUserValidatebyadministration
         self.bUserValidatebydirector = bUserValidatebydirector
         self.bUserAttachmentautoverified = bUserAttachmentautoverified
         self.bUserChangepassword = bUserChangepassword
+        self.bUserEzsigntemplaterolegrouping = bUserEzsigntemplaterolegrouping
         self.objAudit = objAudit
     }
 
@@ -146,6 +156,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
         case fkiBrokerID
         case fkiAssistantID
         case fkiEmployeeID
+        case fkiEzmaxpartnerID
         case fkiCompanyIDDefault
         case sCompanyNameX
         case fkiDepartmentIDDefault
@@ -174,10 +185,12 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
         case dtUserPasswordchanged
         case dtUserEzsignprepaidexpiration
         case bUserIsactive
+        case bUserSuspended
         case bUserValidatebyadministration
         case bUserValidatebydirector
         case bUserAttachmentautoverified
         case bUserChangepassword
+        case bUserEzsigntemplaterolegrouping
         case objAudit
     }
 
@@ -190,6 +203,7 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fkiBrokerID, forKey: .fkiBrokerID)
         try container.encodeIfPresent(fkiAssistantID, forKey: .fkiAssistantID)
         try container.encodeIfPresent(fkiEmployeeID, forKey: .fkiEmployeeID)
+        try container.encodeIfPresent(fkiEzmaxpartnerID, forKey: .fkiEzmaxpartnerID)
         try container.encode(fkiCompanyIDDefault, forKey: .fkiCompanyIDDefault)
         try container.encode(sCompanyNameX, forKey: .sCompanyNameX)
         try container.encode(fkiDepartmentIDDefault, forKey: .fkiDepartmentIDDefault)
@@ -218,10 +232,12 @@ public struct UserResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(dtUserPasswordchanged, forKey: .dtUserPasswordchanged)
         try container.encodeIfPresent(dtUserEzsignprepaidexpiration, forKey: .dtUserEzsignprepaidexpiration)
         try container.encode(bUserIsactive, forKey: .bUserIsactive)
+        try container.encodeIfPresent(bUserSuspended, forKey: .bUserSuspended)
         try container.encodeIfPresent(bUserValidatebyadministration, forKey: .bUserValidatebyadministration)
         try container.encodeIfPresent(bUserValidatebydirector, forKey: .bUserValidatebydirector)
         try container.encodeIfPresent(bUserAttachmentautoverified, forKey: .bUserAttachmentautoverified)
         try container.encode(bUserChangepassword, forKey: .bUserChangepassword)
+        try container.encodeIfPresent(bUserEzsigntemplaterolegrouping, forKey: .bUserEzsigntemplaterolegrouping)
         try container.encode(objAudit, forKey: .objAudit)
     }
 }

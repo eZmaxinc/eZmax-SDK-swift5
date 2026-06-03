@@ -19,14 +19,16 @@ public struct EzsigntemplateglobaldocumentResponse: Codable, JSONEncodable, Hash
     public var pkiEzsigntemplateglobaldocumentID: Int
     /** The name of the Ezsigntemplateglobaldocument. */
     public var sEzsigntemplateglobaldocumentName: String
+    public var eEzsigntemplateglobaldocumentAcceptationtype: FieldEEzsigntemplateglobaldocumentAcceptationtype
     /** The number of pages in the Ezsigntemplateglobaldocument. */
     public var iEzsigntemplateglobaldocumentPagetotal: Int
     /** The number of total signatures in the Ezsigntemplateglobal. */
     public var iEzsigntemplateglobaldocumentSignaturetotal: Int
 
-    public init(pkiEzsigntemplateglobaldocumentID: Int, sEzsigntemplateglobaldocumentName: String, iEzsigntemplateglobaldocumentPagetotal: Int, iEzsigntemplateglobaldocumentSignaturetotal: Int) {
+    public init(pkiEzsigntemplateglobaldocumentID: Int, sEzsigntemplateglobaldocumentName: String, eEzsigntemplateglobaldocumentAcceptationtype: FieldEEzsigntemplateglobaldocumentAcceptationtype, iEzsigntemplateglobaldocumentPagetotal: Int, iEzsigntemplateglobaldocumentSignaturetotal: Int) {
         self.pkiEzsigntemplateglobaldocumentID = pkiEzsigntemplateglobaldocumentID
         self.sEzsigntemplateglobaldocumentName = sEzsigntemplateglobaldocumentName
+        self.eEzsigntemplateglobaldocumentAcceptationtype = eEzsigntemplateglobaldocumentAcceptationtype
         self.iEzsigntemplateglobaldocumentPagetotal = iEzsigntemplateglobaldocumentPagetotal
         self.iEzsigntemplateglobaldocumentSignaturetotal = iEzsigntemplateglobaldocumentSignaturetotal
     }
@@ -34,6 +36,7 @@ public struct EzsigntemplateglobaldocumentResponse: Codable, JSONEncodable, Hash
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiEzsigntemplateglobaldocumentID
         case sEzsigntemplateglobaldocumentName
+        case eEzsigntemplateglobaldocumentAcceptationtype
         case iEzsigntemplateglobaldocumentPagetotal
         case iEzsigntemplateglobaldocumentSignaturetotal
     }
@@ -44,6 +47,7 @@ public struct EzsigntemplateglobaldocumentResponse: Codable, JSONEncodable, Hash
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiEzsigntemplateglobaldocumentID, forKey: .pkiEzsigntemplateglobaldocumentID)
         try container.encode(sEzsigntemplateglobaldocumentName, forKey: .sEzsigntemplateglobaldocumentName)
+        try container.encode(eEzsigntemplateglobaldocumentAcceptationtype, forKey: .eEzsigntemplateglobaldocumentAcceptationtype)
         try container.encode(iEzsigntemplateglobaldocumentPagetotal, forKey: .iEzsigntemplateglobaldocumentPagetotal)
         try container.encode(iEzsigntemplateglobaldocumentSignaturetotal, forKey: .iEzsigntemplateglobaldocumentSignaturetotal)
     }

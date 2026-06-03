@@ -60,6 +60,8 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     public var eUserEzsignprepaid: FieldEUserEzsignprepaid?
     /** Whether the User's eZsign subscription is a trial */
     public var bUserEzsigntrial: Bool?
+    /** Whether we group or not the Ezsigntemplate roles */
+    public var bUserEzsigntemplaterolegrouping: Bool?
     /** The eZsign prepaid expiration date */
     public var dtUserEzsignprepaidexpiration: String?
     /** The date at which the NPS questionnaire will be show */
@@ -71,8 +73,10 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
     public var objApikey: ActivesessionResponseCompoundApikey?
     /** An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. */
     public var aEModuleInternalname: [String]
+    /** If you need to ask which mailing lists this user wants to subscribe to */
+    public var bActivesessionMaillinglistrequest: Bool?
 
-    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, fkiEzsignuserID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, bUserEzsigntrial: Bool? = nil, dtUserEzsignprepaidexpiration: String? = nil, dtUserNpsrequest: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String]) {
+    public init(eActivesessionUsertype: FieldEActivesessionUsertype, eActivesessionOrigin: FieldEActivesessionOrigin, eActivesessionWeekdaystart: FieldEActivesessionWeekdaystart, fkiLanguageID: Int, sCompanyNameX: String, sDepartmentNameX: String, bActivesessionDebug: Bool, bActivesessionIssuperadmin: Bool, bActivesessionAttachment: Bool? = nil, bActivesessionCanafe: Bool? = nil, bActivesessionFinancial: Bool? = nil, bActivesessionRealestatecompleted: Bool? = nil, eActivesessionEzsign: FieldEActivesessionEzsign? = nil, eActivesessionEzsignaccess: FieldEActivesessionEzsignaccess, eActivesessionEzsignprepaid: FieldEActivesessionEzsignprepaid? = nil, eActivesessionRealestateinprogress: FieldEActivesessionRealestateinprogress? = nil, pksCustomerCode: String, fkiSystemconfigurationtypeID: Int, fkiSignatureID: Int? = nil, fkiEzsignuserID: Int? = nil, bSystemconfigurationEzsignpaidbyoffice: Bool? = nil, eSystemconfigurationEzsignofficeplan: FieldESystemconfigurationEzsignofficeplan? = nil, eUserEzsignaccess: FieldEUserEzsignaccess, eUserEzsignprepaid: FieldEUserEzsignprepaid? = nil, bUserEzsigntrial: Bool? = nil, bUserEzsigntemplaterolegrouping: Bool? = nil, dtUserEzsignprepaidexpiration: String? = nil, dtUserNpsrequest: String? = nil, aPkiPermissionID: [Int], objUserReal: ActivesessionResponseCompoundUser, objUserCloned: ActivesessionResponseCompoundUser? = nil, objApikey: ActivesessionResponseCompoundApikey? = nil, aEModuleInternalname: [String], bActivesessionMaillinglistrequest: Bool? = nil) {
         self.eActivesessionUsertype = eActivesessionUsertype
         self.eActivesessionOrigin = eActivesessionOrigin
         self.eActivesessionWeekdaystart = eActivesessionWeekdaystart
@@ -98,6 +102,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         self.eUserEzsignaccess = eUserEzsignaccess
         self.eUserEzsignprepaid = eUserEzsignprepaid
         self.bUserEzsigntrial = bUserEzsigntrial
+        self.bUserEzsigntemplaterolegrouping = bUserEzsigntemplaterolegrouping
         self.dtUserEzsignprepaidexpiration = dtUserEzsignprepaidexpiration
         self.dtUserNpsrequest = dtUserNpsrequest
         self.aPkiPermissionID = aPkiPermissionID
@@ -105,6 +110,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         self.objUserCloned = objUserCloned
         self.objApikey = objApikey
         self.aEModuleInternalname = aEModuleInternalname
+        self.bActivesessionMaillinglistrequest = bActivesessionMaillinglistrequest
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -133,6 +139,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         case eUserEzsignaccess
         case eUserEzsignprepaid
         case bUserEzsigntrial
+        case bUserEzsigntemplaterolegrouping
         case dtUserEzsignprepaidexpiration
         case dtUserNpsrequest
         case aPkiPermissionID = "a_pkiPermissionID"
@@ -140,6 +147,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         case objUserCloned
         case objApikey
         case aEModuleInternalname = "a_eModuleInternalname"
+        case bActivesessionMaillinglistrequest
     }
 
     // Encodable protocol methods
@@ -171,6 +179,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         try container.encode(eUserEzsignaccess, forKey: .eUserEzsignaccess)
         try container.encodeIfPresent(eUserEzsignprepaid, forKey: .eUserEzsignprepaid)
         try container.encodeIfPresent(bUserEzsigntrial, forKey: .bUserEzsigntrial)
+        try container.encodeIfPresent(bUserEzsigntemplaterolegrouping, forKey: .bUserEzsigntemplaterolegrouping)
         try container.encodeIfPresent(dtUserEzsignprepaidexpiration, forKey: .dtUserEzsignprepaidexpiration)
         try container.encodeIfPresent(dtUserNpsrequest, forKey: .dtUserNpsrequest)
         try container.encode(aPkiPermissionID, forKey: .aPkiPermissionID)
@@ -178,6 +187,7 @@ public struct ActivesessionGetCurrentV1ResponseMPayload: Codable, JSONEncodable,
         try container.encodeIfPresent(objUserCloned, forKey: .objUserCloned)
         try container.encodeIfPresent(objApikey, forKey: .objApikey)
         try container.encode(aEModuleInternalname, forKey: .aEModuleInternalname)
+        try container.encodeIfPresent(bActivesessionMaillinglistrequest, forKey: .bActivesessionMaillinglistrequest)
     }
 }
 

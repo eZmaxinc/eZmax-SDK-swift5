@@ -15,13 +15,13 @@ public struct CustomDiscussionconfigurationResponse: Codable, JSONEncodable, Has
 
     /** If the added Discussionmembership will have access to the entire history or not */
     public var bDiscussionconfigurationCompletehistorywhenadded: Bool
-    /** If the the creation of the Discussion is allowed or not */
+    /** If the creation of the Discussion is allowed or not */
     public var bDiscussionconfigurationCreateallowed: Bool
-    /** If the the destruction of the Discussion is allowed or not */
+    /** If the destruction of the Discussion is allowed or not */
     public var bDiscussionconfigurationDeleteallowed: Bool
-    /** If the the destruction of the Discussionmessage is allowed or not */
+    /** If the destruction of the Discussionmessage is allowed or not */
     public var bDiscussionconfigurationDeletediscussionmessageallowed: Bool
-    /** If the the creation of the Discussionmessage is allowed or not */
+    /** If the creation of the Discussionmessage is allowed or not */
     public var bDiscussionconfigurationEditdiscussionmessageallowed: Bool
 
     public init(bDiscussionconfigurationCompletehistorywhenadded: Bool, bDiscussionconfigurationCreateallowed: Bool, bDiscussionconfigurationDeleteallowed: Bool, bDiscussionconfigurationDeletediscussionmessageallowed: Bool, bDiscussionconfigurationEditdiscussionmessageallowed: Bool) {

@@ -36,7 +36,7 @@ public struct EzsignfolderRequestV3: Codable, JSONEncodable, Hashable {
     public var tEzsignfolderNote: String?
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfolderMessage: String?
-    /** The number of days before the the first reminder sending */
+    /** The number of days before the first reminder sending */
     public var iEzsignfolderSendreminderfirstdays: Int
     /** The number of days after the first reminder sending */
     public var iEzsignfolderSendreminderotherdays: Int

@@ -21,7 +21,7 @@ public struct CreditcardmerchantListElement: Codable, JSONEncodable, Hashable {
     /** The unique ID of the Creditcardmerchant */
     public var pkiCreditcardmerchantID: Int
     /** The unique ID of the Bankaccount */
-    public var fkiBankaccountID: Int
+    public var fkiBankaccountID: Int?
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
     public var fkiLanguageID: Int?
     /** Whether if visa are denied */
@@ -37,7 +37,7 @@ public struct CreditcardmerchantListElement: Codable, JSONEncodable, Hashable {
     /** The storeid of the Creditcardmerchant */
     public var sCreditcardmerchantStoreid: String
 
-    public init(pkiCreditcardmerchantID: Int, fkiBankaccountID: Int, fkiLanguageID: Int? = nil, bCreditcardmerchantDenyvisa: Bool, bCreditcardmerchantDenymastercard: Bool, bCreditcardmerchantDenyamex: Bool, bCreditcardmerchantIsactive: Bool, sCreditcardmerchantDescription: String, sCreditcardmerchantStoreid: String) {
+    public init(pkiCreditcardmerchantID: Int, fkiBankaccountID: Int? = nil, fkiLanguageID: Int? = nil, bCreditcardmerchantDenyvisa: Bool, bCreditcardmerchantDenymastercard: Bool, bCreditcardmerchantDenyamex: Bool, bCreditcardmerchantIsactive: Bool, sCreditcardmerchantDescription: String, sCreditcardmerchantStoreid: String) {
         self.pkiCreditcardmerchantID = pkiCreditcardmerchantID
         self.fkiBankaccountID = fkiBankaccountID
         self.fkiLanguageID = fkiLanguageID
@@ -66,7 +66,7 @@ public struct CreditcardmerchantListElement: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiCreditcardmerchantID, forKey: .pkiCreditcardmerchantID)
-        try container.encode(fkiBankaccountID, forKey: .fkiBankaccountID)
+        try container.encodeIfPresent(fkiBankaccountID, forKey: .fkiBankaccountID)
         try container.encodeIfPresent(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encode(bCreditcardmerchantDenyvisa, forKey: .bCreditcardmerchantDenyvisa)
         try container.encode(bCreditcardmerchantDenymastercard, forKey: .bCreditcardmerchantDenymastercard)

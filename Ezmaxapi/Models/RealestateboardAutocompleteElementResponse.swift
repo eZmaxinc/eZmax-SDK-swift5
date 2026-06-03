@@ -15,7 +15,7 @@ public struct RealestateboardAutocompleteElementResponse: Codable, JSONEncodable
 
     public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     public static let sRealestateboardNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,65}$/")
-    /** The unique ID of the Activesession */
+    /** The unique ID of the Realestateboard */
     public var pkiRealestateboardID: Int
     /** The name of the Province in the language of the requester */
     public var sProvinceNameX: String

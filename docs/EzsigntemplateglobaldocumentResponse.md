@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiEzsigntemplateglobaldocumentID** | **Int** | The unique ID of the Ezsigntemplateglobaldocument | 
 **sEzsigntemplateglobaldocumentName** | **String** | The name of the Ezsigntemplateglobaldocument. | 
+**eEzsigntemplateglobaldocumentAcceptationtype** | [**FieldEEzsigntemplateglobaldocumentAcceptationtype**](FieldEEzsigntemplateglobaldocumentAcceptationtype.md) |  | 
 **iEzsigntemplateglobaldocumentPagetotal** | **Int** | The number of pages in the Ezsigntemplateglobaldocument. | 
 **iEzsigntemplateglobaldocumentSignaturetotal** | **Int** | The number of total signatures in the Ezsigntemplateglobal. | 
 

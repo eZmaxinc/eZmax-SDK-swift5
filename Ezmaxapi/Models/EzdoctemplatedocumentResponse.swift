@@ -30,7 +30,7 @@ public struct EzdoctemplatedocumentResponse: Codable, JSONEncodable, Hashable {
     /** The unique ID of the Ezdoctemplatetype */
     public var fkiEzdoctemplatetypeID: Int
     /** The unique ID of the Ezdoctemplatefieldtypecategory */
-    public var fkiEzdoctemplatefieldtypecategoryID: Int
+    public var fkiEzdoctemplatefieldtypecategoryID: Int?
     public var eEzdoctemplatedocumentPrivacylevel: FieldEEzdoctemplatedocumentPrivacylevel?
     /** Whether the ezdoctemplatedocument is active or not */
     public var bEzdoctemplatedocumentIsactive: Bool
@@ -40,11 +40,11 @@ public struct EzdoctemplatedocumentResponse: Codable, JSONEncodable, Hashable {
     /** The name of the Ezsignfoldertype in the language of the requester */
     public var sEzsignfoldertypeNameX: String?
     /** The description of the Ezdoctemplatefieldtypecategory in the language of the requester */
-    public var sEzdoctemplatefieldtypecategoryDescriptionX: String
+    public var sEzdoctemplatefieldtypecategoryDescriptionX: String?
     /** The description of the Ezdoctemplatetype in the language of the requester */
     public var sEzdoctemplatetypeDescriptionX: String
 
-    public init(pkiEzdoctemplatedocumentID: Int, fkiLanguageID: Int, fkiEzsignfoldertypeID: Int? = nil, fkiEzdoctemplatetypeID: Int, fkiEzdoctemplatefieldtypecategoryID: Int, eEzdoctemplatedocumentPrivacylevel: FieldEEzdoctemplatedocumentPrivacylevel? = nil, bEzdoctemplatedocumentIsactive: Bool, objEzdoctemplatedocumentName: MultilingualEzdoctemplatedocumentName, sEzdoctemplatedocumentNameX: String? = nil, sEzsignfoldertypeNameX: String? = nil, sEzdoctemplatefieldtypecategoryDescriptionX: String, sEzdoctemplatetypeDescriptionX: String) {
+    public init(pkiEzdoctemplatedocumentID: Int, fkiLanguageID: Int, fkiEzsignfoldertypeID: Int? = nil, fkiEzdoctemplatetypeID: Int, fkiEzdoctemplatefieldtypecategoryID: Int? = nil, eEzdoctemplatedocumentPrivacylevel: FieldEEzdoctemplatedocumentPrivacylevel? = nil, bEzdoctemplatedocumentIsactive: Bool, objEzdoctemplatedocumentName: MultilingualEzdoctemplatedocumentName, sEzdoctemplatedocumentNameX: String? = nil, sEzsignfoldertypeNameX: String? = nil, sEzdoctemplatefieldtypecategoryDescriptionX: String? = nil, sEzdoctemplatetypeDescriptionX: String) {
         self.pkiEzdoctemplatedocumentID = pkiEzdoctemplatedocumentID
         self.fkiLanguageID = fkiLanguageID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -82,13 +82,13 @@ public struct EzdoctemplatedocumentResponse: Codable, JSONEncodable, Hashable {
         try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encodeIfPresent(fkiEzsignfoldertypeID, forKey: .fkiEzsignfoldertypeID)
         try container.encode(fkiEzdoctemplatetypeID, forKey: .fkiEzdoctemplatetypeID)
-        try container.encode(fkiEzdoctemplatefieldtypecategoryID, forKey: .fkiEzdoctemplatefieldtypecategoryID)
+        try container.encodeIfPresent(fkiEzdoctemplatefieldtypecategoryID, forKey: .fkiEzdoctemplatefieldtypecategoryID)
         try container.encodeIfPresent(eEzdoctemplatedocumentPrivacylevel, forKey: .eEzdoctemplatedocumentPrivacylevel)
         try container.encode(bEzdoctemplatedocumentIsactive, forKey: .bEzdoctemplatedocumentIsactive)
         try container.encode(objEzdoctemplatedocumentName, forKey: .objEzdoctemplatedocumentName)
         try container.encodeIfPresent(sEzdoctemplatedocumentNameX, forKey: .sEzdoctemplatedocumentNameX)
         try container.encodeIfPresent(sEzsignfoldertypeNameX, forKey: .sEzsignfoldertypeNameX)
-        try container.encode(sEzdoctemplatefieldtypecategoryDescriptionX, forKey: .sEzdoctemplatefieldtypecategoryDescriptionX)
+        try container.encodeIfPresent(sEzdoctemplatefieldtypecategoryDescriptionX, forKey: .sEzdoctemplatefieldtypecategoryDescriptionX)
         try container.encode(sEzdoctemplatetypeDescriptionX, forKey: .sEzdoctemplatetypeDescriptionX)
     }
 }
