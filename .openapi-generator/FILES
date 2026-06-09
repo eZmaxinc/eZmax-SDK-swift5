@@ -1832,10 +1832,7 @@ Ezmaxapi/Models/ScimGroupMember.swift
 Ezmaxapi/Models/ScimServiceProviderConfig.swift
 Ezmaxapi/Models/ScimServiceProviderConfigBulk.swift
 Ezmaxapi/Models/ScimServiceProviderConfigChangePassword.swift
-Ezmaxapi/Models/ScimServiceProviderConfigEtag.swift
 Ezmaxapi/Models/ScimServiceProviderConfigFilter.swift
-Ezmaxapi/Models/ScimServiceProviderConfigPatch.swift
-Ezmaxapi/Models/ScimServiceProviderConfigSort.swift
 Ezmaxapi/Models/ScimUser.swift
 Ezmaxapi/Models/ScimUserList.swift
 Ezmaxapi/Models/SecretquestionAutocompleteElementResponse.swift
@@ -3972,10 +3969,7 @@ docs/ScimServiceProviderConfig.md
 docs/ScimServiceProviderConfigAPI.md
 docs/ScimServiceProviderConfigBulk.md
 docs/ScimServiceProviderConfigChangePassword.md
-docs/ScimServiceProviderConfigEtag.md
 docs/ScimServiceProviderConfigFilter.md
-docs/ScimServiceProviderConfigPatch.md
-docs/ScimServiceProviderConfigSort.md
 docs/ScimUser.md
 docs/ScimUserList.md
 docs/ScimUsersAPI.md

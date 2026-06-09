@@ -15,10 +15,13 @@ public struct ApikeyResponseCompound: Codable, JSONEncodable, Hashable {
 
     public static let pkiApikeyIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiEzmaxpartnerproductstageIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Apikey */
     public var pkiApikeyID: Int
     /** The unique ID of the User */
     public var fkiUserID: Int
+    /** The unique ID of the Ezmaxpartnerproductstage */
+    public var fkiEzmaxpartnerproductstageID: Int?
     public var objApikeyDescription: MultilingualApikeyDescription
     public var objContactName: CustomContactNameResponse
     /** The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. */
@@ -31,9 +34,10 @@ public struct ApikeyResponseCompound: Codable, JSONEncodable, Hashable {
     public var bApikeyIssigned: Bool?
     public var objAudit: CommonAudit
 
-    public init(pkiApikeyID: Int, fkiUserID: Int, objApikeyDescription: MultilingualApikeyDescription, objContactName: CustomContactNameResponse, sApikeyApikey: String? = nil, sApikeySecret: String? = nil, bApikeyIsactive: Bool, bApikeyIssigned: Bool? = nil, objAudit: CommonAudit) {
+    public init(pkiApikeyID: Int, fkiUserID: Int, fkiEzmaxpartnerproductstageID: Int? = nil, objApikeyDescription: MultilingualApikeyDescription, objContactName: CustomContactNameResponse, sApikeyApikey: String? = nil, sApikeySecret: String? = nil, bApikeyIsactive: Bool, bApikeyIssigned: Bool? = nil, objAudit: CommonAudit) {
         self.pkiApikeyID = pkiApikeyID
         self.fkiUserID = fkiUserID
+        self.fkiEzmaxpartnerproductstageID = fkiEzmaxpartnerproductstageID
         self.objApikeyDescription = objApikeyDescription
         self.objContactName = objContactName
         self.sApikeyApikey = sApikeyApikey
@@ -46,6 +50,7 @@ public struct ApikeyResponseCompound: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiApikeyID
         case fkiUserID
+        case fkiEzmaxpartnerproductstageID
         case objApikeyDescription
         case objContactName
         case sApikeyApikey
@@ -61,6 +66,7 @@ public struct ApikeyResponseCompound: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiApikeyID, forKey: .pkiApikeyID)
         try container.encode(fkiUserID, forKey: .fkiUserID)
+        try container.encodeIfPresent(fkiEzmaxpartnerproductstageID, forKey: .fkiEzmaxpartnerproductstageID)
         try container.encode(objApikeyDescription, forKey: .objApikeyDescription)
         try container.encode(objContactName, forKey: .objContactName)
         try container.encodeIfPresent(sApikeyApikey, forKey: .sApikeyApikey)

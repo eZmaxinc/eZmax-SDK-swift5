@@ -18,12 +18,12 @@ public struct ScimServiceProviderConfig: Codable, JSONEncodable, Hashable {
     public var changePassword: ScimServiceProviderConfigChangePassword
     /** An HTTP-addressable URL pointing to the service provider's human-consumable help documentation */
     public var documentationUri: String
-    public var etag: ScimServiceProviderConfigEtag
+    public var etag: ScimServiceProviderConfigChangePassword
     public var filter: ScimServiceProviderConfigFilter
-    public var patch: ScimServiceProviderConfigPatch
-    public var sort: ScimServiceProviderConfigSort
+    public var patch: ScimServiceProviderConfigChangePassword
+    public var sort: ScimServiceProviderConfigChangePassword
 
-    public init(authenticationSchemes: [ScimAuthenticationScheme], bulk: ScimServiceProviderConfigBulk, changePassword: ScimServiceProviderConfigChangePassword, documentationUri: String, etag: ScimServiceProviderConfigEtag, filter: ScimServiceProviderConfigFilter, patch: ScimServiceProviderConfigPatch, sort: ScimServiceProviderConfigSort) {
+    public init(authenticationSchemes: [ScimAuthenticationScheme], bulk: ScimServiceProviderConfigBulk, changePassword: ScimServiceProviderConfigChangePassword, documentationUri: String, etag: ScimServiceProviderConfigChangePassword, filter: ScimServiceProviderConfigFilter, patch: ScimServiceProviderConfigChangePassword, sort: ScimServiceProviderConfigChangePassword) {
         self.authenticationSchemes = authenticationSchemes
         self.bulk = bulk
         self.changePassword = changePassword
