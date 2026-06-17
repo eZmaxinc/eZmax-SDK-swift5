@@ -565,6 +565,75 @@ open class ObjectEzsignfolderAPI {
     }
 
     /**
+     * enum for parameter eSignerType
+     */
+    public enum ESignerType_ezsignfolderGetActionableElementsForSignerV1: String, CaseIterable {
+        case ezsignsigner = "Ezsignsigner"
+        case user = "User"
+    }
+
+    /**
+     Retrieve actionable elements of a user for the Ezsignfolder
+     
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter eSignerType: (query)  
+     - parameter fkiEzsignsignerID: (query)  (optional)
+     - parameter fkiUserID: (query)  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignfolderGetActionableElementsForSignerV1(pkiEzsignfolderID: Int, eSignerType: ESignerType_ezsignfolderGetActionableElementsForSignerV1, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignfolderGetActionableElementsForSignerV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignfolderGetActionableElementsForSignerV1WithRequestBuilder(pkiEzsignfolderID: pkiEzsignfolderID, eSignerType: eSignerType, fkiEzsignsignerID: fkiEzsignsignerID, fkiUserID: fkiUserID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve actionable elements of a user for the Ezsignfolder
+     - GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElementsForSigner
+     - Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that can be filled by an user at the current step in the process
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignfolderID: (path)  
+     - parameter eSignerType: (query)  
+     - parameter fkiEzsignsignerID: (query)  (optional)
+     - parameter fkiUserID: (query)  (optional)
+     - returns: RequestBuilder<EzsignfolderGetActionableElementsForSignerV1Response> 
+     */
+    open class func ezsignfolderGetActionableElementsForSignerV1WithRequestBuilder(pkiEzsignfolderID: Int, eSignerType: ESignerType_ezsignfolderGetActionableElementsForSignerV1, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil) -> RequestBuilder<EzsignfolderGetActionableElementsForSignerV1Response> {
+        var localVariablePath = "/1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElementsForSigner"
+        let pkiEzsignfolderIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignfolderID))"
+        let pkiEzsignfolderIDPostEscape = pkiEzsignfolderIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignfolderID}", with: pkiEzsignfolderIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "eSignerType": (wrappedValue: eSignerType.encodeToJSON(), isExplode: true),
+            "fkiEzsignsignerID": (wrappedValue: fkiEzsignsignerID?.encodeToJSON(), isExplode: true),
+            "fkiUserID": (wrappedValue: fkiUserID?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignfolderGetActionableElementsForSignerV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve actionable elements for the Ezsignfolder
      
      - parameter pkiEzsignfolderID: (path)  

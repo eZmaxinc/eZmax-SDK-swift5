@@ -13,20 +13,15 @@ import AnyCodable
 /** Request for POST /1/object/user/{pkiUserID}/impersonate */
 public struct UserImpersonateV1Request: Codable, JSONEncodable, Hashable {
 
-    public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iExpirationMinutesRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 180, exclusiveMaximum: false, multipleOf: nil)
-    /** The unique ID of the User */
-    public var fkiUserID: Int
     /** The number of minute before key is no longer active */
     public var iExpirationMinutes: Int
 
-    public init(fkiUserID: Int, iExpirationMinutes: Int) {
-        self.fkiUserID = fkiUserID
+    public init(iExpirationMinutes: Int) {
         self.iExpirationMinutes = iExpirationMinutes
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case fkiUserID
         case iExpirationMinutes
     }
 
@@ -34,7 +29,6 @@ public struct UserImpersonateV1Request: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(fkiUserID, forKey: .fkiUserID)
         try container.encode(iExpirationMinutes, forKey: .iExpirationMinutes)
     }
 }

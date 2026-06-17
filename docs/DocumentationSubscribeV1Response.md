@@ -1,9 +1,9 @@
-# UserImpersonateV1Request
+# DocumentationSubscribeV1Response
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**iExpirationMinutes** | **Int** | The number of minute before key is no longer active | 
+**sExternalID** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

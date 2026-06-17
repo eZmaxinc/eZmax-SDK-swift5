@@ -847,7 +847,7 @@ Using this endpoint, you can impersonate the user.
 import OpenAPIClient
 
 let pkiUserID = 987 // Int | 
-let userImpersonateV1Request = user-impersonate-v1-Request(fkiUserID: 123, iExpirationMinutes: 123) // UserImpersonateV1Request | 
+let userImpersonateV1Request = user-impersonate-v1-Request(iExpirationMinutes: 123) // UserImpersonateV1Request | 
 
 // Impersonate the user
 ObjectUserAPI.userImpersonateV1(pkiUserID: pkiUserID, userImpersonateV1Request: userImpersonateV1Request) { (response, error) in
