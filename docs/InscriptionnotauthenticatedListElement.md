@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **dtInscriptionnotauthenticatedTransactiondateReal** | **String** | The transactiondatereal of the Inscriptionnotauthenticated | [optional] 
 **bInscriptionnotauthenticatedConditional** | **Bool** | Whether the inscriptionnotauthenticated is conditional | [optional] 
 **bInscriptionnotauthenticatedIsactive** | **Bool** | Whether the inscriptionnotauthenticated is active or not | [optional] 
+**bInscriptionnotauthenticatedDraft** | **Bool** | Whether the inscriptionnotauthenticated is a draft or not | [optional] 
 **sAddressCivic** | **String** | The Civic number. | [optional] 
 **sAddressStreet** | **String** | The Street Name | [optional] 
 **sAddressSuite** | **String** | The Suite or appartment number | [optional] 

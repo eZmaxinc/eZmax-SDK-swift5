@@ -23,8 +23,9 @@ public struct EzmaxpartnerResponseCompound: Codable, JSONEncodable, Hashable {
     public var objEzmaxpartnerUrl: MultilingualEzmaxpartnerUrl
     /** Whether the Ezmaxpartner is active or not */
     public var bEzmaxpartnerIsactive: Bool?
+    public var objEzmaxpartnerLogourl: MultilingualEzmaxpartnerLogourl
 
-    public init(eEzmaxpartnerCustomdevelopment: FieldEEzmaxpartnerCustomdevelopment, objEzmaxpartnerAddress: MultilingualEzmaxpartnerAddress, objEzmaxpartnerDescription: MultilingualEzmaxpartnerDescription, objEzmaxpartnerEmailaddress: MultilingualEzmaxpartnerEmailaddress, objEzmaxpartnerName: MultilingualEzmaxpartnerName, objEzmaxpartnerPhoneE164: MultilingualEzmaxpartnerPhoneE164, objEzmaxpartnerShortdescription: MultilingualEzmaxpartnerShortdescription, objEzmaxpartnerUrl: MultilingualEzmaxpartnerUrl, bEzmaxpartnerIsactive: Bool? = nil) {
+    public init(eEzmaxpartnerCustomdevelopment: FieldEEzmaxpartnerCustomdevelopment, objEzmaxpartnerAddress: MultilingualEzmaxpartnerAddress, objEzmaxpartnerDescription: MultilingualEzmaxpartnerDescription, objEzmaxpartnerEmailaddress: MultilingualEzmaxpartnerEmailaddress, objEzmaxpartnerName: MultilingualEzmaxpartnerName, objEzmaxpartnerPhoneE164: MultilingualEzmaxpartnerPhoneE164, objEzmaxpartnerShortdescription: MultilingualEzmaxpartnerShortdescription, objEzmaxpartnerUrl: MultilingualEzmaxpartnerUrl, bEzmaxpartnerIsactive: Bool? = nil, objEzmaxpartnerLogourl: MultilingualEzmaxpartnerLogourl) {
         self.eEzmaxpartnerCustomdevelopment = eEzmaxpartnerCustomdevelopment
         self.objEzmaxpartnerAddress = objEzmaxpartnerAddress
         self.objEzmaxpartnerDescription = objEzmaxpartnerDescription
@@ -34,6 +35,7 @@ public struct EzmaxpartnerResponseCompound: Codable, JSONEncodable, Hashable {
         self.objEzmaxpartnerShortdescription = objEzmaxpartnerShortdescription
         self.objEzmaxpartnerUrl = objEzmaxpartnerUrl
         self.bEzmaxpartnerIsactive = bEzmaxpartnerIsactive
+        self.objEzmaxpartnerLogourl = objEzmaxpartnerLogourl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -46,6 +48,7 @@ public struct EzmaxpartnerResponseCompound: Codable, JSONEncodable, Hashable {
         case objEzmaxpartnerShortdescription
         case objEzmaxpartnerUrl
         case bEzmaxpartnerIsactive
+        case objEzmaxpartnerLogourl
     }
 
     // Encodable protocol methods
@@ -61,6 +64,7 @@ public struct EzmaxpartnerResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encode(objEzmaxpartnerShortdescription, forKey: .objEzmaxpartnerShortdescription)
         try container.encode(objEzmaxpartnerUrl, forKey: .objEzmaxpartnerUrl)
         try container.encodeIfPresent(bEzmaxpartnerIsactive, forKey: .bEzmaxpartnerIsactive)
+        try container.encode(objEzmaxpartnerLogourl, forKey: .objEzmaxpartnerLogourl)
     }
 }
 

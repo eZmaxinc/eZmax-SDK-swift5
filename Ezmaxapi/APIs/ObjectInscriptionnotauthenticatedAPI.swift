@@ -356,6 +356,8 @@ open class ObjectInscriptionnotauthenticatedAPI {
         case binscriptionnotauthenticatedconditionalDesc = "bInscriptionnotauthenticatedConditional_DESC"
         case binscriptionnotauthenticatedisactiveAsc = "bInscriptionnotauthenticatedIsactive_ASC"
         case binscriptionnotauthenticatedisactiveDesc = "bInscriptionnotauthenticatedIsactive_DESC"
+        case binscriptionnotauthenticateddraftAsc = "bInscriptionnotauthenticatedDraft_ASC"
+        case binscriptionnotauthenticateddraftDesc = "bInscriptionnotauthenticatedDraft_DESC"
         case saddresscivicAsc = "sAddressCivic_ASC"
         case saddresscivicDesc = "sAddressCivic_DESC"
         case saddressstreetAsc = "sAddressStreet_ASC"
@@ -433,6 +435,56 @@ open class ObjectInscriptionnotauthenticatedAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<InscriptionnotauthenticatedGetListV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Inscriptionnotauthenticated
+     
+     - parameter pkiInscriptionnotauthenticatedID: (path) The unique ID of the Inscriptionnotauthenticated 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionnotauthenticatedGetObjectV2(pkiInscriptionnotauthenticatedID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptionnotauthenticatedGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionnotauthenticatedGetObjectV2WithRequestBuilder(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Inscriptionnotauthenticated
+     - GET /2/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionnotauthenticatedID: (path) The unique ID of the Inscriptionnotauthenticated 
+     - returns: RequestBuilder<InscriptionnotauthenticatedGetObjectV2Response> 
+     */
+    open class func inscriptionnotauthenticatedGetObjectV2WithRequestBuilder(pkiInscriptionnotauthenticatedID: Int) -> RequestBuilder<InscriptionnotauthenticatedGetObjectV2Response> {
+        var localVariablePath = "/2/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}"
+        let pkiInscriptionnotauthenticatedIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionnotauthenticatedID))"
+        let pkiInscriptionnotauthenticatedIDPostEscape = pkiInscriptionnotauthenticatedIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionnotauthenticatedID}", with: pkiInscriptionnotauthenticatedIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionnotauthenticatedGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

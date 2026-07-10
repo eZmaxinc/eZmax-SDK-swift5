@@ -12,6 +12,7 @@ import AnyCodable
 
 /** The module for the Webhook */
 public enum FieldEWebhookModule: String, Codable, CaseIterable {
+    case ezmaxpartner = "Ezmaxpartner"
     case ezsign = "Ezsign"
     case management = "Management"
 }

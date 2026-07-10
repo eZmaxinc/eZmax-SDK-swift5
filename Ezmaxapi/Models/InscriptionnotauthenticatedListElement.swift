@@ -79,6 +79,8 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
     public var bInscriptionnotauthenticatedConditional: Bool?
     /** Whether the inscriptionnotauthenticated is active or not */
     public var bInscriptionnotauthenticatedIsactive: Bool?
+    /** Whether the inscriptionnotauthenticated is a draft or not */
+    public var bInscriptionnotauthenticatedDraft: Bool?
     /** The Civic number. */
     public var sAddressCivic: String?
     /** The Street Name */
@@ -100,7 +102,7 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
     /** The Offer to purchase number */
     public var sInscriptionnotauthenticatedOffertopurchasenumber: String
 
-    public init(pkiInscriptionID: Int, pkiInscriptionnotauthenticatedID: Int? = nil, fkiInscriptiontypeID: Int, fkiBuyercontractID: Int? = nil, sBuyercontractContract: String? = nil, sInscriptiontypeNameX: String, eInscriptionStep: FieldEInscriptionStep, sInscriptionCivicend: String, sInscriptionMLS: String? = nil, sInscriptionContract: String? = nil, dInscriptionSaleprice: String, dInscriptionRentprice: String, dtInscriptionDate: String? = nil, dtInscriptionExpirationdate: String? = nil, dtInscriptionNotarydate: String? = nil, bInscriptionInspection: Bool? = nil, bInscriptionIsactive: Bool, bInscriptionArchived: Bool, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, bInscriptionnotauthenticatedConditional: Bool? = nil, bInscriptionnotauthenticatedIsactive: Bool? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil, sInscriptionnotauthenticatedOffertopurchasenumber: String) {
+    public init(pkiInscriptionID: Int, pkiInscriptionnotauthenticatedID: Int? = nil, fkiInscriptiontypeID: Int, fkiBuyercontractID: Int? = nil, sBuyercontractContract: String? = nil, sInscriptiontypeNameX: String, eInscriptionStep: FieldEInscriptionStep, sInscriptionCivicend: String, sInscriptionMLS: String? = nil, sInscriptionContract: String? = nil, dInscriptionSaleprice: String, dInscriptionRentprice: String, dtInscriptionDate: String? = nil, dtInscriptionExpirationdate: String? = nil, dtInscriptionNotarydate: String? = nil, bInscriptionInspection: Bool? = nil, bInscriptionIsactive: Bool, bInscriptionArchived: Bool, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, bInscriptionnotauthenticatedConditional: Bool? = nil, bInscriptionnotauthenticatedIsactive: Bool? = nil, bInscriptionnotauthenticatedDraft: Bool? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil, sInscriptionnotauthenticatedOffertopurchasenumber: String) {
         self.pkiInscriptionID = pkiInscriptionID
         self.pkiInscriptionnotauthenticatedID = pkiInscriptionnotauthenticatedID
         self.fkiInscriptiontypeID = fkiInscriptiontypeID
@@ -124,6 +126,7 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
         self.dtInscriptionnotauthenticatedTransactiondateReal = dtInscriptionnotauthenticatedTransactiondateReal
         self.bInscriptionnotauthenticatedConditional = bInscriptionnotauthenticatedConditional
         self.bInscriptionnotauthenticatedIsactive = bInscriptionnotauthenticatedIsactive
+        self.bInscriptionnotauthenticatedDraft = bInscriptionnotauthenticatedDraft
         self.sAddressCivic = sAddressCivic
         self.sAddressStreet = sAddressStreet
         self.sAddressSuite = sAddressSuite
@@ -160,6 +163,7 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
         case dtInscriptionnotauthenticatedTransactiondateReal
         case bInscriptionnotauthenticatedConditional
         case bInscriptionnotauthenticatedIsactive
+        case bInscriptionnotauthenticatedDraft
         case sAddressCivic
         case sAddressStreet
         case sAddressSuite
@@ -199,6 +203,7 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
         try container.encodeIfPresent(dtInscriptionnotauthenticatedTransactiondateReal, forKey: .dtInscriptionnotauthenticatedTransactiondateReal)
         try container.encodeIfPresent(bInscriptionnotauthenticatedConditional, forKey: .bInscriptionnotauthenticatedConditional)
         try container.encodeIfPresent(bInscriptionnotauthenticatedIsactive, forKey: .bInscriptionnotauthenticatedIsactive)
+        try container.encodeIfPresent(bInscriptionnotauthenticatedDraft, forKey: .bInscriptionnotauthenticatedDraft)
         try container.encodeIfPresent(sAddressCivic, forKey: .sAddressCivic)
         try container.encodeIfPresent(sAddressStreet, forKey: .sAddressStreet)
         try container.encodeIfPresent(sAddressSuite, forKey: .sAddressSuite)
