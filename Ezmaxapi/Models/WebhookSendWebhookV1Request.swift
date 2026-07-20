@@ -21,6 +21,7 @@ public struct WebhookSendWebhookV1Request: Codable, JSONEncodable, Hashable {
     public var eWebhookModule: FieldEWebhookModule
     public var eWebhookEzsignevent: CustomEWebhookEzsignevent?
     public var eWebhookManagementevent: FieldEWebhookManagementevent?
+    public var eWebhookRealestateevent: FieldEWebhookRealestateevent?
     /** The unique ID of the Ezsignfolder */
     public var fkiEzsignfolderID: Int?
     /** The unique ID of the Ezsigndocument */
@@ -32,10 +33,11 @@ public struct WebhookSendWebhookV1Request: Codable, JSONEncodable, Hashable {
     /** The unique ID of the Userstaged */
     public var fkiUserstagedID: Int?
 
-    public init(eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: CustomEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, fkiEzsignfolderID: Int? = nil, fkiEzsigndocumentID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil, fkiUserstagedID: Int? = nil) {
+    public init(eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: CustomEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, eWebhookRealestateevent: FieldEWebhookRealestateevent? = nil, fkiEzsignfolderID: Int? = nil, fkiEzsigndocumentID: Int? = nil, fkiEzsignsignerID: Int? = nil, fkiUserID: Int? = nil, fkiUserstagedID: Int? = nil) {
         self.eWebhookModule = eWebhookModule
         self.eWebhookEzsignevent = eWebhookEzsignevent
         self.eWebhookManagementevent = eWebhookManagementevent
+        self.eWebhookRealestateevent = eWebhookRealestateevent
         self.fkiEzsignfolderID = fkiEzsignfolderID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.fkiEzsignsignerID = fkiEzsignsignerID
@@ -47,6 +49,7 @@ public struct WebhookSendWebhookV1Request: Codable, JSONEncodable, Hashable {
         case eWebhookModule
         case eWebhookEzsignevent
         case eWebhookManagementevent
+        case eWebhookRealestateevent
         case fkiEzsignfolderID
         case fkiEzsigndocumentID
         case fkiEzsignsignerID
@@ -61,6 +64,7 @@ public struct WebhookSendWebhookV1Request: Codable, JSONEncodable, Hashable {
         try container.encode(eWebhookModule, forKey: .eWebhookModule)
         try container.encodeIfPresent(eWebhookEzsignevent, forKey: .eWebhookEzsignevent)
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
+        try container.encodeIfPresent(eWebhookRealestateevent, forKey: .eWebhookRealestateevent)
         try container.encodeIfPresent(fkiEzsignfolderID, forKey: .fkiEzsignfolderID)
         try container.encodeIfPresent(fkiEzsigndocumentID, forKey: .fkiEzsigndocumentID)
         try container.encodeIfPresent(fkiEzsignsignerID, forKey: .fkiEzsignsignerID)

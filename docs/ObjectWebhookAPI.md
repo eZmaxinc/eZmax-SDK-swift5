@@ -29,7 +29,7 @@ The endpoint allows to create one or many elements at once.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let webhookCreateObjectV2Request = webhook-createObject-v2-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiAuthenticationexternalID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])]) // WebhookCreateObjectV2Request | 
+let webhookCreateObjectV2Request = webhook-createObject-v2-Request(aObjWebhook: [webhook-RequestCompound(pkiWebhookID: 123, fkiAuthenticationexternalID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), eWebhookRealestateevent: Field-eWebhookRealestateevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])]) // WebhookCreateObjectV2Request | 
 
 // Create a new Webhook
 ObjectWebhookAPI.webhookCreateObjectV2(webhookCreateObjectV2Request: webhookCreateObjectV2Request) { (response, error) in
@@ -130,7 +130,7 @@ Edit an existing Webhook
 import OpenAPIClient
 
 let pkiWebhookID = 987 // Int | 
-let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(pkiWebhookID: 123, fkiAuthenticationexternalID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])) // WebhookEditObjectV1Request | 
+let webhookEditObjectV1Request = webhook-editObject-v1-Request(objWebhook: webhook-RequestCompound(pkiWebhookID: 123, fkiAuthenticationexternalID: 123, fkiEzsignfoldertypeID: 123, sWebhookDescription: "sWebhookDescription_example", eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Field-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), eWebhookRealestateevent: Field-eWebhookRealestateevent(), sWebhookUrl: "sWebhookUrl_example", sWebhookEmailfailed: "sWebhookEmailfailed_example", bWebhookIsactive: true, bWebhookIssigned: true, bWebhookSkipsslvalidation: false, aObjWebhookheader: [webhookheader-RequestCompound(pkiWebhookheaderID: 123, sWebhookheaderName: "sWebhookheaderName_example", sWebhookheaderValue: "sWebhookheaderValue_example")])) // WebhookEditObjectV1Request | 
 
 // Edit an existing Webhook
 ObjectWebhookAPI.webhookEditObjectV1(pkiWebhookID: pkiWebhookID, webhookEditObjectV1Request: webhookEditObjectV1Request) { (response, error) in
@@ -391,7 +391,7 @@ Emit a Webhook event
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let webhookSendWebhookV1Request = webhook-sendWebhook-v1-Request(eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Custom-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), fkiEzsignfolderID: 123, fkiEzsigndocumentID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUserstagedID: 123) // WebhookSendWebhookV1Request | 
+let webhookSendWebhookV1Request = webhook-sendWebhook-v1-Request(eWebhookModule: Field-eWebhookModule(), eWebhookEzsignevent: Custom-eWebhookEzsignevent(), eWebhookManagementevent: Field-eWebhookManagementevent(), eWebhookRealestateevent: Field-eWebhookRealestateevent(), fkiEzsignfolderID: 123, fkiEzsigndocumentID: 123, fkiEzsignsignerID: 123, fkiUserID: 123, fkiUserstagedID: 123) // WebhookSendWebhookV1Request | 
 
 // Emit a Webhook event
 ObjectWebhookAPI.webhookSendWebhookV1(webhookSendWebhookV1Request: webhookSendWebhookV1Request) { (response, error) in

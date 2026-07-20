@@ -27,6 +27,7 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
     public var eWebhookModule: FieldEWebhookModule
     public var eWebhookEzsignevent: FieldEWebhookEzsignevent?
     public var eWebhookManagementevent: FieldEWebhookManagementevent?
+    public var eWebhookRealestateevent: FieldEWebhookRealestateevent?
     /** The URL of the Webhook callback */
     public var sWebhookUrl: String
     /** The email that will receive the Webhook in case all attempts fail */
@@ -38,7 +39,7 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
     /** Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use */
     public var bWebhookSkipsslvalidation: Bool
 
-    public init(pkiWebhookID: Int? = nil, fkiAuthenticationexternalID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, sWebhookDescription: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookIssigned: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
+    public init(pkiWebhookID: Int? = nil, fkiAuthenticationexternalID: Int? = nil, fkiEzsignfoldertypeID: Int? = nil, sWebhookDescription: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, eWebhookRealestateevent: FieldEWebhookRealestateevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, bWebhookIsactive: Bool, bWebhookIssigned: Bool? = nil, bWebhookSkipsslvalidation: Bool) {
         self.pkiWebhookID = pkiWebhookID
         self.fkiAuthenticationexternalID = fkiAuthenticationexternalID
         self.fkiEzsignfoldertypeID = fkiEzsignfoldertypeID
@@ -46,6 +47,7 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
         self.eWebhookModule = eWebhookModule
         self.eWebhookEzsignevent = eWebhookEzsignevent
         self.eWebhookManagementevent = eWebhookManagementevent
+        self.eWebhookRealestateevent = eWebhookRealestateevent
         self.sWebhookUrl = sWebhookUrl
         self.sWebhookEmailfailed = sWebhookEmailfailed
         self.bWebhookIsactive = bWebhookIsactive
@@ -61,6 +63,7 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
         case eWebhookModule
         case eWebhookEzsignevent
         case eWebhookManagementevent
+        case eWebhookRealestateevent
         case sWebhookUrl
         case sWebhookEmailfailed
         case bWebhookIsactive
@@ -79,6 +82,7 @@ public struct WebhookRequest: Codable, JSONEncodable, Hashable {
         try container.encode(eWebhookModule, forKey: .eWebhookModule)
         try container.encodeIfPresent(eWebhookEzsignevent, forKey: .eWebhookEzsignevent)
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
+        try container.encodeIfPresent(eWebhookRealestateevent, forKey: .eWebhookRealestateevent)
         try container.encode(sWebhookUrl, forKey: .sWebhookUrl)
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
         try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)

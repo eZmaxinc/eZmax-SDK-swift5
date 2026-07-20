@@ -44,6 +44,8 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
     public var bEzsigntemplatesignatureHandwritten: Bool?
     /** Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType = Signature. */
     public var bEzsigntemplatesignatureReason: Bool?
+    /** Whether we can enter a custom amount while signing an Ezsigntemplatesignature 'Creditcard' or not */
+    public var bEzsigntemplatesignatureCreditcardcustomamount: Bool?
     public var eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning?
     /** The page number in the Ezsigntemplatedocument */
     public var iEzsigntemplatedocumentpagePagenumber: Int
@@ -94,7 +96,7 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
     /** The amount of the Creditcard signature */
     public var dEzsigntemplatesignatureCreditcardamount: String?
 
-    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, fkiPaymentgatewayID: Int? = nil, bEzsigntemplatesignatureHandwritten: Bool? = nil, bEzsigntemplatesignatureReason: Bool? = nil, eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int? = nil, iEzsigntemplatesignatureY: Int? = nil, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, eEzsigntemplatesignatureSignaturepad: FieldEEzsigntemplatesignatureSignaturepad? = nil, eEzsigntemplatesignatureSignaturepadrequired: FieldEEzsigntemplatesignatureSignaturepadrequired? = nil, eEzsigntemplatesignatureConsultationtrigger: FieldEEzsigntemplatesignatureConsultationtrigger? = nil, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureDefaultvalue: String? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, sEzsigntemplatesignatureTextvalidationcustommessage: String? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, sEzsigntemplatesignaturePositioningpattern: String? = nil, iEzsigntemplatesignaturePositioningoffsetx: Int? = nil, iEzsigntemplatesignaturePositioningoffsety: Int? = nil, eEzsigntemplatesignaturePositioningoccurence: FieldEEzsigntemplatesignaturePositioningoccurence? = nil, sEzsigntemplatesignatureCreditcardamountdescription: String? = nil, dEzsigntemplatesignatureCreditcardamount: String? = nil) {
+    public init(pkiEzsigntemplatesignatureID: Int, fkiEzsigntemplatedocumentID: Int, fkiEzsigntemplatesignerID: Int, fkiEzsigntemplatesignerIDValidation: Int? = nil, fkiPaymentgatewayID: Int? = nil, bEzsigntemplatesignatureHandwritten: Bool? = nil, bEzsigntemplatesignatureReason: Bool? = nil, bEzsigntemplatesignatureCreditcardcustomamount: Bool? = nil, eEzsigntemplatesignaturePositioning: FieldEEzsigntemplatesignaturePositioning? = nil, iEzsigntemplatedocumentpagePagenumber: Int, iEzsigntemplatesignatureX: Int? = nil, iEzsigntemplatesignatureY: Int? = nil, iEzsigntemplatesignatureWidth: Int? = nil, iEzsigntemplatesignatureHeight: Int? = nil, iEzsigntemplatesignatureStep: Int, eEzsigntemplatesignatureType: FieldEEzsigntemplatesignatureType, eEzsigntemplatesignatureSignaturepad: FieldEEzsigntemplatesignatureSignaturepad? = nil, eEzsigntemplatesignatureSignaturepadrequired: FieldEEzsigntemplatesignatureSignaturepadrequired? = nil, eEzsigntemplatesignatureConsultationtrigger: FieldEEzsigntemplatesignatureConsultationtrigger? = nil, tEzsigntemplatesignatureTooltip: String? = nil, eEzsigntemplatesignatureTooltipposition: FieldEEzsigntemplatesignatureTooltipposition? = nil, eEzsigntemplatesignatureFont: FieldEEzsigntemplatesignatureFont? = nil, iEzsigntemplatesignatureValidationstep: Int? = nil, sEzsigntemplatesignatureAttachmentdescription: String? = nil, eEzsigntemplatesignatureAttachmentnamesource: FieldEEzsigntemplatesignatureAttachmentnamesource? = nil, bEzsigntemplatesignatureRequired: Bool? = nil, iEzsigntemplatesignatureMaxlength: Int? = nil, sEzsigntemplatesignatureDefaultvalue: String? = nil, sEzsigntemplatesignatureRegexp: String? = nil, eEzsigntemplatesignatureTextvalidation: EnumTextvalidation? = nil, sEzsigntemplatesignatureTextvalidationcustommessage: String? = nil, eEzsigntemplatesignatureDependencyrequirement: FieldEEzsigntemplatesignatureDependencyrequirement? = nil, sEzsigntemplatesignaturePositioningpattern: String? = nil, iEzsigntemplatesignaturePositioningoffsetx: Int? = nil, iEzsigntemplatesignaturePositioningoffsety: Int? = nil, eEzsigntemplatesignaturePositioningoccurence: FieldEEzsigntemplatesignaturePositioningoccurence? = nil, sEzsigntemplatesignatureCreditcardamountdescription: String? = nil, dEzsigntemplatesignatureCreditcardamount: String? = nil) {
         self.pkiEzsigntemplatesignatureID = pkiEzsigntemplatesignatureID
         self.fkiEzsigntemplatedocumentID = fkiEzsigntemplatedocumentID
         self.fkiEzsigntemplatesignerID = fkiEzsigntemplatesignerID
@@ -102,6 +104,7 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         self.fkiPaymentgatewayID = fkiPaymentgatewayID
         self.bEzsigntemplatesignatureHandwritten = bEzsigntemplatesignatureHandwritten
         self.bEzsigntemplatesignatureReason = bEzsigntemplatesignatureReason
+        self.bEzsigntemplatesignatureCreditcardcustomamount = bEzsigntemplatesignatureCreditcardcustomamount
         self.eEzsigntemplatesignaturePositioning = eEzsigntemplatesignaturePositioning
         self.iEzsigntemplatedocumentpagePagenumber = iEzsigntemplatedocumentpagePagenumber
         self.iEzsigntemplatesignatureX = iEzsigntemplatesignatureX
@@ -142,6 +145,7 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         case fkiPaymentgatewayID
         case bEzsigntemplatesignatureHandwritten
         case bEzsigntemplatesignatureReason
+        case bEzsigntemplatesignatureCreditcardcustomamount
         case eEzsigntemplatesignaturePositioning
         case iEzsigntemplatedocumentpagePagenumber
         case iEzsigntemplatesignatureX
@@ -185,6 +189,7 @@ public struct EzsigntemplatesignatureResponse: Codable, JSONEncodable, Hashable 
         try container.encodeIfPresent(fkiPaymentgatewayID, forKey: .fkiPaymentgatewayID)
         try container.encodeIfPresent(bEzsigntemplatesignatureHandwritten, forKey: .bEzsigntemplatesignatureHandwritten)
         try container.encodeIfPresent(bEzsigntemplatesignatureReason, forKey: .bEzsigntemplatesignatureReason)
+        try container.encodeIfPresent(bEzsigntemplatesignatureCreditcardcustomamount, forKey: .bEzsigntemplatesignatureCreditcardcustomamount)
         try container.encodeIfPresent(eEzsigntemplatesignaturePositioning, forKey: .eEzsigntemplatesignaturePositioning)
         try container.encode(iEzsigntemplatedocumentpagePagenumber, forKey: .iEzsigntemplatedocumentpagePagenumber)
         try container.encodeIfPresent(iEzsigntemplatesignatureX, forKey: .iEzsigntemplatesignatureX)

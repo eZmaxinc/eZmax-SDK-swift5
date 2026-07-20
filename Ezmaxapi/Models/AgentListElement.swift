@@ -86,6 +86,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
     public var dtAgentSickleavestart: String?
     /** The sick leave end date of the Agent */
     public var dtAgentSickleaveend: String?
+    public var eAgentSchedule: FieldEAgentSchedule
     /** Whether if it's an tranquillit */
     public var bAgentTranquillit: Bool
     /** Whether if it's an residentiallicense */
@@ -129,7 +130,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
     /** The name of the Country in the language of the requester */
     public var sCountryNameX: String?
 
-    public init(pkiAgentID: Int, fkiAgenttypeID: Int, sAgenttypeNameX: String, fkiAgentincorporationID: Int? = nil, sAgentincorporationName: String? = nil, fkiDepartmentID: Int, sDepartmentNameX: String, fkiLanguageID: Int, sLanguageNameX: String, sRealestateboardnumberNumber: String? = nil, sAgentCode: String, iAgentPhotocopiercode: Int, iAgentLongdistancecode: Int, iAgentBannernumber: Int, sAgentRealestateassociationlicense: String, dtAgentHiredate: String? = nil, dtAgentLeavedate: String? = nil, dtAgentContractdate: String? = nil, dtAgentTransferdate: String? = nil, dtAgentSenioritydate: String? = nil, dtAgentSickleavestart: String? = nil, dtAgentSickleaveend: String? = nil, bAgentTranquillit: Bool, bAgentResidentiallicense: Bool, bAgentCommerciallicense: Bool, bAgentMortgagelicense: Bool, bAgentPaidbyofficetranquillit: Bool, dtAgentFintraccertification: String? = nil, bAgentIsactive: Bool, sContactFirstname: String, sContactLastname: String, dtContactBirthdate: String? = nil, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil) {
+    public init(pkiAgentID: Int, fkiAgenttypeID: Int, sAgenttypeNameX: String, fkiAgentincorporationID: Int? = nil, sAgentincorporationName: String? = nil, fkiDepartmentID: Int, sDepartmentNameX: String, fkiLanguageID: Int, sLanguageNameX: String, sRealestateboardnumberNumber: String? = nil, sAgentCode: String, iAgentPhotocopiercode: Int, iAgentLongdistancecode: Int, iAgentBannernumber: Int, sAgentRealestateassociationlicense: String, dtAgentHiredate: String? = nil, dtAgentLeavedate: String? = nil, dtAgentContractdate: String? = nil, dtAgentTransferdate: String? = nil, dtAgentSenioritydate: String? = nil, dtAgentSickleavestart: String? = nil, dtAgentSickleaveend: String? = nil, eAgentSchedule: FieldEAgentSchedule, bAgentTranquillit: Bool, bAgentResidentiallicense: Bool, bAgentCommerciallicense: Bool, bAgentMortgagelicense: Bool, bAgentPaidbyofficetranquillit: Bool, dtAgentFintraccertification: String? = nil, bAgentIsactive: Bool, sContactFirstname: String, sContactLastname: String, dtContactBirthdate: String? = nil, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil) {
         self.pkiAgentID = pkiAgentID
         self.fkiAgenttypeID = fkiAgenttypeID
         self.sAgenttypeNameX = sAgenttypeNameX
@@ -152,6 +153,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
         self.dtAgentSenioritydate = dtAgentSenioritydate
         self.dtAgentSickleavestart = dtAgentSickleavestart
         self.dtAgentSickleaveend = dtAgentSickleaveend
+        self.eAgentSchedule = eAgentSchedule
         self.bAgentTranquillit = bAgentTranquillit
         self.bAgentResidentiallicense = bAgentResidentiallicense
         self.bAgentCommerciallicense = bAgentCommerciallicense
@@ -198,6 +200,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
         case dtAgentSenioritydate
         case dtAgentSickleavestart
         case dtAgentSickleaveend
+        case eAgentSchedule
         case bAgentTranquillit
         case bAgentResidentiallicense
         case bAgentCommerciallicense
@@ -247,6 +250,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(dtAgentSenioritydate, forKey: .dtAgentSenioritydate)
         try container.encodeIfPresent(dtAgentSickleavestart, forKey: .dtAgentSickleavestart)
         try container.encodeIfPresent(dtAgentSickleaveend, forKey: .dtAgentSickleaveend)
+        try container.encode(eAgentSchedule, forKey: .eAgentSchedule)
         try container.encode(bAgentTranquillit, forKey: .bAgentTranquillit)
         try container.encode(bAgentResidentiallicense, forKey: .bAgentResidentiallicense)
         try container.encode(bAgentCommerciallicense, forKey: .bAgentCommerciallicense)

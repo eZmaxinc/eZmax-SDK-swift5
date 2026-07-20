@@ -4,7 +4,7 @@
 Cartfile
 Ezmaxapi/APIHelper.swift
 Ezmaxapi/APIs.swift
-Ezmaxapi/APIs/DocumentationEzmaxpartnerAPI.swift
+Ezmaxapi/APIs/ExternalEzmaxpartnerAPI.swift
 Ezmaxapi/APIs/GlobalCustomerAPI.swift
 Ezmaxapi/APIs/GlobalEzmaxclientAPI.swift
 Ezmaxapi/APIs/GlobalEzmaxcustomerAPI.swift
@@ -1456,6 +1456,7 @@ Ezmaxapi/Models/FieldEActivesessionOrigin.swift
 Ezmaxapi/Models/FieldEActivesessionRealestateinprogress.swift
 Ezmaxapi/Models/FieldEActivesessionUsertype.swift
 Ezmaxapi/Models/FieldEActivesessionWeekdaystart.swift
+Ezmaxapi/Models/FieldEAgentSchedule.swift
 Ezmaxapi/Models/FieldEAttachmentDocumenttype.swift
 Ezmaxapi/Models/FieldEAttachmentPrivacy.swift
 Ezmaxapi/Models/FieldEAttachmentType.swift
@@ -1597,6 +1598,7 @@ Ezmaxapi/Models/FieldEWebhookEzmaxpartnerevent.swift
 Ezmaxapi/Models/FieldEWebhookEzsignevent.swift
 Ezmaxapi/Models/FieldEWebhookManagementevent.swift
 Ezmaxapi/Models/FieldEWebhookModule.swift
+Ezmaxapi/Models/FieldEWebhookRealestateevent.swift
 Ezmaxapi/Models/FieldEtInscriptionnotauthenticatedMortgagetype.swift
 Ezmaxapi/Models/FieldPksEzmaxclientOs.swift
 Ezmaxapi/Models/FontAutocompleteElementResponse.swift
@@ -1876,7 +1878,10 @@ Ezmaxapi/Models/ScimGroupMember.swift
 Ezmaxapi/Models/ScimServiceProviderConfig.swift
 Ezmaxapi/Models/ScimServiceProviderConfigBulk.swift
 Ezmaxapi/Models/ScimServiceProviderConfigChangePassword.swift
+Ezmaxapi/Models/ScimServiceProviderConfigEtag.swift
 Ezmaxapi/Models/ScimServiceProviderConfigFilter.swift
+Ezmaxapi/Models/ScimServiceProviderConfigPatch.swift
+Ezmaxapi/Models/ScimServiceProviderConfigSort.swift
 Ezmaxapi/Models/ScimUser.swift
 Ezmaxapi/Models/ScimUserList.swift
 Ezmaxapi/Models/SecretquestionAutocompleteElementResponse.swift
@@ -2160,6 +2165,10 @@ Ezmaxapi/Models/WebhookGetListV1ResponseMPayload.swift
 Ezmaxapi/Models/WebhookGetObjectV2Response.swift
 Ezmaxapi/Models/WebhookGetObjectV2ResponseMPayload.swift
 Ezmaxapi/Models/WebhookListElement.swift
+Ezmaxapi/Models/WebhookRealestateInscriptionCreated.swift
+Ezmaxapi/Models/WebhookRealestateInscriptionModified.swift
+Ezmaxapi/Models/WebhookRealestateInscriptionnotauthenticatedCreated.swift
+Ezmaxapi/Models/WebhookRealestateInscriptionnotauthenticatedModified.swift
 Ezmaxapi/Models/WebhookRegenerateApikeyV1Request.swift
 Ezmaxapi/Models/WebhookRegenerateApikeyV1Response.swift
 Ezmaxapi/Models/WebhookRegenerateApikeyV1ResponseMPayload.swift
@@ -2611,7 +2620,6 @@ docs/DiscussionmessageRequestCompound.md
 docs/DiscussionmessageRequestPatch.md
 docs/DiscussionmessageResponse.md
 docs/DiscussionmessageResponseCompound.md
-docs/DocumentationEzmaxpartnerAPI.md
 docs/DocumentationSubscribeV1Request.md
 docs/DocumentationSubscribeV1Response.md
 docs/DomainAutocompleteElementResponse.md
@@ -2660,6 +2668,7 @@ docs/EnumHorizontalalignment.md
 docs/EnumReportdataType.md
 docs/EnumTextvalidation.md
 docs/EnumVerticalalignment.md
+docs/ExternalEzmaxpartnerAPI.md
 docs/ExternalbrokerImportIntoEDMV1Request.md
 docs/ExternalbrokerImportIntoEDMV1Response.md
 docs/ExternalbrokerImportIntoEDMV1ResponseMPayload.md
@@ -3501,6 +3510,7 @@ docs/FieldEActivesessionOrigin.md
 docs/FieldEActivesessionRealestateinprogress.md
 docs/FieldEActivesessionUsertype.md
 docs/FieldEActivesessionWeekdaystart.md
+docs/FieldEAgentSchedule.md
 docs/FieldEAttachmentDocumenttype.md
 docs/FieldEAttachmentPrivacy.md
 docs/FieldEAttachmentType.md
@@ -3642,6 +3652,7 @@ docs/FieldEWebhookEzmaxpartnerevent.md
 docs/FieldEWebhookEzsignevent.md
 docs/FieldEWebhookManagementevent.md
 docs/FieldEWebhookModule.md
+docs/FieldEWebhookRealestateevent.md
 docs/FieldEtInscriptionnotauthenticatedMortgagetype.md
 docs/FieldPksEzmaxclientOs.md
 docs/FontAutocompleteElementResponse.md
@@ -4059,7 +4070,10 @@ docs/ScimServiceProviderConfig.md
 docs/ScimServiceProviderConfigAPI.md
 docs/ScimServiceProviderConfigBulk.md
 docs/ScimServiceProviderConfigChangePassword.md
+docs/ScimServiceProviderConfigEtag.md
 docs/ScimServiceProviderConfigFilter.md
+docs/ScimServiceProviderConfigPatch.md
+docs/ScimServiceProviderConfigSort.md
 docs/ScimUser.md
 docs/ScimUserList.md
 docs/ScimUsersAPI.md
@@ -4344,6 +4358,10 @@ docs/WebhookGetListV1ResponseMPayload.md
 docs/WebhookGetObjectV2Response.md
 docs/WebhookGetObjectV2ResponseMPayload.md
 docs/WebhookListElement.md
+docs/WebhookRealestateInscriptionCreated.md
+docs/WebhookRealestateInscriptionModified.md
+docs/WebhookRealestateInscriptionnotauthenticatedCreated.md
+docs/WebhookRealestateInscriptionnotauthenticatedModified.md
 docs/WebhookRegenerateApikeyV1Request.md
 docs/WebhookRegenerateApikeyV1Response.md
 docs/WebhookRegenerateApikeyV1ResponseMPayload.md

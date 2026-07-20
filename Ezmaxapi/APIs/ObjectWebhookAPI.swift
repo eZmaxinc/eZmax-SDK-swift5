@@ -236,6 +236,8 @@ open class ObjectWebhookAPI {
         case ewebhookezsigneventDesc = "eWebhookEzsignevent_DESC"
         case ewebhookmanagementeventAsc = "eWebhookManagementevent_ASC"
         case ewebhookmanagementeventDesc = "eWebhookManagementevent_DESC"
+        case ewebhookrealestateeventAsc = "eWebhookRealestateevent_ASC"
+        case ewebhookrealestateeventDesc = "eWebhookRealestateevent_DESC"
         case ewebhookmoduleAsc = "eWebhookModule_ASC"
         case ewebhookmoduleDesc = "eWebhookModule_DESC"
         case swebhookemailfailedAsc = "sWebhookEmailfailed_ASC"

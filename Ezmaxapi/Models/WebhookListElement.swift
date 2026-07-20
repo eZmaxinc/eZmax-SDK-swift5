@@ -27,12 +27,13 @@ public struct WebhookListElement: Codable, JSONEncodable, Hashable {
     public var eWebhookModule: FieldEWebhookModule
     public var eWebhookEzsignevent: FieldEWebhookEzsignevent?
     public var eWebhookManagementevent: FieldEWebhookManagementevent?
+    public var eWebhookRealestateevent: FieldEWebhookRealestateevent?
     /** Whether the Webhook is active or not */
     public var bWebhookIsactive: Bool
     /** Whether the requests will be signed or not */
     public var bWebhookIssigned: Bool
 
-    public init(pkiWebhookID: Int, sWebhookDescription: String, sWebhookUrl: String, sWebhookEvent: String, sWebhookEmailfailed: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool) {
+    public init(pkiWebhookID: Int, sWebhookDescription: String, sWebhookUrl: String, sWebhookEvent: String, sWebhookEmailfailed: String, eWebhookModule: FieldEWebhookModule, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, eWebhookRealestateevent: FieldEWebhookRealestateevent? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool) {
         self.pkiWebhookID = pkiWebhookID
         self.sWebhookDescription = sWebhookDescription
         self.sWebhookUrl = sWebhookUrl
@@ -41,6 +42,7 @@ public struct WebhookListElement: Codable, JSONEncodable, Hashable {
         self.eWebhookModule = eWebhookModule
         self.eWebhookEzsignevent = eWebhookEzsignevent
         self.eWebhookManagementevent = eWebhookManagementevent
+        self.eWebhookRealestateevent = eWebhookRealestateevent
         self.bWebhookIsactive = bWebhookIsactive
         self.bWebhookIssigned = bWebhookIssigned
     }
@@ -54,6 +56,7 @@ public struct WebhookListElement: Codable, JSONEncodable, Hashable {
         case eWebhookModule
         case eWebhookEzsignevent
         case eWebhookManagementevent
+        case eWebhookRealestateevent
         case bWebhookIsactive
         case bWebhookIssigned
     }
@@ -70,6 +73,7 @@ public struct WebhookListElement: Codable, JSONEncodable, Hashable {
         try container.encode(eWebhookModule, forKey: .eWebhookModule)
         try container.encodeIfPresent(eWebhookEzsignevent, forKey: .eWebhookEzsignevent)
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
+        try container.encodeIfPresent(eWebhookRealestateevent, forKey: .eWebhookRealestateevent)
         try container.encode(bWebhookIsactive, forKey: .bWebhookIsactive)
         try container.encode(bWebhookIssigned, forKey: .bWebhookIssigned)
     }

@@ -31,6 +31,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
     public var eWebhookEzmaxpartnerevent: FieldEWebhookEzmaxpartnerevent?
     public var eWebhookEzsignevent: FieldEWebhookEzsignevent?
     public var eWebhookManagementevent: FieldEWebhookManagementevent?
+    public var eWebhookRealestateevent: FieldEWebhookRealestateevent?
     /** The URL of the Webhook callback */
     public var sWebhookUrl: String
     /** The email that will receive the Webhook in case all attempts fail */
@@ -54,7 +55,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
     public var sWebhookAuthentificationexternalerror: String?
     public var aObjWebhookheader: [WebhookheaderResponseCompound]?
 
-    public init(pkiWebhookID: Int? = nil, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzmaxpartnerevent: FieldEWebhookEzmaxpartnerevent? = nil, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit? = nil, sWebhookEvent: String? = nil, sWebhookAuthentificationexternalerror: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil) {
+    public init(pkiWebhookID: Int? = nil, fkiAuthenticationexternalID: Int? = nil, sWebhookDescription: String, fkiEzsignfoldertypeID: Int? = nil, sEzsignfoldertypeNameX: String? = nil, eWebhookModule: FieldEWebhookModule, eWebhookEzmaxpartnerevent: FieldEWebhookEzmaxpartnerevent? = nil, eWebhookEzsignevent: FieldEWebhookEzsignevent? = nil, eWebhookManagementevent: FieldEWebhookManagementevent? = nil, eWebhookRealestateevent: FieldEWebhookRealestateevent? = nil, sWebhookUrl: String, sWebhookEmailfailed: String, sWebhookApikey: String? = nil, sWebhookSecret: String? = nil, bWebhookIsactive: Bool, bWebhookIssigned: Bool, bWebhookSkipsslvalidation: Bool, sAuthenticationexternalDescription: String? = nil, objAudit: CommonAudit? = nil, sWebhookEvent: String? = nil, sWebhookAuthentificationexternalerror: String? = nil, aObjWebhookheader: [WebhookheaderResponseCompound]? = nil) {
         self.pkiWebhookID = pkiWebhookID
         self.fkiAuthenticationexternalID = fkiAuthenticationexternalID
         self.sWebhookDescription = sWebhookDescription
@@ -64,6 +65,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         self.eWebhookEzmaxpartnerevent = eWebhookEzmaxpartnerevent
         self.eWebhookEzsignevent = eWebhookEzsignevent
         self.eWebhookManagementevent = eWebhookManagementevent
+        self.eWebhookRealestateevent = eWebhookRealestateevent
         self.sWebhookUrl = sWebhookUrl
         self.sWebhookEmailfailed = sWebhookEmailfailed
         self.sWebhookApikey = sWebhookApikey
@@ -88,6 +90,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         case eWebhookEzmaxpartnerevent
         case eWebhookEzsignevent
         case eWebhookManagementevent
+        case eWebhookRealestateevent
         case sWebhookUrl
         case sWebhookEmailfailed
         case sWebhookApikey
@@ -115,6 +118,7 @@ public struct WebhookResponseCompound: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(eWebhookEzmaxpartnerevent, forKey: .eWebhookEzmaxpartnerevent)
         try container.encodeIfPresent(eWebhookEzsignevent, forKey: .eWebhookEzsignevent)
         try container.encodeIfPresent(eWebhookManagementevent, forKey: .eWebhookManagementevent)
+        try container.encodeIfPresent(eWebhookRealestateevent, forKey: .eWebhookRealestateevent)
         try container.encode(sWebhookUrl, forKey: .sWebhookUrl)
         try container.encode(sWebhookEmailfailed, forKey: .sWebhookEmailfailed)
         try container.encodeIfPresent(sWebhookApikey, forKey: .sWebhookApikey)

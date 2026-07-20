@@ -34,8 +34,9 @@ public struct CustomEzmaxpartnerListElement: Codable, JSONEncodable, Hashable {
     public var sEzmaxpartnerPhoneE164X: String
     /** The url of the Ezmaxpartner website in the language of the requester */
     public var sEzmaxpartnerUrlX: String
+    public var objEzmaxpartnerLogourl: MultilingualEzmaxpartnerLogourl
 
-    public init(pkiEzmaxpartnerID: Int, sEzmaxpartnerAddressX: String, sEzmaxpartnerEmailaddressX: String, sEzmaxpartnerShortdescriptionX: String, sEzmaxpartnerNameX: String, sEzmaxpartnerPhoneE164X: String, sEzmaxpartnerUrlX: String) {
+    public init(pkiEzmaxpartnerID: Int, sEzmaxpartnerAddressX: String, sEzmaxpartnerEmailaddressX: String, sEzmaxpartnerShortdescriptionX: String, sEzmaxpartnerNameX: String, sEzmaxpartnerPhoneE164X: String, sEzmaxpartnerUrlX: String, objEzmaxpartnerLogourl: MultilingualEzmaxpartnerLogourl) {
         self.pkiEzmaxpartnerID = pkiEzmaxpartnerID
         self.sEzmaxpartnerAddressX = sEzmaxpartnerAddressX
         self.sEzmaxpartnerEmailaddressX = sEzmaxpartnerEmailaddressX
@@ -43,6 +44,7 @@ public struct CustomEzmaxpartnerListElement: Codable, JSONEncodable, Hashable {
         self.sEzmaxpartnerNameX = sEzmaxpartnerNameX
         self.sEzmaxpartnerPhoneE164X = sEzmaxpartnerPhoneE164X
         self.sEzmaxpartnerUrlX = sEzmaxpartnerUrlX
+        self.objEzmaxpartnerLogourl = objEzmaxpartnerLogourl
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -53,6 +55,7 @@ public struct CustomEzmaxpartnerListElement: Codable, JSONEncodable, Hashable {
         case sEzmaxpartnerNameX
         case sEzmaxpartnerPhoneE164X
         case sEzmaxpartnerUrlX
+        case objEzmaxpartnerLogourl
     }
 
     // Encodable protocol methods
@@ -66,6 +69,7 @@ public struct CustomEzmaxpartnerListElement: Codable, JSONEncodable, Hashable {
         try container.encode(sEzmaxpartnerNameX, forKey: .sEzmaxpartnerNameX)
         try container.encode(sEzmaxpartnerPhoneE164X, forKey: .sEzmaxpartnerPhoneE164X)
         try container.encode(sEzmaxpartnerUrlX, forKey: .sEzmaxpartnerUrlX)
+        try container.encode(objEzmaxpartnerLogourl, forKey: .objEzmaxpartnerLogourl)
     }
 }
 

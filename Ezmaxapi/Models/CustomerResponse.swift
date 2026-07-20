@@ -52,7 +52,7 @@ public struct CustomerResponse: Codable, JSONEncodable, Hashable {
     public static let dtCustomerTransferRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     public static let dtCustomerTransferappointmentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
     public static let dtCustomerTransfersurveyRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-    public static let tCustomerCommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,16777215}$/")
+    public static let tCustomerCommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
     public static let IMPORTIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,15}$/")
     /** The unique ID of the Customer. */
     public var pkiCustomerID: Int

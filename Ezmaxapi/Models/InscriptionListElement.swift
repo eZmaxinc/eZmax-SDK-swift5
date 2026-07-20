@@ -16,8 +16,12 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public static let pkiInscriptionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let pkiInscriptionnotauthenticatedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiInscriptiontypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let fkiBuyercontractIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let sInscriptiontypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
+    public static let fkiInscriptionbuildingtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sInscriptionbuildingtypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
+    public static let fkiInscriptioncategoryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
+    public static let sInscriptioncategoryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,30}$/")
+    public static let fkiBuyercontractIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let sInscriptionCivicendRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,6}$/")
     public static let sInscriptionMLSRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
     public static let sInscriptionContractRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
@@ -33,19 +37,29 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public static let sProvinceNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     public static let fkiCountryIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sCountryNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,40}$/")
+    public static let iInscriptionUnitRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Inscription. */
     public var pkiInscriptionID: Int
     /** The unique ID of the Inscriptionnotauthenticated. */
     public var pkiInscriptionnotauthenticatedID: Int?
     /** The unique ID of the Inscriptiontype */
     public var fkiInscriptiontypeID: Int
+    /** The name of the Inscriptiontype in the language of the requester */
+    public var sInscriptiontypeNameX: String
+    /** The unique ID of the Inscriptionbuildingtype */
+    public var fkiInscriptionbuildingtypeID: Int
+    /** The name of the Inscriptionbuildingtype in the language of the requester */
+    public var sInscriptionbuildingtypeNameX: String
+    /** The unique ID of the Inscriptioncategory */
+    public var fkiInscriptioncategoryID: Int
+    /** The name of the Inscriptioncategory in the language of the requester */
+    public var sInscriptioncategoryNameX: String
     /** The unique ID of the Buyercontract */
     public var fkiBuyercontractID: Int?
     /** The number of the Buyercontract */
     public var sBuyercontractContract: String?
-    /** The name of the Inscriptiontype in the language of the requester */
-    public var sInscriptiontypeNameX: String
     public var eInscriptionStep: FieldEInscriptionStep
+    public var eInscriptionType: FieldEInscriptionType
     /** The civicend of the Inscription */
     public var sInscriptionCivicend: String
     /** The mls of the Inscription */
@@ -98,17 +112,24 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public var sCountryNameX: String?
     /** The numbre of inscriptionnotauthenticated was canceled in this Inscription */
     public var iInscriptionnotauthenticatedCanceled: Int
+    /** The unit of the Inscription */
+    public var iInscriptionUnit: Int
     /** Whether we are allowed to copy into the Inscription EDM */
     public var bAllowedCopyintoinscriptionedm: Bool
 
-    public init(pkiInscriptionID: Int, pkiInscriptionnotauthenticatedID: Int? = nil, fkiInscriptiontypeID: Int, fkiBuyercontractID: Int? = nil, sBuyercontractContract: String? = nil, sInscriptiontypeNameX: String, eInscriptionStep: FieldEInscriptionStep, sInscriptionCivicend: String, sInscriptionMLS: String? = nil, sInscriptionContract: String? = nil, dInscriptionSaleprice: String, dInscriptionRentprice: String, dtInscriptionDate: String? = nil, dtInscriptionExpirationdate: String? = nil, dtInscriptionNotarydate: String? = nil, bInscriptionIsactive: Bool, bInscriptionArchived: Bool, bInscriptionInspection: Bool? = nil, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, bInscriptionnotauthenticatedConditional: Bool? = nil, bInscriptionnotauthenticatedIsactive: Bool? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil, iInscriptionnotauthenticatedCanceled: Int, bAllowedCopyintoinscriptionedm: Bool) {
+    public init(pkiInscriptionID: Int, pkiInscriptionnotauthenticatedID: Int? = nil, fkiInscriptiontypeID: Int, sInscriptiontypeNameX: String, fkiInscriptionbuildingtypeID: Int, sInscriptionbuildingtypeNameX: String, fkiInscriptioncategoryID: Int, sInscriptioncategoryNameX: String, fkiBuyercontractID: Int? = nil, sBuyercontractContract: String? = nil, eInscriptionStep: FieldEInscriptionStep, eInscriptionType: FieldEInscriptionType, sInscriptionCivicend: String, sInscriptionMLS: String? = nil, sInscriptionContract: String? = nil, dInscriptionSaleprice: String, dInscriptionRentprice: String, dtInscriptionDate: String? = nil, dtInscriptionExpirationdate: String? = nil, dtInscriptionNotarydate: String? = nil, bInscriptionIsactive: Bool, bInscriptionArchived: Bool, bInscriptionInspection: Bool? = nil, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, bInscriptionnotauthenticatedConditional: Bool? = nil, bInscriptionnotauthenticatedIsactive: Bool? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil, iInscriptionnotauthenticatedCanceled: Int, iInscriptionUnit: Int, bAllowedCopyintoinscriptionedm: Bool) {
         self.pkiInscriptionID = pkiInscriptionID
         self.pkiInscriptionnotauthenticatedID = pkiInscriptionnotauthenticatedID
         self.fkiInscriptiontypeID = fkiInscriptiontypeID
+        self.sInscriptiontypeNameX = sInscriptiontypeNameX
+        self.fkiInscriptionbuildingtypeID = fkiInscriptionbuildingtypeID
+        self.sInscriptionbuildingtypeNameX = sInscriptionbuildingtypeNameX
+        self.fkiInscriptioncategoryID = fkiInscriptioncategoryID
+        self.sInscriptioncategoryNameX = sInscriptioncategoryNameX
         self.fkiBuyercontractID = fkiBuyercontractID
         self.sBuyercontractContract = sBuyercontractContract
-        self.sInscriptiontypeNameX = sInscriptiontypeNameX
         self.eInscriptionStep = eInscriptionStep
+        self.eInscriptionType = eInscriptionType
         self.sInscriptionCivicend = sInscriptionCivicend
         self.sInscriptionMLS = sInscriptionMLS
         self.sInscriptionContract = sInscriptionContract
@@ -135,6 +156,7 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
         self.fkiCountryID = fkiCountryID
         self.sCountryNameX = sCountryNameX
         self.iInscriptionnotauthenticatedCanceled = iInscriptionnotauthenticatedCanceled
+        self.iInscriptionUnit = iInscriptionUnit
         self.bAllowedCopyintoinscriptionedm = bAllowedCopyintoinscriptionedm
     }
 
@@ -142,10 +164,15 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
         case pkiInscriptionID
         case pkiInscriptionnotauthenticatedID
         case fkiInscriptiontypeID
+        case sInscriptiontypeNameX
+        case fkiInscriptionbuildingtypeID
+        case sInscriptionbuildingtypeNameX
+        case fkiInscriptioncategoryID
+        case sInscriptioncategoryNameX
         case fkiBuyercontractID
         case sBuyercontractContract
-        case sInscriptiontypeNameX
         case eInscriptionStep
+        case eInscriptionType
         case sInscriptionCivicend
         case sInscriptionMLS
         case sInscriptionContract
@@ -172,6 +199,7 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
         case fkiCountryID
         case sCountryNameX
         case iInscriptionnotauthenticatedCanceled
+        case iInscriptionUnit
         case bAllowedCopyintoinscriptionedm
     }
 
@@ -182,10 +210,15 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
         try container.encode(pkiInscriptionID, forKey: .pkiInscriptionID)
         try container.encodeIfPresent(pkiInscriptionnotauthenticatedID, forKey: .pkiInscriptionnotauthenticatedID)
         try container.encode(fkiInscriptiontypeID, forKey: .fkiInscriptiontypeID)
+        try container.encode(sInscriptiontypeNameX, forKey: .sInscriptiontypeNameX)
+        try container.encode(fkiInscriptionbuildingtypeID, forKey: .fkiInscriptionbuildingtypeID)
+        try container.encode(sInscriptionbuildingtypeNameX, forKey: .sInscriptionbuildingtypeNameX)
+        try container.encode(fkiInscriptioncategoryID, forKey: .fkiInscriptioncategoryID)
+        try container.encode(sInscriptioncategoryNameX, forKey: .sInscriptioncategoryNameX)
         try container.encodeIfPresent(fkiBuyercontractID, forKey: .fkiBuyercontractID)
         try container.encodeIfPresent(sBuyercontractContract, forKey: .sBuyercontractContract)
-        try container.encode(sInscriptiontypeNameX, forKey: .sInscriptiontypeNameX)
         try container.encode(eInscriptionStep, forKey: .eInscriptionStep)
+        try container.encode(eInscriptionType, forKey: .eInscriptionType)
         try container.encode(sInscriptionCivicend, forKey: .sInscriptionCivicend)
         try container.encodeIfPresent(sInscriptionMLS, forKey: .sInscriptionMLS)
         try container.encodeIfPresent(sInscriptionContract, forKey: .sInscriptionContract)
@@ -212,6 +245,7 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(fkiCountryID, forKey: .fkiCountryID)
         try container.encodeIfPresent(sCountryNameX, forKey: .sCountryNameX)
         try container.encode(iInscriptionnotauthenticatedCanceled, forKey: .iInscriptionnotauthenticatedCanceled)
+        try container.encode(iInscriptionUnit, forKey: .iInscriptionUnit)
         try container.encode(bAllowedCopyintoinscriptionedm, forKey: .bAllowedCopyintoinscriptionedm)
     }
 }
