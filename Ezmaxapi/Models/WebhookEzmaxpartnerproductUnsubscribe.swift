@@ -17,17 +17,20 @@ public struct WebhookEzmaxpartnerproductUnsubscribe: Codable, JSONEncodable, Has
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
     public var objEzmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe
+    public var sExternalID: String?
 
-    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objEzmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe) {
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objEzmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe, sExternalID: String? = nil) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
         self.objEzmaxpartnerproduct = objEzmaxpartnerproduct
+        self.sExternalID = sExternalID
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case objWebhook
         case aObjAttempt = "a_objAttempt"
         case objEzmaxpartnerproduct
+        case sExternalID
     }
 
     // Encodable protocol methods
@@ -37,6 +40,7 @@ public struct WebhookEzmaxpartnerproductUnsubscribe: Codable, JSONEncodable, Has
         try container.encode(objWebhook, forKey: .objWebhook)
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
         try container.encode(objEzmaxpartnerproduct, forKey: .objEzmaxpartnerproduct)
+        try container.encodeIfPresent(sExternalID, forKey: .sExternalID)
     }
 }
 

@@ -15,13 +15,13 @@ open class ExternalEzmaxpartnerAPI {
     /**
      Subscribe to an Ezmaxparnerproductstage
      
-     - parameter documentationSubscribeV1Request: (body)  
+     - parameter ezmaxpartnerSubscribeV1Request: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func externalpartnerSubscribeV1(documentationSubscribeV1Request: DocumentationSubscribeV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: DocumentationSubscribeV1Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return externalpartnerSubscribeV1WithRequestBuilder(documentationSubscribeV1Request: documentationSubscribeV1Request).execute(apiResponseQueue) { result in
+    open class func ezmaxpartnerSubscribeV1(ezmaxpartnerSubscribeV1Request: EzmaxpartnerSubscribeV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzmaxpartnerSubscribeV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezmaxpartnerSubscribeV1WithRequestBuilder(ezmaxpartnerSubscribeV1Request: ezmaxpartnerSubscribeV1Request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -38,13 +38,13 @@ open class ExternalEzmaxpartnerAPI {
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization
-     - parameter documentationSubscribeV1Request: (body)  
-     - returns: RequestBuilder<DocumentationSubscribeV1Response> 
+     - parameter ezmaxpartnerSubscribeV1Request: (body)  
+     - returns: RequestBuilder<EzmaxpartnerSubscribeV1Response> 
      */
-    open class func externalpartnerSubscribeV1WithRequestBuilder(documentationSubscribeV1Request: DocumentationSubscribeV1Request) -> RequestBuilder<DocumentationSubscribeV1Response> {
+    open class func ezmaxpartnerSubscribeV1WithRequestBuilder(ezmaxpartnerSubscribeV1Request: EzmaxpartnerSubscribeV1Request) -> RequestBuilder<EzmaxpartnerSubscribeV1Response> {
         let localVariablePath = "/1/external/ezmaxpartner/subscribe"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: documentationSubscribeV1Request)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezmaxpartnerSubscribeV1Request)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
@@ -54,7 +54,7 @@ open class ExternalEzmaxpartnerAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<DocumentationSubscribeV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<EzmaxpartnerSubscribeV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
