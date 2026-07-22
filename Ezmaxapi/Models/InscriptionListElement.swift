@@ -60,7 +60,7 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public var sBuyercontractContract: String?
     public var eInscriptionStep: FieldEInscriptionStep
     public var eInscriptionType: FieldEInscriptionType
-    /** The civicend of the Inscription */
+    /** The address civic end of the Inscription */
     public var sInscriptionCivicend: String
     /** The mls of the Inscription */
     public var sInscriptionMLS: String?
@@ -68,13 +68,13 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public var sInscriptionContract: String?
     /** The saleprice of the Inscription */
     public var dInscriptionSaleprice: String
-    /** The rentprice of the Inscription */
+    /** The rent price of the Inscription */
     public var dInscriptionRentprice: String
     /** The date of the Inscription */
     public var dtInscriptionDate: String?
-    /** The expirationdate of the Inscription */
+    /** The expiration date of the Inscription */
     public var dtInscriptionExpirationdate: String?
-    /** The notarydate of the Inscription */
+    /** The notary date of the Inscription */
     public var dtInscriptionNotarydate: String?
     /** Whether the inscription is active or not */
     public var bInscriptionIsactive: Bool
@@ -82,11 +82,11 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public var bInscriptionArchived: Bool
     /** Whether the inscription can be acces by an inspector */
     public var bInscriptionInspection: Bool?
-    /** The notaryscheduledate of the Inscriptionnotauthenticated */
+    /** The notary schedule date of the Inscriptionnotauthenticated */
     public var dtInscriptionnotauthenticatedNotaryscheduledate: String?
-    /** The transactiondate of the Inscriptionnotauthenticated */
+    /** The transaction date of the Inscriptionnotauthenticated */
     public var dtInscriptionnotauthenticatedTransactiondate: String?
-    /** The transactiondatereal of the Inscriptionnotauthenticated */
+    /** The real transactiondate of the Inscriptionnotauthenticated */
     public var dtInscriptionnotauthenticatedTransactiondateReal: String?
     /** Whether the inscriptionnotauthenticated is conditional */
     public var bInscriptionnotauthenticatedConditional: Bool?
@@ -112,7 +112,7 @@ public struct InscriptionListElement: Codable, JSONEncodable, Hashable {
     public var sCountryNameX: String?
     /** The numbre of inscriptionnotauthenticated was canceled in this Inscription */
     public var iInscriptionnotauthenticatedCanceled: Int
-    /** The unit of the Inscription */
+    /** The number of unit for the Inscription */
     public var iInscriptionUnit: Int
     /** Whether we are allowed to copy into the Inscription EDM */
     public var bAllowedCopyintoinscriptionedm: Bool

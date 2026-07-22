@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The remunerationtotaltype of the Inscription */
+/** The type for the remuneration total of the Inscription */
 public enum FieldEInscriptionRemunerationtotaltype: String, Codable, CaseIterable {
     case percentage = "Percentage"
     case dollars = "Dollars"

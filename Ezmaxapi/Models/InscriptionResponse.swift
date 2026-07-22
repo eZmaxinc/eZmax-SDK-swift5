@@ -14,11 +14,9 @@ import AnyCodable
 public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
 
     public static let pkiInscriptionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let fkiCompanyIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sRealestateboardNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,65}$/")
     public static let fkiAddressIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{1,200}$/")
     public static let fkiInscriptionbuildingtypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let sInscriptionbuildingtypeNameXRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,20}$/")
     public static let fkiInscriptiontypeIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
@@ -49,12 +47,8 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
     public static let iInscriptionUnitRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Inscription. */
     public var pkiInscriptionID: Int
-    /** The unique ID of the Company */
-    public var fkiCompanyID: Int
-    /** The Name of the Company in the language of the requester */
-    public var sCompanyNameX: String?
     /** The unique ID of the Department */
-    public var fkiDepartmentID: Int
+    public var fkiDepartmentID: Int?
     /** The Name of the Department in the language of the requester */
     public var sDepartmentNameX: String?
     /** The unique ID of the Realestateboard */
@@ -63,8 +57,7 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
     public var sRealestateboardNameX: String?
     /** The unique ID of the Address */
     public var fkiAddressID: Int
-    /** The complete address in a single line */
-    public var sAddress: String?
+    public var objAddress: AddressResponseCompound?
     /** The unique ID of the Inscriptionbuildingtype */
     public var fkiInscriptionbuildingtypeID: Int
     /** The name of the Inscriptionbuildingtype in the language of the requester */
@@ -79,47 +72,47 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
     public var sInscriptioncategoryNameX: String?
     public var eInscriptionStep: FieldEInscriptionStep
     public var eInscriptionResidenceType: FieldEInscriptionResidenceType
-    /** The civicend of the Inscription */
+    /** The address civic end of the Inscription */
     public var sInscriptionCivicend: String
     /** The mls of the Inscription */
-    public var sInscriptionMLS: String
+    public var sInscriptionMLS: String?
     /** The sale contract number */
     public var sInscriptionContract: String
-    /** The sellerdeclaration of the Inscription */
+    /** The seller declaration number of the Inscription */
     public var iInscriptionSellerdeclaration: Int
     public var eInscriptionType: FieldEInscriptionType
-    /** The initialsaleprice of the Inscription */
+    /** The initial sale price of the Inscription */
     public var dInscriptionInitialsaleprice: String
     /** The saleprice of the Inscription */
     public var dInscriptionSaleprice: String
-    /** The rentprice of the Inscription */
+    /** The rent price of the Inscription */
     public var dInscriptionRentprice: String
     public var eInscriptionRemunerationtype: FieldEInscriptionRemunerationtype
     public var eInscriptionRemunerationinscriptorsellertype: FieldEInscriptionRemunerationinscriptorsellertype
     public var eInscriptionRemunerationreferencetype: FieldEInscriptionRemunerationreferencetype
     public var eInscriptionRemunerationtotaltype: FieldEInscriptionRemunerationtotaltype
-    /** The remuneration of the Inscription */
+    /** The remuneration amount of the Inscription */
     public var dInscriptionRemuneration: String
-    /** The remunerationinscriptorseller of the Inscription */
+    /** The remuneration amount for the inscriptor or seller of the Inscription */
     public var dInscriptionRemunerationinscriptorseller: String
-    /** The remunerationreference of the Inscription */
+    /** The remuneration amount for the reference of the Inscription */
     public var dInscriptionRemunerationreference: String
-    /** The remunerationtotal of the Inscription */
+    /** The remuneration amount total of the Inscription */
     public var dInscriptionRemunerationtotal: String
-    /** The mortgagesold of the Inscription */
+    /** The balande for the mortgage of the Inscription */
     public var dInscriptionMortgagesold: String
     /** The date of the Inscription */
-    public var dtInscriptionDate: String
-    /** The cancellationdate of the Inscription */
-    public var dtInscriptionCancellationdate: String
-    /** The initialexpirationdate of the Inscription */
-    public var dtInscriptionInitialexpirationdate: String
-    /** The expirationdate of the Inscription */
-    public var dtInscriptionExpirationdate: String
-    /** The notarydate of the Inscription */
-    public var dtInscriptionNotarydate: String
-    /** The notaryentereddate of the Inscription */
-    public var dtInscriptionNotaryentereddate: String
+    public var dtInscriptionDate: String?
+    /** The cancellation date of the Inscription */
+    public var dtInscriptionCancellationdate: String?
+    /** The initial expiration date of the Inscription */
+    public var dtInscriptionInitialexpirationdate: String?
+    /** The expiration date of the Inscription */
+    public var dtInscriptionExpirationdate: String?
+    /** The notary date of the Inscription */
+    public var dtInscriptionNotarydate: String?
+    /** The notary entered date of the Inscription */
+    public var dtInscriptionNotaryentereddate: String?
     /** The cadastre of the Inscription */
     public var tInscriptionCadastre: String
     /** Whether if it's an reference */
@@ -128,7 +121,7 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
     public var bInscriptionInspection: Bool
     /** Whether the inscription is active or not */
     public var bInscriptionIsactive: Bool
-    /** The checklistnote of the Inscription */
+    /** The checklist note of the Inscription */
     public var tInscriptionChecklistnote: String
     /** Whether if it's an new */
     public var bInscriptionNew: Bool
@@ -140,27 +133,26 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
     public var bInscriptionLitigation: Bool
     /** Whether if it's an repossession */
     public var bInscriptionRepossession: Bool
-    /** Whether if it's an issolicitation */
+    /** Whether if it's a solicitation */
     public var bInscriptionIssolicitation: Bool
-    /** Whether if it's an salebyowner */
+    /** Whether if it's a sale by the owner */
     public var bInscriptionSalebyowner: Bool
-    /** Whether if it's an soldwithoutlegalwarranty */
+    /** Whether if it's sold without the legal warranty */
     public var bInscriptionSoldwithoutlegalwarranty: Bool
-    /** The constructionyear of the Inscription */
+    /** The construction year of the Inscription */
     public var iInscriptionConstructionyear: Int
-    /** The unit of the Inscription */
+    /** The number of unit for the Inscription */
     public var iInscriptionUnit: Int
+    public var objAudit: CommonAudit?
 
-    public init(pkiInscriptionID: Int, fkiCompanyID: Int, sCompanyNameX: String? = nil, fkiDepartmentID: Int, sDepartmentNameX: String? = nil, fkiRealestateboardID: Int, sRealestateboardNameX: String? = nil, fkiAddressID: Int, sAddress: String? = nil, fkiInscriptionbuildingtypeID: Int, sInscriptionbuildingtypeNameX: String? = nil, fkiInscriptiontypeID: Int, sInscriptiontypeNameX: String? = nil, fkiInscriptioncategoryID: Int, sInscriptioncategoryNameX: String? = nil, eInscriptionStep: FieldEInscriptionStep, eInscriptionResidenceType: FieldEInscriptionResidenceType, sInscriptionCivicend: String, sInscriptionMLS: String, sInscriptionContract: String, iInscriptionSellerdeclaration: Int, eInscriptionType: FieldEInscriptionType, dInscriptionInitialsaleprice: String, dInscriptionSaleprice: String, dInscriptionRentprice: String, eInscriptionRemunerationtype: FieldEInscriptionRemunerationtype, eInscriptionRemunerationinscriptorsellertype: FieldEInscriptionRemunerationinscriptorsellertype, eInscriptionRemunerationreferencetype: FieldEInscriptionRemunerationreferencetype, eInscriptionRemunerationtotaltype: FieldEInscriptionRemunerationtotaltype, dInscriptionRemuneration: String, dInscriptionRemunerationinscriptorseller: String, dInscriptionRemunerationreference: String, dInscriptionRemunerationtotal: String, dInscriptionMortgagesold: String, dtInscriptionDate: String, dtInscriptionCancellationdate: String, dtInscriptionInitialexpirationdate: String, dtInscriptionExpirationdate: String, dtInscriptionNotarydate: String, dtInscriptionNotaryentereddate: String, tInscriptionCadastre: String, bInscriptionReference: Bool, bInscriptionInspection: Bool, bInscriptionIsactive: Bool, tInscriptionChecklistnote: String, bInscriptionNew: Bool, bInscriptionHomeowner: Bool, bInscriptionArchived: Bool, bInscriptionLitigation: Bool, bInscriptionRepossession: Bool, bInscriptionIssolicitation: Bool, bInscriptionSalebyowner: Bool, bInscriptionSoldwithoutlegalwarranty: Bool, iInscriptionConstructionyear: Int, iInscriptionUnit: Int) {
+    public init(pkiInscriptionID: Int, fkiDepartmentID: Int? = nil, sDepartmentNameX: String? = nil, fkiRealestateboardID: Int, sRealestateboardNameX: String? = nil, fkiAddressID: Int, objAddress: AddressResponseCompound? = nil, fkiInscriptionbuildingtypeID: Int, sInscriptionbuildingtypeNameX: String? = nil, fkiInscriptiontypeID: Int, sInscriptiontypeNameX: String? = nil, fkiInscriptioncategoryID: Int, sInscriptioncategoryNameX: String? = nil, eInscriptionStep: FieldEInscriptionStep, eInscriptionResidenceType: FieldEInscriptionResidenceType, sInscriptionCivicend: String, sInscriptionMLS: String? = nil, sInscriptionContract: String, iInscriptionSellerdeclaration: Int, eInscriptionType: FieldEInscriptionType, dInscriptionInitialsaleprice: String, dInscriptionSaleprice: String, dInscriptionRentprice: String, eInscriptionRemunerationtype: FieldEInscriptionRemunerationtype, eInscriptionRemunerationinscriptorsellertype: FieldEInscriptionRemunerationinscriptorsellertype, eInscriptionRemunerationreferencetype: FieldEInscriptionRemunerationreferencetype, eInscriptionRemunerationtotaltype: FieldEInscriptionRemunerationtotaltype, dInscriptionRemuneration: String, dInscriptionRemunerationinscriptorseller: String, dInscriptionRemunerationreference: String, dInscriptionRemunerationtotal: String, dInscriptionMortgagesold: String, dtInscriptionDate: String? = nil, dtInscriptionCancellationdate: String? = nil, dtInscriptionInitialexpirationdate: String? = nil, dtInscriptionExpirationdate: String? = nil, dtInscriptionNotarydate: String? = nil, dtInscriptionNotaryentereddate: String? = nil, tInscriptionCadastre: String, bInscriptionReference: Bool, bInscriptionInspection: Bool, bInscriptionIsactive: Bool, tInscriptionChecklistnote: String, bInscriptionNew: Bool, bInscriptionHomeowner: Bool, bInscriptionArchived: Bool, bInscriptionLitigation: Bool, bInscriptionRepossession: Bool, bInscriptionIssolicitation: Bool, bInscriptionSalebyowner: Bool, bInscriptionSoldwithoutlegalwarranty: Bool, iInscriptionConstructionyear: Int, iInscriptionUnit: Int, objAudit: CommonAudit? = nil) {
         self.pkiInscriptionID = pkiInscriptionID
-        self.fkiCompanyID = fkiCompanyID
-        self.sCompanyNameX = sCompanyNameX
         self.fkiDepartmentID = fkiDepartmentID
         self.sDepartmentNameX = sDepartmentNameX
         self.fkiRealestateboardID = fkiRealestateboardID
         self.sRealestateboardNameX = sRealestateboardNameX
         self.fkiAddressID = fkiAddressID
-        self.sAddress = sAddress
+        self.objAddress = objAddress
         self.fkiInscriptionbuildingtypeID = fkiInscriptionbuildingtypeID
         self.sInscriptionbuildingtypeNameX = sInscriptionbuildingtypeNameX
         self.fkiInscriptiontypeID = fkiInscriptiontypeID
@@ -207,18 +199,17 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
         self.bInscriptionSoldwithoutlegalwarranty = bInscriptionSoldwithoutlegalwarranty
         self.iInscriptionConstructionyear = iInscriptionConstructionyear
         self.iInscriptionUnit = iInscriptionUnit
+        self.objAudit = objAudit
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiInscriptionID
-        case fkiCompanyID
-        case sCompanyNameX
         case fkiDepartmentID
         case sDepartmentNameX
         case fkiRealestateboardID
         case sRealestateboardNameX
         case fkiAddressID
-        case sAddress
+        case objAddress
         case fkiInscriptionbuildingtypeID
         case sInscriptionbuildingtypeNameX
         case fkiInscriptiontypeID
@@ -265,6 +256,7 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
         case bInscriptionSoldwithoutlegalwarranty
         case iInscriptionConstructionyear
         case iInscriptionUnit
+        case objAudit
     }
 
     // Encodable protocol methods
@@ -272,14 +264,12 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiInscriptionID, forKey: .pkiInscriptionID)
-        try container.encode(fkiCompanyID, forKey: .fkiCompanyID)
-        try container.encodeIfPresent(sCompanyNameX, forKey: .sCompanyNameX)
-        try container.encode(fkiDepartmentID, forKey: .fkiDepartmentID)
+        try container.encodeIfPresent(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encodeIfPresent(sDepartmentNameX, forKey: .sDepartmentNameX)
         try container.encode(fkiRealestateboardID, forKey: .fkiRealestateboardID)
         try container.encodeIfPresent(sRealestateboardNameX, forKey: .sRealestateboardNameX)
         try container.encode(fkiAddressID, forKey: .fkiAddressID)
-        try container.encodeIfPresent(sAddress, forKey: .sAddress)
+        try container.encodeIfPresent(objAddress, forKey: .objAddress)
         try container.encode(fkiInscriptionbuildingtypeID, forKey: .fkiInscriptionbuildingtypeID)
         try container.encodeIfPresent(sInscriptionbuildingtypeNameX, forKey: .sInscriptionbuildingtypeNameX)
         try container.encode(fkiInscriptiontypeID, forKey: .fkiInscriptiontypeID)
@@ -289,7 +279,7 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
         try container.encode(eInscriptionStep, forKey: .eInscriptionStep)
         try container.encode(eInscriptionResidenceType, forKey: .eInscriptionResidenceType)
         try container.encode(sInscriptionCivicend, forKey: .sInscriptionCivicend)
-        try container.encode(sInscriptionMLS, forKey: .sInscriptionMLS)
+        try container.encodeIfPresent(sInscriptionMLS, forKey: .sInscriptionMLS)
         try container.encode(sInscriptionContract, forKey: .sInscriptionContract)
         try container.encode(iInscriptionSellerdeclaration, forKey: .iInscriptionSellerdeclaration)
         try container.encode(eInscriptionType, forKey: .eInscriptionType)
@@ -305,12 +295,12 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
         try container.encode(dInscriptionRemunerationreference, forKey: .dInscriptionRemunerationreference)
         try container.encode(dInscriptionRemunerationtotal, forKey: .dInscriptionRemunerationtotal)
         try container.encode(dInscriptionMortgagesold, forKey: .dInscriptionMortgagesold)
-        try container.encode(dtInscriptionDate, forKey: .dtInscriptionDate)
-        try container.encode(dtInscriptionCancellationdate, forKey: .dtInscriptionCancellationdate)
-        try container.encode(dtInscriptionInitialexpirationdate, forKey: .dtInscriptionInitialexpirationdate)
-        try container.encode(dtInscriptionExpirationdate, forKey: .dtInscriptionExpirationdate)
-        try container.encode(dtInscriptionNotarydate, forKey: .dtInscriptionNotarydate)
-        try container.encode(dtInscriptionNotaryentereddate, forKey: .dtInscriptionNotaryentereddate)
+        try container.encodeIfPresent(dtInscriptionDate, forKey: .dtInscriptionDate)
+        try container.encodeIfPresent(dtInscriptionCancellationdate, forKey: .dtInscriptionCancellationdate)
+        try container.encodeIfPresent(dtInscriptionInitialexpirationdate, forKey: .dtInscriptionInitialexpirationdate)
+        try container.encodeIfPresent(dtInscriptionExpirationdate, forKey: .dtInscriptionExpirationdate)
+        try container.encodeIfPresent(dtInscriptionNotarydate, forKey: .dtInscriptionNotarydate)
+        try container.encodeIfPresent(dtInscriptionNotaryentereddate, forKey: .dtInscriptionNotaryentereddate)
         try container.encode(tInscriptionCadastre, forKey: .tInscriptionCadastre)
         try container.encode(bInscriptionReference, forKey: .bInscriptionReference)
         try container.encode(bInscriptionInspection, forKey: .bInscriptionInspection)
@@ -326,6 +316,7 @@ public struct InscriptionResponse: Codable, JSONEncodable, Hashable {
         try container.encode(bInscriptionSoldwithoutlegalwarranty, forKey: .bInscriptionSoldwithoutlegalwarranty)
         try container.encode(iInscriptionConstructionyear, forKey: .iInscriptionConstructionyear)
         try container.encode(iInscriptionUnit, forKey: .iInscriptionUnit)
+        try container.encodeIfPresent(objAudit, forKey: .objAudit)
     }
 }
 

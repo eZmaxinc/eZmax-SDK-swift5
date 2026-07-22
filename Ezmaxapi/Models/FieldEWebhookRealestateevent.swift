@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The realestateevent of the Webhook */
+/** The Realestateevent of the Webhook */
 public enum FieldEWebhookRealestateevent: String, Codable, CaseIterable {
     case inscriptionCreated = "InscriptionCreated"
     case inscriptionModified = "InscriptionModified"

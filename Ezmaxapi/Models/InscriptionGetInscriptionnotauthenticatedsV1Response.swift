@@ -15,10 +15,9 @@ public struct InscriptionGetInscriptionnotauthenticatedsV1Response: Codable, JSO
 
     public var objDebugPayload: CommonResponseObjDebugPayload
     public var objDebug: CommonResponseObjDebug?
-    /** Response for GET /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds */
-    public var mPayload: AnyCodable
+    public var mPayload: InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload
 
-    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: AnyCodable) {
+    public init(objDebugPayload: CommonResponseObjDebugPayload, objDebug: CommonResponseObjDebug? = nil, mPayload: InscriptionGetInscriptionnotauthenticatedsV1ResponseMPayload) {
         self.objDebugPayload = objDebugPayload
         self.objDebug = objDebug
         self.mPayload = mPayload

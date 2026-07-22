@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The mortgagetype of the Inscriptionnotauthenticated */
+/** The type of mortgage of the Inscriptionnotauthenticated */
 public enum FieldEtInscriptionnotauthenticatedMortgagetype: String, Codable, CaseIterable {
     case empty = ""
     case cash = "Cash"

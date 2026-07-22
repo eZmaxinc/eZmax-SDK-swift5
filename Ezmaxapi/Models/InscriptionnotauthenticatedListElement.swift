@@ -61,7 +61,7 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
     public var sBuyercontractContract: String?
     public var eInscriptionStep: FieldEInscriptionStep
     public var eInscriptionType: FieldEInscriptionType
-    /** The civicend of the Inscription */
+    /** The address civic end of the Inscription */
     public var sInscriptionCivicend: String
     /** The mls of the Inscription */
     public var sInscriptionMLS: String?
@@ -69,13 +69,13 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
     public var sInscriptionContract: String?
     /** The saleprice of the Inscription */
     public var dInscriptionSaleprice: String
-    /** The rentprice of the Inscription */
+    /** The rent price of the Inscription */
     public var dInscriptionRentprice: String
     /** The date of the Inscription */
     public var dtInscriptionDate: String?
-    /** The expirationdate of the Inscription */
+    /** The expiration date of the Inscription */
     public var dtInscriptionExpirationdate: String?
-    /** The notarydate of the Inscription */
+    /** The notary date of the Inscription */
     public var dtInscriptionNotarydate: String?
     /** Whether the inscription can be acces by an inspector */
     public var bInscriptionInspection: Bool?
@@ -83,17 +83,17 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
     public var bInscriptionIsactive: Bool
     /** Whether the inscription is archived or not */
     public var bInscriptionArchived: Bool
-    /** The notaryscheduledate of the Inscriptionnotauthenticated */
+    /** The notary schedule date of the Inscriptionnotauthenticated */
     public var dtInscriptionnotauthenticatedNotaryscheduledate: String?
-    /** The transactiondate of the Inscriptionnotauthenticated */
+    /** The transaction date of the Inscriptionnotauthenticated */
     public var dtInscriptionnotauthenticatedTransactiondate: String?
-    /** The transactiondatereal of the Inscriptionnotauthenticated */
+    /** The real transactiondate of the Inscriptionnotauthenticated */
     public var dtInscriptionnotauthenticatedTransactiondateReal: String?
     /** Whether the inscriptionnotauthenticated is conditional */
     public var bInscriptionnotauthenticatedConditional: Bool?
     /** Whether the inscriptionnotauthenticated is active or not */
     public var bInscriptionnotauthenticatedIsactive: Bool?
-    /** Whether the inscriptionnotauthenticated is a draft or not */
+    /** Whether the Inscriptionnotauthenticated is a draft or not */
     public var bInscriptionnotauthenticatedDraft: Bool?
     /** The Civic number. */
     public var sAddressCivic: String?
@@ -113,9 +113,9 @@ public struct InscriptionnotauthenticatedListElement: Codable, JSONEncodable, Ha
     public var fkiCountryID: Int?
     /** The name of the Country in the language of the requester */
     public var sCountryNameX: String?
-    /** The Offer to purchase number */
+    /** The offer to purchase number of the Inscriptionnotauthenticated */
     public var sInscriptionnotauthenticatedOffertopurchasenumber: String
-    /** The unit of the Inscription */
+    /** The number of unit for the Inscription */
     public var iInscriptionUnit: Int
 
     public init(pkiInscriptionID: Int, pkiInscriptionnotauthenticatedID: Int? = nil, fkiInscriptiontypeID: Int, sInscriptiontypeNameX: String, fkiInscriptionbuildingtypeID: Int, sInscriptionbuildingtypeNameX: String, fkiInscriptioncategoryID: Int, sInscriptioncategoryNameX: String, fkiBuyercontractID: Int? = nil, sBuyercontractContract: String? = nil, eInscriptionStep: FieldEInscriptionStep, eInscriptionType: FieldEInscriptionType, sInscriptionCivicend: String, sInscriptionMLS: String? = nil, sInscriptionContract: String? = nil, dInscriptionSaleprice: String, dInscriptionRentprice: String, dtInscriptionDate: String? = nil, dtInscriptionExpirationdate: String? = nil, dtInscriptionNotarydate: String? = nil, bInscriptionInspection: Bool? = nil, bInscriptionIsactive: Bool, bInscriptionArchived: Bool, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, bInscriptionnotauthenticatedConditional: Bool? = nil, bInscriptionnotauthenticatedIsactive: Bool? = nil, bInscriptionnotauthenticatedDraft: Bool? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil, sInscriptionnotauthenticatedOffertopurchasenumber: String, iInscriptionUnit: Int) {

@@ -263,7 +263,7 @@ open class ObjectInscriptionAPI {
     }
 
     /**
-     Retrieve Inscriptionnotauthenticated list
+     Retrieve Inscription's Inscriptionnotauthenticated
      
      - parameter pkiInscriptionID: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -282,7 +282,7 @@ open class ObjectInscriptionAPI {
     }
 
     /**
-     Retrieve Inscriptionnotauthenticated list
+     Retrieve Inscription's Inscriptionnotauthenticated
      - GET /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds
      - API Key:
        - type: apiKey Authorization (HEADER)

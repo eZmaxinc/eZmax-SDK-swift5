@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The residencetype of the Inscriptionnotauthenticated */
+/** The residence type of the Inscriptionnotauthenticated */
 public enum FieldEInscriptionnotauthenticatedResidenceType: String, Codable, CaseIterable {
     case principal = "Principal"
     case secondary = "Secondary"

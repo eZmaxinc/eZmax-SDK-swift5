@@ -14,7 +14,6 @@ import AnyCodable
 public struct InscriptionnotauthenticatedResponseCompound: Codable, JSONEncodable, Hashable {
 
     public static let pkiInscriptionnotauthenticatedIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let fkiCompanyIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiInscriptionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiDepartmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiFinancialinstitutionIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
@@ -43,87 +42,81 @@ public struct InscriptionnotauthenticatedResponseCompound: Codable, JSONEncodabl
     public static let dInscriptionnotauthenticatedSelleronlyretributionRule = StringRule(minLength: 5, maxLength: 8, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{3}$/")
     /** The unique ID of the Inscriptionnotauthenticated. */
     public var pkiInscriptionnotauthenticatedID: Int
-    /** The unique ID of the Company */
-    public var fkiCompanyID: Int
-    /** The Name of the Company in the language of the requester */
-    public var sCompanyNameX: String?
     /** The unique ID of the Inscription. */
     public var fkiInscriptionID: Int
     /** The unique ID of the Department */
-    public var fkiDepartmentID: Int
+    public var fkiDepartmentID: Int?
     /** The Name of the Department in the language of the requester */
     public var sDepartmentNameX: String?
     /** The unique ID of the Financialinstitution */
-    public var fkiFinancialinstitutionID: Int
+    public var fkiFinancialinstitutionID: Int?
     /** The name of the Financialinstitution in the language of the requester */
     public var sFinancialinstitutionNameX: String?
     /** The unique ID of the Buyercontract */
-    public var fkiBuyercontractID: Int
+    public var fkiBuyercontractID: Int?
     /** The number of the Buyercontract */
     public var sBuyercontractContract: String?
     /** The unique ID of the Mortgagesupplier */
-    public var fkiMortgagesupplierID: Int
+    public var fkiMortgagesupplierID: Int?
     /** The name of the Mortagesupplier in the language of the requester */
     public var sMortgagesupplierNameX: String?
     /** The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable| */
     public var fkiTaxassignmentID: Int
     /** The description of the Taxassignment  in the language of the requester */
     public var sTaxassignmentDescriptionX: String?
-    /** The transactiondate of the Inscriptionnotauthenticated */
-    public var dtInscriptionnotauthenticatedTransactiondate: String
-    /** The transactiondatereal of the Inscriptionnotauthenticated */
-    public var dtInscriptionnotauthenticatedTransactiondateReal: String
-    /** The depositdate of the Inscriptionnotauthenticated */
-    public var dtInscriptionnotauthenticatedDepositdate: String
+    /** The transaction date of the Inscriptionnotauthenticated */
+    public var dtInscriptionnotauthenticatedTransactiondate: String?
+    /** The real transactiondate of the Inscriptionnotauthenticated */
+    public var dtInscriptionnotauthenticatedTransactiondateReal: String?
+    /** The deposit date of the Inscriptionnotauthenticated */
+    public var dtInscriptionnotauthenticatedDepositdate: String?
     public var eInscriptionnotauthenticatedType: FieldEInscriptionnotauthenticatedType
-    /** The mortgageloan of the Inscriptionnotauthenticated */
+    /** The amount of the mortgage loan of the Inscriptionnotauthenticated */
     public var dInscriptionnotauthenticatedMortgageloan: String
     public var etInscriptionnotauthenticatedMortgagetype: FieldEtInscriptionnotauthenticatedMortgagetype
-    /** The transactionprice of the Inscriptionnotauthenticated */
+    /** The transaction price of the Inscriptionnotauthenticated */
     public var dInscriptionnotauthenticatedTransactionprice: String
     public var eInscriptionnotauthenticatedRemunerationtype: FieldEInscriptionnotauthenticatedRemunerationtype
-    /** The remuneration of the Inscriptionnotauthenticated */
+    /** The amount for the remuneration of the Inscriptionnotauthenticated */
     public var dInscriptionnotauthenticatedRemuneration: String
-    /** The remunerationsubtotal of the Inscriptionnotauthenticated */
+    /** The subtotal for the remuneration of the Inscriptionnotauthenticated */
     public var dInscriptionnotauthenticatedRemunerationsubtotal: String
-    /** The remunerationtotal of the Inscriptionnotauthenticated */
+    /** The total for the remuneration of the Inscriptionnotauthenticated */
     public var dInscriptionnotauthenticatedRemunerationtotal: String
-    /** The cancellationdate of the Inscriptionnotauthenticated */
-    public var dtInscriptionnotauthenticatedCancellationdate: String
-    /** The possessiondate of the Inscriptionnotauthenticated */
-    public var dtInscriptionnotauthenticatedPossessiondate: String
-    /** The Offer to purchase number */
+    /** The cancellation date of the Inscriptionnotauthenticated */
+    public var dtInscriptionnotauthenticatedCancellationdate: String?
+    /** The possession date of the Inscriptionnotauthenticated */
+    public var dtInscriptionnotauthenticatedPossessiondate: String?
+    /** The offer to purchase number of the Inscriptionnotauthenticated */
     public var sInscriptionnotauthenticatedOffertopurchasenumber: String
-    /** The notaryscheduledate of the Inscriptionnotauthenticated */
-    public var dtInscriptionnotauthenticatedNotaryscheduledate: String
-    /** The financingscheduledate of the Inscriptionnotauthenticated */
-    public var dtInscriptionnotauthenticatedFinancingscheduledate: String
+    /** The notary schedule date of the Inscriptionnotauthenticated */
+    public var dtInscriptionnotauthenticatedNotaryscheduledate: String?
+    /** The financing schedule date of the Inscriptionnotauthenticated */
+    public var dtInscriptionnotauthenticatedFinancingscheduledate: String?
     /** Whether the inscriptionnotauthenticated is conditional */
     public var bInscriptionnotauthenticatedConditional: Bool
-    /** Whether if it's an mortgageisreferenced */
+    /** Whether if the mortgage is referenced */
     public var bInscriptionnotauthenticatedMortgageisreferenced: Bool
-    /** Whether if it's an homeowner */
+    /** Whether if it's an home owner */
     public var bInscriptionnotauthenticatedHomeowner: Bool
     /** The conditions of the Inscriptionnotauthenticated */
     public var tInscriptionnotauthenticatedConditions: String
-    /** The conditiondeadlinedate of the Inscriptionnotauthenticated */
-    public var dtInscriptionnotauthenticatedConditiondeadlinedate: String
+    /** The condition deadline date of the Inscriptionnotauthenticated */
+    public var dtInscriptionnotauthenticatedConditiondeadlinedate: String?
     /** The order of the Inscriptionnotauthenticated */
     public var iInscriptionnotauthenticatedOrder: Int
     /** Whether the inscriptionnotauthenticated is active or not */
     public var bInscriptionnotauthenticatedIsactive: Bool
     public var eInscriptionnotauthenticatedResidenceType: FieldEInscriptionnotauthenticatedResidenceType
-    /** The checklistnote of the Inscriptionnotauthenticated */
+    /** The checklist note of the Inscriptionnotauthenticated */
     public var tInscriptionnotauthenticatedChecklistnote: String
-    /** The selleronlyretribution of the Inscriptionnotauthenticated */
+    /** The amount retribution for the seller only of the Inscriptionnotauthenticated */
     public var dInscriptionnotauthenticatedSelleronlyretribution: String
-    /** Whether the inscriptionnotauthenticated is a draft or not */
+    /** Whether the Inscriptionnotauthenticated is a draft or not */
     public var bInscriptionnotauthenticatedDraft: Bool
 
-    public init(pkiInscriptionnotauthenticatedID: Int, fkiCompanyID: Int, sCompanyNameX: String? = nil, fkiInscriptionID: Int, fkiDepartmentID: Int, sDepartmentNameX: String? = nil, fkiFinancialinstitutionID: Int, sFinancialinstitutionNameX: String? = nil, fkiBuyercontractID: Int, sBuyercontractContract: String? = nil, fkiMortgagesupplierID: Int, sMortgagesupplierNameX: String? = nil, fkiTaxassignmentID: Int, sTaxassignmentDescriptionX: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String, dtInscriptionnotauthenticatedTransactiondateReal: String, dtInscriptionnotauthenticatedDepositdate: String, eInscriptionnotauthenticatedType: FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan: String, etInscriptionnotauthenticatedMortgagetype: FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice: String, eInscriptionnotauthenticatedRemunerationtype: FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration: String, dInscriptionnotauthenticatedRemunerationsubtotal: String, dInscriptionnotauthenticatedRemunerationtotal: String, dtInscriptionnotauthenticatedCancellationdate: String, dtInscriptionnotauthenticatedPossessiondate: String, sInscriptionnotauthenticatedOffertopurchasenumber: String, dtInscriptionnotauthenticatedNotaryscheduledate: String, dtInscriptionnotauthenticatedFinancingscheduledate: String, bInscriptionnotauthenticatedConditional: Bool, bInscriptionnotauthenticatedMortgageisreferenced: Bool, bInscriptionnotauthenticatedHomeowner: Bool, tInscriptionnotauthenticatedConditions: String, dtInscriptionnotauthenticatedConditiondeadlinedate: String, iInscriptionnotauthenticatedOrder: Int, bInscriptionnotauthenticatedIsactive: Bool, eInscriptionnotauthenticatedResidenceType: FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote: String, dInscriptionnotauthenticatedSelleronlyretribution: String, bInscriptionnotauthenticatedDraft: Bool) {
+    public init(pkiInscriptionnotauthenticatedID: Int, fkiInscriptionID: Int, fkiDepartmentID: Int? = nil, sDepartmentNameX: String? = nil, fkiFinancialinstitutionID: Int? = nil, sFinancialinstitutionNameX: String? = nil, fkiBuyercontractID: Int? = nil, sBuyercontractContract: String? = nil, fkiMortgagesupplierID: Int? = nil, sMortgagesupplierNameX: String? = nil, fkiTaxassignmentID: Int, sTaxassignmentDescriptionX: String? = nil, dtInscriptionnotauthenticatedTransactiondate: String? = nil, dtInscriptionnotauthenticatedTransactiondateReal: String? = nil, dtInscriptionnotauthenticatedDepositdate: String? = nil, eInscriptionnotauthenticatedType: FieldEInscriptionnotauthenticatedType, dInscriptionnotauthenticatedMortgageloan: String, etInscriptionnotauthenticatedMortgagetype: FieldEtInscriptionnotauthenticatedMortgagetype, dInscriptionnotauthenticatedTransactionprice: String, eInscriptionnotauthenticatedRemunerationtype: FieldEInscriptionnotauthenticatedRemunerationtype, dInscriptionnotauthenticatedRemuneration: String, dInscriptionnotauthenticatedRemunerationsubtotal: String, dInscriptionnotauthenticatedRemunerationtotal: String, dtInscriptionnotauthenticatedCancellationdate: String? = nil, dtInscriptionnotauthenticatedPossessiondate: String? = nil, sInscriptionnotauthenticatedOffertopurchasenumber: String, dtInscriptionnotauthenticatedNotaryscheduledate: String? = nil, dtInscriptionnotauthenticatedFinancingscheduledate: String? = nil, bInscriptionnotauthenticatedConditional: Bool, bInscriptionnotauthenticatedMortgageisreferenced: Bool, bInscriptionnotauthenticatedHomeowner: Bool, tInscriptionnotauthenticatedConditions: String, dtInscriptionnotauthenticatedConditiondeadlinedate: String? = nil, iInscriptionnotauthenticatedOrder: Int, bInscriptionnotauthenticatedIsactive: Bool, eInscriptionnotauthenticatedResidenceType: FieldEInscriptionnotauthenticatedResidenceType, tInscriptionnotauthenticatedChecklistnote: String, dInscriptionnotauthenticatedSelleronlyretribution: String, bInscriptionnotauthenticatedDraft: Bool) {
         self.pkiInscriptionnotauthenticatedID = pkiInscriptionnotauthenticatedID
-        self.fkiCompanyID = fkiCompanyID
-        self.sCompanyNameX = sCompanyNameX
         self.fkiInscriptionID = fkiInscriptionID
         self.fkiDepartmentID = fkiDepartmentID
         self.sDepartmentNameX = sDepartmentNameX
@@ -166,8 +159,6 @@ public struct InscriptionnotauthenticatedResponseCompound: Codable, JSONEncodabl
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiInscriptionnotauthenticatedID
-        case fkiCompanyID
-        case sCompanyNameX
         case fkiInscriptionID
         case fkiDepartmentID
         case sDepartmentNameX
@@ -213,22 +204,20 @@ public struct InscriptionnotauthenticatedResponseCompound: Codable, JSONEncodabl
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiInscriptionnotauthenticatedID, forKey: .pkiInscriptionnotauthenticatedID)
-        try container.encode(fkiCompanyID, forKey: .fkiCompanyID)
-        try container.encodeIfPresent(sCompanyNameX, forKey: .sCompanyNameX)
         try container.encode(fkiInscriptionID, forKey: .fkiInscriptionID)
-        try container.encode(fkiDepartmentID, forKey: .fkiDepartmentID)
+        try container.encodeIfPresent(fkiDepartmentID, forKey: .fkiDepartmentID)
         try container.encodeIfPresent(sDepartmentNameX, forKey: .sDepartmentNameX)
-        try container.encode(fkiFinancialinstitutionID, forKey: .fkiFinancialinstitutionID)
+        try container.encodeIfPresent(fkiFinancialinstitutionID, forKey: .fkiFinancialinstitutionID)
         try container.encodeIfPresent(sFinancialinstitutionNameX, forKey: .sFinancialinstitutionNameX)
-        try container.encode(fkiBuyercontractID, forKey: .fkiBuyercontractID)
+        try container.encodeIfPresent(fkiBuyercontractID, forKey: .fkiBuyercontractID)
         try container.encodeIfPresent(sBuyercontractContract, forKey: .sBuyercontractContract)
-        try container.encode(fkiMortgagesupplierID, forKey: .fkiMortgagesupplierID)
+        try container.encodeIfPresent(fkiMortgagesupplierID, forKey: .fkiMortgagesupplierID)
         try container.encodeIfPresent(sMortgagesupplierNameX, forKey: .sMortgagesupplierNameX)
         try container.encode(fkiTaxassignmentID, forKey: .fkiTaxassignmentID)
         try container.encodeIfPresent(sTaxassignmentDescriptionX, forKey: .sTaxassignmentDescriptionX)
-        try container.encode(dtInscriptionnotauthenticatedTransactiondate, forKey: .dtInscriptionnotauthenticatedTransactiondate)
-        try container.encode(dtInscriptionnotauthenticatedTransactiondateReal, forKey: .dtInscriptionnotauthenticatedTransactiondateReal)
-        try container.encode(dtInscriptionnotauthenticatedDepositdate, forKey: .dtInscriptionnotauthenticatedDepositdate)
+        try container.encodeIfPresent(dtInscriptionnotauthenticatedTransactiondate, forKey: .dtInscriptionnotauthenticatedTransactiondate)
+        try container.encodeIfPresent(dtInscriptionnotauthenticatedTransactiondateReal, forKey: .dtInscriptionnotauthenticatedTransactiondateReal)
+        try container.encodeIfPresent(dtInscriptionnotauthenticatedDepositdate, forKey: .dtInscriptionnotauthenticatedDepositdate)
         try container.encode(eInscriptionnotauthenticatedType, forKey: .eInscriptionnotauthenticatedType)
         try container.encode(dInscriptionnotauthenticatedMortgageloan, forKey: .dInscriptionnotauthenticatedMortgageloan)
         try container.encode(etInscriptionnotauthenticatedMortgagetype, forKey: .etInscriptionnotauthenticatedMortgagetype)
@@ -237,16 +226,16 @@ public struct InscriptionnotauthenticatedResponseCompound: Codable, JSONEncodabl
         try container.encode(dInscriptionnotauthenticatedRemuneration, forKey: .dInscriptionnotauthenticatedRemuneration)
         try container.encode(dInscriptionnotauthenticatedRemunerationsubtotal, forKey: .dInscriptionnotauthenticatedRemunerationsubtotal)
         try container.encode(dInscriptionnotauthenticatedRemunerationtotal, forKey: .dInscriptionnotauthenticatedRemunerationtotal)
-        try container.encode(dtInscriptionnotauthenticatedCancellationdate, forKey: .dtInscriptionnotauthenticatedCancellationdate)
-        try container.encode(dtInscriptionnotauthenticatedPossessiondate, forKey: .dtInscriptionnotauthenticatedPossessiondate)
+        try container.encodeIfPresent(dtInscriptionnotauthenticatedCancellationdate, forKey: .dtInscriptionnotauthenticatedCancellationdate)
+        try container.encodeIfPresent(dtInscriptionnotauthenticatedPossessiondate, forKey: .dtInscriptionnotauthenticatedPossessiondate)
         try container.encode(sInscriptionnotauthenticatedOffertopurchasenumber, forKey: .sInscriptionnotauthenticatedOffertopurchasenumber)
-        try container.encode(dtInscriptionnotauthenticatedNotaryscheduledate, forKey: .dtInscriptionnotauthenticatedNotaryscheduledate)
-        try container.encode(dtInscriptionnotauthenticatedFinancingscheduledate, forKey: .dtInscriptionnotauthenticatedFinancingscheduledate)
+        try container.encodeIfPresent(dtInscriptionnotauthenticatedNotaryscheduledate, forKey: .dtInscriptionnotauthenticatedNotaryscheduledate)
+        try container.encodeIfPresent(dtInscriptionnotauthenticatedFinancingscheduledate, forKey: .dtInscriptionnotauthenticatedFinancingscheduledate)
         try container.encode(bInscriptionnotauthenticatedConditional, forKey: .bInscriptionnotauthenticatedConditional)
         try container.encode(bInscriptionnotauthenticatedMortgageisreferenced, forKey: .bInscriptionnotauthenticatedMortgageisreferenced)
         try container.encode(bInscriptionnotauthenticatedHomeowner, forKey: .bInscriptionnotauthenticatedHomeowner)
         try container.encode(tInscriptionnotauthenticatedConditions, forKey: .tInscriptionnotauthenticatedConditions)
-        try container.encode(dtInscriptionnotauthenticatedConditiondeadlinedate, forKey: .dtInscriptionnotauthenticatedConditiondeadlinedate)
+        try container.encodeIfPresent(dtInscriptionnotauthenticatedConditiondeadlinedate, forKey: .dtInscriptionnotauthenticatedConditiondeadlinedate)
         try container.encode(iInscriptionnotauthenticatedOrder, forKey: .iInscriptionnotauthenticatedOrder)
         try container.encode(bInscriptionnotauthenticatedIsactive, forKey: .bInscriptionnotauthenticatedIsactive)
         try container.encode(eInscriptionnotauthenticatedResidenceType, forKey: .eInscriptionnotauthenticatedResidenceType)

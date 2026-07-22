@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** The residencetype of the Inscription */
+/** The residence type of the Inscription */
 public enum FieldEInscriptionResidenceType: String, Codable, CaseIterable {
     case principal = "Principal"
     case secondary = "Secondary"

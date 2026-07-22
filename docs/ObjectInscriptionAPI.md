@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**inscriptionGetCommunicationListV1**](ObjectInscriptionAPI.md#inscriptiongetcommunicationlistv1) | **GET** /1/object/inscription/{pkiInscriptionID}/getCommunicationList | Retrieve Communication list
 [**inscriptionGetCommunicationrecipientsV1**](ObjectInscriptionAPI.md#inscriptiongetcommunicationrecipientsv1) | **GET** /1/object/inscription/{pkiInscriptionID}/getCommunicationrecipients | Retrieve Inscription&#39;s Communicationrecipient
 [**inscriptionGetCommunicationsendersV1**](ObjectInscriptionAPI.md#inscriptiongetcommunicationsendersv1) | **GET** /1/object/inscription/{pkiInscriptionID}/getCommunicationsenders | Retrieve Inscription&#39;s Communicationsender
-[**inscriptionGetInscriptionnotauthenticatedsV1**](ObjectInscriptionAPI.md#inscriptiongetinscriptionnotauthenticatedsv1) | **GET** /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds | Retrieve Inscriptionnotauthenticated list
+[**inscriptionGetInscriptionnotauthenticatedsV1**](ObjectInscriptionAPI.md#inscriptiongetinscriptionnotauthenticatedsv1) | **GET** /1/object/inscription/{pkiInscriptionID}/getInscriptionnotauthenticateds | Retrieve Inscription&#39;s Inscriptionnotauthenticated
 [**inscriptionGetListV1**](ObjectInscriptionAPI.md#inscriptiongetlistv1) | **GET** /1/object/inscription/getList | Retrieve Inscription list
 [**inscriptionGetObjectV2**](ObjectInscriptionAPI.md#inscriptiongetobjectv2) | **GET** /2/object/inscription/{pkiInscriptionID} | Retrieve an existing Inscription
 [**inscriptionImportIntoEDMV1**](ObjectInscriptionAPI.md#inscriptionimportintoedmv1) | **POST** /1/object/inscription/{pkiInscriptionID}/importIntoEDM | Import attachments into the Inscription
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
     open class func inscriptionGetInscriptionnotauthenticatedsV1(pkiInscriptionID: Int, completion: @escaping (_ data: InscriptionGetInscriptionnotauthenticatedsV1Response?, _ error: Error?) -> Void)
 ```
 
-Retrieve Inscriptionnotauthenticated list
+Retrieve Inscription's Inscriptionnotauthenticated
 
 ### Example
 ```swift
@@ -280,7 +280,7 @@ import OpenAPIClient
 
 let pkiInscriptionID = 987 // Int | 
 
-// Retrieve Inscriptionnotauthenticated list
+// Retrieve Inscription's Inscriptionnotauthenticated
 ObjectInscriptionAPI.inscriptionGetInscriptionnotauthenticatedsV1(pkiInscriptionID: pkiInscriptionID) { (response, error) in
     guard error == nil else {
         print(error)

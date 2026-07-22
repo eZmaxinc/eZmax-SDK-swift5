@@ -16,18 +16,18 @@ public struct WebhookRealestateInscriptionCreated: Codable, JSONEncodable, Hasha
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
-    public var objEzmaxpartnerproduct: InscriptionResponse
+    public var objInscription: InscriptionResponse
 
-    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objEzmaxpartnerproduct: InscriptionResponse) {
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objInscription: InscriptionResponse) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
-        self.objEzmaxpartnerproduct = objEzmaxpartnerproduct
+        self.objInscription = objInscription
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case objWebhook
         case aObjAttempt = "a_objAttempt"
-        case objEzmaxpartnerproduct
+        case objInscription
     }
 
     // Encodable protocol methods
@@ -36,7 +36,7 @@ public struct WebhookRealestateInscriptionCreated: Codable, JSONEncodable, Hasha
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(objWebhook, forKey: .objWebhook)
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
-        try container.encode(objEzmaxpartnerproduct, forKey: .objEzmaxpartnerproduct)
+        try container.encode(objInscription, forKey: .objInscription)
     }
 }
 
