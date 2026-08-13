@@ -687,6 +687,7 @@ open class ObjectEzsignbulksendAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignbulksendGetObjectV3(pkiEzsignbulksendID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendGetObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendGetObjectV3WithRequestBuilder(pkiEzsignbulksendID: pkiEzsignbulksendID).execute(apiResponseQueue) { result in
@@ -709,6 +710,7 @@ open class ObjectEzsignbulksendAPI {
      - parameter pkiEzsignbulksendID: (path)  
      - returns: RequestBuilder<EzsignbulksendGetObjectV3Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignbulksendGetObjectV3WithRequestBuilder(pkiEzsignbulksendID: Int) -> RequestBuilder<EzsignbulksendGetObjectV3Response> {
         var localVariablePath = "/3/object/ezsignbulksend/{pkiEzsignbulksendID}"
         let pkiEzsignbulksendIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendID))"
@@ -726,6 +728,56 @@ open class ObjectEzsignbulksendAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignbulksendGetObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksend
+     
+     - parameter pkiEzsignbulksendID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignbulksendGetObjectV4(pkiEzsignbulksendID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendGetObjectV4Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignbulksendGetObjectV4WithRequestBuilder(pkiEzsignbulksendID: pkiEzsignbulksendID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksend
+     - GET /4/object/ezsignbulksend/{pkiEzsignbulksendID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignbulksendID: (path)  
+     - returns: RequestBuilder<EzsignbulksendGetObjectV4Response> 
+     */
+    open class func ezsignbulksendGetObjectV4WithRequestBuilder(pkiEzsignbulksendID: Int) -> RequestBuilder<EzsignbulksendGetObjectV4Response> {
+        var localVariablePath = "/4/object/ezsignbulksend/{pkiEzsignbulksendID}"
+        let pkiEzsignbulksendIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendID))"
+        let pkiEzsignbulksendIDPostEscape = pkiEzsignbulksendIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendID}", with: pkiEzsignbulksendIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendGetObjectV4Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

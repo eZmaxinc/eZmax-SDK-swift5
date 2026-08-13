@@ -13,14 +13,17 @@ import AnyCodable
 /** An Ezsignfoldersignerassociation Object */
 public struct EzsignfoldersignerassociationRequestPatch: Codable, JSONEncodable, Hashable {
 
+    public var eEzsignfoldersignerassociationRole: FieldEEzsignfoldersignerassociationRole?
     /** A custom text message that will be added to the email sent. */
     public var tEzsignfoldersignerassociationMessage: String?
 
-    public init(tEzsignfoldersignerassociationMessage: String? = nil) {
+    public init(eEzsignfoldersignerassociationRole: FieldEEzsignfoldersignerassociationRole? = nil, tEzsignfoldersignerassociationMessage: String? = nil) {
+        self.eEzsignfoldersignerassociationRole = eEzsignfoldersignerassociationRole
         self.tEzsignfoldersignerassociationMessage = tEzsignfoldersignerassociationMessage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case eEzsignfoldersignerassociationRole
         case tEzsignfoldersignerassociationMessage
     }
 
@@ -28,6 +31,7 @@ public struct EzsignfoldersignerassociationRequestPatch: Codable, JSONEncodable,
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(eEzsignfoldersignerassociationRole, forKey: .eEzsignfoldersignerassociationRole)
         try container.encodeIfPresent(tEzsignfoldersignerassociationMessage, forKey: .tEzsignfoldersignerassociationMessage)
     }
 }

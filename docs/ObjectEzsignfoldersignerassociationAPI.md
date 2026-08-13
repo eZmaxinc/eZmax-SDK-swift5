@@ -694,7 +694,7 @@ Patch an existing Ezsignfoldersignerassociation
 import OpenAPIClient
 
 let pkiEzsignfoldersignerassociationID = 987 // Int | 
-let ezsignfoldersignerassociationPatchObjectV1Request = ezsignfoldersignerassociation-patchObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestPatch(tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example")) // EzsignfoldersignerassociationPatchObjectV1Request | 
+let ezsignfoldersignerassociationPatchObjectV1Request = ezsignfoldersignerassociation-patchObject-v1-Request(objEzsignfoldersignerassociation: ezsignfoldersignerassociation-RequestPatch(eEzsignfoldersignerassociationRole: Field-eEzsignfoldersignerassociationRole(), tEzsignfoldersignerassociationMessage: "tEzsignfoldersignerassociationMessage_example")) // EzsignfoldersignerassociationPatchObjectV1Request | 
 
 // Patch an existing Ezsignfoldersignerassociation
 ObjectEzsignfoldersignerassociationAPI.ezsignfoldersignerassociationPatchObjectV1(pkiEzsignfoldersignerassociationID: pkiEzsignfoldersignerassociationID, ezsignfoldersignerassociationPatchObjectV1Request: ezsignfoldersignerassociationPatchObjectV1Request) { (response, error) in

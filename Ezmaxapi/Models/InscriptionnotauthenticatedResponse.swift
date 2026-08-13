@@ -38,7 +38,7 @@ public struct InscriptionnotauthenticatedResponse: Codable, JSONEncodable, Hasha
     public static let tInscriptionnotauthenticatedConditionsRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
     public static let dtInscriptionnotauthenticatedConditiondeadlinedateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let iInscriptionnotauthenticatedOrderRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let tInscriptionnotauthenticatedChecklistnoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let tInscriptionnotauthenticatedChecklistnoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\s\\S]{0,65535}$/")
     public static let dInscriptionnotauthenticatedSelleronlyretributionRule = StringRule(minLength: 5, maxLength: 8, pattern: "/^-{0,1}[\\d]{1,3}?\\.[\\d]{3}$/")
     /** The unique ID of the Inscriptionnotauthenticated. */
     public var pkiInscriptionnotauthenticatedID: Int

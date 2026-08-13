@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **sEzsignformfieldgroupTextvalidationcustommessage** | **String** | Description of validation rule. Show by signatory. | [optional] 
 **tEzsignformfieldgroupTooltip** | **String** | A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup | [optional] 
 **eEzsignformfieldgroupTooltipposition** | [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
+**dtEzsignformfieldgroupCompleted** | **String** | The date the Ezsignformfieldgroup was completed. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

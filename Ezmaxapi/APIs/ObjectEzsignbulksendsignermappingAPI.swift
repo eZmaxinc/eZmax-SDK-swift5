@@ -19,6 +19,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignbulksendsignermappingCreateObjectV1(ezsignbulksendsignermappingCreateObjectV1Request: EzsignbulksendsignermappingCreateObjectV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendsignermappingCreateObjectV1Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendsignermappingCreateObjectV1WithRequestBuilder(ezsignbulksendsignermappingCreateObjectV1Request: ezsignbulksendsignermappingCreateObjectV1Request).execute(apiResponseQueue) { result in
@@ -41,6 +42,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - parameter ezsignbulksendsignermappingCreateObjectV1Request: (body)  
      - returns: RequestBuilder<EzsignbulksendsignermappingCreateObjectV1Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignbulksendsignermappingCreateObjectV1WithRequestBuilder(ezsignbulksendsignermappingCreateObjectV1Request: EzsignbulksendsignermappingCreateObjectV1Request) -> RequestBuilder<EzsignbulksendsignermappingCreateObjectV1Response> {
         let localVariablePath = "/1/object/ezsignbulksendsignermapping"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
@@ -55,6 +57,53 @@ open class ObjectEzsignbulksendsignermappingAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignbulksendsignermappingCreateObjectV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Create a new Ezsignbulksendsignermapping
+     
+     - parameter ezsignbulksendsignermappingCreateObjectV2Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignbulksendsignermappingCreateObjectV2(ezsignbulksendsignermappingCreateObjectV2Request: EzsignbulksendsignermappingCreateObjectV2Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendsignermappingCreateObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignbulksendsignermappingCreateObjectV2WithRequestBuilder(ezsignbulksendsignermappingCreateObjectV2Request: ezsignbulksendsignermappingCreateObjectV2Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Create a new Ezsignbulksendsignermapping
+     - POST /2/object/ezsignbulksendsignermapping
+     - The endpoint allows to create one or many elements at once.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter ezsignbulksendsignermappingCreateObjectV2Request: (body)  
+     - returns: RequestBuilder<EzsignbulksendsignermappingCreateObjectV2Response> 
+     */
+    open class func ezsignbulksendsignermappingCreateObjectV2WithRequestBuilder(ezsignbulksendsignermappingCreateObjectV2Request: EzsignbulksendsignermappingCreateObjectV2Request) -> RequestBuilder<EzsignbulksendsignermappingCreateObjectV2Response> {
+        let localVariablePath = "/2/object/ezsignbulksendsignermapping"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: ezsignbulksendsignermappingCreateObjectV2Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendsignermappingCreateObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
@@ -116,6 +165,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     @discardableResult
     open class func ezsignbulksendsignermappingGetObjectV2(pkiEzsignbulksendsignermappingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendsignermappingGetObjectV2Response?, _ error: Error?) -> Void)) -> RequestTask {
         return ezsignbulksendsignermappingGetObjectV2WithRequestBuilder(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID).execute(apiResponseQueue) { result in
@@ -138,6 +188,7 @@ open class ObjectEzsignbulksendsignermappingAPI {
      - parameter pkiEzsignbulksendsignermappingID: (path)  
      - returns: RequestBuilder<EzsignbulksendsignermappingGetObjectV2Response> 
      */
+    @available(*, deprecated, message: "This operation is deprecated.")
     open class func ezsignbulksendsignermappingGetObjectV2WithRequestBuilder(pkiEzsignbulksendsignermappingID: Int) -> RequestBuilder<EzsignbulksendsignermappingGetObjectV2Response> {
         var localVariablePath = "/2/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID}"
         let pkiEzsignbulksendsignermappingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendsignermappingID))"
@@ -155,6 +206,56 @@ open class ObjectEzsignbulksendsignermappingAPI {
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
         let localVariableRequestBuilder: RequestBuilder<EzsignbulksendsignermappingGetObjectV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksendsignermapping
+     
+     - parameter pkiEzsignbulksendsignermappingID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func ezsignbulksendsignermappingGetObjectV3(pkiEzsignbulksendsignermappingID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: EzsignbulksendsignermappingGetObjectV3Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return ezsignbulksendsignermappingGetObjectV3WithRequestBuilder(pkiEzsignbulksendsignermappingID: pkiEzsignbulksendsignermappingID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve an existing Ezsignbulksendsignermapping
+     - GET /3/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID}
+     - 
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiEzsignbulksendsignermappingID: (path)  
+     - returns: RequestBuilder<EzsignbulksendsignermappingGetObjectV3Response> 
+     */
+    open class func ezsignbulksendsignermappingGetObjectV3WithRequestBuilder(pkiEzsignbulksendsignermappingID: Int) -> RequestBuilder<EzsignbulksendsignermappingGetObjectV3Response> {
+        var localVariablePath = "/3/object/ezsignbulksendsignermapping/{pkiEzsignbulksendsignermappingID}"
+        let pkiEzsignbulksendsignermappingIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiEzsignbulksendsignermappingID))"
+        let pkiEzsignbulksendsignermappingIDPostEscape = pkiEzsignbulksendsignermappingIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiEzsignbulksendsignermappingID}", with: pkiEzsignbulksendsignermappingIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EzsignbulksendsignermappingGetObjectV3Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

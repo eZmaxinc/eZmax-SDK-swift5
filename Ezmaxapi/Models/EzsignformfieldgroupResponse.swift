@@ -53,8 +53,10 @@ public struct EzsignformfieldgroupResponse: Codable, JSONEncodable, Hashable {
     /** A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup */
     public var tEzsignformfieldgroupTooltip: String?
     public var eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition?
+    /** The date the Ezsignformfieldgroup was completed. */
+    public var dtEzsignformfieldgroupCompleted: String?
 
-    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement? = nil, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String? = nil, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, eEzsignformfieldgroupTextvalidation: EnumTextvalidation? = nil, sEzsignformfieldgroupRegexp: String? = nil, sEzsignformfieldgroupTextvalidationcustommessage: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil) {
+    public init(pkiEzsignformfieldgroupID: Int, fkiEzsigndocumentID: Int, eEzsignformfieldgroupType: FieldEEzsignformfieldgroupType, eEzsignformfieldgroupSignerrequirement: FieldEEzsignformfieldgroupSignerrequirement? = nil, sEzsignformfieldgroupLabel: String, iEzsignformfieldgroupStep: Int, sEzsignformfieldgroupDefaultvalue: String? = nil, iEzsignformfieldgroupFilledmin: Int, iEzsignformfieldgroupFilledmax: Int, bEzsignformfieldgroupReadonly: Bool, iEzsignformfieldgroupMaxlength: Int? = nil, bEzsignformfieldgroupEncrypted: Bool? = nil, eEzsignformfieldgroupTextvalidation: EnumTextvalidation? = nil, sEzsignformfieldgroupRegexp: String? = nil, sEzsignformfieldgroupTextvalidationcustommessage: String? = nil, tEzsignformfieldgroupTooltip: String? = nil, eEzsignformfieldgroupTooltipposition: FieldEEzsignformfieldgroupTooltipposition? = nil, dtEzsignformfieldgroupCompleted: String? = nil) {
         self.pkiEzsignformfieldgroupID = pkiEzsignformfieldgroupID
         self.fkiEzsigndocumentID = fkiEzsigndocumentID
         self.eEzsignformfieldgroupType = eEzsignformfieldgroupType
@@ -72,6 +74,7 @@ public struct EzsignformfieldgroupResponse: Codable, JSONEncodable, Hashable {
         self.sEzsignformfieldgroupTextvalidationcustommessage = sEzsignformfieldgroupTextvalidationcustommessage
         self.tEzsignformfieldgroupTooltip = tEzsignformfieldgroupTooltip
         self.eEzsignformfieldgroupTooltipposition = eEzsignformfieldgroupTooltipposition
+        self.dtEzsignformfieldgroupCompleted = dtEzsignformfieldgroupCompleted
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -92,6 +95,7 @@ public struct EzsignformfieldgroupResponse: Codable, JSONEncodable, Hashable {
         case sEzsignformfieldgroupTextvalidationcustommessage
         case tEzsignformfieldgroupTooltip
         case eEzsignformfieldgroupTooltipposition
+        case dtEzsignformfieldgroupCompleted
     }
 
     // Encodable protocol methods
@@ -115,6 +119,7 @@ public struct EzsignformfieldgroupResponse: Codable, JSONEncodable, Hashable {
         try container.encodeIfPresent(sEzsignformfieldgroupTextvalidationcustommessage, forKey: .sEzsignformfieldgroupTextvalidationcustommessage)
         try container.encodeIfPresent(tEzsignformfieldgroupTooltip, forKey: .tEzsignformfieldgroupTooltip)
         try container.encodeIfPresent(eEzsignformfieldgroupTooltipposition, forKey: .eEzsignformfieldgroupTooltipposition)
+        try container.encodeIfPresent(dtEzsignformfieldgroupCompleted, forKey: .dtEzsignformfieldgroupCompleted)
     }
 }
 

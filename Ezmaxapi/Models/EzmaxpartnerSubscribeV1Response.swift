@@ -13,10 +13,9 @@ import AnyCodable
 /** Request for POST /1/module/ezmaxmaillinglist/subscribe */
 public struct EzmaxpartnerSubscribeV1Response: Codable, JSONEncodable, Hashable {
 
-    /**  */
-    public var sExternalID: String
+    public var sExternalID: String?
 
-    public init(sExternalID: String) {
+    public init(sExternalID: String? = nil) {
         self.sExternalID = sExternalID
     }
 
@@ -28,7 +27,7 @@ public struct EzmaxpartnerSubscribeV1Response: Codable, JSONEncodable, Hashable 
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(sExternalID, forKey: .sExternalID)
+        try container.encodeIfPresent(sExternalID, forKey: .sExternalID)
     }
 }
 

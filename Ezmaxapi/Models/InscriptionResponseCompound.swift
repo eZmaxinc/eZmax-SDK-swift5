@@ -41,8 +41,8 @@ public struct InscriptionResponseCompound: Codable, JSONEncodable, Hashable {
     public static let dtInscriptionExpirationdateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let dtInscriptionNotarydateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let dtInscriptionNotaryentereddateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-    public static let tInscriptionCadastreRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
-    public static let tInscriptionChecklistnoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
+    public static let tInscriptionCadastreRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(\\n|.){0,65535}$/")
+    public static let tInscriptionChecklistnoteRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\s\\S]{0,65535}$/")
     public static let iInscriptionConstructionyearRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let iInscriptionUnitRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Inscription. */

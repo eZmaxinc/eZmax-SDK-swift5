@@ -465,7 +465,7 @@ Duplicate the Ezsignfolder
 import OpenAPIClient
 
 let pkiEzsignfolderID = 987 // Int | 
-let ezsignfolderDuplicateV1Request = ezsignfolder-duplicate-v1-Request(sEzsignfolderDescription: "sEzsignfolderDescription_example", aFkiEzsignfoldersignerassociationID: [123], aObjEzsigndocument: [Custom-EzsigndocumentDuplicate-Request(pkiEzsigndocumentID: 123, eEzsigndocumentVersion: "eEzsigndocumentVersion_example")], tEzsignfolderNote: "tEzsignfolderNote_example") // EzsignfolderDuplicateV1Request | 
+let ezsignfolderDuplicateV1Request = ezsignfolder-duplicate-v1-Request(sEzsignfolderDescription: "sEzsignfolderDescription_example", aFkiEzsignfoldersignerassociationID: [123], aObjEzsigndocument: [Custom-EzsigndocumentDuplicate-Request(pkiEzsigndocumentID: 123, eEzsigndocumentVersion: "eEzsigndocumentVersion_example")], tEzsignfolderNote: "tEzsignfolderNote_example", bKeepenteredvalues: false) // EzsignfolderDuplicateV1Request | 
 
 // Duplicate the Ezsignfolder
 ObjectEzsignfolderAPI.ezsignfolderDuplicateV1(pkiEzsignfolderID: pkiEzsignfolderID, ezsignfolderDuplicateV1Request: ezsignfolderDuplicateV1Request) { (response, error) in

@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**ezsignbulksendGetListV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetlistv1) | **GET** /1/object/ezsignbulksend/getList | Retrieve Ezsignbulksend list
 [**ezsignbulksendGetObjectV2**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetobjectv2) | **GET** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 [**ezsignbulksendGetObjectV3**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetobjectv3) | **GET** /3/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
+[**ezsignbulksendGetObjectV4**](ObjectEzsignbulksendAPI.md#ezsignbulksendgetobjectv4) | **GET** /4/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 [**ezsignbulksendReorderV1**](ObjectEzsignbulksendAPI.md#ezsignbulksendreorderv1) | **POST** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder | Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
 
@@ -676,6 +677,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendGetObjectV3Response**](EzsignbulksendGetObjectV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignbulksendGetObjectV4**
+```swift
+    open class func ezsignbulksendGetObjectV4(pkiEzsignbulksendID: Int, completion: @escaping (_ data: EzsignbulksendGetObjectV4Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsignbulksend
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsignbulksendID = 987 // Int | 
+
+// Retrieve an existing Ezsignbulksend
+ObjectEzsignbulksendAPI.ezsignbulksendGetObjectV4(pkiEzsignbulksendID: pkiEzsignbulksendID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsignbulksendID** | **Int** |  | 
+
+### Return type
+
+[**EzsignbulksendGetObjectV4Response**](EzsignbulksendGetObjectV4Response.md)
 
 ### Authorization
 

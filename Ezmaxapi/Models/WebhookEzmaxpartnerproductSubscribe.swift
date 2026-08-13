@@ -13,15 +13,16 @@ import AnyCodable
 /** This is the base Webhook object */
 public struct WebhookEzmaxpartnerproductSubscribe: Codable, JSONEncodable, Hashable {
 
+    public static let sExternalIDRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,128}$/")
     public var objWebhook: CustomWebhookResponse
     /** An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt. */
     public var aObjAttempt: [AttemptResponseCompound]
     public var objEzmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe
     public var sExternalID: String?
-    public var sApikeyApikey: String?
-    public var sApikeySecret: String?
+    public var sApikeyApikey: String
+    public var sApikeySecret: String
 
-    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objEzmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe, sExternalID: String? = nil, sApikeyApikey: String? = nil, sApikeySecret: String? = nil) {
+    public init(objWebhook: CustomWebhookResponse, aObjAttempt: [AttemptResponseCompound], objEzmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe, sExternalID: String? = nil, sApikeyApikey: String, sApikeySecret: String) {
         self.objWebhook = objWebhook
         self.aObjAttempt = aObjAttempt
         self.objEzmaxpartnerproduct = objEzmaxpartnerproduct
@@ -47,8 +48,8 @@ public struct WebhookEzmaxpartnerproductSubscribe: Codable, JSONEncodable, Hasha
         try container.encode(aObjAttempt, forKey: .aObjAttempt)
         try container.encode(objEzmaxpartnerproduct, forKey: .objEzmaxpartnerproduct)
         try container.encodeIfPresent(sExternalID, forKey: .sExternalID)
-        try container.encodeIfPresent(sApikeyApikey, forKey: .sApikeyApikey)
-        try container.encodeIfPresent(sApikeySecret, forKey: .sApikeySecret)
+        try container.encode(sApikeyApikey, forKey: .sApikeyApikey)
+        try container.encode(sApikeySecret, forKey: .sApikeySecret)
     }
 }
 

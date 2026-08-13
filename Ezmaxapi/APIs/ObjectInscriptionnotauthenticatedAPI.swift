@@ -372,8 +372,6 @@ open class ObjectInscriptionnotauthenticatedAPI {
         case sprovincenamexDesc = "sProvinceNameX_DESC"
         case scountrynamexAsc = "sCountryNameX_ASC"
         case scountrynamexDesc = "sCountryNameX_DESC"
-        case iinscriptionnotauthenticatedcanceledAsc = "iInscriptionnotauthenticatedCanceled_ASC"
-        case iinscriptionnotauthenticatedcanceledDesc = "iInscriptionnotauthenticatedCanceled_DESC"
         case sinscriptionnotauthenticatedoffertopurchasenumberAsc = "sInscriptionnotauthenticatedOffertopurchasenumber_ASC"
         case sinscriptionnotauthenticatedoffertopurchasenumberDesc = "sInscriptionnotauthenticatedOffertopurchasenumber_DESC"
     }

@@ -20,12 +20,15 @@ public struct EzsignfolderDuplicateV1Request: Codable, JSONEncodable, Hashable {
     public var aObjEzsigndocument: [CustomEzsigndocumentDuplicateRequest]
     /** Note about the Ezsignfolder */
     public var tEzsignfolderNote: String?
+    /** Whether we keep the entered values or not in the Ezsignform */
+    public var bKeepenteredvalues: Bool? = true
 
-    public init(sEzsignfolderDescription: String, aFkiEzsignfoldersignerassociationID: [Int], aObjEzsigndocument: [CustomEzsigndocumentDuplicateRequest], tEzsignfolderNote: String? = nil) {
+    public init(sEzsignfolderDescription: String, aFkiEzsignfoldersignerassociationID: [Int], aObjEzsigndocument: [CustomEzsigndocumentDuplicateRequest], tEzsignfolderNote: String? = nil, bKeepenteredvalues: Bool? = true) {
         self.sEzsignfolderDescription = sEzsignfolderDescription
         self.aFkiEzsignfoldersignerassociationID = aFkiEzsignfoldersignerassociationID
         self.aObjEzsigndocument = aObjEzsigndocument
         self.tEzsignfolderNote = tEzsignfolderNote
+        self.bKeepenteredvalues = bKeepenteredvalues
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -33,6 +36,7 @@ public struct EzsignfolderDuplicateV1Request: Codable, JSONEncodable, Hashable {
         case aFkiEzsignfoldersignerassociationID = "a_fkiEzsignfoldersignerassociationID"
         case aObjEzsigndocument = "a_objEzsigndocument"
         case tEzsignfolderNote
+        case bKeepenteredvalues
     }
 
     // Encodable protocol methods
@@ -43,6 +47,7 @@ public struct EzsignfolderDuplicateV1Request: Codable, JSONEncodable, Hashable {
         try container.encode(aFkiEzsignfoldersignerassociationID, forKey: .aFkiEzsignfoldersignerassociationID)
         try container.encode(aObjEzsigndocument, forKey: .aObjEzsigndocument)
         try container.encodeIfPresent(tEzsignfolderNote, forKey: .tEzsignfolderNote)
+        try container.encodeIfPresent(bKeepenteredvalues, forKey: .bKeepenteredvalues)
     }
 }
 

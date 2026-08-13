@@ -27,50 +27,50 @@ public struct CustomEzmaxpartnerproductSubscribe: Codable, JSONEncodable, Hashab
     public static let fkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiLanguageIDRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 2, exclusiveMaximum: false, multipleOf: nil)
     /** The Ezmaxcustomer code */
-    public var pksEzmaxcustomerCode: String?
+    public var pksEzmaxcustomerCode: String
     /** The environment type Description */
-    public var sInfrastructureenvironmenttypeDescription: String?
+    public var sInfrastructureenvironmenttypeDescription: String
     /** The Name of the Company in French */
-    public var sCompanyName1: String?
+    public var sCompanyName1: String
     /** The Name of the Company in English */
-    public var sCompanyName2: String?
+    public var sCompanyName2: String
     /** The unique ID of the Systemconfigurationtype */
-    public var fkiSystemconfigurationtypeID: Int?
+    public var fkiSystemconfigurationtypeID: Int
     /** The description of the Systemconfigurationtype in the language of the requester */
-    public var sSystemconfigurationtypeDescription1: String?
+    public var sSystemconfigurationtypeDescription1: String
     /** The description of the Systemconfigurationtype in the language of the requester */
-    public var sSystemconfigurationtypeDescription2: String?
+    public var sSystemconfigurationtypeDescription2: String
     /** The unique ID of the Ezmaxpartner */
-    public var fkiEzmaxpartnerID: Int?
+    public var fkiEzmaxpartnerID: Int
     /** The name of the Ezmaxpartner in french */
-    public var sEzmaxpartnerName1: String?
+    public var sEzmaxpartnerName1: String
     /** The name of the Ezmaxpartner in english */
-    public var sEzmaxpartnerName2: String?
+    public var sEzmaxpartnerName2: String
     /** The unique ID of the Ezmaxpartnerproduct */
-    public var fkiEzmaxpartnerproductID: Int?
+    public var fkiEzmaxpartnerproductID: Int
     /** The name1 of the Ezmaxpartnerproduct */
-    public var sEzmaxpartnerproductName1: String?
+    public var sEzmaxpartnerproductName1: String
     /** The name2 of the Ezmaxpartnerproduct */
-    public var sEzmaxpartnerproductName2: String?
+    public var sEzmaxpartnerproductName2: String
     /** The unique ID of the Ezmaxpartnerproductstage */
-    public var fkiEzmaxpartnerproductstageID: Int?
+    public var fkiEzmaxpartnerproductstageID: Int
     /** The code of the sEzmaxpartnerproductstage */
-    public var sEzmaxpartnerproductstageCode: String?
+    public var sEzmaxpartnerproductstageCode: String
     /** The login name of the User. */
-    public var sUserLoginName: String?
+    public var sUserLoginName: String
     /** The first name of the user */
-    public var sUserFirstName: String?
+    public var sUserFirstName: String
     /** The last name of the user */
-    public var sUserLastName: String?
+    public var sUserLastName: String
     /** The unique ID of the User */
-    public var fkiUserID: Int?
+    public var fkiUserID: Int
     /** The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| */
-    public var fkiLanguageID: Int?
+    public var fkiLanguageID: Int
     public var objAddress: AddressRequestCompound?
     public var objphone: PhoneRequestCompoundV2?
     public var objEmail: EmailRequestCompound?
 
-    public init(pksEzmaxcustomerCode: String? = nil, sInfrastructureenvironmenttypeDescription: String? = nil, sCompanyName1: String? = nil, sCompanyName2: String? = nil, fkiSystemconfigurationtypeID: Int? = nil, sSystemconfigurationtypeDescription1: String? = nil, sSystemconfigurationtypeDescription2: String? = nil, fkiEzmaxpartnerID: Int? = nil, sEzmaxpartnerName1: String? = nil, sEzmaxpartnerName2: String? = nil, fkiEzmaxpartnerproductID: Int? = nil, sEzmaxpartnerproductName1: String? = nil, sEzmaxpartnerproductName2: String? = nil, fkiEzmaxpartnerproductstageID: Int? = nil, sEzmaxpartnerproductstageCode: String? = nil, sUserLoginName: String? = nil, sUserFirstName: String? = nil, sUserLastName: String? = nil, fkiUserID: Int? = nil, fkiLanguageID: Int? = nil, objAddress: AddressRequestCompound? = nil, objphone: PhoneRequestCompoundV2? = nil, objEmail: EmailRequestCompound? = nil) {
+    public init(pksEzmaxcustomerCode: String, sInfrastructureenvironmenttypeDescription: String, sCompanyName1: String, sCompanyName2: String, fkiSystemconfigurationtypeID: Int, sSystemconfigurationtypeDescription1: String, sSystemconfigurationtypeDescription2: String, fkiEzmaxpartnerID: Int, sEzmaxpartnerName1: String, sEzmaxpartnerName2: String, fkiEzmaxpartnerproductID: Int, sEzmaxpartnerproductName1: String, sEzmaxpartnerproductName2: String, fkiEzmaxpartnerproductstageID: Int, sEzmaxpartnerproductstageCode: String, sUserLoginName: String, sUserFirstName: String, sUserLastName: String, fkiUserID: Int, fkiLanguageID: Int, objAddress: AddressRequestCompound? = nil, objphone: PhoneRequestCompoundV2? = nil, objEmail: EmailRequestCompound? = nil) {
         self.pksEzmaxcustomerCode = pksEzmaxcustomerCode
         self.sInfrastructureenvironmenttypeDescription = sInfrastructureenvironmenttypeDescription
         self.sCompanyName1 = sCompanyName1
@@ -126,26 +126,26 @@ public struct CustomEzmaxpartnerproductSubscribe: Codable, JSONEncodable, Hashab
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(pksEzmaxcustomerCode, forKey: .pksEzmaxcustomerCode)
-        try container.encodeIfPresent(sInfrastructureenvironmenttypeDescription, forKey: .sInfrastructureenvironmenttypeDescription)
-        try container.encodeIfPresent(sCompanyName1, forKey: .sCompanyName1)
-        try container.encodeIfPresent(sCompanyName2, forKey: .sCompanyName2)
-        try container.encodeIfPresent(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
-        try container.encodeIfPresent(sSystemconfigurationtypeDescription1, forKey: .sSystemconfigurationtypeDescription1)
-        try container.encodeIfPresent(sSystemconfigurationtypeDescription2, forKey: .sSystemconfigurationtypeDescription2)
-        try container.encodeIfPresent(fkiEzmaxpartnerID, forKey: .fkiEzmaxpartnerID)
-        try container.encodeIfPresent(sEzmaxpartnerName1, forKey: .sEzmaxpartnerName1)
-        try container.encodeIfPresent(sEzmaxpartnerName2, forKey: .sEzmaxpartnerName2)
-        try container.encodeIfPresent(fkiEzmaxpartnerproductID, forKey: .fkiEzmaxpartnerproductID)
-        try container.encodeIfPresent(sEzmaxpartnerproductName1, forKey: .sEzmaxpartnerproductName1)
-        try container.encodeIfPresent(sEzmaxpartnerproductName2, forKey: .sEzmaxpartnerproductName2)
-        try container.encodeIfPresent(fkiEzmaxpartnerproductstageID, forKey: .fkiEzmaxpartnerproductstageID)
-        try container.encodeIfPresent(sEzmaxpartnerproductstageCode, forKey: .sEzmaxpartnerproductstageCode)
-        try container.encodeIfPresent(sUserLoginName, forKey: .sUserLoginName)
-        try container.encodeIfPresent(sUserFirstName, forKey: .sUserFirstName)
-        try container.encodeIfPresent(sUserLastName, forKey: .sUserLastName)
-        try container.encodeIfPresent(fkiUserID, forKey: .fkiUserID)
-        try container.encodeIfPresent(fkiLanguageID, forKey: .fkiLanguageID)
+        try container.encode(pksEzmaxcustomerCode, forKey: .pksEzmaxcustomerCode)
+        try container.encode(sInfrastructureenvironmenttypeDescription, forKey: .sInfrastructureenvironmenttypeDescription)
+        try container.encode(sCompanyName1, forKey: .sCompanyName1)
+        try container.encode(sCompanyName2, forKey: .sCompanyName2)
+        try container.encode(fkiSystemconfigurationtypeID, forKey: .fkiSystemconfigurationtypeID)
+        try container.encode(sSystemconfigurationtypeDescription1, forKey: .sSystemconfigurationtypeDescription1)
+        try container.encode(sSystemconfigurationtypeDescription2, forKey: .sSystemconfigurationtypeDescription2)
+        try container.encode(fkiEzmaxpartnerID, forKey: .fkiEzmaxpartnerID)
+        try container.encode(sEzmaxpartnerName1, forKey: .sEzmaxpartnerName1)
+        try container.encode(sEzmaxpartnerName2, forKey: .sEzmaxpartnerName2)
+        try container.encode(fkiEzmaxpartnerproductID, forKey: .fkiEzmaxpartnerproductID)
+        try container.encode(sEzmaxpartnerproductName1, forKey: .sEzmaxpartnerproductName1)
+        try container.encode(sEzmaxpartnerproductName2, forKey: .sEzmaxpartnerproductName2)
+        try container.encode(fkiEzmaxpartnerproductstageID, forKey: .fkiEzmaxpartnerproductstageID)
+        try container.encode(sEzmaxpartnerproductstageCode, forKey: .sEzmaxpartnerproductstageCode)
+        try container.encode(sUserLoginName, forKey: .sUserLoginName)
+        try container.encode(sUserFirstName, forKey: .sUserFirstName)
+        try container.encode(sUserLastName, forKey: .sUserLastName)
+        try container.encode(fkiUserID, forKey: .fkiUserID)
+        try container.encode(fkiLanguageID, forKey: .fkiLanguageID)
         try container.encodeIfPresent(objAddress, forKey: .objAddress)
         try container.encodeIfPresent(objphone, forKey: .objphone)
         try container.encodeIfPresent(objEmail, forKey: .objEmail)

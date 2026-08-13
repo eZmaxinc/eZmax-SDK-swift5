@@ -7,10 +7,12 @@ Method | HTTP request | Description
 [**ezsigntemplatepackageCreateObjectV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagecreateobjectv1) | **POST** /1/object/ezsigntemplatepackage | Create a new Ezsigntemplatepackage
 [**ezsigntemplatepackageDeleteObjectV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagedeleteobjectv1) | **DELETE** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Delete an existing Ezsigntemplatepackage
 [**ezsigntemplatepackageEditEzsigntemplatepackagesignersV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackageeditezsigntemplatepackagesignersv1) | **PUT** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/editEzsigntemplatepackagesigners | Edit multiple Ezsigntemplatepackagesigners
+[**ezsigntemplatepackageEditEzsigntemplatepackagesignersV2**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackageeditezsigntemplatepackagesignersv2) | **PUT** /2/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/editEzsigntemplatepackagesigners | Edit multiple Ezsigntemplatepackagesigners
 [**ezsigntemplatepackageEditObjectV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackageeditobjectv1) | **PUT** /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Edit an existing Ezsigntemplatepackage
 [**ezsigntemplatepackageGetAutocompleteV2**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagegetautocompletev2) | **GET** /2/object/ezsigntemplatepackage/getAutocomplete/{sSelector} | Retrieve Ezsigntemplatepackages and IDs
 [**ezsigntemplatepackageGetListV1**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagegetlistv1) | **GET** /1/object/ezsigntemplatepackage/getList | Retrieve Ezsigntemplatepackage list
 [**ezsigntemplatepackageGetObjectV2**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagegetobjectv2) | **GET** /2/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Retrieve an existing Ezsigntemplatepackage
+[**ezsigntemplatepackageGetObjectV3**](ObjectEzsigntemplatepackageAPI.md#ezsigntemplatepackagegetobjectv3) | **GET** /3/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID} | Retrieve an existing Ezsigntemplatepackage
 
 
 # **ezsigntemplatepackageCreateObjectV1**
@@ -153,6 +155,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response**](EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatepackageEditEzsigntemplatepackagesignersV2**
+```swift
+    open class func ezsigntemplatepackageEditEzsigntemplatepackagesignersV2(pkiEzsigntemplatepackageID: Int, ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request: EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request, completion: @escaping (_ data: EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Response?, _ error: Error?) -> Void)
+```
+
+Edit multiple Ezsigntemplatepackagesigners
+
+Using this endpoint, you can edit multiple Ezsigntemplatepackagesigners at the same time.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplatepackageID = 987 // Int | 
+let ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request = ezsigntemplatepackage-editEzsigntemplatepackagesigners-v2-Request(aObjEzsigntemplatepackagesigner: [ezsigntemplatepackagesigner-RequestCompoundV2(pkiEzsigntemplatepackagesignerID: 123, fkiEzsigntemplatepackageID: 123, fkiEzdoctemplatedocumentID: 123, fkiUserID: 123, fkiUsergroupID: 123, eEzsigntemplatepackagesignerRole: Field-eEzsigntemplatepackagesignerRole(), eEzsigntemplatepackagesignerMapping: Field-eEzsigntemplatepackagesignerMapping(), sEzsigntemplatepackagesignerDescription: "sEzsigntemplatepackagesignerDescription_example")]) // EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request | 
+
+// Edit multiple Ezsigntemplatepackagesigners
+ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageEditEzsigntemplatepackagesignersV2(pkiEzsigntemplatepackageID: pkiEzsigntemplatepackageID, ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request: ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplatepackageID** | **Int** |  | 
+ **ezsigntemplatepackageEditEzsigntemplatepackagesignersV2Request** | [**EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request**](EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Request.md) |  | 
+
+### Return type
+
+[**EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Response**](EzsigntemplatepackageEditEzsigntemplatepackagesignersV2Response.md)
 
 ### Authorization
 
@@ -371,6 +425,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigntemplatepackageGetObjectV2Response**](EzsigntemplatepackageGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatepackageGetObjectV3**
+```swift
+    open class func ezsigntemplatepackageGetObjectV3(pkiEzsigntemplatepackageID: Int, completion: @escaping (_ data: EzsigntemplatepackageGetObjectV3Response?, _ error: Error?) -> Void)
+```
+
+Retrieve an existing Ezsigntemplatepackage
+
+
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEzsigntemplatepackageID = 987 // Int | 
+
+// Retrieve an existing Ezsigntemplatepackage
+ObjectEzsigntemplatepackageAPI.ezsigntemplatepackageGetObjectV3(pkiEzsigntemplatepackageID: pkiEzsigntemplatepackageID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEzsigntemplatepackageID** | **Int** |  | 
+
+### Return type
+
+[**EzsigntemplatepackageGetObjectV3Response**](EzsigntemplatepackageGetObjectV3Response.md)
 
 ### Authorization
 
