@@ -4,9 +4,109 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**employeeBatchDownloadV1**](ObjectEmployeeAPI.md#employeebatchdownloadv1) | **POST** /1/object/employee/{pkiEmployeeID}/batchDownload | Download multiples attachments from a Employee
+[**employeeGetAttachmentsV1**](ObjectEmployeeAPI.md#employeegetattachmentsv1) | **GET** /1/object/employee/{pkiEmployeeID}/getAttachments | Retrieve Employee&#39;s attachments
 [**employeeGetListV1**](ObjectEmployeeAPI.md#employeegetlistv1) | **GET** /1/object/employee/getList | Retrieve Employee list
 [**employeeImportIntoEDMV1**](ObjectEmployeeAPI.md#employeeimportintoedmv1) | **POST** /1/object/employee/{pkiEmployeeID}/importIntoEDM | Import attachments into the Employee
 
+
+# **employeeBatchDownloadV1**
+```swift
+    open class func employeeBatchDownloadV1(pkiEmployeeID: Int, employeeBatchDownloadV1Request: EmployeeBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Employee
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEmployeeID = 987 // Int | 
+let employeeBatchDownloadV1Request = employee-batchDownload-v1-Request(aPkiAttachmentID: [123]) // EmployeeBatchDownloadV1Request | 
+
+// Download multiples attachments from a Employee
+ObjectEmployeeAPI.employeeBatchDownloadV1(pkiEmployeeID: pkiEmployeeID, employeeBatchDownloadV1Request: employeeBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEmployeeID** | **Int** |  | 
+ **employeeBatchDownloadV1Request** | [**EmployeeBatchDownloadV1Request**](EmployeeBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **employeeGetAttachmentsV1**
+```swift
+    open class func employeeGetAttachmentsV1(pkiEmployeeID: Int, completion: @escaping (_ data: EmployeeGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Employee's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiEmployeeID = 987 // Int | 
+
+// Retrieve Employee's attachments
+ObjectEmployeeAPI.employeeGetAttachmentsV1(pkiEmployeeID: pkiEmployeeID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiEmployeeID** | **Int** |  | 
+
+### Return type
+
+[**EmployeeGetAttachmentsV1Response**](EmployeeGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **employeeGetListV1**
 ```swift

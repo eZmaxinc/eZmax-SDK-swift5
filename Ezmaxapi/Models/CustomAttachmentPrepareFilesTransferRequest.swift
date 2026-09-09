@@ -13,8 +13,8 @@ import AnyCodable
 /** A AttachmentPrepareFilesTransfer object */
 public struct CustomAttachmentPrepareFilesTransferRequest: Codable, JSONEncodable, Hashable {
 
-    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
-    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{32}$/")
+    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"\/\\\\\\\\|?*]{1,75}$/")
+    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-f0-9]{32}$/")
     /** The name of the Attachment */
     public var sAttachmentName: String
     /** The MD5 of the Attachment */

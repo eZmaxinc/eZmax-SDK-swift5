@@ -114,4 +114,56 @@ open class ObjectAttachmentAPI {
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
+
+    /**
+     Rename an Attachment
+     
+     - parameter pkiAttachmentID: (path)  
+     - parameter attachmentRenameV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func attachmentRenameV1(pkiAttachmentID: Int, attachmentRenameV1Request: AttachmentRenameV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AttachmentRenameV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return attachmentRenameV1WithRequestBuilder(pkiAttachmentID: pkiAttachmentID, attachmentRenameV1Request: attachmentRenameV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Rename an Attachment
+     - POST /1/object/attachment/{pkiAttachmentID}/rename
+     - The endpoint allows to change the attachment's file name and category.
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiAttachmentID: (path)  
+     - parameter attachmentRenameV1Request: (body)  
+     - returns: RequestBuilder<AttachmentRenameV1Response> 
+     */
+    open class func attachmentRenameV1WithRequestBuilder(pkiAttachmentID: Int, attachmentRenameV1Request: AttachmentRenameV1Request) -> RequestBuilder<AttachmentRenameV1Response> {
+        var localVariablePath = "/1/object/attachment/{pkiAttachmentID}/rename"
+        let pkiAttachmentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAttachmentID))"
+        let pkiAttachmentIDPostEscape = pkiAttachmentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAttachmentID}", with: pkiAttachmentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: attachmentRenameV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AttachmentRenameV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
 }

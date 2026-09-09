@@ -13,6 +13,57 @@ import AnyCodable
 open class ObjectInscriptionAPI {
 
     /**
+     Download multiples attachments from an Inscription
+     
+     - parameter pkiInscriptionID: (path)  
+     - parameter inscriptionBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionBatchDownloadV1(pkiInscriptionID: Int, inscriptionBatchDownloadV1Request: InscriptionBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionBatchDownloadV1WithRequestBuilder(pkiInscriptionID: pkiInscriptionID, inscriptionBatchDownloadV1Request: inscriptionBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from an Inscription
+     - POST /1/object/inscription/{pkiInscriptionID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionID: (path)  
+     - parameter inscriptionBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func inscriptionBatchDownloadV1WithRequestBuilder(pkiInscriptionID: Int, inscriptionBatchDownloadV1Request: InscriptionBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/inscription/{pkiInscriptionID}/batchDownload"
+        let pkiInscriptionIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionID))"
+        let pkiInscriptionIDPostEscape = pkiInscriptionIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionID}", with: pkiInscriptionIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: inscriptionBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Inscription's Attachments
      
      - parameter pkiInscriptionID: (path)  

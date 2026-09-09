@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectOtherincomeAPI {
 
     /**
+     Download multiples attachments from a Otherincome
+     
+     - parameter pkiOtherincomeID: (path)  
+     - parameter otherincomeBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func otherincomeBatchDownloadV1(pkiOtherincomeID: Int, otherincomeBatchDownloadV1Request: OtherincomeBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return otherincomeBatchDownloadV1WithRequestBuilder(pkiOtherincomeID: pkiOtherincomeID, otherincomeBatchDownloadV1Request: otherincomeBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Otherincome
+     - POST /1/object/otherincome/{pkiOtherincomeID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiOtherincomeID: (path)  
+     - parameter otherincomeBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func otherincomeBatchDownloadV1WithRequestBuilder(pkiOtherincomeID: Int, otherincomeBatchDownloadV1Request: OtherincomeBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/otherincome/{pkiOtherincomeID}/batchDownload"
+        let pkiOtherincomeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiOtherincomeID))"
+        let pkiOtherincomeIDPostEscape = pkiOtherincomeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiOtherincomeID}", with: pkiOtherincomeIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: otherincomeBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Otherincome's attachments
+     
+     - parameter pkiOtherincomeID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func otherincomeGetAttachmentsV1(pkiOtherincomeID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: OtherincomeGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return otherincomeGetAttachmentsV1WithRequestBuilder(pkiOtherincomeID: pkiOtherincomeID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Otherincome's attachments
+     - GET /1/object/otherincome/{pkiOtherincomeID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiOtherincomeID: (path)  
+     - returns: RequestBuilder<OtherincomeGetAttachmentsV1Response> 
+     */
+    open class func otherincomeGetAttachmentsV1WithRequestBuilder(pkiOtherincomeID: Int) -> RequestBuilder<OtherincomeGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/otherincome/{pkiOtherincomeID}/getAttachments"
+        let pkiOtherincomeIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiOtherincomeID))"
+        let pkiOtherincomeIDPostEscape = pkiOtherincomeIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiOtherincomeID}", with: pkiOtherincomeIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<OtherincomeGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication count
      
      - parameter pkiOtherincomeID: (path)  

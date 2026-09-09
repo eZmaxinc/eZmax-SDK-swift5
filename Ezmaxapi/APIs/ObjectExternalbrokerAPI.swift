@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectExternalbrokerAPI {
 
     /**
+     Download multiples attachments from an Externalbroker
+     
+     - parameter pkiExternalbrokerID: (path)  
+     - parameter externalbrokerBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func externalbrokerBatchDownloadV1(pkiExternalbrokerID: Int, externalbrokerBatchDownloadV1Request: ExternalbrokerBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return externalbrokerBatchDownloadV1WithRequestBuilder(pkiExternalbrokerID: pkiExternalbrokerID, externalbrokerBatchDownloadV1Request: externalbrokerBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from an Externalbroker
+     - POST /1/object/externalbroker/{pkiExternalbrokerID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiExternalbrokerID: (path)  
+     - parameter externalbrokerBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func externalbrokerBatchDownloadV1WithRequestBuilder(pkiExternalbrokerID: Int, externalbrokerBatchDownloadV1Request: ExternalbrokerBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/externalbroker/{pkiExternalbrokerID}/batchDownload"
+        let pkiExternalbrokerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiExternalbrokerID))"
+        let pkiExternalbrokerIDPostEscape = pkiExternalbrokerIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiExternalbrokerID}", with: pkiExternalbrokerIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: externalbrokerBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Externalbroker's attachments
+     
+     - parameter pkiExternalbrokerID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func externalbrokerGetAttachmentsV1(pkiExternalbrokerID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ExternalbrokerGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return externalbrokerGetAttachmentsV1WithRequestBuilder(pkiExternalbrokerID: pkiExternalbrokerID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Externalbroker's attachments
+     - GET /1/object/externalbroker/{pkiExternalbrokerID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiExternalbrokerID: (path)  
+     - returns: RequestBuilder<ExternalbrokerGetAttachmentsV1Response> 
+     */
+    open class func externalbrokerGetAttachmentsV1WithRequestBuilder(pkiExternalbrokerID: Int) -> RequestBuilder<ExternalbrokerGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/externalbroker/{pkiExternalbrokerID}/getAttachments"
+        let pkiExternalbrokerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiExternalbrokerID))"
+        let pkiExternalbrokerIDPostEscape = pkiExternalbrokerIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiExternalbrokerID}", with: pkiExternalbrokerIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ExternalbrokerGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Import attachments into the Externalbroker
      
      - parameter pkiExternalbrokerID: (path)  

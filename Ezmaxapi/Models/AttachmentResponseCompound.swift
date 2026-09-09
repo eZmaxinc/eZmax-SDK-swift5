@@ -59,11 +59,11 @@ public struct AttachmentResponseCompound: Codable, JSONEncodable, Hashable {
     public static let fkiDisclosureIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiReconciliationIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 65535, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiEzsigndocumentIDReferenceRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"\/\\\\\\\\|?*]{1,75}$/")
     public static let fkiUserIDSpecificRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let iAttachmentSizeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 4294967295, exclusiveMaximum: false, multipleOf: nil)
     public static let iAttachmentEDMmoduleflagRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 255, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{32}$/")
+    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-f0-9]{32}$/")
     public static let tAttachmentRejectioncommentRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,65535}$/")
     public static let fkiUserIDOwnerRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     /** The unique ID of the Attachment. */

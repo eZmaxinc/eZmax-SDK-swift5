@@ -12,6 +12,8 @@ import AnyCodable
 
 /** The Realestateevent of the Webhook */
 public enum FieldEWebhookRealestateevent: String, Codable, CaseIterable {
+    case buyercontractCreated = "BuyercontractCreated"
+    case buyercontractModified = "BuyercontractModified"
     case inscriptionCreated = "InscriptionCreated"
     case inscriptionModified = "InscriptionModified"
     case inscriptionnotauthenticatedCreated = "InscriptionnotauthenticatedCreated"

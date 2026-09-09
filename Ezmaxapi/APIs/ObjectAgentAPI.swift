@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectAgentAPI {
 
     /**
+     Download multiples attachments from a Agent
+     
+     - parameter pkiAgentID: (path)  
+     - parameter agentBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func agentBatchDownloadV1(pkiAgentID: Int, agentBatchDownloadV1Request: AgentBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return agentBatchDownloadV1WithRequestBuilder(pkiAgentID: pkiAgentID, agentBatchDownloadV1Request: agentBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Agent
+     - POST /1/object/agent/{pkiAgentID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiAgentID: (path)  
+     - parameter agentBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func agentBatchDownloadV1WithRequestBuilder(pkiAgentID: Int, agentBatchDownloadV1Request: AgentBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/agent/{pkiAgentID}/batchDownload"
+        let pkiAgentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAgentID))"
+        let pkiAgentIDPostEscape = pkiAgentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAgentID}", with: pkiAgentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: agentBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Agent's attachments
+     
+     - parameter pkiAgentID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func agentGetAttachmentsV1(pkiAgentID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AgentGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return agentGetAttachmentsV1WithRequestBuilder(pkiAgentID: pkiAgentID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Agent's attachments
+     - GET /1/object/agent/{pkiAgentID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiAgentID: (path)  
+     - returns: RequestBuilder<AgentGetAttachmentsV1Response> 
+     */
+    open class func agentGetAttachmentsV1WithRequestBuilder(pkiAgentID: Int) -> RequestBuilder<AgentGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/agent/{pkiAgentID}/getAttachments"
+        let pkiAgentIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiAgentID))"
+        let pkiAgentIDPostEscape = pkiAgentIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiAgentID}", with: pkiAgentIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<AgentGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter sSelector
      */
     public enum SSelector_agentGetAutocompleteV2: String, CaseIterable {
@@ -122,6 +222,8 @@ open class ObjectAgentAPI {
         case iagentbannernumberDesc = "iAgentBannernumber_DESC"
         case sagentrealestateassociationlicenseAsc = "sAgentRealestateassociationlicense_ASC"
         case sagentrealestateassociationlicenseDesc = "sAgentRealestateassociationlicense_DESC"
+        case dtagentpermitexpirationAsc = "dtAgentPermitexpiration_ASC"
+        case dtagentpermitexpirationDesc = "dtAgentPermitexpiration_DESC"
         case dtagenthiredateAsc = "dtAgentHiredate_ASC"
         case dtagenthiredateDesc = "dtAgentHiredate_DESC"
         case dtagentleavedateAsc = "dtAgentLeavedate_ASC"

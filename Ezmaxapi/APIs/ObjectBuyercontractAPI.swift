@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectBuyercontractAPI {
 
     /**
+     Download multiples attachments from a Buyercontract
+     
+     - parameter pkiBuyercontractID: (path)  
+     - parameter buyercontractBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func buyercontractBatchDownloadV1(pkiBuyercontractID: Int, buyercontractBatchDownloadV1Request: BuyercontractBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return buyercontractBatchDownloadV1WithRequestBuilder(pkiBuyercontractID: pkiBuyercontractID, buyercontractBatchDownloadV1Request: buyercontractBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Buyercontract
+     - POST /1/object/buyercontract/{pkiBuyercontractID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBuyercontractID: (path)  
+     - parameter buyercontractBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func buyercontractBatchDownloadV1WithRequestBuilder(pkiBuyercontractID: Int, buyercontractBatchDownloadV1Request: BuyercontractBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/buyercontract/{pkiBuyercontractID}/batchDownload"
+        let pkiBuyercontractIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBuyercontractID))"
+        let pkiBuyercontractIDPostEscape = pkiBuyercontractIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBuyercontractID}", with: pkiBuyercontractIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: buyercontractBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Buyercontract's attachments
+     
+     - parameter pkiBuyercontractID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func buyercontractGetAttachmentsV1(pkiBuyercontractID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BuyercontractGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return buyercontractGetAttachmentsV1WithRequestBuilder(pkiBuyercontractID: pkiBuyercontractID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Buyercontract's attachments
+     - GET /1/object/buyercontract/{pkiBuyercontractID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBuyercontractID: (path)  
+     - returns: RequestBuilder<BuyercontractGetAttachmentsV1Response> 
+     */
+    open class func buyercontractGetAttachmentsV1WithRequestBuilder(pkiBuyercontractID: Int) -> RequestBuilder<BuyercontractGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/buyercontract/{pkiBuyercontractID}/getAttachments"
+        let pkiBuyercontractIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBuyercontractID))"
+        let pkiBuyercontractIDPostEscape = pkiBuyercontractIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBuyercontractID}", with: pkiBuyercontractIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BuyercontractGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication count
      
      - parameter pkiBuyercontractID: (path)  

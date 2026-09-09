@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectBrokerAPI {
 
     /**
+     Download multiples attachments from a Broker
+     
+     - parameter pkiBrokerID: (path)  
+     - parameter brokerBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func brokerBatchDownloadV1(pkiBrokerID: Int, brokerBatchDownloadV1Request: BrokerBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return brokerBatchDownloadV1WithRequestBuilder(pkiBrokerID: pkiBrokerID, brokerBatchDownloadV1Request: brokerBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Broker
+     - POST /1/object/broker/{pkiBrokerID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBrokerID: (path)  
+     - parameter brokerBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func brokerBatchDownloadV1WithRequestBuilder(pkiBrokerID: Int, brokerBatchDownloadV1Request: BrokerBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/broker/{pkiBrokerID}/batchDownload"
+        let pkiBrokerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBrokerID))"
+        let pkiBrokerIDPostEscape = pkiBrokerIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBrokerID}", with: pkiBrokerIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: brokerBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Broker's attachments
+     
+     - parameter pkiBrokerID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func brokerGetAttachmentsV1(pkiBrokerID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BrokerGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return brokerGetAttachmentsV1WithRequestBuilder(pkiBrokerID: pkiBrokerID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Broker's attachments
+     - GET /1/object/broker/{pkiBrokerID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBrokerID: (path)  
+     - returns: RequestBuilder<BrokerGetAttachmentsV1Response> 
+     */
+    open class func brokerGetAttachmentsV1WithRequestBuilder(pkiBrokerID: Int) -> RequestBuilder<BrokerGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/broker/{pkiBrokerID}/getAttachments"
+        let pkiBrokerIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBrokerID))"
+        let pkiBrokerIDPostEscape = pkiBrokerIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBrokerID}", with: pkiBrokerIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BrokerGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter sSelector
      */
     public enum SSelector_brokerGetAutocompleteV2: String, CaseIterable {

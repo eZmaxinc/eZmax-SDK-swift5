@@ -13,6 +13,7 @@ import AnyCodable
 /** The role of the Ezsignfoldersignerassociation.  1. **CC** receive a copy of all documents. 2. **Signer** sign document. 3. **SignerAndCC** sign document and receive a copy of all documents. */
 public enum FieldEEzsignfoldersignerassociationRole: String, Codable, CaseIterable {
     case cc = "CC"
+    case ccdeleted = "CCDeleted"
     case signer = "Signer"
     case signerAndCC = "SignerAndCC"
 }

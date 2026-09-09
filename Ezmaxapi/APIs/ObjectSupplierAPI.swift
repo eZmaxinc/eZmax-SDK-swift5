@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectSupplierAPI {
 
     /**
+     Download multiples attachments from a Supplier
+     
+     - parameter pkiSupplierID: (path)  
+     - parameter supplierBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func supplierBatchDownloadV1(pkiSupplierID: Int, supplierBatchDownloadV1Request: SupplierBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return supplierBatchDownloadV1WithRequestBuilder(pkiSupplierID: pkiSupplierID, supplierBatchDownloadV1Request: supplierBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Supplier
+     - POST /1/object/supplier/{pkiSupplierID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSupplierID: (path)  
+     - parameter supplierBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func supplierBatchDownloadV1WithRequestBuilder(pkiSupplierID: Int, supplierBatchDownloadV1Request: SupplierBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/supplier/{pkiSupplierID}/batchDownload"
+        let pkiSupplierIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSupplierID))"
+        let pkiSupplierIDPostEscape = pkiSupplierIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSupplierID}", with: pkiSupplierIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: supplierBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Supplier's attachments
+     
+     - parameter pkiSupplierID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func supplierGetAttachmentsV1(pkiSupplierID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SupplierGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return supplierGetAttachmentsV1WithRequestBuilder(pkiSupplierID: pkiSupplierID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Supplier's attachments
+     - GET /1/object/supplier/{pkiSupplierID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiSupplierID: (path)  
+     - returns: RequestBuilder<SupplierGetAttachmentsV1Response> 
+     */
+    open class func supplierGetAttachmentsV1WithRequestBuilder(pkiSupplierID: Int) -> RequestBuilder<SupplierGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/supplier/{pkiSupplierID}/getAttachments"
+        let pkiSupplierIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiSupplierID))"
+        let pkiSupplierIDPostEscape = pkiSupplierIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiSupplierID}", with: pkiSupplierIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<SupplierGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_supplierGetListV1: String, CaseIterable {

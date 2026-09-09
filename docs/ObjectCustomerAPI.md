@@ -4,10 +4,110 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**customerBatchDownloadV1**](ObjectCustomerAPI.md#customerbatchdownloadv1) | **POST** /1/object/customer/{pkiCustomerID}/batchDownload | Download multiples attachments from a Customer
+[**customerGetAttachmentsV1**](ObjectCustomerAPI.md#customergetattachmentsv1) | **GET** /1/object/customer/{pkiCustomerID}/getAttachments | Retrieve Customer&#39;s attachments
 [**customerGetAutocompleteV2**](ObjectCustomerAPI.md#customergetautocompletev2) | **GET** /2/object/customer/getAutocomplete/{sSelector} | Retrieve Customers and IDs
 [**customerGetObjectV2**](ObjectCustomerAPI.md#customergetobjectv2) | **GET** /2/object/customer/{pkiCustomerID} | Retrieve an existing Customer
 [**customerImportIntoEDMV1**](ObjectCustomerAPI.md#customerimportintoedmv1) | **POST** /1/object/customer/{pkiCustomerID}/importIntoEDM | Import attachments into the Customer
 
+
+# **customerBatchDownloadV1**
+```swift
+    open class func customerBatchDownloadV1(pkiCustomerID: Int, customerBatchDownloadV1Request: CustomerBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Customer
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiCustomerID = 987 // Int | 
+let customerBatchDownloadV1Request = customer-batchDownload-v1-Request(aPkiAttachmentID: [123]) // CustomerBatchDownloadV1Request | 
+
+// Download multiples attachments from a Customer
+ObjectCustomerAPI.customerBatchDownloadV1(pkiCustomerID: pkiCustomerID, customerBatchDownloadV1Request: customerBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiCustomerID** | **Int** |  | 
+ **customerBatchDownloadV1Request** | [**CustomerBatchDownloadV1Request**](CustomerBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **customerGetAttachmentsV1**
+```swift
+    open class func customerGetAttachmentsV1(pkiCustomerID: Int, completion: @escaping (_ data: CustomerGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Customer's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiCustomerID = 987 // Int | 
+
+// Retrieve Customer's attachments
+ObjectCustomerAPI.customerGetAttachmentsV1(pkiCustomerID: pkiCustomerID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiCustomerID** | **Int** |  | 
+
+### Return type
+
+[**CustomerGetAttachmentsV1Response**](CustomerGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **customerGetAutocompleteV2**
 ```swift

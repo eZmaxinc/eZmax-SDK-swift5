@@ -32,6 +32,7 @@ public enum FieldEErrorCode: String, Codable, CaseIterable {
     case methodnotallowed = "METHODNOTALLOWED"
     case notacceptableContent = "NOTACCEPTABLE_CONTENT"
     case notacceptableLanguage = "NOTACCEPTABLE_LANGUAGE"
+    case conflict = "CONFLICT"
     case unprocessableentityActivesessionAlreadyCloning = "UNPROCESSABLEENTITY_ACTIVESESSION_ALREADY_CLONING"
     case unprocessableentityCannotdelete = "UNPROCESSABLEENTITY_CANNOTDELETE"
     case unprocessableentityCannotmodify = "UNPROCESSABLEENTITY_CANNOTMODIFY"

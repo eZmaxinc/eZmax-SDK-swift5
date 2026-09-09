@@ -4,6 +4,8 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**buyercontractBatchDownloadV1**](ObjectBuyercontractAPI.md#buyercontractbatchdownloadv1) | **POST** /1/object/buyercontract/{pkiBuyercontractID}/batchDownload | Download multiples attachments from a Buyercontract
+[**buyercontractGetAttachmentsV1**](ObjectBuyercontractAPI.md#buyercontractgetattachmentsv1) | **GET** /1/object/buyercontract/{pkiBuyercontractID}/getAttachments | Retrieve Buyercontract&#39;s attachments
 [**buyercontractGetCommunicationCountV1**](ObjectBuyercontractAPI.md#buyercontractgetcommunicationcountv1) | **GET** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationCount | Retrieve Communication count
 [**buyercontractGetCommunicationListV1**](ObjectBuyercontractAPI.md#buyercontractgetcommunicationlistv1) | **GET** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationList | Retrieve Communication list
 [**buyercontractGetCommunicationrecipientsV1**](ObjectBuyercontractAPI.md#buyercontractgetcommunicationrecipientsv1) | **GET** /1/object/buyercontract/{pkiBuyercontractID}/getCommunicationrecipients | Retrieve Buyercontract&#39;s Communicationrecipient
@@ -11,6 +13,104 @@ Method | HTTP request | Description
 [**buyercontractGetListV1**](ObjectBuyercontractAPI.md#buyercontractgetlistv1) | **GET** /1/object/buyercontract/getList | Retrieve Buyercontract list
 [**buyercontractImportIntoEDMV1**](ObjectBuyercontractAPI.md#buyercontractimportintoedmv1) | **POST** /1/object/buyercontract/{pkiBuyercontractID}/importIntoEDM | Import attachments into the Buyercontract
 
+
+# **buyercontractBatchDownloadV1**
+```swift
+    open class func buyercontractBatchDownloadV1(pkiBuyercontractID: Int, buyercontractBatchDownloadV1Request: BuyercontractBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Buyercontract
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiBuyercontractID = 987 // Int | 
+let buyercontractBatchDownloadV1Request = buyercontract-batchDownload-v1-Request(aPkiAttachmentID: [123]) // BuyercontractBatchDownloadV1Request | 
+
+// Download multiples attachments from a Buyercontract
+ObjectBuyercontractAPI.buyercontractBatchDownloadV1(pkiBuyercontractID: pkiBuyercontractID, buyercontractBatchDownloadV1Request: buyercontractBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiBuyercontractID** | **Int** |  | 
+ **buyercontractBatchDownloadV1Request** | [**BuyercontractBatchDownloadV1Request**](BuyercontractBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **buyercontractGetAttachmentsV1**
+```swift
+    open class func buyercontractGetAttachmentsV1(pkiBuyercontractID: Int, completion: @escaping (_ data: BuyercontractGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Buyercontract's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiBuyercontractID = 987 // Int | 
+
+// Retrieve Buyercontract's attachments
+ObjectBuyercontractAPI.buyercontractGetAttachmentsV1(pkiBuyercontractID: pkiBuyercontractID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiBuyercontractID** | **Int** |  | 
+
+### Return type
+
+[**BuyercontractGetAttachmentsV1Response**](BuyercontractGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **buyercontractGetCommunicationCountV1**
 ```swift

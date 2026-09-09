@@ -4,12 +4,112 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**electronicfundstransferBatchDownloadV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransferbatchdownloadv1) | **POST** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/batchDownload | Download multiples attachments from an Electronicfundstransfer
+[**electronicfundstransferGetAttachmentsV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetattachmentsv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getAttachments | Retrieve Electronicfundstransfer&#39;s attachments
 [**electronicfundstransferGetCommunicationCountV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationcountv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationCount | Retrieve Communication count
 [**electronicfundstransferGetCommunicationListV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationlistv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 [**electronicfundstransferGetCommunicationrecipientsV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationrecipientsv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients | Retrieve Electronicfundstransfer&#39;s Communicationrecipient
 [**electronicfundstransferGetCommunicationsendersV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransfergetcommunicationsendersv1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders | Retrieve Electronicfundstransfer&#39;s Communicationsender
 [**electronicfundstransferImportIntoEDMV1**](ObjectElectronicfundstransferAPI.md#electronicfundstransferimportintoedmv1) | **POST** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/importIntoEDM | Import attachments into the Electronicfundstransfer
 
+
+# **electronicfundstransferBatchDownloadV1**
+```swift
+    open class func electronicfundstransferBatchDownloadV1(pkiElectronicfundstransferID: Int, electronicfundstransferBatchDownloadV1Request: ElectronicfundstransferBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from an Electronicfundstransfer
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiElectronicfundstransferID = 987 // Int | 
+let electronicfundstransferBatchDownloadV1Request = electronicfundstransfer-batchDownload-v1-Request(aPkiAttachmentID: [123]) // ElectronicfundstransferBatchDownloadV1Request | 
+
+// Download multiples attachments from an Electronicfundstransfer
+ObjectElectronicfundstransferAPI.electronicfundstransferBatchDownloadV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID, electronicfundstransferBatchDownloadV1Request: electronicfundstransferBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiElectronicfundstransferID** | **Int** |  | 
+ **electronicfundstransferBatchDownloadV1Request** | [**ElectronicfundstransferBatchDownloadV1Request**](ElectronicfundstransferBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **electronicfundstransferGetAttachmentsV1**
+```swift
+    open class func electronicfundstransferGetAttachmentsV1(pkiElectronicfundstransferID: Int, completion: @escaping (_ data: ElectronicfundstransferGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Electronicfundstransfer's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiElectronicfundstransferID = 987 // Int | 
+
+// Retrieve Electronicfundstransfer's attachments
+ObjectElectronicfundstransferAPI.electronicfundstransferGetAttachmentsV1(pkiElectronicfundstransferID: pkiElectronicfundstransferID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiElectronicfundstransferID** | **Int** |  | 
+
+### Return type
+
+[**ElectronicfundstransferGetAttachmentsV1Response**](ElectronicfundstransferGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **electronicfundstransferGetCommunicationCountV1**
 ```swift

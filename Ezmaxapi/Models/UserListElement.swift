@@ -14,12 +14,18 @@ import AnyCodable
 public struct UserListElement: Codable, JSONEncodable, Hashable {
 
     public static let pkiUserIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiAgentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let fkiBrokerIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let sUserLoginnameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?:([\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
     public static let dtUserEzsignprepaidexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let sEmailAddressRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[\\w.%+\\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,20}$/")
     public static let sUserJobtitleRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,50}$/")
     /** The unique ID of the User */
     public var pkiUserID: Int
+    /** The unique ID of the Agent. */
+    public var fkiAgentID: Int?
+    /** The unique ID of the Broker. */
+    public var fkiBrokerID: Int?
     /** The first name of the user */
     public var sUserFirstname: String
     /** The last name of the user */
@@ -40,8 +46,10 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
     /** The job title of the user */
     public var sUserJobtitle: String?
 
-    public init(pkiUserID: Int, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, bUserIsactive: Bool, bUserSuspended: Bool? = nil, eUserType: FieldEUserType, eUserOrigin: FieldEUserOrigin, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserEzsignprepaidexpiration: String? = nil, sEmailAddress: String, sUserJobtitle: String? = nil) {
+    public init(pkiUserID: Int, fkiAgentID: Int? = nil, fkiBrokerID: Int? = nil, sUserFirstname: String, sUserLastname: String, sUserLoginname: String, bUserIsactive: Bool, bUserSuspended: Bool? = nil, eUserType: FieldEUserType, eUserOrigin: FieldEUserOrigin, eUserEzsignaccess: FieldEUserEzsignaccess, dtUserEzsignprepaidexpiration: String? = nil, sEmailAddress: String, sUserJobtitle: String? = nil) {
         self.pkiUserID = pkiUserID
+        self.fkiAgentID = fkiAgentID
+        self.fkiBrokerID = fkiBrokerID
         self.sUserFirstname = sUserFirstname
         self.sUserLastname = sUserLastname
         self.sUserLoginname = sUserLoginname
@@ -57,6 +65,8 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case pkiUserID
+        case fkiAgentID
+        case fkiBrokerID
         case sUserFirstname
         case sUserLastname
         case sUserLoginname
@@ -75,6 +85,8 @@ public struct UserListElement: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(pkiUserID, forKey: .pkiUserID)
+        try container.encodeIfPresent(fkiAgentID, forKey: .fkiAgentID)
+        try container.encodeIfPresent(fkiBrokerID, forKey: .fkiBrokerID)
         try container.encode(sUserFirstname, forKey: .sUserFirstname)
         try container.encode(sUserLastname, forKey: .sUserLastname)
         try container.encode(sUserLoginname, forKey: .sUserLoginname)

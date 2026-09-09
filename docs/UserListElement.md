@@ -4,6 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pkiUserID** | **Int** | The unique ID of the User | 
+**fkiAgentID** | **Int** | The unique ID of the Agent. | [optional] 
+**fkiBrokerID** | **Int** | The unique ID of the Broker. | [optional] 
 **sUserFirstname** | **String** | The first name of the user | 
 **sUserLastname** | **String** | The last name of the user | 
 **sUserLoginname** | **String** | The login name of the User. | 

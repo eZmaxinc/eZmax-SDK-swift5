@@ -553,6 +553,10 @@ open class ObjectUserAPI {
     public enum EOrderBy_userGetListV1: String, CaseIterable {
         case pkiuseridAsc = "pkiUserID_ASC"
         case pkiuseridDesc = "pkiUserID_DESC"
+        case fkiagentidAsc = "fkiAgentID_ASC"
+        case fkiagentidDesc = "fkiAgentID_DESC"
+        case fkibrokeridAsc = "fkiBrokerID_ASC"
+        case fkibrokeridDesc = "fkiBrokerID_DESC"
         case suserfirstnameAsc = "sUserFirstname_ASC"
         case suserfirstnameDesc = "sUserFirstname_DESC"
         case suserlastnameAsc = "sUserLastname_ASC"

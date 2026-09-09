@@ -26,6 +26,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
     public static let iAgentLongdistancecodeRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let iAgentBannernumberRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 4294967295, exclusiveMaximum: false, multipleOf: nil)
     public static let sAgentRealestateassociationlicenseRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,15}$/")
+    public static let dtAgentPermitexpirationRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let dtAgentHiredateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let dtAgentLeavedateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
     public static let dtAgentContractdateRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
@@ -72,9 +73,11 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
     public var iAgentBannernumber: Int
     /** The realestateassociationlicense of the Agent */
     public var sAgentRealestateassociationlicense: String
-    /** The hiredate of the Agent */
+    /** The expiration date of permit of the Agent */
+    public var dtAgentPermitexpiration: String?
+    /** The hire date of the Agent */
     public var dtAgentHiredate: String?
-    /** The leavedate of the Agent */
+    /** The leave date of the Agent */
     public var dtAgentLeavedate: String?
     /** The contract date of the Agent */
     public var dtAgentContractdate: String?
@@ -130,7 +133,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
     /** The name of the Country in the language of the requester */
     public var sCountryNameX: String?
 
-    public init(pkiAgentID: Int, fkiAgenttypeID: Int, sAgenttypeNameX: String, fkiAgentincorporationID: Int? = nil, sAgentincorporationName: String? = nil, fkiDepartmentID: Int, sDepartmentNameX: String, fkiLanguageID: Int, sLanguageNameX: String, sRealestateboardnumberNumber: String? = nil, sAgentCode: String, iAgentPhotocopiercode: Int, iAgentLongdistancecode: Int, iAgentBannernumber: Int, sAgentRealestateassociationlicense: String, dtAgentHiredate: String? = nil, dtAgentLeavedate: String? = nil, dtAgentContractdate: String? = nil, dtAgentTransferdate: String? = nil, dtAgentSenioritydate: String? = nil, dtAgentSickleavestart: String? = nil, dtAgentSickleaveend: String? = nil, eAgentSchedule: FieldEAgentSchedule, bAgentTranquillit: Bool, bAgentResidentiallicense: Bool, bAgentCommerciallicense: Bool, bAgentMortgagelicense: Bool, bAgentPaidbyofficetranquillit: Bool, dtAgentFintraccertification: String? = nil, bAgentIsactive: Bool, sContactFirstname: String, sContactLastname: String, dtContactBirthdate: String? = nil, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil) {
+    public init(pkiAgentID: Int, fkiAgenttypeID: Int, sAgenttypeNameX: String, fkiAgentincorporationID: Int? = nil, sAgentincorporationName: String? = nil, fkiDepartmentID: Int, sDepartmentNameX: String, fkiLanguageID: Int, sLanguageNameX: String, sRealestateboardnumberNumber: String? = nil, sAgentCode: String, iAgentPhotocopiercode: Int, iAgentLongdistancecode: Int, iAgentBannernumber: Int, sAgentRealestateassociationlicense: String, dtAgentPermitexpiration: String? = nil, dtAgentHiredate: String? = nil, dtAgentLeavedate: String? = nil, dtAgentContractdate: String? = nil, dtAgentTransferdate: String? = nil, dtAgentSenioritydate: String? = nil, dtAgentSickleavestart: String? = nil, dtAgentSickleaveend: String? = nil, eAgentSchedule: FieldEAgentSchedule, bAgentTranquillit: Bool, bAgentResidentiallicense: Bool, bAgentCommerciallicense: Bool, bAgentMortgagelicense: Bool, bAgentPaidbyofficetranquillit: Bool, dtAgentFintraccertification: String? = nil, bAgentIsactive: Bool, sContactFirstname: String, sContactLastname: String, dtContactBirthdate: String? = nil, sEmailAddress: String? = nil, sPhoneE164: String? = nil, sAddressCivic: String? = nil, sAddressStreet: String? = nil, sAddressSuite: String? = nil, sAddressCity: String? = nil, sAddressZip: String? = nil, fkiProvinceID: Int? = nil, sProvinceNameX: String? = nil, fkiCountryID: Int? = nil, sCountryNameX: String? = nil) {
         self.pkiAgentID = pkiAgentID
         self.fkiAgenttypeID = fkiAgenttypeID
         self.sAgenttypeNameX = sAgenttypeNameX
@@ -146,6 +149,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
         self.iAgentLongdistancecode = iAgentLongdistancecode
         self.iAgentBannernumber = iAgentBannernumber
         self.sAgentRealestateassociationlicense = sAgentRealestateassociationlicense
+        self.dtAgentPermitexpiration = dtAgentPermitexpiration
         self.dtAgentHiredate = dtAgentHiredate
         self.dtAgentLeavedate = dtAgentLeavedate
         self.dtAgentContractdate = dtAgentContractdate
@@ -193,6 +197,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
         case iAgentLongdistancecode
         case iAgentBannernumber
         case sAgentRealestateassociationlicense
+        case dtAgentPermitexpiration
         case dtAgentHiredate
         case dtAgentLeavedate
         case dtAgentContractdate
@@ -243,6 +248,7 @@ public struct AgentListElement: Codable, JSONEncodable, Hashable {
         try container.encode(iAgentLongdistancecode, forKey: .iAgentLongdistancecode)
         try container.encode(iAgentBannernumber, forKey: .iAgentBannernumber)
         try container.encode(sAgentRealestateassociationlicense, forKey: .sAgentRealestateassociationlicense)
+        try container.encodeIfPresent(dtAgentPermitexpiration, forKey: .dtAgentPermitexpiration)
         try container.encodeIfPresent(dtAgentHiredate, forKey: .dtAgentHiredate)
         try container.encodeIfPresent(dtAgentLeavedate, forKey: .dtAgentLeavedate)
         try container.encodeIfPresent(dtAgentContractdate, forKey: .dtAgentContractdate)

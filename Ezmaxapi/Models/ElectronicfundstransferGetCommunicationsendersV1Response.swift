@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients */
+/** Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders */
 public struct ElectronicfundstransferGetCommunicationsendersV1Response: Codable, JSONEncodable, Hashable {
 
     public var objDebugPayload: CommonResponseObjDebugPayload

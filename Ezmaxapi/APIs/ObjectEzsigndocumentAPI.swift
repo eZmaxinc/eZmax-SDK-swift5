@@ -2382,7 +2382,7 @@ open class ObjectEzsigndocumentAPI {
     /**
      Unsend the Ezsigndocument
      - POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/unsend
-     - Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
+     - Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  âš ï¸ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: Authorization

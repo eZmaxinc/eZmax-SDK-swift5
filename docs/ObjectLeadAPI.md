@@ -4,9 +4,109 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**leadBatchDownloadV1**](ObjectLeadAPI.md#leadbatchdownloadv1) | **POST** /1/object/lead/{pkiLeadID}/batchDownload | Download multiples attachments from a Lead
+[**leadGetAttachmentsV1**](ObjectLeadAPI.md#leadgetattachmentsv1) | **GET** /1/object/lead/{pkiLeadID}/getAttachments | Retrieve Lead&#39;s attachments
 [**leadGetListV1**](ObjectLeadAPI.md#leadgetlistv1) | **GET** /1/object/lead/getList | Retrieve Lead list
 [**leadImportIntoEDMV1**](ObjectLeadAPI.md#leadimportintoedmv1) | **POST** /1/object/lead/{pkiLeadID}/importIntoEDM | Import attachments into the Lead
 
+
+# **leadBatchDownloadV1**
+```swift
+    open class func leadBatchDownloadV1(pkiLeadID: Int, leadBatchDownloadV1Request: LeadBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Lead
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiLeadID = 987 // Int | 
+let leadBatchDownloadV1Request = lead-batchDownload-v1-Request(aPkiAttachmentID: [123]) // LeadBatchDownloadV1Request | 
+
+// Download multiples attachments from a Lead
+ObjectLeadAPI.leadBatchDownloadV1(pkiLeadID: pkiLeadID, leadBatchDownloadV1Request: leadBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiLeadID** | **Int** |  | 
+ **leadBatchDownloadV1Request** | [**LeadBatchDownloadV1Request**](LeadBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **leadGetAttachmentsV1**
+```swift
+    open class func leadGetAttachmentsV1(pkiLeadID: Int, completion: @escaping (_ data: LeadGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Lead's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiLeadID = 987 // Int | 
+
+// Retrieve Lead's attachments
+ObjectLeadAPI.leadGetAttachmentsV1(pkiLeadID: pkiLeadID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiLeadID** | **Int** |  | 
+
+### Return type
+
+[**LeadGetAttachmentsV1Response**](LeadGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **leadGetListV1**
 ```swift

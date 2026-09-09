@@ -4,10 +4,110 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**agentBatchDownloadV1**](ObjectAgentAPI.md#agentbatchdownloadv1) | **POST** /1/object/agent/{pkiAgentID}/batchDownload | Download multiples attachments from a Agent
+[**agentGetAttachmentsV1**](ObjectAgentAPI.md#agentgetattachmentsv1) | **GET** /1/object/agent/{pkiAgentID}/getAttachments | Retrieve Agent&#39;s attachments
 [**agentGetAutocompleteV2**](ObjectAgentAPI.md#agentgetautocompletev2) | **GET** /2/object/agent/getAutocomplete/{sSelector} | Retrieve Agents and IDs
 [**agentGetListV1**](ObjectAgentAPI.md#agentgetlistv1) | **GET** /1/object/agent/getList | Retrieve Agent list
 [**agentImportIntoEDMV1**](ObjectAgentAPI.md#agentimportintoedmv1) | **POST** /1/object/agent/{pkiAgentID}/importIntoEDM | Import attachments into the Agent
 
+
+# **agentBatchDownloadV1**
+```swift
+    open class func agentBatchDownloadV1(pkiAgentID: Int, agentBatchDownloadV1Request: AgentBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Agent
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiAgentID = 987 // Int | 
+let agentBatchDownloadV1Request = agent-batchDownload-v1-Request(aPkiAttachmentID: [123]) // AgentBatchDownloadV1Request | 
+
+// Download multiples attachments from a Agent
+ObjectAgentAPI.agentBatchDownloadV1(pkiAgentID: pkiAgentID, agentBatchDownloadV1Request: agentBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiAgentID** | **Int** |  | 
+ **agentBatchDownloadV1Request** | [**AgentBatchDownloadV1Request**](AgentBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **agentGetAttachmentsV1**
+```swift
+    open class func agentGetAttachmentsV1(pkiAgentID: Int, completion: @escaping (_ data: AgentGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Agent's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiAgentID = 987 // Int | 
+
+// Retrieve Agent's attachments
+ObjectAgentAPI.agentGetAttachmentsV1(pkiAgentID: pkiAgentID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiAgentID** | **Int** |  | 
+
+### Return type
+
+[**AgentGetAttachmentsV1Response**](AgentGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **agentGetAutocompleteV2**
 ```swift

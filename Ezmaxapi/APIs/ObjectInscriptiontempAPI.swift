@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectInscriptiontempAPI {
 
     /**
+     Download multiples attachments from a Inscriptiontemp
+     
+     - parameter pkiInscriptiontempID: (path)  
+     - parameter inscriptiontempBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptiontempBatchDownloadV1(pkiInscriptiontempID: Int, inscriptiontempBatchDownloadV1Request: InscriptiontempBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptiontempBatchDownloadV1WithRequestBuilder(pkiInscriptiontempID: pkiInscriptiontempID, inscriptiontempBatchDownloadV1Request: inscriptiontempBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Inscriptiontemp
+     - POST /1/object/inscriptiontemp/{pkiInscriptiontempID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptiontempID: (path)  
+     - parameter inscriptiontempBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func inscriptiontempBatchDownloadV1WithRequestBuilder(pkiInscriptiontempID: Int, inscriptiontempBatchDownloadV1Request: InscriptiontempBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/inscriptiontemp/{pkiInscriptiontempID}/batchDownload"
+        let pkiInscriptiontempIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptiontempID))"
+        let pkiInscriptiontempIDPostEscape = pkiInscriptiontempIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptiontempID}", with: pkiInscriptiontempIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: inscriptiontempBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Inscriptiontemp's attachments
+     
+     - parameter pkiInscriptiontempID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptiontempGetAttachmentsV1(pkiInscriptiontempID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptiontempGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptiontempGetAttachmentsV1WithRequestBuilder(pkiInscriptiontempID: pkiInscriptiontempID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Inscriptiontemp's attachments
+     - GET /1/object/inscriptiontemp/{pkiInscriptiontempID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptiontempID: (path)  
+     - returns: RequestBuilder<InscriptiontempGetAttachmentsV1Response> 
+     */
+    open class func inscriptiontempGetAttachmentsV1WithRequestBuilder(pkiInscriptiontempID: Int) -> RequestBuilder<InscriptiontempGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/inscriptiontemp/{pkiInscriptiontempID}/getAttachments"
+        let pkiInscriptiontempIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptiontempID))"
+        let pkiInscriptiontempIDPostEscape = pkiInscriptiontempIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptiontempID}", with: pkiInscriptiontempIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptiontempGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication count
      
      - parameter pkiInscriptiontempID: (path)  

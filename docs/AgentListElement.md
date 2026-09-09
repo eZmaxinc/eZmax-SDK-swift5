@@ -18,8 +18,9 @@ Name | Type | Description | Notes
 **iAgentLongdistancecode** | **Int** | The longdistancecode of the Agent | 
 **iAgentBannernumber** | **Int** | The bannernumber of the Agent | 
 **sAgentRealestateassociationlicense** | **String** | The realestateassociationlicense of the Agent | 
-**dtAgentHiredate** | **String** | The hiredate of the Agent | [optional] 
-**dtAgentLeavedate** | **String** | The leavedate of the Agent | [optional] 
+**dtAgentPermitexpiration** | **String** | The expiration date of permit of the Agent | [optional] 
+**dtAgentHiredate** | **String** | The hire date of the Agent | [optional] 
+**dtAgentLeavedate** | **String** | The leave date of the Agent | [optional] 
 **dtAgentContractdate** | **String** | The contract date of the Agent | [optional] 
 **dtAgentTransferdate** | **String** | The transfer date of the Agent | [optional] 
 **dtAgentSenioritydate** | **String** | The seniority date of the Agent | [optional] 

@@ -13,6 +13,57 @@ import AnyCodable
 open class ObjectInvoiceAPI {
 
     /**
+     Download multiples attachments from an Invoice
+     
+     - parameter pkiInvoiceID: (path)  
+     - parameter invoiceBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func invoiceBatchDownloadV1(pkiInvoiceID: Int, invoiceBatchDownloadV1Request: InvoiceBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return invoiceBatchDownloadV1WithRequestBuilder(pkiInvoiceID: pkiInvoiceID, invoiceBatchDownloadV1Request: invoiceBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from an Invoice
+     - POST /1/object/invoice/{pkiInvoiceID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInvoiceID: (path)  
+     - parameter invoiceBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func invoiceBatchDownloadV1WithRequestBuilder(pkiInvoiceID: Int, invoiceBatchDownloadV1Request: InvoiceBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/invoice/{pkiInvoiceID}/batchDownload"
+        let pkiInvoiceIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInvoiceID))"
+        let pkiInvoiceIDPostEscape = pkiInvoiceIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInvoiceID}", with: pkiInvoiceIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: invoiceBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Invoice's Attachments
      
      - parameter pkiInvoiceID: (path)  

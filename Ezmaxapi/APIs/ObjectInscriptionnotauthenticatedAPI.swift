@@ -13,6 +13,57 @@ import AnyCodable
 open class ObjectInscriptionnotauthenticatedAPI {
 
     /**
+     Download multiples attachments from a Inscriptionnotauthenticated
+     
+     - parameter pkiInscriptionnotauthenticatedID: (path)  
+     - parameter inscriptionnotauthenticatedBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionnotauthenticatedBatchDownloadV1(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedBatchDownloadV1Request: InscriptionnotauthenticatedBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionnotauthenticatedBatchDownloadV1WithRequestBuilder(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, inscriptionnotauthenticatedBatchDownloadV1Request: inscriptionnotauthenticatedBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Inscriptionnotauthenticated
+     - POST /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionnotauthenticatedID: (path)  
+     - parameter inscriptionnotauthenticatedBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func inscriptionnotauthenticatedBatchDownloadV1WithRequestBuilder(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedBatchDownloadV1Request: InscriptionnotauthenticatedBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/batchDownload"
+        let pkiInscriptionnotauthenticatedIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionnotauthenticatedID))"
+        let pkiInscriptionnotauthenticatedIDPostEscape = pkiInscriptionnotauthenticatedIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionnotauthenticatedID}", with: pkiInscriptionnotauthenticatedIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: inscriptionnotauthenticatedBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Fills the Inscriptionnotauthenticatedcondition in the Inscriptionnotauthenticated
      
      - parameter pkiInscriptionnotauthenticatedID: (path)  
@@ -62,6 +113,55 @@ open class ObjectInscriptionnotauthenticatedAPI {
         let localVariableRequestBuilder: RequestBuilder<InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Inscriptionnotauthenticated's attachments
+     
+     - parameter pkiInscriptionnotauthenticatedID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func inscriptionnotauthenticatedGetAttachmentsV1(pkiInscriptionnotauthenticatedID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InscriptionnotauthenticatedGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return inscriptionnotauthenticatedGetAttachmentsV1WithRequestBuilder(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Inscriptionnotauthenticated's attachments
+     - GET /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiInscriptionnotauthenticatedID: (path)  
+     - returns: RequestBuilder<InscriptionnotauthenticatedGetAttachmentsV1Response> 
+     */
+    open class func inscriptionnotauthenticatedGetAttachmentsV1WithRequestBuilder(pkiInscriptionnotauthenticatedID: Int) -> RequestBuilder<InscriptionnotauthenticatedGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getAttachments"
+        let pkiInscriptionnotauthenticatedIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiInscriptionnotauthenticatedID))"
+        let pkiInscriptionnotauthenticatedIDPostEscape = pkiInscriptionnotauthenticatedIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiInscriptionnotauthenticatedID}", with: pkiInscriptionnotauthenticatedIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<InscriptionnotauthenticatedGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**

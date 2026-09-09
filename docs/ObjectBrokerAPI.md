@@ -4,10 +4,110 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**brokerBatchDownloadV1**](ObjectBrokerAPI.md#brokerbatchdownloadv1) | **POST** /1/object/broker/{pkiBrokerID}/batchDownload | Download multiples attachments from a Broker
+[**brokerGetAttachmentsV1**](ObjectBrokerAPI.md#brokergetattachmentsv1) | **GET** /1/object/broker/{pkiBrokerID}/getAttachments | Retrieve Broker&#39;s attachments
 [**brokerGetAutocompleteV2**](ObjectBrokerAPI.md#brokergetautocompletev2) | **GET** /2/object/broker/getAutocomplete/{sSelector} | Retrieve Brokers and IDs
 [**brokerGetListV1**](ObjectBrokerAPI.md#brokergetlistv1) | **GET** /1/object/broker/getList | Retrieve Broker list
 [**brokerImportIntoEDMV1**](ObjectBrokerAPI.md#brokerimportintoedmv1) | **POST** /1/object/broker/{pkiBrokerID}/importIntoEDM | Import attachments into the Broker
 
+
+# **brokerBatchDownloadV1**
+```swift
+    open class func brokerBatchDownloadV1(pkiBrokerID: Int, brokerBatchDownloadV1Request: BrokerBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Broker
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiBrokerID = 987 // Int | 
+let brokerBatchDownloadV1Request = broker-batchDownload-v1-Request(aPkiAttachmentID: [123]) // BrokerBatchDownloadV1Request | 
+
+// Download multiples attachments from a Broker
+ObjectBrokerAPI.brokerBatchDownloadV1(pkiBrokerID: pkiBrokerID, brokerBatchDownloadV1Request: brokerBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiBrokerID** | **Int** |  | 
+ **brokerBatchDownloadV1Request** | [**BrokerBatchDownloadV1Request**](BrokerBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **brokerGetAttachmentsV1**
+```swift
+    open class func brokerGetAttachmentsV1(pkiBrokerID: Int, completion: @escaping (_ data: BrokerGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Broker's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiBrokerID = 987 // Int | 
+
+// Retrieve Broker's attachments
+ObjectBrokerAPI.brokerGetAttachmentsV1(pkiBrokerID: pkiBrokerID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiBrokerID** | **Int** |  | 
+
+### Return type
+
+[**BrokerGetAttachmentsV1Response**](BrokerGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **brokerGetAutocompleteV2**
 ```swift

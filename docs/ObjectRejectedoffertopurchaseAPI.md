@@ -4,6 +4,8 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**rejectedoffertopurchaseBatchDownloadV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasebatchdownloadv1) | **POST** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/batchDownload | Download multiples attachments from a Rejectedoffertopurchase
+[**rejectedoffertopurchaseGetAttachmentsV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetattachmentsv1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getAttachments | Retrieve Rejectedoffertopurchase&#39;s attachments
 [**rejectedoffertopurchaseGetCommunicationCountV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetcommunicationcountv1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationCount | Retrieve Communication count
 [**rejectedoffertopurchaseGetCommunicationListV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetcommunicationlistv1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationList | Retrieve Communication list
 [**rejectedoffertopurchaseGetCommunicationrecipientsV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetcommunicationrecipientsv1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationrecipients | Retrieve Rejectedoffertopurchase&#39;s Communicationrecipient
@@ -11,6 +13,104 @@ Method | HTTP request | Description
 [**rejectedoffertopurchaseGetListV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchasegetlistv1) | **GET** /1/object/rejectedoffertopurchase/getList | Retrieve Rejectedoffertopurchase list
 [**rejectedoffertopurchaseImportIntoEDMV1**](ObjectRejectedoffertopurchaseAPI.md#rejectedoffertopurchaseimportintoedmv1) | **POST** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/importIntoEDM | Import attachments into the Rejectedoffertopurchase
 
+
+# **rejectedoffertopurchaseBatchDownloadV1**
+```swift
+    open class func rejectedoffertopurchaseBatchDownloadV1(pkiRejectedoffertopurchaseID: Int, rejectedoffertopurchaseBatchDownloadV1Request: RejectedoffertopurchaseBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Rejectedoffertopurchase
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiRejectedoffertopurchaseID = 987 // Int | 
+let rejectedoffertopurchaseBatchDownloadV1Request = rejectedoffertopurchase-batchDownload-v1-Request(aPkiAttachmentID: [123]) // RejectedoffertopurchaseBatchDownloadV1Request | 
+
+// Download multiples attachments from a Rejectedoffertopurchase
+ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseBatchDownloadV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID, rejectedoffertopurchaseBatchDownloadV1Request: rejectedoffertopurchaseBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiRejectedoffertopurchaseID** | **Int** |  | 
+ **rejectedoffertopurchaseBatchDownloadV1Request** | [**RejectedoffertopurchaseBatchDownloadV1Request**](RejectedoffertopurchaseBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rejectedoffertopurchaseGetAttachmentsV1**
+```swift
+    open class func rejectedoffertopurchaseGetAttachmentsV1(pkiRejectedoffertopurchaseID: Int, completion: @escaping (_ data: RejectedoffertopurchaseGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Rejectedoffertopurchase's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiRejectedoffertopurchaseID = 987 // Int | 
+
+// Retrieve Rejectedoffertopurchase's attachments
+ObjectRejectedoffertopurchaseAPI.rejectedoffertopurchaseGetAttachmentsV1(pkiRejectedoffertopurchaseID: pkiRejectedoffertopurchaseID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiRejectedoffertopurchaseID** | **Int** |  | 
+
+### Return type
+
+[**RejectedoffertopurchaseGetAttachmentsV1Response**](RejectedoffertopurchaseGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rejectedoffertopurchaseGetCommunicationCountV1**
 ```swift

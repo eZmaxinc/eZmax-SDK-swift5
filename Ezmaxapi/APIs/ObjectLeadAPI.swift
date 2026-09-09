@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectLeadAPI {
 
     /**
+     Download multiples attachments from a Lead
+     
+     - parameter pkiLeadID: (path)  
+     - parameter leadBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func leadBatchDownloadV1(pkiLeadID: Int, leadBatchDownloadV1Request: LeadBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return leadBatchDownloadV1WithRequestBuilder(pkiLeadID: pkiLeadID, leadBatchDownloadV1Request: leadBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Lead
+     - POST /1/object/lead/{pkiLeadID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiLeadID: (path)  
+     - parameter leadBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func leadBatchDownloadV1WithRequestBuilder(pkiLeadID: Int, leadBatchDownloadV1Request: LeadBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/lead/{pkiLeadID}/batchDownload"
+        let pkiLeadIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiLeadID))"
+        let pkiLeadIDPostEscape = pkiLeadIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiLeadID}", with: pkiLeadIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: leadBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Lead's attachments
+     
+     - parameter pkiLeadID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func leadGetAttachmentsV1(pkiLeadID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: LeadGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return leadGetAttachmentsV1WithRequestBuilder(pkiLeadID: pkiLeadID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Lead's attachments
+     - GET /1/object/lead/{pkiLeadID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiLeadID: (path)  
+     - returns: RequestBuilder<LeadGetAttachmentsV1Response> 
+     */
+    open class func leadGetAttachmentsV1WithRequestBuilder(pkiLeadID: Int) -> RequestBuilder<LeadGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/lead/{pkiLeadID}/getAttachments"
+        let pkiLeadIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiLeadID))"
+        let pkiLeadIDPostEscape = pkiLeadIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiLeadID}", with: pkiLeadIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<LeadGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter eOrderBy
      */
     public enum EOrderBy_leadGetListV1: String, CaseIterable {

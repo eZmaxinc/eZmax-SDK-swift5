@@ -315,8 +315,6 @@ open class ObjectEzsigntemplateAPI {
         case iezsigntemplatesignaturetotalDesc = "iEzsigntemplateSignaturetotal_DESC"
         case sezsignfoldertypenamexAsc = "sEzsignfoldertypeNameX_ASC"
         case sezsignfoldertypenamexDesc = "sEzsignfoldertypeNameX_DESC"
-        case eezsigntemplatetypeAsc2 = "eEzsigntemplateType_ASC"
-        case eezsigntemplatetypeDesc2 = "eEzsigntemplateType_DESC"
     }
 
     /**

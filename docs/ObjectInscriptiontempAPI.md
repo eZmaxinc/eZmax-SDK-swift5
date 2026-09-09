@@ -4,6 +4,8 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**inscriptiontempBatchDownloadV1**](ObjectInscriptiontempAPI.md#inscriptiontempbatchdownloadv1) | **POST** /1/object/inscriptiontemp/{pkiInscriptiontempID}/batchDownload | Download multiples attachments from a Inscriptiontemp
+[**inscriptiontempGetAttachmentsV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetattachmentsv1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getAttachments | Retrieve Inscriptiontemp&#39;s attachments
 [**inscriptiontempGetCommunicationCountV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetcommunicationcountv1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationCount | Retrieve Communication count
 [**inscriptiontempGetCommunicationListV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetcommunicationlistv1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationList | Retrieve Communication list
 [**inscriptiontempGetCommunicationrecipientsV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetcommunicationrecipientsv1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationrecipients | Retrieve Inscriptiontemp&#39;s Communicationrecipient
@@ -11,6 +13,104 @@ Method | HTTP request | Description
 [**inscriptiontempGetListV1**](ObjectInscriptiontempAPI.md#inscriptiontempgetlistv1) | **GET** /1/object/inscriptiontemp/getList | Retrieve Inscriptiontemp list
 [**inscriptiontempImportIntoEDMV1**](ObjectInscriptiontempAPI.md#inscriptiontempimportintoedmv1) | **POST** /1/object/inscriptiontemp/{pkiInscriptiontempID}/importIntoEDM | Import attachments into the Inscriptiontemp
 
+
+# **inscriptiontempBatchDownloadV1**
+```swift
+    open class func inscriptiontempBatchDownloadV1(pkiInscriptiontempID: Int, inscriptiontempBatchDownloadV1Request: InscriptiontempBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Inscriptiontemp
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiInscriptiontempID = 987 // Int | 
+let inscriptiontempBatchDownloadV1Request = inscriptiontemp-batchDownload-v1-Request(aPkiAttachmentID: [123]) // InscriptiontempBatchDownloadV1Request | 
+
+// Download multiples attachments from a Inscriptiontemp
+ObjectInscriptiontempAPI.inscriptiontempBatchDownloadV1(pkiInscriptiontempID: pkiInscriptiontempID, inscriptiontempBatchDownloadV1Request: inscriptiontempBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInscriptiontempID** | **Int** |  | 
+ **inscriptiontempBatchDownloadV1Request** | [**InscriptiontempBatchDownloadV1Request**](InscriptiontempBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **inscriptiontempGetAttachmentsV1**
+```swift
+    open class func inscriptiontempGetAttachmentsV1(pkiInscriptiontempID: Int, completion: @escaping (_ data: InscriptiontempGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Inscriptiontemp's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiInscriptiontempID = 987 // Int | 
+
+// Retrieve Inscriptiontemp's attachments
+ObjectInscriptiontempAPI.inscriptiontempGetAttachmentsV1(pkiInscriptiontempID: pkiInscriptiontempID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInscriptiontempID** | **Int** |  | 
+
+### Return type
+
+[**InscriptiontempGetAttachmentsV1Response**](InscriptiontempGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inscriptiontempGetCommunicationCountV1**
 ```swift

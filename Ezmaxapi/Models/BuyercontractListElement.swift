@@ -27,16 +27,16 @@ public struct BuyercontractListElement: Codable, JSONEncodable, Hashable {
     /** The name of the Inscriptiontype in the language of the requester */
     public var sInscriptiontypeNameX: String
     public var eBuyercontractStep: FieldEBuyercontractStep
-    /** The minimumprice of the Buyercontract */
+    /** The minimum price of the Buyercontract */
     public var dBuyercontractMinimumprice: String
-    /** The maximumprice of the Buyercontract */
+    /** The maximum price of the Buyercontract */
     public var dBuyercontractMaximumprice: String
     public var eBuyercontractType: FieldEBuyercontractType
     /** The number of the Buyercontract */
     public var sBuyercontractContract: String?
     /** The date of the Buyercontract */
     public var dtBuyercontractDate: String
-    /** The expirationdate of the Buyercontract */
+    /** The expiration date of the Buyercontract */
     public var dtBuyercontractExpirationdate: String?
     /** Whether the buyercontract is active or not */
     public var bBuyercontractIsactive: Bool

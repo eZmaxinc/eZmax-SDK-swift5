@@ -4,6 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**invoiceBatchDownloadV1**](ObjectInvoiceAPI.md#invoicebatchdownloadv1) | **POST** /1/object/invoice/{pkiInvoiceID}/batchDownload | Download multiples attachments from an Invoice
 [**invoiceGetAttachmentsV1**](ObjectInvoiceAPI.md#invoicegetattachmentsv1) | **GET** /1/object/invoice/{pkiInvoiceID}/getAttachments | Retrieve Invoice&#39;s Attachments
 [**invoiceGetCommunicationCountV1**](ObjectInvoiceAPI.md#invoicegetcommunicationcountv1) | **GET** /1/object/invoice/{pkiInvoiceID}/getCommunicationCount | Retrieve Communication count
 [**invoiceGetCommunicationListV1**](ObjectInvoiceAPI.md#invoicegetcommunicationlistv1) | **GET** /1/object/invoice/{pkiInvoiceID}/getCommunicationList | Retrieve Communication list
@@ -11,6 +12,56 @@ Method | HTTP request | Description
 [**invoiceGetCommunicationsendersV1**](ObjectInvoiceAPI.md#invoicegetcommunicationsendersv1) | **GET** /1/object/invoice/{pkiInvoiceID}/getCommunicationsenders | Retrieve Invoice&#39;s Communicationsender
 [**invoiceImportIntoEDMV1**](ObjectInvoiceAPI.md#invoiceimportintoedmv1) | **POST** /1/object/invoice/{pkiInvoiceID}/importIntoEDM | Import attachments into the Invoice
 
+
+# **invoiceBatchDownloadV1**
+```swift
+    open class func invoiceBatchDownloadV1(pkiInvoiceID: Int, invoiceBatchDownloadV1Request: InvoiceBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from an Invoice
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiInvoiceID = 987 // Int | 
+let invoiceBatchDownloadV1Request = invoice-batchDownload-v1-Request(aPkiAttachmentID: [123]) // InvoiceBatchDownloadV1Request | 
+
+// Download multiples attachments from an Invoice
+ObjectInvoiceAPI.invoiceBatchDownloadV1(pkiInvoiceID: pkiInvoiceID, invoiceBatchDownloadV1Request: invoiceBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInvoiceID** | **Int** |  | 
+ **invoiceBatchDownloadV1Request** | [**InvoiceBatchDownloadV1Request**](InvoiceBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **invoiceGetAttachmentsV1**
 ```swift

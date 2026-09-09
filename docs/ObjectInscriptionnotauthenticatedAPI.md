@@ -4,7 +4,9 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**inscriptionnotauthenticatedBatchDownloadV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedbatchdownloadv1) | **POST** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/batchDownload | Download multiples attachments from a Inscriptionnotauthenticated
 [**inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedfillinscriptionnotauthenticatedconditionv1) | **POST** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/fillInscriptionnotauthenticatedcondition | Fills the Inscriptionnotauthenticatedcondition in the Inscriptionnotauthenticated
+[**inscriptionnotauthenticatedGetAttachmentsV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetattachmentsv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getAttachments | Retrieve Inscriptionnotauthenticated&#39;s attachments
 [**inscriptionnotauthenticatedGetCommunicationCountV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetcommunicationcountv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationCount | Retrieve Communication count
 [**inscriptionnotauthenticatedGetCommunicationListV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetcommunicationlistv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationList | Retrieve Communication list
 [**inscriptionnotauthenticatedGetCommunicationrecipientsV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetcommunicationrecipientsv1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationrecipients | Retrieve Inscriptionnotauthenticated&#39;s Communicationrecipient
@@ -14,6 +16,56 @@ Method | HTTP request | Description
 [**inscriptionnotauthenticatedGetObjectV2**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedgetobjectv2) | **GET** /2/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID} | Retrieve an existing Inscriptionnotauthenticated
 [**inscriptionnotauthenticatedImportIntoEDMV1**](ObjectInscriptionnotauthenticatedAPI.md#inscriptionnotauthenticatedimportintoedmv1) | **POST** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/importIntoEDM | Import attachments into the Inscriptionnotauthenticated
 
+
+# **inscriptionnotauthenticatedBatchDownloadV1**
+```swift
+    open class func inscriptionnotauthenticatedBatchDownloadV1(pkiInscriptionnotauthenticatedID: Int, inscriptionnotauthenticatedBatchDownloadV1Request: InscriptionnotauthenticatedBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Inscriptionnotauthenticated
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiInscriptionnotauthenticatedID = 987 // Int | 
+let inscriptionnotauthenticatedBatchDownloadV1Request = inscriptionnotauthenticated-batchDownload-v1-Request(aPkiAttachmentID: [123]) // InscriptionnotauthenticatedBatchDownloadV1Request | 
+
+// Download multiples attachments from a Inscriptionnotauthenticated
+ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedBatchDownloadV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID, inscriptionnotauthenticatedBatchDownloadV1Request: inscriptionnotauthenticatedBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInscriptionnotauthenticatedID** | **Int** |  | 
+ **inscriptionnotauthenticatedBatchDownloadV1Request** | [**InscriptionnotauthenticatedBatchDownloadV1Request**](InscriptionnotauthenticatedBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1**
 ```swift
@@ -63,6 +115,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **inscriptionnotauthenticatedGetAttachmentsV1**
+```swift
+    open class func inscriptionnotauthenticatedGetAttachmentsV1(pkiInscriptionnotauthenticatedID: Int, completion: @escaping (_ data: InscriptionnotauthenticatedGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Inscriptionnotauthenticated's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiInscriptionnotauthenticatedID = 987 // Int | 
+
+// Retrieve Inscriptionnotauthenticated's attachments
+ObjectInscriptionnotauthenticatedAPI.inscriptionnotauthenticatedGetAttachmentsV1(pkiInscriptionnotauthenticatedID: pkiInscriptionnotauthenticatedID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInscriptionnotauthenticatedID** | **Int** |  | 
+
+### Return type
+
+[**InscriptionnotauthenticatedGetAttachmentsV1Response**](InscriptionnotauthenticatedGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

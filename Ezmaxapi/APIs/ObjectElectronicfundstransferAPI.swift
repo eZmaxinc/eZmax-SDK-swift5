@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectElectronicfundstransferAPI {
 
     /**
+     Download multiples attachments from an Electronicfundstransfer
+     
+     - parameter pkiElectronicfundstransferID: (path)  
+     - parameter electronicfundstransferBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func electronicfundstransferBatchDownloadV1(pkiElectronicfundstransferID: Int, electronicfundstransferBatchDownloadV1Request: ElectronicfundstransferBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return electronicfundstransferBatchDownloadV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID, electronicfundstransferBatchDownloadV1Request: electronicfundstransferBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from an Electronicfundstransfer
+     - POST /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiElectronicfundstransferID: (path)  
+     - parameter electronicfundstransferBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func electronicfundstransferBatchDownloadV1WithRequestBuilder(pkiElectronicfundstransferID: Int, electronicfundstransferBatchDownloadV1Request: ElectronicfundstransferBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/batchDownload"
+        let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
+        let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiElectronicfundstransferID}", with: pkiElectronicfundstransferIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: electronicfundstransferBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Electronicfundstransfer's attachments
+     
+     - parameter pkiElectronicfundstransferID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func electronicfundstransferGetAttachmentsV1(pkiElectronicfundstransferID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ElectronicfundstransferGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return electronicfundstransferGetAttachmentsV1WithRequestBuilder(pkiElectronicfundstransferID: pkiElectronicfundstransferID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Electronicfundstransfer's attachments
+     - GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiElectronicfundstransferID: (path)  
+     - returns: RequestBuilder<ElectronicfundstransferGetAttachmentsV1Response> 
+     */
+    open class func electronicfundstransferGetAttachmentsV1WithRequestBuilder(pkiElectronicfundstransferID: Int) -> RequestBuilder<ElectronicfundstransferGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getAttachments"
+        let pkiElectronicfundstransferIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiElectronicfundstransferID))"
+        let pkiElectronicfundstransferIDPostEscape = pkiElectronicfundstransferIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiElectronicfundstransferID}", with: pkiElectronicfundstransferIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<ElectronicfundstransferGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Retrieve Communication count
      
      - parameter pkiElectronicfundstransferID: (path)  

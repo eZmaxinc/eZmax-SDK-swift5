@@ -21,10 +21,10 @@ public struct CustomAttachmentImportIntoEDMRequest: Codable, JSONEncodable, Hash
     public static let fkiAttachmentIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let fkiInscriptionchecklistIDRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: 16777215, exclusiveMaximum: false, multipleOf: nil)
     public static let sAttachmentUrlRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^https:\/\/[^\\s\/$.?#].[^\\s]*$/")
-    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
-    public static let sAttachmentCategoryRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{0,75}$/")
+    public static let sAttachmentNameRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"\/\\\\\\\\|?*]{1,75}$/")
+    public static let sAttachmentCategoryRule = StringRule(minLength: nil, maxLength: nil, pattern: "/^(?!\\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\\.|$))[^\\x00-\\x1F<>:\"\/\\\\\\\\|?*]{0,75}$/")
     public static let fkiUserIDSpecificRule = NumericRule<Int>(minimum: 0, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
-    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^.{32}$/")
+    public static let sAttachmentMD5Rule = StringRule(minLength: nil, maxLength: nil, pattern: "/^[a-f0-9]{32}$/")
     /** The source of the Attachment */
     public var eAttachmentSource: EAttachmentSource
     /** The unique ID of the Attachment. */

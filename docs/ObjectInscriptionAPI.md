@@ -4,6 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**inscriptionBatchDownloadV1**](ObjectInscriptionAPI.md#inscriptionbatchdownloadv1) | **POST** /1/object/inscription/{pkiInscriptionID}/batchDownload | Download multiples attachments from an Inscription
 [**inscriptionGetAttachmentsV1**](ObjectInscriptionAPI.md#inscriptiongetattachmentsv1) | **GET** /1/object/inscription/{pkiInscriptionID}/getAttachments | Retrieve Inscription&#39;s Attachments
 [**inscriptionGetCommunicationCountV1**](ObjectInscriptionAPI.md#inscriptiongetcommunicationcountv1) | **GET** /1/object/inscription/{pkiInscriptionID}/getCommunicationCount | Retrieve Communication count
 [**inscriptionGetCommunicationListV1**](ObjectInscriptionAPI.md#inscriptiongetcommunicationlistv1) | **GET** /1/object/inscription/{pkiInscriptionID}/getCommunicationList | Retrieve Communication list
@@ -15,6 +16,56 @@ Method | HTTP request | Description
 [**inscriptionImportIntoEDMV1**](ObjectInscriptionAPI.md#inscriptionimportintoedmv1) | **POST** /1/object/inscription/{pkiInscriptionID}/importIntoEDM | Import attachments into the Inscription
 [**inscriptionPrepareFilesTransferV1**](ObjectInscriptionAPI.md#inscriptionpreparefilestransferv1) | **POST** /1/object/inscription/{pkiInscriptionID}/prepareFilesTransfer | Prepares file transfer into EDM
 
+
+# **inscriptionBatchDownloadV1**
+```swift
+    open class func inscriptionBatchDownloadV1(pkiInscriptionID: Int, inscriptionBatchDownloadV1Request: InscriptionBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from an Inscription
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiInscriptionID = 987 // Int | 
+let inscriptionBatchDownloadV1Request = inscription-batchDownload-v1-Request(aPkiAttachmentID: [123]) // InscriptionBatchDownloadV1Request | 
+
+// Download multiples attachments from an Inscription
+ObjectInscriptionAPI.inscriptionBatchDownloadV1(pkiInscriptionID: pkiInscriptionID, inscriptionBatchDownloadV1Request: inscriptionBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiInscriptionID** | **Int** |  | 
+ **inscriptionBatchDownloadV1Request** | [**InscriptionBatchDownloadV1Request**](InscriptionBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inscriptionGetAttachmentsV1**
 ```swift

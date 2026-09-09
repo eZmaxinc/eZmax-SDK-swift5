@@ -13,6 +13,106 @@ import AnyCodable
 open class ObjectBankaccountAPI {
 
     /**
+     Download multiples attachments from a Bankaccount
+     
+     - parameter pkiBankaccountID: (path)  
+     - parameter bankaccountBatchDownloadV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func bankaccountBatchDownloadV1(pkiBankaccountID: Int, bankaccountBatchDownloadV1Request: BankaccountBatchDownloadV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return bankaccountBatchDownloadV1WithRequestBuilder(pkiBankaccountID: pkiBankaccountID, bankaccountBatchDownloadV1Request: bankaccountBatchDownloadV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Download multiples attachments from a Bankaccount
+     - POST /1/object/bankaccount/{pkiBankaccountID}/batchDownload
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBankaccountID: (path)  
+     - parameter bankaccountBatchDownloadV1Request: (body)  
+     - returns: RequestBuilder<URL> 
+     */
+    open class func bankaccountBatchDownloadV1WithRequestBuilder(pkiBankaccountID: Int, bankaccountBatchDownloadV1Request: BankaccountBatchDownloadV1Request) -> RequestBuilder<URL> {
+        var localVariablePath = "/1/object/bankaccount/{pkiBankaccountID}/batchDownload"
+        let pkiBankaccountIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBankaccountID))"
+        let pkiBankaccountIDPostEscape = pkiBankaccountIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBankaccountID}", with: pkiBankaccountIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: bankaccountBatchDownloadV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Retrieve Bankaccount's attachments
+     
+     - parameter pkiBankaccountID: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func bankaccountGetAttachmentsV1(pkiBankaccountID: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BankaccountGetAttachmentsV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return bankaccountGetAttachmentsV1WithRequestBuilder(pkiBankaccountID: pkiBankaccountID).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Retrieve Bankaccount's attachments
+     - GET /1/object/bankaccount/{pkiBankaccountID}/getAttachments
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBankaccountID: (path)  
+     - returns: RequestBuilder<BankaccountGetAttachmentsV1Response> 
+     */
+    open class func bankaccountGetAttachmentsV1WithRequestBuilder(pkiBankaccountID: Int) -> RequestBuilder<BankaccountGetAttachmentsV1Response> {
+        var localVariablePath = "/1/object/bankaccount/{pkiBankaccountID}/getAttachments"
+        let pkiBankaccountIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBankaccountID))"
+        let pkiBankaccountIDPostEscape = pkiBankaccountIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBankaccountID}", with: pkiBankaccountIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BankaccountGetAttachmentsV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      * enum for parameter sSelector
      */
     public enum SSelector_bankaccountGetAutocompleteV2: String, CaseIterable {
@@ -86,5 +186,56 @@ open class ObjectBankaccountAPI {
         let localVariableRequestBuilder: RequestBuilder<BankaccountGetAutocompleteV2Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Import attachments into the Bankaccount
+     
+     - parameter pkiBankaccountID: (path)  
+     - parameter bankaccountImportIntoEDMV1Request: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func bankaccountImportIntoEDMV1(pkiBankaccountID: Int, bankaccountImportIntoEDMV1Request: BankaccountImportIntoEDMV1Request, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: BankaccountImportIntoEDMV1Response?, _ error: Error?) -> Void)) -> RequestTask {
+        return bankaccountImportIntoEDMV1WithRequestBuilder(pkiBankaccountID: pkiBankaccountID, bankaccountImportIntoEDMV1Request: bankaccountImportIntoEDMV1Request).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Import attachments into the Bankaccount
+     - POST /1/object/bankaccount/{pkiBankaccountID}/importIntoEDM
+     - API Key:
+       - type: apiKey Authorization (HEADER)
+       - name: Authorization
+     - parameter pkiBankaccountID: (path)  
+     - parameter bankaccountImportIntoEDMV1Request: (body)  
+     - returns: RequestBuilder<BankaccountImportIntoEDMV1Response> 
+     */
+    open class func bankaccountImportIntoEDMV1WithRequestBuilder(pkiBankaccountID: Int, bankaccountImportIntoEDMV1Request: BankaccountImportIntoEDMV1Request) -> RequestBuilder<BankaccountImportIntoEDMV1Response> {
+        var localVariablePath = "/1/object/bankaccount/{pkiBankaccountID}/importIntoEDM"
+        let pkiBankaccountIDPreEscape = "\(APIHelper.mapValueToPathItem(pkiBankaccountID))"
+        let pkiBankaccountIDPostEscape = pkiBankaccountIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{pkiBankaccountID}", with: pkiBankaccountIDPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: bankaccountImportIntoEDMV1Request)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<BankaccountImportIntoEDMV1Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

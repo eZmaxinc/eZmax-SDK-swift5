@@ -4,6 +4,8 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**otherincomeBatchDownloadV1**](ObjectOtherincomeAPI.md#otherincomebatchdownloadv1) | **POST** /1/object/otherincome/{pkiOtherincomeID}/batchDownload | Download multiples attachments from a Otherincome
+[**otherincomeGetAttachmentsV1**](ObjectOtherincomeAPI.md#otherincomegetattachmentsv1) | **GET** /1/object/otherincome/{pkiOtherincomeID}/getAttachments | Retrieve Otherincome&#39;s attachments
 [**otherincomeGetCommunicationCountV1**](ObjectOtherincomeAPI.md#otherincomegetcommunicationcountv1) | **GET** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationCount | Retrieve Communication count
 [**otherincomeGetCommunicationListV1**](ObjectOtherincomeAPI.md#otherincomegetcommunicationlistv1) | **GET** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationList | Retrieve Communication list
 [**otherincomeGetCommunicationrecipientsV1**](ObjectOtherincomeAPI.md#otherincomegetcommunicationrecipientsv1) | **GET** /1/object/otherincome/{pkiOtherincomeID}/getCommunicationrecipients | Retrieve Otherincome&#39;s Communicationrecipient
@@ -11,6 +13,104 @@ Method | HTTP request | Description
 [**otherincomeGetListV1**](ObjectOtherincomeAPI.md#otherincomegetlistv1) | **GET** /1/object/otherincome/getList | Retrieve Otherincome list
 [**otherincomeImportIntoEDMV1**](ObjectOtherincomeAPI.md#otherincomeimportintoedmv1) | **POST** /1/object/otherincome/{pkiOtherincomeID}/importIntoEDM | Import attachments into the Otherincome
 
+
+# **otherincomeBatchDownloadV1**
+```swift
+    open class func otherincomeBatchDownloadV1(pkiOtherincomeID: Int, otherincomeBatchDownloadV1Request: OtherincomeBatchDownloadV1Request, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Download multiples attachments from a Otherincome
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiOtherincomeID = 987 // Int | 
+let otherincomeBatchDownloadV1Request = otherincome-batchDownload-v1-Request(aPkiAttachmentID: [123]) // OtherincomeBatchDownloadV1Request | 
+
+// Download multiples attachments from a Otherincome
+ObjectOtherincomeAPI.otherincomeBatchDownloadV1(pkiOtherincomeID: pkiOtherincomeID, otherincomeBatchDownloadV1Request: otherincomeBatchDownloadV1Request) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiOtherincomeID** | **Int** |  | 
+ **otherincomeBatchDownloadV1Request** | [**OtherincomeBatchDownloadV1Request**](OtherincomeBatchDownloadV1Request.md) |  | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip, text/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **otherincomeGetAttachmentsV1**
+```swift
+    open class func otherincomeGetAttachmentsV1(pkiOtherincomeID: Int, completion: @escaping (_ data: OtherincomeGetAttachmentsV1Response?, _ error: Error?) -> Void)
+```
+
+Retrieve Otherincome's attachments
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let pkiOtherincomeID = 987 // Int | 
+
+// Retrieve Otherincome's attachments
+ObjectOtherincomeAPI.otherincomeGetAttachmentsV1(pkiOtherincomeID: pkiOtherincomeID) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pkiOtherincomeID** | **Int** |  | 
+
+### Return type
+
+[**OtherincomeGetAttachmentsV1Response**](OtherincomeGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **otherincomeGetCommunicationCountV1**
 ```swift
